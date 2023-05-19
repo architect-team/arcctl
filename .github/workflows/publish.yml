@@ -1,0 +1,59 @@
+name: Publish CLI
+
+on: push
+
+env:
+  CI: true
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+  # test:
+  #   strategy:
+  #     matrix:
+  #       node-version: [14.x, 16.x, 18.x]
+  #       os: [ubuntu-latest, windows-latest, macos-latest]
+  #   runs-on: ${{ matrix.os }}
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         cache: 'npm'
+  #     - run: npm ci
+  #     - run: npm test --passWithNoTests
+  publish_cli:
+    name: Publish CLI
+    if: github.ref_name == 'main' || github.ref_name == 'rc' || startsWith(github.ref_name, 'cldctl-')
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          clean: true
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: npm run readme
+      - run: npm run generate:schema-docs
+      - run: npm run generate:yarn-lock
+      - name: npm publish
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
+          GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) npm run semantic-release

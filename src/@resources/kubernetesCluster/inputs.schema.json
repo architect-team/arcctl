@@ -1,0 +1,68 @@
+{
+  "$ref": "#/definitions/ClusterInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ClusterInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "description": "Description of the cluster",
+          "type": "string"
+        },
+        "kubernetesVersion": {
+          "description": "Version of the kubernetes control plane to use",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the cluster",
+          "type": "string"
+        },
+        "nodePools": {
+          "description": "Node pools",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "description": "Number of nodes the pool should have",
+                "minimum": 1,
+                "type": "number"
+              },
+              "name": {
+                "description": "Name of the node pool",
+                "type": "string"
+              },
+              "nodeSize": {
+                "description": "Size of each node in the pool",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "count",
+              "nodeSize"
+            ],
+            "type": "object"
+          },
+          "minimum": 1,
+          "type": "array"
+        },
+        "region": {
+          "description": "Region the cluster should live in",
+          "type": "string"
+        },
+        "vpc": {
+          "description": "VPC the cluster should live in",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "region",
+        "vpc",
+        "kubernetesVersion",
+        "nodePools"
+      ],
+      "type": "object"
+    }
+  }
+}

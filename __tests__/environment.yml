@@ -1,0 +1,10 @@
+dns_zone: davidthor.me
+
+components:
+  architect/auth:
+    source: architect/auth:latest
+    ingresses:
+      api:
+        subdomain: api
+      frontend:
+        subdomain: auth

@@ -1,0 +1,4305 @@
+{
+  "$ref": "#/definitions/DatacenterSchema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "definitions": {
+    "DatacenterSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "hooks": {
+          "description": "Configure rules for how application resources should behave in the environment",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "args": {
+                "additionalProperties": {
+                  "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                },
+                "type": "object"
+              },
+              "autoscaling": {
+                "additionalProperties": false,
+                "properties": {
+                  "max_replicas": {
+                    "$ref": "#/definitions/DeepPartial%3Cnumber1908930751%3E"
+                  },
+                  "min_replicas": {
+                    "$ref": "#/definitions/DeepPartial%3Cnumber877439377%3E"
+                  }
+                },
+                "type": "object"
+              },
+              "chart": {
+                "$ref": "#/definitions/DeepPartial%3Cstring1758974246%3E"
+              },
+              "command": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "component_source": {
+                "$ref": "#/definitions/DeepPartial%3Cstring1636978155%3E"
+              },
+              "content": {
+                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+              },
+              "context": {
+                "$ref": "#/definitions/DeepPartial%3Cstring447227021%3E"
+              },
+              "cpu": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "description": "Number of CPUs to allocate to the container",
+                    "minimum": 0.1,
+                    "type": "number"
+                  }
+                ]
+              },
+              "data": {
+                "$ref": "#/definitions/DeepPartial%3Cstring770794903%3E"
+              },
+              "database": {
+                "$ref": "#/definitions/DeepPartial%3Cstring1218711136%3E"
+              },
+              "databaseSchema": {
+                "$ref": "#/definitions/DeepPartial%3Cstring492252453%3E"
+              },
+              "databaseSize": {
+                "$ref": "#/definitions/DeepPartial%3Cstring1848820199%3E"
+              },
+              "databaseType": {
+                "$ref": "#/definitions/DeepPartial%3C(string2001065788%7Cstring1764232161%7Cstring)2001065788%3E"
+              },
+              "databaseVersion": {
+                "$ref": "#/definitions/DeepPartial%3C(string503560302%7Cstring403408830)503560302%3E"
+              },
+              "description": {
+                "type": "string"
+              },
+              "dnsZone": {
+                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+              },
+              "dockerfile": {
+                "type": "string"
+              },
+              "entrypoint": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "environment": {
+                "additionalProperties": false,
+                "type": "object"
+              },
+              "external_name": {
+                "type": "string"
+              },
+              "hostPath": {
+                "type": "string"
+              },
+              "image": {
+                "$ref": "#/definitions/DeepPartial%3C(string%7Cstring699422260)%3E"
+              },
+              "internal": {
+                "anyOf": [
+                  {
+                    "default": false,
+                    "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+                    "type": "boolean"
+                  },
+                  {
+                    "default": false,
+                    "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "kubernetesVersion": {
+                "$ref": "#/definitions/DeepPartial%3Cstring319313482%3E"
+              },
+              "labels": {
+                "additionalProperties": false,
+                "type": "object"
+              },
+              "listener": {
+                "additionalProperties": false,
+                "properties": {
+                  "hostZone": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "protocol": {
+                    "type": "string"
+                  },
+                  "subdomain": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "listener_port": {
+                "type": "number"
+              },
+              "loadBalancer": {
+                "$ref": "#/definitions/DeepPartial%3Cstring1343034542%3E"
+              },
+              "loadBalancerType": {
+                "$ref": "#/definitions/DeepPartial%3Cstring1937495767%3E"
+              },
+              "memory": {
+                "type": "string"
+              },
+              "modules": {
+                "additionalProperties": {
+                  "additionalProperties": {},
+                  "properties": {
+                    "source": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "source"
+                  ],
+                  "type": "object"
+                },
+                "type": "object"
+              },
+              "mountPath": {
+                "$ref": "#/definitions/DeepPartial%3Cstring369567356%3E"
+              },
+              "name": {
+                "$ref": "#/definitions/DeepPartial%3C(string1127306946%7Cstring1126202547%7Cstring901065173%7Cstring%7Cstring587709375%7Cstring2029411332%7Cstring727278284%7Cstring230372592%7Cstring550841285%7Cstring1097013035)1127306946%3E"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "nodePools": {
+                "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
+              },
+              "port": {
+                "$ref": "#/definitions/DeepPartial%3Cnumber1056285502%3E"
+              },
+              "probes": {
+                "additionalProperties": false,
+                "properties": {
+                  "liveness": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "command": {
+                        "$ref": "#/definitions/DeepPartial%3Cstring%5B%5D1363884748%3E"
+                      },
+                      "failure_threshold": {
+                        "type": "number"
+                      },
+                      "headers": {
+                        "items": {
+                          "$ref": "#/definitions/DeepPartial%3Cstructure-207368041-1215-1257-207368041-1208-1258-207368041-1140-1259-207368041-828-1261-207368041-810-1262-207368041-0-3040%3E"
+                        },
+                        "type": "array"
+                      },
+                      "initial_delay": {
+                        "type": "number"
+                      },
+                      "interval": {
+                        "type": "number"
+                      },
+                      "path": {
+                        "type": "string"
+                      },
+                      "port": {
+                        "type": "number"
+                      },
+                      "scheme": {
+                        "type": "string"
+                      },
+                      "success_threshold": {
+                        "type": "number"
+                      },
+                      "timeout": {
+                        "type": "number"
+                      },
+                      "type": {
+                        "$ref": "#/definitions/DeepPartial%3C(%22exec%22%7C%22http%22)%3E"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "recordType": {
+                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+              },
+              "region": {
+                "$ref": "#/definitions/DeepPartial%3C(string1259595042%7Cstring1195458478%7Cstring1666795314)1259595042%3E"
+              },
+              "registry": {
+                "type": "string"
+              },
+              "replicas": {
+                "$ref": "#/definitions/DeepPartial%3Cnumber328627135%3E"
+              },
+              "repository": {
+                "$ref": "#/definitions/DeepPartial%3C(string933275959%7Cstring1086185276)933275959%3E"
+              },
+              "resources": {
+                "additionalProperties": {
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "cronjob",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "cpu": {
+                            "type": "number"
+                          },
+                          "entrypoint": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "environment": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "type": "object"
+                          },
+                          "image": {
+                            "type": "string"
+                          },
+                          "labels": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "type": "object"
+                          },
+                          "memory": {
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "schedule": {
+                            "type": "string"
+                          },
+                          "sidecars": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "command": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ]
+                                },
+                                "cpu": {
+                                  "type": "number"
+                                },
+                                "entrypoint": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ]
+                                },
+                                "environment": {
+                                  "additionalProperties": {
+                                    "type": "string"
+                                  },
+                                  "type": "object"
+                                },
+                                "image": {
+                                  "type": "string"
+                                },
+                                "memory": {
+                                  "type": "string"
+                                },
+                                "volume_mounts": {
+                                  "items": {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "mount_path": {
+                                        "type": "string"
+                                      },
+                                      "readonly": {
+                                        "type": "boolean"
+                                      },
+                                      "volume": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "volume",
+                                      "mount_path"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "image"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "type": {
+                            "const": "cronjob",
+                            "type": "string"
+                          },
+                          "volume_mounts": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "mount_path": {
+                                  "type": "string"
+                                },
+                                "readonly": {
+                                  "type": "boolean"
+                                },
+                                "volume": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "volume",
+                                "mount_path"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "image",
+                          "provider",
+                          "schedule",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "database",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "databaseSize": {
+                            "description": "Size of the database instance to create",
+                            "type": "string"
+                          },
+                          "databaseType": {
+                            "description": "The type of database engine to use",
+                            "type": "string"
+                          },
+                          "databaseVersion": {
+                            "description": "Refers to the unique ID of a `databaseVersion` response",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Human-readable description of the database",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Unique name for the database",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "region": {
+                            "description": "Unique ID of the region to run the database in",
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "database",
+                            "type": "string"
+                          },
+                          "vpc": {
+                            "description": "Unique ID of the VPC to run the database in",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "databaseSize",
+                          "databaseType",
+                          "databaseVersion",
+                          "name",
+                          "provider",
+                          "region",
+                          "type",
+                          "vpc"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "databaseSchema",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "database": {
+                            "description": "Unique ID of the database backing this schema",
+                            "type": "string"
+                          },
+                          "databaseType": {
+                            "description": "Type of database required by the schema",
+                            "type": "string"
+                          },
+                          "databaseVersion": {
+                            "description": "Version of the database type the schema creation process expects",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name to give to the new schema",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "databaseSchema",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "database",
+                          "databaseType",
+                          "databaseVersion",
+                          "name",
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "databaseSize",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "databaseSize",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "databaseType",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "databaseType",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "databaseUser",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "databaseSchema": {
+                            "description": "The schema the user should have access to",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "databaseUser",
+                            "type": "string"
+                          },
+                          "username": {
+                            "description": "Username of the user to create",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "databaseSchema",
+                          "provider",
+                          "type",
+                          "username"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "databaseVersion",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "databaseType": {
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "databaseVersion",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "databaseType",
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "deployment",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "autoscaling": {
+                            "additionalProperties": false,
+                            "description": "Autoscaling rules for the deployment",
+                            "properties": {
+                              "max_replicas": {
+                                "description": "Maximum number of replicas of the deployment to run",
+                                "type": "number"
+                              },
+                              "min_replicas": {
+                                "description": "Minimum number of replicas of the deployment to run",
+                                "minimum": 0,
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "min_replicas",
+                              "max_replicas"
+                            ],
+                            "type": "object"
+                          },
+                          "command": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ],
+                            "description": "Command to execute in the container"
+                          },
+                          "cpu": {
+                            "description": "Number of CPUs to allocate to the container",
+                            "minimum": 0.1,
+                            "type": "number"
+                          },
+                          "entrypoint": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ],
+                            "description": "Entrypoint of the container"
+                          },
+                          "environment": {
+                            "additionalProperties": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "boolean"
+                                },
+                                {
+                                  "type": "null"
+                                },
+                                {
+                                  "not": {}
+                                }
+                              ]
+                            },
+                            "description": "Environment variables to pass to the container",
+                            "type": "object"
+                          },
+                          "image": {
+                            "description": "Image the container runs from",
+                            "type": "string"
+                          },
+                          "labels": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "Labels for the deployment",
+                            "type": "object"
+                          },
+                          "memory": {
+                            "description": "Amount of memory to allocate to the container",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Deployment name",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace the deployment should be in",
+                            "type": "string"
+                          },
+                          "probes": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "liveness": {
+                                "$ref": "#/definitions/ProbeSchema"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "replicas": {
+                            "description": "Number of replicas of the deployment to run",
+                            "type": "number"
+                          },
+                          "sidecars": {
+                            "description": "A set of additional containers to run as part of each replica",
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "command": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ],
+                                  "description": "Command to execute in the container"
+                                },
+                                "cpu": {
+                                  "description": "Number of CPUs to allocate to the container",
+                                  "minimum": 0.1,
+                                  "type": "number"
+                                },
+                                "entrypoint": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ],
+                                  "description": "Entrypoint of the container"
+                                },
+                                "environment": {
+                                  "additionalProperties": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "boolean"
+                                      },
+                                      {
+                                        "type": "null"
+                                      },
+                                      {
+                                        "not": {}
+                                      }
+                                    ]
+                                  },
+                                  "description": "Environment variables to pass to the container",
+                                  "type": "object"
+                                },
+                                "image": {
+                                  "description": "Image the container runs from",
+                                  "type": "string"
+                                },
+                                "memory": {
+                                  "description": "Amount of memory to allocate to the container",
+                                  "type": "string"
+                                },
+                                "probes": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "liveness": {
+                                      "$ref": "#/definitions/ProbeSchema"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "volume_mounts": {
+                                  "description": "A set of volumes to mount to the container",
+                                  "items": {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "mount_path": {
+                                        "type": "string"
+                                      },
+                                      "readonly": {
+                                        "type": "boolean"
+                                      },
+                                      "volume": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "volume",
+                                      "mount_path",
+                                      "readonly"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "image",
+                                "volume_mounts"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "type": {
+                            "const": "deployment",
+                            "type": "string"
+                          },
+                          "volume_mounts": {
+                            "description": "A set of volumes to mount to the container",
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "mount_path": {
+                                  "type": "string"
+                                },
+                                "readonly": {
+                                  "type": "boolean"
+                                },
+                                "volume": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "volume",
+                                "mount_path",
+                                "readonly"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "image",
+                          "name",
+                          "provider",
+                          "replicas",
+                          "type",
+                          "volume_mounts"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "dnsRecord",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "content": {
+                            "type": "string"
+                          },
+                          "dnsZone": {
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "recordType": {
+                            "type": "string"
+                          },
+                          "subdomain": {
+                            "type": "string"
+                          },
+                          "ttl": {
+                            "type": "number"
+                          },
+                          "type": {
+                            "const": "dnsRecord",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "content",
+                          "dnsZone",
+                          "provider",
+                          "recordType",
+                          "subdomain",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "dnsZone",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "dnsZone",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "dockerBuild",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "args": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "default": {},
+                            "description": "Arguments to pass to the build command",
+                            "type": "object"
+                          },
+                          "component_source": {
+                            "description": "Source of the component that contains the build context",
+                            "type": "string"
+                          },
+                          "context": {
+                            "description": "Docker build context relative to the component root",
+                            "type": "string"
+                          },
+                          "dockerfile": {
+                            "default": "Dockerfile",
+                            "description": "Path to the dockerfile relative to the context",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "registry": {
+                            "default": "registry.architect.io",
+                            "description": "Registry the artifact will be pushed to",
+                            "type": "string"
+                          },
+                          "repository": {
+                            "description": "The repository to push the artifact to",
+                            "type": "string"
+                          },
+                          "tag": {
+                            "default": "latest",
+                            "description": "Tag to assign to the image",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Name of a intermediate build stage to target",
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "dockerBuild",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "component_source",
+                          "context",
+                          "provider",
+                          "repository",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "helmChart",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "chart": {
+                            "description": "Chart name to be installed",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the helm release",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "default": "default",
+                            "description": "The namespace to install the release in",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "repository": {
+                            "description": "The URL of the repository where the chart lives",
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "helmChart",
+                            "type": "string"
+                          },
+                          "values": {
+                            "description": "Values to pass to the helm chart release",
+                            "type": "object"
+                          },
+                          "version": {
+                            "description": "The exact chart version to install. Otherwise will use the latest.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "chart",
+                          "name",
+                          "provider",
+                          "repository",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "ingressRule",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "internal": {
+                            "default": false,
+                            "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+                            "type": "boolean"
+                          },
+                          "listener": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "hostZone": {
+                                "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
+                                "type": "string"
+                              },
+                              "path": {
+                                "default": "/",
+                                "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
+                                "type": "string"
+                              },
+                              "protocol": {
+                                "default": "http",
+                                "description": "Protocol that the ingress rule listens for traffic on",
+                                "type": "string"
+                              },
+                              "subdomain": {
+                                "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "loadBalancer": {
+                            "description": "ID of the load balancer to use for this ingress rule",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "default": "default",
+                            "description": "Namespace to put the ingress rule in",
+                            "type": "string"
+                          },
+                          "port": {
+                            "description": "Port that the ingress rule listens for traffic on",
+                            "type": "number"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "service": {
+                            "description": "Service the ingress forwards traffic to",
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "ingressRule",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loadBalancer",
+                          "port",
+                          "provider",
+                          "service",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "kubernetesCluster",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "description": {
+                            "description": "Description of the cluster",
+                            "type": "string"
+                          },
+                          "kubernetesVersion": {
+                            "description": "Version of the kubernetes control plane to use",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the cluster",
+                            "type": "string"
+                          },
+                          "nodePools": {
+                            "description": "Node pools",
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "count": {
+                                  "description": "Number of nodes the pool should have",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "name": {
+                                  "description": "Name of the node pool",
+                                  "type": "string"
+                                },
+                                "nodeSize": {
+                                  "description": "Size of each node in the pool",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "count",
+                                "nodeSize"
+                              ],
+                              "type": "object"
+                            },
+                            "minimum": 1,
+                            "type": "array"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "region": {
+                            "description": "Region the cluster should live in",
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "kubernetesCluster",
+                            "type": "string"
+                          },
+                          "vpc": {
+                            "description": "VPC the cluster should live in",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "kubernetesVersion",
+                          "name",
+                          "nodePools",
+                          "provider",
+                          "region",
+                          "type",
+                          "vpc"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "kubernetesNamespace",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "kubernetesNamespace",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "kubernetesVersion",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "kubernetesVersion",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "loadBalancer",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "internal": {
+                            "default": false,
+                            "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
+                            "type": "boolean"
+                          },
+                          "loadBalancerType": {
+                            "description": "What type of load balancer to create",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name for the new load balancer",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "loadBalancer",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loadBalancerType",
+                          "name",
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "loadBalancerType",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "loadBalancerType",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "node",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "node",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "nodeSize",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "nodeSize",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "region",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "region",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "secret",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "data": {
+                            "description": "Data to populate the secret with",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name for the secret",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace the secret should be place in",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "secret",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "data",
+                          "name",
+                          "namespace",
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "service",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "external_name": {
+                            "description": "Map this service to the specified hostname instead of to a deployment selector",
+                            "type": "string"
+                          },
+                          "labels": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "Labels for the service resource",
+                            "type": "object"
+                          },
+                          "listener_port": {
+                            "default": 80,
+                            "description": "Port to listen for requests on",
+                            "type": "number"
+                          },
+                          "name": {
+                            "description": "Name to give to the service",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace the service should be registered in. Not all providers require this.",
+                            "type": "string"
+                          },
+                          "protocol": {
+                            "description": "Protocol the service responds to",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "selector": {
+                            "description": "Reference used to target a deployment",
+                            "type": "string"
+                          },
+                          "target_port": {
+                            "description": "Port to forward requests to",
+                            "type": "number"
+                          },
+                          "type": {
+                            "const": "service",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "provider",
+                          "target_port",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "task",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "cpu": {
+                            "type": "number"
+                          },
+                          "entrypoint": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "environment": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "type": "object"
+                          },
+                          "image": {
+                            "type": "string"
+                          },
+                          "labels": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "type": "object"
+                          },
+                          "memory": {
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "schedule": {
+                            "type": "string"
+                          },
+                          "sidecars": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "command": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ]
+                                },
+                                "cpu": {
+                                  "type": "number"
+                                },
+                                "entrypoint": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ]
+                                },
+                                "environment": {
+                                  "additionalProperties": {
+                                    "type": "string"
+                                  },
+                                  "type": "object"
+                                },
+                                "image": {
+                                  "type": "string"
+                                },
+                                "memory": {
+                                  "type": "string"
+                                },
+                                "volume_mounts": {
+                                  "items": {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "mount_path": {
+                                        "type": "string"
+                                      },
+                                      "readonly": {
+                                        "type": "boolean"
+                                      },
+                                      "volume": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "volume",
+                                      "mount_path"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "image"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "type": {
+                            "const": "task",
+                            "type": "string"
+                          },
+                          "volume_mounts": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "mount_path": {
+                                  "type": "string"
+                                },
+                                "readonly": {
+                                  "type": "boolean"
+                                },
+                                "volume": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "volume",
+                                "mount_path"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "image",
+                          "provider",
+                          "schedule",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "volume",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "hostPath": {
+                            "description": "Path on the host machine to mount the volume to",
+                            "type": "string"
+                          },
+                          "mountPath": {
+                            "description": "Path inside the container runtime to mount the volume to",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "volume",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "mountPath",
+                          "provider",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "vpc",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "description": {
+                            "description": "Description for the VPC",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the VPC",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "region": {
+                            "description": "Region the VPC exists in",
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "vpc",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "provider",
+                          "region",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              "schedule": {
+                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+              },
+              "selector": {
+                "type": "string"
+              },
+              "service": {
+                "$ref": "#/definitions/DeepPartial%3Cstring353030576%3E"
+              },
+              "sidecars": {
+                "additionalProperties": false,
+                "type": "object"
+              },
+              "subdomain": {
+                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+              },
+              "tag": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "target_port": {
+                "$ref": "#/definitions/DeepPartial%3Cnumber400019589%3E"
+              },
+              "ttl": {
+                "type": "number"
+              },
+              "type": {
+                "$ref": "#/definitions/DeepPartial%3C(%22cronjob%22%7C%22database%22%7C%22databaseSchema%22%7C%22databaseSize%22%7C%22databaseType%22%7C%22databaseUser%22%7C%22databaseVersion%22%7C%22deployment%22%7C%22dnsRecord%22%7C%22dnsZone%22%7C%22dockerBuild%22%7C%22helmChart%22%7C%22ingressRule%22%7C%22kubernetesCluster%22%7C%22kubernetesNamespace%22%7C%22kubernetesVersion%22%7C%22loadBalancer%22%7C%22loadBalancerType%22%7C%22node%22%7C%22nodeSize%22%7C%22region%22%7C%22secret%22%7C%22service%22%7C%22task%22%7C%22volume%22%7C%22vpc%22)%3E"
+              },
+              "username": {
+                "$ref": "#/definitions/DeepPartial%3Cstring1405491345%3E"
+              },
+              "values": {
+                "additionalProperties": {
+                  "$ref": "#/definitions/DeepPartial%3Cany%3E"
+                },
+                "type": "object"
+              },
+              "version": {
+                "type": "string"
+              },
+              "volume_mounts": {
+                "additionalProperties": false,
+                "type": "object"
+              },
+              "vpc": {
+                "$ref": "#/definitions/DeepPartial%3C(string249113089%7Cstring1936390383)249113089%3E"
+              },
+              "when": {
+                "additionalProperties": false,
+                "properties": {
+                  "args": {
+                    "additionalProperties": {
+                      "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                    },
+                    "type": "object"
+                  },
+                  "autoscaling": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "max_replicas": {
+                        "$ref": "#/definitions/DeepPartial%3Cnumber1908930751%3E"
+                      },
+                      "min_replicas": {
+                        "$ref": "#/definitions/DeepPartial%3Cnumber877439377%3E"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "chart": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring1758974246%3E"
+                  },
+                  "command": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "component_source": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring1636978155%3E"
+                  },
+                  "content": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                  },
+                  "context": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring447227021%3E"
+                  },
+                  "cpu": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "description": "Number of CPUs to allocate to the container",
+                        "minimum": 0.1,
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring770794903%3E"
+                  },
+                  "database": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring1218711136%3E"
+                  },
+                  "databaseSchema": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring492252453%3E"
+                  },
+                  "databaseSize": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring1848820199%3E"
+                  },
+                  "databaseType": {
+                    "$ref": "#/definitions/DeepPartial%3C(string2001065788%7Cstring1764232161%7Cstring)2001065788%3E"
+                  },
+                  "databaseVersion": {
+                    "$ref": "#/definitions/DeepPartial%3C(string503560302%7Cstring403408830)503560302%3E"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "dnsZone": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                  },
+                  "dockerfile": {
+                    "type": "string"
+                  },
+                  "entrypoint": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "environment": {
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "external_name": {
+                    "type": "string"
+                  },
+                  "hostPath": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "$ref": "#/definitions/DeepPartial%3C(string%7Cstring699422260)%3E"
+                  },
+                  "internal": {
+                    "anyOf": [
+                      {
+                        "default": false,
+                        "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+                        "type": "boolean"
+                      },
+                      {
+                        "default": false,
+                        "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
+                        "type": "boolean"
+                      }
+                    ]
+                  },
+                  "kubernetesVersion": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring319313482%3E"
+                  },
+                  "labels": {
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "listener": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "hostZone": {
+                        "type": "string"
+                      },
+                      "path": {
+                        "type": "string"
+                      },
+                      "protocol": {
+                        "type": "string"
+                      },
+                      "subdomain": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "listener_port": {
+                    "type": "number"
+                  },
+                  "loadBalancer": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring1343034542%3E"
+                  },
+                  "loadBalancerType": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring1937495767%3E"
+                  },
+                  "memory": {
+                    "type": "string"
+                  },
+                  "mountPath": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring369567356%3E"
+                  },
+                  "name": {
+                    "$ref": "#/definitions/DeepPartial%3C(string1127306946%7Cstring1126202547%7Cstring901065173%7Cstring%7Cstring587709375%7Cstring2029411332%7Cstring727278284%7Cstring230372592%7Cstring550841285%7Cstring1097013035)1127306946%3E"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  },
+                  "nodePools": {
+                    "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
+                  },
+                  "port": {
+                    "$ref": "#/definitions/DeepPartial%3Cnumber1056285502%3E"
+                  },
+                  "probes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "liveness": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "$ref": "#/definitions/DeepPartial%3Cstring%5B%5D1363884748%3E"
+                          },
+                          "failure_threshold": {
+                            "type": "number"
+                          },
+                          "headers": {
+                            "items": {
+                              "$ref": "#/definitions/DeepPartial%3Cstructure-207368041-1215-1257-207368041-1208-1258-207368041-1140-1259-207368041-828-1261-207368041-810-1262-207368041-0-3040%3E"
+                            },
+                            "type": "array"
+                          },
+                          "initial_delay": {
+                            "type": "number"
+                          },
+                          "interval": {
+                            "type": "number"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "port": {
+                            "type": "number"
+                          },
+                          "scheme": {
+                            "type": "string"
+                          },
+                          "success_threshold": {
+                            "type": "number"
+                          },
+                          "timeout": {
+                            "type": "number"
+                          },
+                          "type": {
+                            "$ref": "#/definitions/DeepPartial%3C(%22exec%22%7C%22http%22)%3E"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "protocol": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "recordType": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                  },
+                  "region": {
+                    "$ref": "#/definitions/DeepPartial%3C(string1259595042%7Cstring1195458478%7Cstring1666795314)1259595042%3E"
+                  },
+                  "registry": {
+                    "type": "string"
+                  },
+                  "replicas": {
+                    "$ref": "#/definitions/DeepPartial%3Cnumber328627135%3E"
+                  },
+                  "repository": {
+                    "$ref": "#/definitions/DeepPartial%3C(string933275959%7Cstring1086185276)933275959%3E"
+                  },
+                  "schedule": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                  },
+                  "selector": {
+                    "type": "string"
+                  },
+                  "service": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring353030576%3E"
+                  },
+                  "sidecars": {
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "subdomain": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                  },
+                  "tag": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "target_port": {
+                    "$ref": "#/definitions/DeepPartial%3Cnumber400019589%3E"
+                  },
+                  "ttl": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "$ref": "#/definitions/ResourceType"
+                  },
+                  "username": {
+                    "$ref": "#/definitions/DeepPartial%3Cstring1405491345%3E"
+                  },
+                  "values": {
+                    "additionalProperties": {
+                      "$ref": "#/definitions/DeepPartial%3Cany%3E"
+                    },
+                    "type": "object"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "volume_mounts": {
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "vpc": {
+                    "$ref": "#/definitions/DeepPartial%3C(string249113089%7Cstring1936390383)249113089%3E"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "modules": {
+          "additionalProperties": {
+            "additionalProperties": {},
+            "properties": {
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source"
+            ],
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "resources": {
+          "additionalProperties": {
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "cronjob",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "command": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "cpu": {
+                      "type": "number"
+                    },
+                    "entrypoint": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "environment": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "labels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "memory": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "schedule": {
+                      "type": "string"
+                    },
+                    "sidecars": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "cpu": {
+                            "type": "number"
+                          },
+                          "entrypoint": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "environment": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "type": "object"
+                          },
+                          "image": {
+                            "type": "string"
+                          },
+                          "memory": {
+                            "type": "string"
+                          },
+                          "volume_mounts": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "mount_path": {
+                                  "type": "string"
+                                },
+                                "readonly": {
+                                  "type": "boolean"
+                                },
+                                "volume": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "volume",
+                                "mount_path"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "image"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "const": "cronjob",
+                      "type": "string"
+                    },
+                    "volume_mounts": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "mount_path": {
+                            "type": "string"
+                          },
+                          "readonly": {
+                            "type": "boolean"
+                          },
+                          "volume": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "volume",
+                          "mount_path"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "provider",
+                    "schedule",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "database",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "databaseSize": {
+                      "description": "Size of the database instance to create",
+                      "type": "string"
+                    },
+                    "databaseType": {
+                      "description": "The type of database engine to use",
+                      "type": "string"
+                    },
+                    "databaseVersion": {
+                      "description": "Refers to the unique ID of a `databaseVersion` response",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Human-readable description of the database",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Unique name for the database",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "region": {
+                      "description": "Unique ID of the region to run the database in",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "database",
+                      "type": "string"
+                    },
+                    "vpc": {
+                      "description": "Unique ID of the VPC to run the database in",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "databaseSize",
+                    "databaseType",
+                    "databaseVersion",
+                    "name",
+                    "provider",
+                    "region",
+                    "type",
+                    "vpc"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "databaseSchema",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "database": {
+                      "description": "Unique ID of the database backing this schema",
+                      "type": "string"
+                    },
+                    "databaseType": {
+                      "description": "Type of database required by the schema",
+                      "type": "string"
+                    },
+                    "databaseVersion": {
+                      "description": "Version of the database type the schema creation process expects",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name to give to the new schema",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "databaseSchema",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "database",
+                    "databaseType",
+                    "databaseVersion",
+                    "name",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "databaseSize",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "databaseSize",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "databaseType",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "databaseType",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "databaseUser",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "databaseSchema": {
+                      "description": "The schema the user should have access to",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "databaseUser",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "Username of the user to create",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "databaseSchema",
+                    "provider",
+                    "type",
+                    "username"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "databaseVersion",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "databaseType": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "databaseVersion",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "databaseType",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "deployment",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "autoscaling": {
+                      "additionalProperties": false,
+                      "description": "Autoscaling rules for the deployment",
+                      "properties": {
+                        "max_replicas": {
+                          "description": "Maximum number of replicas of the deployment to run",
+                          "type": "number"
+                        },
+                        "min_replicas": {
+                          "description": "Minimum number of replicas of the deployment to run",
+                          "minimum": 0,
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "min_replicas",
+                        "max_replicas"
+                      ],
+                      "type": "object"
+                    },
+                    "command": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ],
+                      "description": "Command to execute in the container"
+                    },
+                    "cpu": {
+                      "description": "Number of CPUs to allocate to the container",
+                      "minimum": 0.1,
+                      "type": "number"
+                    },
+                    "entrypoint": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ],
+                      "description": "Entrypoint of the container"
+                    },
+                    "environment": {
+                      "additionalProperties": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "not": {}
+                          }
+                        ]
+                      },
+                      "description": "Environment variables to pass to the container",
+                      "type": "object"
+                    },
+                    "image": {
+                      "description": "Image the container runs from",
+                      "type": "string"
+                    },
+                    "labels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Labels for the deployment",
+                      "type": "object"
+                    },
+                    "memory": {
+                      "description": "Amount of memory to allocate to the container",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Deployment name",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace the deployment should be in",
+                      "type": "string"
+                    },
+                    "probes": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "liveness": {
+                          "$ref": "#/definitions/ProbeSchema"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "replicas": {
+                      "description": "Number of replicas of the deployment to run",
+                      "type": "number"
+                    },
+                    "sidecars": {
+                      "description": "A set of additional containers to run as part of each replica",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ],
+                            "description": "Command to execute in the container"
+                          },
+                          "cpu": {
+                            "description": "Number of CPUs to allocate to the container",
+                            "minimum": 0.1,
+                            "type": "number"
+                          },
+                          "entrypoint": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ],
+                            "description": "Entrypoint of the container"
+                          },
+                          "environment": {
+                            "additionalProperties": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "boolean"
+                                },
+                                {
+                                  "type": "null"
+                                },
+                                {
+                                  "not": {}
+                                }
+                              ]
+                            },
+                            "description": "Environment variables to pass to the container",
+                            "type": "object"
+                          },
+                          "image": {
+                            "description": "Image the container runs from",
+                            "type": "string"
+                          },
+                          "memory": {
+                            "description": "Amount of memory to allocate to the container",
+                            "type": "string"
+                          },
+                          "probes": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "liveness": {
+                                "$ref": "#/definitions/ProbeSchema"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "volume_mounts": {
+                            "description": "A set of volumes to mount to the container",
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "mount_path": {
+                                  "type": "string"
+                                },
+                                "readonly": {
+                                  "type": "boolean"
+                                },
+                                "volume": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "volume",
+                                "mount_path",
+                                "readonly"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "image",
+                          "volume_mounts"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "const": "deployment",
+                      "type": "string"
+                    },
+                    "volume_mounts": {
+                      "description": "A set of volumes to mount to the container",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "mount_path": {
+                            "type": "string"
+                          },
+                          "readonly": {
+                            "type": "boolean"
+                          },
+                          "volume": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "volume",
+                          "mount_path",
+                          "readonly"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "name",
+                    "provider",
+                    "replicas",
+                    "type",
+                    "volume_mounts"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "dnsRecord",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "content": {
+                      "type": "string"
+                    },
+                    "dnsZone": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "recordType": {
+                      "type": "string"
+                    },
+                    "subdomain": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "const": "dnsRecord",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "dnsZone",
+                    "provider",
+                    "recordType",
+                    "subdomain",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "dnsZone",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "dnsZone",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "dockerBuild",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "args": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "default": {},
+                      "description": "Arguments to pass to the build command",
+                      "type": "object"
+                    },
+                    "component_source": {
+                      "description": "Source of the component that contains the build context",
+                      "type": "string"
+                    },
+                    "context": {
+                      "description": "Docker build context relative to the component root",
+                      "type": "string"
+                    },
+                    "dockerfile": {
+                      "default": "Dockerfile",
+                      "description": "Path to the dockerfile relative to the context",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "registry": {
+                      "default": "registry.architect.io",
+                      "description": "Registry the artifact will be pushed to",
+                      "type": "string"
+                    },
+                    "repository": {
+                      "description": "The repository to push the artifact to",
+                      "type": "string"
+                    },
+                    "tag": {
+                      "default": "latest",
+                      "description": "Tag to assign to the image",
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Name of a intermediate build stage to target",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "dockerBuild",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "component_source",
+                    "context",
+                    "provider",
+                    "repository",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "helmChart",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "chart": {
+                      "description": "Chart name to be installed",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the helm release",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "default": "default",
+                      "description": "The namespace to install the release in",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "repository": {
+                      "description": "The URL of the repository where the chart lives",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "helmChart",
+                      "type": "string"
+                    },
+                    "values": {
+                      "description": "Values to pass to the helm chart release",
+                      "type": "object"
+                    },
+                    "version": {
+                      "description": "The exact chart version to install. Otherwise will use the latest.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "chart",
+                    "name",
+                    "provider",
+                    "repository",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "ingressRule",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "internal": {
+                      "default": false,
+                      "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+                      "type": "boolean"
+                    },
+                    "listener": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "hostZone": {
+                          "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
+                          "type": "string"
+                        },
+                        "path": {
+                          "default": "/",
+                          "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
+                          "type": "string"
+                        },
+                        "protocol": {
+                          "default": "http",
+                          "description": "Protocol that the ingress rule listens for traffic on",
+                          "type": "string"
+                        },
+                        "subdomain": {
+                          "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "loadBalancer": {
+                      "description": "ID of the load balancer to use for this ingress rule",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "default": "default",
+                      "description": "Namespace to put the ingress rule in",
+                      "type": "string"
+                    },
+                    "port": {
+                      "description": "Port that the ingress rule listens for traffic on",
+                      "type": "number"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "service": {
+                      "description": "Service the ingress forwards traffic to",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "ingressRule",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "loadBalancer",
+                    "port",
+                    "provider",
+                    "service",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "kubernetesCluster",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "description": {
+                      "description": "Description of the cluster",
+                      "type": "string"
+                    },
+                    "kubernetesVersion": {
+                      "description": "Version of the kubernetes control plane to use",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the cluster",
+                      "type": "string"
+                    },
+                    "nodePools": {
+                      "description": "Node pools",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "count": {
+                            "description": "Number of nodes the pool should have",
+                            "minimum": 1,
+                            "type": "number"
+                          },
+                          "name": {
+                            "description": "Name of the node pool",
+                            "type": "string"
+                          },
+                          "nodeSize": {
+                            "description": "Size of each node in the pool",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "count",
+                          "nodeSize"
+                        ],
+                        "type": "object"
+                      },
+                      "minimum": 1,
+                      "type": "array"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "region": {
+                      "description": "Region the cluster should live in",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "kubernetesCluster",
+                      "type": "string"
+                    },
+                    "vpc": {
+                      "description": "VPC the cluster should live in",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kubernetesVersion",
+                    "name",
+                    "nodePools",
+                    "provider",
+                    "region",
+                    "type",
+                    "vpc"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "kubernetesNamespace",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "kubernetesNamespace",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "kubernetesVersion",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "kubernetesVersion",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "loadBalancer",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "internal": {
+                      "default": false,
+                      "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
+                      "type": "boolean"
+                    },
+                    "loadBalancerType": {
+                      "description": "What type of load balancer to create",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name for the new load balancer",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "loadBalancer",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "loadBalancerType",
+                    "name",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "loadBalancerType",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "loadBalancerType",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "node",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "node",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "nodeSize",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "nodeSize",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "region",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "region",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "secret",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "description": "Data to populate the secret with",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name for the secret",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace the secret should be place in",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "secret",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "name",
+                    "namespace",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "service",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "external_name": {
+                      "description": "Map this service to the specified hostname instead of to a deployment selector",
+                      "type": "string"
+                    },
+                    "labels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Labels for the service resource",
+                      "type": "object"
+                    },
+                    "listener_port": {
+                      "default": 80,
+                      "description": "Port to listen for requests on",
+                      "type": "number"
+                    },
+                    "name": {
+                      "description": "Name to give to the service",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace the service should be registered in. Not all providers require this.",
+                      "type": "string"
+                    },
+                    "protocol": {
+                      "description": "Protocol the service responds to",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "selector": {
+                      "description": "Reference used to target a deployment",
+                      "type": "string"
+                    },
+                    "target_port": {
+                      "description": "Port to forward requests to",
+                      "type": "number"
+                    },
+                    "type": {
+                      "const": "service",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "provider",
+                    "target_port",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "task",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "command": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "cpu": {
+                      "type": "number"
+                    },
+                    "entrypoint": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "environment": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "labels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "memory": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "schedule": {
+                      "type": "string"
+                    },
+                    "sidecars": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "command": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "cpu": {
+                            "type": "number"
+                          },
+                          "entrypoint": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            ]
+                          },
+                          "environment": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "type": "object"
+                          },
+                          "image": {
+                            "type": "string"
+                          },
+                          "memory": {
+                            "type": "string"
+                          },
+                          "volume_mounts": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "mount_path": {
+                                  "type": "string"
+                                },
+                                "readonly": {
+                                  "type": "boolean"
+                                },
+                                "volume": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "volume",
+                                "mount_path"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "image"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "const": "task",
+                      "type": "string"
+                    },
+                    "volume_mounts": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "mount_path": {
+                            "type": "string"
+                          },
+                          "readonly": {
+                            "type": "boolean"
+                          },
+                          "volume": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "volume",
+                          "mount_path"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "provider",
+                    "schedule",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "volume",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "hostPath": {
+                      "description": "Path on the host machine to mount the volume to",
+                      "type": "string"
+                    },
+                    "mountPath": {
+                      "description": "Path inside the container runtime to mount the volume to",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "volume",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "mountPath",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "vpc",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "description": {
+                      "description": "Description for the VPC",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the VPC",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "region": {
+                      "description": "Region the VPC exists in",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "vpc",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "provider",
+                    "region",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              }
+            ]
+          },
+          "description": "Configure what resources must exist in each environment in the datacenter",
+          "type": "object"
+        },
+        "state": {
+          "$ref": "#/definitions/StateBackends",
+          "description": "Configure where terraform state files should be stored"
+        },
+        "version": {
+          "const": "v1",
+          "type": "string"
+        }
+      },
+      "required": [
+        "state",
+        "version"
+      ],
+      "type": "object"
+    },
+    "DeepPartial<(\"cronjob\"|\"database\"|\"databaseSchema\"|\"databaseSize\"|\"databaseType\"|\"databaseUser\"|\"databaseVersion\"|\"deployment\"|\"dnsRecord\"|\"dnsZone\"|\"dockerBuild\"|\"helmChart\"|\"ingressRule\"|\"kubernetesCluster\"|\"kubernetesNamespace\"|\"kubernetesVersion\"|\"loadBalancer\"|\"loadBalancerType\"|\"node\"|\"nodeSize\"|\"region\"|\"secret\"|\"service\"|\"task\"|\"volume\"|\"vpc\")>": {
+      "enum": [
+        "cronjob",
+        "database",
+        "databaseSchema",
+        "databaseSize",
+        "databaseType",
+        "databaseUser",
+        "databaseVersion",
+        "deployment",
+        "dnsRecord",
+        "dnsZone",
+        "dockerBuild",
+        "helmChart",
+        "ingressRule",
+        "kubernetesCluster",
+        "kubernetesNamespace",
+        "kubernetesVersion",
+        "loadBalancer",
+        "loadBalancerType",
+        "node",
+        "nodeSize",
+        "region",
+        "secret",
+        "service",
+        "task",
+        "volume",
+        "vpc"
+      ],
+      "type": "string"
+    },
+    "DeepPartial<(\"exec\"|\"http\")>": {
+      "enum": [
+        "exec",
+        "http"
+      ],
+      "type": "string"
+    },
+    "DeepPartial<(string1127306946|string1126202547|string901065173|string|string587709375|string2029411332|string727278284|string230372592|string550841285|string1097013035)1127306946>": {
+      "description": "Unique name for the database",
+      "type": "string"
+    },
+    "DeepPartial<(string1259595042|string1195458478|string1666795314)1259595042>": {
+      "description": "Unique ID of the region to run the database in",
+      "type": "string"
+    },
+    "DeepPartial<(string2001065788|string1764232161|string)2001065788>": {
+      "description": "The type of database engine to use",
+      "type": "string"
+    },
+    "DeepPartial<(string249113089|string1936390383)249113089>": {
+      "description": "Unique ID of the VPC to run the database in",
+      "type": "string"
+    },
+    "DeepPartial<(string503560302|string403408830)503560302>": {
+      "description": "Refers to the unique ID of a `databaseVersion` response",
+      "type": "string"
+    },
+    "DeepPartial<(string933275959|string1086185276)933275959>": {
+      "description": "The repository to push the artifact to",
+      "type": "string"
+    },
+    "DeepPartial<(string|string699422260)>": {
+      "type": "string"
+    },
+    "DeepPartial<any>": {
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "DeepPartial<number1056285502>": {
+      "description": "Port that the ingress rule listens for traffic on",
+      "type": "number"
+    },
+    "DeepPartial<number1908930751>": {
+      "description": "Maximum number of replicas of the deployment to run",
+      "type": "number"
+    },
+    "DeepPartial<number328513161>": {
+      "description": "Number of nodes the pool should have",
+      "minimum": 1,
+      "type": "number"
+    },
+    "DeepPartial<number328627135>": {
+      "description": "Number of replicas of the deployment to run",
+      "type": "number"
+    },
+    "DeepPartial<number400019589>": {
+      "description": "Port to forward requests to",
+      "type": "number"
+    },
+    "DeepPartial<number877439377>": {
+      "description": "Minimum number of replicas of the deployment to run",
+      "minimum": 0,
+      "type": "number"
+    },
+    "DeepPartial<string1218711136>": {
+      "description": "Unique ID of the database backing this schema",
+      "type": "string"
+    },
+    "DeepPartial<string1343034542>": {
+      "description": "ID of the load balancer to use for this ingress rule",
+      "type": "string"
+    },
+    "DeepPartial<string1405491345>": {
+      "description": "Username of the user to create",
+      "type": "string"
+    },
+    "DeepPartial<string1636978155>": {
+      "description": "Source of the component that contains the build context",
+      "type": "string"
+    },
+    "DeepPartial<string1758974246>": {
+      "description": "Chart name to be installed",
+      "type": "string"
+    },
+    "DeepPartial<string1848820199>": {
+      "description": "Size of the database instance to create",
+      "type": "string"
+    },
+    "DeepPartial<string1937495767>": {
+      "description": "What type of load balancer to create",
+      "type": "string"
+    },
+    "DeepPartial<string319313482>": {
+      "description": "Version of the kubernetes control plane to use",
+      "type": "string"
+    },
+    "DeepPartial<string353030576>": {
+      "description": "Service the ingress forwards traffic to",
+      "type": "string"
+    },
+    "DeepPartial<string369567356>": {
+      "description": "Path inside the container runtime to mount the volume to",
+      "type": "string"
+    },
+    "DeepPartial<string406715870>": {
+      "description": "Size of each node in the pool",
+      "type": "string"
+    },
+    "DeepPartial<string43572100>": {
+      "description": "Name of the node pool",
+      "type": "string"
+    },
+    "DeepPartial<string447227021>": {
+      "description": "Docker build context relative to the component root",
+      "type": "string"
+    },
+    "DeepPartial<string492252453>": {
+      "description": "The schema the user should have access to",
+      "type": "string"
+    },
+    "DeepPartial<string770794903>": {
+      "description": "Data to populate the secret with",
+      "type": "string"
+    },
+    "DeepPartial<string>": {
+      "type": "string"
+    },
+    "DeepPartial<string[]1363884748>": {
+      "items": {
+        "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+      },
+      "type": "array"
+    },
+    "DeepPartial<structure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724>": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "$ref": "#/definitions/DeepPartial%3Cnumber328513161%3E"
+        },
+        "name": {
+          "$ref": "#/definitions/DeepPartial%3Cstring43572100%3E"
+        },
+        "nodeSize": {
+          "$ref": "#/definitions/DeepPartial%3Cstring406715870%3E"
+        }
+      },
+      "type": "object"
+    },
+    "DeepPartial<structure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724[]1828872945>": {
+      "items": {
+        "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%3E"
+      },
+      "type": "array"
+    },
+    "DeepPartial<structure-207368041-1215-1257-207368041-1208-1258-207368041-1140-1259-207368041-828-1261-207368041-810-1262-207368041-0-3040>": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+        },
+        "value": {
+          "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+        }
+      },
+      "type": "object"
+    },
+    "ProbeSchema": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "command": {
+              "description": "Command to run inside the container to determine if its healthy",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "failure_threshold": {
+              "default": 3,
+              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "initial_delay": {
+              "default": 0,
+              "description": "Number of seconds after the container starts before the probe is initiated.",
+              "minimum": 0,
+              "type": "number"
+            },
+            "interval": {
+              "default": 10,
+              "description": "How often (in seconds) to perform the probe.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "success_threshold": {
+              "default": 1,
+              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "timeout": {
+              "default": 1,
+              "description": "Number of seconds after which the probe times out",
+              "minimum": 1,
+              "type": "number"
+            },
+            "type": {
+              "const": "exec",
+              "type": "string"
+            }
+          },
+          "required": [
+            "command",
+            "type"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "failure_threshold": {
+              "default": 3,
+              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "headers": {
+              "description": "Custom headers to set in the request.",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "initial_delay": {
+              "default": 0,
+              "description": "Number of seconds after the container starts before the probe is initiated.",
+              "minimum": 0,
+              "type": "number"
+            },
+            "interval": {
+              "default": 10,
+              "description": "How often (in seconds) to perform the probe.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "path": {
+              "default": "/",
+              "description": "Path to access on the http server",
+              "type": "string"
+            },
+            "port": {
+              "description": "Port to access on the container",
+              "type": "number"
+            },
+            "scheme": {
+              "default": "http",
+              "description": "Scheme to use for connecting to the host (http or https).",
+              "type": "string"
+            },
+            "success_threshold": {
+              "default": 1,
+              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "timeout": {
+              "default": 1,
+              "description": "Number of seconds after which the probe times out",
+              "minimum": 1,
+              "type": "number"
+            },
+            "type": {
+              "const": "http",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "ResourceType": {
+      "enum": [
+        "cronjob",
+        "database",
+        "databaseSchema",
+        "databaseSize",
+        "databaseType",
+        "databaseUser",
+        "databaseVersion",
+        "deployment",
+        "dnsRecord",
+        "dnsZone",
+        "dockerBuild",
+        "helmChart",
+        "ingressRule",
+        "kubernetesCluster",
+        "kubernetesNamespace",
+        "kubernetesVersion",
+        "loadBalancer",
+        "loadBalancerType",
+        "node",
+        "nodeSize",
+        "region",
+        "secret",
+        "service",
+        "task",
+        "volume",
+        "vpc"
+      ],
+      "type": "string"
+    },
+    "StateBackends": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "type": {
+              "const": "local",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "path"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "accessKey": {
+              "type": "string"
+            },
+            "bucket": {
+              "type": "string"
+            },
+            "secretKey": {
+              "type": "string"
+            },
+            "type": {
+              "const": "digitalocean",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "bucket",
+            "accessKey",
+            "secretKey"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "https://architect.io/.schemas/datacenter.json"
+}

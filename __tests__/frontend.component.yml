@@ -1,0 +1,11 @@
+version: v2
+
+dependencies:
+  auth: architect/auth
+
+deployments:
+  ui:
+    image: oryd/kratos-selfservice-ui-node:v0.11.1
+    environment:
+      KRATOS_PUBLIC_URL: ${{ dependencies.auth.services.public.url }}
+      KRATOS_BROWSER_URL: ${{ dependencies.auth.ingresses.public.url }}

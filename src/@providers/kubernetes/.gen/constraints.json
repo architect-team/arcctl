@@ -1,0 +1,7 @@
+{
+  "cdktf": "0.15.5",
+  "providers": {
+    "helm": "2.9.0",
+    "kubernetes": "2.18.0"
+  }
+}

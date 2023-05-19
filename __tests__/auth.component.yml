@@ -1,0 +1,137 @@
+version: v2
+
+databases:
+  kratos:
+    type: postgres:13
+    migrate:
+      up:
+        image: oryd/kratos:v0.13.0
+        entrypoint: [""]
+        command:
+          - sh
+          - -c
+          - kratos -c ./kratos/.kratos.yml migrate sql -e --yes
+        environment:
+          DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
+    seed:
+      up:
+        image: oryd/kratos:v0.13.0
+        entrypoint: [""]
+        command:
+          - sh
+          - -c
+          - kratos migrate sql -e --yes
+        environment:
+          DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
+
+deployments:
+  mailslurper:
+    image: oryd/mailslurper:latest-smtps
+
+  kratos:
+    image: oryd/kratos:v0.13.0
+    entrypoint: [""]
+    command:
+      - sh
+      - -c
+      - |
+        mkdir ./kratos
+        echo "$IDENTITY_SCHEMA" > ./kratos/identity.schema.json
+        echo "$CONFIG" > ./kratos/.kratos.yml
+        kratos -c ./kratos/.kratos.yml migrate sql -e --yes
+        kratos serve -c ./kratos/.kratos.yml --watch-courier
+    environment:
+      DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
+      COURIER_SMTP_CONNECTION_URI: smtps://test:test@${{ services.smtps.host }}:${{ services.smtps.port }}/?skip_ssl_verify=true
+      SERVE_PUBLIC_BASE_URL: ${{ ingresses.api.url }}
+      SERVE_ADMIN_BASE_URL: ${{ services.admin.url }}
+      CONFIG: |
+        version: v0.13.0
+        selfservice:
+          default_browser_return_url: http://127.0.0.1:4455/
+          allowed_return_urls:
+            - http://127.0.0.1:4455
+        identity:
+          default_schema_id: default
+          schemas:
+            - id: default
+              url: file://./kratos/identity.schema.json
+      IDENTITY_SCHEMA: |
+        {
+          "$id": "https://schemas.ory.sh/presets/kratos/quickstart/email-password/identity.schema.json",
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Person",
+          "type": "object",
+          "properties": {
+            "traits": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "title": "E-Mail",
+                  "minLength": 3,
+                  "ory.sh/kratos": {
+                    "credentials": {
+                      "password": {
+                        "identifier": true
+                      }
+                    },
+                    "verification": {
+                      "via": "email"
+                    },
+                    "recovery": {
+                      "via": "email"
+                    }
+                  }
+                },
+                "name": {
+                  "type": "object",
+                  "properties": {
+                    "first": {
+                      "title": "First Name",
+                      "type": "string"
+                    },
+                    "last": {
+                      "title": "Last Name",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "email"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+
+  ui:
+    image: oryd/kratos-selfservice-ui-node:v0.11.1
+    environment:
+      KRATOS_PUBLIC_URL: ${{ services.public.url }}
+      KRATOS_BROWSER_URL: ${{ ingresses.api.url }}
+
+services:
+  smtp:
+    deployment: mailslurper
+    port: 4436
+  smtps:
+    deployment: mailslurper
+    port: 4437
+  public:
+    deployment: kratos
+    port: 4433
+  admin:
+    deployment: kratos
+    port: 4434
+  frontend:
+    deployment: ui
+    port: 4455
+
+ingresses:
+  api:
+    service: public
+  frontend:
+    service: frontend

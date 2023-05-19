@@ -1,0 +1,18 @@
+{
+  "language": "typescript",
+  "app": "<not-required>",
+  "terraformModules": [],
+  "terraformProviders": [
+    {
+      "name": "kubernetes",
+      "source": "hashicorp/kubernetes",
+      "version": "2.18.0"
+    },
+    {
+      "name": "helm",
+      "source": "hashicorp/helm",
+      "version": "2.9.0"
+    }
+  ],
+  "projectId": "0c09db6d-fae0-44ea-89fb-67e554ccb8c2"
+}

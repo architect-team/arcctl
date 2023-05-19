@@ -1,0 +1,18 @@
+{
+  "$ref": "#/definitions/DnsZoneInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DnsZoneInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    }
+  }
+}

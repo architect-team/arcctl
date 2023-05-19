@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/LoadBalancerTypeInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "LoadBalancerTypeInputs": {
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}

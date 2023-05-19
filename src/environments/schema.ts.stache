@@ -1,0 +1,32 @@
+import { Environment } from './environment.js';
+{{#versions}}
+import environment_{{.}} from './{{.}}/index.js';
+{{/versions}}
+
+/**
+ * @discriminatorOpenApi version
+ */
+export type EnvironmentSchema =
+{{#versions}}
+  | ({
+    version: '{{.}}';
+  } & environment_{{.}})
+{{/versions}}
+;
+
+export const buildEnvironment = (data: EnvironmentSchema): Environment => {
+  switch (data.version) {
+    {{#versions}}
+    case '{{.}}': {
+      return new environment_{{.}}(data);
+    }
+    {{/versions}}
+    default: {
+      throw new Error(
+        `Invalid schema version: ${
+          'version' in data ? data.version : 'none'
+        }`
+      );
+    }
+  }
+};

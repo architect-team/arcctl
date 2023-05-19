@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "rootDirs": [
+      "./src",
+      "./tests"
+    ],
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2021",
+    "baseUrl": "src",
+    "lib": [
+      "ES2021"
+    ],
+  },
+  "include": [
+    "./src/**/*",
+    "./src/**/*.json",
+    "./tests/**/*"
+  ],
+  "exclude": [
+    "./src/gen/**/*"
+  ],
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true
+  }
+}

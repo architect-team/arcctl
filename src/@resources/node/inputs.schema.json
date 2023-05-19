@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/NodeInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "NodeInputs": {
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}

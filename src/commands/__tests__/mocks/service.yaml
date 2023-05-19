@@ -1,0 +1,4 @@
+name: test-service
+deployment: ${{ namespace/test-service.id }}
+listener_port: 80
+target_port: 8080

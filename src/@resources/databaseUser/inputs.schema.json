@@ -1,0 +1,24 @@
+{
+  "$ref": "#/definitions/DatabaseUserApplyInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DatabaseUserApplyInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "databaseSchema": {
+          "description": "The schema the user should have access to",
+          "type": "string"
+        },
+        "username": {
+          "description": "Username of the user to create",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "databaseSchema"
+      ],
+      "type": "object"
+    }
+  }
+}

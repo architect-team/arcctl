@@ -1,0 +1,22 @@
+import { Datacenter } from './datacenter.js';
+{{#versions}}
+import datacenter_{{.}} from './{{.}}/index.js';
+{{/versions}}
+
+export type DatacenterSchema =
+{{#versions}}
+  | ({
+    version: '{{.}}';
+  } & datacenter_{{.}})
+{{/versions}}
+;
+
+export const buildDatacenter = (data: DatacenterSchema): Datacenter => {
+  switch (data.version) {
+    {{#versions}}
+    case '{{.}}': {
+      return new datacenter_{{.}}(data);
+    }
+    {{/versions}}
+  }
+};

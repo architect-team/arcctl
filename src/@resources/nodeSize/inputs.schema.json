@@ -1,0 +1,10 @@
+{
+  "$ref": "#/definitions/NodeSizeInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "NodeSizeInputs": {
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+*-debug.log
+*-error.log
+/.nyc_output
+/dist
+/lib
+/tmp
+node_modules
+oclif.manifest.json
+coverage
+/cdktf.out
+.terraform
+.DS_Store

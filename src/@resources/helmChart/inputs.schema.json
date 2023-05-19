@@ -1,0 +1,42 @@
+{
+  "$ref": "#/definitions/HelmChartInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "HelmChartInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "chart": {
+          "description": "Chart name to be installed",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the helm release",
+          "type": "string"
+        },
+        "namespace": {
+          "default": "default",
+          "description": "The namespace to install the release in",
+          "type": "string"
+        },
+        "repository": {
+          "description": "The URL of the repository where the chart lives",
+          "type": "string"
+        },
+        "values": {
+          "description": "Values to pass to the helm chart release",
+          "type": "object"
+        },
+        "version": {
+          "description": "The exact chart version to install. Otherwise will use the latest.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "repository",
+        "chart"
+      ],
+      "type": "object"
+    }
+  }
+}

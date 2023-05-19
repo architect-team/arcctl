@@ -1,0 +1,90 @@
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
+import { ResourceModule } from '../../module.js';
+import { IngressV1 } from '../.gen/providers/kubernetes/ingress-v1/index.js';
+import { KubernetesCredentials } from '../credentials.js';
+import { Construct } from 'constructs';
+
+export class KubernetesIngressRuleModule extends ResourceModule<
+  'ingressRule',
+  KubernetesCredentials
+> {
+  ingress: IngressV1;
+  outputs: ResourceOutputs['ingressRule'];
+
+  constructor(
+    scope: Construct,
+    id: string,
+    inputs: ResourceInputs['ingressRule'],
+  ) {
+    super(scope, id, inputs);
+
+    const hostParts = [];
+    if (inputs.listener?.subdomain) {
+      hostParts.push(inputs.listener.subdomain);
+    }
+
+    if (inputs.listener?.hostZone) {
+      hostParts.push(inputs.listener.hostZone);
+    }
+
+    const host = hostParts.join('.');
+    this.ingress = new IngressV1(this, 'ingress', {
+      metadata: {
+        name: id.replace(/\//g, '--'),
+        namespace: inputs.namespace,
+      },
+      spec: {
+        ingressClassName: inputs.loadBalancer,
+        rule: [
+          {
+            host,
+            http: {
+              path: [
+                {
+                  path: inputs.listener?.path || '/',
+                  backend: {
+                    service: {
+                      name: inputs.service.replace(/\//g, '--'),
+                      port: {
+                        number: inputs.port,
+                      },
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    });
+
+    let url = `http://${host}`;
+    if (inputs.port !== 80) {
+      url += ':' + inputs.port;
+    }
+    url += inputs.listener?.path || '/';
+
+    this.outputs = {
+      id: `${this.ingress.metadata.namespace}/${this.ingress.metadata.name}`,
+      host,
+      port: inputs.port,
+      path: inputs.listener?.path || '/',
+      url,
+    };
+  }
+
+  async genImports(
+    credentials: KubernetesCredentials,
+    resourceId: string,
+  ): Promise<Record<string, string>> {
+    return {
+      [this.getResourceRef(this.ingress)]: 'Ingress Rule',
+    };
+  }
+
+  getDisplayNames(): Record<string, string> {
+    return {
+      [this.getResourceRef(this.ingress)]: 'Ingress Rule',
+    };
+  }
+}

@@ -1,0 +1,35 @@
+{{#types}}
+import type {{slug}}Inputs from './{{name}}/inputs.js';
+import type {{slug}}Outputs from './{{name}}/outputs.js';
+{{/types}}
+
+export type ResourceType =
+{{#types}}
+  | '{{name}}'
+{{/types}};
+
+export const ResourceTypeList: ResourceType[] = [
+{{#types}}
+  '{{name}}',
+{{/types}}
+];
+
+export type ResourceInputs = {
+{{#types}}
+  '{{name}}': {
+    type: '{{name}}',
+    provider?: string,
+  } & {{slug}}Inputs;
+{{/types}}
+};
+
+export type ResourceOutputs = {
+{{#types}}
+  '{{name}}': {
+    id: string;
+  } & {{slug}}Outputs;
+{{/types}}
+};
+
+export type InputSchema = ResourceInputs[ResourceType];
+export type OutputSchema = ResourceOutputs[ResourceType];

@@ -1,0 +1,13 @@
+type: cluster
+region: nyc1
+provider: my-provider
+vpc: vpc-id
+name: test-cluster-mlt-nodepools
+description: Test cluster created by arc cli using multiple nodePools
+nodePools:
+  - name: test-pool-1
+    count: 1
+    nodeSize: s-1vcpu-2gb
+  - name: test-pool-2
+    count: 1
+    nodeSize: s-1vcpu-2gb

@@ -1,0 +1,5 @@
+type: vpc
+provider: my-provider
+region: nyc1
+name: test-vpc
+description: My test VPC

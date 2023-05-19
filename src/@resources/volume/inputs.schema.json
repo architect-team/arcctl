@@ -1,0 +1,23 @@
+{
+  "$ref": "#/definitions/VolumeInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "VolumeInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "hostPath": {
+          "description": "Path on the host machine to mount the volume to",
+          "type": "string"
+        },
+        "mountPath": {
+          "description": "Path inside the container runtime to mount the volume to",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mountPath"
+      ],
+      "type": "object"
+    }
+  }
+}

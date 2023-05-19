@@ -1,0 +1,396 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DeploymentInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "autoscaling": {
+          "additionalProperties": false,
+          "description": "Autoscaling rules for the deployment",
+          "properties": {
+            "max_replicas": {
+              "description": "Maximum number of replicas of the deployment to run",
+              "type": "number"
+            },
+            "min_replicas": {
+              "description": "Minimum number of replicas of the deployment to run",
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "min_replicas",
+            "max_replicas"
+          ],
+          "type": "object"
+        },
+        "command": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "Command to execute in the container"
+        },
+        "cpu": {
+          "description": "Number of CPUs to allocate to the container",
+          "minimum": 0.1,
+          "type": "number"
+        },
+        "entrypoint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "Entrypoint of the container"
+        },
+        "environment": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "not": {}
+              }
+            ]
+          },
+          "description": "Environment variables to pass to the container",
+          "type": "object"
+        },
+        "image": {
+          "description": "Image the container runs from",
+          "type": "string"
+        },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Labels for the deployment",
+          "type": "object"
+        },
+        "memory": {
+          "description": "Amount of memory to allocate to the container",
+          "type": "string"
+        },
+        "name": {
+          "description": "Deployment name",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "Namespace the deployment should be in",
+          "type": "string"
+        },
+        "probes": {
+          "additionalProperties": false,
+          "properties": {
+            "liveness": {
+              "$ref": "#/definitions/ProbeSchema"
+            }
+          },
+          "type": "object"
+        },
+        "replicas": {
+          "description": "Number of replicas of the deployment to run",
+          "type": "number"
+        },
+        "sidecars": {
+          "description": "A set of additional containers to run as part of each replica",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "command": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                ],
+                "description": "Command to execute in the container"
+              },
+              "cpu": {
+                "description": "Number of CPUs to allocate to the container",
+                "minimum": 0.1,
+                "type": "number"
+              },
+              "entrypoint": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                ],
+                "description": "Entrypoint of the container"
+              },
+              "environment": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "not": {}
+                    }
+                  ]
+                },
+                "description": "Environment variables to pass to the container",
+                "type": "object"
+              },
+              "image": {
+                "description": "Image the container runs from",
+                "type": "string"
+              },
+              "memory": {
+                "description": "Amount of memory to allocate to the container",
+                "type": "string"
+              },
+              "probes": {
+                "additionalProperties": false,
+                "properties": {
+                  "liveness": {
+                    "$ref": "#/definitions/ProbeSchema"
+                  }
+                },
+                "type": "object"
+              },
+              "volume_mounts": {
+                "description": "A set of volumes to mount to the container",
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "mount_path": {
+                      "type": "string"
+                    },
+                    "readonly": {
+                      "type": "boolean"
+                    },
+                    "volume": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "volume",
+                    "mount_path",
+                    "readonly"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "image",
+              "volume_mounts"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "volume_mounts": {
+          "description": "A set of volumes to mount to the container",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "mount_path": {
+                "type": "string"
+              },
+              "readonly": {
+                "type": "boolean"
+              },
+              "volume": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "volume",
+              "mount_path",
+              "readonly"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "image",
+        "name",
+        "replicas",
+        "volume_mounts"
+      ],
+      "type": "object"
+    },
+    "ProbeSchema": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "command": {
+              "description": "Command to run inside the container to determine if its healthy",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "failure_threshold": {
+              "default": 3,
+              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "initial_delay": {
+              "default": 0,
+              "description": "Number of seconds after the container starts before the probe is initiated.",
+              "minimum": 0,
+              "type": "number"
+            },
+            "interval": {
+              "default": 10,
+              "description": "How often (in seconds) to perform the probe.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "success_threshold": {
+              "default": 1,
+              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "timeout": {
+              "default": 1,
+              "description": "Number of seconds after which the probe times out",
+              "minimum": 1,
+              "type": "number"
+            },
+            "type": {
+              "const": "exec",
+              "type": "string"
+            }
+          },
+          "required": [
+            "command",
+            "type"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "failure_threshold": {
+              "default": 3,
+              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "headers": {
+              "description": "Custom headers to set in the request.",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "initial_delay": {
+              "default": 0,
+              "description": "Number of seconds after the container starts before the probe is initiated.",
+              "minimum": 0,
+              "type": "number"
+            },
+            "interval": {
+              "default": 10,
+              "description": "How often (in seconds) to perform the probe.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "path": {
+              "default": "/",
+              "description": "Path to access on the http server",
+              "type": "string"
+            },
+            "port": {
+              "description": "Port to access on the container",
+              "type": "number"
+            },
+            "scheme": {
+              "default": "http",
+              "description": "Scheme to use for connecting to the host (http or https).",
+              "type": "string"
+            },
+            "success_threshold": {
+              "default": 1,
+              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+              "minimum": 1,
+              "type": "number"
+            },
+            "timeout": {
+              "default": 1,
+              "description": "Number of seconds after which the probe times out",
+              "minimum": 1,
+              "type": "number"
+            },
+            "type": {
+              "const": "http",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  }
+}

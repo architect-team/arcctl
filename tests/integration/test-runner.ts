@@ -1,0 +1,297 @@
+import { ProviderCredentials } from '../../src/@providers/credentials.js';
+import { Provider } from '../../src/@providers/provider.js';
+import { SupportedProviders } from '../../src/@providers/supported-providers.js';
+import {
+  CldctlTest,
+  CldctlTestStack,
+  CldctlTestStackOutputs,
+} from '../../src/@providers/tests.js';
+import { ResourceOutputs, ResourceType } from '../../src/index.js';
+import PluginManager from '../../src/plugins/plugin-manager.js';
+import TerraformPlugin from '../../src/plugins/terraform-plugin.js';
+import { CldCtlTerraformStack } from '../../src/utils/stack.js';
+import { App, TerraformOutput } from 'cdktf';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
+import { v4 } from 'uuid';
+
+let terraformPlugin: TerraformPlugin | undefined;
+
+export interface TestRunnerContext<C extends ProviderCredentials> {
+  provider: string;
+  name_regex?: string;
+  credentials: C;
+  keep_test_folders?: boolean;
+}
+
+export class TestStackGenerator {
+  constructor(private readonly credentials: ProviderCredentials) {}
+
+  private async addResourceToStack(
+    stack: CldCtlTerraformStack,
+    provider: Provider,
+    stacks: CldctlTestStack[],
+    ids?: Record<string, string>,
+  ): Promise<CldctlTestStackOutputs[]> {
+    const result_stacks: CldctlTestStackOutputs[] = [];
+    for (const child_stack of stacks) {
+      const service = child_stack.serviceType;
+      const inputs = child_stack.inputs;
+      if (
+        !provider.resources[service]?.manage ||
+        !provider.resources[service]?.manage?.module
+      ) {
+        throw new Error(`Unsupported resource type: ${service}`);
+      }
+      const children = child_stack.children
+        ? await this.addResourceToStack(
+            stack,
+            provider,
+            child_stack.children,
+            ids,
+          )
+        : [];
+      for (const child of children) {
+        (child_stack.inputs as any)[child.serviceType] =
+          child.module?.outputs?.id;
+      }
+      const { module, output: tfOutputs } = stack.addModule(
+        (provider.resources[service] as any).manage.module,
+        child_stack.serviceType as ResourceType,
+        inputs,
+      );
+      result_stacks.push({
+        ...child_stack,
+        module,
+        children,
+        tfOutputs,
+        imports: (ids || {})[child_stack.serviceType]
+          ? await module.genImports(
+              this.credentials,
+              (ids || {})[child_stack.serviceType],
+            )
+          : undefined,
+      });
+    }
+    return result_stacks;
+  }
+
+  public async generateStack(
+    stack: CldCtlTerraformStack,
+    provider: Provider,
+    test: CldctlTest<ProviderCredentials>,
+    ids?: Record<string, string>,
+  ): Promise<CldctlTestStackOutputs[]> {
+    provider.configureTerraformProviders(stack);
+    return this.addResourceToStack(stack, provider, test.stacks, ids);
+  }
+}
+
+export class TestRunner {
+  public createDirectory?: string;
+  public deleteDirectory?: string;
+  public createOutputStacks: CldctlTestStackOutputs[] = [];
+  public destroyOutputStacks: CldctlTestStackOutputs[] = [];
+  public ids: Record<string, string> = {};
+
+  public async getOutput<T extends ResourceType>(
+    output: TerraformOutput,
+  ): Promise<ResourceOutputs[T]> {
+    const res = await terraformPlugin?.output(
+      this.createDirectory!,
+      output.friendlyUniqueId,
+    );
+    return JSON.parse(res || '{}') as ResourceOutputs[T];
+  }
+
+  async generateOutputs(stacks: CldctlTestStackOutputs[]): Promise<void> {
+    for (const stack of stacks) {
+      if (stack.tfOutputs) {
+        stack.outputs = await this.getOutput(stack.tfOutputs!);
+        stack.id = stack.outputs.id;
+        this.ids[stack.serviceType] = stack.id;
+      }
+      if (stack.children) {
+        await this.generateOutputs(stack.children);
+      }
+    }
+  }
+
+  async runImports(stacks: CldctlTestStackOutputs[]): Promise<void> {
+    for (const stack of stacks) {
+      if (stack.imports) {
+        for (const [key, value] of Object.entries(stack.imports)) {
+          await terraformPlugin?.import(this.deleteDirectory!, key, value);
+        }
+      }
+      if (stack.children) {
+        await this.runImports(stack.children);
+      }
+    }
+  }
+
+  async create(
+    provider: Provider,
+    test: CldctlTest<ProviderCredentials>,
+    credentials: ProviderCredentials,
+  ): Promise<void> {
+    const tmp_dir = os.tmpdir();
+    const tf_tmp_dir = path.join(tmp_dir, `/tf/${v4()}`);
+    this.createDirectory = tf_tmp_dir;
+    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+
+    const app = new App({
+      outdir: tf_tmp_dir,
+    });
+    const stack = new CldCtlTerraformStack(app, 'cldctl');
+
+    const test_stack_generator = new TestStackGenerator(credentials);
+    this.createOutputStacks = await test_stack_generator.generateStack(
+      stack,
+      provider,
+      test,
+    );
+
+    const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
+    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+    await fs.promises.writeFile(
+      tfMainFile,
+      JSON.stringify(stack.toTerraform()),
+    );
+    await terraformPlugin?.init(tf_tmp_dir);
+    const planFile = path.join(tf_tmp_dir, 'plan');
+    await terraformPlugin?.plan(tf_tmp_dir, planFile);
+    await terraformPlugin?.apply(tf_tmp_dir, planFile);
+    await this.generateOutputs(this.createOutputStacks);
+  }
+
+  async destroy(
+    provider: Provider,
+    test: CldctlTest<ProviderCredentials>,
+    credentials: ProviderCredentials,
+  ): Promise<void> {
+    const tmp_dir = os.tmpdir();
+    const tf_tmp_dir = path.join(tmp_dir, `/tf/${v4()}`);
+    this.deleteDirectory = tf_tmp_dir;
+    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+
+    const app = new App({
+      outdir: tf_tmp_dir,
+    });
+    const stack = new CldCtlTerraformStack(app, 'cldctl');
+
+    const test_stack_generator = new TestStackGenerator(credentials);
+    this.destroyOutputStacks = await test_stack_generator.generateStack(
+      stack,
+      provider,
+      test,
+      this.ids,
+    );
+
+    const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
+    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+    await fs.promises.writeFile(
+      tfMainFile,
+      JSON.stringify(stack.toTerraform()),
+    );
+    await terraformPlugin?.init(tf_tmp_dir);
+    await this.runImports(this.destroyOutputStacks);
+
+    await terraformPlugin?.destroy(tf_tmp_dir);
+  }
+
+  public async runTests(contexts: TestRunnerContext<any>[]): Promise<void> {
+    const supported_providers_keys = Object.keys(SupportedProviders);
+    for (const context of contexts) {
+      if (!supported_providers_keys.includes(context.provider)) {
+        throw new Error(`Unsupported provider: ${context.provider}`);
+      }
+      const name_regex = context.name_regex
+        ? new RegExp(context.name_regex)
+        : undefined;
+      console.log(`Running tests for ${context.provider}...`);
+      const provider_module = await import(
+        `../../src/@providers/${context.provider}/provider.js`
+      );
+      const provider: Provider = new provider_module.default(
+        context.provider,
+        context.credentials,
+      );
+      const plugins_path = path.join(os.tmpdir(), '/plugins');
+      await fs.promises.mkdir(plugins_path, { recursive: true });
+      terraformPlugin = await PluginManager.getPlugin<TerraformPlugin>(
+        plugins_path,
+        provider.terraform_version,
+        TerraformPlugin,
+      );
+      for (const test of provider.tests) {
+        if (name_regex && !name_regex.test(test.name)) {
+          continue;
+        }
+        console.log(`  Running test ${test.name}...`);
+        try {
+          console.log('    Creating resources...');
+          await this.create(provider, test, context.credentials);
+          if (test.validateCreate) {
+            await test.validateCreate({
+              credentials: context.credentials,
+              stacks: this.createOutputStacks,
+            });
+          }
+          console.log('    Destroying resources...');
+          await this.destroy(provider, test, context.credentials);
+          if (test.validateDelete) {
+            await test.validateDelete({
+              credentials: context.credentials,
+              stacks: this.destroyOutputStacks,
+            });
+          }
+
+          if (context.keep_test_folders) {
+            console.log(`    Creating Directory ${this.createDirectory}...`);
+            console.log(`    Deleting Directory ${this.deleteDirectory}...`);
+          }
+          console.log('    Done.');
+        } catch (error) {
+          if (this.createDirectory) {
+            await terraformPlugin?.destroy(this.createDirectory);
+          }
+          throw error;
+        } finally {
+          if (!context.keep_test_folders) {
+            if (this.createDirectory) {
+              await fs.promises.rm(this.createDirectory, {
+                force: true,
+                recursive: true,
+              });
+              console.log(
+                `    Removed Create Directory ${this.createDirectory}...`,
+              );
+            }
+            if (this.deleteDirectory) {
+              await fs.promises.rm(this.deleteDirectory, {
+                force: true,
+                recursive: true,
+              });
+              console.log(
+                `    Removed Delete Directory ${this.deleteDirectory}...`,
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+const configuration_file_path = process.argv[2];
+if (!configuration_file_path) {
+  throw new Error('No configuration file provided');
+}
+
+const configuration_file = fs.readFileSync(configuration_file_path, 'utf8');
+const configuration = JSON.parse(
+  configuration_file,
+) as TestRunnerContext<any>[];
+new TestRunner().runTests(configuration);

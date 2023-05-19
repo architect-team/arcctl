@@ -1,0 +1,63 @@
+{
+  "$ref": "#/definitions/IngressRuleInputs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "IngressRuleInputs": {
+      "additionalProperties": false,
+      "properties": {
+        "internal": {
+          "default": false,
+          "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
+          "type": "boolean"
+        },
+        "listener": {
+          "additionalProperties": false,
+          "properties": {
+            "hostZone": {
+              "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
+              "type": "string"
+            },
+            "path": {
+              "default": "/",
+              "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
+              "type": "string"
+            },
+            "protocol": {
+              "default": "http",
+              "description": "Protocol that the ingress rule listens for traffic on",
+              "type": "string"
+            },
+            "subdomain": {
+              "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "loadBalancer": {
+          "description": "ID of the load balancer to use for this ingress rule",
+          "type": "string"
+        },
+        "namespace": {
+          "default": "default",
+          "description": "Namespace to put the ingress rule in",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port that the ingress rule listens for traffic on",
+          "type": "number"
+        },
+        "service": {
+          "description": "Service the ingress forwards traffic to",
+          "type": "string"
+        }
+      },
+      "required": [
+        "loadBalancer",
+        "port",
+        "service"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{{#provider_list}}
+import {{name}} from './{{slug}}/index.js';
+{{/provider_list}}
+
+export const SupportedProviders = {
+{{#provider_list}}
+  '{{slug}}': {{name}},
+{{/provider_list}}
+};

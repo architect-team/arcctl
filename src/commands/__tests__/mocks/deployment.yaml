@@ -1,0 +1,10 @@
+name: my-app
+namespace: ${{ namespace/namespace-name.id }}
+labels:
+  custom-label: value
+  io.architect/component_name: test
+  io.architect/environment_name: test-env
+replicas: 1
+containers:
+  - name: my-app
+    image: alpine:latest

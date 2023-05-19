@@ -1,0 +1,13 @@
+{
+  "language": "typescript",
+  "app": "ts-node main.ts",
+  "terraformModules": [],
+  "terraformProviders": [
+    {
+      "name": "digitalocean",
+      "source": "digitalocean/digitalocean",
+      "version": "2.26.0"
+    }
+  ],
+  "projectId": "4de3b96d-2ce0-4a21-b081-4d842476fc80"
+}

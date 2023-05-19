@@ -1,0 +1,21 @@
+{{#versions}}
+import component_{{.}} from './{{.}}/index.js';
+{{/versions}}
+
+export type ComponentSchema =
+{{#versions}}
+  | ({
+    version: '{{.}}';
+  } & component_{{.}})
+{{/versions}}
+;
+
+export const buildComponent = (data: ComponentSchema) => {
+  switch (data.version) {
+    {{#versions}}
+    case '{{.}}': {
+      return new component_{{.}}(data);
+    }
+    {{/versions}}
+  }
+};

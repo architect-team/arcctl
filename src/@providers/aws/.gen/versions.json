@@ -1,0 +1,4 @@
+{
+  "registry.terraform.io/hashicorp/aws": "4.61.0",
+  "registry.terraform.io/hashicorp/time": "0.5.0"
+}

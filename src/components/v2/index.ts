@@ -347,7 +347,7 @@ export default class ComponentV2 extends Component {
         inputs: {
           type: 'ingressRule',
           loadBalancer: '',
-          port: 80,
+          port: `\${{ ${service_node.id}.port }}`,
           service: `\${{ ${service_node.id}.id }}`,
           listener: {
             path: '/',

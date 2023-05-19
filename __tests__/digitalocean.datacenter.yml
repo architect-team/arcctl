@@ -39,7 +39,7 @@ hooks:
       db:
         type: database
         provider: do-personal
-        name: ${{ this.inputs.name }}
+        name: ${{ this.id }}
         databaseVersion: ${{ this.inputs.databaseVersion }}
         databaseSize: db-s-1vcpu-1gb
         databaseType: ${{ this.inputs.databaseType }}
@@ -56,7 +56,7 @@ hooks:
         dnsZone: ${{ this.inputs.listener.hostZone }}
         subdomain: ${{ this.inputs.listener.subdomain }}
         recordType: A
-        content: ${{ this.outputs.host }}
+        content: ${{ this.outputs.loadBalancerHostname }}
     loadBalancer: nginx
     namespace: ${{ resources.namespace.id }}
   - provider: ${{ resources.cluster.provider }}

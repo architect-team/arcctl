@@ -29,6 +29,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<
 
     const host = hostParts.join('.');
     this.ingress = new IngressV1(this, 'ingress', {
+      waitForLoadBalancer: true,
       metadata: {
         name: id.replace(/\//g, '--'),
         namespace: inputs.namespace,
@@ -46,7 +47,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<
                     service: {
                       name: inputs.service.replace(/\//g, '--'),
                       port: {
-                        number: inputs.port,
+                        number: Number(inputs.port),
                       },
                     },
                   },
@@ -70,6 +71,10 @@ export class KubernetesIngressRuleModule extends ResourceModule<
       port: inputs.port,
       path: inputs.listener?.path || '/',
       url,
+      loadBalancerHostname: this.ingress.status
+        .get(0)
+        .loadBalancer.get(0)
+        .ingress.get(0).ip,
     };
   }
 

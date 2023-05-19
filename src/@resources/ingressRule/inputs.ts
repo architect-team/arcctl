@@ -13,7 +13,7 @@ export type IngressRuleInputs = {
   /**
    * Port that the ingress rule listens for traffic on
    */
-  port: number;
+  port: string | number;
 
   /**
    * Service the ingress forwards traffic to

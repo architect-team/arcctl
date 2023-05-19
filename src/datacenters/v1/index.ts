@@ -146,6 +146,7 @@ export default class DatacenterV1 extends Datacenter {
 
         const replaceHookExpressions = <T>(
           resources: { [key: string]: InputSchema },
+          from_node_name: string,
           from_node_id: string,
           contents: T,
         ): T =>
@@ -161,7 +162,7 @@ export default class DatacenterV1 extends Datacenter {
 
                   const target_node_id = CloudNode.genId({
                     type: resource.type,
-                    name: `hook-${index}-${resource_id}`,
+                    name: `${from_node_name}/${resource_id}`,
                     environment: environmentName,
                     component: node.component,
                   });
@@ -185,15 +186,17 @@ export default class DatacenterV1 extends Datacenter {
         for (const [resource_key, resource_config] of Object.entries(
           hook.resources || {},
         )) {
+          const newResourceName = `${node.name}/${resource_key}`;
+
           const hook_node_id = CloudNode.genId({
             type: resource_config.type,
-            name: `hook-${index}-${resource_key}`,
+            name: newResourceName,
             component: node.component,
             environment: environmentName,
           });
           graph.insertNodes(
             new CloudNode({
-              name: `hook-${index}-${resource_key}`,
+              name: newResourceName,
               environment: environmentName,
               component: node.component,
               inputs: this.replaceEnvironmentResourceRefs(
@@ -202,6 +205,7 @@ export default class DatacenterV1 extends Datacenter {
                 hook_node_id,
                 replaceHookExpressions(
                   hook.resources || {},
+                  newResourceName,
                   hook_node_id,
                   JSON.parse(
                     JSON.stringify(resource_config).replace(
@@ -235,7 +239,7 @@ export default class DatacenterV1 extends Datacenter {
           graph,
           environmentName,
           node.id,
-          replaceHookExpressions(hookResources, node.id, {
+          replaceHookExpressions(hookResources, node.name, node.id, {
             ...node.inputs,
             ...hookData,
             provider: node.inputs.provider || hookData.provider,

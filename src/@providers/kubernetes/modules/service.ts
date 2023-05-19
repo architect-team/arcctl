@@ -31,9 +31,11 @@ export class KubernetesServiceModule extends ResourceModule<
             }
           : {
               type: 'ClusterIP',
-              selector: {
-                'architect.io/name': inputs.selector.replace(/\//g, '--'),
-              },
+              selector: inputs.selector
+                ? {
+                    'architect.io/name': inputs.selector.replaceAll('/', '--'),
+                  }
+                : undefined,
               port: [
                 {
                   port: 80,
@@ -44,7 +46,8 @@ export class KubernetesServiceModule extends ResourceModule<
             },
     });
 
-    const protocol = 'external_name' in inputs ? 'http' : inputs.protocol;
+    const protocol =
+      'external_name' in inputs ? 'http' : inputs.protocol || 'http';
     this.outputs = {
       id: inputs.name,
       protocol,

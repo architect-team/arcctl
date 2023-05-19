@@ -35,7 +35,7 @@ export class DigitaloceanDatabaseModule extends ResourceModule<
     }
 
     this.database = new DatabaseCluster(this, 'database', {
-      name: inputs.name || 'deleting',
+      name: inputs.name.replaceAll('/', '--').toLowerCase(),
       region: vpc.region || inputs.region,
       size: inputs.databaseSize || 'db-s-1vcpu-1gb',
       engine: engine,

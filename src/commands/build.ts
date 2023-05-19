@@ -1,5 +1,5 @@
 import { BaseCommand } from '../base-command.js';
-import { parseComponent } from '../components/index.js';
+import { Component, parseComponent } from '../components/index.js';
 import { ImageRepository } from '@architect-io/arc-oci';
 import { Flags } from '@oclif/core';
 import { execa } from 'execa';
@@ -32,7 +32,20 @@ export class BuildComponentCmd extends BaseCommand {
       ? path.dirname(args.context)
       : args.context;
 
-    let component = await parseComponent(args.context);
+    let component: Component;
+    try {
+      component = await parseComponent(args.context);
+    } catch (err: any) {
+      if (Array.isArray(err)) {
+        for (const e of err) {
+          this.log(e);
+        }
+        return;
+      } else {
+        this.error(err);
+      }
+    }
+
     component = await component.build(async (options) => {
       const buildArgs = ['build', '--quiet'];
       if (options.dockerfile) {

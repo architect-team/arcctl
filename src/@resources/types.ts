@@ -112,107 +112,107 @@ export const ResourceTypeList: ResourceType[] = [
 export type ResourceInputs = {
   'cronjob': {
     type: 'cronjob',
-    provider?: string,
+    account?: string,
   } & cronjobInputs;
   'database': {
     type: 'database',
-    provider?: string,
+    account?: string,
   } & databaseInputs;
   'databaseSchema': {
     type: 'databaseSchema',
-    provider?: string,
+    account?: string,
   } & databaseSchemaInputs;
   'databaseSize': {
     type: 'databaseSize',
-    provider?: string,
+    account?: string,
   } & databaseSizeInputs;
   'databaseType': {
     type: 'databaseType',
-    provider?: string,
+    account?: string,
   } & databaseTypeInputs;
   'databaseUser': {
     type: 'databaseUser',
-    provider?: string,
+    account?: string,
   } & databaseUserInputs;
   'databaseVersion': {
     type: 'databaseVersion',
-    provider?: string,
+    account?: string,
   } & databaseVersionInputs;
   'deployment': {
     type: 'deployment',
-    provider?: string,
+    account?: string,
   } & deploymentInputs;
   'dnsRecord': {
     type: 'dnsRecord',
-    provider?: string,
+    account?: string,
   } & dnsRecordInputs;
   'dnsZone': {
     type: 'dnsZone',
-    provider?: string,
+    account?: string,
   } & dnsZoneInputs;
   'dockerBuild': {
     type: 'dockerBuild',
-    provider?: string,
+    account?: string,
   } & dockerBuildInputs;
   'helmChart': {
     type: 'helmChart',
-    provider?: string,
+    account?: string,
   } & helmChartInputs;
   'ingressRule': {
     type: 'ingressRule',
-    provider?: string,
+    account?: string,
   } & ingressRuleInputs;
   'kubernetesCluster': {
     type: 'kubernetesCluster',
-    provider?: string,
+    account?: string,
   } & kubernetesClusterInputs;
   'kubernetesNamespace': {
     type: 'kubernetesNamespace',
-    provider?: string,
+    account?: string,
   } & kubernetesNamespaceInputs;
   'kubernetesVersion': {
     type: 'kubernetesVersion',
-    provider?: string,
+    account?: string,
   } & kubernetesVersionInputs;
   'loadBalancer': {
     type: 'loadBalancer',
-    provider?: string,
+    account?: string,
   } & loadBalancerInputs;
   'loadBalancerType': {
     type: 'loadBalancerType',
-    provider?: string,
+    account?: string,
   } & loadBalancerTypeInputs;
   'node': {
     type: 'node',
-    provider?: string,
+    account?: string,
   } & nodeInputs;
   'nodeSize': {
     type: 'nodeSize',
-    provider?: string,
+    account?: string,
   } & nodeSizeInputs;
   'region': {
     type: 'region',
-    provider?: string,
+    account?: string,
   } & regionInputs;
   'secret': {
     type: 'secret',
-    provider?: string,
+    account?: string,
   } & secretInputs;
   'service': {
     type: 'service',
-    provider?: string,
+    account?: string,
   } & serviceInputs;
   'task': {
     type: 'task',
-    provider?: string,
+    account?: string,
   } & taskInputs;
   'volume': {
     type: 'volume',
-    provider?: string,
+    account?: string,
   } & volumeInputs;
   'vpc': {
     type: 'vpc',
-    provider?: string,
+    account?: string,
   } & vpcInputs;
 };
 

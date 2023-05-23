@@ -1,29 +1,25 @@
 import { BaseCommand } from '../../base-command.js';
 import { getProviders, saveProviders } from '../../utils/providers.js';
 
-export default class DeleteProviderCommand extends BaseCommand {
-  static description = 'Delete the specified provider and its credentials';
-  static displayName = 'delete providers';
+export default class RemoveAccountCmd extends BaseCommand {
+  static description = 'Delete the specified account';
+  static displayName = 'delete account';
 
-  static aliases: string[] = [
-    'delete providers',
-    'delete:providers',
-    'deregister:provider',
-    'deregister:providers',
-  ];
+  static aliases: string[] = ['remove:accounts'];
 
   static args = [
     {
       name: 'name',
-      description: 'Name of the provider to delete',
+      description: 'Name of the account to delete',
     },
   ];
 
   async run(): Promise<void> {
-    const { args } = await this.parse(DeleteProviderCommand);
+    const { args } = await this.parse(RemoveAccountCmd);
 
     const provider = await this.promptForProvider({
       provider: args.name,
+      message: 'Select the account to delete',
     });
 
     const providers = await getProviders(this.config.configDir);
@@ -31,6 +27,6 @@ export default class DeleteProviderCommand extends BaseCommand {
       this.config.configDir,
       providers.filter((p) => p.name !== provider.name),
     );
-    this.log('Provider deleted');
+    this.log('Account deleted');
   }
 }

@@ -80,7 +80,7 @@ export class CloudGraph {
 
   public validate(): void {
     for (const node of this.nodes) {
-      if (!node.provider) {
+      if (!node.account) {
         throw new Error(`Missing provider for node: ${node.id}`);
       }
     }

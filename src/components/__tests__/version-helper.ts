@@ -69,7 +69,7 @@ export const testDatabaseIntegration = async (
       type: 'databaseUser',
       username: options.deployment_name,
       databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
-      provider: `\${{ ${database_schema_node_id}.provider }}`,
+      account: `\${{ ${database_schema_node_id}.account }}`,
     },
   });
 

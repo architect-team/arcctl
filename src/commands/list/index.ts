@@ -1,12 +1,11 @@
-import { Flags } from '@oclif/core';
 import { ResourceType, ResourceTypeList } from '../../@resources/index.js';
 import { BaseCommand } from '../../base-command.js';
 import { createTable } from '../../utils/table.js';
+import { Flags } from '@oclif/core';
 
 export default class ListResourcesCommand extends BaseCommand {
   static description =
     'List all the cloud resources matching the specified criteria';
-  static displayName = 'list';
 
   static flags = {
     credentials: Flags.string({

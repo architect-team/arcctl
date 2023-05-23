@@ -45,7 +45,10 @@
         },
         "port": {
           "description": "Port that the ingress rule listens for traffic on",
-          "type": "number"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "service": {
           "description": "Service the ingress forwards traffic to",

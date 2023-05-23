@@ -3,86 +3,50 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "ServiceInputs": {
-      "anyOf": [
-        {
-          "additionalProperties": false,
-          "properties": {
-            "labels": {
-              "additionalProperties": {
-                "type": "string"
-              },
-              "description": "Labels for the service resource",
-              "type": "object"
-            },
-            "listener_port": {
-              "default": 80,
-              "description": "Port to listen for requests on",
-              "type": "number"
-            },
-            "name": {
-              "description": "Name to give to the service",
-              "type": "string"
-            },
-            "namespace": {
-              "description": "Namespace the service should be registered in. Not all providers require this.",
-              "type": "string"
-            },
-            "protocol": {
-              "description": "Protocol the service responds to",
-              "type": "string"
-            },
-            "selector": {
-              "description": "Reference used to target a deployment",
-              "type": "string"
-            },
-            "target_port": {
-              "description": "Port to forward requests to",
-              "type": "number"
-            }
+      "additionalProperties": false,
+      "properties": {
+        "external_name": {
+          "description": "Map this service to the specified hostname instead of to a deployment selector",
+          "type": "string"
+        },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
           },
-          "required": [
-            "name",
-            "protocol",
-            "selector",
-            "target_port"
-          ],
+          "description": "Labels for the service resource",
           "type": "object"
         },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "external_name": {
-              "description": "Map this service to the specified hostname instead of to a deployment selector",
-              "type": "string"
-            },
-            "labels": {
-              "additionalProperties": {
-                "type": "string"
-              },
-              "description": "Labels for the service resource",
-              "type": "object"
-            },
-            "name": {
-              "description": "Name to give to the service",
-              "type": "string"
-            },
-            "namespace": {
-              "description": "Namespace the service should be registered in. Not all providers require this.",
-              "type": "string"
-            },
-            "target_port": {
-              "description": "Port to forward requests to",
-              "type": "number"
-            }
-          },
-          "required": [
-            "external_name",
-            "name",
-            "target_port"
-          ],
-          "type": "object"
+        "listener_port": {
+          "default": 80,
+          "description": "Port to listen for requests on",
+          "type": "number"
+        },
+        "name": {
+          "description": "Name to give to the service",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "Namespace the service should be registered in. Not all providers require this.",
+          "type": "string"
+        },
+        "protocol": {
+          "description": "Protocol the service responds to",
+          "type": "string"
+        },
+        "selector": {
+          "description": "Reference used to target a deployment",
+          "type": "string"
+        },
+        "target_port": {
+          "description": "Port to forward requests to",
+          "type": "number"
         }
-      ]
+      },
+      "required": [
+        "name",
+        "target_port"
+      ],
+      "type": "object"
     }
   }
 }

@@ -18,7 +18,7 @@ export type ResourceInputs = {
 {{#types}}
   '{{name}}': {
     type: '{{name}}',
-    provider?: string,
+    account?: string,
   } & {{slug}}Inputs;
 {{/types}}
 };

@@ -227,10 +227,10 @@ export class ExecutableGraph extends CloudGraph {
           subscriber.next(node);
 
           const provider = options.providerStore.getProvider(
-            node.provider || '',
+            node.account || '',
           );
           if (!provider) {
-            subscriber.error(new Error(`Invalid provider: ${node.provider}`));
+            subscriber.error(new Error(`Invalid provider: ${node.account}`));
             return;
           }
 

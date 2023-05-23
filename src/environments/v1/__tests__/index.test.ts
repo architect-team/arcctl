@@ -69,12 +69,8 @@ describe('Environment schema: v1', () => {
             component: 'account/component',
             environment: 'account/environment',
           }),
-          containers: [
-            {
-              image: 'nginx:latest',
-              volume_mounts: [],
-            },
-          ],
+          image: 'nginx:latest',
+          volume_mounts: [],
           replicas: 1,
         },
       }),

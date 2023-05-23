@@ -2,14 +2,10 @@ import { BaseCommand } from '../../base-command.js';
 import { getProviders } from '../../utils/providers.js';
 import { createTable } from '../../utils/table.js';
 
-export default class ListProvidersCommand extends BaseCommand {
-  static description = 'List the providers registered with the CLI';
-  static displayName = 'list providers';
+export default class ListAccountsCommand extends BaseCommand {
+  static description = 'List the accounts registered with the CLI';
 
-  static aliases: string[] = [
-    'provider:list',
-    'providers:list',
-  ];
+  static aliases: string[] = ['list:account'];
 
   async run(): Promise<void> {
     const providers = await getProviders(this.config.configDir);

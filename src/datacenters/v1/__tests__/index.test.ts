@@ -4,7 +4,7 @@ import {
   CloudGraph,
   CloudNode,
 } from '../../../cloud-graph/index.js';
-import { ProviderStore } from '../../../utils/provider-store.js';
+import { CldCtlProviderStore } from '../../../utils/provider-store.js';
 import { parseDatacenter } from '../../parser.js';
 import DatacenterV1 from '../index.js';
 import yaml from 'js-yaml';
@@ -16,13 +16,13 @@ describe('Datacenter Schema: v1', () => {
         resources:
           gateway:
             type: loadBalancer
-            provider: my-kubernetes-cluster
+            account: my-kubernetes-cluster
             name: gateway
             loadBalancerType: traefik
       `) as any,
     );
 
-    const providerStore = new ProviderStore();
+    const providerStore = new CldCtlProviderStore();
     providerStore.saveProvider(
       new SupportedProviders.kubernetes(
         'my-kubernetes-cluster',
@@ -33,11 +33,7 @@ describe('Datacenter Schema: v1', () => {
       ),
     );
 
-    const graph = await datacenter.enrichGraph(
-      new CloudGraph(),
-      'environment',
-      providerStore,
-    );
+    const graph = await datacenter.enrichGraph(new CloudGraph(), 'environment');
 
     expect(graph.nodes).toEqual(
       expect.arrayContaining([
@@ -47,7 +43,7 @@ describe('Datacenter Schema: v1', () => {
           inputs: {
             type: 'loadBalancer',
             name: 'gateway',
-            provider: 'my-kubernetes-cluster',
+            account: 'my-kubernetes-cluster',
             loadBalancerType: 'traefik',
           },
         }),
@@ -62,11 +58,11 @@ describe('Datacenter Schema: v1', () => {
           vpc:
             type: vpc
             name: vpc
-            provider: aws
+            account: aws
             region: us-east-1
           cluster:
             type: kubernetesCluster
-            provider: aws
+            account: aws
             name: cluster
             kubernetesVersion: '1.24'
             region: us-east-1
@@ -78,7 +74,7 @@ describe('Datacenter Schema: v1', () => {
       `) as any,
     );
 
-    const providerStore = new ProviderStore();
+    const providerStore = new CldCtlProviderStore();
     providerStore.saveProvider(
       new SupportedProviders.aws(
         'aws',
@@ -90,11 +86,7 @@ describe('Datacenter Schema: v1', () => {
       ),
     );
 
-    const graph = await datacenter.enrichGraph(
-      new CloudGraph(),
-      'environment',
-      providerStore,
-    );
+    const graph = await datacenter.enrichGraph(new CloudGraph(), 'environment');
 
     const vpc_node = new CloudNode({
       name: 'vpc',
@@ -103,7 +95,7 @@ describe('Datacenter Schema: v1', () => {
         type: 'vpc',
         name: 'vpc',
         region: 'us-east-1',
-        provider: 'aws',
+        account: 'aws',
       },
     });
 
@@ -112,7 +104,7 @@ describe('Datacenter Schema: v1', () => {
       environment: 'environment',
       inputs: {
         type: 'kubernetesCluster',
-        provider: 'aws',
+        account: 'aws',
         name: 'cluster',
         region: 'us-east-1',
         vpc: `\${{ ${vpc_node.id}.id }}`,
@@ -147,12 +139,12 @@ describe('Datacenter Schema: v1', () => {
         hooks:
           - when:
               type: databaseSchema
-            provider: test
+            account: test
             database: database-id
       `) as any,
     );
 
-    const providerStore = new ProviderStore();
+    const providerStore = new CldCtlProviderStore();
     providerStore.saveProvider(
       new SupportedProviders.aws(
         'test',
@@ -182,9 +174,10 @@ describe('Datacenter Schema: v1', () => {
     });
 
     const graph = await datacenter.enrichGraph(
-      new CloudGraph([databaseSchemaNode]),
+      new CloudGraph({
+        nodes: [databaseSchemaNode],
+      }),
       'environment',
-      providerStore,
     );
 
     const expectedSchemaNode = new CloudNode({
@@ -193,7 +186,7 @@ describe('Datacenter Schema: v1', () => {
       environment: 'account/environment',
       inputs: {
         type: 'databaseSchema',
-        provider: 'test',
+        account: 'test',
         database: 'database-id',
         databaseType: 'postgres',
         databaseVersion: '13',
@@ -208,17 +201,17 @@ describe('Datacenter Schema: v1', () => {
     expect(graph.nodes).toEqual(expect.arrayContaining([expectedSchemaNode]));
   });
 
-  it("should not modify resources that don't match hooks", async () => {
+  it(`should not modify resources that don't match hooks`, async () => {
     const datacenter = await parseDatacenter(
       yaml.load(`
         hooks:
           - when:
               type: ingressRule
-            provider: test
+            account: test
       `) as any,
     );
 
-    const providerStore = new ProviderStore();
+    const providerStore = new CldCtlProviderStore();
     providerStore.saveProvider(
       new SupportedProviders.aws(
         'test',
@@ -248,9 +241,10 @@ describe('Datacenter Schema: v1', () => {
     });
 
     const graph = await datacenter.enrichGraph(
-      new CloudGraph([databaseSchemaNode]),
+      new CloudGraph({
+        nodes: [databaseSchemaNode],
+      }),
       'environment',
-      providerStore,
     );
 
     expect(graph.nodes).toEqual(expect.arrayContaining([databaseSchemaNode]));
@@ -265,16 +259,17 @@ describe('Datacenter Schema: v1', () => {
             resources:
               test:
                 type: database
-                provider: test
+                account: test
                 name: test
                 databaseSize: size-slug
                 databaseType: postgres
                 databaseVersion: '13'
                 vpc: vpc-1
+                region: us-east-1
       `) as any,
     );
 
-    const providerStore = new ProviderStore();
+    const providerStore = new CldCtlProviderStore();
     providerStore.saveProvider(
       new SupportedProviders.aws(
         'test',
@@ -304,9 +299,10 @@ describe('Datacenter Schema: v1', () => {
     });
 
     const graph = await datacenter.enrichGraph(
-      new CloudGraph([databaseSchemaNode]),
+      new CloudGraph({
+        nodes: [databaseSchemaNode],
+      }),
       'account/environment',
-      providerStore,
     );
 
     const expectedDatabaseNode = new CloudNode({
@@ -319,7 +315,8 @@ describe('Datacenter Schema: v1', () => {
         databaseVersion: '13',
         databaseType: 'postgres',
         vpc: 'vpc-1',
-        provider: 'test',
+        account: 'test',
+        region: 'us-east-1',
       },
     });
 
@@ -335,17 +332,18 @@ describe('Datacenter Schema: v1', () => {
             resources:
               test:
                 type: database
-                provider: test
+                account: test
                 name: test
                 databaseSize: size-slug
                 databaseType: postgres
                 databaseVersion: '13'
                 vpc: vpc-1
+                region: us-east-1
             database: \${{ this.resources.test.id }}
       `) as any,
     );
 
-    const providerStore = new ProviderStore();
+    const providerStore = new CldCtlProviderStore();
     providerStore.saveProvider(
       new SupportedProviders.aws(
         'test',
@@ -375,9 +373,10 @@ describe('Datacenter Schema: v1', () => {
     });
 
     const graph = await datacenter.enrichGraph(
-      new CloudGraph([databaseSchemaNode]),
+      new CloudGraph({
+        nodes: [databaseSchemaNode],
+      }),
       'account/environment',
-      providerStore,
     );
 
     (databaseSchemaNode as CloudNode<'databaseSchema'>).inputs.database =
@@ -389,11 +388,12 @@ describe('Datacenter Schema: v1', () => {
       inputs: {
         type: 'database',
         name: 'test',
-        provider: 'test',
+        account: 'test',
         databaseSize: 'size-slug',
         databaseVersion: '13',
         databaseType: 'postgres',
         vpc: 'vpc-1',
+        region: 'us-east-1',
       },
     });
 

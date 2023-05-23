@@ -23,7 +23,7 @@ const parseDatabaseRefs = <T extends CloudNode>(
           environment: context.environment,
           inputs: {
             type: 'databaseUser',
-            provider: `\${{ ${database_schema_node_id}.provider }}`,
+            account: `\${{ ${database_schema_node_id}.account }}`,
             username: node.name,
             databaseSchema: `\${{ ${database_schema_node_id}.id }}`,
           },

@@ -22,7 +22,7 @@ export class AwsDatabaseVersionService extends ResourceService<
     filterOptions?: Partial<ResourceOutputs['databaseVersion']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseVersion']>> {
-    const rds = AwsUtils.getRDS(this.credentials);
+    const rds = AwsUtils.getRDS(this.credentials, this.credentials.region);
 
     let marker = '';
     const engineVersions: ResourceOutputs['databaseVersion'][] = [];
@@ -51,6 +51,7 @@ export class AwsDatabaseVersionService extends ResourceService<
           engineVersions.push({
             id: `${engine.EngineVersion}/${engine.MajorEngineVersion}`,
             databaseType: engine.Engine || '',
+            databaseVersion: engine.EngineVersion,
           });
         }
       }

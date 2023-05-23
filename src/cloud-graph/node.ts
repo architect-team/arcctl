@@ -53,8 +53,8 @@ export class CloudNode<T extends ResourceType = ResourceType> {
     this.inputs = options.inputs;
   }
 
-  get provider(): string | undefined {
-    return this.inputs.provider;
+  get account(): string | undefined {
+    return this.inputs.account;
   }
 
   get type(): ResourceType {

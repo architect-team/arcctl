@@ -131,10 +131,10 @@ export default class DatacenterV1 extends Datacenter {
     // Run hooks on each node
     for (const node of graph.nodes) {
       // Skip nodes that already have a provider
-      if (node.provider) continue;
+      if (node.account) continue;
 
       // See if the node matches any hooks
-      for (const [index, hook] of (this.hooks || []).entries()) {
+      for (const hook of this.hooks || []) {
         const doesMatchNode =
           !hook.when ||
           Object.entries(hook.when || {}).every(
@@ -242,13 +242,13 @@ export default class DatacenterV1 extends Datacenter {
           replaceHookExpressions(hookResources, node.name, node.id, {
             ...node.inputs,
             ...hookData,
-            provider: node.inputs.provider || hookData.provider,
+            account: node.inputs.account || hookData.account,
           } as any),
         );
 
         graph.insertNodes(node);
 
-        if (node.provider) {
+        if (node.account) {
           break;
         }
       }

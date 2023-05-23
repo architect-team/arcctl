@@ -1,9 +1,8 @@
-
+#!/usr/bin/env ts-node
 import fs from 'fs/promises';
+import Mustache from 'mustache';
 import path from 'path';
 import url from 'url';
-// eslint-disable-next-line node/no-unpublished-import
-import Mustache from 'mustache';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const providersDir = path.join(__dirname, '../../src/@providers/');
@@ -14,18 +13,18 @@ const allProviders = (await fs.readdir(providersDir, { withFileTypes: true }))
   .map((dirent) => dirent.name);
 
 type ProviderTypeFileOptions = {
-  providerList: {
+  provider_list: {
     name: string;
     slug: string;
   }[];
 };
 
 const providerTypeFileOptions: ProviderTypeFileOptions = {
-  providerList: [],
+  provider_list: [],
 };
 
 for (const type of allProviders) {
-  providerTypeFileOptions.providerList.push({
+  providerTypeFileOptions.provider_list.push({
     name: type.replace(/-([\dA-Za-z])/g, (g) => g[1].toUpperCase()),
     slug: type,
   });

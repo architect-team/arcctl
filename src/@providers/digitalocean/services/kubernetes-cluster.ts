@@ -1,11 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { InputValidators, ResourcePresets } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.js';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanKubernetesClusterService extends ResourceService<
+export class DigitaloceanKubernetesClusterService extends TerraformResourceService<
   'kubernetesCluster',
   DigitaloceanCredentials
 > {
@@ -65,21 +66,24 @@ export class DigitaloceanKubernetesClusterService extends ResourceService<
     };
   }
 
-  manage = {
-    validators: {
+  get validators(): InputValidators<'kubernetesCluster'> {
+    return {
       name: (input: string) =>
         /^[\d.A-Za-z-]+$/.test(input) ||
         'Must be unique and contain alphanumeric characters, dashes, and periods only.',
-      'nodePools.name': (input: string) =>
-        /^[\d.A-Za-z-]+$/.test(input) ||
-        'Must be unique and contain alphanumeric characters, dashes, and periods only.',
+      // TODO: Fix typing on this
+      // 'nodePools.name': (input: string) =>
+      //   /^[\d.A-Za-z-]+$/.test(input) ||
+      //   'Must be unique and contain alphanumeric characters, dashes, and periods only.',
       description: (input?: string) =>
         !input ||
         input.length <= 255 ||
         'Description must be less than 255 characters',
-    },
+    };
+  }
 
-    presets: [
+  get presets(): ResourcePresets<'kubernetesCluster'> {
+    return [
       {
         display: 'Minimum (Cheapest)',
         values: {
@@ -104,8 +108,8 @@ export class DigitaloceanKubernetesClusterService extends ResourceService<
           ],
         },
       },
-    ],
+    ];
+  }
 
-    module: DigitaloceanKubernetesClusterModule,
-  };
+  readonly construct = DigitaloceanKubernetesClusterModule;
 }

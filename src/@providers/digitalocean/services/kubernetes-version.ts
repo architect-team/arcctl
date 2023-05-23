@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { ReadOnlyResourceService } from '../../service.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanKubernetesVersionService extends ResourceService<
-  'kubernetesVersion',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanKubernetesVersionService extends ReadOnlyResourceService<'kubernetesVersion'> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {

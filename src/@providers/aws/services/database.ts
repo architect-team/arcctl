@@ -1,12 +1,13 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { ResourcePresets } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsDatabaseModule } from '../modules/database.js';
 import AwsUtils from '../utils.js';
 import { AwsRegionService } from './region.js';
 
-export class AwsDatabaseService extends ResourceService<
+export class AwsDatabaseService extends TerraformResourceService<
   'database',
   AwsCredentials
 > {
@@ -52,8 +53,8 @@ export class AwsDatabaseService extends ResourceService<
     };
   }
 
-  manage = {
-    presets: [
+  get presets(): ResourcePresets<'database'> {
+    return [
       {
         display: 'Development',
         values: {
@@ -62,8 +63,8 @@ export class AwsDatabaseService extends ResourceService<
           databaseSize: 'db.t3.medium',
         },
       },
-    ],
+    ];
+  }
 
-    module: AwsDatabaseModule,
-  };
+  readonly construct = AwsDatabaseModule;
 }

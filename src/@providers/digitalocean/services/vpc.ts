@@ -1,12 +1,13 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { InputValidators } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { DigitaloceanVpcModule } from '../modules/vpc.js';
 import { createApiClient } from 'dots-wrapper';
 import { IVpc } from 'dots-wrapper/dist/vpc/index.js';
 
-export class DigitaloceanVpcService extends ResourceService<
+export class DigitaloceanVpcService extends TerraformResourceService<
   'vpc',
   DigitaloceanCredentials
 > {
@@ -51,8 +52,8 @@ export class DigitaloceanVpcService extends ResourceService<
     };
   }
 
-  manage = {
-    validators: {
+  get validators(): InputValidators<'vpc'> {
+    return {
       name: (input: string) => {
         return (
           /^[\d.A-Za-z-]+$/.test(input) ||
@@ -67,8 +68,8 @@ export class DigitaloceanVpcService extends ResourceService<
           'Description must be less than 255 characters.'
         );
       },
-    },
+    };
+  }
 
-    module: DigitaloceanVpcModule,
-  };
+  readonly construct = DigitaloceanVpcModule;
 }

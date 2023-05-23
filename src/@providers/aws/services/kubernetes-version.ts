@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { ReadOnlyResourceService } from '../../service.js';
 import { AwsCredentials } from '../credentials.js';
 import AwsUtils from '../utils.js';
 
-export class AwsKubernetesVersionService extends ResourceService<
-  'kubernetesVersion',
-  AwsCredentials
-> {
+export class AwsKubernetesVersionService extends ReadOnlyResourceService<'kubernetesVersion'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }

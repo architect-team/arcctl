@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { ReadOnlyResourceService } from '../../service.js';
 import { AwsCredentials } from '../credentials.js';
 import AwsUtils from '../utils.js';
 
-export class AwsRegionService extends ResourceService<
-  'region',
-  AwsCredentials
-> {
+export class AwsRegionService extends ReadOnlyResourceService<'region'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }

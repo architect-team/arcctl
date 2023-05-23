@@ -4,3 +4,5 @@ export * from './service.js';
 export * from './provider.js';
 export * from './store.js';
 export * from './supported-providers.js';
+export * from './crud.service.js';
+export * from './terraform.service.js';

@@ -1,8 +1,8 @@
 {
-  "$ref": "#/definitions/KubernetesNamespaceInputs",
+  "$ref": "#/definitions/NamespaceInputs",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "KubernetesNamespaceInputs": {
+    "NamespaceInputs": {
       "additionalProperties": false,
       "properties": {
         "name": {

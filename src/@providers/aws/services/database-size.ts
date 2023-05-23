@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { ReadOnlyResourceService } from '../../service.js';
 import { AwsCredentials } from '../credentials.js';
 import AwsUtils from '../utils.js';
 
-export class AwsDatabaseSizeService extends ResourceService<
-  'databaseSize',
-  AwsCredentials
-> {
+export class AwsDatabaseSizeService extends ReadOnlyResourceService<'databaseSize'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }

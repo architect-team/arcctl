@@ -1,12 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { KubernetesCredentials } from '../credentials.js';
 import { KubernetesDeploymentModule } from '../modules/deployment.js';
 import { KubernetesNamespaceService } from './namespace.js';
 import k8s from '@kubernetes/client-node';
 
-export class KubernetesDeploymentService extends ResourceService<
+export class KubernetesDeploymentService extends TerraformResourceService<
   'deployment',
   KubernetesCredentials
 > {
@@ -84,7 +84,5 @@ export class KubernetesDeploymentService extends ResourceService<
     };
   }
 
-  manage = {
-    module: KubernetesDeploymentModule,
-  };
+  readonly construct = KubernetesDeploymentModule;
 }

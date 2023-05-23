@@ -1,11 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { InputValidators } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsDnsZoneModule } from '../modules/dns-zone.js';
 import AwsUtils from '../utils.js';
 
-export class AwsDnsZoneService extends ResourceService<
+export class AwsDnsZoneService extends TerraformResourceService<
   'dnsZone',
   AwsCredentials
 > {
@@ -47,23 +48,16 @@ export class AwsDnsZoneService extends ResourceService<
     };
   }
 
-  manage = {
-    validators: {
-      dnsName: (input: string): string | true => {
-        if (!/^\*?\S+\.\S+\.$/.test(input)) {
-          return 'DNS name must end with a period, have more than two parts separated by periods, and can have an optional asterisk at the beginning. Whitespace characters are not allowed.';
-        }
-        return true;
-      },
-
+  get validators(): InputValidators<'dnsZone'> {
+    return {
       name: (input: string): string | true => {
         if (!/^\*?\S+\.\S+\.$/.test(input)) {
           return 'Name must end with a period, have more than two parts separated by periods, and can have an optional asterisk at the beginning. Whitespace characters are not allowed.';
         }
         return true;
       },
-    },
+    };
+  }
 
-    module: AwsDnsZoneModule,
-  };
+  readonly construct = AwsDnsZoneModule;
 }

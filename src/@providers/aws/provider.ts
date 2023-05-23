@@ -1,6 +1,6 @@
 import { AwsDnsZoneTest } from '../aws/tests/dns-zone.js';
 import { ProviderCredentials } from '../credentials.js';
-import { Provider, ProviderResources } from '../provider.js';
+import { Provider } from '../provider.js';
 import { CldctlTestResource } from '../tests.js';
 import { AwsProvider as TerraformAwsProvider } from './.gen/providers/aws/provider/index.js';
 import { AwsCredentials, AwsCredentialsSchema } from './credentials.js';
@@ -25,7 +25,7 @@ export default class AwsProvider extends Provider<AwsCredentials> {
 
   static readonly CredentialsSchema = AwsCredentialsSchema;
 
-  readonly resources: ProviderResources<AwsCredentials> = {
+  readonly resources = {
     region: new AwsRegionService(this.credentials),
     vpc: new AwsVpcService(this.credentials),
     kubernetesVersion: new AwsKubernetesVersionService(this.credentials),

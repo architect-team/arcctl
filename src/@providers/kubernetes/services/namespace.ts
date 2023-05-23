@@ -1,12 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { KubernetesCredentials } from '../credentials.js';
 import { KubernetesNamespaceModule } from '../modules/namespace.js';
 import k8s from '@kubernetes/client-node';
 
-export class KubernetesNamespaceService extends ResourceService<
-  'kubernetesNamespace',
+export class KubernetesNamespaceService extends TerraformResourceService<
+  'namespace',
   KubernetesCredentials
 > {
   private client: k8s.CoreV1Api;
@@ -28,9 +28,7 @@ export class KubernetesNamespaceService extends ResourceService<
     this.client = kubeConfig.makeApiClient(k8s.CoreV1Api);
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['kubernetesNamespace'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {
     try {
       const { body } = await this.client.readNamespace(id);
 
@@ -47,12 +45,12 @@ export class KubernetesNamespaceService extends ResourceService<
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['kubernetesNamespace']>,
+    filterOptions?: Partial<ResourceOutputs['namespace']>,
     pagingOptions?: Partial<PagingOptions>,
-  ): Promise<PagingResponse<ResourceOutputs['kubernetesNamespace']>> {
+  ): Promise<PagingResponse<ResourceOutputs['namespace']>> {
     const { body } = await this.client.listNamespace();
 
-    const rows: Array<ResourceOutputs['kubernetesNamespace']> = [];
+    const rows: Array<ResourceOutputs['namespace']> = [];
     for (const item of body.items) {
       if (item.metadata?.name) {
         rows.push({
@@ -69,7 +67,5 @@ export class KubernetesNamespaceService extends ResourceService<
     };
   }
 
-  manage = {
-    module: KubernetesNamespaceModule,
-  };
+  readonly construct = KubernetesNamespaceModule;
 }

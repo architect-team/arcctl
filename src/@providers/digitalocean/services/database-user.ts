@@ -1,11 +1,11 @@
 import { ResourceOutputs } from '../../../@resources/types.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { DigitaloceanDatabaseUserModule } from '../modules/database-user.js';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseUserService extends ResourceService<
+export class DigitaloceanDatabaseUserService extends TerraformResourceService<
   'databaseUser',
   DigitaloceanCredentials
 > {
@@ -27,7 +27,5 @@ export class DigitaloceanDatabaseUserService extends ResourceService<
     throw new Error('Method not implemented.');
   }
 
-  manage = {
-    module: DigitaloceanDatabaseUserModule,
-  };
+  readonly construct = DigitaloceanDatabaseUserModule;
 }

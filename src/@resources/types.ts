@@ -26,14 +26,14 @@ import type ingressRuleInputs from './ingressRule/inputs.js';
 import type ingressRuleOutputs from './ingressRule/outputs.js';
 import type kubernetesClusterInputs from './kubernetesCluster/inputs.js';
 import type kubernetesClusterOutputs from './kubernetesCluster/outputs.js';
-import type kubernetesNamespaceInputs from './kubernetesNamespace/inputs.js';
-import type kubernetesNamespaceOutputs from './kubernetesNamespace/outputs.js';
 import type kubernetesVersionInputs from './kubernetesVersion/inputs.js';
 import type kubernetesVersionOutputs from './kubernetesVersion/outputs.js';
 import type loadBalancerInputs from './loadBalancer/inputs.js';
 import type loadBalancerOutputs from './loadBalancer/outputs.js';
 import type loadBalancerTypeInputs from './loadBalancerType/inputs.js';
 import type loadBalancerTypeOutputs from './loadBalancerType/outputs.js';
+import type namespaceInputs from './namespace/inputs.js';
+import type namespaceOutputs from './namespace/outputs.js';
 import type nodeInputs from './node/inputs.js';
 import type nodeOutputs from './node/outputs.js';
 import type nodeSizeInputs from './nodeSize/inputs.js';
@@ -66,10 +66,10 @@ export type ResourceType =
   | 'helmChart'
   | 'ingressRule'
   | 'kubernetesCluster'
-  | 'kubernetesNamespace'
   | 'kubernetesVersion'
   | 'loadBalancer'
   | 'loadBalancerType'
+  | 'namespace'
   | 'node'
   | 'nodeSize'
   | 'region'
@@ -95,10 +95,10 @@ export const ResourceTypeList: ResourceType[] = [
   'helmChart',
   'ingressRule',
   'kubernetesCluster',
-  'kubernetesNamespace',
   'kubernetesVersion',
   'loadBalancer',
   'loadBalancerType',
+  'namespace',
   'node',
   'nodeSize',
   'region',
@@ -166,10 +166,6 @@ export type ResourceInputs = {
     type: 'kubernetesCluster',
     account?: string,
   } & kubernetesClusterInputs;
-  'kubernetesNamespace': {
-    type: 'kubernetesNamespace',
-    account?: string,
-  } & kubernetesNamespaceInputs;
   'kubernetesVersion': {
     type: 'kubernetesVersion',
     account?: string,
@@ -182,6 +178,10 @@ export type ResourceInputs = {
     type: 'loadBalancerType',
     account?: string,
   } & loadBalancerTypeInputs;
+  'namespace': {
+    type: 'namespace',
+    account?: string,
+  } & namespaceInputs;
   'node': {
     type: 'node',
     account?: string,
@@ -259,9 +259,6 @@ export type ResourceOutputs = {
   'kubernetesCluster': {
     id: string;
   } & kubernetesClusterOutputs;
-  'kubernetesNamespace': {
-    id: string;
-  } & kubernetesNamespaceOutputs;
   'kubernetesVersion': {
     id: string;
   } & kubernetesVersionOutputs;
@@ -271,6 +268,9 @@ export type ResourceOutputs = {
   'loadBalancerType': {
     id: string;
   } & loadBalancerTypeOutputs;
+  'namespace': {
+    id: string;
+  } & namespaceOutputs;
   'node': {
     id: string;
   } & nodeOutputs;

@@ -1,12 +1,13 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { DigitaloceanDatabaseModule } from '../modules/database.js';
+import { ResourcePresets } from '@providers/service.js';
 import { createApiClient } from 'dots-wrapper';
 import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.js';
 
-export class DigitaloceanDatabaseService extends ResourceService<
+export class DigitaloceanDatabaseService extends TerraformResourceService<
   'database',
   DigitaloceanCredentials
 > {
@@ -52,8 +53,8 @@ export class DigitaloceanDatabaseService extends ResourceService<
     };
   }
 
-  manage = {
-    presets: [
+  get presets(): ResourcePresets<'database'> {
+    return [
       {
         display: 'Development',
         values: {
@@ -62,8 +63,8 @@ export class DigitaloceanDatabaseService extends ResourceService<
           databaseSize: 'db-s-1vcpu-1gb',
         },
       },
-    ],
+    ];
+  }
 
-    module: DigitaloceanDatabaseModule,
-  };
+  readonly construct = DigitaloceanDatabaseModule;
 }

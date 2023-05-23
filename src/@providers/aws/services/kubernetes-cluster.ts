@@ -1,7 +1,11 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
+import KubernetesUtils from '../../kubernetes.js';
 import { ResourcePresets } from '../../service.js';
+import { ProviderStore } from '../../store.js';
+import { SupportedProviders } from '../../supported-providers.js';
 import { TerraformResourceService } from '../../terraform.service.js';
+import { SaveFileFn } from '../../types.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.js';
 import AwsUtils from '../utils.js';
@@ -140,4 +144,58 @@ export class AwsKubernetesClusterService extends TerraformResourceService<
   }
 
   readonly construct = AwsKubernetesClusterModule;
+
+  hooks = {
+    afterCreate: async (
+      saveFile: SaveFileFn,
+      saveProvider: ProviderStore['saveProvider'],
+      inputs: ResourceInputs['kubernetesCluster'],
+      outputs: ResourceOutputs['kubernetesCluster'] & Record<string, any>,
+    ) => {
+      const ca = outputs.clusterCaOutput;
+      const endpoint = outputs.clusterEndpointOutput;
+      const credentialsYaml = `apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ${ca}
+    server: ${endpoint}
+  name: ${inputs.name}
+contexts:
+- context:
+    cluster:  ${inputs.name}
+    user:  ${inputs.name}
+  name:  ${inputs.name}
+current-context:  ${inputs.name}
+kind: Config
+preferences: {}
+users:
+- name:  ${inputs.name}
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - ${inputs.region}
+      - eks
+      - get-token
+      - --cluster-name
+      - ${inputs.name}
+      command: aws`;
+      await KubernetesUtils.createProvider(inputs.name, credentialsYaml);
+      const configPath = saveFile(inputs.name, credentialsYaml);
+      saveProvider(
+        new SupportedProviders.kubernetes(
+          `kubernetesCluster-${inputs.name}`,
+          {
+            configPath,
+          },
+          saveFile,
+        ),
+      );
+    },
+
+    afterDelete: async () => {
+      await KubernetesUtils.deleteProvider(this.id);
+    },
+  };
 }

@@ -8,10 +8,9 @@ export default class ListResourcesCommand extends BaseCommand {
     'List all the cloud resources matching the specified criteria';
 
   static flags = {
-    credentials: Flags.string({
-      char: 'c',
-      description:
-        'The cloud provider credentials to use to apply this resource',
+    account: Flags.string({
+      char: 'a',
+      description: 'The cloud provider account to query resources from',
     }),
 
     filter: Flags.string({
@@ -33,8 +32,8 @@ export default class ListResourcesCommand extends BaseCommand {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(ListResourcesCommand);
-    const provider = await this.promptForProvider({
-      provider: flags.credentials,
+    const provider = await this.promptForAccount({
+      account: flags.account,
       type: args.type,
       action: 'list',
     });

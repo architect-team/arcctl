@@ -1,4 +1,4 @@
-# cldctl - Kubernetes Provider
+# arcctl - Kubernetes Provider
 
 ## Getting started
 

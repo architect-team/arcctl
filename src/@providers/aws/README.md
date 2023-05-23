@@ -1,4 +1,4 @@
-# cldctl - AWS Provider
+# arcctl - AWS Provider
 
 ## Getting started
 

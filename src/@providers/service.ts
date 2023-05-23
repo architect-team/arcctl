@@ -4,6 +4,8 @@ import {
   ResourceType,
 } from '../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../utils/paging.js';
+import { ProviderStore } from './store.js';
+import { SaveFileFn } from './types.js';
 
 export type InputValidators<T extends ResourceType> = {
   [P in keyof ResourceInputs[T]]?: (
@@ -16,7 +18,21 @@ export type ResourcePresets<T extends ResourceType> = Array<{
   values: Partial<ResourceInputs[T]>;
 }>;
 
-export abstract class ReadOnlyResourceService<T extends ResourceType> {
+export interface ResourceLifecycleHooks<T extends ResourceType> {
+  afterCreate?: (
+    providerStore: ProviderStore,
+    inputs: ResourceInputs[T],
+    outputs: ResourceOutputs[T] & Record<string, any>,
+  ) => Promise<void>;
+  afterDelete?: (
+    outputs: ResourceOutputs[T] & Record<string, any>,
+  ) => Promise<void>;
+  afterImport?: () => Promise<void>;
+}
+
+export abstract class BaseService<T extends ResourceType> {
+  hooks: ResourceLifecycleHooks<T> = {};
+
   /**
    * Retrieve the details of an existing resource
    */

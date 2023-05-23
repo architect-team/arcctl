@@ -1,7 +1,7 @@
 import { BaseCommand } from '../../base-command.js';
 import { CloudGraph } from '../../cloud-graph/index.js';
 import { parseDatacenter } from '../../datacenters/index.js';
-import { ExecutableGraph } from '../../executable-graph/index.js';
+import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
 
 export default class ApplyDatacenterChangesCmd extends BaseCommand {
@@ -33,7 +33,7 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
         (e) => e.datacenter === flags.name,
       );
 
-      const graph = new ExecutableGraph();
+      const graph = new Pipeline();
 
       for (const record of datacenterEnvironments) {
         const originalEnvGraph = await record.config?.getGraph(
@@ -45,7 +45,7 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
           record.name,
         );
 
-        const environmentPlan = ExecutableGraph.plan({
+        const environmentPlan = Pipeline.plan({
           before: record.graph,
           after: targetEnvGraph,
           datacenter: flags.name,

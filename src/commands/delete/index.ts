@@ -1,11 +1,11 @@
 import { ResourceOutputs, ResourceType } from '../../@resources/types.js';
 import { BaseCommand } from '../../base-command.js';
+import { PipelineStep, StepStatus } from '../../pipeline/index.js';
 import CloudCtlConfig from '../../utils/config.js';
 import { CldCtlTerraformStack } from '../../utils/stack.js';
 import TaskManager from '../../utils/task-manager.js';
 import Terraform from '../../utils/terraform.js';
 import { Flags } from '@oclif/core';
-import { ResourceStatus } from '@providers/status.js';
 import { App } from 'cdktf';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
@@ -13,17 +13,11 @@ import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
 
 export default class DeleteResourceCommand extends BaseCommand {
   static description = 'Delete a cloud resource';
-  static displayName = 'delete';
 
   static flags = {
-    credentials: Flags.string({
-      char: 'c',
-      description:
-        'The cloud provider credentials to use to apply this resource',
-    }),
-    dev: Flags.boolean({
-      description: 'When enabled no actual terraform is applied',
-      default: false,
+    account: Flags.string({
+      char: 'a',
+      description: 'The cloud provider account to use to destroy this resource',
     }),
   };
 
@@ -43,8 +37,6 @@ export default class DeleteResourceCommand extends BaseCommand {
   async run(): Promise<void> {
     const { args, flags } = await this.parse(DeleteResourceCommand);
 
-    CloudCtlConfig.setDev(flags.dev);
-
     if (args.type) {
       const is_creatable_type = await this.isCreatableResourceType(args.type);
       if (!is_creatable_type) {
@@ -52,15 +44,15 @@ export default class DeleteResourceCommand extends BaseCommand {
       }
     }
 
-    const provider = await this.promptForProvider({
-      provider: flags.credentials,
+    const provider = await this.promptForAccount({
+      account: flags.account,
       type: args.type,
-      action: 'manage',
+      action: 'delete',
     });
 
     const type = await this.promptForResourceType(
       provider,
-      'manage',
+      'delete',
       args.type,
     );
 
@@ -68,13 +60,6 @@ export default class DeleteResourceCommand extends BaseCommand {
     if (!service) {
       this.error(
         `The ${provider.type} provider doesn't support ${type} resources`,
-      );
-    }
-
-    const ModuleConstructor = service.manage?.module;
-    if (!ModuleConstructor) {
-      this.error(
-        `The ${provider.type} provider can't delete ${type} resources`,
       );
     }
 
@@ -130,7 +115,7 @@ export default class DeleteResourceCommand extends BaseCommand {
         finished: false,
         action: () => {
           const subject = new BehaviorSubject<
-            ResourceOutputs[ResourceType] | ResourceStatus
+            ResourceOutputs[ResourceType] | StepStatus
           >({
             state: 'pending',
           });

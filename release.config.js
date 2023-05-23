@@ -73,7 +73,7 @@ module.exports = {
       prerelease: true,
     },
     {
-      name: 'cldctl-*',
+      name: 'arcctl-*',
       prerelease: true,
     },
   ],

@@ -1,6 +1,6 @@
 import { BaseCommand } from '../../base-command.js';
 import { CloudGraph } from '../../cloud-graph/index.js';
-import { ExecutableGraph } from '../../executable-graph/index.js';
+import { Pipeline } from '../../pipeline/index.js';
 import { EnvironmentRecord } from '../../utils/environment-store.js';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
@@ -53,7 +53,7 @@ export class DestroyEnvironmentCmd extends BaseCommand {
       datacenter: datacenterName,
     } = await this.promptForEnvironment(args.name);
 
-    const graphPlan = ExecutableGraph.plan({
+    const graphPlan = Pipeline.plan({
       before: previousGraph,
       after: new CloudGraph(),
       datacenter: datacenterName,

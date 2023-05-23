@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/consistent-function-scoping */
 import {
   InputSchema,
   ResourceInputs,
@@ -5,16 +6,12 @@ import {
 } from '../../@resources/index.js';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.js';
 import { DeepPartial } from '../../utils/types.js';
-import { Datacenter } from '../datacenter.js';
-import { StateBackends } from './backends.js';
-import { LocalBackend, S3Backend } from 'cdktf';
-import { Construct } from 'constructs';
-import path from 'path';
+import { Datacenter, DatacenterSecretsConfig } from '../datacenter.js';
 
 /**
  * @discriminator type
  */
-type FullResource = { provider: string } & InputSchema;
+type FullResource = { account: string } & InputSchema;
 
 type Hook<T extends ResourceType = ResourceType> = {
   when?: { type: T } & DeepPartial<ResourceInputs[T]>;
@@ -30,9 +27,19 @@ type Hook<T extends ResourceType = ResourceType> = {
 
 export default class DatacenterV1 extends Datacenter {
   /**
-   * Configure where terraform state files should be stored
+   * Configure how secrets should be stored.
    */
-  state!: StateBackends;
+  secrets!: {
+    /**
+     * Which account secrets should be stored in
+     */
+    account: string;
+
+    /**
+     * What additional namespacing to use for secrets hosted by the datacenter
+     */
+    namespace?: string;
+  };
 
   /**
    * Configure what resources must exist in each environment in the datacenter
@@ -130,7 +137,7 @@ export default class DatacenterV1 extends Datacenter {
 
     // Run hooks on each node
     for (const node of graph.nodes) {
-      // Skip nodes that already have a provider
+      // Skip nodes that already have an account
       if (node.account) continue;
 
       // See if the node matches any hooks
@@ -257,22 +264,7 @@ export default class DatacenterV1 extends Datacenter {
     return graph;
   }
 
-  configureBackend(scope: Construct, filename: string): void {
-    switch (this.state.type) {
-      case 'digitalocean': {
-        new S3Backend(scope, {
-          key: filename,
-          bucket: this.state.bucket,
-          accessKey: this.state.accessKey,
-          secretKey: this.state.secretKey,
-        });
-        return;
-      }
-      case 'local': {
-        new LocalBackend(scope, {
-          path: path.join(this.state.path, filename),
-        });
-      }
-    }
+  public getSecretsConfig(): DatacenterSecretsConfig {
+    return this.secrets;
   }
 }

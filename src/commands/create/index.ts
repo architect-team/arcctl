@@ -66,8 +66,8 @@ export default class CreateResourceCommand extends BaseCommand {
       }
     }
 
-    const provider = await this.promptForProvider({
-      provider: flags.credentials,
+    const provider = await this.promptForAccount({
+      account: flags.credentials,
       type: args.type,
       action: 'manage',
     });

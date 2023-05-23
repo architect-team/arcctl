@@ -1,6 +1,6 @@
 import { BaseCommand } from '../../base-command.js';
 import { CloudGraph } from '../../cloud-graph/index.js';
-import { ExecutableGraph } from '../../executable-graph/index.js';
+import { Pipeline } from '../../pipeline/index.js';
 import { DatacenterRecord } from '../../utils/datacenter-store.js';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
@@ -55,7 +55,7 @@ export class DestroyDatacenterCmd extends BaseCommand {
       (r) => r.datacenter === name,
     );
 
-    const graph = new ExecutableGraph();
+    const graph = new Pipeline();
     for (const record of datacenterEnvironments) {
       const environmentGraph = await datacenter.enrichGraph(
         record.graph,
@@ -69,7 +69,7 @@ export class DestroyDatacenterCmd extends BaseCommand {
 
     graph.validate();
 
-    const graphPlan = ExecutableGraph.plan({
+    const graphPlan = Pipeline.plan({
       before: graph,
       after: new CloudGraph(),
       datacenter: name,

@@ -4,13 +4,13 @@ import {
   ProviderCredentials,
   ProviderCredentialsSchema,
 } from './credentials.js';
-import { ReadOnlyResourceService } from './service.js';
+import { BaseService } from './service.js';
 import { CldctlTestResource } from './tests.js';
 import { SaveFileFn } from './types.js';
 import { Construct } from 'constructs';
 
 export type ProviderResources = {
-  [T in ResourceType]?: ReadOnlyResourceService<T>;
+  [T in ResourceType]?: BaseService<T>;
 };
 
 type Entries<T> = {
@@ -55,10 +55,10 @@ export abstract class Provider<
   public abstract testCredentials(): Promise<boolean>;
 
   public getResourceEntries(): Entries<{
-    [T in ResourceType]: ReadOnlyResourceService<T>;
+    [T in ResourceType]: BaseService<T>;
   }> {
     return Object.entries(this.resources) as Entries<{
-      [T in ResourceType]: ReadOnlyResourceService<T>;
+      [T in ResourceType]: BaseService<T>;
     }>;
   }
 

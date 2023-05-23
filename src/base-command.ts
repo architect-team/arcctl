@@ -11,7 +11,7 @@ import {
   ResourceTypeList,
 } from './@resources/index.js';
 import { ComponentStore } from './component-store/index.js';
-import { ExecutableGraph } from './executable-graph/index.js';
+import { Pipeline } from './pipeline/index.js';
 import CloudCtlConfig from './utils/config.js';
 import { DatacenterStore } from './utils/datacenter-store.js';
 import { EnvironmentStore } from './utils/environment-store.js';
@@ -61,7 +61,7 @@ export abstract class BaseCommand extends Command {
    * Render the executable graph and the status of each resource
    */
   protected renderGraph(
-    graph: ExecutableGraph,
+    graph: Pipeline,
     options?: { showEnvironment?: boolean },
   ): void {
     const headers = ['Name', 'Type', 'Component'];
@@ -358,7 +358,7 @@ export abstract class BaseCommand extends Command {
               name: row.id,
               value: row.id,
             })),
-            ...(service.manage
+            ...('construct' in service
               ? [
                   new inquirer.Separator(),
                   {
@@ -406,7 +406,9 @@ export abstract class BaseCommand extends Command {
         any_value,
         any_value,
       ) as Provider<any>;
-      if (provider.resources[resourceType]?.manage?.module) {
+
+      const service = provider.resources[resourceType];
+      if (service && 'construct' in service) {
         return true;
       }
     }
@@ -437,7 +439,7 @@ export abstract class BaseCommand extends Command {
       this.error('Invalid json schema');
     }
 
-    const validators = provider.resources[resourceType]?.manage?.validators;
+    const validators = provider.resources[resourceType]?.validators;
     const validator = validators
       ? (validators as any)[property.name]
       : undefined;
@@ -513,56 +515,56 @@ export abstract class BaseCommand extends Command {
   /**
    * Prompt the user to select a provider they've registered locally. This will also allow them to create a new provider in-line.
    */
-  protected async promptForProvider(
+  protected async promptForAccount(
     options: {
-      provider?: string;
+      account?: string;
       type?: ResourceType;
-      action?: 'list' | 'get' | 'manage';
+      action?: 'list' | 'get' | 'create' | 'update' | 'delete';
       message?: string;
     } = {},
   ): Promise<Provider> {
-    const providers: Provider[] = [];
+    const accounts: Provider[] = [];
     for (const p of await getProviders(this.config.configDir)) {
       if (options.type && p.resources[options.type]) {
         const service = p.resources[options.type]!;
-        if (!options.action || (options.action && service[options.action])) {
-          providers.push(p);
+        if (!options.action || (options.action && options.action in service)) {
+          accounts.push(p);
         }
       } else if (!options.type) {
-        providers.push(p);
+        accounts.push(p);
       }
     }
 
-    const newProviderTitle = 'Add a new set of credentials';
+    const newAccountName = 'Add a new account';
 
     const res = await inquirer.prompt(
       [
         {
-          name: 'provider',
+          name: 'account',
           type: 'list',
-          message: options.message || 'Select a set of credentials',
+          message: options.message || 'Select an account',
           choices: [
-            ...providers.map((p) => ({
+            ...accounts.map((p) => ({
               name: `${p.name} (${p.type})`,
               value: p.name,
             })),
-            newProviderTitle,
+            newAccountName,
           ],
         },
       ],
-      { provider: options.provider },
+      { account: options.account },
     );
 
-    if (res.provider === newProviderTitle) {
+    if (res.account === newAccountName) {
       return createProvider();
     }
 
-    const provider = providers.find((p) => p.name === res.provider);
-    if (!provider) {
-      this.error(`Credentials ${res.provider} not found`);
+    const account = accounts.find((p) => p.name === res.account);
+    if (!account) {
+      this.error(`Account ${res.account} not found`);
     }
 
-    return provider;
+    return account;
   }
 
   /**
@@ -570,17 +572,17 @@ export abstract class BaseCommand extends Command {
    */
   protected async promptForResourceType(
     provider: Provider,
-    action: 'list' | 'get' | 'manage',
+    action: 'list' | 'get' | 'create' | 'update' | 'delete',
     input?: string,
   ): Promise<ResourceType> {
     const resources = provider.getResourceEntries();
     resources.filter(([type, service]) => {
-      return service[action] && (!input || type === input);
+      return action in service && (!input || type === input);
     });
 
     if (resources.length === 0) {
       this.error(
-        `The cloud provider plugin for ${provider.name} does not support ${action} ${input}s`,
+        `The cloud provider for ${provider.name} does not support ${action} ${input}s`,
       );
     }
 
@@ -642,7 +644,7 @@ export abstract class BaseCommand extends Command {
       );
     }
 
-    if (service.manage?.presets?.length) {
+    if (service.presets?.length) {
       const { result } = await inquirer.prompt([
         {
           name: 'result',
@@ -650,7 +652,7 @@ export abstract class BaseCommand extends Command {
           message:
             'Please select one of our default configurations or customize the creation of your resource.',
           choices: [
-            ...service.manage.presets.map((p) => ({
+            ...service.presets.map((p) => ({
               name: p.display,
               value: p.values,
             })),

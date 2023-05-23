@@ -1,5 +1,9 @@
 import { CloudGraph } from '../cloud-graph/index.js';
-import { Construct } from 'constructs';
+
+export type DatacenterSecretsConfig = {
+  account: string;
+  namespace?: string;
+};
 
 export abstract class Datacenter {
   public abstract enrichGraph(
@@ -19,5 +23,5 @@ export abstract class Datacenter {
     debug?: boolean,
   ): Promise<CloudGraph>;
 
-  public abstract configureBackend(scope: Construct, filename: string): void;
+  public abstract getSecretsConfig(): DatacenterSecretsConfig;
 }

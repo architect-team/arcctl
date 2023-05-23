@@ -17,8 +17,8 @@ export default class RemoveAccountCmd extends BaseCommand {
   async run(): Promise<void> {
     const { args } = await this.parse(RemoveAccountCmd);
 
-    const provider = await this.promptForProvider({
-      provider: args.name,
+    const provider = await this.promptForAccount({
+      account: args.name,
       message: 'Select the account to delete',
     });
 

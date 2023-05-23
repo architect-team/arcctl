@@ -1,7 +1,7 @@
-import { Flags } from '@oclif/core';
 import { ResourceType } from '../../@resources/index.js';
 import { BaseCommand } from '../../base-command.js';
 import { createTable } from '../../utils/table.js';
+import { Flags } from '@oclif/core';
 
 export default class ListAllResourcesCommand extends BaseCommand {
   static description = 'List all the cloud resources for each supported type';
@@ -17,8 +17,8 @@ export default class ListAllResourcesCommand extends BaseCommand {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(ListAllResourcesCommand);
-    const provider = await this.promptForProvider({
-      provider: flags.credentials,
+    const provider = await this.promptForAccount({
+      account: flags.credentials,
       type: args.type,
       action: 'list',
     });

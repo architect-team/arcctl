@@ -1,4 +1,4 @@
-export type NodeStatus = {
+export type StepStatus = {
   state:
     | 'pending'
     | 'starting'
@@ -12,6 +12,6 @@ export type NodeStatus = {
   endTime?: number;
 };
 
-export type NodeAction = 'no-op' | 'create' | 'update' | 'delete';
+export type StepAction = 'no-op' | 'create' | 'update' | 'delete';
 
 export type NodeColor = 'blue' | 'green';

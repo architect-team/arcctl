@@ -8,13 +8,14 @@ export default class AddAccountCommand extends BaseCommand {
 
   static aliases: string[] = ['add:accounts', 'account:add', 'accounts:add'];
 
-  static flags = {
-    name: Flags.string({
-      char: 'n',
-      description: 'Name to give to the new provider',
-      required: false,
-    }),
+  static args = [
+    {
+      name: 'name',
+      description: 'Name to give to the account',
+    },
+  ];
 
+  static flags = {
     provider: Flags.enum({
       char: 'p',
       description: 'Type of provider to register',
@@ -23,10 +24,10 @@ export default class AddAccountCommand extends BaseCommand {
   };
 
   async run(): Promise<void> {
-    const { flags } = await this.parse(AddAccountCommand);
+    const { args, flags } = await this.parse(AddAccountCommand);
 
     try {
-      const provider = await createProvider(flags.name, flags.type);
+      const provider = await createProvider(args.name, flags.type);
       this.log(`${provider.name} account registered`);
     } catch (ex: any) {
       this.error(ex.message);

@@ -1,6 +1,6 @@
 import { Environment } from '../environments/environment.js';
 import { parseEnvironment } from '../environments/parser.js';
-import { ExecutableGraph, ExecutableNode } from '../executable-graph/index.js';
+import { Pipeline, PipelineStep } from '../pipeline/index.js';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
@@ -8,7 +8,7 @@ import path from 'path';
 export type EnvironmentRecord = {
   name: string;
   datacenter: string;
-  graph: ExecutableGraph;
+  graph: Pipeline;
   config?: Environment;
 };
 
@@ -54,9 +54,9 @@ export class EnvironmentStore {
       for (const raw of rawEnvironmentRecords) {
         const record: EnvironmentRecord = {
           name: raw.name,
-          graph: new ExecutableGraph({
+          graph: new Pipeline({
             edges: raw.graph.edges,
-            nodes: raw.graph.nodes.map((n: any) => new ExecutableNode(n)),
+            nodes: raw.graph.nodes.map((n: any) => new PipelineStep(n)),
           }),
           datacenter: raw.datacenter,
         };

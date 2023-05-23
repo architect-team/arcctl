@@ -1,7 +1,7 @@
 import { ResourceInputs, ResourceType } from '../@resources/index.js';
 import { ProviderCredentials } from './credentials.js';
 import { ResourceModule } from './module.js';
-import { ReadOnlyResourceService } from './service.js';
+import { BaseService } from './service.js';
 import { Construct } from 'constructs';
 
 export type ModuleConstructor<
@@ -16,7 +16,7 @@ export type ModuleConstructor<
 export abstract class TerraformResourceService<
   T extends ResourceType,
   C extends ProviderCredentials,
-> extends ReadOnlyResourceService<T> {
+> extends BaseService<T> {
   /**
    * The module used to create and manage an instance of the resource
    * using Terraform CDK

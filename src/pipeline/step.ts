@@ -1,26 +1,26 @@
 import { ResourceOutputs, ResourceType } from '../@resources/index.js';
 import { CloudNode, CloudNodeOptions } from '../cloud-graph/index.js';
-import { NodeAction, NodeColor, NodeStatus } from './types.js';
+import { StepAction, NodeColor, StepStatus } from './types.js';
 
-export type ExecutableNodeOptions<T extends ResourceType> =
+export type PipelineStepOptions<T extends ResourceType> =
   CloudNodeOptions<T> & {
-    action: NodeAction;
+    action: StepAction;
     color: NodeColor;
-    status: NodeStatus;
+    status: StepStatus;
     datacenter: string;
     outputs?: ResourceOutputs[T];
   };
 
-export class ExecutableNode<
+export class PipelineStep<
   T extends ResourceType = ResourceType,
 > extends CloudNode<T> {
-  action: NodeAction;
+  action: StepAction;
   color: NodeColor;
-  status: NodeStatus;
+  status: StepStatus;
   datacenter: string;
   outputs?: ResourceOutputs[T];
 
-  constructor(options: ExecutableNodeOptions<T>) {
+  constructor(options: PipelineStepOptions<T>) {
     super(options);
     this.action = options.action;
     this.color = options.color;

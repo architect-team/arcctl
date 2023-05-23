@@ -11,5 +11,5 @@ components:
 ## Registering environments
 
 ```sh
-$ cldctl environment apply ./environment.yml --name my-env --datacenter my-datacenter
+$ arcctl environment apply ./environment.yml --name my-env --datacenter my-datacenter
 ```

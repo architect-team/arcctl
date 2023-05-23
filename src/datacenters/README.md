@@ -83,5 +83,5 @@ exist yet, but subsequent times will roll out relevant changes to all environmen
 managed by the datacenter.
 
 ```sh
-$ cldctl datacenter apply ./datacenter.yml --name my-datacenter
+$ arcctl datacenter apply ./datacenter.yml --name my-datacenter
 ```

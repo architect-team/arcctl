@@ -10,6 +10,9 @@
           "items": {
             "additionalProperties": false,
             "properties": {
+              "account": {
+                "type": "string"
+              },
               "args": {
                 "additionalProperties": {
                   "$ref": "#/definitions/DeepPartial%3Cstring%3E"
@@ -193,7 +196,7 @@
                 "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
               },
               "port": {
-                "$ref": "#/definitions/DeepPartial%3Cnumber1056285502%3E"
+                "$ref": "#/definitions/DeepPartial%3C(string%7Cnumber)1056285502%3E"
               },
               "probes": {
                 "additionalProperties": false,
@@ -246,9 +249,6 @@
               "protocol": {
                 "type": "string"
               },
-              "provider": {
-                "type": "string"
-              },
               "recordType": {
                 "$ref": "#/definitions/DeepPartial%3Cstring%3E"
               },
@@ -279,6 +279,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "command": {
                             "anyOf": [
                               {
@@ -327,9 +330,6 @@
                             "type": "string"
                           },
                           "namespace": {
-                            "type": "string"
-                          },
-                          "provider": {
                             "type": "string"
                           },
                           "schedule": {
@@ -438,8 +438,8 @@
                           }
                         },
                         "required": [
+                          "account",
                           "image",
-                          "provider",
                           "schedule",
                           "type"
                         ],
@@ -458,6 +458,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "databaseSize": {
                             "description": "Size of the database instance to create",
                             "type": "string"
@@ -478,9 +481,6 @@
                             "description": "Unique name for the database",
                             "type": "string"
                           },
-                          "provider": {
-                            "type": "string"
-                          },
                           "region": {
                             "description": "Unique ID of the region to run the database in",
                             "type": "string"
@@ -495,11 +495,11 @@
                           }
                         },
                         "required": [
+                          "account",
                           "databaseSize",
                           "databaseType",
                           "databaseVersion",
                           "name",
-                          "provider",
                           "region",
                           "type",
                           "vpc"
@@ -519,6 +519,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "database": {
                             "description": "Unique ID of the database backing this schema",
                             "type": "string"
@@ -535,20 +538,17 @@
                             "description": "Name to give to the new schema",
                             "type": "string"
                           },
-                          "provider": {
-                            "type": "string"
-                          },
                           "type": {
                             "const": "databaseSchema",
                             "type": "string"
                           }
                         },
                         "required": [
+                          "account",
                           "database",
                           "databaseType",
                           "databaseVersion",
                           "name",
-                          "provider",
                           "type"
                         ],
                         "type": "object"
@@ -566,7 +566,7 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "provider": {
+                          "account": {
                             "type": "string"
                           },
                           "type": {
@@ -575,7 +575,7 @@
                           }
                         },
                         "required": [
-                          "provider",
+                          "account",
                           "type"
                         ],
                         "type": "object"
@@ -593,7 +593,7 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "provider": {
+                          "account": {
                             "type": "string"
                           },
                           "type": {
@@ -602,7 +602,7 @@
                           }
                         },
                         "required": [
-                          "provider",
+                          "account",
                           "type"
                         ],
                         "type": "object"
@@ -620,11 +620,11 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "databaseSchema": {
-                            "description": "The schema the user should have access to",
+                          "account": {
                             "type": "string"
                           },
-                          "provider": {
+                          "databaseSchema": {
+                            "description": "The schema the user should have access to",
                             "type": "string"
                           },
                           "type": {
@@ -637,8 +637,8 @@
                           }
                         },
                         "required": [
+                          "account",
                           "databaseSchema",
-                          "provider",
                           "type",
                           "username"
                         ],
@@ -657,10 +657,10 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "databaseType": {
+                          "account": {
                             "type": "string"
                           },
-                          "provider": {
+                          "databaseType": {
                             "type": "string"
                           },
                           "type": {
@@ -669,8 +669,8 @@
                           }
                         },
                         "required": [
+                          "account",
                           "databaseType",
-                          "provider",
                           "type"
                         ],
                         "type": "object"
@@ -688,6 +688,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "autoscaling": {
                             "additionalProperties": false,
                             "description": "Autoscaling rules for the deployment",
@@ -795,9 +798,6 @@
                               }
                             },
                             "type": "object"
-                          },
-                          "provider": {
-                            "type": "string"
                           },
                           "replicas": {
                             "description": "Number of replicas of the deployment to run",
@@ -944,9 +944,9 @@
                           }
                         },
                         "required": [
+                          "account",
                           "image",
                           "name",
-                          "provider",
                           "replicas",
                           "type",
                           "volume_mounts"
@@ -966,13 +966,13 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "content": {
                             "type": "string"
                           },
                           "dnsZone": {
-                            "type": "string"
-                          },
-                          "provider": {
                             "type": "string"
                           },
                           "recordType": {
@@ -990,9 +990,9 @@
                           }
                         },
                         "required": [
+                          "account",
                           "content",
                           "dnsZone",
-                          "provider",
                           "recordType",
                           "subdomain",
                           "type"
@@ -1012,10 +1012,10 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "name": {
+                          "account": {
                             "type": "string"
                           },
-                          "provider": {
+                          "name": {
                             "type": "string"
                           },
                           "type": {
@@ -1024,8 +1024,8 @@
                           }
                         },
                         "required": [
+                          "account",
                           "name",
-                          "provider",
                           "type"
                         ],
                         "type": "object"
@@ -1043,6 +1043,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "args": {
                             "additionalProperties": {
                               "type": "string"
@@ -1062,9 +1065,6 @@
                           "dockerfile": {
                             "default": "Dockerfile",
                             "description": "Path to the dockerfile relative to the context",
-                            "type": "string"
-                          },
-                          "provider": {
                             "type": "string"
                           },
                           "registry": {
@@ -1091,9 +1091,9 @@
                           }
                         },
                         "required": [
+                          "account",
                           "component_source",
                           "context",
-                          "provider",
                           "repository",
                           "type"
                         ],
@@ -1112,6 +1112,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "chart": {
                             "description": "Chart name to be installed",
                             "type": "string"
@@ -1123,9 +1126,6 @@
                           "namespace": {
                             "default": "default",
                             "description": "The namespace to install the release in",
-                            "type": "string"
-                          },
-                          "provider": {
                             "type": "string"
                           },
                           "repository": {
@@ -1146,9 +1146,9 @@
                           }
                         },
                         "required": [
+                          "account",
                           "chart",
                           "name",
-                          "provider",
                           "repository",
                           "type"
                         ],
@@ -1167,6 +1167,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "internal": {
                             "default": false,
                             "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -1207,10 +1210,10 @@
                           },
                           "port": {
                             "description": "Port that the ingress rule listens for traffic on",
-                            "type": "number"
-                          },
-                          "provider": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "number"
+                            ]
                           },
                           "service": {
                             "description": "Service the ingress forwards traffic to",
@@ -1222,9 +1225,9 @@
                           }
                         },
                         "required": [
+                          "account",
                           "loadBalancer",
                           "port",
-                          "provider",
                           "service",
                           "type"
                         ],
@@ -1243,6 +1246,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "description": {
                             "description": "Description of the cluster",
                             "type": "string"
@@ -1284,9 +1290,6 @@
                             "minimum": 1,
                             "type": "array"
                           },
-                          "provider": {
-                            "type": "string"
-                          },
                           "region": {
                             "description": "Region the cluster should live in",
                             "type": "string"
@@ -1301,10 +1304,10 @@
                           }
                         },
                         "required": [
+                          "account",
                           "kubernetesVersion",
                           "name",
                           "nodePools",
-                          "provider",
                           "region",
                           "type",
                           "vpc"
@@ -1316,37 +1319,6 @@
                       "if": {
                         "properties": {
                           "type": {
-                            "const": "kubernetesNamespace",
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "then": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "provider": {
-                            "type": "string"
-                          },
-                          "type": {
-                            "const": "kubernetesNamespace",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "provider",
-                          "type"
-                        ],
-                        "type": "object"
-                      }
-                    },
-                    {
-                      "if": {
-                        "properties": {
-                          "type": {
                             "const": "kubernetesVersion",
                             "type": "string"
                           }
@@ -1355,7 +1327,7 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "provider": {
+                          "account": {
                             "type": "string"
                           },
                           "type": {
@@ -1364,7 +1336,7 @@
                           }
                         },
                         "required": [
-                          "provider",
+                          "account",
                           "type"
                         ],
                         "type": "object"
@@ -1382,6 +1354,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "internal": {
                             "default": false,
                             "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
@@ -1395,18 +1370,15 @@
                             "description": "Name for the new load balancer",
                             "type": "string"
                           },
-                          "provider": {
-                            "type": "string"
-                          },
                           "type": {
                             "const": "loadBalancer",
                             "type": "string"
                           }
                         },
                         "required": [
+                          "account",
                           "loadBalancerType",
                           "name",
-                          "provider",
                           "type"
                         ],
                         "type": "object"
@@ -1424,7 +1396,7 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "provider": {
+                          "account": {
                             "type": "string"
                           },
                           "type": {
@@ -1433,7 +1405,38 @@
                           }
                         },
                         "required": [
-                          "provider",
+                          "account",
+                          "type"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "namespace",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "then": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "account": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "namespace",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "account",
+                          "name",
                           "type"
                         ],
                         "type": "object"
@@ -1451,7 +1454,7 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "provider": {
+                          "account": {
                             "type": "string"
                           },
                           "type": {
@@ -1460,7 +1463,7 @@
                           }
                         },
                         "required": [
-                          "provider",
+                          "account",
                           "type"
                         ],
                         "type": "object"
@@ -1478,7 +1481,7 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "provider": {
+                          "account": {
                             "type": "string"
                           },
                           "type": {
@@ -1487,7 +1490,7 @@
                           }
                         },
                         "required": [
-                          "provider",
+                          "account",
                           "type"
                         ],
                         "type": "object"
@@ -1505,7 +1508,7 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
-                          "provider": {
+                          "account": {
                             "type": "string"
                           },
                           "type": {
@@ -1514,7 +1517,7 @@
                           }
                         },
                         "required": [
-                          "provider",
+                          "account",
                           "type"
                         ],
                         "type": "object"
@@ -1532,6 +1535,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "data": {
                             "description": "Data to populate the secret with",
                             "type": "string"
@@ -1544,19 +1550,16 @@
                             "description": "Namespace the secret should be place in",
                             "type": "string"
                           },
-                          "provider": {
-                            "type": "string"
-                          },
                           "type": {
                             "const": "secret",
                             "type": "string"
                           }
                         },
                         "required": [
+                          "account",
                           "data",
                           "name",
                           "namespace",
-                          "provider",
                           "type"
                         ],
                         "type": "object"
@@ -1574,6 +1577,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "external_name": {
                             "description": "Map this service to the specified hostname instead of to a deployment selector",
                             "type": "string"
@@ -1602,9 +1608,6 @@
                             "description": "Protocol the service responds to",
                             "type": "string"
                           },
-                          "provider": {
-                            "type": "string"
-                          },
                           "selector": {
                             "description": "Reference used to target a deployment",
                             "type": "string"
@@ -1619,8 +1622,8 @@
                           }
                         },
                         "required": [
+                          "account",
                           "name",
-                          "provider",
                           "target_port",
                           "type"
                         ],
@@ -1639,6 +1642,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "command": {
                             "anyOf": [
                               {
@@ -1687,9 +1693,6 @@
                             "type": "string"
                           },
                           "namespace": {
-                            "type": "string"
-                          },
-                          "provider": {
                             "type": "string"
                           },
                           "schedule": {
@@ -1798,8 +1801,8 @@
                           }
                         },
                         "required": [
+                          "account",
                           "image",
-                          "provider",
                           "schedule",
                           "type"
                         ],
@@ -1818,6 +1821,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "hostPath": {
                             "description": "Path on the host machine to mount the volume to",
                             "type": "string"
@@ -1826,17 +1832,14 @@
                             "description": "Path inside the container runtime to mount the volume to",
                             "type": "string"
                           },
-                          "provider": {
-                            "type": "string"
-                          },
                           "type": {
                             "const": "volume",
                             "type": "string"
                           }
                         },
                         "required": [
+                          "account",
                           "mountPath",
-                          "provider",
                           "type"
                         ],
                         "type": "object"
@@ -1854,15 +1857,15 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "description": {
                             "description": "Description for the VPC",
                             "type": "string"
                           },
                           "name": {
                             "description": "Name of the VPC",
-                            "type": "string"
-                          },
-                          "provider": {
                             "type": "string"
                           },
                           "region": {
@@ -1875,8 +1878,8 @@
                           }
                         },
                         "required": [
+                          "account",
                           "name",
-                          "provider",
                           "region",
                           "type"
                         ],
@@ -1916,7 +1919,7 @@
                 "type": "number"
               },
               "type": {
-                "$ref": "#/definitions/DeepPartial%3C(%22cronjob%22%7C%22database%22%7C%22databaseSchema%22%7C%22databaseSize%22%7C%22databaseType%22%7C%22databaseUser%22%7C%22databaseVersion%22%7C%22deployment%22%7C%22dnsRecord%22%7C%22dnsZone%22%7C%22dockerBuild%22%7C%22helmChart%22%7C%22ingressRule%22%7C%22kubernetesCluster%22%7C%22kubernetesNamespace%22%7C%22kubernetesVersion%22%7C%22loadBalancer%22%7C%22loadBalancerType%22%7C%22node%22%7C%22nodeSize%22%7C%22region%22%7C%22secret%22%7C%22service%22%7C%22task%22%7C%22volume%22%7C%22vpc%22)%3E"
+                "$ref": "#/definitions/DeepPartial%3C(%22cronjob%22%7C%22database%22%7C%22databaseSchema%22%7C%22databaseSize%22%7C%22databaseType%22%7C%22databaseUser%22%7C%22databaseVersion%22%7C%22deployment%22%7C%22dnsRecord%22%7C%22dnsZone%22%7C%22dockerBuild%22%7C%22helmChart%22%7C%22ingressRule%22%7C%22kubernetesCluster%22%7C%22kubernetesVersion%22%7C%22loadBalancer%22%7C%22loadBalancerType%22%7C%22namespace%22%7C%22node%22%7C%22nodeSize%22%7C%22region%22%7C%22secret%22%7C%22service%22%7C%22task%22%7C%22volume%22%7C%22vpc%22)%3E"
               },
               "username": {
                 "$ref": "#/definitions/DeepPartial%3Cstring1405491345%3E"
@@ -1940,6 +1943,9 @@
               "when": {
                 "additionalProperties": false,
                 "properties": {
+                  "account": {
+                    "type": "string"
+                  },
                   "args": {
                     "additionalProperties": {
                       "$ref": "#/definitions/DeepPartial%3Cstring%3E"
@@ -2108,7 +2114,7 @@
                     "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
                   },
                   "port": {
-                    "$ref": "#/definitions/DeepPartial%3Cnumber1056285502%3E"
+                    "$ref": "#/definitions/DeepPartial%3C(string%7Cnumber)1056285502%3E"
                   },
                   "probes": {
                     "additionalProperties": false,
@@ -2159,9 +2165,6 @@
                     "type": "object"
                   },
                   "protocol": {
-                    "type": "string"
-                  },
-                  "provider": {
                     "type": "string"
                   },
                   "recordType": {
@@ -2270,6 +2273,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "command": {
                       "anyOf": [
                         {
@@ -2318,9 +2324,6 @@
                       "type": "string"
                     },
                     "namespace": {
-                      "type": "string"
-                    },
-                    "provider": {
                       "type": "string"
                     },
                     "schedule": {
@@ -2429,8 +2432,8 @@
                     }
                   },
                   "required": [
+                    "account",
                     "image",
-                    "provider",
                     "schedule",
                     "type"
                   ],
@@ -2449,6 +2452,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "databaseSize": {
                       "description": "Size of the database instance to create",
                       "type": "string"
@@ -2469,9 +2475,6 @@
                       "description": "Unique name for the database",
                       "type": "string"
                     },
-                    "provider": {
-                      "type": "string"
-                    },
                     "region": {
                       "description": "Unique ID of the region to run the database in",
                       "type": "string"
@@ -2486,11 +2489,11 @@
                     }
                   },
                   "required": [
+                    "account",
                     "databaseSize",
                     "databaseType",
                     "databaseVersion",
                     "name",
-                    "provider",
                     "region",
                     "type",
                     "vpc"
@@ -2510,6 +2513,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "database": {
                       "description": "Unique ID of the database backing this schema",
                       "type": "string"
@@ -2526,20 +2532,17 @@
                       "description": "Name to give to the new schema",
                       "type": "string"
                     },
-                    "provider": {
-                      "type": "string"
-                    },
                     "type": {
                       "const": "databaseSchema",
                       "type": "string"
                     }
                   },
                   "required": [
+                    "account",
                     "database",
                     "databaseType",
                     "databaseVersion",
                     "name",
-                    "provider",
                     "type"
                   ],
                   "type": "object"
@@ -2557,7 +2560,7 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "provider": {
+                    "account": {
                       "type": "string"
                     },
                     "type": {
@@ -2566,7 +2569,7 @@
                     }
                   },
                   "required": [
-                    "provider",
+                    "account",
                     "type"
                   ],
                   "type": "object"
@@ -2584,7 +2587,7 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "provider": {
+                    "account": {
                       "type": "string"
                     },
                     "type": {
@@ -2593,7 +2596,7 @@
                     }
                   },
                   "required": [
-                    "provider",
+                    "account",
                     "type"
                   ],
                   "type": "object"
@@ -2611,11 +2614,11 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "databaseSchema": {
-                      "description": "The schema the user should have access to",
+                    "account": {
                       "type": "string"
                     },
-                    "provider": {
+                    "databaseSchema": {
+                      "description": "The schema the user should have access to",
                       "type": "string"
                     },
                     "type": {
@@ -2628,8 +2631,8 @@
                     }
                   },
                   "required": [
+                    "account",
                     "databaseSchema",
-                    "provider",
                     "type",
                     "username"
                   ],
@@ -2648,10 +2651,10 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "databaseType": {
+                    "account": {
                       "type": "string"
                     },
-                    "provider": {
+                    "databaseType": {
                       "type": "string"
                     },
                     "type": {
@@ -2660,8 +2663,8 @@
                     }
                   },
                   "required": [
+                    "account",
                     "databaseType",
-                    "provider",
                     "type"
                   ],
                   "type": "object"
@@ -2679,6 +2682,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "autoscaling": {
                       "additionalProperties": false,
                       "description": "Autoscaling rules for the deployment",
@@ -2786,9 +2792,6 @@
                         }
                       },
                       "type": "object"
-                    },
-                    "provider": {
-                      "type": "string"
                     },
                     "replicas": {
                       "description": "Number of replicas of the deployment to run",
@@ -2935,9 +2938,9 @@
                     }
                   },
                   "required": [
+                    "account",
                     "image",
                     "name",
-                    "provider",
                     "replicas",
                     "type",
                     "volume_mounts"
@@ -2957,13 +2960,13 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "content": {
                       "type": "string"
                     },
                     "dnsZone": {
-                      "type": "string"
-                    },
-                    "provider": {
                       "type": "string"
                     },
                     "recordType": {
@@ -2981,9 +2984,9 @@
                     }
                   },
                   "required": [
+                    "account",
                     "content",
                     "dnsZone",
-                    "provider",
                     "recordType",
                     "subdomain",
                     "type"
@@ -3003,10 +3006,10 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "name": {
+                    "account": {
                       "type": "string"
                     },
-                    "provider": {
+                    "name": {
                       "type": "string"
                     },
                     "type": {
@@ -3015,8 +3018,8 @@
                     }
                   },
                   "required": [
+                    "account",
                     "name",
-                    "provider",
                     "type"
                   ],
                   "type": "object"
@@ -3034,6 +3037,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "args": {
                       "additionalProperties": {
                         "type": "string"
@@ -3053,9 +3059,6 @@
                     "dockerfile": {
                       "default": "Dockerfile",
                       "description": "Path to the dockerfile relative to the context",
-                      "type": "string"
-                    },
-                    "provider": {
                       "type": "string"
                     },
                     "registry": {
@@ -3082,9 +3085,9 @@
                     }
                   },
                   "required": [
+                    "account",
                     "component_source",
                     "context",
-                    "provider",
                     "repository",
                     "type"
                   ],
@@ -3103,6 +3106,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "chart": {
                       "description": "Chart name to be installed",
                       "type": "string"
@@ -3114,9 +3120,6 @@
                     "namespace": {
                       "default": "default",
                       "description": "The namespace to install the release in",
-                      "type": "string"
-                    },
-                    "provider": {
                       "type": "string"
                     },
                     "repository": {
@@ -3137,9 +3140,9 @@
                     }
                   },
                   "required": [
+                    "account",
                     "chart",
                     "name",
-                    "provider",
                     "repository",
                     "type"
                   ],
@@ -3158,6 +3161,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "internal": {
                       "default": false,
                       "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -3198,10 +3204,10 @@
                     },
                     "port": {
                       "description": "Port that the ingress rule listens for traffic on",
-                      "type": "number"
-                    },
-                    "provider": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "service": {
                       "description": "Service the ingress forwards traffic to",
@@ -3213,9 +3219,9 @@
                     }
                   },
                   "required": [
+                    "account",
                     "loadBalancer",
                     "port",
-                    "provider",
                     "service",
                     "type"
                   ],
@@ -3234,6 +3240,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "description": {
                       "description": "Description of the cluster",
                       "type": "string"
@@ -3275,9 +3284,6 @@
                       "minimum": 1,
                       "type": "array"
                     },
-                    "provider": {
-                      "type": "string"
-                    },
                     "region": {
                       "description": "Region the cluster should live in",
                       "type": "string"
@@ -3292,10 +3298,10 @@
                     }
                   },
                   "required": [
+                    "account",
                     "kubernetesVersion",
                     "name",
                     "nodePools",
-                    "provider",
                     "region",
                     "type",
                     "vpc"
@@ -3307,37 +3313,6 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "kubernetesNamespace",
-                      "type": "string"
-                    }
-                  }
-                },
-                "then": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "provider": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "const": "kubernetesNamespace",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "provider",
-                    "type"
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "type": {
                       "const": "kubernetesVersion",
                       "type": "string"
                     }
@@ -3346,7 +3321,7 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "provider": {
+                    "account": {
                       "type": "string"
                     },
                     "type": {
@@ -3355,7 +3330,7 @@
                     }
                   },
                   "required": [
-                    "provider",
+                    "account",
                     "type"
                   ],
                   "type": "object"
@@ -3373,6 +3348,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "internal": {
                       "default": false,
                       "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
@@ -3386,18 +3364,15 @@
                       "description": "Name for the new load balancer",
                       "type": "string"
                     },
-                    "provider": {
-                      "type": "string"
-                    },
                     "type": {
                       "const": "loadBalancer",
                       "type": "string"
                     }
                   },
                   "required": [
+                    "account",
                     "loadBalancerType",
                     "name",
-                    "provider",
                     "type"
                   ],
                   "type": "object"
@@ -3415,7 +3390,7 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "provider": {
+                    "account": {
                       "type": "string"
                     },
                     "type": {
@@ -3424,7 +3399,38 @@
                     }
                   },
                   "required": [
-                    "provider",
+                    "account",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "namespace",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "namespace",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "name",
                     "type"
                   ],
                   "type": "object"
@@ -3442,7 +3448,7 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "provider": {
+                    "account": {
                       "type": "string"
                     },
                     "type": {
@@ -3451,7 +3457,7 @@
                     }
                   },
                   "required": [
-                    "provider",
+                    "account",
                     "type"
                   ],
                   "type": "object"
@@ -3469,7 +3475,7 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "provider": {
+                    "account": {
                       "type": "string"
                     },
                     "type": {
@@ -3478,7 +3484,7 @@
                     }
                   },
                   "required": [
-                    "provider",
+                    "account",
                     "type"
                   ],
                   "type": "object"
@@ -3496,7 +3502,7 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
-                    "provider": {
+                    "account": {
                       "type": "string"
                     },
                     "type": {
@@ -3505,7 +3511,7 @@
                     }
                   },
                   "required": [
-                    "provider",
+                    "account",
                     "type"
                   ],
                   "type": "object"
@@ -3523,6 +3529,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "data": {
                       "description": "Data to populate the secret with",
                       "type": "string"
@@ -3535,19 +3544,16 @@
                       "description": "Namespace the secret should be place in",
                       "type": "string"
                     },
-                    "provider": {
-                      "type": "string"
-                    },
                     "type": {
                       "const": "secret",
                       "type": "string"
                     }
                   },
                   "required": [
+                    "account",
                     "data",
                     "name",
                     "namespace",
-                    "provider",
                     "type"
                   ],
                   "type": "object"
@@ -3565,6 +3571,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "external_name": {
                       "description": "Map this service to the specified hostname instead of to a deployment selector",
                       "type": "string"
@@ -3593,9 +3602,6 @@
                       "description": "Protocol the service responds to",
                       "type": "string"
                     },
-                    "provider": {
-                      "type": "string"
-                    },
                     "selector": {
                       "description": "Reference used to target a deployment",
                       "type": "string"
@@ -3610,8 +3616,8 @@
                     }
                   },
                   "required": [
+                    "account",
                     "name",
-                    "provider",
                     "target_port",
                     "type"
                   ],
@@ -3630,6 +3636,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "command": {
                       "anyOf": [
                         {
@@ -3678,9 +3687,6 @@
                       "type": "string"
                     },
                     "namespace": {
-                      "type": "string"
-                    },
-                    "provider": {
                       "type": "string"
                     },
                     "schedule": {
@@ -3789,8 +3795,8 @@
                     }
                   },
                   "required": [
+                    "account",
                     "image",
-                    "provider",
                     "schedule",
                     "type"
                   ],
@@ -3809,6 +3815,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "hostPath": {
                       "description": "Path on the host machine to mount the volume to",
                       "type": "string"
@@ -3817,17 +3826,14 @@
                       "description": "Path inside the container runtime to mount the volume to",
                       "type": "string"
                     },
-                    "provider": {
-                      "type": "string"
-                    },
                     "type": {
                       "const": "volume",
                       "type": "string"
                     }
                   },
                   "required": [
+                    "account",
                     "mountPath",
-                    "provider",
                     "type"
                   ],
                   "type": "object"
@@ -3845,15 +3851,15 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "description": {
                       "description": "Description for the VPC",
                       "type": "string"
                     },
                     "name": {
                       "description": "Name of the VPC",
-                      "type": "string"
-                    },
-                    "provider": {
                       "type": "string"
                     },
                     "region": {
@@ -3866,8 +3872,8 @@
                     }
                   },
                   "required": [
+                    "account",
                     "name",
-                    "provider",
                     "region",
                     "type"
                   ],
@@ -3879,9 +3885,23 @@
           "description": "Configure what resources must exist in each environment in the datacenter",
           "type": "object"
         },
-        "state": {
-          "$ref": "#/definitions/StateBackends",
-          "description": "Configure where terraform state files should be stored"
+        "secrets": {
+          "additionalProperties": false,
+          "description": "Configure how secrets should be stored.",
+          "properties": {
+            "account": {
+              "description": "Which account secrets should be stored in",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "What additional namespacing to use for secrets hosted by the datacenter",
+              "type": "string"
+            }
+          },
+          "required": [
+            "account"
+          ],
+          "type": "object"
         },
         "version": {
           "const": "v1",
@@ -3889,12 +3909,12 @@
         }
       },
       "required": [
-        "state",
+        "secrets",
         "version"
       ],
       "type": "object"
     },
-    "DeepPartial<(\"cronjob\"|\"database\"|\"databaseSchema\"|\"databaseSize\"|\"databaseType\"|\"databaseUser\"|\"databaseVersion\"|\"deployment\"|\"dnsRecord\"|\"dnsZone\"|\"dockerBuild\"|\"helmChart\"|\"ingressRule\"|\"kubernetesCluster\"|\"kubernetesNamespace\"|\"kubernetesVersion\"|\"loadBalancer\"|\"loadBalancerType\"|\"node\"|\"nodeSize\"|\"region\"|\"secret\"|\"service\"|\"task\"|\"volume\"|\"vpc\")>": {
+    "DeepPartial<(\"cronjob\"|\"database\"|\"databaseSchema\"|\"databaseSize\"|\"databaseType\"|\"databaseUser\"|\"databaseVersion\"|\"deployment\"|\"dnsRecord\"|\"dnsZone\"|\"dockerBuild\"|\"helmChart\"|\"ingressRule\"|\"kubernetesCluster\"|\"kubernetesVersion\"|\"loadBalancer\"|\"loadBalancerType\"|\"namespace\"|\"node\"|\"nodeSize\"|\"region\"|\"secret\"|\"service\"|\"task\"|\"volume\"|\"vpc\")>": {
       "enum": [
         "cronjob",
         "database",
@@ -3910,10 +3930,10 @@
         "helmChart",
         "ingressRule",
         "kubernetesCluster",
-        "kubernetesNamespace",
         "kubernetesVersion",
         "loadBalancer",
         "loadBalancerType",
+        "namespace",
         "node",
         "nodeSize",
         "region",
@@ -3956,16 +3976,19 @@
       "description": "The repository to push the artifact to",
       "type": "string"
     },
+    "DeepPartial<(string|number)1056285502>": {
+      "description": "Port that the ingress rule listens for traffic on",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
     "DeepPartial<(string|string699422260)>": {
       "type": "string"
     },
     "DeepPartial<any>": {
       "additionalProperties": false,
       "type": "object"
-    },
-    "DeepPartial<number1056285502>": {
-      "description": "Port that the ingress rule listens for traffic on",
-      "type": "number"
     },
     "DeepPartial<number1908930751>": {
       "description": "Maximum number of replicas of the deployment to run",
@@ -4239,10 +4262,10 @@
         "helmChart",
         "ingressRule",
         "kubernetesCluster",
-        "kubernetesNamespace",
         "kubernetesVersion",
         "loadBalancer",
         "loadBalancerType",
+        "namespace",
         "node",
         "nodeSize",
         "region",
@@ -4253,52 +4276,6 @@
         "vpc"
       ],
       "type": "string"
-    },
-    "StateBackends": {
-      "anyOf": [
-        {
-          "additionalProperties": false,
-          "properties": {
-            "path": {
-              "type": "string"
-            },
-            "type": {
-              "const": "local",
-              "type": "string"
-            }
-          },
-          "required": [
-            "type",
-            "path"
-          ],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "accessKey": {
-              "type": "string"
-            },
-            "bucket": {
-              "type": "string"
-            },
-            "secretKey": {
-              "type": "string"
-            },
-            "type": {
-              "const": "digitalocean",
-              "type": "string"
-            }
-          },
-          "required": [
-            "type",
-            "bucket",
-            "accessKey",
-            "secretKey"
-          ],
-          "type": "object"
-        }
-      ]
     }
   },
   "$id": "https://architect.io/.schemas/datacenter.json"

@@ -1,6 +1,6 @@
 import { BaseCommand } from '../../base-command.js';
 import { parseEnvironment } from '../../environments/index.js';
-import { ExecutableGraph } from '../../executable-graph/index.js';
+import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
 import path from 'path';
@@ -64,8 +64,8 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
     );
     newGraph = await newDatacenter.config.enrichGraph(newGraph, flags.name);
 
-    const graphPlan = ExecutableGraph.plan({
-      before: environmentRecord?.graph || new ExecutableGraph(),
+    const graphPlan = Pipeline.plan({
+      before: environmentRecord?.graph || new Pipeline(),
       after: newGraph,
       datacenter: datacenterName!,
     });

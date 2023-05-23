@@ -1,29 +1,31 @@
 import { CrudResourceService } from '../@providers/crud.service.js';
-import { ProviderStore } from '../@providers/index.js';
+import { BaseService, ProviderStore } from '../@providers/index.js';
+import { TerraformResourceService } from '../@providers/terraform.service.js';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.js';
 import { Datacenter } from '../datacenters/index.js';
 import { Terraform } from '../terraform/terraform.js';
 import CloudCtlConfig from '../utils/config.js';
 import { DatacenterStore } from '../utils/datacenter-store.js';
 import { CldCtlTerraformStack } from '../utils/stack.js';
-import { ExecutableNode } from './node.js';
-import { TerraformResourceService } from '@providers/terraform.service.js';
+import { PipelineStep } from './step.js';
+import { ResourceType } from '@resources/index.js';
 import { App } from 'cdktf';
+import deepmerge from 'deepmerge';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { Observable, Subscriber } from 'rxjs';
 import { Logger } from 'winston';
 
-export type ExecutableGraphOptions = {
-  before: ExecutableGraph;
+export type PipelineOptions = {
+  before: Pipeline;
   after: CloudGraph;
   datacenter: Datacenter;
   cwd?: string;
 };
 
 export type PlanOptions = {
-  before: ExecutableGraph;
+  before: Pipeline;
   after: CloudGraph;
   datacenter: string;
 };
@@ -35,16 +37,16 @@ export type ApplyOptions = {
   logger?: Logger;
 };
 
-export class ExecutableGraph extends CloudGraph {
+export class Pipeline extends CloudGraph {
   private _terraform?: Terraform;
 
   /**
    * @override
    */
-  nodes!: ExecutableNode[];
+  nodes!: PipelineStep[];
 
-  public static plan(options: PlanOptions): ExecutableGraph {
-    const graph = new ExecutableGraph({
+  public static plan(options: PlanOptions): Pipeline {
+    const graph = new Pipeline({
       edges: [...options.after.edges],
     });
 
@@ -56,7 +58,7 @@ export class ExecutableGraph extends CloudGraph {
 
       const oldId = newNode.id;
       if (!oldNode) {
-        const newExecutable = new ExecutableNode({
+        const newExecutable = new PipelineStep({
           ...newNode,
           color: 'blue',
           datacenter: options.datacenter,
@@ -68,7 +70,7 @@ export class ExecutableGraph extends CloudGraph {
         graph.insertNodes(newExecutable);
         replacements[oldId] = newExecutable.id;
       } else {
-        const newExecutable = new ExecutableNode({
+        const newExecutable = new PipelineStep({
           ...newNode,
           datacenter: options.datacenter,
           color: oldNode.color,
@@ -96,7 +98,7 @@ export class ExecutableGraph extends CloudGraph {
         oldNode.id.startsWith(n.id),
       );
       if (!newNode) {
-        const rmNode = new ExecutableNode({
+        const rmNode = new PipelineStep({
           ...oldNode,
           action: 'delete',
           status: {
@@ -139,7 +141,7 @@ export class ExecutableGraph extends CloudGraph {
   public replaceNodeRefs(sourceId: string, targetId: string): void {
     // Replace expressions within nodes
     this.nodes = this.nodes.map((node) => {
-      return new ExecutableNode(
+      return new PipelineStep(
         JSON.parse(
           JSON.stringify(node).replace(
             new RegExp('\\${{\\s?' + sourceId + '\\.(\\S+)\\s?}}', 'g'),
@@ -179,7 +181,7 @@ export class ExecutableGraph extends CloudGraph {
     );
   }
 
-  private getNextNode(...seenIds: string[]): ExecutableNode | undefined {
+  private getNextNode(...seenIds: string[]): PipelineStep | undefined {
     const availableNodes = this.nodes.filter((node) => {
       const isNodeSeen = seenIds.includes(node.id);
       const hasDeps = this.edges.some(
@@ -193,7 +195,23 @@ export class ExecutableGraph extends CloudGraph {
     return availableNodes.shift();
   }
 
-  private async applyCrudNode<T extends ExecutableNode>(
+  private async afterApply<T extends ResourceType>(
+    node: PipelineStep<T>,
+    service: BaseService<T>,
+    options: ApplyOptions,
+  ): Promise<void> {
+    if (node.action !== 'delete' && service.hooks.afterCreate) {
+      await service.hooks.afterCreate(
+        options.providerStore,
+        node.inputs as any,
+        node.outputs as any,
+      );
+    } else if (node.action === 'delete' && service.hooks.afterDelete) {
+      await service.hooks.afterDelete(node.outputs as any);
+    }
+  }
+
+  private async applyCrudNode<T extends PipelineStep>(
     subscriber: Subscriber<T>,
     node: T,
     options: ApplyOptions,
@@ -224,11 +242,63 @@ export class ExecutableGraph extends CloudGraph {
     }
 
     const crudService = service as CrudResourceService<any>;
+    switch (node.action) {
+      case 'no-op': {
+        subscriber.complete();
+        break;
+      }
+      case 'delete': {
+        if (!node.outputs) {
+          subscriber.error(
+            new Error(`Node (${node.id}) doesn't exist and cannot be deleted`),
+          );
+          return;
+        }
+
+        node.status.state = 'destroying';
+        node.status.startTime = Date.now();
+        subscriber.next(node);
+        await crudService.delete(node.outputs.id);
+        delete node.outputs;
+        break;
+      }
+      case 'create': {
+        node.status.state = 'applying';
+        node.status.startTime = Date.now();
+        subscriber.next(node);
+        node.outputs = await crudService.create(node.inputs);
+        break;
+      }
+      case 'update': {
+        node.status.state = 'applying';
+        node.status.startTime = Date.now();
+        subscriber.next(node);
+        const res = await crudService.update(node.inputs);
+        node.outputs = deepmerge(node.outputs || {}, res);
+        break;
+      }
+    }
+
+    try {
+      await this.afterApply(node as any, service as any, options);
+    } catch (err: any) {
+      node.status.state = 'error';
+      node.status.message = err.message || '';
+      node.status.endTime = Date.now();
+      subscriber.next(node);
+      subscriber.error(err);
+      return;
+    }
+
+    node.status.state = 'complete';
+    node.status.endTime = Date.now();
+    subscriber.next(node);
+    subscriber.complete();
   }
 
-  private async applyTerraformNode<T extends ExecutableNode>(
-    subscriber: Subscriber<T>,
-    node: T,
+  private async applyTerraformNode<T extends ResourceType>(
+    subscriber: Subscriber<PipelineStep<T>>,
+    node: PipelineStep<T>,
     options: ApplyOptions,
   ): Promise<void> {
     const provider = options.providerStore.getProvider(node.account || '');
@@ -267,14 +337,14 @@ export class ExecutableGraph extends CloudGraph {
       return;
     }
 
-    const app = new App({
-      outdir: os.tmpdir(),
-    });
-    const stack = new CldCtlTerraformStack(app, node.id);
-
     const cwd =
       options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
     const nodeDir = path.join(cwd, node.id.replaceAll('/', '--'));
+
+    const app = new App({
+      outdir: nodeDir,
+    });
+    const stack = new CldCtlTerraformStack(app, node.id);
 
     const datacenter = await options.datacenterStore.getDatacenter(
       node.datacenter,
@@ -284,10 +354,9 @@ export class ExecutableGraph extends CloudGraph {
       return;
     }
 
-    datacenter.config.configureBackend(stack, `${node.id}.tfstate`);
     provider.configureTerraformProviders(stack);
 
-    const { module, output: tfOutput } = stack.addModule(
+    const { output: tfOutput } = stack.addModule(
       ModuleConstructor as any,
       node.resource_id,
       node.inputs,
@@ -357,40 +426,15 @@ export class ExecutableGraph extends CloudGraph {
       node.status.message = 'Running hooks';
       subscriber.next(node);
 
-      if (node.action !== 'delete' && module.hooks.afterCreate) {
-        try {
-          await module.hooks.afterCreate(
-            options.providerStore.saveFile.bind(options.providerStore),
-            options.providerStore.saveProvider.bind(options.providerStore),
-            (id: string) => {
-              if (node.action !== 'delete') {
-                if (parsedOutputs[id]) {
-                  return parsedOutputs[id].value;
-                }
-
-                throw new Error(`Invalid output key, ${id}`);
-              }
-            },
-          );
-        } catch (err: any) {
-          node.status.state = 'error';
-          node.status.message = err.message || '';
-          node.status.endTime = Date.now();
-          subscriber.next(node);
-          subscriber.error(err);
-          return;
-        }
-      } else if (node.action === 'delete' && module.hooks.afterDelete) {
-        try {
-          await module.hooks.afterDelete();
-        } catch (err: any) {
-          node.status.state = 'error';
-          node.status.message = err.message || '';
-          node.status.endTime = Date.now();
-          subscriber.next(node);
-          subscriber.error(err);
-          return;
-        }
+      try {
+        await this.afterApply(node as any, service as any, options);
+      } catch (err: any) {
+        node.status.state = 'error';
+        node.status.message = err.message || '';
+        node.status.endTime = Date.now();
+        subscriber.next(node);
+        subscriber.error(err);
+        return;
       }
 
       node.status.state = 'complete';
@@ -401,7 +445,7 @@ export class ExecutableGraph extends CloudGraph {
     });
   }
 
-  private applyNode<T extends ExecutableNode>(
+  private applyNode<T extends PipelineStep>(
     node: T,
     options: ApplyOptions,
   ): Observable<T> {
@@ -409,6 +453,11 @@ export class ExecutableGraph extends CloudGraph {
       options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
 
     return new Observable((subscriber) => {
+      if (node.action === 'no-op') {
+        subscriber.complete();
+        return;
+      }
+
       const nodeDir = path.join(cwd, node.id.replaceAll('/', '--'));
       fs.mkdirSync(nodeDir, { recursive: true });
       if (!nodeDir) {
@@ -457,7 +506,7 @@ export class ExecutableGraph extends CloudGraph {
     const cwd =
       options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
 
-    let node: ExecutableNode | undefined;
+    let node: PipelineStep | undefined;
     while (
       (node = this.getNextNode(
         ...this.nodes

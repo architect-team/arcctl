@@ -42,7 +42,7 @@
     }
   },
   "dependencies": {
-    "@architect-io/arc-oci": "file:../../Architect/arc-oci",
+    "@architect-io/arc-oci": "0.1.0",
     "@kubernetes/client-node": "^0.18.1",
     "@oclif/core": "^1.8.2",
     "@oclif/plugin-help": "^5.1.12",

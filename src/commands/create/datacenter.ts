@@ -55,7 +55,7 @@ export class CreateDatacenterCmd extends BaseCommand {
       let interval: NodeJS.Timer;
       if (!flags.verbose) {
         interval = setInterval(() => {
-          this.renderPipeline(pipeline);
+          this.renderPipeline(pipeline, { clear: true });
         }, 1000 / cliSpinners.dots.frames.length);
       }
 
@@ -76,11 +76,12 @@ export class CreateDatacenterCmd extends BaseCommand {
         })
         .then(async () => {
           await this.saveDatacenter(args.name, datacenter, pipeline);
-          this.renderPipeline(pipeline);
+          this.renderPipeline(pipeline, { clear: !flags.verbose });
           clearInterval(interval);
           this.log('Datacenter created successfully');
         })
-        .catch((err) => {
+        .catch(async (err) => {
+          await this.saveDatacenter(args.name, datacenter, pipeline);
           clearInterval(interval);
           this.error(err);
         });

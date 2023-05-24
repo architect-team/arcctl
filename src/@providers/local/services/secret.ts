@@ -52,12 +52,13 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
   async create(
     inputs: ResourceInputs['secret'],
   ): Promise<ResourceOutputs['secret']> {
-    let id = inputs.name;
+    let id = inputs.name.replaceAll('/', '--');
     if (inputs.namespace) {
       id = `${inputs.namespace}/${id}`;
     }
 
     const file = path.join(this.credentials.directory, id);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, inputs.data);
 
     return {

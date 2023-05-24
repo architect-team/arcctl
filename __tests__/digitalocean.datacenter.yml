@@ -1,5 +1,5 @@
 secrets:
-  account: do-personal
+  account: local
 
 resources:
   vpc:

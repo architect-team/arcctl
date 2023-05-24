@@ -4,9 +4,13 @@ import {
   ProviderStore,
 } from './@providers/index.js';
 import { ResourceType, ResourceTypeList } from './@resources/index.js';
-import { CloudGraph, CloudNode } from './cloud-graph/index.js';
+import { CloudEdge, CloudGraph, CloudNode } from './cloud-graph/index.js';
 import { ComponentStore } from './component-store/index.js';
-import { Datacenter, DatacenterStore } from './datacenters/index.js';
+import {
+  Datacenter,
+  DatacenterRecord,
+  DatacenterStore,
+} from './datacenters/index.js';
 import { Pipeline, PipelineStep } from './pipeline/index.js';
 import { Terraform } from './terraform/terraform.js';
 import CloudCtlConfig from './utils/config.js';
@@ -109,6 +113,38 @@ export abstract class BaseCommand extends Command {
           },
           error: reject,
         });
+    });
+  }
+
+  protected async getPipelineForDatacenter(
+    record: DatacenterRecord,
+  ): Promise<Pipeline> {
+    const secretAccount = this.providerStore.getProvider(
+      record.lastPipeline.account,
+    );
+    if (!secretAccount) {
+      this.error(
+        `Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`,
+      );
+    }
+
+    const service = secretAccount.resources.secret;
+    if (!service) {
+      this.error(`The ${secretAccount.type} provider doesn't support secrets`);
+    }
+
+    const secret = await service.get(record.lastPipeline.secret);
+    if (!secret) {
+      this.error(
+        `Invalid secret housing datacenter pipeline: ${record.lastPipeline.secret}`,
+      );
+    }
+
+    const rawPipeline = JSON.parse(secret.data);
+
+    return new Pipeline({
+      steps: rawPipeline.steps.map((step: any) => new PipelineStep(step)),
+      edges: rawPipeline.edges.map((edge: any) => new CloudEdge(edge)),
     });
   }
 

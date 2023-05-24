@@ -325,7 +325,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           fs.rmSync(nodeDir, { recursive: true });
         })
         .catch((err) => {
-          console.error(err);
           this.status.state = 'error';
           this.status.message = err.message || '';
           this.status.endTime = Date.now();
@@ -366,10 +365,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'arcctl-'));
       const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
       fs.mkdirSync(nodeDir, { recursive: true });
-      fs.writeFileSync(
-        path.join(nodeDir, 'terraform.tfstate'),
-        JSON.stringify(this.state),
-      );
       const app = new App({
         outdir: nodeDir,
       });
@@ -381,7 +376,26 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         this.inputs!,
       );
 
-      const { stdout: rawOutputs } = await options.terraform.output(nodeDir);
+      await options.terraform.init(nodeDir, stack);
+
+      // Do not remove. For some reason this folder gets deleted after the init command.
+      fs.mkdirSync(nodeDir, { recursive: true });
+      fs.writeFileSync(
+        path.join(nodeDir, 'terraform.tfstate'),
+        JSON.stringify(this.state),
+      );
+
+      const outputCmd = options.terraform.output(nodeDir);
+      if (options.logger) {
+        outputCmd.stdout?.on('data', (chunk) => {
+          options.logger?.info(chunk);
+        });
+        outputCmd.stderr?.on('data', (chunk) => {
+          options.logger?.error(chunk);
+        });
+      }
+      const { stdout: rawOutputs } = await outputCmd;
+
       const parsedOutputs = JSON.parse(rawOutputs);
       return parsedOutputs[tfOutput.friendlyUniqueId].value;
     } else {

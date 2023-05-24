@@ -3,6 +3,8 @@ import { CloudGraph } from '../../cloud-graph/index.js';
 import { parseDatacenter } from '../../datacenters/index.js';
 import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
+import cliSpinners from 'cli-spinners';
+import winston, { Logger } from 'winston';
 
 export default class ApplyDatacenterChangesCmd extends BaseCommand {
   static description = 'Apply changes to a new or existing datacenter';
@@ -12,6 +14,11 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
       char: 'n',
       description: `Name of the datacenter to modify. If it doesn't exist, one will be created.`,
       required: true,
+    }),
+
+    verbose: Flags.boolean({
+      char: 'v',
+      description: 'Turn on verbose logs',
     }),
   };
 
@@ -27,13 +34,16 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
     const { args, flags } = await this.parse(ApplyDatacenterChangesCmd);
 
     try {
+      const currentDatacenterRecord = await this.datacenterStore.get(
+        flags.name,
+      );
       const newDatacenter = await parseDatacenter(args.config_path);
       const allEnvironments = await this.environmentStore.getEnvironments();
       const datacenterEnvironments = allEnvironments.filter(
         (e) => e.datacenter === flags.name,
       );
 
-      const graph = new Pipeline();
+      const targetGraph = await newDatacenter.enrichGraph(new CloudGraph());
 
       for (const record of datacenterEnvironments) {
         const originalEnvGraph = await record.config?.getGraph(
@@ -45,27 +55,59 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
           record.name,
         );
 
-        const environmentPlan = Pipeline.plan({
-          before: record.graph,
-          after: targetEnvGraph,
-        });
-
-        graph.insertSteps(...environmentPlan.steps);
-        graph.insertEdges(...environmentPlan.edges);
+        targetGraph.insertNodes(...targetEnvGraph.nodes);
+        targetGraph.insertEdges(...targetEnvGraph.edges);
       }
 
-      graph.validate();
+      targetGraph.validate();
 
-      if (graph.nodes.length > 0) {
-        this.renderPipeline(graph);
-      }
+      const originalPipeline = currentDatacenterRecord
+        ? await this.getPipelineForDatacenter(currentDatacenterRecord)
+        : new Pipeline();
 
-      await this.datacenterStore.saveDatacenter({
-        name: flags.name,
-        config: newDatacenter,
+      const newPipeline = Pipeline.plan({
+        before: originalPipeline,
+        after: targetGraph,
       });
 
-      this.log('Datacenter saved successfully');
+      if (newPipeline.steps.length <= 0) {
+        await this.saveDatacenter(args.name, newDatacenter, newPipeline);
+        this.log('Datacenter created successfully');
+      }
+
+      let interval: NodeJS.Timer;
+      if (!flags.verbose) {
+        interval = setInterval(() => {
+          this.renderPipeline(newPipeline, { clear: true });
+        }, 1000 / cliSpinners.dots.frames.length);
+      }
+
+      let logger: Logger | undefined;
+      if (flags.verbose) {
+        this.renderPipeline(newPipeline);
+        logger = winston.createLogger({
+          level: 'info',
+          format: winston.format.printf(({ message }) => message),
+          transports: [new winston.transports.Console()],
+        });
+      }
+
+      return newPipeline
+        .apply({
+          providerStore: this.providerStore,
+          logger: logger,
+        })
+        .then(async () => {
+          await this.saveDatacenter(args.name, newDatacenter, newPipeline);
+          this.renderPipeline(newPipeline, { clear: !flags.verbose });
+          clearInterval(interval);
+          this.log('Datacenter created successfully');
+        })
+        .catch(async (err) => {
+          await this.saveDatacenter(args.name, newDatacenter, newPipeline);
+          clearInterval(interval);
+          this.error(err);
+        });
     } catch (err: any) {
       if (Array.isArray(err)) {
         err.map((e) => {

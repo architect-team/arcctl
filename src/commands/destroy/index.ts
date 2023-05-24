@@ -1,17 +1,9 @@
-import { ResourceOutputs, ResourceType } from '../../@resources/types.js';
 import { BaseCommand } from '../../base-command.js';
-import { Pipeline, PipelineStep, StepStatus } from '../../pipeline/index.js';
-import CloudCtlConfig from '../../utils/config.js';
-import { CldCtlTerraformStack } from '../../utils/stack.js';
-import TaskManager from '../../utils/task-manager.js';
-import Terraform from '../../utils/terraform.js';
+import { Pipeline, PipelineStep } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
-import { App } from 'cdktf';
 import chalk from 'chalk';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import path from 'path';
-import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
 import winston, { Logger } from 'winston';
 
 export default class DestroyResourceCommand extends BaseCommand {

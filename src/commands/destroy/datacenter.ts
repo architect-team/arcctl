@@ -17,7 +17,7 @@ export class DestroyDatacenterCmd extends BaseCommand {
   ];
 
   private async promptForDatacenter(name?: string): Promise<DatacenterRecord> {
-    const datacenterRecords = await this.datacenterStore.getDatacenters();
+    const datacenterRecords = await this.datacenterStore.find();
 
     if (datacenterRecords.length <= 0) {
       this.error('There are no datacenters to destroy');

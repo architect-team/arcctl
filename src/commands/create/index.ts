@@ -8,7 +8,6 @@ import { Flags } from '@oclif/core';
 import chalk from 'chalk';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import path from 'path';
 import { inspect } from 'util';
 import winston, { Logger } from 'winston';
 

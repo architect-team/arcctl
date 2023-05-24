@@ -48,10 +48,9 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
         const environmentPlan = Pipeline.plan({
           before: record.graph,
           after: targetEnvGraph,
-          datacenter: flags.name,
         });
 
-        graph.insertNodes(...environmentPlan.nodes);
+        graph.insertSteps(...environmentPlan.steps);
         graph.insertEdges(...environmentPlan.edges);
       }
 

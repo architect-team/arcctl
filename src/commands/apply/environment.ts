@@ -73,13 +73,13 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
     let interval: NodeJS.Timer;
     if (!flags.verbose) {
       interval = setInterval(() => {
-        this.renderGraph(graphPlan);
+        this.renderPipeline(graphPlan);
       }, 1000 / cliSpinners.dots.frames.length);
     }
 
     let logger: Logger | undefined;
     if (flags.verbose) {
-      this.renderGraph(graphPlan);
+      this.renderPipeline(graphPlan);
       logger = winston.createLogger({
         level: 'info',
         format: winston.format.printf(({ message }) => message),
@@ -101,7 +101,7 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
           name: flags.name,
           config: newEnvironmentConfig,
         });
-        this.renderGraph(graphPlan);
+        this.renderPipeline(graphPlan);
         clearInterval(interval);
       })
       .catch((err) => {

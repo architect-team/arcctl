@@ -61,7 +61,7 @@ export class DestroyEnvironmentCmd extends BaseCommand {
 
     const interval = setInterval(() => {
       if (graphPlan.nodes.length > 0) {
-        this.renderGraph(graphPlan);
+        this.renderPipeline(graphPlan);
       }
     }, 1000 / cliSpinners.dots.frames.length);
 
@@ -74,7 +74,7 @@ export class DestroyEnvironmentCmd extends BaseCommand {
       .then(async () => {
         await this.environmentStore.removeEnvironment(name);
         if (graphPlan.nodes.length > 0) {
-          this.renderGraph(graphPlan);
+          this.renderPipeline(graphPlan);
         }
         clearInterval(interval);
         this.log('Environment destroyed successfully');

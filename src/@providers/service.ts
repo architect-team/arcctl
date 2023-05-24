@@ -24,9 +24,7 @@ export interface ResourceLifecycleHooks<T extends ResourceType> {
     inputs: ResourceInputs[T],
     outputs: ResourceOutputs[T] & Record<string, any>,
   ) => Promise<void>;
-  afterDelete?: (
-    outputs: ResourceOutputs[T] & Record<string, any>,
-  ) => Promise<void>;
+  afterDelete?: () => Promise<void>;
   afterImport?: () => Promise<void>;
 }
 

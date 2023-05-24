@@ -55,11 +55,10 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
         graph.insertEdges(...environmentPlan.edges);
       }
 
-      console.log(graph.nodes.map((n) => n.id));
       graph.validate();
 
       if (graph.nodes.length > 0) {
-        this.renderGraph(graph);
+        this.renderPipeline(graph);
       }
 
       await this.datacenterStore.saveDatacenter({

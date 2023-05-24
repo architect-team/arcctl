@@ -35,6 +35,10 @@ export interface DropletConfig extends cdktf.TerraformMetaArguments {
   */
   readonly ipv6?: boolean | cdktf.IResolvable;
   /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#ipv6_address Droplet#ipv6_address}
+  */
+  readonly ipv6Address?: string;
+  /**
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#monitoring Droplet#monitoring}
   */
   readonly monitoring?: boolean | cdktf.IResolvable;
@@ -241,8 +245,8 @@ export class Droplet extends cdktf.TerraformResource {
       terraformResourceType: 'digitalocean_droplet',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -258,6 +262,7 @@ export class Droplet extends cdktf.TerraformResource {
     this._id = config.id;
     this._image = config.image;
     this._ipv6 = config.ipv6;
+    this._ipv6Address = config.ipv6Address;
     this._monitoring = config.monitoring;
     this._name = config.name;
     this._privateNetworking = config.privateNetworking;
@@ -389,9 +394,20 @@ export class Droplet extends cdktf.TerraformResource {
     return this._ipv6;
   }
 
-  // ipv6_address - computed: true, optional: false, required: false
+  // ipv6_address - computed: true, optional: true, required: false
+  private _ipv6Address?: string; 
   public get ipv6Address() {
     return this.getStringAttribute('ipv6_address');
+  }
+  public set ipv6Address(value: string) {
+    this._ipv6Address = value;
+  }
+  public resetIpv6Address() {
+    this._ipv6Address = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get ipv6AddressInput() {
+    return this._ipv6Address;
   }
 
   // locked - computed: true, optional: false, required: false
@@ -627,6 +643,7 @@ export class Droplet extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       image: cdktf.stringToTerraform(this._image),
       ipv6: cdktf.booleanToTerraform(this._ipv6),
+      ipv6_address: cdktf.stringToTerraform(this._ipv6Address),
       monitoring: cdktf.booleanToTerraform(this._monitoring),
       name: cdktf.stringToTerraform(this._name),
       private_networking: cdktf.booleanToTerraform(this._privateNetworking),

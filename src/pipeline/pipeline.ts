@@ -1,149 +1,45 @@
-import { CrudResourceService } from '../@providers/crud.service.js';
-import { BaseService, ProviderStore } from '../@providers/index.js';
-import { TerraformResourceService } from '../@providers/terraform.service.js';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.js';
-import { Datacenter } from '../datacenters/index.js';
 import { Terraform } from '../terraform/terraform.js';
 import CloudCtlConfig from '../utils/config.js';
-import { DatacenterStore } from '../utils/datacenter-store.js';
-import { CldCtlTerraformStack } from '../utils/stack.js';
+import { replaceAsync } from '../utils/string.js';
 import { PipelineStep } from './step.js';
-import { ResourceType } from '@resources/index.js';
-import { App } from 'cdktf';
-import deepmerge from 'deepmerge';
+import { ApplyOptions, ApplyStepOptions } from './types.js';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { Observable, Subscriber } from 'rxjs';
-import { Logger } from 'winston';
-
-export type PipelineOptions = {
-  before: Pipeline;
-  after: CloudGraph;
-  datacenter: Datacenter;
-  cwd?: string;
-};
 
 export type PlanOptions = {
   before: Pipeline;
   after: CloudGraph;
-  datacenter: string;
 };
 
-export type ApplyOptions = {
-  datacenterStore: DatacenterStore;
-  providerStore: ProviderStore;
-  cwd?: string;
-  logger?: Logger;
+export type PipelineOptions = {
+  steps?: PipelineStep[];
+  edges?: CloudEdge[];
 };
 
-export class Pipeline extends CloudGraph {
+export class Pipeline {
   private _terraform?: Terraform;
 
+  steps: PipelineStep[];
+  edges: CloudEdge[];
+
+  constructor(options?: PipelineOptions) {
+    this.steps = options?.steps || [];
+    this.edges = options?.edges || [];
+  }
+
   /**
-   * @override
+   * Updates pointers to the sourceId to reference the targetId instead.
+   * @param sourceId
+   * @param targetId
    */
-  nodes!: PipelineStep[];
-
-  public static plan(options: PlanOptions): Pipeline {
-    const graph = new Pipeline({
-      edges: [...options.after.edges],
-    });
-
-    const replacements: Record<string, string> = {};
-    for (const newNode of options.after.nodes) {
-      const oldNode = options.before.nodes.find((n) =>
-        n.id.startsWith(newNode.id),
-      );
-
-      const oldId = newNode.id;
-      if (!oldNode) {
-        const newExecutable = new PipelineStep({
-          ...newNode,
-          color: 'blue',
-          datacenter: options.datacenter,
-          action: 'create',
-          status: {
-            state: 'pending',
-          },
-        });
-        graph.insertNodes(newExecutable);
-        replacements[oldId] = newExecutable.id;
-      } else {
-        const newExecutable = new PipelineStep({
-          ...newNode,
-          datacenter: options.datacenter,
-          color: oldNode.color,
-          action: 'update',
-          status: {
-            state: 'pending',
-          },
-        });
-        graph.insertNodes(newExecutable);
-        replacements[oldId] = newExecutable.id;
-      }
-    }
-
-    for (const [source, target] of Object.entries(replacements)) {
-      graph.replaceNodeRefs(source, target);
-    }
-
-    // Check for nodes that should be removed
-    for (const oldNode of options.before.nodes) {
-      if (oldNode.action === 'delete' && oldNode.status.state !== 'error') {
-        continue;
-      }
-
-      const newNode = options.after.nodes.find((n) =>
-        oldNode.id.startsWith(n.id),
-      );
-      if (!newNode) {
-        const rmNode = new PipelineStep({
-          ...oldNode,
-          action: 'delete',
-          status: {
-            state: 'pending',
-          },
-        });
-
-        graph.insertNodes(rmNode);
-
-        for (const oldEdge of options.before.edges) {
-          if (oldEdge.to === rmNode.id) {
-            graph.insertEdges(
-              new CloudEdge({
-                from: oldEdge.to,
-                to: oldEdge.from,
-                required: oldEdge.required,
-              }),
-            );
-          }
-        }
-      }
-    }
-
-    return graph;
-  }
-
-  private async getTerraformPlugin(): Promise<Terraform> {
-    if (this._terraform) {
-      return this._terraform;
-    }
-
-    this._terraform = await Terraform.generate(
-      CloudCtlConfig.getPluginDirectory(),
-      '1.4.5',
-    );
-
-    return this._terraform;
-  }
-
-  public replaceNodeRefs(sourceId: string, targetId: string): void {
+  private replaceStepRefs(sourceId: string, targetId: string): void {
     // Replace expressions within nodes
-    this.nodes = this.nodes.map((node) => {
+    this.steps = this.steps.map((step) => {
       return new PipelineStep(
         JSON.parse(
-          JSON.stringify(node).replace(
+          JSON.stringify(step).replace(
             new RegExp('\\${{\\s?' + sourceId + '\\.(\\S+)\\s?}}', 'g'),
             (_, key) => `\${{ ${targetId}.${key} }}`,
           ),
@@ -163,374 +59,282 @@ export class Pipeline extends CloudGraph {
     });
   }
 
-  private replaceRefsWithOutputValues<T>(input: T): T {
-    return JSON.parse(
-      JSON.stringify(input).replace(
-        /\${{\s?([^.]+).(\S+)\s?}}/g,
-        (_, node_id, key) => {
-          const node = this.nodes.find((n) => n.id === node_id);
-          if (!node || !node.outputs) {
-            throw new Error(`Missing outputs for ${node_id}`);
-          } else if (!(node.outputs as any)[key]) {
-            throw new Error(`Invalid key, ${key}, for ${node.type}`);
-          }
-
-          return (node.outputs as any)[key];
-        },
-      ),
-    );
-  }
-
-  private getNextNode(...seenIds: string[]): PipelineStep | undefined {
-    const availableNodes = this.nodes.filter((node) => {
-      const isNodeSeen = seenIds.includes(node.id);
-      const hasDeps = this.edges.some(
-        (edge) =>
-          edge.required && edge.from === node.id && !seenIds.includes(edge.to),
-      );
-
-      return !isNodeSeen && !hasDeps;
-    });
-
-    return availableNodes.shift();
-  }
-
-  private async afterApply<T extends ResourceType>(
-    node: PipelineStep<T>,
-    service: BaseService<T>,
-    options: ApplyOptions,
-  ): Promise<void> {
-    if (node.action !== 'delete' && service.hooks.afterCreate) {
-      await service.hooks.afterCreate(
-        options.providerStore,
-        node.inputs as any,
-        node.outputs as any,
-      );
-    } else if (node.action === 'delete' && service.hooks.afterDelete) {
-      await service.hooks.afterDelete(node.outputs as any);
-    }
-  }
-
-  private async applyCrudNode<T extends PipelineStep>(
-    subscriber: Subscriber<T>,
-    node: T,
-    options: ApplyOptions,
-  ): Promise<void> {
-    const provider = options.providerStore.getProvider(node.account || '');
-    if (!provider) {
-      subscriber.error(new Error(`Invalid provider: ${node.account}`));
-      return;
-    }
-
-    const service = provider.resources[node.type];
-    if (!service) {
-      subscriber.error(
-        new Error(
-          `The ${provider.type} provider doesn't support the ${node.type} resource`,
-        ),
-      );
-      return;
-    }
-
-    if (!('create' in service)) {
-      subscriber.error(
-        new Error(
-          `Incorrectly trying to use Crud methods for the ${node.type} resource in the ${provider.type} provider`,
-        ),
-      );
-      return;
-    }
-
-    const crudService = service as CrudResourceService<any>;
-    switch (node.action) {
-      case 'no-op': {
-        subscriber.complete();
-        break;
-      }
-      case 'delete': {
-        if (!node.outputs) {
-          subscriber.error(
-            new Error(`Node (${node.id}) doesn't exist and cannot be deleted`),
-          );
-          return;
+  /**
+   * Replace step references with actual output values
+   */
+  private async replaceRefsWithOutputValues<T>(
+    input: T,
+    options: ApplyStepOptions,
+  ): Promise<T> {
+    const strVal = await replaceAsync(
+      JSON.stringify(input),
+      /\${{\s?([^.]+).(\S+)\s?}}/g,
+      async (_, step_id, key) => {
+        const step = this.steps.find((s) => s.id === step_id);
+        const outputs = await step?.getOutputs(options);
+        if (!step || !outputs) {
+          throw new Error(`Missing outputs for ${step_id}`);
+        } else if (!(outputs as any)[key]) {
+          throw new Error(`Invalid key, ${key}, for ${step.type}`);
         }
 
-        node.status.state = 'destroying';
-        node.status.startTime = Date.now();
-        subscriber.next(node);
-        await crudService.delete(node.outputs.id);
-        delete node.outputs;
-        break;
-      }
-      case 'create': {
-        node.status.state = 'applying';
-        node.status.startTime = Date.now();
-        subscriber.next(node);
-        node.outputs = await crudService.create(node.inputs);
-        break;
-      }
-      case 'update': {
-        node.status.state = 'applying';
-        node.status.startTime = Date.now();
-        subscriber.next(node);
-        const res = await crudService.update(node.inputs);
-        node.outputs = deepmerge(node.outputs || {}, res);
-        break;
-      }
-    }
-
-    try {
-      await this.afterApply(node as any, service as any, options);
-    } catch (err: any) {
-      node.status.state = 'error';
-      node.status.message = err.message || '';
-      node.status.endTime = Date.now();
-      subscriber.next(node);
-      subscriber.error(err);
-      return;
-    }
-
-    node.status.state = 'complete';
-    node.status.endTime = Date.now();
-    subscriber.next(node);
-    subscriber.complete();
-  }
-
-  private async applyTerraformNode<T extends ResourceType>(
-    subscriber: Subscriber<PipelineStep<T>>,
-    node: PipelineStep<T>,
-    options: ApplyOptions,
-  ): Promise<void> {
-    const provider = options.providerStore.getProvider(node.account || '');
-    if (!provider) {
-      subscriber.error(new Error(`Invalid provider: ${node.account}`));
-      return;
-    }
-
-    const service = provider.resources[node.type];
-    if (!service) {
-      subscriber.error(
-        new Error(
-          `The ${provider.type} provider doesn't support the ${node.type} resource`,
-        ),
-      );
-      return;
-    }
-
-    if (!('construct' in service)) {
-      subscriber.error(
-        new Error(
-          `Incorrectly trying to use Terraform for the ${node.type} resource in the ${provider.type} provider`,
-        ),
-      );
-      return;
-    }
-
-    const tfService = service as TerraformResourceService<any, any>;
-    const ModuleConstructor = tfService.construct;
-    if (!ModuleConstructor) {
-      subscriber.error(
-        new Error(
-          `The ${provider.type} provider can't create ${node.type} resources`,
-        ),
-      );
-      return;
-    }
-
-    const cwd =
-      options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
-    const nodeDir = path.join(cwd, node.id.replaceAll('/', '--'));
-
-    const app = new App({
-      outdir: nodeDir,
-    });
-    const stack = new CldCtlTerraformStack(app, node.id);
-
-    const datacenter = await options.datacenterStore.getDatacenter(
-      node.datacenter,
-    );
-    if (!datacenter) {
-      subscriber.error(new Error(`No datacenter named ${node.datacenter}`));
-      return;
-    }
-
-    provider.configureTerraformProviders(stack);
-
-    const { output: tfOutput } = stack.addModule(
-      ModuleConstructor as any,
-      node.resource_id,
-      node.inputs,
+        return (outputs as any)[key];
+      },
     );
 
-    node.status.state = 'starting';
-    node.status.message = 'Initializing terraform';
-    node.status.startTime = Date.now();
-    subscriber.next(node);
-
-    this.getTerraformPlugin().then(async (terraform) => {
-      const initCmd = terraform.init(nodeDir, stack);
-      if (options.logger) {
-        initCmd.stdout?.on('data', (chunk) => {
-          options.logger?.info(chunk);
-        });
-        initCmd.stderr?.on('data', (chunk) => {
-          options.logger?.error(chunk);
-        });
-      }
-      await initCmd;
-
-      node.status.state = 'starting';
-      node.status.message = 'Generating diff';
-      subscriber.next(node);
-
-      const planCmd = terraform.plan(nodeDir, 'plan', {
-        destroy: node.action === 'delete',
-      });
-      if (options.logger) {
-        planCmd.stdout?.on('data', (chunk) => {
-          options.logger?.info(chunk);
-        });
-        planCmd.stderr?.on('data', (chunk) => {
-          options.logger?.error(chunk);
-        });
-      }
-      await planCmd;
-
-      node.status.state = 'applying';
-      node.status.message = 'Applying changes';
-      subscriber.next(node);
-
-      const applyCmd = terraform.apply(nodeDir, 'plan');
-      if (options.logger) {
-        applyCmd.stdout?.on('data', (chunk) => {
-          options.logger?.info(chunk);
-        });
-        applyCmd.stderr?.on('data', (chunk) => {
-          options.logger?.error(chunk);
-        });
-      }
-      await applyCmd;
-
-      node.status.state = 'applying';
-      node.status.message = 'Collecting outputs';
-      subscriber.next(node);
-
-      let parsedOutputs: any;
-      if (node.action !== 'delete') {
-        const { stdout: rawOutputs } = await terraform.output(nodeDir);
-        parsedOutputs = JSON.parse(rawOutputs);
-        node.outputs = parsedOutputs[tfOutput.friendlyUniqueId].value;
-      }
-
-      node.status.state = 'applying';
-      node.status.message = 'Running hooks';
-      subscriber.next(node);
-
-      try {
-        await this.afterApply(node as any, service as any, options);
-      } catch (err: any) {
-        node.status.state = 'error';
-        node.status.message = err.message || '';
-        node.status.endTime = Date.now();
-        subscriber.next(node);
-        subscriber.error(err);
-        return;
-      }
-
-      node.status.state = 'complete';
-      node.status.message = '';
-      node.status.endTime = Date.now();
-      subscriber.next(node);
-      subscriber.complete();
-    });
+    return JSON.parse(strVal);
   }
 
-  private applyNode<T extends PipelineStep>(
-    node: T,
-    options: ApplyOptions,
-  ): Observable<T> {
-    const cwd =
-      options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
+  private async getTerraformPlugin(): Promise<Terraform> {
+    if (this._terraform) {
+      return this._terraform;
+    }
 
-    return new Observable((subscriber) => {
-      if (node.action === 'no-op') {
-        subscriber.complete();
-        return;
-      }
+    this._terraform = await Terraform.generate(
+      CloudCtlConfig.getPluginDirectory(),
+      '1.4.5',
+    );
 
-      const nodeDir = path.join(cwd, node.id.replaceAll('/', '--'));
-      fs.mkdirSync(nodeDir, { recursive: true });
-      if (!nodeDir) {
-        subscriber.error(
-          new Error('Unable to create execution directory for terraform'),
-        );
-        return;
-      }
+    return this._terraform;
+  }
 
-      node.inputs = this.replaceRefsWithOutputValues(node.inputs);
-      subscriber.next(node);
-
-      const provider = options.providerStore.getProvider(node.account || '');
-      if (!provider) {
-        subscriber.error(new Error(`Invalid provider: ${node.account}`));
-        return;
-      }
-
-      const service = provider.resources[node.type];
-      if (!service) {
-        subscriber.error(
-          new Error(
-            `The ${provider.type} provider doesn't support the ${node.type} resource`,
-          ),
-        );
-        return;
-      }
-
-      if ('construct' in service) {
-        this.applyTerraformNode(subscriber, node, options);
-        return;
-      } else if ('create' in service) {
-        this.applyCrudNode(subscriber, node, options);
-        return;
-      }
-
-      subscriber.error(
-        new Error(
-          `The ${provider.type} provider cannot create ${node.type} resources`,
-        ),
+  /**
+   * Returns a pipeline step that is ready to be applied
+   */
+  private getNextStep(...seenIds: string[]): PipelineStep | undefined {
+    const availableSteps = this.steps.filter((step) => {
+      const isStepSeen = seenIds.includes(step.id);
+      const hasDeps = this.edges.some(
+        (edge) =>
+          edge.required && edge.from === step.id && !seenIds.includes(edge.to),
       );
+
+      return !isStepSeen && !hasDeps;
     });
+
+    return availableSteps.shift();
   }
 
+  public insertSteps(...args: PipelineStep[]): Pipeline {
+    for (const node of args) {
+      const index = this.steps.findIndex((item) => item.id === node.id);
+      if (index >= 0) {
+        this.steps[index] = node;
+      } else {
+        this.steps.push(node);
+      }
+    }
+
+    return this;
+  }
+
+  public insertEdges(...args: CloudEdge[]): Pipeline {
+    for (const edge of args) {
+      const index = this.edges.findIndex((item) => item.id === edge.id);
+      if (index >= 0) {
+        this.edges[index] = edge;
+      } else {
+        this.edges.push(edge);
+      }
+    }
+
+    return this;
+  }
+
+  public removeStep(id: string): Pipeline {
+    for (const index in this.steps) {
+      if (this.steps[index].id === id) {
+        this.steps.splice(Number(index), 1);
+        return this;
+      }
+    }
+
+    throw new Error(`Node with id ${id} not found`);
+  }
+
+  public removeEdge(options: { from?: string; to?: string }): Pipeline {
+    if (!options.from && !options.to) {
+      throw new Error('Must specify at least one of: from, to');
+    }
+
+    for (const index in this.edges) {
+      if (
+        (options.from &&
+          options.to &&
+          this.edges[index].from === options.from &&
+          this.edges[index].to === options.to) ||
+        (options.from &&
+          !options.to &&
+          this.edges[index].from === options.from) ||
+        (options.to && !options.from && this.edges[index].to === options.to)
+      ) {
+        this.edges.splice(Number(index), 1);
+        return this;
+      }
+    }
+
+    throw new Error(
+      `No edge found matching options: ${JSON.stringify(options)}`,
+    );
+  }
+
+  public validate(): void {
+    for (const edge of this.edges) {
+      if (!this.steps.some((n) => n.id === edge.from)) {
+        throw new Error(`${edge.from} is missing from the pipeline`);
+      } else if (!this.steps.some((n) => n.id === edge.to)) {
+        throw new Error(
+          `${edge.to} is missing from the pipeline, but required by ${edge.from}`,
+        );
+      }
+    }
+  }
+
+  public getDependencies(step_id: string): PipelineStep[] {
+    return this.steps.filter(
+      (step) =>
+        step.id !== step_id &&
+        this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
+    );
+  }
+
+  public getDependents(step_id: string): PipelineStep[] {
+    return this.steps.filter(
+      (step) =>
+        step.id !== step_id &&
+        this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
+    );
+  }
+
+  /**
+   * Returns a new pipeline by comparing the old pipeline to a new target graph
+   */
+  public static plan(options: PlanOptions): Pipeline {
+    const pipeline = new Pipeline({
+      edges: [...options.after.edges],
+    });
+
+    const replacements: Record<string, string> = {};
+    for (const newNode of options.after.nodes) {
+      const previousStep = options.before.steps.find((n) =>
+        n.id.startsWith(newNode.id),
+      );
+
+      const oldId = newNode.id;
+      if (!previousStep) {
+        const newStep = new PipelineStep({
+          ...newNode,
+          type: newNode.type,
+          color: 'blue',
+          action: 'create',
+          status: {
+            state: 'pending',
+          },
+        });
+        pipeline.insertSteps(newStep);
+        replacements[oldId] = newStep.id;
+      } else {
+        const newExecutable = new PipelineStep({
+          ...newNode,
+          type: newNode.type,
+          color: previousStep.color,
+          action: 'update',
+          status: {
+            state: 'pending',
+          },
+        });
+        pipeline.insertSteps(newExecutable);
+        replacements[oldId] = newExecutable.id;
+      }
+    }
+
+    // Replace references with color-coded refs
+    for (const [source, target] of Object.entries(replacements)) {
+      pipeline.replaceStepRefs(source, target);
+    }
+
+    // Check for nodes that should be removed
+    for (const previousStep of options.before.steps) {
+      if (
+        previousStep.action === 'delete' &&
+        previousStep.status.state !== 'error'
+      ) {
+        continue;
+      }
+
+      const newNode = options.after.nodes.find((n) =>
+        previousStep.id.startsWith(n.id),
+      );
+      if (!newNode) {
+        const rmStep = new PipelineStep({
+          ...previousStep,
+          action: 'delete',
+          status: {
+            state: 'pending',
+          },
+        });
+
+        pipeline.insertSteps(rmStep);
+
+        for (const oldEdge of options.before.edges) {
+          if (oldEdge.to === rmStep.id) {
+            pipeline.insertEdges(
+              new CloudEdge({
+                from: oldEdge.to,
+                to: oldEdge.from,
+                required: oldEdge.required,
+              }),
+            );
+          }
+        }
+      }
+    }
+
+    return pipeline;
+  }
+
+  /**
+   * Kick off the pipeline
+   */
   public async apply(options: ApplyOptions): Promise<void> {
     const cwd =
       options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
 
-    let node: PipelineStep | undefined;
+    let step: PipelineStep | undefined;
+    const terraform = await this.getTerraformPlugin();
     while (
-      (node = this.getNextNode(
-        ...this.nodes
+      (step = this.getNextStep(
+        ...this.steps
           .filter(
             (n) => n.status.state === 'complete' || n.status.state === 'error',
           )
           .map((n) => n.id),
       ))
     ) {
-      if (!node) {
+      if (!step) {
         throw new Error(`Something went wrong queuing up a node to apply`);
       }
 
+      step.inputs = await this.replaceRefsWithOutputValues(step.inputs, {
+        ...options,
+        terraform,
+        cwd,
+      });
+
       await new Promise<void>((resolve, reject) => {
-        this.applyNode(node!, {
-          ...options,
-          cwd,
-        }).subscribe({
-          next: (node) => {
-            this.insertNodes(node);
-          },
-          error: reject,
-          complete: resolve,
-        });
+        step!
+          .apply({
+            ...options,
+            terraform,
+            cwd,
+          })
+          .subscribe({
+            next: (res) => {
+              this.insertSteps(res);
+            },
+            error: reject,
+            complete: resolve,
+          });
       });
     }
   }

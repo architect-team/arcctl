@@ -22,25 +22,16 @@ export default class CreateResourceCommand extends BaseCommand {
   static description = 'Create a new cloud resource';
 
   static flags = {
-    credentials: Flags.string({
-      char: 'c',
+    account: Flags.string({
+      char: 'a',
       description:
         'The cloud provider credentials to use to apply this resource',
     }),
+
     inputs: Flags.string({
       char: 'i',
       description:
         'A yaml file that represents the answers to some or all of the input questions',
-    }),
-    'no-cleanup': Flags.boolean({
-      description: 'When enabled the terraform files are not deleted',
-      default: false,
-      hidden: true,
-    }),
-    dev: Flags.boolean({
-      description: 'When enabled no actual terraform is applied',
-      default: false,
-      hidden: true,
     }),
   };
 
@@ -56,9 +47,6 @@ export default class CreateResourceCommand extends BaseCommand {
   async run(): Promise<void> {
     const { args, flags } = await this.parse(CreateResourceCommand);
 
-    CloudCtlConfig.setDev(flags.dev);
-    CloudCtlConfig.setNoCleanup(flags['no-cleanup']);
-
     if (args.type) {
       const is_creatable_type = await this.isCreatableResourceType(args.type);
       if (!is_creatable_type) {
@@ -69,12 +57,12 @@ export default class CreateResourceCommand extends BaseCommand {
     const provider = await this.promptForAccount({
       account: flags.credentials,
       type: args.type,
-      action: 'manage',
+      action: 'create',
     });
 
     const type = await this.promptForResourceType(
       provider,
-      'manage',
+      'create',
       args.type,
     );
 

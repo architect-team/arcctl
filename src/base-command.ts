@@ -4,6 +4,7 @@ import {
   ProviderCredentials,
   ResourceModule,
   ProviderStore,
+  ModuleConstructor,
 } from './@providers/index.js';
 import {
   ResourceInputs,
@@ -11,7 +12,7 @@ import {
   ResourceTypeList,
 } from './@resources/index.js';
 import { ComponentStore } from './component-store/index.js';
-import { Pipeline } from './pipeline/index.js';
+import { Pipeline, PipelineStep } from './pipeline/index.js';
 import CloudCtlConfig from './utils/config.js';
 import { DatacenterStore } from './utils/datacenter-store.js';
 import { EnvironmentStore } from './utils/environment-store.js';
@@ -60,8 +61,8 @@ export abstract class BaseCommand extends Command {
   /**
    * Render the executable graph and the status of each resource
    */
-  protected renderGraph(
-    graph: Pipeline,
+  protected renderPipeline(
+    pipeline: Pipeline,
     options?: { showEnvironment?: boolean },
   ): void {
     const headers = ['Name', 'Type', 'Component'];
@@ -76,28 +77,28 @@ export abstract class BaseCommand extends Command {
     });
 
     table.push(
-      ...graph.nodes
+      ...pipeline.steps
         .sort(
-          (first, second) =>
+          (first: PipelineStep, second: PipelineStep) =>
             second.environment?.localeCompare(first.environment || '') ||
             second.component?.localeCompare(first.component || '') ||
             0,
         )
-        .map((node) => {
-          const row = [node.name, node.type, node.component || ''];
+        .map((step: PipelineStep) => {
+          const row = [step.name, step.type, step.component || ''];
           if (options?.showEnvironment) {
-            row.push(node.environment || '');
+            row.push(step.environment || '');
           }
 
           row.push(
-            node.action,
-            node.status.state,
+            step.action,
+            step.status.state,
             Math.floor(
-              ((node.status.endTime || Date.now()) -
-                (node.status.startTime || Date.now())) /
+              ((step.status.endTime || Date.now()) -
+                (step.status.startTime || Date.now())) /
                 1000,
             ) + 's',
-            node.status.message || '',
+            step.status.message || '',
           );
 
           return row;
@@ -637,8 +638,7 @@ export abstract class BaseCommand extends Command {
       );
     }
 
-    const ModuleConstructor = service.manage?.module;
-    if (!ModuleConstructor) {
+    if (!('construct' in service)) {
       this.error(
         `The ${provider.type} provider cannot create ${type} resources`,
       );
@@ -681,7 +681,11 @@ export abstract class BaseCommand extends Command {
       data,
     );
 
-    return stack.addModule(ModuleConstructor, type, inputs);
+    return stack.addModule(
+      service.construct as ModuleConstructor<T, any>,
+      type,
+      inputs,
+    );
   }
 
   protected handleTerraformError(ex: any): void {

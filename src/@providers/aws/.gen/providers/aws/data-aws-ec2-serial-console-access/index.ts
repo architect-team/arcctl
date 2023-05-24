@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataAwsEc2SerialConsoleAccessConfig extends cdktf.TerraformMeta
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access#timeouts DataAwsEc2SerialConsoleAccess#timeouts}
   */
   readonly timeouts?: DataAwsEc2SerialConsoleAccessTimeouts;
@@ -81,7 +81,7 @@ export class DataAwsEc2SerialConsoleAccessTimeoutsOutputReference extends cdktf.
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -148,7 +148,7 @@ export class DataAwsEc2SerialConsoleAccess extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

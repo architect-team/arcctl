@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_user_ssh_key
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class IamUserSshKey extends cdktf.TerraformResource {
   // ==========
 
   // encoding - computed: false, optional: false, required: true
-  private _encoding?: string; 
+  private _encoding?: string;
   public get encoding() {
     return this.getStringAttribute('encoding');
   }
@@ -99,7 +99,7 @@ export class IamUserSshKey extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class IamUserSshKey extends cdktf.TerraformResource {
   }
 
   // public_key - computed: false, optional: false, required: true
-  private _publicKey?: string; 
+  private _publicKey?: string;
   public get publicKey() {
     return this.getStringAttribute('public_key');
   }
@@ -133,7 +133,7 @@ export class IamUserSshKey extends cdktf.TerraformResource {
   }
 
   // status - computed: true, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -149,7 +149,7 @@ export class IamUserSshKey extends cdktf.TerraformResource {
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }

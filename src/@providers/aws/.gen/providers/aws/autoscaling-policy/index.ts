@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscaling_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,19 +56,19 @@ export interface AutoscalingPolicyConfig extends cdktf.TerraformMetaArguments {
   readonly scalingAdjustment?: number;
   /**
   * predictive_scaling_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#predictive_scaling_configuration AutoscalingPolicy#predictive_scaling_configuration}
   */
   readonly predictiveScalingConfiguration?: AutoscalingPolicyPredictiveScalingConfiguration;
   /**
   * step_adjustment block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#step_adjustment AutoscalingPolicy#step_adjustment}
   */
   readonly stepAdjustment?: AutoscalingPolicyStepAdjustment[] | cdktf.IResolvable;
   /**
   * target_tracking_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#target_tracking_configuration AutoscalingPolicy#target_tracking_configuration}
   */
   readonly targetTrackingConfiguration?: AutoscalingPolicyTargetTrackingConfiguration;
@@ -146,7 +146,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -159,7 +159,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -202,7 +202,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly namespace: string;
   /**
   * dimensions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#dimensions AutoscalingPolicy#dimensions}
   */
   readonly dimensions?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueriesMetricStatMetricDimensions[] | cdktf.IResolvable;
@@ -265,7 +265,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -278,7 +278,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -317,7 +317,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly unit?: string;
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric AutoscalingPolicy#metric}
   */
   readonly metric: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueriesMetricStatMetric;
@@ -380,7 +380,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // stat - computed: false, optional: false, required: true
-  private _stat?: string; 
+  private _stat?: string;
   public get stat() {
     return this.getStringAttribute('stat');
   }
@@ -393,7 +393,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -443,7 +443,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly returnData?: boolean | cdktf.IResolvable;
   /**
   * metric_stat block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_stat AutoscalingPolicy#metric_stat}
   */
   readonly metricStat?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueriesMetricStat;
@@ -532,7 +532,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -548,7 +548,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -561,7 +561,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // label - computed: false, optional: true, required: false
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -577,7 +577,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // return_data - computed: false, optional: true, required: false
-  private _returnData?: boolean | cdktf.IResolvable; 
+  private _returnData?: boolean | cdktf.IResolvable;
   public get returnData() {
     return this.getBooleanAttribute('return_data');
   }
@@ -631,7 +631,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
 export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification {
   /**
   * metric_data_queries block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_data_queries AutoscalingPolicy#metric_data_queries}
   */
   readonly metricDataQueries: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueries[] | cdktf.IResolvable;
@@ -765,7 +765,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -778,7 +778,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -821,7 +821,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly namespace: string;
   /**
   * dimensions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#dimensions AutoscalingPolicy#dimensions}
   */
   readonly dimensions?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueriesMetricStatMetricDimensions[] | cdktf.IResolvable;
@@ -884,7 +884,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -897,7 +897,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -936,7 +936,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly unit?: string;
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric AutoscalingPolicy#metric}
   */
   readonly metric: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueriesMetricStatMetric;
@@ -999,7 +999,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // stat - computed: false, optional: false, required: true
-  private _stat?: string; 
+  private _stat?: string;
   public get stat() {
     return this.getStringAttribute('stat');
   }
@@ -1012,7 +1012,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -1062,7 +1062,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly returnData?: boolean | cdktf.IResolvable;
   /**
   * metric_stat block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_stat AutoscalingPolicy#metric_stat}
   */
   readonly metricStat?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueriesMetricStat;
@@ -1151,7 +1151,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -1167,7 +1167,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1180,7 +1180,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // label - computed: false, optional: true, required: false
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -1196,7 +1196,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // return_data - computed: false, optional: true, required: false
-  private _returnData?: boolean | cdktf.IResolvable; 
+  private _returnData?: boolean | cdktf.IResolvable;
   public get returnData() {
     return this.getBooleanAttribute('return_data');
   }
@@ -1250,7 +1250,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
 export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
   /**
   * metric_data_queries block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_data_queries AutoscalingPolicy#metric_data_queries}
   */
   readonly metricDataQueries: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueries[] | cdktf.IResolvable;
@@ -1384,7 +1384,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1397,7 +1397,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1440,7 +1440,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly namespace: string;
   /**
   * dimensions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#dimensions AutoscalingPolicy#dimensions}
   */
   readonly dimensions?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueriesMetricStatMetricDimensions[] | cdktf.IResolvable;
@@ -1503,7 +1503,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -1516,7 +1516,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1555,7 +1555,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly unit?: string;
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric AutoscalingPolicy#metric}
   */
   readonly metric: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueriesMetricStatMetric;
@@ -1618,7 +1618,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // stat - computed: false, optional: false, required: true
-  private _stat?: string; 
+  private _stat?: string;
   public get stat() {
     return this.getStringAttribute('stat');
   }
@@ -1631,7 +1631,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -1681,7 +1681,7 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly returnData?: boolean | cdktf.IResolvable;
   /**
   * metric_stat block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_stat AutoscalingPolicy#metric_stat}
   */
   readonly metricStat?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueriesMetricStat;
@@ -1770,7 +1770,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -1786,7 +1786,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1799,7 +1799,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // label - computed: false, optional: true, required: false
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -1815,7 +1815,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
   }
 
   // return_data - computed: false, optional: true, required: false
-  private _returnData?: boolean | cdktf.IResolvable; 
+  private _returnData?: boolean | cdktf.IResolvable;
   public get returnData() {
     return this.getBooleanAttribute('return_data');
   }
@@ -1869,7 +1869,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationC
 export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification {
   /**
   * metric_data_queries block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_data_queries AutoscalingPolicy#metric_data_queries}
   */
   readonly metricDataQueries: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueries[] | cdktf.IResolvable;
@@ -1991,7 +1991,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationP
   }
 
   // predefined_metric_type - computed: false, optional: false, required: true
-  private _predefinedMetricType?: string; 
+  private _predefinedMetricType?: string;
   public get predefinedMetricType() {
     return this.getStringAttribute('predefined_metric_type');
   }
@@ -2004,7 +2004,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationP
   }
 
   // resource_label - computed: false, optional: true, required: false
-  private _resourceLabel?: string; 
+  private _resourceLabel?: string;
   public get resourceLabel() {
     return this.getStringAttribute('resource_label');
   }
@@ -2080,7 +2080,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationP
   }
 
   // predefined_metric_type - computed: false, optional: false, required: true
-  private _predefinedMetricType?: string; 
+  private _predefinedMetricType?: string;
   public get predefinedMetricType() {
     return this.getStringAttribute('predefined_metric_type');
   }
@@ -2093,7 +2093,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationP
   }
 
   // resource_label - computed: false, optional: true, required: false
-  private _resourceLabel?: string; 
+  private _resourceLabel?: string;
   public get resourceLabel() {
     return this.getStringAttribute('resource_label');
   }
@@ -2169,7 +2169,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationP
   }
 
   // predefined_metric_type - computed: false, optional: false, required: true
-  private _predefinedMetricType?: string; 
+  private _predefinedMetricType?: string;
   public get predefinedMetricType() {
     return this.getStringAttribute('predefined_metric_type');
   }
@@ -2182,7 +2182,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationP
   }
 
   // resource_label - computed: false, optional: true, required: false
-  private _resourceLabel?: string; 
+  private _resourceLabel?: string;
   public get resourceLabel() {
     return this.getStringAttribute('resource_label');
   }
@@ -2204,37 +2204,37 @@ export interface AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificat
   readonly targetValue: number;
   /**
   * customized_capacity_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#customized_capacity_metric_specification AutoscalingPolicy#customized_capacity_metric_specification}
   */
   readonly customizedCapacityMetricSpecification?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification;
   /**
   * customized_load_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#customized_load_metric_specification AutoscalingPolicy#customized_load_metric_specification}
   */
   readonly customizedLoadMetricSpecification?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification;
   /**
   * customized_scaling_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#customized_scaling_metric_specification AutoscalingPolicy#customized_scaling_metric_specification}
   */
   readonly customizedScalingMetricSpecification?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification;
   /**
   * predefined_load_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#predefined_load_metric_specification AutoscalingPolicy#predefined_load_metric_specification}
   */
   readonly predefinedLoadMetricSpecification?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification;
   /**
   * predefined_metric_pair_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#predefined_metric_pair_specification AutoscalingPolicy#predefined_metric_pair_specification}
   */
   readonly predefinedMetricPairSpecification?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification;
   /**
   * predefined_scaling_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#predefined_scaling_metric_specification AutoscalingPolicy#predefined_scaling_metric_specification}
   */
   readonly predefinedScalingMetricSpecification?: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification;
@@ -2325,7 +2325,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationMetricSpecificationO
   }
 
   // target_value - computed: false, optional: false, required: true
-  private _targetValue?: number; 
+  private _targetValue?: number;
   public get targetValue() {
     return this.getNumberAttribute('target_value');
   }
@@ -2452,7 +2452,7 @@ export interface AutoscalingPolicyPredictiveScalingConfiguration {
   readonly schedulingBufferTime?: string;
   /**
   * metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_specification AutoscalingPolicy#metric_specification}
   */
   readonly metricSpecification: AutoscalingPolicyPredictiveScalingConfigurationMetricSpecification;
@@ -2529,7 +2529,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationOutputReference exte
   }
 
   // max_capacity_breach_behavior - computed: false, optional: true, required: false
-  private _maxCapacityBreachBehavior?: string; 
+  private _maxCapacityBreachBehavior?: string;
   public get maxCapacityBreachBehavior() {
     return this.getStringAttribute('max_capacity_breach_behavior');
   }
@@ -2545,7 +2545,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationOutputReference exte
   }
 
   // max_capacity_buffer - computed: false, optional: true, required: false
-  private _maxCapacityBuffer?: string; 
+  private _maxCapacityBuffer?: string;
   public get maxCapacityBuffer() {
     return this.getStringAttribute('max_capacity_buffer');
   }
@@ -2561,7 +2561,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationOutputReference exte
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -2577,7 +2577,7 @@ export class AutoscalingPolicyPredictiveScalingConfigurationOutputReference exte
   }
 
   // scheduling_buffer_time - computed: false, optional: true, required: false
-  private _schedulingBufferTime?: string; 
+  private _schedulingBufferTime?: string;
   public get schedulingBufferTime() {
     return this.getStringAttribute('scheduling_buffer_time');
   }
@@ -2689,7 +2689,7 @@ export class AutoscalingPolicyStepAdjustmentOutputReference extends cdktf.Comple
   }
 
   // metric_interval_lower_bound - computed: false, optional: true, required: false
-  private _metricIntervalLowerBound?: string; 
+  private _metricIntervalLowerBound?: string;
   public get metricIntervalLowerBound() {
     return this.getStringAttribute('metric_interval_lower_bound');
   }
@@ -2705,7 +2705,7 @@ export class AutoscalingPolicyStepAdjustmentOutputReference extends cdktf.Comple
   }
 
   // metric_interval_upper_bound - computed: false, optional: true, required: false
-  private _metricIntervalUpperBound?: string; 
+  private _metricIntervalUpperBound?: string;
   public get metricIntervalUpperBound() {
     return this.getStringAttribute('metric_interval_upper_bound');
   }
@@ -2721,7 +2721,7 @@ export class AutoscalingPolicyStepAdjustmentOutputReference extends cdktf.Comple
   }
 
   // scaling_adjustment - computed: false, optional: false, required: true
-  private _scalingAdjustment?: number; 
+  private _scalingAdjustment?: number;
   public get scalingAdjustment() {
     return this.getNumberAttribute('scaling_adjustment');
   }
@@ -2826,7 +2826,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2839,7 +2839,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2944,7 +2944,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2957,7 +2957,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3000,7 +3000,7 @@ export interface AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpe
   readonly namespace: string;
   /**
   * dimensions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#dimensions AutoscalingPolicy#dimensions}
   */
   readonly dimensions?: AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricsMetricStatMetricDimensions[] | cdktf.IResolvable;
@@ -3063,7 +3063,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -3076,7 +3076,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -3115,7 +3115,7 @@ export interface AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpe
   readonly unit?: string;
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric AutoscalingPolicy#metric}
   */
   readonly metric: AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricsMetricStatMetric;
@@ -3178,7 +3178,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // stat - computed: false, optional: false, required: true
-  private _stat?: string; 
+  private _stat?: string;
   public get stat() {
     return this.getStringAttribute('stat');
   }
@@ -3191,7 +3191,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3241,7 +3241,7 @@ export interface AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpe
   readonly returnData?: boolean | cdktf.IResolvable;
   /**
   * metric_stat block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_stat AutoscalingPolicy#metric_stat}
   */
   readonly metricStat?: AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricsMetricStat;
@@ -3330,7 +3330,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -3346,7 +3346,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3359,7 +3359,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // label - computed: false, optional: true, required: false
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -3375,7 +3375,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // return_data - computed: false, optional: true, required: false
-  private _returnData?: boolean | cdktf.IResolvable; 
+  private _returnData?: boolean | cdktf.IResolvable;
   public get returnData() {
     return this.getBooleanAttribute('return_data');
   }
@@ -3445,13 +3445,13 @@ export interface AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpe
   readonly unit?: string;
   /**
   * metric_dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metric_dimension AutoscalingPolicy#metric_dimension}
   */
   readonly metricDimension?: AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension[] | cdktf.IResolvable;
   /**
   * metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#metrics AutoscalingPolicy#metrics}
   */
   readonly metrics?: AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetrics[] | cdktf.IResolvable;
@@ -3535,7 +3535,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // metric_name - computed: false, optional: true, required: false
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -3551,7 +3551,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -3567,7 +3567,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // statistic - computed: false, optional: true, required: false
-  private _statistic?: string; 
+  private _statistic?: string;
   public get statistic() {
     return this.getStringAttribute('statistic');
   }
@@ -3583,7 +3583,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecifi
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3691,7 +3691,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationPredefinedMetricSpecifi
   }
 
   // predefined_metric_type - computed: false, optional: false, required: true
-  private _predefinedMetricType?: string; 
+  private _predefinedMetricType?: string;
   public get predefinedMetricType() {
     return this.getStringAttribute('predefined_metric_type');
   }
@@ -3704,7 +3704,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationPredefinedMetricSpecifi
   }
 
   // resource_label - computed: false, optional: true, required: false
-  private _resourceLabel?: string; 
+  private _resourceLabel?: string;
   public get resourceLabel() {
     return this.getStringAttribute('resource_label');
   }
@@ -3730,13 +3730,13 @@ export interface AutoscalingPolicyTargetTrackingConfiguration {
   readonly targetValue: number;
   /**
   * customized_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#customized_metric_specification AutoscalingPolicy#customized_metric_specification}
   */
   readonly customizedMetricSpecification?: AutoscalingPolicyTargetTrackingConfigurationCustomizedMetricSpecification;
   /**
   * predefined_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_policy#predefined_metric_specification AutoscalingPolicy#predefined_metric_specification}
   */
   readonly predefinedMetricSpecification?: AutoscalingPolicyTargetTrackingConfigurationPredefinedMetricSpecification;
@@ -3806,7 +3806,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationOutputReference extends
   }
 
   // disable_scale_in - computed: false, optional: true, required: false
-  private _disableScaleIn?: boolean | cdktf.IResolvable; 
+  private _disableScaleIn?: boolean | cdktf.IResolvable;
   public get disableScaleIn() {
     return this.getBooleanAttribute('disable_scale_in');
   }
@@ -3822,7 +3822,7 @@ export class AutoscalingPolicyTargetTrackingConfigurationOutputReference extends
   }
 
   // target_value - computed: false, optional: false, required: true
-  private _targetValue?: number; 
+  private _targetValue?: number;
   public get targetValue() {
     return this.getNumberAttribute('target_value');
   }
@@ -3925,7 +3925,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   // ==========
 
   // adjustment_type - computed: false, optional: true, required: false
-  private _adjustmentType?: string; 
+  private _adjustmentType?: string;
   public get adjustmentType() {
     return this.getStringAttribute('adjustment_type');
   }
@@ -3946,7 +3946,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // autoscaling_group_name - computed: false, optional: false, required: true
-  private _autoscalingGroupName?: string; 
+  private _autoscalingGroupName?: string;
   public get autoscalingGroupName() {
     return this.getStringAttribute('autoscaling_group_name');
   }
@@ -3959,7 +3959,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // cooldown - computed: false, optional: true, required: false
-  private _cooldown?: number; 
+  private _cooldown?: number;
   public get cooldown() {
     return this.getNumberAttribute('cooldown');
   }
@@ -3975,7 +3975,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3991,7 +3991,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // estimated_instance_warmup - computed: false, optional: true, required: false
-  private _estimatedInstanceWarmup?: number; 
+  private _estimatedInstanceWarmup?: number;
   public get estimatedInstanceWarmup() {
     return this.getNumberAttribute('estimated_instance_warmup');
   }
@@ -4007,7 +4007,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -4023,7 +4023,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // metric_aggregation_type - computed: true, optional: true, required: false
-  private _metricAggregationType?: string; 
+  private _metricAggregationType?: string;
   public get metricAggregationType() {
     return this.getStringAttribute('metric_aggregation_type');
   }
@@ -4039,7 +4039,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // min_adjustment_magnitude - computed: false, optional: true, required: false
-  private _minAdjustmentMagnitude?: number; 
+  private _minAdjustmentMagnitude?: number;
   public get minAdjustmentMagnitude() {
     return this.getNumberAttribute('min_adjustment_magnitude');
   }
@@ -4055,7 +4055,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4068,7 +4068,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // policy_type - computed: false, optional: true, required: false
-  private _policyType?: string; 
+  private _policyType?: string;
   public get policyType() {
     return this.getStringAttribute('policy_type');
   }
@@ -4084,7 +4084,7 @@ export class AutoscalingPolicy extends cdktf.TerraformResource {
   }
 
   // scaling_adjustment - computed: false, optional: true, required: false
-  private _scalingAdjustment?: number; 
+  private _scalingAdjustment?: number;
   public get scalingAdjustment() {
     return this.getNumberAttribute('scaling_adjustment');
   }

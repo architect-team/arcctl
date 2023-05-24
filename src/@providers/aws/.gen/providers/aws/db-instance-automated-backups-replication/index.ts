@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/db_instance_automated_backups_replication
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface DbInstanceAutomatedBackupsReplicationConfig extends cdktf.Terra
   readonly sourceDbInstanceArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance_automated_backups_replication#timeouts DbInstanceAutomatedBackupsReplication#timeouts}
   */
   readonly timeouts?: DbInstanceAutomatedBackupsReplicationTimeouts;
@@ -108,7 +108,7 @@ export class DbInstanceAutomatedBackupsReplicationTimeoutsOutputReference extend
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class DbInstanceAutomatedBackupsReplicationTimeoutsOutputReference extend
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -190,7 +190,7 @@ export class DbInstanceAutomatedBackupsReplication extends cdktf.TerraformResour
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -206,7 +206,7 @@ export class DbInstanceAutomatedBackupsReplication extends cdktf.TerraformResour
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -222,7 +222,7 @@ export class DbInstanceAutomatedBackupsReplication extends cdktf.TerraformResour
   }
 
   // pre_signed_url - computed: false, optional: true, required: false
-  private _preSignedUrl?: string; 
+  private _preSignedUrl?: string;
   public get preSignedUrl() {
     return this.getStringAttribute('pre_signed_url');
   }
@@ -238,7 +238,7 @@ export class DbInstanceAutomatedBackupsReplication extends cdktf.TerraformResour
   }
 
   // retention_period - computed: false, optional: true, required: false
-  private _retentionPeriod?: number; 
+  private _retentionPeriod?: number;
   public get retentionPeriod() {
     return this.getNumberAttribute('retention_period');
   }
@@ -254,7 +254,7 @@ export class DbInstanceAutomatedBackupsReplication extends cdktf.TerraformResour
   }
 
   // source_db_instance_arn - computed: false, optional: false, required: true
-  private _sourceDbInstanceArn?: string; 
+  private _sourceDbInstanceArn?: string;
   public get sourceDbInstanceArn() {
     return this.getStringAttribute('source_db_instance_arn');
   }

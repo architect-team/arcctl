@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_code_signing_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface LambdaCodeSigningConfigConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * allowed_publishers block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_code_signing_config#allowed_publishers LambdaCodeSigningConfig#allowed_publishers}
   */
   readonly allowedPublishers: LambdaCodeSigningConfigAllowedPublishers;
   /**
   * policies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_code_signing_config#policies LambdaCodeSigningConfig#policies}
   */
   readonly policies?: LambdaCodeSigningConfigPolicies;
@@ -81,7 +81,7 @@ export class LambdaCodeSigningConfigAllowedPublishersOutputReference extends cdk
   }
 
   // signing_profile_version_arns - computed: false, optional: false, required: true
-  private _signingProfileVersionArns?: string[]; 
+  private _signingProfileVersionArns?: string[];
   public get signingProfileVersionArns() {
     return cdktf.Fn.tolist(this.getListAttribute('signing_profile_version_arns'));
   }
@@ -143,7 +143,7 @@ export class LambdaCodeSigningConfigPoliciesOutputReference extends cdktf.Comple
   }
 
   // untrusted_artifact_on_deployment - computed: false, optional: false, required: true
-  private _untrustedArtifactOnDeployment?: string; 
+  private _untrustedArtifactOnDeployment?: string;
   public get untrustedArtifactOnDeployment() {
     return this.getStringAttribute('untrusted_artifact_on_deployment');
   }
@@ -214,7 +214,7 @@ export class LambdaCodeSigningConfig extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -230,7 +230,7 @@ export class LambdaCodeSigningConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface PriorityClassV1Config extends cdktf.TerraformMetaArguments {
   /**
   * An arbitrary string that usually provides guidelines on when this priority class should be used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#description PriorityClassV1#description}
   */
   readonly description?: string;
   /**
   * Specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#global_default PriorityClassV1#global_default}
   */
   readonly globalDefault?: boolean | cdktf.IResolvable;
@@ -28,19 +28,19 @@ export interface PriorityClassV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#preemption_policy PriorityClassV1#preemption_policy}
   */
   readonly preemptionPolicy?: string;
   /**
   * The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#value PriorityClassV1#value}
   */
   readonly value: number;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#metadata PriorityClassV1#metadata}
   */
   readonly metadata: PriorityClassV1Metadata;
@@ -48,25 +48,25 @@ export interface PriorityClassV1Config extends cdktf.TerraformMetaArguments {
 export interface PriorityClassV1Metadata {
   /**
   * An unstructured key value map stored with the priority class that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#annotations PriorityClassV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#generate_name PriorityClassV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the priority class. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#labels PriorityClassV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the priority class, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/priority_class_v1#name PriorityClassV1#name}
   */
   readonly name?: string;
@@ -136,7 +136,7 @@ export class PriorityClassV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -152,7 +152,7 @@ export class PriorityClassV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -173,7 +173,7 @@ export class PriorityClassV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -189,7 +189,7 @@ export class PriorityClassV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -265,7 +265,7 @@ export class PriorityClassV1 extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -281,7 +281,7 @@ export class PriorityClassV1 extends cdktf.TerraformResource {
   }
 
   // global_default - computed: false, optional: true, required: false
-  private _globalDefault?: boolean | cdktf.IResolvable; 
+  private _globalDefault?: boolean | cdktf.IResolvable;
   public get globalDefault() {
     return this.getBooleanAttribute('global_default');
   }
@@ -297,7 +297,7 @@ export class PriorityClassV1 extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -313,7 +313,7 @@ export class PriorityClassV1 extends cdktf.TerraformResource {
   }
 
   // preemption_policy - computed: false, optional: true, required: false
-  private _preemptionPolicy?: string; 
+  private _preemptionPolicy?: string;
   public get preemptionPolicy() {
     return this.getStringAttribute('preemption_policy');
   }
@@ -329,7 +329,7 @@ export class PriorityClassV1 extends cdktf.TerraformResource {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/reserved_ip
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataDigitaloceanReservedIpConfig extends cdktf.TerraformMetaArg
   readonly id?: string;
   /**
   * reserved ip address
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/reserved_ip#ip_address DataDigitaloceanReservedIp#ip_address}
   */
   readonly ipAddress: string;
@@ -73,7 +73,7 @@ export class DataDigitaloceanReservedIp extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -89,7 +89,7 @@ export class DataDigitaloceanReservedIp extends cdktf.TerraformDataSource {
   }
 
   // ip_address - computed: false, optional: false, required: true
-  private _ipAddress?: string; 
+  private _ipAddress?: string;
   public get ipAddress() {
     return this.getStringAttribute('ip_address');
   }

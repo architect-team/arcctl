@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/servicequotas_service_quota
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class ServicequotasServiceQuota extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class ServicequotasServiceQuota extends cdktf.TerraformResource {
   }
 
   // quota_code - computed: false, optional: false, required: true
-  private _quotaCode?: string; 
+  private _quotaCode?: string;
   public get quotaCode() {
     return this.getStringAttribute('quota_code');
   }
@@ -135,7 +135,7 @@ export class ServicequotasServiceQuota extends cdktf.TerraformResource {
   }
 
   // service_code - computed: false, optional: false, required: true
-  private _serviceCode?: string; 
+  private _serviceCode?: string;
   public get serviceCode() {
     return this.getStringAttribute('service_code');
   }
@@ -153,7 +153,7 @@ export class ServicequotasServiceQuota extends cdktf.TerraformResource {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }

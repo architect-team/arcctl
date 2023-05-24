@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_transit_gateway_connect_peer_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface NetworkmanagerTransitGatewayConnectPeerAssociationConfig extend
   readonly transitGatewayConnectPeerArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_transit_gateway_connect_peer_association#timeouts NetworkmanagerTransitGatewayConnectPeerAssociation#timeouts}
   */
   readonly timeouts?: NetworkmanagerTransitGatewayConnectPeerAssociationTimeouts;
@@ -108,7 +108,7 @@ export class NetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsOutputRef
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class NetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsOutputRef
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -190,7 +190,7 @@ export class NetworkmanagerTransitGatewayConnectPeerAssociation extends cdktf.Te
   // ==========
 
   // device_id - computed: false, optional: false, required: true
-  private _deviceId?: string; 
+  private _deviceId?: string;
   public get deviceId() {
     return this.getStringAttribute('device_id');
   }
@@ -203,7 +203,7 @@ export class NetworkmanagerTransitGatewayConnectPeerAssociation extends cdktf.Te
   }
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -216,7 +216,7 @@ export class NetworkmanagerTransitGatewayConnectPeerAssociation extends cdktf.Te
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -232,7 +232,7 @@ export class NetworkmanagerTransitGatewayConnectPeerAssociation extends cdktf.Te
   }
 
   // link_id - computed: false, optional: true, required: false
-  private _linkId?: string; 
+  private _linkId?: string;
   public get linkId() {
     return this.getStringAttribute('link_id');
   }
@@ -248,7 +248,7 @@ export class NetworkmanagerTransitGatewayConnectPeerAssociation extends cdktf.Te
   }
 
   // transit_gateway_connect_peer_arn - computed: false, optional: false, required: true
-  private _transitGatewayConnectPeerArn?: string; 
+  private _transitGatewayConnectPeerArn?: string;
   public get transitGatewayConnectPeerArn() {
     return this.getStringAttribute('transit_gateway_connect_peer_arn');
   }

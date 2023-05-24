@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/devicefarm_instance_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -117,7 +117,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // exclude_app_packages_from_cleanup - computed: false, optional: true, required: false
-  private _excludeAppPackagesFromCleanup?: string[]; 
+  private _excludeAppPackagesFromCleanup?: string[];
   public get excludeAppPackagesFromCleanup() {
     return cdktf.Fn.tolist(this.getListAttribute('exclude_app_packages_from_cleanup'));
   }
@@ -133,7 +133,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -149,7 +149,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -162,7 +162,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // package_cleanup - computed: false, optional: true, required: false
-  private _packageCleanup?: boolean | cdktf.IResolvable; 
+  private _packageCleanup?: boolean | cdktf.IResolvable;
   public get packageCleanup() {
     return this.getBooleanAttribute('package_cleanup');
   }
@@ -178,7 +178,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // reboot_after_use - computed: false, optional: true, required: false
-  private _rebootAfterUse?: boolean | cdktf.IResolvable; 
+  private _rebootAfterUse?: boolean | cdktf.IResolvable;
   public get rebootAfterUse() {
     return this.getBooleanAttribute('reboot_after_use');
   }
@@ -194,7 +194,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -210,7 +210,7 @@ export class DevicefarmInstanceProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

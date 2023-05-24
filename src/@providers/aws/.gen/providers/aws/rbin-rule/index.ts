@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/rbin_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -25,25 +25,25 @@ export interface RbinRuleConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * lock_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rbin_rule#lock_configuration RbinRule#lock_configuration}
   */
   readonly lockConfiguration?: RbinRuleLockConfiguration;
   /**
   * resource_tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rbin_rule#resource_tags RbinRule#resource_tags}
   */
   readonly resourceTags?: RbinRuleResourceTags[] | cdktf.IResolvable;
   /**
   * retention_period block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rbin_rule#retention_period RbinRule#retention_period}
   */
   readonly retentionPeriod: RbinRuleRetentionPeriod;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rbin_rule#timeouts RbinRule#timeouts}
   */
   readonly timeouts?: RbinRuleTimeouts;
@@ -109,7 +109,7 @@ export class RbinRuleLockConfigurationUnlockDelayOutputReference extends cdktf.C
   }
 
   // unlock_delay_unit - computed: false, optional: false, required: true
-  private _unlockDelayUnit?: string; 
+  private _unlockDelayUnit?: string;
   public get unlockDelayUnit() {
     return this.getStringAttribute('unlock_delay_unit');
   }
@@ -122,7 +122,7 @@ export class RbinRuleLockConfigurationUnlockDelayOutputReference extends cdktf.C
   }
 
   // unlock_delay_value - computed: false, optional: false, required: true
-  private _unlockDelayValue?: number; 
+  private _unlockDelayValue?: number;
   public get unlockDelayValue() {
     return this.getNumberAttribute('unlock_delay_value');
   }
@@ -137,7 +137,7 @@ export class RbinRuleLockConfigurationUnlockDelayOutputReference extends cdktf.C
 export interface RbinRuleLockConfiguration {
   /**
   * unlock_delay block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rbin_rule#unlock_delay RbinRule#unlock_delay}
   */
   readonly unlockDelay: RbinRuleLockConfigurationUnlockDelay;
@@ -271,7 +271,7 @@ export class RbinRuleResourceTagsOutputReference extends cdktf.ComplexObject {
   }
 
   // resource_tag_key - computed: false, optional: false, required: true
-  private _resourceTagKey?: string; 
+  private _resourceTagKey?: string;
   public get resourceTagKey() {
     return this.getStringAttribute('resource_tag_key');
   }
@@ -284,7 +284,7 @@ export class RbinRuleResourceTagsOutputReference extends cdktf.ComplexObject {
   }
 
   // resource_tag_value - computed: false, optional: true, required: false
-  private _resourceTagValue?: string; 
+  private _resourceTagValue?: string;
   public get resourceTagValue() {
     return this.getStringAttribute('resource_tag_value');
   }
@@ -380,7 +380,7 @@ export class RbinRuleRetentionPeriodOutputReference extends cdktf.ComplexObject 
   }
 
   // retention_period_unit - computed: false, optional: false, required: true
-  private _retentionPeriodUnit?: string; 
+  private _retentionPeriodUnit?: string;
   public get retentionPeriodUnit() {
     return this.getStringAttribute('retention_period_unit');
   }
@@ -393,7 +393,7 @@ export class RbinRuleRetentionPeriodOutputReference extends cdktf.ComplexObject 
   }
 
   // retention_period_value - computed: false, optional: false, required: true
-  private _retentionPeriodValue?: number; 
+  private _retentionPeriodValue?: number;
   public get retentionPeriodValue() {
     return this.getNumberAttribute('retention_period_value');
   }
@@ -487,7 +487,7 @@ export class RbinRuleTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -503,7 +503,7 @@ export class RbinRuleTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -519,7 +519,7 @@ export class RbinRuleTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -592,7 +592,7 @@ export class RbinRule extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -623,7 +623,7 @@ export class RbinRule extends cdktf.TerraformResource {
   }
 
   // resource_type - computed: false, optional: false, required: true
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -641,7 +641,7 @@ export class RbinRule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -657,7 +657,7 @@ export class RbinRule extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

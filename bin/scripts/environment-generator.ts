@@ -6,7 +6,7 @@ import fs from 'fs/promises';
 import { execa } from 'execa';
 import Mustache from 'mustache';
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = new URL('.', import.meta.url).pathname;
 const environments_dir = path.join(__dirname, '../../src/environments');
 
 const all_versions = (

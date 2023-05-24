@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudformation_type
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface CloudformationTypeConfig extends cdktf.TerraformMetaArguments {
   readonly typeName: string;
   /**
   * logging_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_type#logging_config CloudformationType#logging_config}
   */
   readonly loggingConfig?: CloudformationTypeLoggingConfig;
@@ -98,7 +98,7 @@ export class CloudformationTypeLoggingConfigOutputReference extends cdktf.Comple
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -111,7 +111,7 @@ export class CloudformationTypeLoggingConfigOutputReference extends cdktf.Comple
   }
 
   // log_role_arn - computed: false, optional: false, required: true
-  private _logRoleArn?: string; 
+  private _logRoleArn?: string;
   public get logRoleArn() {
     return this.getStringAttribute('log_role_arn');
   }
@@ -199,7 +199,7 @@ export class CloudformationType extends cdktf.TerraformResource {
   }
 
   // execution_role_arn - computed: false, optional: true, required: false
-  private _executionRoleArn?: string; 
+  private _executionRoleArn?: string;
   public get executionRoleArn() {
     return this.getStringAttribute('execution_role_arn');
   }
@@ -215,7 +215,7 @@ export class CloudformationType extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -246,7 +246,7 @@ export class CloudformationType extends cdktf.TerraformResource {
   }
 
   // schema_handler_package - computed: false, optional: false, required: true
-  private _schemaHandlerPackage?: string; 
+  private _schemaHandlerPackage?: string;
   public get schemaHandlerPackage() {
     return this.getStringAttribute('schema_handler_package');
   }
@@ -264,7 +264,7 @@ export class CloudformationType extends cdktf.TerraformResource {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -285,7 +285,7 @@ export class CloudformationType extends cdktf.TerraformResource {
   }
 
   // type_name - computed: false, optional: false, required: true
-  private _typeName?: string; 
+  private _typeName?: string;
   public get typeName() {
     return this.getStringAttribute('type_name');
   }

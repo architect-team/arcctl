@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/location_route_calculator
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsLocationRouteCalculator extends cdktf.TerraformDataSource {
   }
 
   // calculator_name - computed: false, optional: false, required: true
-  private _calculatorName?: string; 
+  private _calculatorName?: string;
   public get calculatorName() {
     return this.getStringAttribute('calculator_name');
   }
@@ -104,7 +104,7 @@ export class DataAwsLocationRouteCalculator extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -120,7 +120,7 @@ export class DataAwsLocationRouteCalculator extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

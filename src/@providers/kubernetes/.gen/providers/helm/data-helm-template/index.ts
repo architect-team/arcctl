@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/helm/d/template
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,61 +9,61 @@ import * as cdktf from 'cdktf';
 export interface DataHelmTemplateConfig extends cdktf.TerraformMetaArguments {
   /**
   * Kubernetes api versions used for Capabilities.APIVersions
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#api_versions DataHelmTemplate#api_versions}
   */
   readonly apiVersions?: string[];
   /**
   * If set, installation process purges chart on fail. The wait flag will be set automatically if atomic is used
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#atomic DataHelmTemplate#atomic}
   */
   readonly atomic?: boolean | cdktf.IResolvable;
   /**
   * Chart name to be installed. A path may be used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#chart DataHelmTemplate#chart}
   */
   readonly chart: string;
   /**
   * List of rendered CRDs from the chart.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#crds DataHelmTemplate#crds}
   */
   readonly crds?: string[];
   /**
   * Create the namespace if it does not exist
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#create_namespace DataHelmTemplate#create_namespace}
   */
   readonly createNamespace?: boolean | cdktf.IResolvable;
   /**
   * Run helm dependency update before installing the chart
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#dependency_update DataHelmTemplate#dependency_update}
   */
   readonly dependencyUpdate?: boolean | cdktf.IResolvable;
   /**
   * Add a custom description
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#description DataHelmTemplate#description}
   */
   readonly description?: string;
   /**
   * Use chart development versions, too. Equivalent to version '>0.0.0-0'. If `version` is set, this is ignored
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#devel DataHelmTemplate#devel}
   */
   readonly devel?: boolean | cdktf.IResolvable;
   /**
   * If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#disable_openapi_validation DataHelmTemplate#disable_openapi_validation}
   */
   readonly disableOpenapiValidation?: boolean | cdktf.IResolvable;
   /**
   * Prevent hooks from running.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#disable_webhooks DataHelmTemplate#disable_webhooks}
   */
   readonly disableWebhooks?: boolean | cdktf.IResolvable;
@@ -76,199 +76,199 @@ export interface DataHelmTemplateConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Include CRDs in the templated output
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#include_crds DataHelmTemplate#include_crds}
   */
   readonly includeCrds?: boolean | cdktf.IResolvable;
   /**
   * Set .Release.IsUpgrade instead of .Release.IsInstall
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#is_upgrade DataHelmTemplate#is_upgrade}
   */
   readonly isUpgrade?: boolean | cdktf.IResolvable;
   /**
   * Location of public keys used for verification. Used only if `verify` is true
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#keyring DataHelmTemplate#keyring}
   */
   readonly keyring?: string;
   /**
   * Kubernetes version used for Capabilities.KubeVersion
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#kube_version DataHelmTemplate#kube_version}
   */
   readonly kubeVersion?: string;
   /**
   * Concatenated rendered chart templates. This corresponds to the output of the `helm template` command.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#manifest DataHelmTemplate#manifest}
   */
   readonly manifest?: string;
   /**
   * Map of rendered chart templates indexed by the template name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#manifests DataHelmTemplate#manifests}
   */
   readonly manifests?: { [key: string]: string };
   /**
   * Release name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#name DataHelmTemplate#name}
   */
   readonly name: string;
   /**
   * Namespace to install the release into.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#namespace DataHelmTemplate#namespace}
   */
   readonly namespace?: string;
   /**
   * Rendered notes if the chart contains a `NOTES.txt`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#notes DataHelmTemplate#notes}
   */
   readonly notes?: string;
   /**
   * Pass credentials to all domains
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#pass_credentials DataHelmTemplate#pass_credentials}
   */
   readonly passCredentials?: boolean | cdktf.IResolvable;
   /**
   * If set, render subchart notes along with the parent
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#render_subchart_notes DataHelmTemplate#render_subchart_notes}
   */
   readonly renderSubchartNotes?: boolean | cdktf.IResolvable;
   /**
   * Re-use the given name, even if that name is already used. This is unsafe in production
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#replace DataHelmTemplate#replace}
   */
   readonly replace?: boolean | cdktf.IResolvable;
   /**
   * Repository where to locate the requested chart. If is a URL the chart is installed without installing the repository.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#repository DataHelmTemplate#repository}
   */
   readonly repository?: string;
   /**
   * The Repositories CA File
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#repository_ca_file DataHelmTemplate#repository_ca_file}
   */
   readonly repositoryCaFile?: string;
   /**
   * The repositories cert file
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#repository_cert_file DataHelmTemplate#repository_cert_file}
   */
   readonly repositoryCertFile?: string;
   /**
   * The repositories cert key file
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#repository_key_file DataHelmTemplate#repository_key_file}
   */
   readonly repositoryKeyFile?: string;
   /**
   * Password for HTTP basic authentication
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#repository_password DataHelmTemplate#repository_password}
   */
   readonly repositoryPassword?: string;
   /**
   * Username for HTTP basic authentication
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#repository_username DataHelmTemplate#repository_username}
   */
   readonly repositoryUsername?: string;
   /**
   * When upgrading, reset the values to the ones built into the chart
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#reset_values DataHelmTemplate#reset_values}
   */
   readonly resetValues?: boolean | cdktf.IResolvable;
   /**
   * When upgrading, reuse the last release's values and merge in any overrides. If 'reset_values' is specified, this is ignored
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#reuse_values DataHelmTemplate#reuse_values}
   */
   readonly reuseValues?: boolean | cdktf.IResolvable;
   /**
   * Only show manifests rendered from the given templates
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#show_only DataHelmTemplate#show_only}
   */
   readonly showOnly?: string[];
   /**
   * If set, no CRDs will be installed. By default, CRDs are installed if not already present
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#skip_crds DataHelmTemplate#skip_crds}
   */
   readonly skipCrds?: boolean | cdktf.IResolvable;
   /**
   * If set, tests will not be rendered. By default, tests are rendered
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#skip_tests DataHelmTemplate#skip_tests}
   */
   readonly skipTests?: boolean | cdktf.IResolvable;
   /**
   * Time in seconds to wait for any individual kubernetes operation.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#timeout DataHelmTemplate#timeout}
   */
   readonly timeout?: number;
   /**
   * Validate your manifests against the Kubernetes cluster you are currently pointing at. This is the same validation performed on an install
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#validate DataHelmTemplate#validate}
   */
   readonly validate?: boolean | cdktf.IResolvable;
   /**
   * List of values in raw yaml format to pass to helm.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#values DataHelmTemplate#values}
   */
   readonly values?: string[];
   /**
   * Verify the package before installing it.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#verify DataHelmTemplate#verify}
   */
   readonly verify?: boolean | cdktf.IResolvable;
   /**
   * Specify the exact chart version to install. If this is not specified, the latest version is installed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#version DataHelmTemplate#version}
   */
   readonly version?: string;
   /**
   * Will wait until all resources are in a ready state before marking the release as successful.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#wait DataHelmTemplate#wait}
   */
   readonly wait?: boolean | cdktf.IResolvable;
   /**
   * postrender block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#postrender DataHelmTemplate#postrender}
   */
   readonly postrender?: DataHelmTemplatePostrender;
   /**
   * set block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#set DataHelmTemplate#set}
   */
   readonly set?: DataHelmTemplateSet[] | cdktf.IResolvable;
   /**
   * set_sensitive block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#set_sensitive DataHelmTemplate#set_sensitive}
   */
   readonly setSensitive?: DataHelmTemplateSetSensitive[] | cdktf.IResolvable;
   /**
   * set_string block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#set_string DataHelmTemplate#set_string}
   */
   readonly setString?: DataHelmTemplateSetString[] | cdktf.IResolvable;
@@ -276,7 +276,7 @@ export interface DataHelmTemplateConfig extends cdktf.TerraformMetaArguments {
 export interface DataHelmTemplatePostrender {
   /**
   * The command binary path.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm/d/template#binary_path DataHelmTemplate#binary_path}
   */
   readonly binaryPath: string;
@@ -325,7 +325,7 @@ export class DataHelmTemplatePostrenderOutputReference extends cdktf.ComplexObje
   }
 
   // binary_path - computed: false, optional: false, required: true
-  private _binaryPath?: string; 
+  private _binaryPath?: string;
   public get binaryPath() {
     return this.getStringAttribute('binary_path');
   }
@@ -421,7 +421,7 @@ export class DataHelmTemplateSetOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -434,7 +434,7 @@ export class DataHelmTemplateSetOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -450,7 +450,7 @@ export class DataHelmTemplateSetOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -566,7 +566,7 @@ export class DataHelmTemplateSetSensitiveOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -579,7 +579,7 @@ export class DataHelmTemplateSetSensitiveOutputReference extends cdktf.ComplexOb
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -595,7 +595,7 @@ export class DataHelmTemplateSetSensitiveOutputReference extends cdktf.ComplexOb
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -700,7 +700,7 @@ export class DataHelmTemplateSetStringOutputReference extends cdktf.ComplexObjec
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -713,7 +713,7 @@ export class DataHelmTemplateSetStringOutputReference extends cdktf.ComplexObjec
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -834,7 +834,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   // ==========
 
   // api_versions - computed: false, optional: true, required: false
-  private _apiVersions?: string[]; 
+  private _apiVersions?: string[];
   public get apiVersions() {
     return this.getListAttribute('api_versions');
   }
@@ -850,7 +850,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // atomic - computed: false, optional: true, required: false
-  private _atomic?: boolean | cdktf.IResolvable; 
+  private _atomic?: boolean | cdktf.IResolvable;
   public get atomic() {
     return this.getBooleanAttribute('atomic');
   }
@@ -866,7 +866,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // chart - computed: false, optional: false, required: true
-  private _chart?: string; 
+  private _chart?: string;
   public get chart() {
     return this.getStringAttribute('chart');
   }
@@ -879,7 +879,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // crds - computed: true, optional: true, required: false
-  private _crds?: string[]; 
+  private _crds?: string[];
   public get crds() {
     return this.getListAttribute('crds');
   }
@@ -895,7 +895,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // create_namespace - computed: false, optional: true, required: false
-  private _createNamespace?: boolean | cdktf.IResolvable; 
+  private _createNamespace?: boolean | cdktf.IResolvable;
   public get createNamespace() {
     return this.getBooleanAttribute('create_namespace');
   }
@@ -911,7 +911,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // dependency_update - computed: false, optional: true, required: false
-  private _dependencyUpdate?: boolean | cdktf.IResolvable; 
+  private _dependencyUpdate?: boolean | cdktf.IResolvable;
   public get dependencyUpdate() {
     return this.getBooleanAttribute('dependency_update');
   }
@@ -927,7 +927,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -943,7 +943,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // devel - computed: false, optional: true, required: false
-  private _devel?: boolean | cdktf.IResolvable; 
+  private _devel?: boolean | cdktf.IResolvable;
   public get devel() {
     return this.getBooleanAttribute('devel');
   }
@@ -959,7 +959,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // disable_openapi_validation - computed: false, optional: true, required: false
-  private _disableOpenapiValidation?: boolean | cdktf.IResolvable; 
+  private _disableOpenapiValidation?: boolean | cdktf.IResolvable;
   public get disableOpenapiValidation() {
     return this.getBooleanAttribute('disable_openapi_validation');
   }
@@ -975,7 +975,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // disable_webhooks - computed: false, optional: true, required: false
-  private _disableWebhooks?: boolean | cdktf.IResolvable; 
+  private _disableWebhooks?: boolean | cdktf.IResolvable;
   public get disableWebhooks() {
     return this.getBooleanAttribute('disable_webhooks');
   }
@@ -991,7 +991,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1007,7 +1007,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // include_crds - computed: false, optional: true, required: false
-  private _includeCrds?: boolean | cdktf.IResolvable; 
+  private _includeCrds?: boolean | cdktf.IResolvable;
   public get includeCrds() {
     return this.getBooleanAttribute('include_crds');
   }
@@ -1023,7 +1023,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // is_upgrade - computed: false, optional: true, required: false
-  private _isUpgrade?: boolean | cdktf.IResolvable; 
+  private _isUpgrade?: boolean | cdktf.IResolvable;
   public get isUpgrade() {
     return this.getBooleanAttribute('is_upgrade');
   }
@@ -1039,7 +1039,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // keyring - computed: false, optional: true, required: false
-  private _keyring?: string; 
+  private _keyring?: string;
   public get keyring() {
     return this.getStringAttribute('keyring');
   }
@@ -1055,7 +1055,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // kube_version - computed: false, optional: true, required: false
-  private _kubeVersion?: string; 
+  private _kubeVersion?: string;
   public get kubeVersion() {
     return this.getStringAttribute('kube_version');
   }
@@ -1071,7 +1071,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // manifest - computed: true, optional: true, required: false
-  private _manifest?: string; 
+  private _manifest?: string;
   public get manifest() {
     return this.getStringAttribute('manifest');
   }
@@ -1087,7 +1087,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // manifests - computed: true, optional: true, required: false
-  private _manifests?: { [key: string]: string }; 
+  private _manifests?: { [key: string]: string };
   public get manifests() {
     return this.getStringMapAttribute('manifests');
   }
@@ -1103,7 +1103,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1116,7 +1116,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1132,7 +1132,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // notes - computed: true, optional: true, required: false
-  private _notes?: string; 
+  private _notes?: string;
   public get notes() {
     return this.getStringAttribute('notes');
   }
@@ -1148,7 +1148,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // pass_credentials - computed: false, optional: true, required: false
-  private _passCredentials?: boolean | cdktf.IResolvable; 
+  private _passCredentials?: boolean | cdktf.IResolvable;
   public get passCredentials() {
     return this.getBooleanAttribute('pass_credentials');
   }
@@ -1164,7 +1164,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // render_subchart_notes - computed: false, optional: true, required: false
-  private _renderSubchartNotes?: boolean | cdktf.IResolvable; 
+  private _renderSubchartNotes?: boolean | cdktf.IResolvable;
   public get renderSubchartNotes() {
     return this.getBooleanAttribute('render_subchart_notes');
   }
@@ -1180,7 +1180,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // replace - computed: false, optional: true, required: false
-  private _replace?: boolean | cdktf.IResolvable; 
+  private _replace?: boolean | cdktf.IResolvable;
   public get replace() {
     return this.getBooleanAttribute('replace');
   }
@@ -1196,7 +1196,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // repository - computed: false, optional: true, required: false
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -1212,7 +1212,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // repository_ca_file - computed: false, optional: true, required: false
-  private _repositoryCaFile?: string; 
+  private _repositoryCaFile?: string;
   public get repositoryCaFile() {
     return this.getStringAttribute('repository_ca_file');
   }
@@ -1228,7 +1228,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // repository_cert_file - computed: false, optional: true, required: false
-  private _repositoryCertFile?: string; 
+  private _repositoryCertFile?: string;
   public get repositoryCertFile() {
     return this.getStringAttribute('repository_cert_file');
   }
@@ -1244,7 +1244,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // repository_key_file - computed: false, optional: true, required: false
-  private _repositoryKeyFile?: string; 
+  private _repositoryKeyFile?: string;
   public get repositoryKeyFile() {
     return this.getStringAttribute('repository_key_file');
   }
@@ -1260,7 +1260,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // repository_password - computed: false, optional: true, required: false
-  private _repositoryPassword?: string; 
+  private _repositoryPassword?: string;
   public get repositoryPassword() {
     return this.getStringAttribute('repository_password');
   }
@@ -1276,7 +1276,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // repository_username - computed: false, optional: true, required: false
-  private _repositoryUsername?: string; 
+  private _repositoryUsername?: string;
   public get repositoryUsername() {
     return this.getStringAttribute('repository_username');
   }
@@ -1292,7 +1292,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // reset_values - computed: false, optional: true, required: false
-  private _resetValues?: boolean | cdktf.IResolvable; 
+  private _resetValues?: boolean | cdktf.IResolvable;
   public get resetValues() {
     return this.getBooleanAttribute('reset_values');
   }
@@ -1308,7 +1308,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // reuse_values - computed: false, optional: true, required: false
-  private _reuseValues?: boolean | cdktf.IResolvable; 
+  private _reuseValues?: boolean | cdktf.IResolvable;
   public get reuseValues() {
     return this.getBooleanAttribute('reuse_values');
   }
@@ -1324,7 +1324,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // show_only - computed: false, optional: true, required: false
-  private _showOnly?: string[]; 
+  private _showOnly?: string[];
   public get showOnly() {
     return this.getListAttribute('show_only');
   }
@@ -1340,7 +1340,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // skip_crds - computed: false, optional: true, required: false
-  private _skipCrds?: boolean | cdktf.IResolvable; 
+  private _skipCrds?: boolean | cdktf.IResolvable;
   public get skipCrds() {
     return this.getBooleanAttribute('skip_crds');
   }
@@ -1356,7 +1356,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // skip_tests - computed: false, optional: true, required: false
-  private _skipTests?: boolean | cdktf.IResolvable; 
+  private _skipTests?: boolean | cdktf.IResolvable;
   public get skipTests() {
     return this.getBooleanAttribute('skip_tests');
   }
@@ -1372,7 +1372,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: number; 
+  private _timeout?: number;
   public get timeout() {
     return this.getNumberAttribute('timeout');
   }
@@ -1388,7 +1388,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // validate - computed: false, optional: true, required: false
-  private _validate?: boolean | cdktf.IResolvable; 
+  private _validate?: boolean | cdktf.IResolvable;
   public get validate() {
     return this.getBooleanAttribute('validate');
   }
@@ -1404,7 +1404,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -1420,7 +1420,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // verify - computed: false, optional: true, required: false
-  private _verify?: boolean | cdktf.IResolvable; 
+  private _verify?: boolean | cdktf.IResolvable;
   public get verify() {
     return this.getBooleanAttribute('verify');
   }
@@ -1436,7 +1436,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // version - computed: true, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -1452,7 +1452,7 @@ export class DataHelmTemplate extends cdktf.TerraformDataSource {
   }
 
   // wait - computed: false, optional: true, required: false
-  private _wait?: boolean | cdktf.IResolvable; 
+  private _wait?: boolean | cdktf.IResolvable;
   public get wait() {
     return this.getBooleanAttribute('wait');
   }

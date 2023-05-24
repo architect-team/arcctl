@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_availability_zone_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class Ec2AvailabilityZoneGroup extends cdktf.TerraformResource {
   // ==========
 
   // group_name - computed: false, optional: false, required: true
-  private _groupName?: string; 
+  private _groupName?: string;
   public get groupName() {
     return this.getStringAttribute('group_name');
   }
@@ -84,7 +84,7 @@ export class Ec2AvailabilityZoneGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class Ec2AvailabilityZoneGroup extends cdktf.TerraformResource {
   }
 
   // opt_in_status - computed: false, optional: false, required: true
-  private _optInStatus?: string; 
+  private _optInStatus?: string;
   public get optInStatus() {
     return this.getStringAttribute('opt_in_status');
   }

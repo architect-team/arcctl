@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_service_setting
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class SsmServiceSetting extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class SsmServiceSetting extends cdktf.TerraformResource {
   }
 
   // setting_id - computed: false, optional: false, required: true
-  private _settingId?: string; 
+  private _settingId?: string;
   public get settingId() {
     return this.getStringAttribute('setting_id');
   }
@@ -105,7 +105,7 @@ export class SsmServiceSetting extends cdktf.TerraformResource {
   }
 
   // setting_value - computed: false, optional: false, required: true
-  private _settingValue?: string; 
+  private _settingValue?: string;
   public get settingValue() {
     return this.getStringAttribute('setting_value');
   }

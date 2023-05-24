@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/nat_gateways
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsNatGatewaysConfig extends cdktf.TerraformMetaArguments {
   readonly vpcId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/nat_gateways#filter DataAwsNatGateways#filter}
   */
   readonly filter?: DataAwsNatGatewaysFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/nat_gateways#timeouts DataAwsNatGateways#timeouts}
   */
   readonly timeouts?: DataAwsNatGatewaysTimeouts;
@@ -108,7 +108,7 @@ export class DataAwsNatGatewaysFilterOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +121,7 @@ export class DataAwsNatGatewaysFilterOutputReference extends cdktf.ComplexObject
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -213,7 +213,7 @@ export class DataAwsNatGatewaysTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -278,7 +278,7 @@ export class DataAwsNatGateways extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DataAwsNatGateways extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -315,7 +315,7 @@ export class DataAwsNatGateways extends cdktf.TerraformDataSource {
   }
 
   // vpc_id - computed: false, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

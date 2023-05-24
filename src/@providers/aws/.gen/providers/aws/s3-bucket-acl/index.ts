@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface S3BucketAclConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * access_control_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#access_control_policy S3BucketAcl#access_control_policy}
   */
   readonly accessControlPolicy?: S3BucketAclAccessControlPolicy;
@@ -124,7 +124,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // email_address - computed: false, optional: true, required: false
-  private _emailAddress?: string; 
+  private _emailAddress?: string;
   public get emailAddress() {
     return this.getStringAttribute('email_address');
   }
@@ -140,7 +140,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -156,7 +156,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -169,7 +169,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -191,7 +191,7 @@ export interface S3BucketAclAccessControlPolicyGrant {
   readonly permission: string;
   /**
   * grantee block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#grantee S3BucketAcl#grantee}
   */
   readonly grantee?: S3BucketAclAccessControlPolicyGrantGrantee;
@@ -259,7 +259,7 @@ export class S3BucketAclAccessControlPolicyGrantOutputReference extends cdktf.Co
   }
 
   // permission - computed: false, optional: false, required: true
-  private _permission?: string; 
+  private _permission?: string;
   public get permission() {
     return this.getStringAttribute('permission');
   }
@@ -371,7 +371,7 @@ export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.Co
   }
 
   // display_name - computed: true, optional: true, required: false
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -387,7 +387,7 @@ export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.Co
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -402,13 +402,13 @@ export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.Co
 export interface S3BucketAclAccessControlPolicy {
   /**
   * grant block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#grant S3BucketAcl#grant}
   */
   readonly grant?: S3BucketAclAccessControlPolicyGrant[] | cdktf.IResolvable;
   /**
   * owner block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#owner S3BucketAcl#owner}
   */
   readonly owner: S3BucketAclAccessControlPolicyOwner;
@@ -542,7 +542,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   // ==========
 
   // acl - computed: false, optional: true, required: false
-  private _acl?: string; 
+  private _acl?: string;
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -558,7 +558,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -571,7 +571,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -587,7 +587,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

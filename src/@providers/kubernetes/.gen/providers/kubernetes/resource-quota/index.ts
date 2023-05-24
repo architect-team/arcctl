@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/resource_quota
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,19 +16,19 @@ export interface ResourceQuotaConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#metadata ResourceQuota#metadata}
   */
   readonly metadata: ResourceQuotaMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#spec ResourceQuota#spec}
   */
   readonly spec?: ResourceQuotaSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#timeouts ResourceQuota#timeouts}
   */
   readonly timeouts?: ResourceQuotaTimeouts;
@@ -36,31 +36,31 @@ export interface ResourceQuotaConfig extends cdktf.TerraformMetaArguments {
 export interface ResourceQuotaMetadata {
   /**
   * An unstructured key value map stored with the resource quota that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#annotations ResourceQuota#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#generate_name ResourceQuota#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the resource quota. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#labels ResourceQuota#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the resource quota, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#name ResourceQuota#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the resource quota must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#namespace ResourceQuota#namespace}
   */
   readonly namespace?: string;
@@ -137,7 +137,7 @@ export class ResourceQuotaMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -153,7 +153,7 @@ export class ResourceQuotaMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -174,7 +174,7 @@ export class ResourceQuotaMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -190,7 +190,7 @@ export class ResourceQuotaMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -206,7 +206,7 @@ export class ResourceQuotaMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -234,19 +234,19 @@ export class ResourceQuotaMetadataOutputReference extends cdktf.ComplexObject {
 export interface ResourceQuotaSpecScopeSelectorMatchExpression {
   /**
   * Represents a scope's relationship to a set of values.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#operator ResourceQuota#operator}
   */
   readonly operator: string;
   /**
   * The name of the scope that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#scope_name ResourceQuota#scope_name}
   */
   readonly scopeName: string;
   /**
   * A list of scope selector requirements by scope of the resources.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#values ResourceQuota#values}
   */
   readonly values?: string[];
@@ -321,7 +321,7 @@ export class ResourceQuotaSpecScopeSelectorMatchExpressionOutputReference extend
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -334,7 +334,7 @@ export class ResourceQuotaSpecScopeSelectorMatchExpressionOutputReference extend
   }
 
   // scope_name - computed: false, optional: false, required: true
-  private _scopeName?: string; 
+  private _scopeName?: string;
   public get scopeName() {
     return this.getStringAttribute('scope_name');
   }
@@ -347,7 +347,7 @@ export class ResourceQuotaSpecScopeSelectorMatchExpressionOutputReference extend
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -385,7 +385,7 @@ export class ResourceQuotaSpecScopeSelectorMatchExpressionList extends cdktf.Com
 export interface ResourceQuotaSpecScopeSelector {
   /**
   * match_expression block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#match_expression ResourceQuota#match_expression}
   */
   readonly matchExpression?: ResourceQuotaSpecScopeSelectorMatchExpression[] | cdktf.IResolvable;
@@ -452,19 +452,19 @@ export class ResourceQuotaSpecScopeSelectorOutputReference extends cdktf.Complex
 export interface ResourceQuotaSpec {
   /**
   * The set of desired hard limits for each named resource. More info: http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#hard ResourceQuota#hard}
   */
   readonly hard?: { [key: string]: string };
   /**
   * A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#scopes ResourceQuota#scopes}
   */
   readonly scopes?: string[];
   /**
   * scope_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/resource_quota#scope_selector ResourceQuota#scope_selector}
   */
   readonly scopeSelector?: ResourceQuotaSpecScopeSelector;
@@ -527,7 +527,7 @@ export class ResourceQuotaSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // hard - computed: false, optional: true, required: false
-  private _hard?: { [key: string]: string }; 
+  private _hard?: { [key: string]: string };
   public get hard() {
     return this.getStringMapAttribute('hard');
   }
@@ -543,7 +543,7 @@ export class ResourceQuotaSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // scopes - computed: false, optional: true, required: false
-  private _scopes?: string[]; 
+  private _scopes?: string[];
   public get scopes() {
     return cdktf.Fn.tolist(this.getListAttribute('scopes'));
   }
@@ -645,7 +645,7 @@ export class ResourceQuotaTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -661,7 +661,7 @@ export class ResourceQuotaTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -725,7 +725,7 @@ export class ResourceQuota extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

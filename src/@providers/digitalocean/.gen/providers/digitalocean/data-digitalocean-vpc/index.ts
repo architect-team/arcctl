@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/vpc
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataDigitaloceanVpc extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class DataDigitaloceanVpc extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -123,7 +123,7 @@ export class DataDigitaloceanVpc extends cdktf.TerraformDataSource {
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

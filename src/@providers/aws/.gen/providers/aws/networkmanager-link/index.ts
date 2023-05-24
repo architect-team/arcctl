@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_link
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,13 +44,13 @@ export interface NetworkmanagerLinkConfig extends cdktf.TerraformMetaArguments {
   readonly type?: string;
   /**
   * bandwidth block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_link#bandwidth NetworkmanagerLink#bandwidth}
   */
   readonly bandwidth: NetworkmanagerLinkBandwidth;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_link#timeouts NetworkmanagerLink#timeouts}
   */
   readonly timeouts?: NetworkmanagerLinkTimeouts;
@@ -116,7 +116,7 @@ export class NetworkmanagerLinkBandwidthOutputReference extends cdktf.ComplexObj
   }
 
   // download_speed - computed: false, optional: true, required: false
-  private _downloadSpeed?: number; 
+  private _downloadSpeed?: number;
   public get downloadSpeed() {
     return this.getNumberAttribute('download_speed');
   }
@@ -132,7 +132,7 @@ export class NetworkmanagerLinkBandwidthOutputReference extends cdktf.ComplexObj
   }
 
   // upload_speed - computed: false, optional: true, required: false
-  private _uploadSpeed?: number; 
+  private _uploadSpeed?: number;
   public get uploadSpeed() {
     return this.getNumberAttribute('upload_speed');
   }
@@ -229,7 +229,7 @@ export class NetworkmanagerLinkTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -245,7 +245,7 @@ export class NetworkmanagerLinkTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -261,7 +261,7 @@ export class NetworkmanagerLinkTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -336,7 +336,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -352,7 +352,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -365,7 +365,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -381,7 +381,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // provider_name - computed: false, optional: true, required: false
-  private _providerName?: string; 
+  private _providerName?: string;
   public get providerName() {
     return this.getStringAttribute('provider_name');
   }
@@ -397,7 +397,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // site_id - computed: false, optional: false, required: true
-  private _siteId?: string; 
+  private _siteId?: string;
   public get siteId() {
     return this.getStringAttribute('site_id');
   }
@@ -410,7 +410,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -426,7 +426,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -442,7 +442,7 @@ export class NetworkmanagerLink extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

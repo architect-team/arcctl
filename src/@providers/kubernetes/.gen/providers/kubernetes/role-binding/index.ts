@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/role_binding
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,19 +16,19 @@ export interface RoleBindingConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#metadata RoleBinding#metadata}
   */
   readonly metadata: RoleBindingMetadata;
   /**
   * role_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#role_ref RoleBinding#role_ref}
   */
   readonly roleRef: RoleBindingRoleRef;
   /**
   * subject block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#subject RoleBinding#subject}
   */
   readonly subject: RoleBindingSubject[] | cdktf.IResolvable;
@@ -36,31 +36,31 @@ export interface RoleBindingConfig extends cdktf.TerraformMetaArguments {
 export interface RoleBindingMetadata {
   /**
   * An unstructured key value map stored with the roleBinding that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#annotations RoleBinding#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#generate_name RoleBinding#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the roleBinding. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#labels RoleBinding#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the roleBinding, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#name RoleBinding#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the roleBinding must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#namespace RoleBinding#namespace}
   */
   readonly namespace?: string;
@@ -137,7 +137,7 @@ export class RoleBindingMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -153,7 +153,7 @@ export class RoleBindingMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -174,7 +174,7 @@ export class RoleBindingMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -190,7 +190,7 @@ export class RoleBindingMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -206,7 +206,7 @@ export class RoleBindingMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -234,19 +234,19 @@ export class RoleBindingMetadataOutputReference extends cdktf.ComplexObject {
 export interface RoleBindingRoleRef {
   /**
   * The API group of the user. The only value possible at the moment is `rbac.authorization.k8s.io`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#api_group RoleBinding#api_group}
   */
   readonly apiGroup: string;
   /**
   * The kind of resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#kind RoleBinding#kind}
   */
   readonly kind: string;
   /**
   * The name of the User to bind to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#name RoleBinding#name}
   */
   readonly name: string;
@@ -309,7 +309,7 @@ export class RoleBindingRoleRefOutputReference extends cdktf.ComplexObject {
   }
 
   // api_group - computed: false, optional: false, required: true
-  private _apiGroup?: string; 
+  private _apiGroup?: string;
   public get apiGroup() {
     return this.getStringAttribute('api_group');
   }
@@ -322,7 +322,7 @@ export class RoleBindingRoleRefOutputReference extends cdktf.ComplexObject {
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -335,7 +335,7 @@ export class RoleBindingRoleRefOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -350,25 +350,25 @@ export class RoleBindingRoleRefOutputReference extends cdktf.ComplexObject {
 export interface RoleBindingSubject {
   /**
   * The API group of the subject resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#api_group RoleBinding#api_group}
   */
   readonly apiGroup?: string;
   /**
   * The kind of resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#kind RoleBinding#kind}
   */
   readonly kind: string;
   /**
   * The name of the resource to bind to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#name RoleBinding#name}
   */
   readonly name: string;
   /**
   * The Namespace of the subject resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_binding#namespace RoleBinding#namespace}
   */
   readonly namespace?: string;
@@ -450,7 +450,7 @@ export class RoleBindingSubjectOutputReference extends cdktf.ComplexObject {
   }
 
   // api_group - computed: true, optional: true, required: false
-  private _apiGroup?: string; 
+  private _apiGroup?: string;
   public get apiGroup() {
     return this.getStringAttribute('api_group');
   }
@@ -466,7 +466,7 @@ export class RoleBindingSubjectOutputReference extends cdktf.ComplexObject {
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -479,7 +479,7 @@ export class RoleBindingSubjectOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -492,7 +492,7 @@ export class RoleBindingSubjectOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -576,7 +576,7 @@ export class RoleBinding extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

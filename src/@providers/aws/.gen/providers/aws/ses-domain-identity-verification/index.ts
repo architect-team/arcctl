@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_domain_identity_verification
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface SesDomainIdentityVerificationConfig extends cdktf.TerraformMeta
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_domain_identity_verification#timeouts SesDomainIdentityVerification#timeouts}
   */
   readonly timeouts?: SesDomainIdentityVerificationTimeouts;
@@ -85,7 +85,7 @@ export class SesDomainIdentityVerificationTimeoutsOutputReference extends cdktf.
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -153,7 +153,7 @@ export class SesDomainIdentityVerification extends cdktf.TerraformResource {
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -166,7 +166,7 @@ export class SesDomainIdentityVerification extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

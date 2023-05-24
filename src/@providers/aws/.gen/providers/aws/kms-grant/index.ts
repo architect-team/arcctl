@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kms_grant
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface KmsGrantConfig extends cdktf.TerraformMetaArguments {
   readonly retiringPrincipal?: string;
   /**
   * constraints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#constraints KmsGrant#constraints}
   */
   readonly constraints?: KmsGrantConstraints[] | cdktf.IResolvable;
@@ -122,7 +122,7 @@ export class KmsGrantConstraintsOutputReference extends cdktf.ComplexObject {
   }
 
   // encryption_context_equals - computed: false, optional: true, required: false
-  private _encryptionContextEquals?: { [key: string]: string }; 
+  private _encryptionContextEquals?: { [key: string]: string };
   public get encryptionContextEquals() {
     return this.getStringMapAttribute('encryption_context_equals');
   }
@@ -138,7 +138,7 @@ export class KmsGrantConstraintsOutputReference extends cdktf.ComplexObject {
   }
 
   // encryption_context_subset - computed: false, optional: true, required: false
-  private _encryptionContextSubset?: { [key: string]: string }; 
+  private _encryptionContextSubset?: { [key: string]: string };
   public get encryptionContextSubset() {
     return this.getStringMapAttribute('encryption_context_subset');
   }
@@ -227,7 +227,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   // ==========
 
   // grant_creation_tokens - computed: false, optional: true, required: false
-  private _grantCreationTokens?: string[]; 
+  private _grantCreationTokens?: string[];
   public get grantCreationTokens() {
     return cdktf.Fn.tolist(this.getListAttribute('grant_creation_tokens'));
   }
@@ -253,7 +253,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // grantee_principal - computed: false, optional: false, required: true
-  private _granteePrincipal?: string; 
+  private _granteePrincipal?: string;
   public get granteePrincipal() {
     return this.getStringAttribute('grantee_principal');
   }
@@ -266,7 +266,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -282,7 +282,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // key_id - computed: false, optional: false, required: true
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -295,7 +295,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -311,7 +311,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // operations - computed: false, optional: false, required: true
-  private _operations?: string[]; 
+  private _operations?: string[];
   public get operations() {
     return cdktf.Fn.tolist(this.getListAttribute('operations'));
   }
@@ -324,7 +324,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // retire_on_delete - computed: false, optional: true, required: false
-  private _retireOnDelete?: boolean | cdktf.IResolvable; 
+  private _retireOnDelete?: boolean | cdktf.IResolvable;
   public get retireOnDelete() {
     return this.getBooleanAttribute('retire_on_delete');
   }
@@ -340,7 +340,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // retiring_principal - computed: false, optional: true, required: false
-  private _retiringPrincipal?: string; 
+  private _retiringPrincipal?: string;
   public get retiringPrincipal() {
     return this.getStringAttribute('retiring_principal');
   }

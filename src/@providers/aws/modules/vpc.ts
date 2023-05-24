@@ -5,7 +5,7 @@ import { DataAwsAvailabilityZones } from '../.gen/providers/aws/data-aws-availab
 import { AwsProvider } from '../.gen/providers/aws/provider/index.js';
 import { AwsCredentials } from '../credentials.js';
 import AwsUtils from '../utils.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
   vpc: Vpc;

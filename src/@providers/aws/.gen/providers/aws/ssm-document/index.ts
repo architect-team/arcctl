@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_document
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,7 +52,7 @@ export interface SsmDocumentConfig extends cdktf.TerraformMetaArguments {
   readonly versionName?: string;
   /**
   * attachments_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_document#attachments_source SsmDocument#attachments_source}
   */
   readonly attachmentsSource?: SsmDocumentAttachmentsSource[] | cdktf.IResolvable;
@@ -220,7 +220,7 @@ export class SsmDocumentAttachmentsSourceOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -233,7 +233,7 @@ export class SsmDocumentAttachmentsSourceOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -249,7 +249,7 @@ export class SsmDocumentAttachmentsSourceOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -342,7 +342,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -370,7 +370,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // document_format - computed: false, optional: true, required: false
-  private _documentFormat?: string; 
+  private _documentFormat?: string;
   public get documentFormat() {
     return this.getStringAttribute('document_format');
   }
@@ -386,7 +386,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // document_type - computed: false, optional: false, required: true
-  private _documentType?: string; 
+  private _documentType?: string;
   public get documentType() {
     return this.getStringAttribute('document_type');
   }
@@ -414,7 +414,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -435,7 +435,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,7 +459,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // permissions - computed: false, optional: true, required: false
-  private _permissions?: { [key: string]: string }; 
+  private _permissions?: { [key: string]: string };
   public get permissions() {
     return this.getStringMapAttribute('permissions');
   }
@@ -490,7 +490,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -506,7 +506,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -522,7 +522,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // target_type - computed: false, optional: true, required: false
-  private _targetType?: string; 
+  private _targetType?: string;
   public get targetType() {
     return this.getStringAttribute('target_type');
   }
@@ -538,7 +538,7 @@ export class SsmDocument extends cdktf.TerraformResource {
   }
 
   // version_name - computed: false, optional: true, required: false
-  private _versionName?: string; 
+  private _versionName?: string;
   public get versionName() {
     return this.getStringAttribute('version_name');
   }

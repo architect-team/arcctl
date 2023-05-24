@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface SpacesBucketConfig extends cdktf.TerraformMetaArguments {
   /**
   * Canned ACL applied on bucket creation
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#acl SpacesBucket#acl}
   */
   readonly acl?: string;
   /**
   * Unless true, the bucket will only be destroyed if empty
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#force_destroy SpacesBucket#force_destroy}
   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
@@ -28,31 +28,31 @@ export interface SpacesBucketConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Bucket name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#name SpacesBucket#name}
   */
   readonly name: string;
   /**
   * Bucket region
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#region SpacesBucket#region}
   */
   readonly region?: string;
   /**
   * cors_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#cors_rule SpacesBucket#cors_rule}
   */
   readonly corsRule?: SpacesBucketCorsRule[] | cdktf.IResolvable;
   /**
   * lifecycle_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#lifecycle_rule SpacesBucket#lifecycle_rule}
   */
   readonly lifecycleRule?: SpacesBucketLifecycleRule[] | cdktf.IResolvable;
   /**
   * versioning block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#versioning SpacesBucket#versioning}
   */
   readonly versioning?: SpacesBucketVersioning;
@@ -60,19 +60,19 @@ export interface SpacesBucketConfig extends cdktf.TerraformMetaArguments {
 export interface SpacesBucketCorsRule {
   /**
   * A list of headers that will be included in the CORS preflight request's Access-Control-Request-Headers. A header may contain one wildcard (e.g. x-amz-*).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_headers SpacesBucket#allowed_headers}
   */
   readonly allowedHeaders?: string[];
   /**
   * A list of HTTP methods (e.g. GET) which are allowed from the specified origin.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_methods SpacesBucket#allowed_methods}
   */
   readonly allowedMethods: string[];
   /**
   * A list of hosts from which requests using the specified methods are allowed. A host may contain one wildcard (e.g. http://*.example.com).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_origins SpacesBucket#allowed_origins}
   */
   readonly allowedOrigins: string[];
@@ -158,7 +158,7 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_headers - computed: false, optional: true, required: false
-  private _allowedHeaders?: string[]; 
+  private _allowedHeaders?: string[];
   public get allowedHeaders() {
     return this.getListAttribute('allowed_headers');
   }
@@ -174,7 +174,7 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[]; 
+  private _allowedMethods?: string[];
   public get allowedMethods() {
     return this.getListAttribute('allowed_methods');
   }
@@ -187,7 +187,7 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_origins - computed: false, optional: false, required: true
-  private _allowedOrigins?: string[]; 
+  private _allowedOrigins?: string[];
   public get allowedOrigins() {
     return this.getListAttribute('allowed_origins');
   }
@@ -200,7 +200,7 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age_seconds - computed: false, optional: true, required: false
-  private _maxAgeSeconds?: number; 
+  private _maxAgeSeconds?: number;
   public get maxAgeSeconds() {
     return this.getNumberAttribute('max_age_seconds');
   }
@@ -307,7 +307,7 @@ export class SpacesBucketLifecycleRuleExpirationOutputReference extends cdktf.Co
   }
 
   // date - computed: false, optional: true, required: false
-  private _date?: string; 
+  private _date?: string;
   public get date() {
     return this.getStringAttribute('date');
   }
@@ -323,7 +323,7 @@ export class SpacesBucketLifecycleRuleExpirationOutputReference extends cdktf.Co
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number; 
+  private _days?: number;
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -339,7 +339,7 @@ export class SpacesBucketLifecycleRuleExpirationOutputReference extends cdktf.Co
   }
 
   // expired_object_delete_marker - computed: false, optional: true, required: false
-  private _expiredObjectDeleteMarker?: boolean | cdktf.IResolvable; 
+  private _expiredObjectDeleteMarker?: boolean | cdktf.IResolvable;
   public get expiredObjectDeleteMarker() {
     return this.getBooleanAttribute('expired_object_delete_marker');
   }
@@ -404,7 +404,7 @@ export class SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number; 
+  private _days?: number;
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -441,13 +441,13 @@ export interface SpacesBucketLifecycleRule {
   readonly prefix?: string;
   /**
   * expiration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#expiration SpacesBucket#expiration}
   */
   readonly expiration?: SpacesBucketLifecycleRuleExpiration;
   /**
   * noncurrent_version_expiration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#noncurrent_version_expiration SpacesBucket#noncurrent_version_expiration}
   */
   readonly noncurrentVersionExpiration?: SpacesBucketLifecycleRuleNoncurrentVersionExpiration;
@@ -543,7 +543,7 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
   }
 
   // abort_incomplete_multipart_upload_days - computed: false, optional: true, required: false
-  private _abortIncompleteMultipartUploadDays?: number; 
+  private _abortIncompleteMultipartUploadDays?: number;
   public get abortIncompleteMultipartUploadDays() {
     return this.getNumberAttribute('abort_incomplete_multipart_upload_days');
   }
@@ -559,7 +559,7 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -572,7 +572,7 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -588,7 +588,7 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -705,7 +705,7 @@ export class SpacesBucketVersioningOutputReference extends cdktf.ComplexObject {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -773,7 +773,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
   // ==========
 
   // acl - computed: false, optional: true, required: false
-  private _acl?: string; 
+  private _acl?: string;
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -799,7 +799,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -815,7 +815,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -831,7 +831,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -844,7 +844,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

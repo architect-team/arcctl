@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/medialive_channel
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,49 +44,49 @@ export interface MedialiveChannelConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * cdi_input_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#cdi_input_specification MedialiveChannel#cdi_input_specification}
   */
   readonly cdiInputSpecification?: MedialiveChannelCdiInputSpecification;
   /**
   * destinations block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destinations MedialiveChannel#destinations}
   */
   readonly destinations: MedialiveChannelDestinations[] | cdktf.IResolvable;
   /**
   * encoder_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#encoder_settings MedialiveChannel#encoder_settings}
   */
   readonly encoderSettings: MedialiveChannelEncoderSettings;
   /**
   * input_attachments block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#input_attachments MedialiveChannel#input_attachments}
   */
   readonly inputAttachments: MedialiveChannelInputAttachments[] | cdktf.IResolvable;
   /**
   * input_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#input_specification MedialiveChannel#input_specification}
   */
   readonly inputSpecification: MedialiveChannelInputSpecification;
   /**
   * maintenance block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#maintenance MedialiveChannel#maintenance}
   */
   readonly maintenance?: MedialiveChannelMaintenance;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#timeouts MedialiveChannel#timeouts}
   */
   readonly timeouts?: MedialiveChannelTimeouts;
   /**
   * vpc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#vpc MedialiveChannel#vpc}
   */
   readonly vpc?: MedialiveChannelVpc;
@@ -141,7 +141,7 @@ export class MedialiveChannelCdiInputSpecificationOutputReference extends cdktf.
   }
 
   // resolution - computed: false, optional: false, required: true
-  private _resolution?: string; 
+  private _resolution?: string;
   public get resolution() {
     return this.getStringAttribute('resolution');
   }
@@ -215,7 +215,7 @@ export class MedialiveChannelDestinationsMediaPackageSettingsOutputReference ext
   }
 
   // channel_id - computed: false, optional: false, required: true
-  private _channelId?: string; 
+  private _channelId?: string;
   public get channelId() {
     return this.getStringAttribute('channel_id');
   }
@@ -308,7 +308,7 @@ export class MedialiveChannelDestinationsMultiplexSettingsOutputReference extend
   }
 
   // multiplex_id - computed: false, optional: false, required: true
-  private _multiplexId?: string; 
+  private _multiplexId?: string;
   public get multiplexId() {
     return this.getStringAttribute('multiplex_id');
   }
@@ -321,7 +321,7 @@ export class MedialiveChannelDestinationsMultiplexSettingsOutputReference extend
   }
 
   // program_name - computed: false, optional: false, required: true
-  private _programName?: string; 
+  private _programName?: string;
   public get programName() {
     return this.getStringAttribute('program_name');
   }
@@ -428,7 +428,7 @@ export class MedialiveChannelDestinationsSettingsOutputReference extends cdktf.C
   }
 
   // password_param - computed: false, optional: true, required: false
-  private _passwordParam?: string; 
+  private _passwordParam?: string;
   public get passwordParam() {
     return this.getStringAttribute('password_param');
   }
@@ -444,7 +444,7 @@ export class MedialiveChannelDestinationsSettingsOutputReference extends cdktf.C
   }
 
   // stream_name - computed: false, optional: true, required: false
-  private _streamName?: string; 
+  private _streamName?: string;
   public get streamName() {
     return this.getStringAttribute('stream_name');
   }
@@ -460,7 +460,7 @@ export class MedialiveChannelDestinationsSettingsOutputReference extends cdktf.C
   }
 
   // url - computed: false, optional: true, required: false
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -476,7 +476,7 @@ export class MedialiveChannelDestinationsSettingsOutputReference extends cdktf.C
   }
 
   // username - computed: false, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -521,19 +521,19 @@ export interface MedialiveChannelDestinations {
   readonly id: string;
   /**
   * media_package_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#media_package_settings MedialiveChannel#media_package_settings}
   */
   readonly mediaPackageSettings?: MedialiveChannelDestinationsMediaPackageSettings[] | cdktf.IResolvable;
   /**
   * multiplex_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#multiplex_settings MedialiveChannel#multiplex_settings}
   */
   readonly multiplexSettings?: MedialiveChannelDestinationsMultiplexSettings;
   /**
   * settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#settings MedialiveChannel#settings}
   */
   readonly settings?: MedialiveChannelDestinationsSettings[] | cdktf.IResolvable;
@@ -615,7 +615,7 @@ export class MedialiveChannelDestinationsOutputReference extends cdktf.ComplexOb
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -767,7 +767,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioNormalizationS
   }
 
   // algorithm - computed: true, optional: true, required: false
-  private _algorithm?: string; 
+  private _algorithm?: string;
   public get algorithm() {
     return this.getStringAttribute('algorithm');
   }
@@ -783,7 +783,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioNormalizationS
   }
 
   // algorithm_control - computed: true, optional: true, required: false
-  private _algorithmControl?: string; 
+  private _algorithmControl?: string;
   public get algorithmControl() {
     return this.getStringAttribute('algorithm_control');
   }
@@ -799,7 +799,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioNormalizationS
   }
 
   // target_lkfs - computed: true, optional: true, required: false
-  private _targetLkfs?: number; 
+  private _targetLkfs?: number;
   public get targetLkfs() {
     return this.getNumberAttribute('target_lkfs');
   }
@@ -886,7 +886,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSetti
   }
 
   // cbet_check_digit_string - computed: false, optional: false, required: true
-  private _cbetCheckDigitString?: string; 
+  private _cbetCheckDigitString?: string;
   public get cbetCheckDigitString() {
     return this.getStringAttribute('cbet_check_digit_string');
   }
@@ -899,7 +899,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSetti
   }
 
   // cbet_stepaside - computed: false, optional: false, required: true
-  private _cbetStepaside?: string; 
+  private _cbetStepaside?: string;
   public get cbetStepaside() {
     return this.getStringAttribute('cbet_stepaside');
   }
@@ -912,7 +912,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSetti
   }
 
   // csid - computed: false, optional: false, required: true
-  private _csid?: string; 
+  private _csid?: string;
   public get csid() {
     return this.getStringAttribute('csid');
   }
@@ -997,7 +997,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSetti
   }
 
   // check_digit_string - computed: false, optional: false, required: true
-  private _checkDigitString?: string; 
+  private _checkDigitString?: string;
   public get checkDigitString() {
     return this.getStringAttribute('check_digit_string');
   }
@@ -1010,7 +1010,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSetti
   }
 
   // sid - computed: false, optional: false, required: true
-  private _sid?: number; 
+  private _sid?: number;
   public get sid() {
     return this.getNumberAttribute('sid');
   }
@@ -1049,13 +1049,13 @@ export interface MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkS
   readonly nielsenDistributionType?: string;
   /**
   * nielsen_cbet_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#nielsen_cbet_settings MedialiveChannel#nielsen_cbet_settings}
   */
   readonly nielsenCbetSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings;
   /**
   * nielsen_naes_ii_nw_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#nielsen_naes_ii_nw_settings MedialiveChannel#nielsen_naes_ii_nw_settings}
   */
   readonly nielsenNaesIiNwSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettings[] | cdktf.IResolvable;
@@ -1118,7 +1118,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSetti
   }
 
   // nielsen_distribution_type - computed: true, optional: true, required: false
-  private _nielsenDistributionType?: string; 
+  private _nielsenDistributionType?: string;
   public get nielsenDistributionType() {
     return this.getStringAttribute('nielsen_distribution_type');
   }
@@ -1168,7 +1168,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSetti
 export interface MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSettings {
   /**
   * nielsen_watermarks_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#nielsen_watermarks_settings MedialiveChannel#nielsen_watermarks_settings}
   */
   readonly nielsenWatermarksSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSettingsNielsenWatermarksSettings;
@@ -1370,7 +1370,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // bitrate - computed: true, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -1386,7 +1386,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // coding_mode - computed: true, optional: true, required: false
-  private _codingMode?: string; 
+  private _codingMode?: string;
   public get codingMode() {
     return this.getStringAttribute('coding_mode');
   }
@@ -1402,7 +1402,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // input_type - computed: true, optional: true, required: false
-  private _inputType?: string; 
+  private _inputType?: string;
   public get inputType() {
     return this.getStringAttribute('input_type');
   }
@@ -1418,7 +1418,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // profile - computed: true, optional: true, required: false
-  private _profile?: string; 
+  private _profile?: string;
   public get profile() {
     return this.getStringAttribute('profile');
   }
@@ -1434,7 +1434,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // rate_control_mode - computed: true, optional: true, required: false
-  private _rateControlMode?: string; 
+  private _rateControlMode?: string;
   public get rateControlMode() {
     return this.getStringAttribute('rate_control_mode');
   }
@@ -1450,7 +1450,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // raw_format - computed: true, optional: true, required: false
-  private _rawFormat?: string; 
+  private _rawFormat?: string;
   public get rawFormat() {
     return this.getStringAttribute('raw_format');
   }
@@ -1466,7 +1466,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // sample_rate - computed: true, optional: true, required: false
-  private _sampleRate?: number; 
+  private _sampleRate?: number;
   public get sampleRate() {
     return this.getNumberAttribute('sample_rate');
   }
@@ -1482,7 +1482,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // spec - computed: true, optional: true, required: false
-  private _spec?: string; 
+  private _spec?: string;
   public get spec() {
     return this.getStringAttribute('spec');
   }
@@ -1498,7 +1498,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSet
   }
 
   // vbr_quality - computed: true, optional: true, required: false
-  private _vbrQuality?: string; 
+  private _vbrQuality?: string;
   public get vbrQuality() {
     return this.getStringAttribute('vbr_quality');
   }
@@ -1629,7 +1629,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Set
   }
 
   // bitrate - computed: true, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -1645,7 +1645,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Set
   }
 
   // bitstream_mode - computed: true, optional: true, required: false
-  private _bitstreamMode?: string; 
+  private _bitstreamMode?: string;
   public get bitstreamMode() {
     return this.getStringAttribute('bitstream_mode');
   }
@@ -1661,7 +1661,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Set
   }
 
   // coding_mode - computed: true, optional: true, required: false
-  private _codingMode?: string; 
+  private _codingMode?: string;
   public get codingMode() {
     return this.getStringAttribute('coding_mode');
   }
@@ -1677,7 +1677,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Set
   }
 
   // dialnorm - computed: true, optional: true, required: false
-  private _dialnorm?: number; 
+  private _dialnorm?: number;
   public get dialnorm() {
     return this.getNumberAttribute('dialnorm');
   }
@@ -1693,7 +1693,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Set
   }
 
   // drc_profile - computed: true, optional: true, required: false
-  private _drcProfile?: string; 
+  private _drcProfile?: string;
   public get drcProfile() {
     return this.getStringAttribute('drc_profile');
   }
@@ -1709,7 +1709,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Set
   }
 
   // lfe_filter - computed: true, optional: true, required: false
-  private _lfeFilter?: string; 
+  private _lfeFilter?: string;
   public get lfeFilter() {
     return this.getStringAttribute('lfe_filter');
   }
@@ -1725,7 +1725,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Set
   }
 
   // metadata_control - computed: true, optional: true, required: false
-  private _metadataControl?: string; 
+  private _metadataControl?: string;
   public get metadataControl() {
     return this.getStringAttribute('metadata_control');
   }
@@ -1856,7 +1856,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3At
   }
 
   // bitrate - computed: true, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -1872,7 +1872,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3At
   }
 
   // coding_mode - computed: true, optional: true, required: false
-  private _codingMode?: string; 
+  private _codingMode?: string;
   public get codingMode() {
     return this.getStringAttribute('coding_mode');
   }
@@ -1888,7 +1888,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3At
   }
 
   // dialnorm - computed: true, optional: true, required: false
-  private _dialnorm?: number; 
+  private _dialnorm?: number;
   public get dialnorm() {
     return this.getNumberAttribute('dialnorm');
   }
@@ -1904,7 +1904,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3At
   }
 
   // drc_line - computed: true, optional: true, required: false
-  private _drcLine?: string; 
+  private _drcLine?: string;
   public get drcLine() {
     return this.getStringAttribute('drc_line');
   }
@@ -1920,7 +1920,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3At
   }
 
   // drc_rf - computed: true, optional: true, required: false
-  private _drcRf?: string; 
+  private _drcRf?: string;
   public get drcRf() {
     return this.getStringAttribute('drc_rf');
   }
@@ -1936,7 +1936,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3At
   }
 
   // height_trim - computed: true, optional: true, required: false
-  private _heightTrim?: number; 
+  private _heightTrim?: number;
   public get heightTrim() {
     return this.getNumberAttribute('height_trim');
   }
@@ -1952,7 +1952,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3At
   }
 
   // surround_trim - computed: true, optional: true, required: false
-  private _surroundTrim?: number; 
+  private _surroundTrim?: number;
   public get surroundTrim() {
     return this.getNumberAttribute('surround_trim');
   }
@@ -2226,7 +2226,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // attenuation_control - computed: true, optional: true, required: false
-  private _attenuationControl?: string; 
+  private _attenuationControl?: string;
   public get attenuationControl() {
     return this.getStringAttribute('attenuation_control');
   }
@@ -2242,7 +2242,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // bitrate - computed: true, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -2258,7 +2258,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // bitstream_mode - computed: true, optional: true, required: false
-  private _bitstreamMode?: string; 
+  private _bitstreamMode?: string;
   public get bitstreamMode() {
     return this.getStringAttribute('bitstream_mode');
   }
@@ -2274,7 +2274,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // coding_mode - computed: true, optional: true, required: false
-  private _codingMode?: string; 
+  private _codingMode?: string;
   public get codingMode() {
     return this.getStringAttribute('coding_mode');
   }
@@ -2290,7 +2290,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // dc_filter - computed: true, optional: true, required: false
-  private _dcFilter?: string; 
+  private _dcFilter?: string;
   public get dcFilter() {
     return this.getStringAttribute('dc_filter');
   }
@@ -2306,7 +2306,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // dialnorm - computed: true, optional: true, required: false
-  private _dialnorm?: number; 
+  private _dialnorm?: number;
   public get dialnorm() {
     return this.getNumberAttribute('dialnorm');
   }
@@ -2322,7 +2322,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // drc_line - computed: true, optional: true, required: false
-  private _drcLine?: string; 
+  private _drcLine?: string;
   public get drcLine() {
     return this.getStringAttribute('drc_line');
   }
@@ -2338,7 +2338,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // drc_rf - computed: true, optional: true, required: false
-  private _drcRf?: string; 
+  private _drcRf?: string;
   public get drcRf() {
     return this.getStringAttribute('drc_rf');
   }
@@ -2354,7 +2354,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // lfe_control - computed: true, optional: true, required: false
-  private _lfeControl?: string; 
+  private _lfeControl?: string;
   public get lfeControl() {
     return this.getStringAttribute('lfe_control');
   }
@@ -2370,7 +2370,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // lfe_filter - computed: true, optional: true, required: false
-  private _lfeFilter?: string; 
+  private _lfeFilter?: string;
   public get lfeFilter() {
     return this.getStringAttribute('lfe_filter');
   }
@@ -2386,7 +2386,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // lo_ro_center_mix_level - computed: true, optional: true, required: false
-  private _loRoCenterMixLevel?: number; 
+  private _loRoCenterMixLevel?: number;
   public get loRoCenterMixLevel() {
     return this.getNumberAttribute('lo_ro_center_mix_level');
   }
@@ -2402,7 +2402,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // lo_ro_surround_mix_level - computed: true, optional: true, required: false
-  private _loRoSurroundMixLevel?: number; 
+  private _loRoSurroundMixLevel?: number;
   public get loRoSurroundMixLevel() {
     return this.getNumberAttribute('lo_ro_surround_mix_level');
   }
@@ -2418,7 +2418,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // lt_rt_center_mix_level - computed: true, optional: true, required: false
-  private _ltRtCenterMixLevel?: number; 
+  private _ltRtCenterMixLevel?: number;
   public get ltRtCenterMixLevel() {
     return this.getNumberAttribute('lt_rt_center_mix_level');
   }
@@ -2434,7 +2434,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // lt_rt_surround_mix_level - computed: true, optional: true, required: false
-  private _ltRtSurroundMixLevel?: number; 
+  private _ltRtSurroundMixLevel?: number;
   public get ltRtSurroundMixLevel() {
     return this.getNumberAttribute('lt_rt_surround_mix_level');
   }
@@ -2450,7 +2450,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // metadata_control - computed: true, optional: true, required: false
-  private _metadataControl?: string; 
+  private _metadataControl?: string;
   public get metadataControl() {
     return this.getStringAttribute('metadata_control');
   }
@@ -2466,7 +2466,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // passthrough_control - computed: true, optional: true, required: false
-  private _passthroughControl?: string; 
+  private _passthroughControl?: string;
   public get passthroughControl() {
     return this.getStringAttribute('passthrough_control');
   }
@@ -2482,7 +2482,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // phase_control - computed: true, optional: true, required: false
-  private _phaseControl?: string; 
+  private _phaseControl?: string;
   public get phaseControl() {
     return this.getStringAttribute('phase_control');
   }
@@ -2498,7 +2498,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // stereo_downmix - computed: true, optional: true, required: false
-  private _stereoDownmix?: string; 
+  private _stereoDownmix?: string;
   public get stereoDownmix() {
     return this.getStringAttribute('stereo_downmix');
   }
@@ -2514,7 +2514,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // surround_ex_mode - computed: true, optional: true, required: false
-  private _surroundExMode?: string; 
+  private _surroundExMode?: string;
   public get surroundExMode() {
     return this.getStringAttribute('surround_ex_mode');
   }
@@ -2530,7 +2530,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Se
   }
 
   // surround_mode - computed: true, optional: true, required: false
-  private _surroundMode?: string; 
+  private _surroundMode?: string;
   public get surroundMode() {
     return this.getStringAttribute('surround_mode');
   }
@@ -2617,7 +2617,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsMp2Set
   }
 
   // bitrate - computed: true, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -2633,7 +2633,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsMp2Set
   }
 
   // coding_mode - computed: true, optional: true, required: false
-  private _codingMode?: string; 
+  private _codingMode?: string;
   public get codingMode() {
     return this.getStringAttribute('coding_mode');
   }
@@ -2649,7 +2649,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsMp2Set
   }
 
   // sample_rate - computed: true, optional: true, required: false
-  private _sampleRate?: number; 
+  private _sampleRate?: number;
   public get sampleRate() {
     return this.getNumberAttribute('sample_rate');
   }
@@ -2774,7 +2774,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsWavSet
   }
 
   // bit_depth - computed: true, optional: true, required: false
-  private _bitDepth?: number; 
+  private _bitDepth?: number;
   public get bitDepth() {
     return this.getNumberAttribute('bit_depth');
   }
@@ -2790,7 +2790,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsWavSet
   }
 
   // coding_mode - computed: true, optional: true, required: false
-  private _codingMode?: string; 
+  private _codingMode?: string;
   public get codingMode() {
     return this.getStringAttribute('coding_mode');
   }
@@ -2806,7 +2806,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsWavSet
   }
 
   // sample_rate - computed: true, optional: true, required: false
-  private _sampleRate?: number; 
+  private _sampleRate?: number;
   public get sampleRate() {
     return this.getNumberAttribute('sample_rate');
   }
@@ -2824,43 +2824,43 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsWavSet
 export interface MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettings {
   /**
   * aac_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#aac_settings MedialiveChannel#aac_settings}
   */
   readonly aacSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAacSettings;
   /**
   * ac3_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#ac3_settings MedialiveChannel#ac3_settings}
   */
   readonly ac3Settings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsAc3Settings;
   /**
   * eac3_atmos_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#eac3_atmos_settings MedialiveChannel#eac3_atmos_settings}
   */
   readonly eac3AtmosSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3AtmosSettings;
   /**
   * eac3_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#eac3_settings MedialiveChannel#eac3_settings}
   */
   readonly eac3Settings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsEac3Settings;
   /**
   * mp2_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#mp2_settings MedialiveChannel#mp2_settings}
   */
   readonly mp2Settings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsMp2Settings;
   /**
   * pass_through_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#pass_through_settings MedialiveChannel#pass_through_settings}
   */
   readonly passThroughSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsPassThroughSettings;
   /**
   * wav_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#wav_settings MedialiveChannel#wav_settings}
   */
   readonly wavSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettingsWavSettings;
@@ -3135,7 +3135,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsChanne
   }
 
   // gain - computed: false, optional: false, required: true
-  private _gain?: number; 
+  private _gain?: number;
   public get gain() {
     return this.getNumberAttribute('gain');
   }
@@ -3148,7 +3148,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsChanne
   }
 
   // input_channel - computed: false, optional: false, required: true
-  private _inputChannel?: number; 
+  private _inputChannel?: number;
   public get inputChannel() {
     return this.getNumberAttribute('input_channel');
   }
@@ -3187,7 +3187,7 @@ export interface MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsCh
   readonly outputChannel: number;
   /**
   * input_channel_levels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#input_channel_levels MedialiveChannel#input_channel_levels}
   */
   readonly inputChannelLevels: MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsChannelMappingsInputChannelLevels[] | cdktf.IResolvable;
@@ -3255,7 +3255,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsChanne
   }
 
   // output_channel - computed: false, optional: false, required: true
-  private _outputChannel?: number; 
+  private _outputChannel?: number;
   public get outputChannel() {
     return this.getNumberAttribute('output_channel');
   }
@@ -3311,7 +3311,7 @@ export interface MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettings {
   readonly channelsOut?: number;
   /**
   * channel_mappings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#channel_mappings MedialiveChannel#channel_mappings}
   */
   readonly channelMappings: MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsChannelMappings[] | cdktf.IResolvable;
@@ -3374,7 +3374,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsOutput
   }
 
   // channels_in - computed: true, optional: true, required: false
-  private _channelsIn?: number; 
+  private _channelsIn?: number;
   public get channelsIn() {
     return this.getNumberAttribute('channels_in');
   }
@@ -3390,7 +3390,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettingsOutput
   }
 
   // channels_out - computed: true, optional: true, required: false
-  private _channelsOut?: number; 
+  private _channelsOut?: number;
   public get channelsOut() {
     return this.getNumberAttribute('channels_out');
   }
@@ -3449,25 +3449,25 @@ export interface MedialiveChannelEncoderSettingsAudioDescriptions {
   readonly streamName?: string;
   /**
   * audio_normalization_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_normalization_settings MedialiveChannel#audio_normalization_settings}
   */
   readonly audioNormalizationSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsAudioNormalizationSettings;
   /**
   * audio_watermark_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_watermark_settings MedialiveChannel#audio_watermark_settings}
   */
   readonly audioWatermarkSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsAudioWatermarkSettings;
   /**
   * codec_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#codec_settings MedialiveChannel#codec_settings}
   */
   readonly codecSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsCodecSettings;
   /**
   * remix_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#remix_settings MedialiveChannel#remix_settings}
   */
   readonly remixSettings?: MedialiveChannelEncoderSettingsAudioDescriptionsRemixSettings;
@@ -3598,7 +3598,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsOutputReference ext
   }
 
   // audio_selector_name - computed: false, optional: false, required: true
-  private _audioSelectorName?: string; 
+  private _audioSelectorName?: string;
   public get audioSelectorName() {
     return this.getStringAttribute('audio_selector_name');
   }
@@ -3611,7 +3611,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsOutputReference ext
   }
 
   // audio_type - computed: true, optional: true, required: false
-  private _audioType?: string; 
+  private _audioType?: string;
   public get audioType() {
     return this.getStringAttribute('audio_type');
   }
@@ -3627,7 +3627,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsOutputReference ext
   }
 
   // audio_type_control - computed: true, optional: true, required: false
-  private _audioTypeControl?: string; 
+  private _audioTypeControl?: string;
   public get audioTypeControl() {
     return this.getStringAttribute('audio_type_control');
   }
@@ -3643,7 +3643,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsOutputReference ext
   }
 
   // language_code - computed: true, optional: true, required: false
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -3659,7 +3659,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsOutputReference ext
   }
 
   // language_code_control - computed: true, optional: true, required: false
-  private _languageCodeControl?: string; 
+  private _languageCodeControl?: string;
   public get languageCodeControl() {
     return this.getStringAttribute('language_code_control');
   }
@@ -3675,7 +3675,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsOutputReference ext
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3688,7 +3688,7 @@ export class MedialiveChannelEncoderSettingsAudioDescriptionsOutputReference ext
   }
 
   // stream_name - computed: true, optional: true, required: false
-  private _streamName?: string; 
+  private _streamName?: string;
   public get streamName() {
     return this.getStringAttribute('stream_name');
   }
@@ -3859,7 +3859,7 @@ export class MedialiveChannelEncoderSettingsAvailBlankingAvailBlankingImageOutpu
   }
 
   // password_param - computed: true, optional: true, required: false
-  private _passwordParam?: string; 
+  private _passwordParam?: string;
   public get passwordParam() {
     return this.getStringAttribute('password_param');
   }
@@ -3875,7 +3875,7 @@ export class MedialiveChannelEncoderSettingsAvailBlankingAvailBlankingImageOutpu
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -3888,7 +3888,7 @@ export class MedialiveChannelEncoderSettingsAvailBlankingAvailBlankingImageOutpu
   }
 
   // username - computed: true, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -3910,7 +3910,7 @@ export interface MedialiveChannelEncoderSettingsAvailBlanking {
   readonly state?: string;
   /**
   * avail_blanking_image block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#avail_blanking_image MedialiveChannel#avail_blanking_image}
   */
   readonly availBlankingImage?: MedialiveChannelEncoderSettingsAvailBlankingAvailBlankingImage;
@@ -3966,7 +3966,7 @@ export class MedialiveChannelEncoderSettingsAvailBlankingOutputReference extends
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -4047,7 +4047,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchi
   }
 
   // canned_acl - computed: false, optional: true, required: false
-  private _cannedAcl?: string; 
+  private _cannedAcl?: string;
   public get cannedAcl() {
     return this.getStringAttribute('canned_acl');
   }
@@ -4065,7 +4065,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchi
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchiveGroupSettingsArchiveCdnSettings {
   /**
   * archive_s3_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#archive_s3_settings MedialiveChannel#archive_s3_settings}
   */
   readonly archiveS3Settings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchiveGroupSettingsArchiveCdnSettingsArchiveS3Settings;
@@ -4179,7 +4179,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchi
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -4198,13 +4198,13 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsA
   readonly rolloverInterval?: number;
   /**
   * archive_cdn_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#archive_cdn_settings MedialiveChannel#archive_cdn_settings}
   */
   readonly archiveCdnSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchiveGroupSettingsArchiveCdnSettings;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchiveGroupSettingsDestination;
@@ -4279,7 +4279,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchi
   }
 
   // rollover_interval - computed: false, optional: true, required: false
-  private _rolloverInterval?: number; 
+  private _rolloverInterval?: number;
   public get rolloverInterval() {
     return this.getNumberAttribute('rollover_interval');
   }
@@ -4393,7 +4393,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrame
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -4455,7 +4455,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrame
   }
 
   // canned_acl - computed: false, optional: true, required: false
-  private _cannedAcl?: string; 
+  private _cannedAcl?: string;
   public get cannedAcl() {
     return this.getStringAttribute('canned_acl');
   }
@@ -4473,7 +4473,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrame
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings {
   /**
   * frame_capture_s3_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#frame_capture_s3_settings MedialiveChannel#frame_capture_s3_settings}
   */
   readonly frameCaptureS3Settings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings;
@@ -4540,13 +4540,13 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrame
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrameCaptureGroupSettings {
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrameCaptureGroupSettingsDestination;
   /**
   * frame_capture_cdn_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#frame_capture_cdn_settings MedialiveChannel#frame_capture_cdn_settings}
   */
   readonly frameCaptureCdnSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings;
@@ -4714,7 +4714,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // caption_channel - computed: false, optional: false, required: true
-  private _captionChannel?: number; 
+  private _captionChannel?: number;
   public get captionChannel() {
     return this.getNumberAttribute('caption_channel');
   }
@@ -4727,7 +4727,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // language_code - computed: false, optional: false, required: true
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -4740,7 +4740,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // language_description - computed: false, optional: false, required: true
-  private _languageDescription?: string; 
+  private _languageDescription?: string;
   public get languageDescription() {
     return this.getStringAttribute('language_description');
   }
@@ -4822,7 +4822,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -4950,7 +4950,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // connection_retry_interval - computed: false, optional: true, required: false
-  private _connectionRetryInterval?: number; 
+  private _connectionRetryInterval?: number;
   public get connectionRetryInterval() {
     return this.getNumberAttribute('connection_retry_interval');
   }
@@ -4966,7 +4966,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // filecache_duration - computed: false, optional: true, required: false
-  private _filecacheDuration?: number; 
+  private _filecacheDuration?: number;
   public get filecacheDuration() {
     return this.getNumberAttribute('filecache_duration');
   }
@@ -4982,7 +4982,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // http_transfer_mode - computed: true, optional: true, required: false
-  private _httpTransferMode?: string; 
+  private _httpTransferMode?: string;
   public get httpTransferMode() {
     return this.getStringAttribute('http_transfer_mode');
   }
@@ -4998,7 +4998,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // num_retries - computed: false, optional: true, required: false
-  private _numRetries?: number; 
+  private _numRetries?: number;
   public get numRetries() {
     return this.getNumberAttribute('num_retries');
   }
@@ -5014,7 +5014,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // restart_delay - computed: false, optional: true, required: false
-  private _restartDelay?: number; 
+  private _restartDelay?: number;
   public get restartDelay() {
     return this.getNumberAttribute('restart_delay');
   }
@@ -5030,7 +5030,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // salt - computed: true, optional: true, required: false
-  private _salt?: string; 
+  private _salt?: string;
   public get salt() {
     return this.getStringAttribute('salt');
   }
@@ -5046,7 +5046,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // token - computed: true, optional: true, required: false
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -5144,7 +5144,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // connection_retry_interval - computed: false, optional: true, required: false
-  private _connectionRetryInterval?: number; 
+  private _connectionRetryInterval?: number;
   public get connectionRetryInterval() {
     return this.getNumberAttribute('connection_retry_interval');
   }
@@ -5160,7 +5160,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // filecache_duration - computed: false, optional: true, required: false
-  private _filecacheDuration?: number; 
+  private _filecacheDuration?: number;
   public get filecacheDuration() {
     return this.getNumberAttribute('filecache_duration');
   }
@@ -5176,7 +5176,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // num_retries - computed: false, optional: true, required: false
-  private _numRetries?: number; 
+  private _numRetries?: number;
   public get numRetries() {
     return this.getNumberAttribute('num_retries');
   }
@@ -5192,7 +5192,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // restart_delay - computed: false, optional: true, required: false
-  private _restartDelay?: number; 
+  private _restartDelay?: number;
   public get restartDelay() {
     return this.getNumberAttribute('restart_delay');
   }
@@ -5301,7 +5301,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // connection_retry_interval - computed: false, optional: true, required: false
-  private _connectionRetryInterval?: number; 
+  private _connectionRetryInterval?: number;
   public get connectionRetryInterval() {
     return this.getNumberAttribute('connection_retry_interval');
   }
@@ -5317,7 +5317,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // filecache_duration - computed: false, optional: true, required: false
-  private _filecacheDuration?: number; 
+  private _filecacheDuration?: number;
   public get filecacheDuration() {
     return this.getNumberAttribute('filecache_duration');
   }
@@ -5333,7 +5333,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // media_store_storage_class - computed: true, optional: true, required: false
-  private _mediaStoreStorageClass?: string; 
+  private _mediaStoreStorageClass?: string;
   public get mediaStoreStorageClass() {
     return this.getStringAttribute('media_store_storage_class');
   }
@@ -5349,7 +5349,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // num_retries - computed: false, optional: true, required: false
-  private _numRetries?: number; 
+  private _numRetries?: number;
   public get numRetries() {
     return this.getNumberAttribute('num_retries');
   }
@@ -5365,7 +5365,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // restart_delay - computed: false, optional: true, required: false
-  private _restartDelay?: number; 
+  private _restartDelay?: number;
   public get restartDelay() {
     return this.getNumberAttribute('restart_delay');
   }
@@ -5430,7 +5430,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // canned_acl - computed: false, optional: true, required: false
-  private _cannedAcl?: string; 
+  private _cannedAcl?: string;
   public get cannedAcl() {
     return this.getStringAttribute('canned_acl');
   }
@@ -5539,7 +5539,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // connection_retry_interval - computed: false, optional: true, required: false
-  private _connectionRetryInterval?: number; 
+  private _connectionRetryInterval?: number;
   public get connectionRetryInterval() {
     return this.getNumberAttribute('connection_retry_interval');
   }
@@ -5555,7 +5555,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // filecache_duration - computed: false, optional: true, required: false
-  private _filecacheDuration?: number; 
+  private _filecacheDuration?: number;
   public get filecacheDuration() {
     return this.getNumberAttribute('filecache_duration');
   }
@@ -5571,7 +5571,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // http_transfer_mode - computed: true, optional: true, required: false
-  private _httpTransferMode?: string; 
+  private _httpTransferMode?: string;
   public get httpTransferMode() {
     return this.getStringAttribute('http_transfer_mode');
   }
@@ -5587,7 +5587,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // num_retries - computed: false, optional: true, required: false
-  private _numRetries?: number; 
+  private _numRetries?: number;
   public get numRetries() {
     return this.getNumberAttribute('num_retries');
   }
@@ -5603,7 +5603,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // restart_delay - computed: false, optional: true, required: false
-  private _restartDelay?: number; 
+  private _restartDelay?: number;
   public get restartDelay() {
     return this.getNumberAttribute('restart_delay');
   }
@@ -5621,31 +5621,31 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsHlsCdnSettings {
   /**
   * hls_akamai_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_akamai_settings MedialiveChannel#hls_akamai_settings}
   */
   readonly hlsAkamaiSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsHlsCdnSettingsHlsAkamaiSettings;
   /**
   * hls_basic_put_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_basic_put_settings MedialiveChannel#hls_basic_put_settings}
   */
   readonly hlsBasicPutSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsHlsCdnSettingsHlsBasicPutSettings;
   /**
   * hls_media_store_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_media_store_settings MedialiveChannel#hls_media_store_settings}
   */
   readonly hlsMediaStoreSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsHlsCdnSettingsHlsMediaStoreSettings;
   /**
   * hls_s3_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_s3_settings MedialiveChannel#hls_s3_settings}
   */
   readonly hlsS3Settings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsHlsCdnSettingsHlsS3Settings;
   /**
   * hls_webdav_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_webdav_settings MedialiveChannel#hls_webdav_settings}
   */
   readonly hlsWebdavSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsHlsCdnSettingsHlsWebdavSettings;
@@ -5905,7 +5905,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // password_param - computed: true, optional: true, required: false
-  private _passwordParam?: string; 
+  private _passwordParam?: string;
   public get passwordParam() {
     return this.getStringAttribute('password_param');
   }
@@ -5921,7 +5921,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -5934,7 +5934,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // username - computed: true, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -5956,7 +5956,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsH
   readonly staticKeyValue: string;
   /**
   * key_provider_server block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#key_provider_server MedialiveChannel#key_provider_server}
   */
   readonly keyProviderServer?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingsKeyProviderServer;
@@ -6024,7 +6024,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // static_key_value - computed: false, optional: false, required: true
-  private _staticKeyValue?: string; 
+  private _staticKeyValue?: string;
   public get staticKeyValue() {
     return this.getStringAttribute('static_key_value');
   }
@@ -6075,7 +6075,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsKeyProviderSettings {
   /**
   * static_key_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#static_key_settings MedialiveChannel#static_key_settings}
   */
   readonly staticKeySettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettings[] | cdktf.IResolvable;
@@ -6294,25 +6294,25 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsH
   readonly tsFileMode?: string;
   /**
   * caption_language_mappings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#caption_language_mappings MedialiveChannel#caption_language_mappings}
   */
   readonly captionLanguageMappings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappings[] | cdktf.IResolvable;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsDestination;
   /**
   * hls_cdn_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_cdn_settings MedialiveChannel#hls_cdn_settings}
   */
   readonly hlsCdnSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsHlsCdnSettings[] | cdktf.IResolvable;
   /**
   * key_provider_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#key_provider_settings MedialiveChannel#key_provider_settings}
   */
   readonly keyProviderSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettingsKeyProviderSettings;
@@ -6648,7 +6648,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // ad_markers - computed: true, optional: true, required: false
-  private _adMarkers?: string[]; 
+  private _adMarkers?: string[];
   public get adMarkers() {
     return this.getListAttribute('ad_markers');
   }
@@ -6664,7 +6664,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // base_url_content - computed: true, optional: true, required: false
-  private _baseUrlContent?: string; 
+  private _baseUrlContent?: string;
   public get baseUrlContent() {
     return this.getStringAttribute('base_url_content');
   }
@@ -6680,7 +6680,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // base_url_content1 - computed: true, optional: true, required: false
-  private _baseUrlContent1?: string; 
+  private _baseUrlContent1?: string;
   public get baseUrlContent1() {
     return this.getStringAttribute('base_url_content1');
   }
@@ -6696,7 +6696,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // base_url_manifest - computed: true, optional: true, required: false
-  private _baseUrlManifest?: string; 
+  private _baseUrlManifest?: string;
   public get baseUrlManifest() {
     return this.getStringAttribute('base_url_manifest');
   }
@@ -6712,7 +6712,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // base_url_manifest1 - computed: true, optional: true, required: false
-  private _baseUrlManifest1?: string; 
+  private _baseUrlManifest1?: string;
   public get baseUrlManifest1() {
     return this.getStringAttribute('base_url_manifest1');
   }
@@ -6728,7 +6728,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // caption_language_setting - computed: true, optional: true, required: false
-  private _captionLanguageSetting?: string; 
+  private _captionLanguageSetting?: string;
   public get captionLanguageSetting() {
     return this.getStringAttribute('caption_language_setting');
   }
@@ -6744,7 +6744,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // client_cache - computed: true, optional: true, required: false
-  private _clientCache?: string; 
+  private _clientCache?: string;
   public get clientCache() {
     return this.getStringAttribute('client_cache');
   }
@@ -6760,7 +6760,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // codec_specification - computed: true, optional: true, required: false
-  private _codecSpecification?: string; 
+  private _codecSpecification?: string;
   public get codecSpecification() {
     return this.getStringAttribute('codec_specification');
   }
@@ -6776,7 +6776,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // constant_iv - computed: true, optional: true, required: false
-  private _constantIv?: string; 
+  private _constantIv?: string;
   public get constantIv() {
     return this.getStringAttribute('constant_iv');
   }
@@ -6792,7 +6792,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // directory_structure - computed: true, optional: true, required: false
-  private _directoryStructure?: string; 
+  private _directoryStructure?: string;
   public get directoryStructure() {
     return this.getStringAttribute('directory_structure');
   }
@@ -6808,7 +6808,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // discontinuity_tags - computed: true, optional: true, required: false
-  private _discontinuityTags?: string; 
+  private _discontinuityTags?: string;
   public get discontinuityTags() {
     return this.getStringAttribute('discontinuity_tags');
   }
@@ -6824,7 +6824,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // encryption_type - computed: true, optional: true, required: false
-  private _encryptionType?: string; 
+  private _encryptionType?: string;
   public get encryptionType() {
     return this.getStringAttribute('encryption_type');
   }
@@ -6840,7 +6840,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // hls_id3_segment_tagging - computed: true, optional: true, required: false
-  private _hlsId3SegmentTagging?: string; 
+  private _hlsId3SegmentTagging?: string;
   public get hlsId3SegmentTagging() {
     return this.getStringAttribute('hls_id3_segment_tagging');
   }
@@ -6856,7 +6856,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // iframe_only_playlists - computed: true, optional: true, required: false
-  private _iframeOnlyPlaylists?: string; 
+  private _iframeOnlyPlaylists?: string;
   public get iframeOnlyPlaylists() {
     return this.getStringAttribute('iframe_only_playlists');
   }
@@ -6872,7 +6872,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // incomplete_segment_behavior - computed: true, optional: true, required: false
-  private _incompleteSegmentBehavior?: string; 
+  private _incompleteSegmentBehavior?: string;
   public get incompleteSegmentBehavior() {
     return this.getStringAttribute('incomplete_segment_behavior');
   }
@@ -6888,7 +6888,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // index_n_segments - computed: true, optional: true, required: false
-  private _indexNSegments?: number; 
+  private _indexNSegments?: number;
   public get indexNSegments() {
     return this.getNumberAttribute('index_n_segments');
   }
@@ -6904,7 +6904,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // input_loss_action - computed: true, optional: true, required: false
-  private _inputLossAction?: string; 
+  private _inputLossAction?: string;
   public get inputLossAction() {
     return this.getStringAttribute('input_loss_action');
   }
@@ -6920,7 +6920,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // iv_in_manifest - computed: true, optional: true, required: false
-  private _ivInManifest?: string; 
+  private _ivInManifest?: string;
   public get ivInManifest() {
     return this.getStringAttribute('iv_in_manifest');
   }
@@ -6936,7 +6936,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // iv_source - computed: true, optional: true, required: false
-  private _ivSource?: string; 
+  private _ivSource?: string;
   public get ivSource() {
     return this.getStringAttribute('iv_source');
   }
@@ -6952,7 +6952,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // keep_segments - computed: true, optional: true, required: false
-  private _keepSegments?: number; 
+  private _keepSegments?: number;
   public get keepSegments() {
     return this.getNumberAttribute('keep_segments');
   }
@@ -6968,7 +6968,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // key_format - computed: true, optional: true, required: false
-  private _keyFormat?: string; 
+  private _keyFormat?: string;
   public get keyFormat() {
     return this.getStringAttribute('key_format');
   }
@@ -6984,7 +6984,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // key_format_versions - computed: true, optional: true, required: false
-  private _keyFormatVersions?: string; 
+  private _keyFormatVersions?: string;
   public get keyFormatVersions() {
     return this.getStringAttribute('key_format_versions');
   }
@@ -7000,7 +7000,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // manifest_compression - computed: true, optional: true, required: false
-  private _manifestCompression?: string; 
+  private _manifestCompression?: string;
   public get manifestCompression() {
     return this.getStringAttribute('manifest_compression');
   }
@@ -7016,7 +7016,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // manifest_duration_format - computed: true, optional: true, required: false
-  private _manifestDurationFormat?: string; 
+  private _manifestDurationFormat?: string;
   public get manifestDurationFormat() {
     return this.getStringAttribute('manifest_duration_format');
   }
@@ -7032,7 +7032,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // min_segment_length - computed: true, optional: true, required: false
-  private _minSegmentLength?: number; 
+  private _minSegmentLength?: number;
   public get minSegmentLength() {
     return this.getNumberAttribute('min_segment_length');
   }
@@ -7048,7 +7048,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // mode - computed: true, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -7064,7 +7064,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // output_selection - computed: true, optional: true, required: false
-  private _outputSelection?: string; 
+  private _outputSelection?: string;
   public get outputSelection() {
     return this.getStringAttribute('output_selection');
   }
@@ -7080,7 +7080,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // program_date_time - computed: true, optional: true, required: false
-  private _programDateTime?: string; 
+  private _programDateTime?: string;
   public get programDateTime() {
     return this.getStringAttribute('program_date_time');
   }
@@ -7096,7 +7096,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // program_date_time_clock - computed: true, optional: true, required: false
-  private _programDateTimeClock?: string; 
+  private _programDateTimeClock?: string;
   public get programDateTimeClock() {
     return this.getStringAttribute('program_date_time_clock');
   }
@@ -7112,7 +7112,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // program_date_time_period - computed: true, optional: true, required: false
-  private _programDateTimePeriod?: number; 
+  private _programDateTimePeriod?: number;
   public get programDateTimePeriod() {
     return this.getNumberAttribute('program_date_time_period');
   }
@@ -7128,7 +7128,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // redundant_manifest - computed: true, optional: true, required: false
-  private _redundantManifest?: string; 
+  private _redundantManifest?: string;
   public get redundantManifest() {
     return this.getStringAttribute('redundant_manifest');
   }
@@ -7144,7 +7144,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // segment_length - computed: true, optional: true, required: false
-  private _segmentLength?: number; 
+  private _segmentLength?: number;
   public get segmentLength() {
     return this.getNumberAttribute('segment_length');
   }
@@ -7160,7 +7160,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // segments_per_subdirectory - computed: true, optional: true, required: false
-  private _segmentsPerSubdirectory?: number; 
+  private _segmentsPerSubdirectory?: number;
   public get segmentsPerSubdirectory() {
     return this.getNumberAttribute('segments_per_subdirectory');
   }
@@ -7176,7 +7176,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // stream_inf_resolution - computed: true, optional: true, required: false
-  private _streamInfResolution?: string; 
+  private _streamInfResolution?: string;
   public get streamInfResolution() {
     return this.getStringAttribute('stream_inf_resolution');
   }
@@ -7192,7 +7192,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // timed_metadata_id3_frame - computed: true, optional: true, required: false
-  private _timedMetadataId3Frame?: string; 
+  private _timedMetadataId3Frame?: string;
   public get timedMetadataId3Frame() {
     return this.getStringAttribute('timed_metadata_id3_frame');
   }
@@ -7208,7 +7208,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // timed_metadata_id3_period - computed: true, optional: true, required: false
-  private _timedMetadataId3Period?: number; 
+  private _timedMetadataId3Period?: number;
   public get timedMetadataId3Period() {
     return this.getNumberAttribute('timed_metadata_id3_period');
   }
@@ -7224,7 +7224,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // timestamp_delta_milliseconds - computed: true, optional: true, required: false
-  private _timestampDeltaMilliseconds?: number; 
+  private _timestampDeltaMilliseconds?: number;
   public get timestampDeltaMilliseconds() {
     return this.getNumberAttribute('timestamp_delta_milliseconds');
   }
@@ -7240,7 +7240,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGr
   }
 
   // ts_file_mode - computed: true, optional: true, required: false
-  private _tsFileMode?: string; 
+  private _tsFileMode?: string;
   public get tsFileMode() {
     return this.getStringAttribute('ts_file_mode');
   }
@@ -7366,7 +7366,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMedia
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -7381,7 +7381,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMedia
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMediaPackageGroupSettings {
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMediaPackageGroupSettingsDestination;
@@ -7492,7 +7492,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -7579,7 +7579,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsM
   readonly timestampOffsetMode?: string;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmoothGroupSettingsDestination;
@@ -7754,7 +7754,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // acquisition_point_id - computed: true, optional: true, required: false
-  private _acquisitionPointId?: string; 
+  private _acquisitionPointId?: string;
   public get acquisitionPointId() {
     return this.getStringAttribute('acquisition_point_id');
   }
@@ -7770,7 +7770,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // audio_only_timecode_control - computed: true, optional: true, required: false
-  private _audioOnlyTimecodeControl?: string; 
+  private _audioOnlyTimecodeControl?: string;
   public get audioOnlyTimecodeControl() {
     return this.getStringAttribute('audio_only_timecode_control');
   }
@@ -7786,7 +7786,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // certificate_mode - computed: true, optional: true, required: false
-  private _certificateMode?: string; 
+  private _certificateMode?: string;
   public get certificateMode() {
     return this.getStringAttribute('certificate_mode');
   }
@@ -7802,7 +7802,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // connection_retry_interval - computed: true, optional: true, required: false
-  private _connectionRetryInterval?: number; 
+  private _connectionRetryInterval?: number;
   public get connectionRetryInterval() {
     return this.getNumberAttribute('connection_retry_interval');
   }
@@ -7818,7 +7818,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // event_id - computed: true, optional: true, required: false
-  private _eventId?: string; 
+  private _eventId?: string;
   public get eventId() {
     return this.getStringAttribute('event_id');
   }
@@ -7834,7 +7834,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // event_id_mode - computed: true, optional: true, required: false
-  private _eventIdMode?: string; 
+  private _eventIdMode?: string;
   public get eventIdMode() {
     return this.getStringAttribute('event_id_mode');
   }
@@ -7850,7 +7850,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // event_stop_behavior - computed: true, optional: true, required: false
-  private _eventStopBehavior?: string; 
+  private _eventStopBehavior?: string;
   public get eventStopBehavior() {
     return this.getStringAttribute('event_stop_behavior');
   }
@@ -7866,7 +7866,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // filecache_duration - computed: false, optional: true, required: false
-  private _filecacheDuration?: number; 
+  private _filecacheDuration?: number;
   public get filecacheDuration() {
     return this.getNumberAttribute('filecache_duration');
   }
@@ -7882,7 +7882,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // fragment_length - computed: true, optional: true, required: false
-  private _fragmentLength?: number; 
+  private _fragmentLength?: number;
   public get fragmentLength() {
     return this.getNumberAttribute('fragment_length');
   }
@@ -7898,7 +7898,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // input_loss_action - computed: true, optional: true, required: false
-  private _inputLossAction?: string; 
+  private _inputLossAction?: string;
   public get inputLossAction() {
     return this.getStringAttribute('input_loss_action');
   }
@@ -7914,7 +7914,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // num_retries - computed: false, optional: true, required: false
-  private _numRetries?: number; 
+  private _numRetries?: number;
   public get numRetries() {
     return this.getNumberAttribute('num_retries');
   }
@@ -7930,7 +7930,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // restart_delay - computed: false, optional: true, required: false
-  private _restartDelay?: number; 
+  private _restartDelay?: number;
   public get restartDelay() {
     return this.getNumberAttribute('restart_delay');
   }
@@ -7946,7 +7946,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // segmentation_mode - computed: true, optional: true, required: false
-  private _segmentationMode?: string; 
+  private _segmentationMode?: string;
   public get segmentationMode() {
     return this.getStringAttribute('segmentation_mode');
   }
@@ -7962,7 +7962,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // send_delay_ms - computed: true, optional: true, required: false
-  private _sendDelayMs?: number; 
+  private _sendDelayMs?: number;
   public get sendDelayMs() {
     return this.getNumberAttribute('send_delay_ms');
   }
@@ -7978,7 +7978,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // sparse_track_type - computed: true, optional: true, required: false
-  private _sparseTrackType?: string; 
+  private _sparseTrackType?: string;
   public get sparseTrackType() {
     return this.getStringAttribute('sparse_track_type');
   }
@@ -7994,7 +7994,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // stream_manifest_behavior - computed: true, optional: true, required: false
-  private _streamManifestBehavior?: string; 
+  private _streamManifestBehavior?: string;
   public get streamManifestBehavior() {
     return this.getStringAttribute('stream_manifest_behavior');
   }
@@ -8010,7 +8010,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // timestamp_offset - computed: true, optional: true, required: false
-  private _timestampOffset?: string; 
+  private _timestampOffset?: string;
   public get timestampOffset() {
     return this.getStringAttribute('timestamp_offset');
   }
@@ -8026,7 +8026,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmo
   }
 
   // timestamp_offset_mode - computed: true, optional: true, required: false
-  private _timestampOffsetMode?: string; 
+  private _timestampOffsetMode?: string;
   public get timestampOffsetMode() {
     return this.getStringAttribute('timestamp_offset_mode');
   }
@@ -8208,7 +8208,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpG
   }
 
   // ad_markers - computed: false, optional: true, required: false
-  private _adMarkers?: string[]; 
+  private _adMarkers?: string[];
   public get adMarkers() {
     return this.getListAttribute('ad_markers');
   }
@@ -8224,7 +8224,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpG
   }
 
   // authentication_scheme - computed: true, optional: true, required: false
-  private _authenticationScheme?: string; 
+  private _authenticationScheme?: string;
   public get authenticationScheme() {
     return this.getStringAttribute('authentication_scheme');
   }
@@ -8240,7 +8240,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpG
   }
 
   // cache_full_behavior - computed: true, optional: true, required: false
-  private _cacheFullBehavior?: string; 
+  private _cacheFullBehavior?: string;
   public get cacheFullBehavior() {
     return this.getStringAttribute('cache_full_behavior');
   }
@@ -8256,7 +8256,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpG
   }
 
   // cache_length - computed: true, optional: true, required: false
-  private _cacheLength?: number; 
+  private _cacheLength?: number;
   public get cacheLength() {
     return this.getNumberAttribute('cache_length');
   }
@@ -8272,7 +8272,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpG
   }
 
   // caption_data - computed: true, optional: true, required: false
-  private _captionData?: string; 
+  private _captionData?: string;
   public get captionData() {
     return this.getStringAttribute('caption_data');
   }
@@ -8288,7 +8288,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpG
   }
 
   // input_loss_action - computed: true, optional: true, required: false
-  private _inputLossAction?: string; 
+  private _inputLossAction?: string;
   public get inputLossAction() {
     return this.getStringAttribute('input_loss_action');
   }
@@ -8304,7 +8304,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpG
   }
 
   // restart_delay - computed: false, optional: true, required: false
-  private _restartDelay?: number; 
+  private _restartDelay?: number;
   public get restartDelay() {
     return this.getNumberAttribute('restart_delay');
   }
@@ -8391,7 +8391,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsUdpGr
   }
 
   // input_loss_action - computed: true, optional: true, required: false
-  private _inputLossAction?: string; 
+  private _inputLossAction?: string;
   public get inputLossAction() {
     return this.getStringAttribute('input_loss_action');
   }
@@ -8407,7 +8407,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsUdpGr
   }
 
   // timed_metadata_id3_frame - computed: true, optional: true, required: false
-  private _timedMetadataId3Frame?: string; 
+  private _timedMetadataId3Frame?: string;
   public get timedMetadataId3Frame() {
     return this.getStringAttribute('timed_metadata_id3_frame');
   }
@@ -8423,7 +8423,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsUdpGr
   }
 
   // timed_metadata_id3_period - computed: true, optional: true, required: false
-  private _timedMetadataId3Period?: number; 
+  private _timedMetadataId3Period?: number;
   public get timedMetadataId3Period() {
     return this.getNumberAttribute('timed_metadata_id3_period');
   }
@@ -8441,49 +8441,49 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsUdpGr
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettings {
   /**
   * archive_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#archive_group_settings MedialiveChannel#archive_group_settings}
   */
   readonly archiveGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsArchiveGroupSettings[] | cdktf.IResolvable;
   /**
   * frame_capture_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#frame_capture_group_settings MedialiveChannel#frame_capture_group_settings}
   */
   readonly frameCaptureGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsFrameCaptureGroupSettings;
   /**
   * hls_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_group_settings MedialiveChannel#hls_group_settings}
   */
   readonly hlsGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsHlsGroupSettings;
   /**
   * media_package_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#media_package_group_settings MedialiveChannel#media_package_group_settings}
   */
   readonly mediaPackageGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMediaPackageGroupSettings;
   /**
   * ms_smooth_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#ms_smooth_group_settings MedialiveChannel#ms_smooth_group_settings}
   */
   readonly msSmoothGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMsSmoothGroupSettings;
   /**
   * multiplex_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#multiplex_group_settings MedialiveChannel#multiplex_group_settings}
   */
   readonly multiplexGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsMultiplexGroupSettings;
   /**
   * rtmp_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#rtmp_group_settings MedialiveChannel#rtmp_group_settings}
   */
   readonly rtmpGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsRtmpGroupSettings;
   /**
   * udp_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#udp_group_settings MedialiveChannel#udp_group_settings}
   */
   readonly udpGroupSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettingsUdpGroupSettings;
@@ -8780,7 +8780,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // network_id - computed: false, optional: false, required: true
-  private _networkId?: number; 
+  private _networkId?: number;
   public get networkId() {
     return this.getNumberAttribute('network_id');
   }
@@ -8793,7 +8793,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // network_name - computed: false, optional: false, required: true
-  private _networkName?: string; 
+  private _networkName?: string;
   public get networkName() {
     return this.getStringAttribute('network_name');
   }
@@ -8806,7 +8806,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // rep_interval - computed: false, optional: true, required: false
-  private _repInterval?: number; 
+  private _repInterval?: number;
   public get repInterval() {
     return this.getNumberAttribute('rep_interval');
   }
@@ -8904,7 +8904,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // output_sdt - computed: false, optional: true, required: false
-  private _outputSdt?: string; 
+  private _outputSdt?: string;
   public get outputSdt() {
     return this.getStringAttribute('output_sdt');
   }
@@ -8920,7 +8920,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // rep_interval - computed: false, optional: true, required: false
-  private _repInterval?: number; 
+  private _repInterval?: number;
   public get repInterval() {
     return this.getNumberAttribute('rep_interval');
   }
@@ -8936,7 +8936,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // service_name - computed: false, optional: true, required: false
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -8952,7 +8952,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // service_provider_name - computed: false, optional: true, required: false
-  private _serviceProviderName?: string; 
+  private _serviceProviderName?: string;
   public get serviceProviderName() {
     return this.getStringAttribute('service_provider_name');
   }
@@ -9017,7 +9017,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // rep_interval - computed: false, optional: true, required: false
-  private _repInterval?: number; 
+  private _repInterval?: number;
   public get repInterval() {
     return this.getNumberAttribute('rep_interval');
   }
@@ -9211,19 +9211,19 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly videoPid?: string;
   /**
   * dvb_nit_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#dvb_nit_settings MedialiveChannel#dvb_nit_settings}
   */
   readonly dvbNitSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettingsContainerSettingsM2TsSettingsDvbNitSettings;
   /**
   * dvb_sdt_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#dvb_sdt_settings MedialiveChannel#dvb_sdt_settings}
   */
   readonly dvbSdtSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettingsContainerSettingsM2TsSettingsDvbSdtSettings;
   /**
   * dvb_tdt_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#dvb_tdt_settings MedialiveChannel#dvb_tdt_settings}
   */
   readonly dvbTdtSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettingsContainerSettingsM2TsSettingsDvbTdtSettings;
@@ -9594,7 +9594,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // absent_input_audio_behavior - computed: true, optional: true, required: false
-  private _absentInputAudioBehavior?: string; 
+  private _absentInputAudioBehavior?: string;
   public get absentInputAudioBehavior() {
     return this.getStringAttribute('absent_input_audio_behavior');
   }
@@ -9610,7 +9610,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // arib - computed: false, optional: true, required: false
-  private _arib?: string; 
+  private _arib?: string;
   public get arib() {
     return this.getStringAttribute('arib');
   }
@@ -9626,7 +9626,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // arib_captions_pid - computed: true, optional: true, required: false
-  private _aribCaptionsPid?: string; 
+  private _aribCaptionsPid?: string;
   public get aribCaptionsPid() {
     return this.getStringAttribute('arib_captions_pid');
   }
@@ -9642,7 +9642,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // arib_captions_pid_control - computed: false, optional: true, required: false
-  private _aribCaptionsPidControl?: string; 
+  private _aribCaptionsPidControl?: string;
   public get aribCaptionsPidControl() {
     return this.getStringAttribute('arib_captions_pid_control');
   }
@@ -9658,7 +9658,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // audio_buffer_model - computed: false, optional: true, required: false
-  private _audioBufferModel?: string; 
+  private _audioBufferModel?: string;
   public get audioBufferModel() {
     return this.getStringAttribute('audio_buffer_model');
   }
@@ -9674,7 +9674,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // audio_frames_per_pes - computed: false, optional: true, required: false
-  private _audioFramesPerPes?: number; 
+  private _audioFramesPerPes?: number;
   public get audioFramesPerPes() {
     return this.getNumberAttribute('audio_frames_per_pes');
   }
@@ -9690,7 +9690,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // audio_pids - computed: true, optional: true, required: false
-  private _audioPids?: string; 
+  private _audioPids?: string;
   public get audioPids() {
     return this.getStringAttribute('audio_pids');
   }
@@ -9706,7 +9706,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // audio_stream_type - computed: false, optional: true, required: false
-  private _audioStreamType?: string; 
+  private _audioStreamType?: string;
   public get audioStreamType() {
     return this.getStringAttribute('audio_stream_type');
   }
@@ -9722,7 +9722,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // bitrate - computed: false, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -9738,7 +9738,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // buffer_model - computed: false, optional: true, required: false
-  private _bufferModel?: string; 
+  private _bufferModel?: string;
   public get bufferModel() {
     return this.getStringAttribute('buffer_model');
   }
@@ -9754,7 +9754,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // cc_descriptor - computed: false, optional: true, required: false
-  private _ccDescriptor?: string; 
+  private _ccDescriptor?: string;
   public get ccDescriptor() {
     return this.getStringAttribute('cc_descriptor');
   }
@@ -9770,7 +9770,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // dvb_sub_pids - computed: true, optional: true, required: false
-  private _dvbSubPids?: string; 
+  private _dvbSubPids?: string;
   public get dvbSubPids() {
     return this.getStringAttribute('dvb_sub_pids');
   }
@@ -9786,7 +9786,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // dvb_teletext_pid - computed: true, optional: true, required: false
-  private _dvbTeletextPid?: string; 
+  private _dvbTeletextPid?: string;
   public get dvbTeletextPid() {
     return this.getStringAttribute('dvb_teletext_pid');
   }
@@ -9802,7 +9802,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // ebif - computed: false, optional: true, required: false
-  private _ebif?: string; 
+  private _ebif?: string;
   public get ebif() {
     return this.getStringAttribute('ebif');
   }
@@ -9818,7 +9818,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // ebp_audio_interval - computed: false, optional: true, required: false
-  private _ebpAudioInterval?: string; 
+  private _ebpAudioInterval?: string;
   public get ebpAudioInterval() {
     return this.getStringAttribute('ebp_audio_interval');
   }
@@ -9834,7 +9834,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // ebp_lookahead_ms - computed: false, optional: true, required: false
-  private _ebpLookaheadMs?: number; 
+  private _ebpLookaheadMs?: number;
   public get ebpLookaheadMs() {
     return this.getNumberAttribute('ebp_lookahead_ms');
   }
@@ -9850,7 +9850,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // ebp_placement - computed: false, optional: true, required: false
-  private _ebpPlacement?: string; 
+  private _ebpPlacement?: string;
   public get ebpPlacement() {
     return this.getStringAttribute('ebp_placement');
   }
@@ -9866,7 +9866,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // ecm_pid - computed: false, optional: true, required: false
-  private _ecmPid?: string; 
+  private _ecmPid?: string;
   public get ecmPid() {
     return this.getStringAttribute('ecm_pid');
   }
@@ -9882,7 +9882,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // es_rate_in_pes - computed: false, optional: true, required: false
-  private _esRateInPes?: string; 
+  private _esRateInPes?: string;
   public get esRateInPes() {
     return this.getStringAttribute('es_rate_in_pes');
   }
@@ -9898,7 +9898,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // etv_platform_pid - computed: true, optional: true, required: false
-  private _etvPlatformPid?: string; 
+  private _etvPlatformPid?: string;
   public get etvPlatformPid() {
     return this.getStringAttribute('etv_platform_pid');
   }
@@ -9914,7 +9914,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // etv_signal_pid - computed: true, optional: true, required: false
-  private _etvSignalPid?: string; 
+  private _etvSignalPid?: string;
   public get etvSignalPid() {
     return this.getStringAttribute('etv_signal_pid');
   }
@@ -9930,7 +9930,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // fragment_time - computed: false, optional: true, required: false
-  private _fragmentTime?: number; 
+  private _fragmentTime?: number;
   public get fragmentTime() {
     return this.getNumberAttribute('fragment_time');
   }
@@ -9946,7 +9946,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // klv - computed: false, optional: true, required: false
-  private _klv?: string; 
+  private _klv?: string;
   public get klv() {
     return this.getStringAttribute('klv');
   }
@@ -9962,7 +9962,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // klv_data_pids - computed: true, optional: true, required: false
-  private _klvDataPids?: string; 
+  private _klvDataPids?: string;
   public get klvDataPids() {
     return this.getStringAttribute('klv_data_pids');
   }
@@ -9978,7 +9978,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // nielsen_id3_behavior - computed: false, optional: true, required: false
-  private _nielsenId3Behavior?: string; 
+  private _nielsenId3Behavior?: string;
   public get nielsenId3Behavior() {
     return this.getStringAttribute('nielsen_id3_behavior');
   }
@@ -9994,7 +9994,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // null_packet_bitrate - computed: false, optional: true, required: false
-  private _nullPacketBitrate?: number; 
+  private _nullPacketBitrate?: number;
   public get nullPacketBitrate() {
     return this.getNumberAttribute('null_packet_bitrate');
   }
@@ -10010,7 +10010,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // pat_interval - computed: false, optional: true, required: false
-  private _patInterval?: number; 
+  private _patInterval?: number;
   public get patInterval() {
     return this.getNumberAttribute('pat_interval');
   }
@@ -10026,7 +10026,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // pcr_control - computed: false, optional: true, required: false
-  private _pcrControl?: string; 
+  private _pcrControl?: string;
   public get pcrControl() {
     return this.getStringAttribute('pcr_control');
   }
@@ -10042,7 +10042,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // pcr_period - computed: false, optional: true, required: false
-  private _pcrPeriod?: number; 
+  private _pcrPeriod?: number;
   public get pcrPeriod() {
     return this.getNumberAttribute('pcr_period');
   }
@@ -10058,7 +10058,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // pcr_pid - computed: false, optional: true, required: false
-  private _pcrPid?: string; 
+  private _pcrPid?: string;
   public get pcrPid() {
     return this.getStringAttribute('pcr_pid');
   }
@@ -10074,7 +10074,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // pmt_interval - computed: false, optional: true, required: false
-  private _pmtInterval?: number; 
+  private _pmtInterval?: number;
   public get pmtInterval() {
     return this.getNumberAttribute('pmt_interval');
   }
@@ -10090,7 +10090,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // pmt_pid - computed: true, optional: true, required: false
-  private _pmtPid?: string; 
+  private _pmtPid?: string;
   public get pmtPid() {
     return this.getStringAttribute('pmt_pid');
   }
@@ -10106,7 +10106,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // program_num - computed: false, optional: true, required: false
-  private _programNum?: number; 
+  private _programNum?: number;
   public get programNum() {
     return this.getNumberAttribute('program_num');
   }
@@ -10122,7 +10122,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // rate_mode - computed: false, optional: true, required: false
-  private _rateMode?: string; 
+  private _rateMode?: string;
   public get rateMode() {
     return this.getStringAttribute('rate_mode');
   }
@@ -10138,7 +10138,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // scte27_pids - computed: true, optional: true, required: false
-  private _scte27Pids?: string; 
+  private _scte27Pids?: string;
   public get scte27Pids() {
     return this.getStringAttribute('scte27_pids');
   }
@@ -10154,7 +10154,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // scte35_control - computed: false, optional: true, required: false
-  private _scte35Control?: string; 
+  private _scte35Control?: string;
   public get scte35Control() {
     return this.getStringAttribute('scte35_control');
   }
@@ -10170,7 +10170,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // scte35_pid - computed: true, optional: true, required: false
-  private _scte35Pid?: string; 
+  private _scte35Pid?: string;
   public get scte35Pid() {
     return this.getStringAttribute('scte35_pid');
   }
@@ -10186,7 +10186,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // segmentation_markers - computed: false, optional: true, required: false
-  private _segmentationMarkers?: string; 
+  private _segmentationMarkers?: string;
   public get segmentationMarkers() {
     return this.getStringAttribute('segmentation_markers');
   }
@@ -10202,7 +10202,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // segmentation_style - computed: false, optional: true, required: false
-  private _segmentationStyle?: string; 
+  private _segmentationStyle?: string;
   public get segmentationStyle() {
     return this.getStringAttribute('segmentation_style');
   }
@@ -10218,7 +10218,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // segmentation_time - computed: false, optional: true, required: false
-  private _segmentationTime?: number; 
+  private _segmentationTime?: number;
   public get segmentationTime() {
     return this.getNumberAttribute('segmentation_time');
   }
@@ -10234,7 +10234,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // timed_metadata_behavior - computed: false, optional: true, required: false
-  private _timedMetadataBehavior?: string; 
+  private _timedMetadataBehavior?: string;
   public get timedMetadataBehavior() {
     return this.getStringAttribute('timed_metadata_behavior');
   }
@@ -10250,7 +10250,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // timed_metadata_pid - computed: true, optional: true, required: false
-  private _timedMetadataPid?: string; 
+  private _timedMetadataPid?: string;
   public get timedMetadataPid() {
     return this.getStringAttribute('timed_metadata_pid');
   }
@@ -10266,7 +10266,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // transport_stream_id - computed: false, optional: true, required: false
-  private _transportStreamId?: number; 
+  private _transportStreamId?: number;
   public get transportStreamId() {
     return this.getNumberAttribute('transport_stream_id');
   }
@@ -10282,7 +10282,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // video_pid - computed: true, optional: true, required: false
-  private _videoPid?: string; 
+  private _videoPid?: string;
   public get videoPid() {
     return this.getStringAttribute('video_pid');
   }
@@ -10386,13 +10386,13 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettingsContainerSettings {
   /**
   * m2ts_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#m2ts_settings MedialiveChannel#m2ts_settings}
   */
   readonly m2TsSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettingsContainerSettingsM2TsSettings;
   /**
   * raw_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#raw_settings MedialiveChannel#raw_settings}
   */
   readonly rawSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings;
@@ -10490,7 +10490,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly nameModifier?: string;
   /**
   * container_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#container_settings MedialiveChannel#container_settings}
   */
   readonly containerSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettingsContainerSettings;
@@ -10553,7 +10553,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // extension - computed: false, optional: true, required: false
-  private _extension?: string; 
+  private _extension?: string;
   public get extension() {
     return this.getStringAttribute('extension');
   }
@@ -10569,7 +10569,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArc
   }
 
   // name_modifier - computed: false, optional: true, required: false
-  private _nameModifier?: string; 
+  private _nameModifier?: string;
   public get nameModifier() {
     return this.getStringAttribute('name_modifier');
   }
@@ -10650,7 +10650,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsFra
   }
 
   // name_modifier - computed: true, optional: true, required: false
-  private _nameModifier?: string; 
+  private _nameModifier?: string;
   public get nameModifier() {
     return this.getStringAttribute('name_modifier');
   }
@@ -10737,7 +10737,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // password_param - computed: true, optional: true, required: false
-  private _passwordParam?: string; 
+  private _passwordParam?: string;
   public get passwordParam() {
     return this.getStringAttribute('password_param');
   }
@@ -10753,7 +10753,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -10766,7 +10766,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // username - computed: true, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -10796,7 +10796,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly segmentType?: string;
   /**
   * audio_only_image block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_only_image MedialiveChannel#audio_only_image}
   */
   readonly audioOnlyImage?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage;
@@ -10866,7 +10866,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // audio_group_id - computed: true, optional: true, required: false
-  private _audioGroupId?: string; 
+  private _audioGroupId?: string;
   public get audioGroupId() {
     return this.getStringAttribute('audio_group_id');
   }
@@ -10882,7 +10882,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // audio_track_type - computed: true, optional: true, required: false
-  private _audioTrackType?: string; 
+  private _audioTrackType?: string;
   public get audioTrackType() {
     return this.getStringAttribute('audio_track_type');
   }
@@ -10898,7 +10898,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // segment_type - computed: true, optional: true, required: false
-  private _segmentType?: string; 
+  private _segmentType?: string;
   public get segmentType() {
     return this.getStringAttribute('segment_type');
   }
@@ -11001,7 +11001,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // audio_rendition_sets - computed: true, optional: true, required: false
-  private _audioRenditionSets?: string; 
+  private _audioRenditionSets?: string;
   public get audioRenditionSets() {
     return this.getStringAttribute('audio_rendition_sets');
   }
@@ -11017,7 +11017,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // nielsen_id3_behavior - computed: true, optional: true, required: false
-  private _nielsenId3Behavior?: string; 
+  private _nielsenId3Behavior?: string;
   public get nielsenId3Behavior() {
     return this.getStringAttribute('nielsen_id3_behavior');
   }
@@ -11033,7 +11033,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // timed_metadata_behavior - computed: true, optional: true, required: false
-  private _timedMetadataBehavior?: string; 
+  private _timedMetadataBehavior?: string;
   public get timedMetadataBehavior() {
     return this.getStringAttribute('timed_metadata_behavior');
   }
@@ -11312,7 +11312,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // audio_frames_per_pes - computed: true, optional: true, required: false
-  private _audioFramesPerPes?: number; 
+  private _audioFramesPerPes?: number;
   public get audioFramesPerPes() {
     return this.getNumberAttribute('audio_frames_per_pes');
   }
@@ -11328,7 +11328,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // audio_pids - computed: true, optional: true, required: false
-  private _audioPids?: string; 
+  private _audioPids?: string;
   public get audioPids() {
     return this.getStringAttribute('audio_pids');
   }
@@ -11344,7 +11344,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // ecm_pid - computed: true, optional: true, required: false
-  private _ecmPid?: string; 
+  private _ecmPid?: string;
   public get ecmPid() {
     return this.getStringAttribute('ecm_pid');
   }
@@ -11360,7 +11360,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // nielsen_id3_behavior - computed: true, optional: true, required: false
-  private _nielsenId3Behavior?: string; 
+  private _nielsenId3Behavior?: string;
   public get nielsenId3Behavior() {
     return this.getStringAttribute('nielsen_id3_behavior');
   }
@@ -11376,7 +11376,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // pat_interval - computed: true, optional: true, required: false
-  private _patInterval?: number; 
+  private _patInterval?: number;
   public get patInterval() {
     return this.getNumberAttribute('pat_interval');
   }
@@ -11392,7 +11392,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // pcr_control - computed: true, optional: true, required: false
-  private _pcrControl?: string; 
+  private _pcrControl?: string;
   public get pcrControl() {
     return this.getStringAttribute('pcr_control');
   }
@@ -11408,7 +11408,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // pcr_period - computed: true, optional: true, required: false
-  private _pcrPeriod?: number; 
+  private _pcrPeriod?: number;
   public get pcrPeriod() {
     return this.getNumberAttribute('pcr_period');
   }
@@ -11424,7 +11424,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // pcr_pid - computed: true, optional: true, required: false
-  private _pcrPid?: string; 
+  private _pcrPid?: string;
   public get pcrPid() {
     return this.getStringAttribute('pcr_pid');
   }
@@ -11440,7 +11440,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // pmt_interval - computed: true, optional: true, required: false
-  private _pmtInterval?: number; 
+  private _pmtInterval?: number;
   public get pmtInterval() {
     return this.getNumberAttribute('pmt_interval');
   }
@@ -11456,7 +11456,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // pmt_pid - computed: true, optional: true, required: false
-  private _pmtPid?: string; 
+  private _pmtPid?: string;
   public get pmtPid() {
     return this.getStringAttribute('pmt_pid');
   }
@@ -11472,7 +11472,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // program_num - computed: true, optional: true, required: false
-  private _programNum?: number; 
+  private _programNum?: number;
   public get programNum() {
     return this.getNumberAttribute('program_num');
   }
@@ -11488,7 +11488,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // scte35_behavior - computed: true, optional: true, required: false
-  private _scte35Behavior?: string; 
+  private _scte35Behavior?: string;
   public get scte35Behavior() {
     return this.getStringAttribute('scte35_behavior');
   }
@@ -11504,7 +11504,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // scte35_pid - computed: true, optional: true, required: false
-  private _scte35Pid?: string; 
+  private _scte35Pid?: string;
   public get scte35Pid() {
     return this.getStringAttribute('scte35_pid');
   }
@@ -11520,7 +11520,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // timed_metadata_behavior - computed: true, optional: true, required: false
-  private _timedMetadataBehavior?: string; 
+  private _timedMetadataBehavior?: string;
   public get timedMetadataBehavior() {
     return this.getStringAttribute('timed_metadata_behavior');
   }
@@ -11536,7 +11536,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // timed_metadata_pid - computed: true, optional: true, required: false
-  private _timedMetadataPid?: string; 
+  private _timedMetadataPid?: string;
   public get timedMetadataPid() {
     return this.getStringAttribute('timed_metadata_pid');
   }
@@ -11552,7 +11552,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // transport_stream_id - computed: true, optional: true, required: false
-  private _transportStreamId?: number; 
+  private _transportStreamId?: number;
   public get transportStreamId() {
     return this.getNumberAttribute('transport_stream_id');
   }
@@ -11568,7 +11568,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // video_pid - computed: true, optional: true, required: false
-  private _videoPid?: string; 
+  private _videoPid?: string;
   public get videoPid() {
     return this.getStringAttribute('video_pid');
   }
@@ -11590,7 +11590,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly audioRenditionSets?: string;
   /**
   * m3u8_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#m3u8_settings MedialiveChannel#m3u8_settings}
   */
   readonly m3U8Settings: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3U8Settings;
@@ -11646,7 +11646,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // audio_rendition_sets - computed: true, optional: true, required: false
-  private _audioRenditionSets?: string; 
+  private _audioRenditionSets?: string;
   public get audioRenditionSets() {
     return this.getStringAttribute('audio_rendition_sets');
   }
@@ -11677,25 +11677,25 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettings {
   /**
   * audio_only_hls_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_only_hls_settings MedialiveChannel#audio_only_hls_settings}
   */
   readonly audioOnlyHlsSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings;
   /**
   * fmp4_hls_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#fmp4_hls_settings MedialiveChannel#fmp4_hls_settings}
   */
   readonly fmp4HlsSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings;
   /**
   * frame_capture_hls_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#frame_capture_hls_settings MedialiveChannel#frame_capture_hls_settings}
   */
   readonly frameCaptureHlsSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings;
   /**
   * standard_hls_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#standard_hls_settings MedialiveChannel#standard_hls_settings}
   */
   readonly standardHlsSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings;
@@ -11843,7 +11843,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly segmentModifier?: string;
   /**
   * hls_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_settings MedialiveChannel#hls_settings}
   */
   readonly hlsSettings: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettingsHlsSettings;
@@ -11913,7 +11913,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // h265_packaging_type - computed: true, optional: true, required: false
-  private _h265PackagingType?: string; 
+  private _h265PackagingType?: string;
   public get h265PackagingType() {
     return this.getStringAttribute('h265_packaging_type');
   }
@@ -11929,7 +11929,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // name_modifier - computed: true, optional: true, required: false
-  private _nameModifier?: string; 
+  private _nameModifier?: string;
   public get nameModifier() {
     return this.getStringAttribute('name_modifier');
   }
@@ -11945,7 +11945,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHls
   }
 
   // segment_modifier - computed: true, optional: true, required: false
-  private _segmentModifier?: string; 
+  private _segmentModifier?: string;
   public get segmentModifier() {
     return this.getStringAttribute('segment_modifier');
   }
@@ -12072,7 +12072,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMsS
   }
 
   // h265_packaging_type - computed: true, optional: true, required: false
-  private _h265PackagingType?: string; 
+  private _h265PackagingType?: string;
   public get h265PackagingType() {
     return this.getStringAttribute('h265_packaging_type');
   }
@@ -12088,7 +12088,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMsS
   }
 
   // name_modifier - computed: true, optional: true, required: false
-  private _nameModifier?: string; 
+  private _nameModifier?: string;
   public get nameModifier() {
     return this.getStringAttribute('name_modifier');
   }
@@ -12153,7 +12153,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMul
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -12168,7 +12168,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMul
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMultiplexOutputSettings {
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMultiplexOutputSettingsDestination;
@@ -12279,7 +12279,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsRtm
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -12306,7 +12306,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly numRetries?: number;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsRtmpOutputSettingsDestination;
@@ -12376,7 +12376,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsRtm
   }
 
   // certficate_mode - computed: true, optional: true, required: false
-  private _certficateMode?: string; 
+  private _certficateMode?: string;
   public get certficateMode() {
     return this.getStringAttribute('certficate_mode');
   }
@@ -12392,7 +12392,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsRtm
   }
 
   // connection_retry_interval - computed: true, optional: true, required: false
-  private _connectionRetryInterval?: number; 
+  private _connectionRetryInterval?: number;
   public get connectionRetryInterval() {
     return this.getNumberAttribute('connection_retry_interval');
   }
@@ -12408,7 +12408,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsRtm
   }
 
   // num_retries - computed: true, optional: true, required: false
-  private _numRetries?: number; 
+  private _numRetries?: number;
   public get numRetries() {
     return this.getNumberAttribute('num_retries');
   }
@@ -12508,7 +12508,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // network_id - computed: false, optional: false, required: true
-  private _networkId?: number; 
+  private _networkId?: number;
   public get networkId() {
     return this.getNumberAttribute('network_id');
   }
@@ -12521,7 +12521,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // network_name - computed: false, optional: false, required: true
-  private _networkName?: string; 
+  private _networkName?: string;
   public get networkName() {
     return this.getStringAttribute('network_name');
   }
@@ -12534,7 +12534,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // rep_interval - computed: false, optional: true, required: false
-  private _repInterval?: number; 
+  private _repInterval?: number;
   public get repInterval() {
     return this.getNumberAttribute('rep_interval');
   }
@@ -12632,7 +12632,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // output_sdt - computed: false, optional: true, required: false
-  private _outputSdt?: string; 
+  private _outputSdt?: string;
   public get outputSdt() {
     return this.getStringAttribute('output_sdt');
   }
@@ -12648,7 +12648,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // rep_interval - computed: false, optional: true, required: false
-  private _repInterval?: number; 
+  private _repInterval?: number;
   public get repInterval() {
     return this.getNumberAttribute('rep_interval');
   }
@@ -12664,7 +12664,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // service_name - computed: false, optional: true, required: false
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -12680,7 +12680,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // service_provider_name - computed: false, optional: true, required: false
-  private _serviceProviderName?: string; 
+  private _serviceProviderName?: string;
   public get serviceProviderName() {
     return this.getStringAttribute('service_provider_name');
   }
@@ -12745,7 +12745,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // rep_interval - computed: false, optional: true, required: false
-  private _repInterval?: number; 
+  private _repInterval?: number;
   public get repInterval() {
     return this.getNumberAttribute('rep_interval');
   }
@@ -12939,19 +12939,19 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly videoPid?: string;
   /**
   * dvb_nit_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#dvb_nit_settings MedialiveChannel#dvb_nit_settings}
   */
   readonly dvbNitSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsContainerSettingsM2TsSettingsDvbNitSettings;
   /**
   * dvb_sdt_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#dvb_sdt_settings MedialiveChannel#dvb_sdt_settings}
   */
   readonly dvbSdtSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsContainerSettingsM2TsSettingsDvbSdtSettings;
   /**
   * dvb_tdt_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#dvb_tdt_settings MedialiveChannel#dvb_tdt_settings}
   */
   readonly dvbTdtSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsContainerSettingsM2TsSettingsDvbTdtSettings;
@@ -13322,7 +13322,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // absent_input_audio_behavior - computed: true, optional: true, required: false
-  private _absentInputAudioBehavior?: string; 
+  private _absentInputAudioBehavior?: string;
   public get absentInputAudioBehavior() {
     return this.getStringAttribute('absent_input_audio_behavior');
   }
@@ -13338,7 +13338,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // arib - computed: false, optional: true, required: false
-  private _arib?: string; 
+  private _arib?: string;
   public get arib() {
     return this.getStringAttribute('arib');
   }
@@ -13354,7 +13354,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // arib_captions_pid - computed: true, optional: true, required: false
-  private _aribCaptionsPid?: string; 
+  private _aribCaptionsPid?: string;
   public get aribCaptionsPid() {
     return this.getStringAttribute('arib_captions_pid');
   }
@@ -13370,7 +13370,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // arib_captions_pid_control - computed: false, optional: true, required: false
-  private _aribCaptionsPidControl?: string; 
+  private _aribCaptionsPidControl?: string;
   public get aribCaptionsPidControl() {
     return this.getStringAttribute('arib_captions_pid_control');
   }
@@ -13386,7 +13386,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // audio_buffer_model - computed: false, optional: true, required: false
-  private _audioBufferModel?: string; 
+  private _audioBufferModel?: string;
   public get audioBufferModel() {
     return this.getStringAttribute('audio_buffer_model');
   }
@@ -13402,7 +13402,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // audio_frames_per_pes - computed: false, optional: true, required: false
-  private _audioFramesPerPes?: number; 
+  private _audioFramesPerPes?: number;
   public get audioFramesPerPes() {
     return this.getNumberAttribute('audio_frames_per_pes');
   }
@@ -13418,7 +13418,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // audio_pids - computed: true, optional: true, required: false
-  private _audioPids?: string; 
+  private _audioPids?: string;
   public get audioPids() {
     return this.getStringAttribute('audio_pids');
   }
@@ -13434,7 +13434,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // audio_stream_type - computed: false, optional: true, required: false
-  private _audioStreamType?: string; 
+  private _audioStreamType?: string;
   public get audioStreamType() {
     return this.getStringAttribute('audio_stream_type');
   }
@@ -13450,7 +13450,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // bitrate - computed: false, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -13466,7 +13466,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // buffer_model - computed: false, optional: true, required: false
-  private _bufferModel?: string; 
+  private _bufferModel?: string;
   public get bufferModel() {
     return this.getStringAttribute('buffer_model');
   }
@@ -13482,7 +13482,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // cc_descriptor - computed: false, optional: true, required: false
-  private _ccDescriptor?: string; 
+  private _ccDescriptor?: string;
   public get ccDescriptor() {
     return this.getStringAttribute('cc_descriptor');
   }
@@ -13498,7 +13498,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // dvb_sub_pids - computed: true, optional: true, required: false
-  private _dvbSubPids?: string; 
+  private _dvbSubPids?: string;
   public get dvbSubPids() {
     return this.getStringAttribute('dvb_sub_pids');
   }
@@ -13514,7 +13514,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // dvb_teletext_pid - computed: true, optional: true, required: false
-  private _dvbTeletextPid?: string; 
+  private _dvbTeletextPid?: string;
   public get dvbTeletextPid() {
     return this.getStringAttribute('dvb_teletext_pid');
   }
@@ -13530,7 +13530,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // ebif - computed: false, optional: true, required: false
-  private _ebif?: string; 
+  private _ebif?: string;
   public get ebif() {
     return this.getStringAttribute('ebif');
   }
@@ -13546,7 +13546,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // ebp_audio_interval - computed: false, optional: true, required: false
-  private _ebpAudioInterval?: string; 
+  private _ebpAudioInterval?: string;
   public get ebpAudioInterval() {
     return this.getStringAttribute('ebp_audio_interval');
   }
@@ -13562,7 +13562,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // ebp_lookahead_ms - computed: false, optional: true, required: false
-  private _ebpLookaheadMs?: number; 
+  private _ebpLookaheadMs?: number;
   public get ebpLookaheadMs() {
     return this.getNumberAttribute('ebp_lookahead_ms');
   }
@@ -13578,7 +13578,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // ebp_placement - computed: false, optional: true, required: false
-  private _ebpPlacement?: string; 
+  private _ebpPlacement?: string;
   public get ebpPlacement() {
     return this.getStringAttribute('ebp_placement');
   }
@@ -13594,7 +13594,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // ecm_pid - computed: false, optional: true, required: false
-  private _ecmPid?: string; 
+  private _ecmPid?: string;
   public get ecmPid() {
     return this.getStringAttribute('ecm_pid');
   }
@@ -13610,7 +13610,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // es_rate_in_pes - computed: false, optional: true, required: false
-  private _esRateInPes?: string; 
+  private _esRateInPes?: string;
   public get esRateInPes() {
     return this.getStringAttribute('es_rate_in_pes');
   }
@@ -13626,7 +13626,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // etv_platform_pid - computed: true, optional: true, required: false
-  private _etvPlatformPid?: string; 
+  private _etvPlatformPid?: string;
   public get etvPlatformPid() {
     return this.getStringAttribute('etv_platform_pid');
   }
@@ -13642,7 +13642,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // etv_signal_pid - computed: true, optional: true, required: false
-  private _etvSignalPid?: string; 
+  private _etvSignalPid?: string;
   public get etvSignalPid() {
     return this.getStringAttribute('etv_signal_pid');
   }
@@ -13658,7 +13658,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // fragment_time - computed: false, optional: true, required: false
-  private _fragmentTime?: number; 
+  private _fragmentTime?: number;
   public get fragmentTime() {
     return this.getNumberAttribute('fragment_time');
   }
@@ -13674,7 +13674,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // klv - computed: false, optional: true, required: false
-  private _klv?: string; 
+  private _klv?: string;
   public get klv() {
     return this.getStringAttribute('klv');
   }
@@ -13690,7 +13690,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // klv_data_pids - computed: true, optional: true, required: false
-  private _klvDataPids?: string; 
+  private _klvDataPids?: string;
   public get klvDataPids() {
     return this.getStringAttribute('klv_data_pids');
   }
@@ -13706,7 +13706,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // nielsen_id3_behavior - computed: false, optional: true, required: false
-  private _nielsenId3Behavior?: string; 
+  private _nielsenId3Behavior?: string;
   public get nielsenId3Behavior() {
     return this.getStringAttribute('nielsen_id3_behavior');
   }
@@ -13722,7 +13722,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // null_packet_bitrate - computed: false, optional: true, required: false
-  private _nullPacketBitrate?: number; 
+  private _nullPacketBitrate?: number;
   public get nullPacketBitrate() {
     return this.getNumberAttribute('null_packet_bitrate');
   }
@@ -13738,7 +13738,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // pat_interval - computed: false, optional: true, required: false
-  private _patInterval?: number; 
+  private _patInterval?: number;
   public get patInterval() {
     return this.getNumberAttribute('pat_interval');
   }
@@ -13754,7 +13754,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // pcr_control - computed: false, optional: true, required: false
-  private _pcrControl?: string; 
+  private _pcrControl?: string;
   public get pcrControl() {
     return this.getStringAttribute('pcr_control');
   }
@@ -13770,7 +13770,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // pcr_period - computed: false, optional: true, required: false
-  private _pcrPeriod?: number; 
+  private _pcrPeriod?: number;
   public get pcrPeriod() {
     return this.getNumberAttribute('pcr_period');
   }
@@ -13786,7 +13786,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // pcr_pid - computed: false, optional: true, required: false
-  private _pcrPid?: string; 
+  private _pcrPid?: string;
   public get pcrPid() {
     return this.getStringAttribute('pcr_pid');
   }
@@ -13802,7 +13802,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // pmt_interval - computed: false, optional: true, required: false
-  private _pmtInterval?: number; 
+  private _pmtInterval?: number;
   public get pmtInterval() {
     return this.getNumberAttribute('pmt_interval');
   }
@@ -13818,7 +13818,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // pmt_pid - computed: true, optional: true, required: false
-  private _pmtPid?: string; 
+  private _pmtPid?: string;
   public get pmtPid() {
     return this.getStringAttribute('pmt_pid');
   }
@@ -13834,7 +13834,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // program_num - computed: false, optional: true, required: false
-  private _programNum?: number; 
+  private _programNum?: number;
   public get programNum() {
     return this.getNumberAttribute('program_num');
   }
@@ -13850,7 +13850,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // rate_mode - computed: false, optional: true, required: false
-  private _rateMode?: string; 
+  private _rateMode?: string;
   public get rateMode() {
     return this.getStringAttribute('rate_mode');
   }
@@ -13866,7 +13866,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // scte27_pids - computed: true, optional: true, required: false
-  private _scte27Pids?: string; 
+  private _scte27Pids?: string;
   public get scte27Pids() {
     return this.getStringAttribute('scte27_pids');
   }
@@ -13882,7 +13882,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // scte35_control - computed: false, optional: true, required: false
-  private _scte35Control?: string; 
+  private _scte35Control?: string;
   public get scte35Control() {
     return this.getStringAttribute('scte35_control');
   }
@@ -13898,7 +13898,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // scte35_pid - computed: true, optional: true, required: false
-  private _scte35Pid?: string; 
+  private _scte35Pid?: string;
   public get scte35Pid() {
     return this.getStringAttribute('scte35_pid');
   }
@@ -13914,7 +13914,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // segmentation_markers - computed: false, optional: true, required: false
-  private _segmentationMarkers?: string; 
+  private _segmentationMarkers?: string;
   public get segmentationMarkers() {
     return this.getStringAttribute('segmentation_markers');
   }
@@ -13930,7 +13930,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // segmentation_style - computed: false, optional: true, required: false
-  private _segmentationStyle?: string; 
+  private _segmentationStyle?: string;
   public get segmentationStyle() {
     return this.getStringAttribute('segmentation_style');
   }
@@ -13946,7 +13946,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // segmentation_time - computed: false, optional: true, required: false
-  private _segmentationTime?: number; 
+  private _segmentationTime?: number;
   public get segmentationTime() {
     return this.getNumberAttribute('segmentation_time');
   }
@@ -13962,7 +13962,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // timed_metadata_behavior - computed: false, optional: true, required: false
-  private _timedMetadataBehavior?: string; 
+  private _timedMetadataBehavior?: string;
   public get timedMetadataBehavior() {
     return this.getStringAttribute('timed_metadata_behavior');
   }
@@ -13978,7 +13978,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // timed_metadata_pid - computed: true, optional: true, required: false
-  private _timedMetadataPid?: string; 
+  private _timedMetadataPid?: string;
   public get timedMetadataPid() {
     return this.getStringAttribute('timed_metadata_pid');
   }
@@ -13994,7 +13994,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // transport_stream_id - computed: false, optional: true, required: false
-  private _transportStreamId?: number; 
+  private _transportStreamId?: number;
   public get transportStreamId() {
     return this.getNumberAttribute('transport_stream_id');
   }
@@ -14010,7 +14010,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // video_pid - computed: true, optional: true, required: false
-  private _videoPid?: string; 
+  private _videoPid?: string;
   public get videoPid() {
     return this.getStringAttribute('video_pid');
   }
@@ -14076,7 +14076,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsContainerSettings {
   /**
   * m2ts_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#m2ts_settings MedialiveChannel#m2ts_settings}
   */
   readonly m2TsSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsContainerSettingsM2TsSettings;
@@ -14190,7 +14190,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // destination_ref_id - computed: false, optional: false, required: true
-  private _destinationRefId?: string; 
+  private _destinationRefId?: string;
   public get destinationRefId() {
     return this.getStringAttribute('destination_ref_id');
   }
@@ -14274,7 +14274,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // column_depth - computed: true, optional: true, required: false
-  private _columnDepth?: number; 
+  private _columnDepth?: number;
   public get columnDepth() {
     return this.getNumberAttribute('column_depth');
   }
@@ -14290,7 +14290,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // include_fec - computed: true, optional: true, required: false
-  private _includeFec?: string; 
+  private _includeFec?: string;
   public get includeFec() {
     return this.getStringAttribute('include_fec');
   }
@@ -14306,7 +14306,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // row_length - computed: true, optional: true, required: false
-  private _rowLength?: number; 
+  private _rowLength?: number;
   public get rowLength() {
     return this.getNumberAttribute('row_length');
   }
@@ -14328,19 +14328,19 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSetting
   readonly bufferMsec?: number;
   /**
   * container_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#container_settings MedialiveChannel#container_settings}
   */
   readonly containerSettings: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsContainerSettings;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#destination MedialiveChannel#destination}
   */
   readonly destination: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsDestination;
   /**
   * fec_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#fec_output_settings MedialiveChannel#fec_output_settings}
   */
   readonly fecOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettingsFecOutputSettings;
@@ -14410,7 +14410,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
   }
 
   // buffer_msec - computed: true, optional: true, required: false
-  private _bufferMsec?: number; 
+  private _bufferMsec?: number;
   public get bufferMsec() {
     return this.getNumberAttribute('buffer_msec');
   }
@@ -14470,49 +14470,49 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdp
 export interface MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettings {
   /**
   * archive_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#archive_output_settings MedialiveChannel#archive_output_settings}
   */
   readonly archiveOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsArchiveOutputSettings;
   /**
   * frame_capture_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#frame_capture_output_settings MedialiveChannel#frame_capture_output_settings}
   */
   readonly frameCaptureOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsFrameCaptureOutputSettings;
   /**
   * hls_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_output_settings MedialiveChannel#hls_output_settings}
   */
   readonly hlsOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsHlsOutputSettings;
   /**
   * media_package_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#media_package_output_settings MedialiveChannel#media_package_output_settings}
   */
   readonly mediaPackageOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMediaPackageOutputSettings;
   /**
   * ms_smooth_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#ms_smooth_output_settings MedialiveChannel#ms_smooth_output_settings}
   */
   readonly msSmoothOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMsSmoothOutputSettings;
   /**
   * multiplex_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#multiplex_output_settings MedialiveChannel#multiplex_output_settings}
   */
   readonly multiplexOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsMultiplexOutputSettings;
   /**
   * rtmp_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#rtmp_output_settings MedialiveChannel#rtmp_output_settings}
   */
   readonly rtmpOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsRtmpOutputSettings;
   /**
   * udp_output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#udp_output_settings MedialiveChannel#udp_output_settings}
   */
   readonly udpOutputSettings?: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettingsUdpOutputSettings;
@@ -14756,7 +14756,7 @@ export interface MedialiveChannelEncoderSettingsOutputGroupsOutputs {
   readonly videoDescriptionName?: string;
   /**
   * output_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#output_settings MedialiveChannel#output_settings}
   */
   readonly outputSettings: MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputSettings;
@@ -14845,7 +14845,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputReference e
   }
 
   // audio_description_names - computed: false, optional: true, required: false
-  private _audioDescriptionNames?: string[]; 
+  private _audioDescriptionNames?: string[];
   public get audioDescriptionNames() {
     return cdktf.Fn.tolist(this.getListAttribute('audio_description_names'));
   }
@@ -14861,7 +14861,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputReference e
   }
 
   // caption_description_names - computed: true, optional: true, required: false
-  private _captionDescriptionNames?: string[]; 
+  private _captionDescriptionNames?: string[];
   public get captionDescriptionNames() {
     return cdktf.Fn.tolist(this.getListAttribute('caption_description_names'));
   }
@@ -14877,7 +14877,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputReference e
   }
 
   // output_name - computed: false, optional: true, required: false
-  private _outputName?: string; 
+  private _outputName?: string;
   public get outputName() {
     return this.getStringAttribute('output_name');
   }
@@ -14893,7 +14893,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputsOutputReference e
   }
 
   // video_description_name - computed: false, optional: true, required: false
-  private _videoDescriptionName?: string; 
+  private _videoDescriptionName?: string;
   public get videoDescriptionName() {
     return this.getStringAttribute('video_description_name');
   }
@@ -14948,13 +14948,13 @@ export interface MedialiveChannelEncoderSettingsOutputGroups {
   readonly name?: string;
   /**
   * output_group_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#output_group_settings MedialiveChannel#output_group_settings}
   */
   readonly outputGroupSettings: MedialiveChannelEncoderSettingsOutputGroupsOutputGroupSettings;
   /**
   * outputs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#outputs MedialiveChannel#outputs}
   */
   readonly outputs: MedialiveChannelEncoderSettingsOutputGroupsOutputs[] | cdktf.IResolvable;
@@ -15029,7 +15029,7 @@ export class MedialiveChannelEncoderSettingsOutputGroupsOutputReference extends 
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -15151,7 +15151,7 @@ export class MedialiveChannelEncoderSettingsTimecodeConfigOutputReference extend
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -15164,7 +15164,7 @@ export class MedialiveChannelEncoderSettingsTimecodeConfigOutputReference extend
   }
 
   // sync_threshold - computed: true, optional: true, required: false
-  private _syncThreshold?: number; 
+  private _syncThreshold?: number;
   public get syncThreshold() {
     return this.getNumberAttribute('sync_threshold');
   }
@@ -15240,7 +15240,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsFrameC
   }
 
   // capture_interval - computed: true, optional: true, required: false
-  private _captureInterval?: number; 
+  private _captureInterval?: number;
   public get captureInterval() {
     return this.getNumberAttribute('capture_interval');
   }
@@ -15256,7 +15256,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsFrameC
   }
 
   // capture_interval_units - computed: true, optional: true, required: false
-  private _captureIntervalUnits?: string; 
+  private _captureIntervalUnits?: string;
   public get captureIntervalUnits() {
     return this.getStringAttribute('capture_interval_units');
   }
@@ -15332,7 +15332,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // post_filter_sharpening - computed: false, optional: true, required: false
-  private _postFilterSharpening?: string; 
+  private _postFilterSharpening?: string;
   public get postFilterSharpening() {
     return this.getStringAttribute('post_filter_sharpening');
   }
@@ -15348,7 +15348,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // strength - computed: false, optional: true, required: false
-  private _strength?: string; 
+  private _strength?: string;
   public get strength() {
     return this.getStringAttribute('strength');
   }
@@ -15366,7 +15366,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
 export interface MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264SettingsFilterSettings {
   /**
   * temporal_filter_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#temporal_filter_settings MedialiveChannel#temporal_filter_settings}
   */
   readonly temporalFilterSettings?: MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings;
@@ -15589,7 +15589,7 @@ export interface MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH2
   readonly timecodeInsertion?: string;
   /**
   * filter_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#filter_settings MedialiveChannel#filter_settings}
   */
   readonly filterSettings?: MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264SettingsFilterSettings;
@@ -15911,7 +15911,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // adaptive_quantization - computed: true, optional: true, required: false
-  private _adaptiveQuantization?: string; 
+  private _adaptiveQuantization?: string;
   public get adaptiveQuantization() {
     return this.getStringAttribute('adaptive_quantization');
   }
@@ -15927,7 +15927,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // afd_signaling - computed: true, optional: true, required: false
-  private _afdSignaling?: string; 
+  private _afdSignaling?: string;
   public get afdSignaling() {
     return this.getStringAttribute('afd_signaling');
   }
@@ -15943,7 +15943,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // bitrate - computed: true, optional: true, required: false
-  private _bitrate?: number; 
+  private _bitrate?: number;
   public get bitrate() {
     return this.getNumberAttribute('bitrate');
   }
@@ -15959,7 +15959,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // buf_fill_pct - computed: true, optional: true, required: false
-  private _bufFillPct?: number; 
+  private _bufFillPct?: number;
   public get bufFillPct() {
     return this.getNumberAttribute('buf_fill_pct');
   }
@@ -15975,7 +15975,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // buf_size - computed: true, optional: true, required: false
-  private _bufSize?: number; 
+  private _bufSize?: number;
   public get bufSize() {
     return this.getNumberAttribute('buf_size');
   }
@@ -15991,7 +15991,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // color_metadata - computed: true, optional: true, required: false
-  private _colorMetadata?: string; 
+  private _colorMetadata?: string;
   public get colorMetadata() {
     return this.getStringAttribute('color_metadata');
   }
@@ -16007,7 +16007,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // entropy_encoding - computed: true, optional: true, required: false
-  private _entropyEncoding?: string; 
+  private _entropyEncoding?: string;
   public get entropyEncoding() {
     return this.getStringAttribute('entropy_encoding');
   }
@@ -16023,7 +16023,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // fixed_afd - computed: true, optional: true, required: false
-  private _fixedAfd?: string; 
+  private _fixedAfd?: string;
   public get fixedAfd() {
     return this.getStringAttribute('fixed_afd');
   }
@@ -16039,7 +16039,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // flicker_aq - computed: true, optional: true, required: false
-  private _flickerAq?: string; 
+  private _flickerAq?: string;
   public get flickerAq() {
     return this.getStringAttribute('flicker_aq');
   }
@@ -16055,7 +16055,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // force_field_pictures - computed: true, optional: true, required: false
-  private _forceFieldPictures?: string; 
+  private _forceFieldPictures?: string;
   public get forceFieldPictures() {
     return this.getStringAttribute('force_field_pictures');
   }
@@ -16071,7 +16071,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // framerate_control - computed: true, optional: true, required: false
-  private _framerateControl?: string; 
+  private _framerateControl?: string;
   public get framerateControl() {
     return this.getStringAttribute('framerate_control');
   }
@@ -16087,7 +16087,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // framerate_denominator - computed: true, optional: true, required: false
-  private _framerateDenominator?: number; 
+  private _framerateDenominator?: number;
   public get framerateDenominator() {
     return this.getNumberAttribute('framerate_denominator');
   }
@@ -16103,7 +16103,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // framerate_numerator - computed: true, optional: true, required: false
-  private _framerateNumerator?: number; 
+  private _framerateNumerator?: number;
   public get framerateNumerator() {
     return this.getNumberAttribute('framerate_numerator');
   }
@@ -16119,7 +16119,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // gop_b_reference - computed: true, optional: true, required: false
-  private _gopBReference?: string; 
+  private _gopBReference?: string;
   public get gopBReference() {
     return this.getStringAttribute('gop_b_reference');
   }
@@ -16135,7 +16135,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // gop_closed_cadence - computed: true, optional: true, required: false
-  private _gopClosedCadence?: number; 
+  private _gopClosedCadence?: number;
   public get gopClosedCadence() {
     return this.getNumberAttribute('gop_closed_cadence');
   }
@@ -16151,7 +16151,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // gop_num_b_frames - computed: true, optional: true, required: false
-  private _gopNumBFrames?: number; 
+  private _gopNumBFrames?: number;
   public get gopNumBFrames() {
     return this.getNumberAttribute('gop_num_b_frames');
   }
@@ -16167,7 +16167,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // gop_size - computed: true, optional: true, required: false
-  private _gopSize?: number; 
+  private _gopSize?: number;
   public get gopSize() {
     return this.getNumberAttribute('gop_size');
   }
@@ -16183,7 +16183,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // gop_size_units - computed: true, optional: true, required: false
-  private _gopSizeUnits?: string; 
+  private _gopSizeUnits?: string;
   public get gopSizeUnits() {
     return this.getStringAttribute('gop_size_units');
   }
@@ -16199,7 +16199,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // level - computed: true, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -16215,7 +16215,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // look_ahead_rate_control - computed: true, optional: true, required: false
-  private _lookAheadRateControl?: string; 
+  private _lookAheadRateControl?: string;
   public get lookAheadRateControl() {
     return this.getStringAttribute('look_ahead_rate_control');
   }
@@ -16231,7 +16231,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // max_bitrate - computed: true, optional: true, required: false
-  private _maxBitrate?: number; 
+  private _maxBitrate?: number;
   public get maxBitrate() {
     return this.getNumberAttribute('max_bitrate');
   }
@@ -16247,7 +16247,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // min_i_interval - computed: true, optional: true, required: false
-  private _minIInterval?: number; 
+  private _minIInterval?: number;
   public get minIInterval() {
     return this.getNumberAttribute('min_i_interval');
   }
@@ -16263,7 +16263,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // num_ref_frames - computed: true, optional: true, required: false
-  private _numRefFrames?: number; 
+  private _numRefFrames?: number;
   public get numRefFrames() {
     return this.getNumberAttribute('num_ref_frames');
   }
@@ -16279,7 +16279,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // par_control - computed: true, optional: true, required: false
-  private _parControl?: string; 
+  private _parControl?: string;
   public get parControl() {
     return this.getStringAttribute('par_control');
   }
@@ -16295,7 +16295,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // par_denominator - computed: true, optional: true, required: false
-  private _parDenominator?: number; 
+  private _parDenominator?: number;
   public get parDenominator() {
     return this.getNumberAttribute('par_denominator');
   }
@@ -16311,7 +16311,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // par_numerator - computed: true, optional: true, required: false
-  private _parNumerator?: number; 
+  private _parNumerator?: number;
   public get parNumerator() {
     return this.getNumberAttribute('par_numerator');
   }
@@ -16327,7 +16327,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // profile - computed: true, optional: true, required: false
-  private _profile?: string; 
+  private _profile?: string;
   public get profile() {
     return this.getStringAttribute('profile');
   }
@@ -16343,7 +16343,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // quality_level - computed: true, optional: true, required: false
-  private _qualityLevel?: string; 
+  private _qualityLevel?: string;
   public get qualityLevel() {
     return this.getStringAttribute('quality_level');
   }
@@ -16359,7 +16359,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // qvbr_quality_level - computed: true, optional: true, required: false
-  private _qvbrQualityLevel?: number; 
+  private _qvbrQualityLevel?: number;
   public get qvbrQualityLevel() {
     return this.getNumberAttribute('qvbr_quality_level');
   }
@@ -16375,7 +16375,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // rate_control_mode - computed: true, optional: true, required: false
-  private _rateControlMode?: string; 
+  private _rateControlMode?: string;
   public get rateControlMode() {
     return this.getStringAttribute('rate_control_mode');
   }
@@ -16391,7 +16391,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // scan_type - computed: true, optional: true, required: false
-  private _scanType?: string; 
+  private _scanType?: string;
   public get scanType() {
     return this.getStringAttribute('scan_type');
   }
@@ -16407,7 +16407,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // scene_change_detect - computed: true, optional: true, required: false
-  private _sceneChangeDetect?: string; 
+  private _sceneChangeDetect?: string;
   public get sceneChangeDetect() {
     return this.getStringAttribute('scene_change_detect');
   }
@@ -16423,7 +16423,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // slices - computed: true, optional: true, required: false
-  private _slices?: number; 
+  private _slices?: number;
   public get slices() {
     return this.getNumberAttribute('slices');
   }
@@ -16439,7 +16439,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // softness - computed: true, optional: true, required: false
-  private _softness?: number; 
+  private _softness?: number;
   public get softness() {
     return this.getNumberAttribute('softness');
   }
@@ -16455,7 +16455,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // spatial_aq - computed: true, optional: true, required: false
-  private _spatialAq?: string; 
+  private _spatialAq?: string;
   public get spatialAq() {
     return this.getStringAttribute('spatial_aq');
   }
@@ -16471,7 +16471,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // subgop_length - computed: true, optional: true, required: false
-  private _subgopLength?: string; 
+  private _subgopLength?: string;
   public get subgopLength() {
     return this.getStringAttribute('subgop_length');
   }
@@ -16487,7 +16487,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // syntax - computed: true, optional: true, required: false
-  private _syntax?: string; 
+  private _syntax?: string;
   public get syntax() {
     return this.getStringAttribute('syntax');
   }
@@ -16503,7 +16503,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // temporal_aq - computed: true, optional: true, required: false
-  private _temporalAq?: string; 
+  private _temporalAq?: string;
   public get temporalAq() {
     return this.getStringAttribute('temporal_aq');
   }
@@ -16519,7 +16519,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
   }
 
   // timecode_insertion - computed: true, optional: true, required: false
-  private _timecodeInsertion?: string; 
+  private _timecodeInsertion?: string;
   public get timecodeInsertion() {
     return this.getStringAttribute('timecode_insertion');
   }
@@ -16553,13 +16553,13 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Se
 export interface MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettings {
   /**
   * frame_capture_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#frame_capture_settings MedialiveChannel#frame_capture_settings}
   */
   readonly frameCaptureSettings?: MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsFrameCaptureSettings;
   /**
   * h264_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#h264_settings MedialiveChannel#h264_settings}
   */
   readonly h264Settings?: MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettingsH264Settings;
@@ -16673,7 +16673,7 @@ export interface MedialiveChannelEncoderSettingsVideoDescriptions {
   readonly width?: number;
   /**
   * codec_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#codec_settings MedialiveChannel#codec_settings}
   */
   readonly codecSettings?: MedialiveChannelEncoderSettingsVideoDescriptionsCodecSettings;
@@ -16776,7 +16776,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsOutputReference ext
   }
 
   // height - computed: true, optional: true, required: false
-  private _height?: number; 
+  private _height?: number;
   public get height() {
     return this.getNumberAttribute('height');
   }
@@ -16792,7 +16792,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsOutputReference ext
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -16805,7 +16805,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsOutputReference ext
   }
 
   // respond_to_afd - computed: true, optional: true, required: false
-  private _respondToAfd?: string; 
+  private _respondToAfd?: string;
   public get respondToAfd() {
     return this.getStringAttribute('respond_to_afd');
   }
@@ -16821,7 +16821,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsOutputReference ext
   }
 
   // scaling_behavior - computed: true, optional: true, required: false
-  private _scalingBehavior?: string; 
+  private _scalingBehavior?: string;
   public get scalingBehavior() {
     return this.getStringAttribute('scaling_behavior');
   }
@@ -16837,7 +16837,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsOutputReference ext
   }
 
   // sharpness - computed: true, optional: true, required: false
-  private _sharpness?: number; 
+  private _sharpness?: number;
   public get sharpness() {
     return this.getNumberAttribute('sharpness');
   }
@@ -16853,7 +16853,7 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsOutputReference ext
   }
 
   // width - computed: true, optional: true, required: false
-  private _width?: number; 
+  private _width?: number;
   public get width() {
     return this.getNumberAttribute('width');
   }
@@ -16907,31 +16907,31 @@ export class MedialiveChannelEncoderSettingsVideoDescriptionsList extends cdktf.
 export interface MedialiveChannelEncoderSettings {
   /**
   * audio_descriptions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_descriptions MedialiveChannel#audio_descriptions}
   */
   readonly audioDescriptions?: MedialiveChannelEncoderSettingsAudioDescriptions[] | cdktf.IResolvable;
   /**
   * avail_blanking block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#avail_blanking MedialiveChannel#avail_blanking}
   */
   readonly availBlanking?: MedialiveChannelEncoderSettingsAvailBlanking;
   /**
   * output_groups block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#output_groups MedialiveChannel#output_groups}
   */
   readonly outputGroups: MedialiveChannelEncoderSettingsOutputGroups[] | cdktf.IResolvable;
   /**
   * timecode_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#timecode_config MedialiveChannel#timecode_config}
   */
   readonly timecodeConfig: MedialiveChannelEncoderSettingsTimecodeConfig;
   /**
   * video_descriptions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#video_descriptions MedialiveChannel#video_descriptions}
   */
   readonly videoDescriptions?: MedialiveChannelEncoderSettingsVideoDescriptions[] | cdktf.IResolvable;
@@ -17142,7 +17142,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailo
   }
 
   // audio_selector_name - computed: false, optional: false, required: true
-  private _audioSelectorName?: string; 
+  private _audioSelectorName?: string;
   public get audioSelectorName() {
     return this.getStringAttribute('audio_selector_name');
   }
@@ -17155,7 +17155,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailo
   }
 
   // audio_silence_threshold_msec - computed: false, optional: true, required: false
-  private _audioSilenceThresholdMsec?: number; 
+  private _audioSilenceThresholdMsec?: number;
   public get audioSilenceThresholdMsec() {
     return this.getNumberAttribute('audio_silence_threshold_msec');
   }
@@ -17220,7 +17220,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailo
   }
 
   // input_loss_threshold_msec - computed: false, optional: true, required: false
-  private _inputLossThresholdMsec?: number; 
+  private _inputLossThresholdMsec?: number;
   public get inputLossThresholdMsec() {
     return this.getNumberAttribute('input_loss_threshold_msec');
   }
@@ -17296,7 +17296,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailo
   }
 
   // black_detect_threshold - computed: false, optional: true, required: false
-  private _blackDetectThreshold?: number; 
+  private _blackDetectThreshold?: number;
   public get blackDetectThreshold() {
     return this.getNumberAttribute('black_detect_threshold');
   }
@@ -17312,7 +17312,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailo
   }
 
   // video_black_threshold_msec - computed: false, optional: true, required: false
-  private _videoBlackThresholdMsec?: number; 
+  private _videoBlackThresholdMsec?: number;
   public get videoBlackThresholdMsec() {
     return this.getNumberAttribute('video_black_threshold_msec');
   }
@@ -17330,19 +17330,19 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailo
 export interface MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
   /**
   * audio_silence_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_silence_settings MedialiveChannel#audio_silence_settings}
   */
   readonly audioSilenceSettings?: MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings;
   /**
   * input_loss_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#input_loss_settings MedialiveChannel#input_loss_settings}
   */
   readonly inputLossSettings?: MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings;
   /**
   * video_black_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#video_black_settings MedialiveChannel#video_black_settings}
   */
   readonly videoBlackSettings?: MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings;
@@ -17455,7 +17455,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailo
 export interface MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailoverCondition {
   /**
   * failover_condition_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#failover_condition_settings MedialiveChannel#failover_condition_settings}
   */
   readonly failoverConditionSettings?: MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings;
@@ -17566,7 +17566,7 @@ export interface MedialiveChannelInputAttachmentsAutomaticInputFailoverSettings 
   readonly secondaryInputId: string;
   /**
   * failover_condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#failover_condition MedialiveChannel#failover_condition}
   */
   readonly failoverCondition?: MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsFailoverCondition[] | cdktf.IResolvable;
@@ -17636,7 +17636,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsOutpu
   }
 
   // error_clear_time_msec - computed: false, optional: true, required: false
-  private _errorClearTimeMsec?: number; 
+  private _errorClearTimeMsec?: number;
   public get errorClearTimeMsec() {
     return this.getNumberAttribute('error_clear_time_msec');
   }
@@ -17652,7 +17652,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsOutpu
   }
 
   // input_preference - computed: false, optional: true, required: false
-  private _inputPreference?: string; 
+  private _inputPreference?: string;
   public get inputPreference() {
     return this.getStringAttribute('input_preference');
   }
@@ -17668,7 +17668,7 @@ export class MedialiveChannelInputAttachmentsAutomaticInputFailoverSettingsOutpu
   }
 
   // secondary_input_id - computed: false, optional: false, required: true
-  private _secondaryInputId?: string; 
+  private _secondaryInputId?: string;
   public get secondaryInputId() {
     return this.getStringAttribute('secondary_input_id');
   }
@@ -17757,7 +17757,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
   }
 
   // group_id - computed: false, optional: false, required: true
-  private _groupId?: string; 
+  private _groupId?: string;
   public get groupId() {
     return this.getStringAttribute('group_id');
   }
@@ -17770,7 +17770,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -17843,7 +17843,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
   }
 
   // language_code - computed: false, optional: false, required: true
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -17856,7 +17856,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
   }
 
   // language_selection_policy - computed: false, optional: true, required: false
-  private _languageSelectionPolicy?: string; 
+  private _languageSelectionPolicy?: string;
   public get languageSelectionPolicy() {
     return this.getStringAttribute('language_selection_policy');
   }
@@ -17921,7 +17921,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
   }
 
   // pid - computed: false, optional: false, required: true
-  private _pid?: number; 
+  private _pid?: number;
   public get pid() {
     return this.getNumberAttribute('pid');
   }
@@ -17995,7 +17995,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
   }
 
   // track - computed: false, optional: false, required: true
-  private _track?: number; 
+  private _track?: number;
   public get track() {
     return this.getNumberAttribute('track');
   }
@@ -18030,7 +18030,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
 export interface MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
   /**
   * track block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#track MedialiveChannel#track}
   */
   readonly track: MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack[] | cdktf.IResolvable;
@@ -18094,25 +18094,25 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorS
 export interface MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettings {
   /**
   * audio_hls_rendition_selection block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_hls_rendition_selection MedialiveChannel#audio_hls_rendition_selection}
   */
   readonly audioHlsRenditionSelection?: MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection;
   /**
   * audio_language_selection block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_language_selection MedialiveChannel#audio_language_selection}
   */
   readonly audioLanguageSelection?: MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection;
   /**
   * audio_pid_selection block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_pid_selection MedialiveChannel#audio_pid_selection}
   */
   readonly audioPidSelection?: MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettingsAudioPidSelection;
   /**
   * audio_track_selection block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_track_selection MedialiveChannel#audio_track_selection}
   */
   readonly audioTrackSelection?: MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection;
@@ -18252,7 +18252,7 @@ export interface MedialiveChannelInputAttachmentsInputSettingsAudioSelector {
   readonly name: string;
   /**
   * selector_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#selector_settings MedialiveChannel#selector_settings}
   */
   readonly selectorSettings?: MedialiveChannelInputAttachmentsInputSettingsAudioSelectorSelectorSettings;
@@ -18320,7 +18320,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsAudioSelectorOutputRef
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -18418,7 +18418,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // source_ancillary_channel_number - computed: false, optional: true, required: false
-  private _sourceAncillaryChannelNumber?: number; 
+  private _sourceAncillaryChannelNumber?: number;
   public get sourceAncillaryChannelNumber() {
     return this.getNumberAttribute('source_ancillary_channel_number');
   }
@@ -18494,7 +18494,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // ocr_language - computed: false, optional: true, required: false
-  private _ocrLanguage?: string; 
+  private _ocrLanguage?: string;
   public get ocrLanguage() {
     return this.getStringAttribute('ocr_language');
   }
@@ -18510,7 +18510,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // pid - computed: false, optional: true, required: false
-  private _pid?: number; 
+  private _pid?: number;
   public get pid() {
     return this.getNumberAttribute('pid');
   }
@@ -18608,7 +18608,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // convert_608_to_708 - computed: false, optional: true, required: false
-  private _convert608To708?: string; 
+  private _convert608To708?: string;
   public get convert608To708() {
     return this.getStringAttribute('convert_608_to_708');
   }
@@ -18624,7 +18624,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // scte20_detection - computed: false, optional: true, required: false
-  private _scte20Detection?: string; 
+  private _scte20Detection?: string;
   public get scte20Detection() {
     return this.getStringAttribute('scte20_detection');
   }
@@ -18640,7 +18640,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // source_608_channel_number - computed: false, optional: true, required: false
-  private _source608ChannelNumber?: number; 
+  private _source608ChannelNumber?: number;
   public get source608ChannelNumber() {
     return this.getNumberAttribute('source_608_channel_number');
   }
@@ -18656,7 +18656,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // source_608_track_number - computed: false, optional: true, required: false
-  private _source608TrackNumber?: number; 
+  private _source608TrackNumber?: number;
   public get source608TrackNumber() {
     return this.getNumberAttribute('source_608_track_number');
   }
@@ -18732,7 +18732,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // convert_608_to_708 - computed: false, optional: true, required: false
-  private _convert608To708?: string; 
+  private _convert608To708?: string;
   public get convert608To708() {
     return this.getStringAttribute('convert_608_to_708');
   }
@@ -18748,7 +18748,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // source_608_channel_number - computed: false, optional: true, required: false
-  private _source608ChannelNumber?: number; 
+  private _source608ChannelNumber?: number;
   public get source608ChannelNumber() {
     return this.getNumberAttribute('source_608_channel_number');
   }
@@ -18824,7 +18824,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // ocr_language - computed: false, optional: true, required: false
-  private _ocrLanguage?: string; 
+  private _ocrLanguage?: string;
   public get ocrLanguage() {
     return this.getStringAttribute('ocr_language');
   }
@@ -18840,7 +18840,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // pid - computed: false, optional: true, required: false
-  private _pid?: number; 
+  private _pid?: number;
   public get pid() {
     return this.getNumberAttribute('pid');
   }
@@ -18938,7 +18938,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // height - computed: false, optional: false, required: true
-  private _height?: number; 
+  private _height?: number;
   public get height() {
     return this.getNumberAttribute('height');
   }
@@ -18951,7 +18951,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // left_offset - computed: false, optional: false, required: true
-  private _leftOffset?: number; 
+  private _leftOffset?: number;
   public get leftOffset() {
     return this.getNumberAttribute('left_offset');
   }
@@ -18964,7 +18964,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // top_offset - computed: false, optional: false, required: true
-  private _topOffset?: number; 
+  private _topOffset?: number;
   public get topOffset() {
     return this.getNumberAttribute('top_offset');
   }
@@ -18977,7 +18977,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // width - computed: false, optional: false, required: true
-  private _width?: number; 
+  private _width?: number;
   public get width() {
     return this.getNumberAttribute('width');
   }
@@ -18996,7 +18996,7 @@ export interface MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSel
   readonly pageNumber?: string;
   /**
   * output_rectangle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#output_rectangle MedialiveChannel#output_rectangle}
   */
   readonly outputRectangle?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle;
@@ -19052,7 +19052,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
   }
 
   // page_number - computed: false, optional: true, required: false
-  private _pageNumber?: string; 
+  private _pageNumber?: string;
   public get pageNumber() {
     return this.getStringAttribute('page_number');
   }
@@ -19086,37 +19086,37 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelecto
 export interface MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettings {
   /**
   * ancillary_source_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#ancillary_source_settings MedialiveChannel#ancillary_source_settings}
   */
   readonly ancillarySourceSettings?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings;
   /**
   * dvb_tdt_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#dvb_tdt_settings MedialiveChannel#dvb_tdt_settings}
   */
   readonly dvbTdtSettings?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings;
   /**
   * embedded_source_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#embedded_source_settings MedialiveChannel#embedded_source_settings}
   */
   readonly embeddedSourceSettings?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings;
   /**
   * scte20_source_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#scte20_source_settings MedialiveChannel#scte20_source_settings}
   */
   readonly scte20SourceSettings?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings;
   /**
   * scte27_source_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#scte27_source_settings MedialiveChannel#scte27_source_settings}
   */
   readonly scte27SourceSettings?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings;
   /**
   * teletext_source_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#teletext_source_settings MedialiveChannel#teletext_source_settings}
   */
   readonly teletextSourceSettings?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings;
@@ -19306,7 +19306,7 @@ export interface MedialiveChannelInputAttachmentsInputSettingsCaptionSelector {
   readonly name: string;
   /**
   * selector_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#selector_settings MedialiveChannel#selector_settings}
   */
   readonly selectorSettings?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorSelectorSettings;
@@ -19381,7 +19381,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorOutputR
   }
 
   // language_code - computed: false, optional: true, required: false
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -19397,7 +19397,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsCaptionSelectorOutputR
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -19539,7 +19539,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettingsHl
   }
 
   // bandwidth - computed: false, optional: true, required: false
-  private _bandwidth?: number; 
+  private _bandwidth?: number;
   public get bandwidth() {
     return this.getNumberAttribute('bandwidth');
   }
@@ -19555,7 +19555,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettingsHl
   }
 
   // buffer_segments - computed: false, optional: true, required: false
-  private _bufferSegments?: number; 
+  private _bufferSegments?: number;
   public get bufferSegments() {
     return this.getNumberAttribute('buffer_segments');
   }
@@ -19571,7 +19571,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettingsHl
   }
 
   // retries - computed: false, optional: true, required: false
-  private _retries?: number; 
+  private _retries?: number;
   public get retries() {
     return this.getNumberAttribute('retries');
   }
@@ -19587,7 +19587,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettingsHl
   }
 
   // retry_interval - computed: false, optional: true, required: false
-  private _retryInterval?: number; 
+  private _retryInterval?: number;
   public get retryInterval() {
     return this.getNumberAttribute('retry_interval');
   }
@@ -19603,7 +19603,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettingsHl
   }
 
   // scte35_source - computed: false, optional: true, required: false
-  private _scte35Source?: string; 
+  private _scte35Source?: string;
   public get scte35Source() {
     return this.getStringAttribute('scte35_source');
   }
@@ -19625,7 +19625,7 @@ export interface MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettin
   readonly serverValidation?: string;
   /**
   * hls_input_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#hls_input_settings MedialiveChannel#hls_input_settings}
   */
   readonly hlsInputSettings?: MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettingsHlsInputSettings;
@@ -19681,7 +19681,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettingsOu
   }
 
   // server_validation - computed: false, optional: true, required: false
-  private _serverValidation?: string; 
+  private _serverValidation?: string;
   public get serverValidation() {
     return this.getStringAttribute('server_validation');
   }
@@ -19773,7 +19773,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsVideoSelectorOutputRef
   }
 
   // color_space - computed: false, optional: true, required: false
-  private _colorSpace?: string; 
+  private _colorSpace?: string;
   public get colorSpace() {
     return this.getStringAttribute('color_space');
   }
@@ -19789,7 +19789,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsVideoSelectorOutputRef
   }
 
   // color_space_usage - computed: false, optional: true, required: false
-  private _colorSpaceUsage?: string; 
+  private _colorSpaceUsage?: string;
   public get colorSpaceUsage() {
     return this.getStringAttribute('color_space_usage');
   }
@@ -19835,25 +19835,25 @@ export interface MedialiveChannelInputAttachmentsInputSettings {
   readonly sourceEndBehavior?: string;
   /**
   * audio_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#audio_selector MedialiveChannel#audio_selector}
   */
   readonly audioSelector?: MedialiveChannelInputAttachmentsInputSettingsAudioSelector[] | cdktf.IResolvable;
   /**
   * caption_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#caption_selector MedialiveChannel#caption_selector}
   */
   readonly captionSelector?: MedialiveChannelInputAttachmentsInputSettingsCaptionSelector[] | cdktf.IResolvable;
   /**
   * network_input_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#network_input_settings MedialiveChannel#network_input_settings}
   */
   readonly networkInputSettings?: MedialiveChannelInputAttachmentsInputSettingsNetworkInputSettings;
   /**
   * video_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#video_selector MedialiveChannel#video_selector}
   */
   readonly videoSelector?: MedialiveChannelInputAttachmentsInputSettingsVideoSelector;
@@ -19972,7 +19972,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsOutputReference extend
   }
 
   // deblock_filter - computed: false, optional: true, required: false
-  private _deblockFilter?: string; 
+  private _deblockFilter?: string;
   public get deblockFilter() {
     return this.getStringAttribute('deblock_filter');
   }
@@ -19988,7 +19988,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsOutputReference extend
   }
 
   // denoise_filter - computed: false, optional: true, required: false
-  private _denoiseFilter?: string; 
+  private _denoiseFilter?: string;
   public get denoiseFilter() {
     return this.getStringAttribute('denoise_filter');
   }
@@ -20004,7 +20004,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsOutputReference extend
   }
 
   // filter_strength - computed: false, optional: true, required: false
-  private _filterStrength?: number; 
+  private _filterStrength?: number;
   public get filterStrength() {
     return this.getNumberAttribute('filter_strength');
   }
@@ -20020,7 +20020,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsOutputReference extend
   }
 
   // input_filter - computed: true, optional: true, required: false
-  private _inputFilter?: string; 
+  private _inputFilter?: string;
   public get inputFilter() {
     return this.getStringAttribute('input_filter');
   }
@@ -20036,7 +20036,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsOutputReference extend
   }
 
   // scte35_pid - computed: false, optional: true, required: false
-  private _scte35Pid?: number; 
+  private _scte35Pid?: number;
   public get scte35Pid() {
     return this.getNumberAttribute('scte35_pid');
   }
@@ -20052,7 +20052,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsOutputReference extend
   }
 
   // smpte2038_data_preference - computed: false, optional: true, required: false
-  private _smpte2038DataPreference?: string; 
+  private _smpte2038DataPreference?: string;
   public get smpte2038DataPreference() {
     return this.getStringAttribute('smpte2038_data_preference');
   }
@@ -20068,7 +20068,7 @@ export class MedialiveChannelInputAttachmentsInputSettingsOutputReference extend
   }
 
   // source_end_behavior - computed: false, optional: true, required: false
-  private _sourceEndBehavior?: string; 
+  private _sourceEndBehavior?: string;
   public get sourceEndBehavior() {
     return this.getStringAttribute('source_end_behavior');
   }
@@ -20158,13 +20158,13 @@ export interface MedialiveChannelInputAttachments {
   readonly inputId: string;
   /**
   * automatic_input_failover_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#automatic_input_failover_settings MedialiveChannel#automatic_input_failover_settings}
   */
   readonly automaticInputFailoverSettings?: MedialiveChannelInputAttachmentsAutomaticInputFailoverSettings;
   /**
   * input_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_channel#input_settings MedialiveChannel#input_settings}
   */
   readonly inputSettings?: MedialiveChannelInputAttachmentsInputSettings;
@@ -20246,7 +20246,7 @@ export class MedialiveChannelInputAttachmentsOutputReference extends cdktf.Compl
   }
 
   // input_attachment_name - computed: false, optional: false, required: true
-  private _inputAttachmentName?: string; 
+  private _inputAttachmentName?: string;
   public get inputAttachmentName() {
     return this.getStringAttribute('input_attachment_name');
   }
@@ -20259,7 +20259,7 @@ export class MedialiveChannelInputAttachmentsOutputReference extends cdktf.Compl
   }
 
   // input_id - computed: false, optional: false, required: true
-  private _inputId?: string; 
+  private _inputId?: string;
   public get inputId() {
     return this.getStringAttribute('input_id');
   }
@@ -20395,7 +20395,7 @@ export class MedialiveChannelInputSpecificationOutputReference extends cdktf.Com
   }
 
   // codec - computed: false, optional: false, required: true
-  private _codec?: string; 
+  private _codec?: string;
   public get codec() {
     return this.getStringAttribute('codec');
   }
@@ -20408,7 +20408,7 @@ export class MedialiveChannelInputSpecificationOutputReference extends cdktf.Com
   }
 
   // input_resolution - computed: false, optional: false, required: true
-  private _inputResolution?: string; 
+  private _inputResolution?: string;
   public get inputResolution() {
     return this.getStringAttribute('input_resolution');
   }
@@ -20421,7 +20421,7 @@ export class MedialiveChannelInputSpecificationOutputReference extends cdktf.Com
   }
 
   // maximum_bitrate - computed: false, optional: false, required: true
-  private _maximumBitrate?: string; 
+  private _maximumBitrate?: string;
   public get maximumBitrate() {
     return this.getStringAttribute('maximum_bitrate');
   }
@@ -20494,7 +20494,7 @@ export class MedialiveChannelMaintenanceOutputReference extends cdktf.ComplexObj
   }
 
   // maintenance_day - computed: false, optional: false, required: true
-  private _maintenanceDay?: string; 
+  private _maintenanceDay?: string;
   public get maintenanceDay() {
     return this.getStringAttribute('maintenance_day');
   }
@@ -20507,7 +20507,7 @@ export class MedialiveChannelMaintenanceOutputReference extends cdktf.ComplexObj
   }
 
   // maintenance_start_time - computed: false, optional: false, required: true
-  private _maintenanceStartTime?: string; 
+  private _maintenanceStartTime?: string;
   public get maintenanceStartTime() {
     return this.getStringAttribute('maintenance_start_time');
   }
@@ -20601,7 +20601,7 @@ export class MedialiveChannelTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -20617,7 +20617,7 @@ export class MedialiveChannelTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -20633,7 +20633,7 @@ export class MedialiveChannelTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -20725,7 +20725,7 @@ export class MedialiveChannelVpcOutputReference extends cdktf.ComplexObject {
   }
 
   // public_address_allocation_ids - computed: false, optional: false, required: true
-  private _publicAddressAllocationIds?: string[]; 
+  private _publicAddressAllocationIds?: string[];
   public get publicAddressAllocationIds() {
     return this.getListAttribute('public_address_allocation_ids');
   }
@@ -20738,7 +20738,7 @@ export class MedialiveChannelVpcOutputReference extends cdktf.ComplexObject {
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return this.getListAttribute('security_group_ids');
   }
@@ -20754,7 +20754,7 @@ export class MedialiveChannelVpcOutputReference extends cdktf.ComplexObject {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return this.getListAttribute('subnet_ids');
   }
@@ -20832,7 +20832,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // channel_class - computed: false, optional: false, required: true
-  private _channelClass?: string; 
+  private _channelClass?: string;
   public get channelClass() {
     return this.getStringAttribute('channel_class');
   }
@@ -20850,7 +20850,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -20866,7 +20866,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // log_level - computed: true, optional: true, required: false
-  private _logLevel?: string; 
+  private _logLevel?: string;
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -20882,7 +20882,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -20895,7 +20895,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -20911,7 +20911,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // start_channel - computed: false, optional: true, required: false
-  private _startChannel?: boolean | cdktf.IResolvable; 
+  private _startChannel?: boolean | cdktf.IResolvable;
   public get startChannel() {
     return this.getBooleanAttribute('start_channel');
   }
@@ -20927,7 +20927,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -20943,7 +20943,7 @@ export class MedialiveChannel extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/secret_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface SecretV1Config extends cdktf.TerraformMetaArguments {
   /**
   * A map of the secret data in base64 encoding. Use this for binary data.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#binary_data SecretV1#binary_data}
   */
   readonly binaryData?: { [key: string]: string };
   /**
   * A map of the secret data.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#data SecretV1#data}
   */
   readonly data?: { [key: string]: string };
@@ -28,31 +28,31 @@ export interface SecretV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Ensures that data stored in the Secret cannot be updated (only object metadata can be modified).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#immutable SecretV1#immutable}
   */
   readonly immutable?: boolean | cdktf.IResolvable;
   /**
   * Type of secret
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#type SecretV1#type}
   */
   readonly type?: string;
   /**
   * Terraform will wait for the service account token to be created.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#wait_for_service_account_token SecretV1#wait_for_service_account_token}
   */
   readonly waitForServiceAccountToken?: boolean | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#metadata SecretV1#metadata}
   */
   readonly metadata: SecretV1Metadata;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#timeouts SecretV1#timeouts}
   */
   readonly timeouts?: SecretV1Timeouts;
@@ -60,31 +60,31 @@ export interface SecretV1Config extends cdktf.TerraformMetaArguments {
 export interface SecretV1Metadata {
   /**
   * An unstructured key value map stored with the secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#annotations SecretV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#generate_name SecretV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#labels SecretV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the secret, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#name SecretV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the secret must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/secret_v1#namespace SecretV1#namespace}
   */
   readonly namespace?: string;
@@ -161,7 +161,7 @@ export class SecretV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -177,7 +177,7 @@ export class SecretV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -198,7 +198,7 @@ export class SecretV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -214,7 +214,7 @@ export class SecretV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -230,7 +230,7 @@ export class SecretV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -315,7 +315,7 @@ export class SecretV1TimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -383,7 +383,7 @@ export class SecretV1 extends cdktf.TerraformResource {
   // ==========
 
   // binary_data - computed: false, optional: true, required: false
-  private _binaryData?: { [key: string]: string }; 
+  private _binaryData?: { [key: string]: string };
   public get binaryData() {
     return this.getStringMapAttribute('binary_data');
   }
@@ -399,7 +399,7 @@ export class SecretV1 extends cdktf.TerraformResource {
   }
 
   // data - computed: true, optional: true, required: false
-  private _data?: { [key: string]: string }; 
+  private _data?: { [key: string]: string };
   public get data() {
     return this.getStringMapAttribute('data');
   }
@@ -415,7 +415,7 @@ export class SecretV1 extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -431,7 +431,7 @@ export class SecretV1 extends cdktf.TerraformResource {
   }
 
   // immutable - computed: false, optional: true, required: false
-  private _immutable?: boolean | cdktf.IResolvable; 
+  private _immutable?: boolean | cdktf.IResolvable;
   public get immutable() {
     return this.getBooleanAttribute('immutable');
   }
@@ -447,7 +447,7 @@ export class SecretV1 extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -463,7 +463,7 @@ export class SecretV1 extends cdktf.TerraformResource {
   }
 
   // wait_for_service_account_token - computed: false, optional: true, required: false
-  private _waitForServiceAccountToken?: boolean | cdktf.IResolvable; 
+  private _waitForServiceAccountToken?: boolean | cdktf.IResolvable;
   public get waitForServiceAccountToken() {
     return this.getBooleanAttribute('wait_for_service_account_token');
   }

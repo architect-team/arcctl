@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/service_account
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataKubernetesServiceAccountConfig extends cdktf.TerraformMetaA
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/service_account#metadata DataKubernetesServiceAccount#metadata}
   */
   readonly metadata: DataKubernetesServiceAccountMetadata;
@@ -152,25 +152,25 @@ export class DataKubernetesServiceAccountSecretList extends cdktf.ComplexList {
 export interface DataKubernetesServiceAccountMetadata {
   /**
   * An unstructured key value map stored with the service account that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/service_account#annotations DataKubernetesServiceAccount#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the service account. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/service_account#labels DataKubernetesServiceAccount#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the service account, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/service_account#name DataKubernetesServiceAccount#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the service account must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/service_account#namespace DataKubernetesServiceAccount#namespace}
   */
   readonly namespace?: string;
@@ -240,7 +240,7 @@ export class DataKubernetesServiceAccountMetadataOutputReference extends cdktf.C
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -261,7 +261,7 @@ export class DataKubernetesServiceAccountMetadataOutputReference extends cdktf.C
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -277,7 +277,7 @@ export class DataKubernetesServiceAccountMetadataOutputReference extends cdktf.C
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -293,7 +293,7 @@ export class DataKubernetesServiceAccountMetadataOutputReference extends cdktf.C
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -375,7 +375,7 @@ export class DataKubernetesServiceAccount extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

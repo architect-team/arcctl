@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_thing_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface IotThingGroupConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_thing_group#properties IotThingGroup#properties}
   */
   readonly properties?: IotThingGroupProperties;
@@ -231,7 +231,7 @@ export class IotThingGroupPropertiesAttributePayloadOutputReference extends cdkt
   }
 
   // attributes - computed: false, optional: true, required: false
-  private _attributes?: { [key: string]: string }; 
+  private _attributes?: { [key: string]: string };
   public get attributes() {
     return this.getStringMapAttribute('attributes');
   }
@@ -253,7 +253,7 @@ export interface IotThingGroupProperties {
   readonly description?: string;
   /**
   * attribute_payload block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_thing_group#attribute_payload IotThingGroup#attribute_payload}
   */
   readonly attributePayload?: IotThingGroupPropertiesAttributePayload;
@@ -309,7 +309,7 @@ export class IotThingGroupPropertiesOutputReference extends cdktf.ComplexObject 
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -396,7 +396,7 @@ export class IotThingGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -418,7 +418,7 @@ export class IotThingGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -431,7 +431,7 @@ export class IotThingGroup extends cdktf.TerraformResource {
   }
 
   // parent_group_name - computed: false, optional: true, required: false
-  private _parentGroupName?: string; 
+  private _parentGroupName?: string;
   public get parentGroupName() {
     return this.getStringAttribute('parent_group_name');
   }
@@ -447,7 +447,7 @@ export class IotThingGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -463,7 +463,7 @@ export class IotThingGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

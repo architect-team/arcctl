@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,7 +52,7 @@ export interface Apigatewayv2AuthorizerConfig extends cdktf.TerraformMetaArgumen
   readonly name: string;
   /**
   * jwt_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer#jwt_configuration Apigatewayv2Authorizer#jwt_configuration}
   */
   readonly jwtConfiguration?: Apigatewayv2AuthorizerJwtConfiguration;
@@ -118,7 +118,7 @@ export class Apigatewayv2AuthorizerJwtConfigurationOutputReference extends cdktf
   }
 
   // audience - computed: false, optional: true, required: false
-  private _audience?: string[]; 
+  private _audience?: string[];
   public get audience() {
     return cdktf.Fn.tolist(this.getListAttribute('audience'));
   }
@@ -134,7 +134,7 @@ export class Apigatewayv2AuthorizerJwtConfigurationOutputReference extends cdktf
   }
 
   // issuer - computed: false, optional: true, required: false
-  private _issuer?: string; 
+  private _issuer?: string;
   public get issuer() {
     return this.getStringAttribute('issuer');
   }
@@ -205,7 +205,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -218,7 +218,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_credentials_arn - computed: false, optional: true, required: false
-  private _authorizerCredentialsArn?: string; 
+  private _authorizerCredentialsArn?: string;
   public get authorizerCredentialsArn() {
     return this.getStringAttribute('authorizer_credentials_arn');
   }
@@ -234,7 +234,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_payload_format_version - computed: false, optional: true, required: false
-  private _authorizerPayloadFormatVersion?: string; 
+  private _authorizerPayloadFormatVersion?: string;
   public get authorizerPayloadFormatVersion() {
     return this.getStringAttribute('authorizer_payload_format_version');
   }
@@ -250,7 +250,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_result_ttl_in_seconds - computed: true, optional: true, required: false
-  private _authorizerResultTtlInSeconds?: number; 
+  private _authorizerResultTtlInSeconds?: number;
   public get authorizerResultTtlInSeconds() {
     return this.getNumberAttribute('authorizer_result_ttl_in_seconds');
   }
@@ -266,7 +266,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_type - computed: false, optional: false, required: true
-  private _authorizerType?: string; 
+  private _authorizerType?: string;
   public get authorizerType() {
     return this.getStringAttribute('authorizer_type');
   }
@@ -279,7 +279,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_uri - computed: false, optional: true, required: false
-  private _authorizerUri?: string; 
+  private _authorizerUri?: string;
   public get authorizerUri() {
     return this.getStringAttribute('authorizer_uri');
   }
@@ -295,7 +295,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // enable_simple_responses - computed: false, optional: true, required: false
-  private _enableSimpleResponses?: boolean | cdktf.IResolvable; 
+  private _enableSimpleResponses?: boolean | cdktf.IResolvable;
   public get enableSimpleResponses() {
     return this.getBooleanAttribute('enable_simple_responses');
   }
@@ -311,7 +311,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -327,7 +327,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // identity_sources - computed: false, optional: true, required: false
-  private _identitySources?: string[]; 
+  private _identitySources?: string[];
   public get identitySources() {
     return cdktf.Fn.tolist(this.getListAttribute('identity_sources'));
   }
@@ -343,7 +343,7 @@ export class Apigatewayv2Authorizer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

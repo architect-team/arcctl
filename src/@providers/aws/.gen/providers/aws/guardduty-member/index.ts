@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/guardduty_member
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface GuarddutyMemberConfig extends cdktf.TerraformMetaArguments {
   readonly invite?: boolean | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_member#timeouts GuarddutyMember#timeouts}
   */
   readonly timeouts?: GuarddutyMemberTimeouts;
@@ -116,7 +116,7 @@ export class GuarddutyMemberTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -132,7 +132,7 @@ export class GuarddutyMemberTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -200,7 +200,7 @@ export class GuarddutyMember extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -213,7 +213,7 @@ export class GuarddutyMember extends cdktf.TerraformResource {
   }
 
   // detector_id - computed: false, optional: false, required: true
-  private _detectorId?: string; 
+  private _detectorId?: string;
   public get detectorId() {
     return this.getStringAttribute('detector_id');
   }
@@ -226,7 +226,7 @@ export class GuarddutyMember extends cdktf.TerraformResource {
   }
 
   // disable_email_notification - computed: false, optional: true, required: false
-  private _disableEmailNotification?: boolean | cdktf.IResolvable; 
+  private _disableEmailNotification?: boolean | cdktf.IResolvable;
   public get disableEmailNotification() {
     return this.getBooleanAttribute('disable_email_notification');
   }
@@ -242,7 +242,7 @@ export class GuarddutyMember extends cdktf.TerraformResource {
   }
 
   // email - computed: false, optional: false, required: true
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -255,7 +255,7 @@ export class GuarddutyMember extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -271,7 +271,7 @@ export class GuarddutyMember extends cdktf.TerraformResource {
   }
 
   // invitation_message - computed: false, optional: true, required: false
-  private _invitationMessage?: string; 
+  private _invitationMessage?: string;
   public get invitationMessage() {
     return this.getStringAttribute('invitation_message');
   }
@@ -287,7 +287,7 @@ export class GuarddutyMember extends cdktf.TerraformResource {
   }
 
   // invite - computed: false, optional: true, required: false
-  private _invite?: boolean | cdktf.IResolvable; 
+  private _invite?: boolean | cdktf.IResolvable;
   public get invite() {
     return this.getBooleanAttribute('invite');
   }

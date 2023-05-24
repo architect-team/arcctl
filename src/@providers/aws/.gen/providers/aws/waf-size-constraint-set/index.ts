@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface WafSizeConstraintSetConfig extends cdktf.TerraformMetaArguments
   readonly name: string;
   /**
   * size_constraints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#size_constraints WafSizeConstraintSet#size_constraints}
   */
   readonly sizeConstraints?: WafSizeConstraintSetSizeConstraints[] | cdktf.IResolvable;
@@ -86,7 +86,7 @@ export class WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference exte
   }
 
   // data - computed: false, optional: true, required: false
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -102,7 +102,7 @@ export class WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference exte
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -129,7 +129,7 @@ export interface WafSizeConstraintSetSizeConstraints {
   readonly textTransformation: string;
   /**
   * field_to_match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#field_to_match WafSizeConstraintSet#field_to_match}
   */
   readonly fieldToMatch: WafSizeConstraintSetSizeConstraintsFieldToMatch;
@@ -211,7 +211,7 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   }
 
   // comparison_operator - computed: false, optional: false, required: true
-  private _comparisonOperator?: string; 
+  private _comparisonOperator?: string;
   public get comparisonOperator() {
     return this.getStringAttribute('comparison_operator');
   }
@@ -224,7 +224,7 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -237,7 +237,7 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   }
 
   // text_transformation - computed: false, optional: false, required: true
-  private _textTransformation?: string; 
+  private _textTransformation?: string;
   public get textTransformation() {
     return this.getStringAttribute('text_transformation');
   }
@@ -335,7 +335,7 @@ export class WafSizeConstraintSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -351,7 +351,7 @@ export class WafSizeConstraintSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

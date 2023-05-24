@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/grafana_license_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface GrafanaLicenseAssociationConfig extends cdktf.TerraformMetaArgu
   readonly workspaceId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_license_association#timeouts GrafanaLicenseAssociation#timeouts}
   */
   readonly timeouts?: GrafanaLicenseAssociationTimeouts;
@@ -100,7 +100,7 @@ export class GrafanaLicenseAssociationTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class GrafanaLicenseAssociationTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -185,7 +185,7 @@ export class GrafanaLicenseAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -206,7 +206,7 @@ export class GrafanaLicenseAssociation extends cdktf.TerraformResource {
   }
 
   // license_type - computed: false, optional: false, required: true
-  private _licenseType?: string; 
+  private _licenseType?: string;
   public get licenseType() {
     return this.getStringAttribute('license_type');
   }
@@ -219,7 +219,7 @@ export class GrafanaLicenseAssociation extends cdktf.TerraformResource {
   }
 
   // workspace_id - computed: false, optional: false, required: true
-  private _workspaceId?: string; 
+  private _workspaceId?: string;
   public get workspaceId() {
     return this.getStringAttribute('workspace_id');
   }

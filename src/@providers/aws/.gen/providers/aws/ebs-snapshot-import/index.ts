@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ebs_snapshot_import
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,19 +52,19 @@ export interface EbsSnapshotImportConfig extends cdktf.TerraformMetaArguments {
   readonly temporaryRestoreDays?: number;
   /**
   * client_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ebs_snapshot_import#client_data EbsSnapshotImport#client_data}
   */
   readonly clientData?: EbsSnapshotImportClientData;
   /**
   * disk_container block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ebs_snapshot_import#disk_container EbsSnapshotImport#disk_container}
   */
   readonly diskContainer: EbsSnapshotImportDiskContainer;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ebs_snapshot_import#timeouts EbsSnapshotImport#timeouts}
   */
   readonly timeouts?: EbsSnapshotImportTimeouts;
@@ -152,7 +152,7 @@ export class EbsSnapshotImportClientDataOutputReference extends cdktf.ComplexObj
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -168,7 +168,7 @@ export class EbsSnapshotImportClientDataOutputReference extends cdktf.ComplexObj
   }
 
   // upload_end - computed: true, optional: true, required: false
-  private _uploadEnd?: string; 
+  private _uploadEnd?: string;
   public get uploadEnd() {
     return this.getStringAttribute('upload_end');
   }
@@ -184,7 +184,7 @@ export class EbsSnapshotImportClientDataOutputReference extends cdktf.ComplexObj
   }
 
   // upload_size - computed: true, optional: true, required: false
-  private _uploadSize?: number; 
+  private _uploadSize?: number;
   public get uploadSize() {
     return this.getNumberAttribute('upload_size');
   }
@@ -200,7 +200,7 @@ export class EbsSnapshotImportClientDataOutputReference extends cdktf.ComplexObj
   }
 
   // upload_start - computed: true, optional: true, required: false
-  private _uploadStart?: string; 
+  private _uploadStart?: string;
   public get uploadStart() {
     return this.getStringAttribute('upload_start');
   }
@@ -276,7 +276,7 @@ export class EbsSnapshotImportDiskContainerUserBucketOutputReference extends cdk
   }
 
   // s3_bucket - computed: false, optional: false, required: true
-  private _s3Bucket?: string; 
+  private _s3Bucket?: string;
   public get s3Bucket() {
     return this.getStringAttribute('s3_bucket');
   }
@@ -289,7 +289,7 @@ export class EbsSnapshotImportDiskContainerUserBucketOutputReference extends cdk
   }
 
   // s3_key - computed: false, optional: false, required: true
-  private _s3Key?: string; 
+  private _s3Key?: string;
   public get s3Key() {
     return this.getStringAttribute('s3_key');
   }
@@ -316,7 +316,7 @@ export interface EbsSnapshotImportDiskContainer {
   readonly url?: string;
   /**
   * user_bucket block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ebs_snapshot_import#user_bucket EbsSnapshotImport#user_bucket}
   */
   readonly userBucket?: EbsSnapshotImportDiskContainerUserBucket;
@@ -386,7 +386,7 @@ export class EbsSnapshotImportDiskContainerOutputReference extends cdktf.Complex
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -402,7 +402,7 @@ export class EbsSnapshotImportDiskContainerOutputReference extends cdktf.Complex
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string; 
+  private _format?: string;
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -415,7 +415,7 @@ export class EbsSnapshotImportDiskContainerOutputReference extends cdktf.Complex
   }
 
   // url - computed: false, optional: true, required: false
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -517,7 +517,7 @@ export class EbsSnapshotImportTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -533,7 +533,7 @@ export class EbsSnapshotImportTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -616,7 +616,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -632,7 +632,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // encrypted - computed: false, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -648,7 +648,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -664,7 +664,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -695,7 +695,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // permanent_restore - computed: false, optional: true, required: false
-  private _permanentRestore?: boolean | cdktf.IResolvable; 
+  private _permanentRestore?: boolean | cdktf.IResolvable;
   public get permanentRestore() {
     return this.getBooleanAttribute('permanent_restore');
   }
@@ -711,7 +711,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // role_name - computed: false, optional: true, required: false
-  private _roleName?: string; 
+  private _roleName?: string;
   public get roleName() {
     return this.getStringAttribute('role_name');
   }
@@ -727,7 +727,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // storage_tier - computed: true, optional: true, required: false
-  private _storageTier?: string; 
+  private _storageTier?: string;
   public get storageTier() {
     return this.getStringAttribute('storage_tier');
   }
@@ -743,7 +743,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -759,7 +759,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -775,7 +775,7 @@ export class EbsSnapshotImport extends cdktf.TerraformResource {
   }
 
   // temporary_restore_days - computed: false, optional: true, required: false
-  private _temporaryRestoreDays?: number; 
+  private _temporaryRestoreDays?: number;
   public get temporaryRestoreDays() {
     return this.getNumberAttribute('temporary_restore_days');
   }

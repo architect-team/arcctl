@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/directory_service_conditional_forwarder
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DirectoryServiceConditionalForwarder extends cdktf.TerraformResourc
   // ==========
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -89,7 +89,7 @@ export class DirectoryServiceConditionalForwarder extends cdktf.TerraformResourc
   }
 
   // dns_ips - computed: false, optional: false, required: true
-  private _dnsIps?: string[]; 
+  private _dnsIps?: string[];
   public get dnsIps() {
     return this.getListAttribute('dns_ips');
   }
@@ -102,7 +102,7 @@ export class DirectoryServiceConditionalForwarder extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class DirectoryServiceConditionalForwarder extends cdktf.TerraformResourc
   }
 
   // remote_domain_name - computed: false, optional: false, required: true
-  private _remoteDomainName?: string; 
+  private _remoteDomainName?: string;
   public get remoteDomainName() {
     return this.getStringAttribute('remote_domain_name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_app_image_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface SagemakerAppImageConfigConfig extends cdktf.TerraformMetaArgume
   readonly tagsAll?: { [key: string]: string };
   /**
   * kernel_gateway_image_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app_image_config#kernel_gateway_image_config SagemakerAppImageConfig#kernel_gateway_image_config}
   */
   readonly kernelGatewayImageConfig?: SagemakerAppImageConfigKernelGatewayImageConfig;
@@ -105,7 +105,7 @@ export class SagemakerAppImageConfigKernelGatewayImageConfigFileSystemConfigOutp
   }
 
   // default_gid - computed: false, optional: true, required: false
-  private _defaultGid?: number; 
+  private _defaultGid?: number;
   public get defaultGid() {
     return this.getNumberAttribute('default_gid');
   }
@@ -121,7 +121,7 @@ export class SagemakerAppImageConfigKernelGatewayImageConfigFileSystemConfigOutp
   }
 
   // default_uid - computed: false, optional: true, required: false
-  private _defaultUid?: number; 
+  private _defaultUid?: number;
   public get defaultUid() {
     return this.getNumberAttribute('default_uid');
   }
@@ -137,7 +137,7 @@ export class SagemakerAppImageConfigKernelGatewayImageConfigFileSystemConfigOutp
   }
 
   // mount_path - computed: false, optional: true, required: false
-  private _mountPath?: string; 
+  private _mountPath?: string;
   public get mountPath() {
     return this.getStringAttribute('mount_path');
   }
@@ -213,7 +213,7 @@ export class SagemakerAppImageConfigKernelGatewayImageConfigKernelSpecOutputRefe
   }
 
   // display_name - computed: false, optional: true, required: false
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -229,7 +229,7 @@ export class SagemakerAppImageConfigKernelGatewayImageConfigKernelSpecOutputRefe
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -244,13 +244,13 @@ export class SagemakerAppImageConfigKernelGatewayImageConfigKernelSpecOutputRefe
 export interface SagemakerAppImageConfigKernelGatewayImageConfig {
   /**
   * file_system_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app_image_config#file_system_config SagemakerAppImageConfig#file_system_config}
   */
   readonly fileSystemConfig?: SagemakerAppImageConfigKernelGatewayImageConfigFileSystemConfig;
   /**
   * kernel_spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app_image_config#kernel_spec SagemakerAppImageConfig#kernel_spec}
   */
   readonly kernelSpec: SagemakerAppImageConfigKernelGatewayImageConfigKernelSpec;
@@ -384,7 +384,7 @@ export class SagemakerAppImageConfig extends cdktf.TerraformResource {
   // ==========
 
   // app_image_config_name - computed: false, optional: false, required: true
-  private _appImageConfigName?: string; 
+  private _appImageConfigName?: string;
   public get appImageConfigName() {
     return this.getStringAttribute('app_image_config_name');
   }
@@ -402,7 +402,7 @@ export class SagemakerAppImageConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -418,7 +418,7 @@ export class SagemakerAppImageConfig extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -434,7 +434,7 @@ export class SagemakerAppImageConfig extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apprunner_connection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class ApprunnerConnection extends cdktf.TerraformResource {
   }
 
   // connection_name - computed: false, optional: false, required: true
-  private _connectionName?: string; 
+  private _connectionName?: string;
   public get connectionName() {
     return this.getStringAttribute('connection_name');
   }
@@ -99,7 +99,7 @@ export class ApprunnerConnection extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class ApprunnerConnection extends cdktf.TerraformResource {
   }
 
   // provider_type - computed: false, optional: false, required: true
-  private _providerType?: string; 
+  private _providerType?: string;
   public get providerType() {
     return this.getStringAttribute('provider_type');
   }
@@ -133,7 +133,7 @@ export class ApprunnerConnection extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -149,7 +149,7 @@ export class ApprunnerConnection extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface TimestreamwriteTableConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * magnetic_store_write_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_write_properties TimestreamwriteTable#magnetic_store_write_properties}
   */
   readonly magneticStoreWriteProperties?: TimestreamwriteTableMagneticStoreWriteProperties;
   /**
   * retention_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#retention_properties TimestreamwriteTable#retention_properties}
   */
   readonly retentionProperties?: TimestreamwriteTableRetentionProperties;
@@ -126,7 +126,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -142,7 +142,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // encryption_option - computed: false, optional: true, required: false
-  private _encryptionOption?: string; 
+  private _encryptionOption?: string;
   public get encryptionOption() {
     return this.getStringAttribute('encryption_option');
   }
@@ -158,7 +158,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -174,7 +174,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // object_key_prefix - computed: false, optional: true, required: false
-  private _objectKeyPrefix?: string; 
+  private _objectKeyPrefix?: string;
   public get objectKeyPrefix() {
     return this.getStringAttribute('object_key_prefix');
   }
@@ -192,7 +192,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
 export interface TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
   /**
   * s3_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#s3_configuration TimestreamwriteTable#s3_configuration}
   */
   readonly s3Configuration?: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration;
@@ -263,7 +263,7 @@ export interface TimestreamwriteTableMagneticStoreWriteProperties {
   readonly enableMagneticStoreWrites?: boolean | cdktf.IResolvable;
   /**
   * magnetic_store_rejected_data_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_rejected_data_location TimestreamwriteTable#magnetic_store_rejected_data_location}
   */
   readonly magneticStoreRejectedDataLocation?: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation;
@@ -319,7 +319,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesOutputReference ext
   }
 
   // enable_magnetic_store_writes - computed: false, optional: true, required: false
-  private _enableMagneticStoreWrites?: boolean | cdktf.IResolvable; 
+  private _enableMagneticStoreWrites?: boolean | cdktf.IResolvable;
   public get enableMagneticStoreWrites() {
     return this.getBooleanAttribute('enable_magnetic_store_writes');
   }
@@ -411,7 +411,7 @@ export class TimestreamwriteTableRetentionPropertiesOutputReference extends cdkt
   }
 
   // magnetic_store_retention_period_in_days - computed: false, optional: false, required: true
-  private _magneticStoreRetentionPeriodInDays?: number; 
+  private _magneticStoreRetentionPeriodInDays?: number;
   public get magneticStoreRetentionPeriodInDays() {
     return this.getNumberAttribute('magnetic_store_retention_period_in_days');
   }
@@ -424,7 +424,7 @@ export class TimestreamwriteTableRetentionPropertiesOutputReference extends cdkt
   }
 
   // memory_store_retention_period_in_hours - computed: false, optional: false, required: true
-  private _memoryStoreRetentionPeriodInHours?: number; 
+  private _memoryStoreRetentionPeriodInHours?: number;
   public get memoryStoreRetentionPeriodInHours() {
     return this.getNumberAttribute('memory_store_retention_period_in_hours');
   }
@@ -493,7 +493,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -506,7 +506,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -522,7 +522,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -535,7 +535,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -551,7 +551,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

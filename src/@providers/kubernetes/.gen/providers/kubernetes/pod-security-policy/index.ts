@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface PodSecurityPolicyConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#metadata PodSecurityPolicy#metadata}
   */
   readonly metadata: PodSecurityPolicyMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#spec PodSecurityPolicy#spec}
   */
   readonly spec: PodSecurityPolicySpec;
@@ -30,19 +30,19 @@ export interface PodSecurityPolicyConfig extends cdktf.TerraformMetaArguments {
 export interface PodSecurityPolicyMetadata {
   /**
   * An unstructured key value map stored with the podsecuritypolicy that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#annotations PodSecurityPolicy#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the podsecuritypolicy. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#labels PodSecurityPolicy#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the podsecuritypolicy, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#name PodSecurityPolicy#name}
   */
   readonly name?: string;
@@ -105,7 +105,7 @@ export class PodSecurityPolicyMetadataOutputReference extends cdktf.ComplexObjec
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -126,7 +126,7 @@ export class PodSecurityPolicyMetadataOutputReference extends cdktf.ComplexObjec
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -142,7 +142,7 @@ export class PodSecurityPolicyMetadataOutputReference extends cdktf.ComplexObjec
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -170,7 +170,7 @@ export class PodSecurityPolicyMetadataOutputReference extends cdktf.ComplexObjec
 export interface PodSecurityPolicySpecAllowedFlexVolumes {
   /**
   * driver is the name of the Flexvolume driver.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#driver PodSecurityPolicy#driver}
   */
   readonly driver: string;
@@ -231,7 +231,7 @@ export class PodSecurityPolicySpecAllowedFlexVolumesOutputReference extends cdkt
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -268,13 +268,13 @@ export interface PodSecurityPolicySpecAllowedHostPaths {
   * pathPrefix is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
 
 Examples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#path_prefix PodSecurityPolicy#path_prefix}
   */
   readonly pathPrefix: string;
   /**
   * when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#read_only PodSecurityPolicy#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
@@ -342,7 +342,7 @@ export class PodSecurityPolicySpecAllowedHostPathsOutputReference extends cdktf.
   }
 
   // path_prefix - computed: false, optional: false, required: true
-  private _pathPrefix?: string; 
+  private _pathPrefix?: string;
   public get pathPrefix() {
     return this.getStringAttribute('path_prefix');
   }
@@ -355,7 +355,7 @@ export class PodSecurityPolicySpecAllowedHostPathsOutputReference extends cdktf.
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -393,13 +393,13 @@ export class PodSecurityPolicySpecAllowedHostPathsList extends cdktf.ComplexList
 export interface PodSecurityPolicySpecFsGroupRange {
   /**
   * max is the end of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#max PodSecurityPolicy#max}
   */
   readonly max: number;
   /**
   * min is the start of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#min PodSecurityPolicy#min}
   */
   readonly min: number;
@@ -467,7 +467,7 @@ export class PodSecurityPolicySpecFsGroupRangeOutputReference extends cdktf.Comp
   }
 
   // max - computed: false, optional: false, required: true
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -480,7 +480,7 @@ export class PodSecurityPolicySpecFsGroupRangeOutputReference extends cdktf.Comp
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -515,13 +515,13 @@ export class PodSecurityPolicySpecFsGroupRangeList extends cdktf.ComplexList {
 export interface PodSecurityPolicySpecFsGroup {
   /**
   * rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#rule PodSecurityPolicy#rule}
   */
   readonly rule: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#range PodSecurityPolicy#range}
   */
   readonly range?: PodSecurityPolicySpecFsGroupRange[] | cdktf.IResolvable;
@@ -577,7 +577,7 @@ export class PodSecurityPolicySpecFsGroupOutputReference extends cdktf.ComplexOb
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -608,13 +608,13 @@ export class PodSecurityPolicySpecFsGroupOutputReference extends cdktf.ComplexOb
 export interface PodSecurityPolicySpecHostPorts {
   /**
   * max is the end of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#max PodSecurityPolicy#max}
   */
   readonly max: number;
   /**
   * min is the start of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#min PodSecurityPolicy#min}
   */
   readonly min: number;
@@ -682,7 +682,7 @@ export class PodSecurityPolicySpecHostPortsOutputReference extends cdktf.Complex
   }
 
   // max - computed: false, optional: false, required: true
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -695,7 +695,7 @@ export class PodSecurityPolicySpecHostPortsOutputReference extends cdktf.Complex
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -730,13 +730,13 @@ export class PodSecurityPolicySpecHostPortsList extends cdktf.ComplexList {
 export interface PodSecurityPolicySpecRunAsGroupRange {
   /**
   * max is the end of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#max PodSecurityPolicy#max}
   */
   readonly max: number;
   /**
   * min is the start of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#min PodSecurityPolicy#min}
   */
   readonly min: number;
@@ -804,7 +804,7 @@ export class PodSecurityPolicySpecRunAsGroupRangeOutputReference extends cdktf.C
   }
 
   // max - computed: false, optional: false, required: true
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -817,7 +817,7 @@ export class PodSecurityPolicySpecRunAsGroupRangeOutputReference extends cdktf.C
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -852,13 +852,13 @@ export class PodSecurityPolicySpecRunAsGroupRangeList extends cdktf.ComplexList 
 export interface PodSecurityPolicySpecRunAsGroup {
   /**
   * rule is the strategy that will dictate the allowable RunAsGroup values that may be set.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#rule PodSecurityPolicy#rule}
   */
   readonly rule: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#range PodSecurityPolicy#range}
   */
   readonly range?: PodSecurityPolicySpecRunAsGroupRange[] | cdktf.IResolvable;
@@ -914,7 +914,7 @@ export class PodSecurityPolicySpecRunAsGroupOutputReference extends cdktf.Comple
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -945,13 +945,13 @@ export class PodSecurityPolicySpecRunAsGroupOutputReference extends cdktf.Comple
 export interface PodSecurityPolicySpecRunAsUserRange {
   /**
   * max is the end of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#max PodSecurityPolicy#max}
   */
   readonly max: number;
   /**
   * min is the start of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#min PodSecurityPolicy#min}
   */
   readonly min: number;
@@ -1019,7 +1019,7 @@ export class PodSecurityPolicySpecRunAsUserRangeOutputReference extends cdktf.Co
   }
 
   // max - computed: false, optional: false, required: true
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1032,7 +1032,7 @@ export class PodSecurityPolicySpecRunAsUserRangeOutputReference extends cdktf.Co
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1067,13 +1067,13 @@ export class PodSecurityPolicySpecRunAsUserRangeList extends cdktf.ComplexList {
 export interface PodSecurityPolicySpecRunAsUser {
   /**
   * rule is the strategy that will dictate the allowable RunAsUser values that may be set.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#rule PodSecurityPolicy#rule}
   */
   readonly rule: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#range PodSecurityPolicy#range}
   */
   readonly range?: PodSecurityPolicySpecRunAsUserRange[] | cdktf.IResolvable;
@@ -1129,7 +1129,7 @@ export class PodSecurityPolicySpecRunAsUserOutputReference extends cdktf.Complex
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -1252,7 +1252,7 @@ export class PodSecurityPolicySpecSeLinuxSeLinuxOptionsOutputReference extends c
   }
 
   // level - computed: false, optional: false, required: true
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -1265,7 +1265,7 @@ export class PodSecurityPolicySpecSeLinuxSeLinuxOptionsOutputReference extends c
   }
 
   // role - computed: false, optional: false, required: true
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -1278,7 +1278,7 @@ export class PodSecurityPolicySpecSeLinuxSeLinuxOptionsOutputReference extends c
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1291,7 +1291,7 @@ export class PodSecurityPolicySpecSeLinuxSeLinuxOptionsOutputReference extends c
   }
 
   // user - computed: false, optional: false, required: true
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -1326,13 +1326,13 @@ export class PodSecurityPolicySpecSeLinuxSeLinuxOptionsList extends cdktf.Comple
 export interface PodSecurityPolicySpecSeLinux {
   /**
   * rule is the strategy that will dictate the allowable labels that may be set.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#rule PodSecurityPolicy#rule}
   */
   readonly rule: string;
   /**
   * se_linux_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#se_linux_options PodSecurityPolicy#se_linux_options}
   */
   readonly seLinuxOptions?: PodSecurityPolicySpecSeLinuxSeLinuxOptions[] | cdktf.IResolvable;
@@ -1388,7 +1388,7 @@ export class PodSecurityPolicySpecSeLinuxOutputReference extends cdktf.ComplexOb
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -1419,13 +1419,13 @@ export class PodSecurityPolicySpecSeLinuxOutputReference extends cdktf.ComplexOb
 export interface PodSecurityPolicySpecSupplementalGroupsRange {
   /**
   * max is the end of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#max PodSecurityPolicy#max}
   */
   readonly max: number;
   /**
   * min is the start of the range, inclusive.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#min PodSecurityPolicy#min}
   */
   readonly min: number;
@@ -1493,7 +1493,7 @@ export class PodSecurityPolicySpecSupplementalGroupsRangeOutputReference extends
   }
 
   // max - computed: false, optional: false, required: true
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1506,7 +1506,7 @@ export class PodSecurityPolicySpecSupplementalGroupsRangeOutputReference extends
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1541,13 +1541,13 @@ export class PodSecurityPolicySpecSupplementalGroupsRangeList extends cdktf.Comp
 export interface PodSecurityPolicySpecSupplementalGroups {
   /**
   * rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#rule PodSecurityPolicy#rule}
   */
   readonly rule: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#range PodSecurityPolicy#range}
   */
   readonly range?: PodSecurityPolicySpecSupplementalGroupsRange[] | cdktf.IResolvable;
@@ -1603,7 +1603,7 @@ export class PodSecurityPolicySpecSupplementalGroupsOutputReference extends cdkt
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -1634,19 +1634,19 @@ export class PodSecurityPolicySpecSupplementalGroupsOutputReference extends cdkt
 export interface PodSecurityPolicySpec {
   /**
   * allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#allow_privilege_escalation PodSecurityPolicy#allow_privilege_escalation}
   */
   readonly allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   /**
   * allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#allowed_capabilities PodSecurityPolicy#allowed_capabilities}
   */
   readonly allowedCapabilities?: string[];
   /**
   * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes. Empty or nil indicates that only the DefaultProcMountType may be used. This requires the ProcMountType feature flag to be enabled.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#allowed_proc_mount_types PodSecurityPolicy#allowed_proc_mount_types}
   */
   readonly allowedProcMountTypes?: string[];
@@ -1654,19 +1654,19 @@ export interface PodSecurityPolicySpec {
   * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed. Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
 
 Examples: e.g. "foo/*" allows "foo/bar", "foo/baz", etc. e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#allowed_unsafe_sysctls PodSecurityPolicy#allowed_unsafe_sysctls}
   */
   readonly allowedUnsafeSysctls?: string[];
   /**
   * defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#default_add_capabilities PodSecurityPolicy#default_add_capabilities}
   */
   readonly defaultAddCapabilities?: string[];
   /**
   * defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#default_allow_privilege_escalation PodSecurityPolicy#default_allow_privilege_escalation}
   */
   readonly defaultAllowPrivilegeEscalation?: boolean | cdktf.IResolvable;
@@ -1674,97 +1674,97 @@ Examples: e.g. "foo/*" allows "foo/bar", "foo/baz", etc. e.g. "foo.*" allows "fo
   * forbiddenSysctls is a list of explicitly forbidden sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of forbidden sysctls. Single * means all sysctls are forbidden.
 
 Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "foo.bar", "foo.baz", etc.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#forbidden_sysctls PodSecurityPolicy#forbidden_sysctls}
   */
   readonly forbiddenSysctls?: string[];
   /**
   * hostIPC determines if the policy allows the use of HostIPC in the pod spec.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#host_ipc PodSecurityPolicy#host_ipc}
   */
   readonly hostIpc?: boolean | cdktf.IResolvable;
   /**
   * hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#host_network PodSecurityPolicy#host_network}
   */
   readonly hostNetwork?: boolean | cdktf.IResolvable;
   /**
   * hostPID determines if the policy allows the use of HostPID in the pod spec.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#host_pid PodSecurityPolicy#host_pid}
   */
   readonly hostPid?: boolean | cdktf.IResolvable;
   /**
   * privileged determines if a pod can request to be run as privileged.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#privileged PodSecurityPolicy#privileged}
   */
   readonly privileged?: boolean | cdktf.IResolvable;
   /**
   * readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#read_only_root_filesystem PodSecurityPolicy#read_only_root_filesystem}
   */
   readonly readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   /**
   * requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#required_drop_capabilities PodSecurityPolicy#required_drop_capabilities}
   */
   readonly requiredDropCapabilities?: string[];
   /**
   * volumes is an allowlist of volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#volumes PodSecurityPolicy#volumes}
   */
   readonly volumes?: string[];
   /**
   * allowed_flex_volumes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#allowed_flex_volumes PodSecurityPolicy#allowed_flex_volumes}
   */
   readonly allowedFlexVolumes?: PodSecurityPolicySpecAllowedFlexVolumes[] | cdktf.IResolvable;
   /**
   * allowed_host_paths block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#allowed_host_paths PodSecurityPolicy#allowed_host_paths}
   */
   readonly allowedHostPaths?: PodSecurityPolicySpecAllowedHostPaths[] | cdktf.IResolvable;
   /**
   * fs_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#fs_group PodSecurityPolicy#fs_group}
   */
   readonly fsGroup: PodSecurityPolicySpecFsGroup;
   /**
   * host_ports block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#host_ports PodSecurityPolicy#host_ports}
   */
   readonly hostPorts?: PodSecurityPolicySpecHostPorts[] | cdktf.IResolvable;
   /**
   * run_as_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#run_as_group PodSecurityPolicy#run_as_group}
   */
   readonly runAsGroup?: PodSecurityPolicySpecRunAsGroup;
   /**
   * run_as_user block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#run_as_user PodSecurityPolicy#run_as_user}
   */
   readonly runAsUser: PodSecurityPolicySpecRunAsUser;
   /**
   * se_linux block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#se_linux PodSecurityPolicy#se_linux}
   */
   readonly seLinux?: PodSecurityPolicySpecSeLinux;
   /**
   * supplemental_groups block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy#supplemental_groups PodSecurityPolicy#supplemental_groups}
   */
   readonly supplementalGroups: PodSecurityPolicySpecSupplementalGroups;
@@ -1960,7 +1960,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_privilege_escalation - computed: true, optional: true, required: false
-  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable; 
+  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   public get allowPrivilegeEscalation() {
     return this.getBooleanAttribute('allow_privilege_escalation');
   }
@@ -1976,7 +1976,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_capabilities - computed: true, optional: true, required: false
-  private _allowedCapabilities?: string[]; 
+  private _allowedCapabilities?: string[];
   public get allowedCapabilities() {
     return this.getListAttribute('allowed_capabilities');
   }
@@ -1992,7 +1992,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_proc_mount_types - computed: false, optional: true, required: false
-  private _allowedProcMountTypes?: string[]; 
+  private _allowedProcMountTypes?: string[];
   public get allowedProcMountTypes() {
     return this.getListAttribute('allowed_proc_mount_types');
   }
@@ -2008,7 +2008,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_unsafe_sysctls - computed: false, optional: true, required: false
-  private _allowedUnsafeSysctls?: string[]; 
+  private _allowedUnsafeSysctls?: string[];
   public get allowedUnsafeSysctls() {
     return this.getListAttribute('allowed_unsafe_sysctls');
   }
@@ -2024,7 +2024,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // default_add_capabilities - computed: false, optional: true, required: false
-  private _defaultAddCapabilities?: string[]; 
+  private _defaultAddCapabilities?: string[];
   public get defaultAddCapabilities() {
     return this.getListAttribute('default_add_capabilities');
   }
@@ -2040,7 +2040,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // default_allow_privilege_escalation - computed: true, optional: true, required: false
-  private _defaultAllowPrivilegeEscalation?: boolean | cdktf.IResolvable; 
+  private _defaultAllowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   public get defaultAllowPrivilegeEscalation() {
     return this.getBooleanAttribute('default_allow_privilege_escalation');
   }
@@ -2056,7 +2056,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // forbidden_sysctls - computed: false, optional: true, required: false
-  private _forbiddenSysctls?: string[]; 
+  private _forbiddenSysctls?: string[];
   public get forbiddenSysctls() {
     return this.getListAttribute('forbidden_sysctls');
   }
@@ -2072,7 +2072,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // host_ipc - computed: true, optional: true, required: false
-  private _hostIpc?: boolean | cdktf.IResolvable; 
+  private _hostIpc?: boolean | cdktf.IResolvable;
   public get hostIpc() {
     return this.getBooleanAttribute('host_ipc');
   }
@@ -2088,7 +2088,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // host_network - computed: true, optional: true, required: false
-  private _hostNetwork?: boolean | cdktf.IResolvable; 
+  private _hostNetwork?: boolean | cdktf.IResolvable;
   public get hostNetwork() {
     return this.getBooleanAttribute('host_network');
   }
@@ -2104,7 +2104,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // host_pid - computed: true, optional: true, required: false
-  private _hostPid?: boolean | cdktf.IResolvable; 
+  private _hostPid?: boolean | cdktf.IResolvable;
   public get hostPid() {
     return this.getBooleanAttribute('host_pid');
   }
@@ -2120,7 +2120,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // privileged - computed: true, optional: true, required: false
-  private _privileged?: boolean | cdktf.IResolvable; 
+  private _privileged?: boolean | cdktf.IResolvable;
   public get privileged() {
     return this.getBooleanAttribute('privileged');
   }
@@ -2136,7 +2136,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // read_only_root_filesystem - computed: true, optional: true, required: false
-  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable; 
+  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   public get readOnlyRootFilesystem() {
     return this.getBooleanAttribute('read_only_root_filesystem');
   }
@@ -2152,7 +2152,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // required_drop_capabilities - computed: true, optional: true, required: false
-  private _requiredDropCapabilities?: string[]; 
+  private _requiredDropCapabilities?: string[];
   public get requiredDropCapabilities() {
     return this.getListAttribute('required_drop_capabilities');
   }
@@ -2168,7 +2168,7 @@ export class PodSecurityPolicySpecOutputReference extends cdktf.ComplexObject {
   }
 
   // volumes - computed: true, optional: true, required: false
-  private _volumes?: string[]; 
+  private _volumes?: string[];
   public get volumes() {
     return this.getListAttribute('volumes');
   }
@@ -2350,7 +2350,7 @@ export class PodSecurityPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

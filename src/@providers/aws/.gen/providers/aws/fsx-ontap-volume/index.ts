@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_ontap_volume
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,13 +52,13 @@ export interface FsxOntapVolumeConfig extends cdktf.TerraformMetaArguments {
   readonly volumeType?: string;
   /**
   * tiering_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_volume#tiering_policy FsxOntapVolume#tiering_policy}
   */
   readonly tieringPolicy?: FsxOntapVolumeTieringPolicy;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_volume#timeouts FsxOntapVolume#timeouts}
   */
   readonly timeouts?: FsxOntapVolumeTimeouts;
@@ -124,7 +124,7 @@ export class FsxOntapVolumeTieringPolicyOutputReference extends cdktf.ComplexObj
   }
 
   // cooling_period - computed: false, optional: true, required: false
-  private _coolingPeriod?: number; 
+  private _coolingPeriod?: number;
   public get coolingPeriod() {
     return this.getNumberAttribute('cooling_period');
   }
@@ -140,7 +140,7 @@ export class FsxOntapVolumeTieringPolicyOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -237,7 +237,7 @@ export class FsxOntapVolumeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -253,7 +253,7 @@ export class FsxOntapVolumeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -269,7 +269,7 @@ export class FsxOntapVolumeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -356,7 +356,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -372,7 +372,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // junction_path - computed: false, optional: false, required: true
-  private _junctionPath?: string; 
+  private _junctionPath?: string;
   public get junctionPath() {
     return this.getStringAttribute('junction_path');
   }
@@ -385,7 +385,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -403,7 +403,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // security_style - computed: false, optional: true, required: false
-  private _securityStyle?: string; 
+  private _securityStyle?: string;
   public get securityStyle() {
     return this.getStringAttribute('security_style');
   }
@@ -419,7 +419,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // size_in_megabytes - computed: false, optional: false, required: true
-  private _sizeInMegabytes?: number; 
+  private _sizeInMegabytes?: number;
   public get sizeInMegabytes() {
     return this.getNumberAttribute('size_in_megabytes');
   }
@@ -432,7 +432,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // storage_efficiency_enabled - computed: false, optional: false, required: true
-  private _storageEfficiencyEnabled?: boolean | cdktf.IResolvable; 
+  private _storageEfficiencyEnabled?: boolean | cdktf.IResolvable;
   public get storageEfficiencyEnabled() {
     return this.getBooleanAttribute('storage_efficiency_enabled');
   }
@@ -445,7 +445,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // storage_virtual_machine_id - computed: false, optional: false, required: true
-  private _storageVirtualMachineId?: string; 
+  private _storageVirtualMachineId?: string;
   public get storageVirtualMachineId() {
     return this.getStringAttribute('storage_virtual_machine_id');
   }
@@ -458,7 +458,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -474,7 +474,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -495,7 +495,7 @@ export class FsxOntapVolume extends cdktf.TerraformResource {
   }
 
   // volume_type - computed: false, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }

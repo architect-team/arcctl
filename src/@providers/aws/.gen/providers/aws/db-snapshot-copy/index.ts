@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,7 +56,7 @@ export interface DbSnapshotCopyConfig extends cdktf.TerraformMetaArguments {
   readonly targetDbSnapshotIdentifier: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#timeouts DbSnapshotCopy#timeouts}
   */
   readonly timeouts?: DbSnapshotCopyTimeouts;
@@ -121,7 +121,7 @@ export class DbSnapshotCopyTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -203,7 +203,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // copy_tags - computed: false, optional: true, required: false
-  private _copyTags?: boolean | cdktf.IResolvable; 
+  private _copyTags?: boolean | cdktf.IResolvable;
   public get copyTags() {
     return this.getBooleanAttribute('copy_tags');
   }
@@ -224,7 +224,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // destination_region - computed: false, optional: true, required: false
-  private _destinationRegion?: string; 
+  private _destinationRegion?: string;
   public get destinationRegion() {
     return this.getStringAttribute('destination_region');
   }
@@ -255,7 +255,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -276,7 +276,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -297,7 +297,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // option_group_name - computed: true, optional: true, required: false
-  private _optionGroupName?: string; 
+  private _optionGroupName?: string;
   public get optionGroupName() {
     return this.getStringAttribute('option_group_name');
   }
@@ -318,7 +318,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // presigned_url - computed: false, optional: true, required: false
-  private _presignedUrl?: string; 
+  private _presignedUrl?: string;
   public get presignedUrl() {
     return this.getStringAttribute('presigned_url');
   }
@@ -339,7 +339,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // source_db_snapshot_identifier - computed: false, optional: false, required: true
-  private _sourceDbSnapshotIdentifier?: string; 
+  private _sourceDbSnapshotIdentifier?: string;
   public get sourceDbSnapshotIdentifier() {
     return this.getStringAttribute('source_db_snapshot_identifier');
   }
@@ -362,7 +362,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -378,7 +378,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -394,7 +394,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // target_custom_availability_zone - computed: false, optional: true, required: false
-  private _targetCustomAvailabilityZone?: string; 
+  private _targetCustomAvailabilityZone?: string;
   public get targetCustomAvailabilityZone() {
     return this.getStringAttribute('target_custom_availability_zone');
   }
@@ -410,7 +410,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // target_db_snapshot_identifier - computed: false, optional: false, required: true
-  private _targetDbSnapshotIdentifier?: string; 
+  private _targetDbSnapshotIdentifier?: string;
   public get targetDbSnapshotIdentifier() {
     return this.getStringAttribute('target_db_snapshot_identifier');
   }

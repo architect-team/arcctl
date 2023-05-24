@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface CodedeployDeploymentConfigConfig extends cdktf.TerraformMetaArg
   readonly id?: string;
   /**
   * minimum_healthy_hosts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_config#minimum_healthy_hosts CodedeployDeploymentConfig#minimum_healthy_hosts}
   */
   readonly minimumHealthyHosts?: CodedeployDeploymentConfigMinimumHealthyHosts;
   /**
   * traffic_routing_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_config#traffic_routing_config CodedeployDeploymentConfig#traffic_routing_config}
   */
   readonly trafficRoutingConfig?: CodedeployDeploymentConfigTrafficRoutingConfig;
@@ -96,7 +96,7 @@ export class CodedeployDeploymentConfigMinimumHealthyHostsOutputReference extend
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -112,7 +112,7 @@ export class CodedeployDeploymentConfigMinimumHealthyHostsOutputReference extend
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -188,7 +188,7 @@ export class CodedeployDeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput
   }
 
   // interval - computed: false, optional: true, required: false
-  private _interval?: number; 
+  private _interval?: number;
   public get interval() {
     return this.getNumberAttribute('interval');
   }
@@ -204,7 +204,7 @@ export class CodedeployDeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput
   }
 
   // percentage - computed: false, optional: true, required: false
-  private _percentage?: number; 
+  private _percentage?: number;
   public get percentage() {
     return this.getNumberAttribute('percentage');
   }
@@ -280,7 +280,7 @@ export class CodedeployDeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput
   }
 
   // interval - computed: false, optional: true, required: false
-  private _interval?: number; 
+  private _interval?: number;
   public get interval() {
     return this.getNumberAttribute('interval');
   }
@@ -296,7 +296,7 @@ export class CodedeployDeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput
   }
 
   // percentage - computed: false, optional: true, required: false
-  private _percentage?: number; 
+  private _percentage?: number;
   public get percentage() {
     return this.getNumberAttribute('percentage');
   }
@@ -318,13 +318,13 @@ export interface CodedeployDeploymentConfigTrafficRoutingConfig {
   readonly type?: string;
   /**
   * time_based_canary block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_config#time_based_canary CodedeployDeploymentConfig#time_based_canary}
   */
   readonly timeBasedCanary?: CodedeployDeploymentConfigTrafficRoutingConfigTimeBasedCanary;
   /**
   * time_based_linear block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_config#time_based_linear CodedeployDeploymentConfig#time_based_linear}
   */
   readonly timeBasedLinear?: CodedeployDeploymentConfigTrafficRoutingConfigTimeBasedLinear;
@@ -387,7 +387,7 @@ export class CodedeployDeploymentConfigTrafficRoutingConfigOutputReference exten
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -484,7 +484,7 @@ export class CodedeployDeploymentConfig extends cdktf.TerraformResource {
   // ==========
 
   // compute_platform - computed: false, optional: true, required: false
-  private _computePlatform?: string; 
+  private _computePlatform?: string;
   public get computePlatform() {
     return this.getStringAttribute('compute_platform');
   }
@@ -505,7 +505,7 @@ export class CodedeployDeploymentConfig extends cdktf.TerraformResource {
   }
 
   // deployment_config_name - computed: false, optional: false, required: true
-  private _deploymentConfigName?: string; 
+  private _deploymentConfigName?: string;
   public get deploymentConfigName() {
     return this.getStringAttribute('deployment_config_name');
   }
@@ -518,7 +518,7 @@ export class CodedeployDeploymentConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

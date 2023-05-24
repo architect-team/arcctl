@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,19 +36,19 @@ export interface S3BucketInventoryConfig extends cdktf.TerraformMetaArguments {
   readonly optionalFields?: string[];
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#destination S3BucketInventory#destination}
   */
   readonly destination: S3BucketInventoryDestination;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#filter S3BucketInventory#filter}
   */
   readonly filter?: S3BucketInventoryFilter;
   /**
   * schedule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#schedule S3BucketInventory#schedule}
   */
   readonly schedule: S3BucketInventorySchedule;
@@ -103,7 +103,7 @@ export class S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference e
   }
 
   // key_id - computed: false, optional: false, required: true
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -156,13 +156,13 @@ export class S3BucketInventoryDestinationBucketEncryptionSseS3OutputReference ex
 export interface S3BucketInventoryDestinationBucketEncryption {
   /**
   * sse_kms block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#sse_kms S3BucketInventory#sse_kms}
   */
   readonly sseKms?: S3BucketInventoryDestinationBucketEncryptionSseKms;
   /**
   * sse_s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#sse_s3 S3BucketInventory#sse_s3}
   */
   readonly sseS3?: S3BucketInventoryDestinationBucketEncryptionSseS3;
@@ -268,7 +268,7 @@ export interface S3BucketInventoryDestinationBucket {
   readonly prefix?: string;
   /**
   * encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#encryption S3BucketInventory#encryption}
   */
   readonly encryption?: S3BucketInventoryDestinationBucketEncryption;
@@ -345,7 +345,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // account_id - computed: false, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -361,7 +361,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -374,7 +374,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string; 
+  private _format?: string;
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -387,7 +387,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -421,7 +421,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
 export interface S3BucketInventoryDestination {
   /**
   * bucket block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#bucket S3BucketInventory#bucket}
   */
   readonly bucket: S3BucketInventoryDestinationBucket;
@@ -532,7 +532,7 @@ export class S3BucketInventoryFilterOutputReference extends cdktf.ComplexObject 
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -597,7 +597,7 @@ export class S3BucketInventoryScheduleOutputReference extends cdktf.ComplexObjec
   }
 
   // frequency - computed: false, optional: false, required: true
-  private _frequency?: string; 
+  private _frequency?: string;
   public get frequency() {
     return this.getStringAttribute('frequency');
   }
@@ -663,7 +663,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -676,7 +676,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -692,7 +692,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -708,7 +708,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // included_object_versions - computed: false, optional: false, required: true
-  private _includedObjectVersions?: string; 
+  private _includedObjectVersions?: string;
   public get includedObjectVersions() {
     return this.getStringAttribute('included_object_versions');
   }
@@ -721,7 +721,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -734,7 +734,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // optional_fields - computed: false, optional: true, required: false
-  private _optionalFields?: string[]; 
+  private _optionalFields?: string[];
   public get optionalFields() {
     return cdktf.Fn.tolist(this.getListAttribute('optional_fields'));
   }

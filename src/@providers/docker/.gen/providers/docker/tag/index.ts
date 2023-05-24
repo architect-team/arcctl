@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/tag
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface TagConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Name of the source image.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/tag#source_image Tag#source_image}
   */
   readonly sourceImage: string;
   /**
   * Name of the target image.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/tag#target_image Tag#target_image}
   */
   readonly targetImage: string;
@@ -75,7 +75,7 @@ export class Tag extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -91,7 +91,7 @@ export class Tag extends cdktf.TerraformResource {
   }
 
   // source_image - computed: false, optional: false, required: true
-  private _sourceImage?: string; 
+  private _sourceImage?: string;
   public get sourceImage() {
     return this.getStringAttribute('source_image');
   }
@@ -109,7 +109,7 @@ export class Tag extends cdktf.TerraformResource {
   }
 
   // target_image - computed: false, optional: false, required: true
-  private _targetImage?: string; 
+  private _targetImage?: string;
   public get targetImage() {
     return this.getStringAttribute('target_image');
   }

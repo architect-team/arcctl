@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface AppmeshVirtualNodeConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#spec AppmeshVirtualNode#spec}
   */
   readonly spec: AppmeshVirtualNodeSpec;
@@ -102,7 +102,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertifica
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -115,7 +115,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertifica
   }
 
   // private_key - computed: false, optional: false, required: true
-  private _privateKey?: string; 
+  private _privateKey?: string;
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -177,7 +177,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertifica
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -192,13 +192,13 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertifica
 export interface AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#file AppmeshVirtualNode#file}
   */
   readonly file?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#sds AppmeshVirtualNode#sds}
   */
   readonly sds?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds;
@@ -335,7 +335,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidatio
   }
 
   // exact - computed: false, optional: false, required: true
-  private _exact?: string[]; 
+  private _exact?: string[];
   public get exact() {
     return cdktf.Fn.tolist(this.getListAttribute('exact'));
   }
@@ -350,7 +350,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidatio
 export interface AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#match AppmeshVirtualNode#match}
   */
   readonly match: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch;
@@ -461,7 +461,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidatio
   }
 
   // certificate_authority_arns - computed: false, optional: false, required: true
-  private _certificateAuthorityArns?: string[]; 
+  private _certificateAuthorityArns?: string[];
   public get certificateAuthorityArns() {
     return cdktf.Fn.tolist(this.getListAttribute('certificate_authority_arns'));
   }
@@ -523,7 +523,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidatio
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -585,7 +585,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidatio
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -600,19 +600,19 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidatio
 export interface AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
   /**
   * acm block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#acm AppmeshVirtualNode#acm}
   */
   readonly acm?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm;
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#file AppmeshVirtualNode#file}
   */
   readonly file?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#sds AppmeshVirtualNode#sds}
   */
   readonly sds?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds;
@@ -725,13 +725,13 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidatio
 export interface AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
   /**
   * subject_alternative_names block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#subject_alternative_names AppmeshVirtualNode#subject_alternative_names}
   */
   readonly subjectAlternativeNames?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames;
   /**
   * trust block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#trust AppmeshVirtualNode#trust}
   */
   readonly trust: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust;
@@ -826,13 +826,13 @@ export interface AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTls {
   readonly ports?: number[];
   /**
   * certificate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#certificate AppmeshVirtualNode#certificate}
   */
   readonly certificate?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate;
   /**
   * validation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#validation AppmeshVirtualNode#validation}
   */
   readonly validation: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation;
@@ -902,7 +902,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutputRef
   }
 
   // enforce - computed: false, optional: true, required: false
-  private _enforce?: boolean | cdktf.IResolvable; 
+  private _enforce?: boolean | cdktf.IResolvable;
   public get enforce() {
     return this.getBooleanAttribute('enforce');
   }
@@ -918,7 +918,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutputRef
   }
 
   // ports - computed: false, optional: true, required: false
-  private _ports?: number[]; 
+  private _ports?: number[];
   public get ports() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('ports')));
   }
@@ -965,7 +965,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutputRef
 export interface AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicy {
   /**
   * tls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#tls AppmeshVirtualNode#tls}
   */
   readonly tls?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicyTls;
@@ -1036,7 +1036,7 @@ export interface AppmeshVirtualNodeSpecBackendVirtualService {
   readonly virtualServiceName: string;
   /**
   * client_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#client_policy AppmeshVirtualNode#client_policy}
   */
   readonly clientPolicy?: AppmeshVirtualNodeSpecBackendVirtualServiceClientPolicy;
@@ -1092,7 +1092,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceOutputReference extends 
   }
 
   // virtual_service_name - computed: false, optional: false, required: true
-  private _virtualServiceName?: string; 
+  private _virtualServiceName?: string;
   public get virtualServiceName() {
     return this.getStringAttribute('virtual_service_name');
   }
@@ -1123,7 +1123,7 @@ export class AppmeshVirtualNodeSpecBackendVirtualServiceOutputReference extends 
 export interface AppmeshVirtualNodeSpecBackend {
   /**
   * virtual_service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#virtual_service AppmeshVirtualNode#virtual_service}
   */
   readonly virtualService: AppmeshVirtualNodeSpecBackendVirtualService;
@@ -1277,7 +1277,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -1290,7 +1290,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile
   }
 
   // private_key - computed: false, optional: false, required: true
-  private _privateKey?: string; 
+  private _privateKey?: string;
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -1352,7 +1352,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsO
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -1367,13 +1367,13 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsO
 export interface AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#file AppmeshVirtualNode#file}
   */
   readonly file?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#sds AppmeshVirtualNode#sds}
   */
   readonly sds?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds;
@@ -1510,7 +1510,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubje
   }
 
   // exact - computed: false, optional: false, required: true
-  private _exact?: string[]; 
+  private _exact?: string[];
   public get exact() {
     return cdktf.Fn.tolist(this.getListAttribute('exact'));
   }
@@ -1525,7 +1525,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubje
 export interface AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#match AppmeshVirtualNode#match}
   */
   readonly match: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch;
@@ -1636,7 +1636,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust
   }
 
   // certificate_authority_arns - computed: false, optional: false, required: true
-  private _certificateAuthorityArns?: string[]; 
+  private _certificateAuthorityArns?: string[];
   public get certificateAuthorityArns() {
     return cdktf.Fn.tolist(this.getListAttribute('certificate_authority_arns'));
   }
@@ -1698,7 +1698,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -1760,7 +1760,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -1775,19 +1775,19 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust
 export interface AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
   /**
   * acm block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#acm AppmeshVirtualNode#acm}
   */
   readonly acm?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#file AppmeshVirtualNode#file}
   */
   readonly file?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#sds AppmeshVirtualNode#sds}
   */
   readonly sds?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds;
@@ -1900,13 +1900,13 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust
 export interface AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
   /**
   * subject_alternative_names block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#subject_alternative_names AppmeshVirtualNode#subject_alternative_names}
   */
   readonly subjectAlternativeNames?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames;
   /**
   * trust block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#trust AppmeshVirtualNode#trust}
   */
   readonly trust: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust;
@@ -2001,13 +2001,13 @@ export interface AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTls {
   readonly ports?: number[];
   /**
   * certificate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#certificate AppmeshVirtualNode#certificate}
   */
   readonly certificate?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate;
   /**
   * validation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#validation AppmeshVirtualNode#validation}
   */
   readonly validation: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsValidation;
@@ -2077,7 +2077,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsOutputReference
   }
 
   // enforce - computed: false, optional: true, required: false
-  private _enforce?: boolean | cdktf.IResolvable; 
+  private _enforce?: boolean | cdktf.IResolvable;
   public get enforce() {
     return this.getBooleanAttribute('enforce');
   }
@@ -2093,7 +2093,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsOutputReference
   }
 
   // ports - computed: false, optional: true, required: false
-  private _ports?: number[]; 
+  private _ports?: number[];
   public get ports() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('ports')));
   }
@@ -2140,7 +2140,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTlsOutputReference
 export interface AppmeshVirtualNodeSpecBackendDefaultsClientPolicy {
   /**
   * tls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#tls AppmeshVirtualNode#tls}
   */
   readonly tls?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicyTls;
@@ -2207,7 +2207,7 @@ export class AppmeshVirtualNodeSpecBackendDefaultsClientPolicyOutputReference ex
 export interface AppmeshVirtualNodeSpecBackendDefaults {
   /**
   * client_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#client_policy AppmeshVirtualNode#client_policy}
   */
   readonly clientPolicy?: AppmeshVirtualNodeSpecBackendDefaultsClientPolicy;
@@ -2321,7 +2321,7 @@ export class AppmeshVirtualNodeSpecListenerConnectionPoolGrpcOutputReference ext
   }
 
   // max_requests - computed: false, optional: false, required: true
-  private _maxRequests?: number; 
+  private _maxRequests?: number;
   public get maxRequests() {
     return this.getNumberAttribute('max_requests');
   }
@@ -2406,7 +2406,7 @@ export class AppmeshVirtualNodeSpecListenerConnectionPoolHttpOutputReference ext
   }
 
   // max_connections - computed: false, optional: false, required: true
-  private _maxConnections?: number; 
+  private _maxConnections?: number;
   public get maxConnections() {
     return this.getNumberAttribute('max_connections');
   }
@@ -2419,7 +2419,7 @@ export class AppmeshVirtualNodeSpecListenerConnectionPoolHttpOutputReference ext
   }
 
   // max_pending_requests - computed: false, optional: true, required: false
-  private _maxPendingRequests?: number; 
+  private _maxPendingRequests?: number;
   public get maxPendingRequests() {
     return this.getNumberAttribute('max_pending_requests');
   }
@@ -2516,7 +2516,7 @@ export class AppmeshVirtualNodeSpecListenerConnectionPoolHttp2OutputReference ex
   }
 
   // max_requests - computed: false, optional: false, required: true
-  private _maxRequests?: number; 
+  private _maxRequests?: number;
   public get maxRequests() {
     return this.getNumberAttribute('max_requests');
   }
@@ -2610,7 +2610,7 @@ export class AppmeshVirtualNodeSpecListenerConnectionPoolTcpOutputReference exte
   }
 
   // max_connections - computed: false, optional: false, required: true
-  private _maxConnections?: number; 
+  private _maxConnections?: number;
   public get maxConnections() {
     return this.getNumberAttribute('max_connections');
   }
@@ -2645,25 +2645,25 @@ export class AppmeshVirtualNodeSpecListenerConnectionPoolTcpList extends cdktf.C
 export interface AppmeshVirtualNodeSpecListenerConnectionPool {
   /**
   * grpc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#grpc AppmeshVirtualNode#grpc}
   */
   readonly grpc?: AppmeshVirtualNodeSpecListenerConnectionPoolGrpc;
   /**
   * http block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#http AppmeshVirtualNode#http}
   */
   readonly http?: AppmeshVirtualNodeSpecListenerConnectionPoolHttp[] | cdktf.IResolvable;
   /**
   * http2 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#http2 AppmeshVirtualNode#http2}
   */
   readonly http2?: AppmeshVirtualNodeSpecListenerConnectionPoolHttp2[] | cdktf.IResolvable;
   /**
   * tcp block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#tcp AppmeshVirtualNode#tcp}
   */
   readonly tcp?: AppmeshVirtualNodeSpecListenerConnectionPoolTcp[] | cdktf.IResolvable;
@@ -2912,7 +2912,7 @@ export class AppmeshVirtualNodeSpecListenerHealthCheckOutputReference extends cd
   }
 
   // healthy_threshold - computed: false, optional: false, required: true
-  private _healthyThreshold?: number; 
+  private _healthyThreshold?: number;
   public get healthyThreshold() {
     return this.getNumberAttribute('healthy_threshold');
   }
@@ -2925,7 +2925,7 @@ export class AppmeshVirtualNodeSpecListenerHealthCheckOutputReference extends cd
   }
 
   // interval_millis - computed: false, optional: false, required: true
-  private _intervalMillis?: number; 
+  private _intervalMillis?: number;
   public get intervalMillis() {
     return this.getNumberAttribute('interval_millis');
   }
@@ -2938,7 +2938,7 @@ export class AppmeshVirtualNodeSpecListenerHealthCheckOutputReference extends cd
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -2954,7 +2954,7 @@ export class AppmeshVirtualNodeSpecListenerHealthCheckOutputReference extends cd
   }
 
   // port - computed: true, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2970,7 +2970,7 @@ export class AppmeshVirtualNodeSpecListenerHealthCheckOutputReference extends cd
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -2983,7 +2983,7 @@ export class AppmeshVirtualNodeSpecListenerHealthCheckOutputReference extends cd
   }
 
   // timeout_millis - computed: false, optional: false, required: true
-  private _timeoutMillis?: number; 
+  private _timeoutMillis?: number;
   public get timeoutMillis() {
     return this.getNumberAttribute('timeout_millis');
   }
@@ -2996,7 +2996,7 @@ export class AppmeshVirtualNodeSpecListenerHealthCheckOutputReference extends cd
   }
 
   // unhealthy_threshold - computed: false, optional: false, required: true
-  private _unhealthyThreshold?: number; 
+  private _unhealthyThreshold?: number;
   public get unhealthyThreshold() {
     return this.getNumberAttribute('unhealthy_threshold');
   }
@@ -3069,7 +3069,7 @@ export class AppmeshVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationO
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3082,7 +3082,7 @@ export class AppmeshVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationO
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3155,7 +3155,7 @@ export class AppmeshVirtualNodeSpecListenerOutlierDetectionIntervalOutputReferen
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3168,7 +3168,7 @@ export class AppmeshVirtualNodeSpecListenerOutlierDetectionIntervalOutputReferen
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3191,13 +3191,13 @@ export interface AppmeshVirtualNodeSpecListenerOutlierDetection {
   readonly maxServerErrors: number;
   /**
   * base_ejection_duration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#base_ejection_duration AppmeshVirtualNode#base_ejection_duration}
   */
   readonly baseEjectionDuration: AppmeshVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration;
   /**
   * interval block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#interval AppmeshVirtualNode#interval}
   */
   readonly interval: AppmeshVirtualNodeSpecListenerOutlierDetectionInterval;
@@ -3267,7 +3267,7 @@ export class AppmeshVirtualNodeSpecListenerOutlierDetectionOutputReference exten
   }
 
   // max_ejection_percent - computed: false, optional: false, required: true
-  private _maxEjectionPercent?: number; 
+  private _maxEjectionPercent?: number;
   public get maxEjectionPercent() {
     return this.getNumberAttribute('max_ejection_percent');
   }
@@ -3280,7 +3280,7 @@ export class AppmeshVirtualNodeSpecListenerOutlierDetectionOutputReference exten
   }
 
   // max_server_errors - computed: false, optional: false, required: true
-  private _maxServerErrors?: number; 
+  private _maxServerErrors?: number;
   public get maxServerErrors() {
     return this.getNumberAttribute('max_server_errors');
   }
@@ -3379,7 +3379,7 @@ export class AppmeshVirtualNodeSpecListenerPortMappingOutputReference extends cd
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -3392,7 +3392,7 @@ export class AppmeshVirtualNodeSpecListenerPortMappingOutputReference extends cd
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -3465,7 +3465,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutGrpcIdleOutputReference extend
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3478,7 +3478,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutGrpcIdleOutputReference extend
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3551,7 +3551,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutGrpcPerRequestOutputReference 
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3564,7 +3564,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutGrpcPerRequestOutputReference 
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3579,13 +3579,13 @@ export class AppmeshVirtualNodeSpecListenerTimeoutGrpcPerRequestOutputReference 
 export interface AppmeshVirtualNodeSpecListenerTimeoutGrpc {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#idle AppmeshVirtualNode#idle}
   */
   readonly idle?: AppmeshVirtualNodeSpecListenerTimeoutGrpcIdle;
   /**
   * per_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#per_request AppmeshVirtualNode#per_request}
   */
   readonly perRequest?: AppmeshVirtualNodeSpecListenerTimeoutGrpcPerRequest;
@@ -3733,7 +3733,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttpIdleOutputReference extend
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3746,7 +3746,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttpIdleOutputReference extend
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3819,7 +3819,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttpPerRequestOutputReference 
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3832,7 +3832,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttpPerRequestOutputReference 
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3847,13 +3847,13 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttpPerRequestOutputReference 
 export interface AppmeshVirtualNodeSpecListenerTimeoutHttp {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#idle AppmeshVirtualNode#idle}
   */
   readonly idle?: AppmeshVirtualNodeSpecListenerTimeoutHttpIdle;
   /**
   * per_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#per_request AppmeshVirtualNode#per_request}
   */
   readonly perRequest?: AppmeshVirtualNodeSpecListenerTimeoutHttpPerRequest;
@@ -4001,7 +4001,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttp2IdleOutputReference exten
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -4014,7 +4014,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttp2IdleOutputReference exten
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -4087,7 +4087,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttp2PerRequestOutputReference
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -4100,7 +4100,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttp2PerRequestOutputReference
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -4115,13 +4115,13 @@ export class AppmeshVirtualNodeSpecListenerTimeoutHttp2PerRequestOutputReference
 export interface AppmeshVirtualNodeSpecListenerTimeoutHttp2 {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#idle AppmeshVirtualNode#idle}
   */
   readonly idle?: AppmeshVirtualNodeSpecListenerTimeoutHttp2Idle;
   /**
   * per_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#per_request AppmeshVirtualNode#per_request}
   */
   readonly perRequest?: AppmeshVirtualNodeSpecListenerTimeoutHttp2PerRequest;
@@ -4269,7 +4269,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutTcpIdleOutputReference extends
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -4282,7 +4282,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutTcpIdleOutputReference extends
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -4297,7 +4297,7 @@ export class AppmeshVirtualNodeSpecListenerTimeoutTcpIdleOutputReference extends
 export interface AppmeshVirtualNodeSpecListenerTimeoutTcp {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#idle AppmeshVirtualNode#idle}
   */
   readonly idle?: AppmeshVirtualNodeSpecListenerTimeoutTcpIdle;
@@ -4364,25 +4364,25 @@ export class AppmeshVirtualNodeSpecListenerTimeoutTcpOutputReference extends cdk
 export interface AppmeshVirtualNodeSpecListenerTimeout {
   /**
   * grpc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#grpc AppmeshVirtualNode#grpc}
   */
   readonly grpc?: AppmeshVirtualNodeSpecListenerTimeoutGrpc;
   /**
   * http block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#http AppmeshVirtualNode#http}
   */
   readonly http?: AppmeshVirtualNodeSpecListenerTimeoutHttp;
   /**
   * http2 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#http2 AppmeshVirtualNode#http2}
   */
   readonly http2?: AppmeshVirtualNodeSpecListenerTimeoutHttp2;
   /**
   * tcp block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#tcp AppmeshVirtualNode#tcp}
   */
   readonly tcp?: AppmeshVirtualNodeSpecListenerTimeoutTcp;
@@ -4565,7 +4565,7 @@ export class AppmeshVirtualNodeSpecListenerTlsCertificateAcmOutputReference exte
   }
 
   // certificate_arn - computed: false, optional: false, required: true
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -4638,7 +4638,7 @@ export class AppmeshVirtualNodeSpecListenerTlsCertificateFileOutputReference ext
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -4651,7 +4651,7 @@ export class AppmeshVirtualNodeSpecListenerTlsCertificateFileOutputReference ext
   }
 
   // private_key - computed: false, optional: false, required: true
-  private _privateKey?: string; 
+  private _privateKey?: string;
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -4713,7 +4713,7 @@ export class AppmeshVirtualNodeSpecListenerTlsCertificateSdsOutputReference exte
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -4728,19 +4728,19 @@ export class AppmeshVirtualNodeSpecListenerTlsCertificateSdsOutputReference exte
 export interface AppmeshVirtualNodeSpecListenerTlsCertificate {
   /**
   * acm block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#acm AppmeshVirtualNode#acm}
   */
   readonly acm?: AppmeshVirtualNodeSpecListenerTlsCertificateAcm;
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#file AppmeshVirtualNode#file}
   */
   readonly file?: AppmeshVirtualNodeSpecListenerTlsCertificateFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#sds AppmeshVirtualNode#sds}
   */
   readonly sds?: AppmeshVirtualNodeSpecListenerTlsCertificateSds;
@@ -4900,7 +4900,7 @@ export class AppmeshVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesM
   }
 
   // exact - computed: false, optional: false, required: true
-  private _exact?: string[]; 
+  private _exact?: string[];
   public get exact() {
     return cdktf.Fn.tolist(this.getListAttribute('exact'));
   }
@@ -4915,7 +4915,7 @@ export class AppmeshVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesM
 export interface AppmeshVirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#match AppmeshVirtualNode#match}
   */
   readonly match: AppmeshVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch;
@@ -5026,7 +5026,7 @@ export class AppmeshVirtualNodeSpecListenerTlsValidationTrustFileOutputReference
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -5088,7 +5088,7 @@ export class AppmeshVirtualNodeSpecListenerTlsValidationTrustSdsOutputReference 
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -5103,13 +5103,13 @@ export class AppmeshVirtualNodeSpecListenerTlsValidationTrustSdsOutputReference 
 export interface AppmeshVirtualNodeSpecListenerTlsValidationTrust {
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#file AppmeshVirtualNode#file}
   */
   readonly file?: AppmeshVirtualNodeSpecListenerTlsValidationTrustFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#sds AppmeshVirtualNode#sds}
   */
   readonly sds?: AppmeshVirtualNodeSpecListenerTlsValidationTrustSds;
@@ -5199,13 +5199,13 @@ export class AppmeshVirtualNodeSpecListenerTlsValidationTrustOutputReference ext
 export interface AppmeshVirtualNodeSpecListenerTlsValidation {
   /**
   * subject_alternative_names block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#subject_alternative_names AppmeshVirtualNode#subject_alternative_names}
   */
   readonly subjectAlternativeNames?: AppmeshVirtualNodeSpecListenerTlsValidationSubjectAlternativeNames;
   /**
   * trust block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#trust AppmeshVirtualNode#trust}
   */
   readonly trust: AppmeshVirtualNodeSpecListenerTlsValidationTrust;
@@ -5296,13 +5296,13 @@ export interface AppmeshVirtualNodeSpecListenerTls {
   readonly mode: string;
   /**
   * certificate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#certificate AppmeshVirtualNode#certificate}
   */
   readonly certificate: AppmeshVirtualNodeSpecListenerTlsCertificate;
   /**
   * validation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#validation AppmeshVirtualNode#validation}
   */
   readonly validation?: AppmeshVirtualNodeSpecListenerTlsValidation;
@@ -5365,7 +5365,7 @@ export class AppmeshVirtualNodeSpecListenerTlsOutputReference extends cdktf.Comp
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -5409,37 +5409,37 @@ export class AppmeshVirtualNodeSpecListenerTlsOutputReference extends cdktf.Comp
 export interface AppmeshVirtualNodeSpecListener {
   /**
   * connection_pool block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#connection_pool AppmeshVirtualNode#connection_pool}
   */
   readonly connectionPool?: AppmeshVirtualNodeSpecListenerConnectionPool;
   /**
   * health_check block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#health_check AppmeshVirtualNode#health_check}
   */
   readonly healthCheck?: AppmeshVirtualNodeSpecListenerHealthCheck;
   /**
   * outlier_detection block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#outlier_detection AppmeshVirtualNode#outlier_detection}
   */
   readonly outlierDetection?: AppmeshVirtualNodeSpecListenerOutlierDetection;
   /**
   * port_mapping block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#port_mapping AppmeshVirtualNode#port_mapping}
   */
   readonly portMapping: AppmeshVirtualNodeSpecListenerPortMapping;
   /**
   * timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#timeout AppmeshVirtualNode#timeout}
   */
   readonly timeout?: AppmeshVirtualNodeSpecListenerTimeout;
   /**
   * tls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#tls AppmeshVirtualNode#tls}
   */
   readonly tls?: AppmeshVirtualNodeSpecListenerTls;
@@ -5720,7 +5720,7 @@ export class AppmeshVirtualNodeSpecLoggingAccessLogFileFormatJsonOutputReference
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -5733,7 +5733,7 @@ export class AppmeshVirtualNodeSpecLoggingAccessLogFileFormatJsonOutputReference
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -5772,7 +5772,7 @@ export interface AppmeshVirtualNodeSpecLoggingAccessLogFileFormat {
   readonly text?: string;
   /**
   * json block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#json AppmeshVirtualNode#json}
   */
   readonly json?: AppmeshVirtualNodeSpecLoggingAccessLogFileFormatJson[] | cdktf.IResolvable;
@@ -5828,7 +5828,7 @@ export class AppmeshVirtualNodeSpecLoggingAccessLogFileFormatOutputReference ext
   }
 
   // text - computed: false, optional: true, required: false
-  private _text?: string; 
+  private _text?: string;
   public get text() {
     return this.getStringAttribute('text');
   }
@@ -5866,7 +5866,7 @@ export interface AppmeshVirtualNodeSpecLoggingAccessLogFile {
   readonly path: string;
   /**
   * format block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#format AppmeshVirtualNode#format}
   */
   readonly format?: AppmeshVirtualNodeSpecLoggingAccessLogFileFormat;
@@ -5922,7 +5922,7 @@ export class AppmeshVirtualNodeSpecLoggingAccessLogFileOutputReference extends c
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -5953,7 +5953,7 @@ export class AppmeshVirtualNodeSpecLoggingAccessLogFileOutputReference extends c
 export interface AppmeshVirtualNodeSpecLoggingAccessLog {
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#file AppmeshVirtualNode#file}
   */
   readonly file?: AppmeshVirtualNodeSpecLoggingAccessLogFile;
@@ -6020,7 +6020,7 @@ export class AppmeshVirtualNodeSpecLoggingAccessLogOutputReference extends cdktf
 export interface AppmeshVirtualNodeSpecLogging {
   /**
   * access_log block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#access_log AppmeshVirtualNode#access_log}
   */
   readonly accessLog?: AppmeshVirtualNodeSpecLoggingAccessLog;
@@ -6156,7 +6156,7 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryAwsCloudMapOutputReference ex
   }
 
   // attributes - computed: false, optional: true, required: false
-  private _attributes?: { [key: string]: string }; 
+  private _attributes?: { [key: string]: string };
   public get attributes() {
     return this.getStringMapAttribute('attributes');
   }
@@ -6172,7 +6172,7 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryAwsCloudMapOutputReference ex
   }
 
   // namespace_name - computed: false, optional: false, required: true
-  private _namespaceName?: string; 
+  private _namespaceName?: string;
   public get namespaceName() {
     return this.getStringAttribute('namespace_name');
   }
@@ -6185,7 +6185,7 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryAwsCloudMapOutputReference ex
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -6269,7 +6269,7 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryDnsOutputReference extends cd
   }
 
   // hostname - computed: false, optional: false, required: true
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -6282,7 +6282,7 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryDnsOutputReference extends cd
   }
 
   // ip_preference - computed: false, optional: true, required: false
-  private _ipPreference?: string; 
+  private _ipPreference?: string;
   public get ipPreference() {
     return this.getStringAttribute('ip_preference');
   }
@@ -6298,7 +6298,7 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryDnsOutputReference extends cd
   }
 
   // response_type - computed: false, optional: true, required: false
-  private _responseType?: string; 
+  private _responseType?: string;
   public get responseType() {
     return this.getStringAttribute('response_type');
   }
@@ -6316,13 +6316,13 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryDnsOutputReference extends cd
 export interface AppmeshVirtualNodeSpecServiceDiscovery {
   /**
   * aws_cloud_map block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#aws_cloud_map AppmeshVirtualNode#aws_cloud_map}
   */
   readonly awsCloudMap?: AppmeshVirtualNodeSpecServiceDiscoveryAwsCloudMap;
   /**
   * dns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#dns AppmeshVirtualNode#dns}
   */
   readonly dns?: AppmeshVirtualNodeSpecServiceDiscoveryDns;
@@ -6412,31 +6412,31 @@ export class AppmeshVirtualNodeSpecServiceDiscoveryOutputReference extends cdktf
 export interface AppmeshVirtualNodeSpec {
   /**
   * backend block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#backend AppmeshVirtualNode#backend}
   */
   readonly backend?: AppmeshVirtualNodeSpecBackend[] | cdktf.IResolvable;
   /**
   * backend_defaults block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#backend_defaults AppmeshVirtualNode#backend_defaults}
   */
   readonly backendDefaults?: AppmeshVirtualNodeSpecBackendDefaults;
   /**
   * listener block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#listener AppmeshVirtualNode#listener}
   */
   readonly listener?: AppmeshVirtualNodeSpecListener[] | cdktf.IResolvable;
   /**
   * logging block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#logging AppmeshVirtualNode#logging}
   */
   readonly logging?: AppmeshVirtualNodeSpecLogging;
   /**
   * service_discovery block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_node#service_discovery AppmeshVirtualNode#service_discovery}
   */
   readonly serviceDiscovery?: AppmeshVirtualNodeSpecServiceDiscovery;
@@ -6654,7 +6654,7 @@ export class AppmeshVirtualNode extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -6675,7 +6675,7 @@ export class AppmeshVirtualNode extends cdktf.TerraformResource {
   }
 
   // mesh_name - computed: false, optional: false, required: true
-  private _meshName?: string; 
+  private _meshName?: string;
   public get meshName() {
     return this.getStringAttribute('mesh_name');
   }
@@ -6688,7 +6688,7 @@ export class AppmeshVirtualNode extends cdktf.TerraformResource {
   }
 
   // mesh_owner - computed: true, optional: true, required: false
-  private _meshOwner?: string; 
+  private _meshOwner?: string;
   public get meshOwner() {
     return this.getStringAttribute('mesh_owner');
   }
@@ -6704,7 +6704,7 @@ export class AppmeshVirtualNode extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -6722,7 +6722,7 @@ export class AppmeshVirtualNode extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -6738,7 +6738,7 @@ export class AppmeshVirtualNode extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_route_table_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class VpcEndpointRouteTableAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class VpcEndpointRouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string; 
+  private _routeTableId?: string;
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -100,7 +100,7 @@ export class VpcEndpointRouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_id - computed: false, optional: false, required: true
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/autoscaling_groups
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DataAwsAutoscalingGroupsConfig extends cdktf.TerraformMetaArgum
   readonly names?: string[];
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/autoscaling_groups#filter DataAwsAutoscalingGroups#filter}
   */
   readonly filter?: DataAwsAutoscalingGroupsFilter[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class DataAwsAutoscalingGroupsFilterOutputReference extends cdktf.Complex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -111,7 +111,7 @@ export class DataAwsAutoscalingGroupsFilterOutputReference extends cdktf.Complex
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -196,7 +196,7 @@ export class DataAwsAutoscalingGroups extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -212,7 +212,7 @@ export class DataAwsAutoscalingGroups extends cdktf.TerraformDataSource {
   }
 
   // names - computed: true, optional: true, required: false
-  private _names?: string[]; 
+  private _names?: string[];
   public get names() {
     return this.getListAttribute('names');
   }

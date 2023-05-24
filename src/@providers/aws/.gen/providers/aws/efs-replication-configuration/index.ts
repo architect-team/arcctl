@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface EfsReplicationConfigurationConfig extends cdktf.TerraformMetaAr
   readonly sourceFileSystemId: string;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#destination EfsReplicationConfiguration#destination}
   */
   readonly destination: EfsReplicationConfigurationDestination;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#timeouts EfsReplicationConfiguration#timeouts}
   */
   readonly timeouts?: EfsReplicationConfigurationTimeouts;
@@ -103,7 +103,7 @@ export class EfsReplicationConfigurationDestinationOutputReference extends cdktf
   }
 
   // availability_zone_name - computed: false, optional: true, required: false
-  private _availabilityZoneName?: string; 
+  private _availabilityZoneName?: string;
   public get availabilityZoneName() {
     return this.getStringAttribute('availability_zone_name');
   }
@@ -124,7 +124,7 @@ export class EfsReplicationConfigurationDestinationOutputReference extends cdktf
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -140,7 +140,7 @@ export class EfsReplicationConfigurationDestinationOutputReference extends cdktf
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -231,7 +231,7 @@ export class EfsReplicationConfigurationTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -247,7 +247,7 @@ export class EfsReplicationConfigurationTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -316,7 +316,7 @@ export class EfsReplicationConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -342,7 +342,7 @@ export class EfsReplicationConfiguration extends cdktf.TerraformResource {
   }
 
   // source_file_system_id - computed: false, optional: false, required: true
-  private _sourceFileSystemId?: string; 
+  private _sourceFileSystemId?: string;
   public get sourceFileSystemId() {
     return this.getStringAttribute('source_file_system_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ecs_task_execution
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -64,31 +64,31 @@ export interface DataAwsEcsTaskExecutionConfig extends cdktf.TerraformMetaArgume
   readonly taskDefinition: string;
   /**
   * capacity_provider_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#capacity_provider_strategy DataAwsEcsTaskExecution#capacity_provider_strategy}
   */
   readonly capacityProviderStrategy?: DataAwsEcsTaskExecutionCapacityProviderStrategy[] | cdktf.IResolvable;
   /**
   * network_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#network_configuration DataAwsEcsTaskExecution#network_configuration}
   */
   readonly networkConfiguration?: DataAwsEcsTaskExecutionNetworkConfiguration;
   /**
   * overrides block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#overrides DataAwsEcsTaskExecution#overrides}
   */
   readonly overrides?: DataAwsEcsTaskExecutionOverrides;
   /**
   * placement_constraints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#placement_constraints DataAwsEcsTaskExecution#placement_constraints}
   */
   readonly placementConstraints?: DataAwsEcsTaskExecutionPlacementConstraints[] | cdktf.IResolvable;
   /**
   * placement_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#placement_strategy DataAwsEcsTaskExecution#placement_strategy}
   */
   readonly placementStrategy?: DataAwsEcsTaskExecutionPlacementStrategy[] | cdktf.IResolvable;
@@ -177,7 +177,7 @@ export class DataAwsEcsTaskExecutionCapacityProviderStrategyOutputReference exte
   }
 
   // base - computed: false, optional: true, required: false
-  private _base?: number; 
+  private _base?: number;
   public get base() {
     return this.getNumberAttribute('base');
   }
@@ -193,7 +193,7 @@ export class DataAwsEcsTaskExecutionCapacityProviderStrategyOutputReference exte
   }
 
   // capacity_provider - computed: false, optional: false, required: true
-  private _capacityProvider?: string; 
+  private _capacityProvider?: string;
   public get capacityProvider() {
     return this.getStringAttribute('capacity_provider');
   }
@@ -206,7 +206,7 @@ export class DataAwsEcsTaskExecutionCapacityProviderStrategyOutputReference exte
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -313,7 +313,7 @@ export class DataAwsEcsTaskExecutionNetworkConfigurationOutputReference extends 
   }
 
   // assign_public_ip - computed: false, optional: true, required: false
-  private _assignPublicIp?: boolean | cdktf.IResolvable; 
+  private _assignPublicIp?: boolean | cdktf.IResolvable;
   public get assignPublicIp() {
     return this.getBooleanAttribute('assign_public_ip');
   }
@@ -329,7 +329,7 @@ export class DataAwsEcsTaskExecutionNetworkConfigurationOutputReference extends 
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -345,7 +345,7 @@ export class DataAwsEcsTaskExecutionNetworkConfigurationOutputReference extends 
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -430,7 +430,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesEnvironmentOutput
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -443,7 +443,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesEnvironmentOutput
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -548,7 +548,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesResourceRequireme
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -561,7 +561,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesResourceRequireme
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -616,13 +616,13 @@ export interface DataAwsEcsTaskExecutionOverridesContainerOverrides {
   readonly name: string;
   /**
   * environment block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#environment DataAwsEcsTaskExecution#environment}
   */
   readonly environment?: DataAwsEcsTaskExecutionOverridesContainerOverridesEnvironment[] | cdktf.IResolvable;
   /**
   * resource_requirements block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#resource_requirements DataAwsEcsTaskExecution#resource_requirements}
   */
   readonly resourceRequirements?: DataAwsEcsTaskExecutionOverridesContainerOverridesResourceRequirements[] | cdktf.IResolvable;
@@ -725,7 +725,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesOutputReference e
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -741,7 +741,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesOutputReference e
   }
 
   // cpu - computed: false, optional: true, required: false
-  private _cpu?: number; 
+  private _cpu?: number;
   public get cpu() {
     return this.getNumberAttribute('cpu');
   }
@@ -757,7 +757,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesOutputReference e
   }
 
   // memory - computed: false, optional: true, required: false
-  private _memory?: number; 
+  private _memory?: number;
   public get memory() {
     return this.getNumberAttribute('memory');
   }
@@ -773,7 +773,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesOutputReference e
   }
 
   // memory_reservation - computed: false, optional: true, required: false
-  private _memoryReservation?: number; 
+  private _memoryReservation?: number;
   public get memoryReservation() {
     return this.getNumberAttribute('memory_reservation');
   }
@@ -789,7 +789,7 @@ export class DataAwsEcsTaskExecutionOverridesContainerOverridesOutputReference e
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -926,7 +926,7 @@ export class DataAwsEcsTaskExecutionOverridesInferenceAcceleratorOverridesOutput
   }
 
   // device_name - computed: false, optional: true, required: false
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -942,7 +942,7 @@ export class DataAwsEcsTaskExecutionOverridesInferenceAcceleratorOverridesOutput
   }
 
   // device_type - computed: false, optional: true, required: false
-  private _deviceType?: string; 
+  private _deviceType?: string;
   public get deviceType() {
     return this.getStringAttribute('device_type');
   }
@@ -996,13 +996,13 @@ export interface DataAwsEcsTaskExecutionOverrides {
   readonly taskRoleArn?: string;
   /**
   * container_overrides block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#container_overrides DataAwsEcsTaskExecution#container_overrides}
   */
   readonly containerOverrides?: DataAwsEcsTaskExecutionOverridesContainerOverrides[] | cdktf.IResolvable;
   /**
   * inference_accelerator_overrides block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_task_execution#inference_accelerator_overrides DataAwsEcsTaskExecution#inference_accelerator_overrides}
   */
   readonly inferenceAcceleratorOverrides?: DataAwsEcsTaskExecutionOverridesInferenceAcceleratorOverrides[] | cdktf.IResolvable;
@@ -1086,7 +1086,7 @@ export class DataAwsEcsTaskExecutionOverridesOutputReference extends cdktf.Compl
   }
 
   // cpu - computed: false, optional: true, required: false
-  private _cpu?: string; 
+  private _cpu?: string;
   public get cpu() {
     return this.getStringAttribute('cpu');
   }
@@ -1102,7 +1102,7 @@ export class DataAwsEcsTaskExecutionOverridesOutputReference extends cdktf.Compl
   }
 
   // execution_role_arn - computed: false, optional: true, required: false
-  private _executionRoleArn?: string; 
+  private _executionRoleArn?: string;
   public get executionRoleArn() {
     return this.getStringAttribute('execution_role_arn');
   }
@@ -1118,7 +1118,7 @@ export class DataAwsEcsTaskExecutionOverridesOutputReference extends cdktf.Compl
   }
 
   // memory - computed: false, optional: true, required: false
-  private _memory?: string; 
+  private _memory?: string;
   public get memory() {
     return this.getStringAttribute('memory');
   }
@@ -1134,7 +1134,7 @@ export class DataAwsEcsTaskExecutionOverridesOutputReference extends cdktf.Compl
   }
 
   // task_role_arn - computed: false, optional: true, required: false
-  private _taskRoleArn?: string; 
+  private _taskRoleArn?: string;
   public get taskRoleArn() {
     return this.getStringAttribute('task_role_arn');
   }
@@ -1254,7 +1254,7 @@ export class DataAwsEcsTaskExecutionPlacementConstraintsOutputReference extends 
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -1270,7 +1270,7 @@ export class DataAwsEcsTaskExecutionPlacementConstraintsOutputReference extends 
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1375,7 +1375,7 @@ export class DataAwsEcsTaskExecutionPlacementStrategyOutputReference extends cdk
   }
 
   // field - computed: false, optional: true, required: false
-  private _field?: string; 
+  private _field?: string;
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -1391,7 +1391,7 @@ export class DataAwsEcsTaskExecutionPlacementStrategyOutputReference extends cdk
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1486,7 +1486,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   // ==========
 
   // cluster - computed: false, optional: false, required: true
-  private _cluster?: string; 
+  private _cluster?: string;
   public get cluster() {
     return this.getStringAttribute('cluster');
   }
@@ -1499,7 +1499,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // desired_count - computed: false, optional: true, required: false
-  private _desiredCount?: number; 
+  private _desiredCount?: number;
   public get desiredCount() {
     return this.getNumberAttribute('desired_count');
   }
@@ -1515,7 +1515,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // enable_ecs_managed_tags - computed: false, optional: true, required: false
-  private _enableEcsManagedTags?: boolean | cdktf.IResolvable; 
+  private _enableEcsManagedTags?: boolean | cdktf.IResolvable;
   public get enableEcsManagedTags() {
     return this.getBooleanAttribute('enable_ecs_managed_tags');
   }
@@ -1531,7 +1531,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // enable_execute_command - computed: false, optional: true, required: false
-  private _enableExecuteCommand?: boolean | cdktf.IResolvable; 
+  private _enableExecuteCommand?: boolean | cdktf.IResolvable;
   public get enableExecuteCommand() {
     return this.getBooleanAttribute('enable_execute_command');
   }
@@ -1547,7 +1547,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -1563,7 +1563,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1579,7 +1579,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // launch_type - computed: false, optional: true, required: false
-  private _launchType?: string; 
+  private _launchType?: string;
   public get launchType() {
     return this.getStringAttribute('launch_type');
   }
@@ -1595,7 +1595,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // platform_version - computed: false, optional: true, required: false
-  private _platformVersion?: string; 
+  private _platformVersion?: string;
   public get platformVersion() {
     return this.getStringAttribute('platform_version');
   }
@@ -1611,7 +1611,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // propagate_tags - computed: false, optional: true, required: false
-  private _propagateTags?: string; 
+  private _propagateTags?: string;
   public get propagateTags() {
     return this.getStringAttribute('propagate_tags');
   }
@@ -1627,7 +1627,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // reference_id - computed: false, optional: true, required: false
-  private _referenceId?: string; 
+  private _referenceId?: string;
   public get referenceId() {
     return this.getStringAttribute('reference_id');
   }
@@ -1643,7 +1643,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // started_by - computed: false, optional: true, required: false
-  private _startedBy?: string; 
+  private _startedBy?: string;
   public get startedBy() {
     return this.getStringAttribute('started_by');
   }
@@ -1659,7 +1659,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1680,7 +1680,7 @@ export class DataAwsEcsTaskExecution extends cdktf.TerraformDataSource {
   }
 
   // task_definition - computed: false, optional: false, required: true
-  private _taskDefinition?: string; 
+  private _taskDefinition?: string;
   public get taskDefinition() {
     return this.getStringAttribute('task_definition');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/servicecatalog_product
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface DataAwsServicecatalogProductConfig extends cdktf.TerraformMetaA
   readonly tags?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_product#timeouts DataAwsServicecatalogProduct#timeouts}
   */
   readonly timeouts?: DataAwsServicecatalogProductTimeouts;
@@ -89,7 +89,7 @@ export class DataAwsServicecatalogProductTimeoutsOutputReference extends cdktf.C
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -153,7 +153,7 @@ export class DataAwsServicecatalogProduct extends cdktf.TerraformDataSource {
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string; 
+  private _acceptLanguage?: string;
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -194,7 +194,7 @@ export class DataAwsServicecatalogProduct extends cdktf.TerraformDataSource {
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -237,7 +237,7 @@ export class DataAwsServicecatalogProduct extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

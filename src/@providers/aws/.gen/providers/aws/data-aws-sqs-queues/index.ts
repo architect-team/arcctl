@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/sqs_queues
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -66,7 +66,7 @@ export class DataAwsSqsQueues extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -82,7 +82,7 @@ export class DataAwsSqsQueues extends cdktf.TerraformDataSource {
   }
 
   // queue_name_prefix - computed: false, optional: true, required: false
-  private _queueNamePrefix?: string; 
+  private _queueNamePrefix?: string;
   public get queueNamePrefix() {
     return this.getStringAttribute('queue_name_prefix');
   }

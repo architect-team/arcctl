@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/time
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface TimeProviderConfig {
   /**
   * Alias name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time#alias TimeProvider#alias}
   */
   readonly alias?: string;
@@ -54,7 +54,7 @@ export class TimeProvider extends cdktf.TerraformProvider {
   // ==========
 
   // alias - computed: false, optional: true, required: false
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this._alias;
   }

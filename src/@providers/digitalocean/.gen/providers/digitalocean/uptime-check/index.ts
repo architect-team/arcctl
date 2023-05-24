@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/uptime_check
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,31 +9,31 @@ import * as cdktf from 'cdktf';
 export interface UptimeCheckConfig extends cdktf.TerraformMetaArguments {
   /**
   * A boolean value indicating whether the check is enabled/disabled.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#enabled UptimeCheck#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * A human-friendly display name for the check.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#name UptimeCheck#name}
   */
   readonly name: string;
   /**
   * An array containing the selected regions to perform healthchecks from.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#regions UptimeCheck#regions}
   */
   readonly regions?: string[];
   /**
   * The endpoint to perform healthchecks on.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#target UptimeCheck#target}
   */
   readonly target: string;
   /**
   * The type of health check to perform. Enum: 'ping' 'http' 'https'
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#type UptimeCheck#type}
   */
   readonly type?: string;
@@ -88,7 +88,7 @@ export class UptimeCheck extends cdktf.TerraformResource {
   // ==========
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -109,7 +109,7 @@ export class UptimeCheck extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -122,7 +122,7 @@ export class UptimeCheck extends cdktf.TerraformResource {
   }
 
   // regions - computed: false, optional: true, required: false
-  private _regions?: string[]; 
+  private _regions?: string[];
   public get regions() {
     return cdktf.Fn.tolist(this.getListAttribute('regions'));
   }
@@ -138,7 +138,7 @@ export class UptimeCheck extends cdktf.TerraformResource {
   }
 
   // target - computed: false, optional: false, required: true
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -151,7 +151,7 @@ export class UptimeCheck extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

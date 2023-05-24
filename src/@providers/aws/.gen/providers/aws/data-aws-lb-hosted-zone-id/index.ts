@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsLbHostedZoneId extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DataAwsLbHostedZoneId extends cdktf.TerraformDataSource {
   }
 
   // load_balancer_type - computed: false, optional: true, required: false
-  private _loadBalancerType?: string; 
+  private _loadBalancerType?: string;
   public get loadBalancerType() {
     return this.getStringAttribute('load_balancer_type');
   }
@@ -103,7 +103,7 @@ export class DataAwsLbHostedZoneId extends cdktf.TerraformDataSource {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

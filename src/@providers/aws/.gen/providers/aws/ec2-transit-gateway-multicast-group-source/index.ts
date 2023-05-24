@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_source
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Ec2TransitGatewayMulticastGroupSource extends cdktf.TerraformResour
   // ==========
 
   // group_ip_address - computed: false, optional: false, required: true
-  private _groupIpAddress?: string; 
+  private _groupIpAddress?: string;
   public get groupIpAddress() {
     return this.getStringAttribute('group_ip_address');
   }
@@ -89,7 +89,7 @@ export class Ec2TransitGatewayMulticastGroupSource extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class Ec2TransitGatewayMulticastGroupSource extends cdktf.TerraformResour
   }
 
   // network_interface_id - computed: false, optional: false, required: true
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -118,7 +118,7 @@ export class Ec2TransitGatewayMulticastGroupSource extends cdktf.TerraformResour
   }
 
   // transit_gateway_multicast_domain_id - computed: false, optional: false, required: true
-  private _transitGatewayMulticastDomainId?: string; 
+  private _transitGatewayMulticastDomainId?: string;
   public get transitGatewayMulticastDomainId() {
     return this.getStringAttribute('transit_gateway_multicast_domain_id');
   }

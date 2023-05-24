@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentConfig extends 
   readonly version?: string;
   /**
   * statement block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#statement DataAwsCloudwatchLogDataProtectionPolicyDocument#statement}
   */
   readonly statement: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatement[] | cdktf.IResolvable;
@@ -83,7 +83,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationA
   }
 
   // log_group - computed: false, optional: false, required: true
-  private _logGroup?: string; 
+  private _logGroup?: string;
   public get logGroup() {
     return this.getStringAttribute('log_group');
   }
@@ -145,7 +145,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationA
   }
 
   // delivery_stream - computed: false, optional: false, required: true
-  private _deliveryStream?: string; 
+  private _deliveryStream?: string;
   public get deliveryStream() {
     return this.getStringAttribute('delivery_stream');
   }
@@ -207,7 +207,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationA
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -222,19 +222,19 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationA
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
   /**
   * cloudwatch_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#cloudwatch_logs DataAwsCloudwatchLogDataProtectionPolicyDocument#cloudwatch_logs}
   */
   readonly cloudwatchLogs?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs;
   /**
   * firehose block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#firehose DataAwsCloudwatchLogDataProtectionPolicyDocument#firehose}
   */
   readonly firehose?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#s3 DataAwsCloudwatchLogDataProtectionPolicyDocument#s3}
   */
   readonly s3?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3;
@@ -347,7 +347,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationA
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAudit {
   /**
   * findings_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#findings_destination DataAwsCloudwatchLogDataProtectionPolicyDocument#findings_destination}
   */
   readonly findingsDestination: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination;
@@ -449,7 +449,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationD
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationDeidentify {
   /**
   * mask_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#mask_config DataAwsCloudwatchLogDataProtectionPolicyDocument#mask_config}
   */
   readonly maskConfig: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig;
@@ -513,13 +513,13 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationD
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperation {
   /**
   * audit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#audit DataAwsCloudwatchLogDataProtectionPolicyDocument#audit}
   */
   readonly audit?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAudit;
   /**
   * deidentify block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#deidentify DataAwsCloudwatchLogDataProtectionPolicyDocument#deidentify}
   */
   readonly deidentify?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationDeidentify;
@@ -617,7 +617,7 @@ export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatement {
   readonly sid?: string;
   /**
   * operation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudwatch_log_data_protection_policy_document#operation DataAwsCloudwatchLogDataProtectionPolicyDocument#operation}
   */
   readonly operation: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperation;
@@ -692,7 +692,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOutputRefe
   }
 
   // data_identifiers - computed: false, optional: false, required: true
-  private _dataIdentifiers?: string[]; 
+  private _dataIdentifiers?: string[];
   public get dataIdentifiers() {
     return cdktf.Fn.tolist(this.getListAttribute('data_identifiers'));
   }
@@ -705,7 +705,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOutputRefe
   }
 
   // sid - computed: false, optional: true, required: false
-  private _sid?: string; 
+  private _sid?: string;
   public get sid() {
     return this.getStringAttribute('sid');
   }
@@ -803,7 +803,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocument extends cdktf.Terr
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -819,7 +819,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocument extends cdktf.Terr
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -840,7 +840,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocument extends cdktf.Terr
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -853,7 +853,7 @@ export class DataAwsCloudwatchLogDataProtectionPolicyDocument extends cdktf.Terr
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

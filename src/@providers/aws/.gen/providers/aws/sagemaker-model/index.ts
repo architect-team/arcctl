@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_model
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,25 +36,25 @@ export interface SagemakerModelConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * container block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#container SagemakerModel#container}
   */
   readonly container?: SagemakerModelContainer[] | cdktf.IResolvable;
   /**
   * inference_execution_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#inference_execution_config SagemakerModel#inference_execution_config}
   */
   readonly inferenceExecutionConfig?: SagemakerModelInferenceExecutionConfig;
   /**
   * primary_container block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#primary_container SagemakerModel#primary_container}
   */
   readonly primaryContainer?: SagemakerModelPrimaryContainer;
   /**
   * vpc_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#vpc_config SagemakerModel#vpc_config}
   */
   readonly vpcConfig?: SagemakerModelVpcConfig;
@@ -109,7 +109,7 @@ export class SagemakerModelContainerImageConfigRepositoryAuthConfigOutputReferen
   }
 
   // repository_credentials_provider_arn - computed: false, optional: false, required: true
-  private _repositoryCredentialsProviderArn?: string; 
+  private _repositoryCredentialsProviderArn?: string;
   public get repositoryCredentialsProviderArn() {
     return this.getStringAttribute('repository_credentials_provider_arn');
   }
@@ -128,7 +128,7 @@ export interface SagemakerModelContainerImageConfig {
   readonly repositoryAccessMode: string;
   /**
   * repository_auth_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_auth_config SagemakerModel#repository_auth_config}
   */
   readonly repositoryAuthConfig?: SagemakerModelContainerImageConfigRepositoryAuthConfig;
@@ -184,7 +184,7 @@ export class SagemakerModelContainerImageConfigOutputReference extends cdktf.Com
   }
 
   // repository_access_mode - computed: false, optional: false, required: true
-  private _repositoryAccessMode?: string; 
+  private _repositoryAccessMode?: string;
   public get repositoryAccessMode() {
     return this.getStringAttribute('repository_access_mode');
   }
@@ -235,7 +235,7 @@ export interface SagemakerModelContainer {
   readonly modelDataUrl?: string;
   /**
   * image_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image_config SagemakerModel#image_config}
   */
   readonly imageConfig?: SagemakerModelContainerImageConfig;
@@ -331,7 +331,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // container_hostname - computed: false, optional: true, required: false
-  private _containerHostname?: string; 
+  private _containerHostname?: string;
   public get containerHostname() {
     return this.getStringAttribute('container_hostname');
   }
@@ -347,7 +347,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment?: { [key: string]: string }; 
+  private _environment?: { [key: string]: string };
   public get environment() {
     return this.getStringMapAttribute('environment');
   }
@@ -363,7 +363,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -376,7 +376,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -392,7 +392,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // model_data_url - computed: false, optional: true, required: false
-  private _modelDataUrl?: string; 
+  private _modelDataUrl?: string;
   public get modelDataUrl() {
     return this.getStringAttribute('model_data_url');
   }
@@ -493,7 +493,7 @@ export class SagemakerModelInferenceExecutionConfigOutputReference extends cdktf
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -555,7 +555,7 @@ export class SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigOutput
   }
 
   // repository_credentials_provider_arn - computed: false, optional: false, required: true
-  private _repositoryCredentialsProviderArn?: string; 
+  private _repositoryCredentialsProviderArn?: string;
   public get repositoryCredentialsProviderArn() {
     return this.getStringAttribute('repository_credentials_provider_arn');
   }
@@ -574,7 +574,7 @@ export interface SagemakerModelPrimaryContainerImageConfig {
   readonly repositoryAccessMode: string;
   /**
   * repository_auth_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_auth_config SagemakerModel#repository_auth_config}
   */
   readonly repositoryAuthConfig?: SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig;
@@ -630,7 +630,7 @@ export class SagemakerModelPrimaryContainerImageConfigOutputReference extends cd
   }
 
   // repository_access_mode - computed: false, optional: false, required: true
-  private _repositoryAccessMode?: string; 
+  private _repositoryAccessMode?: string;
   public get repositoryAccessMode() {
     return this.getStringAttribute('repository_access_mode');
   }
@@ -681,7 +681,7 @@ export interface SagemakerModelPrimaryContainer {
   readonly modelDataUrl?: string;
   /**
   * image_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image_config SagemakerModel#image_config}
   */
   readonly imageConfig?: SagemakerModelPrimaryContainerImageConfig;
@@ -765,7 +765,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // container_hostname - computed: false, optional: true, required: false
-  private _containerHostname?: string; 
+  private _containerHostname?: string;
   public get containerHostname() {
     return this.getStringAttribute('container_hostname');
   }
@@ -781,7 +781,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment?: { [key: string]: string }; 
+  private _environment?: { [key: string]: string };
   public get environment() {
     return this.getStringMapAttribute('environment');
   }
@@ -797,7 +797,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -810,7 +810,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -826,7 +826,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // model_data_url - computed: false, optional: true, required: false
-  private _modelDataUrl?: string; 
+  private _modelDataUrl?: string;
   public get modelDataUrl() {
     return this.getStringAttribute('model_data_url');
   }
@@ -918,7 +918,7 @@ export class SagemakerModelVpcConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -931,7 +931,7 @@ export class SagemakerModelVpcConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -1003,7 +1003,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // enable_network_isolation - computed: false, optional: true, required: false
-  private _enableNetworkIsolation?: boolean | cdktf.IResolvable; 
+  private _enableNetworkIsolation?: boolean | cdktf.IResolvable;
   public get enableNetworkIsolation() {
     return this.getBooleanAttribute('enable_network_isolation');
   }
@@ -1019,7 +1019,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // execution_role_arn - computed: false, optional: false, required: true
-  private _executionRoleArn?: string; 
+  private _executionRoleArn?: string;
   public get executionRoleArn() {
     return this.getStringAttribute('execution_role_arn');
   }
@@ -1032,7 +1032,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1048,7 +1048,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1064,7 +1064,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1080,7 +1080,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

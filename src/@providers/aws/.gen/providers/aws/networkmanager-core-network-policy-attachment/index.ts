@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_core_network_policy_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface NetworkmanagerCoreNetworkPolicyAttachmentConfig extends cdktf.T
   readonly policyDocument: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_core_network_policy_attachment#timeouts NetworkmanagerCoreNetworkPolicyAttachment#timeouts}
   */
   readonly timeouts?: NetworkmanagerCoreNetworkPolicyAttachmentTimeouts;
@@ -89,7 +89,7 @@ export class NetworkmanagerCoreNetworkPolicyAttachmentTimeoutsOutputReference ex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -153,7 +153,7 @@ export class NetworkmanagerCoreNetworkPolicyAttachment extends cdktf.TerraformRe
   // ==========
 
   // core_network_id - computed: false, optional: false, required: true
-  private _coreNetworkId?: string; 
+  private _coreNetworkId?: string;
   public get coreNetworkId() {
     return this.getStringAttribute('core_network_id');
   }
@@ -166,7 +166,7 @@ export class NetworkmanagerCoreNetworkPolicyAttachment extends cdktf.TerraformRe
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -182,7 +182,7 @@ export class NetworkmanagerCoreNetworkPolicyAttachment extends cdktf.TerraformRe
   }
 
   // policy_document - computed: false, optional: false, required: true
-  private _policyDocument?: string; 
+  private _policyDocument?: string;
   public get policyDocument() {
     return this.getStringAttribute('policy_document');
   }

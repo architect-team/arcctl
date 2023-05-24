@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafregional_web_acl_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class WafregionalWebAclAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class WafregionalWebAclAssociation extends cdktf.TerraformResource {
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -100,7 +100,7 @@ export class WafregionalWebAclAssociation extends cdktf.TerraformResource {
   }
 
   // web_acl_id - computed: false, optional: false, required: true
-  private _webAclId?: string; 
+  private _webAclId?: string;
   public get webAclId() {
     return this.getStringAttribute('web_acl_id');
   }

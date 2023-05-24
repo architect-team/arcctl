@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssmincidents_replication_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface SsmincidentsReplicationSetConfig extends cdktf.TerraformMetaArg
   readonly tagsAll?: { [key: string]: string };
   /**
   * region block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssmincidents_replication_set#region SsmincidentsReplicationSet#region}
   */
   readonly region: SsmincidentsReplicationSetRegion[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssmincidents_replication_set#timeouts SsmincidentsReplicationSet#timeouts}
   */
   readonly timeouts?: SsmincidentsReplicationSetTimeouts;
@@ -108,7 +108,7 @@ export class SsmincidentsReplicationSetRegionOutputReference extends cdktf.Compl
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -124,7 +124,7 @@ export class SsmincidentsReplicationSetRegionOutputReference extends cdktf.Compl
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -248,7 +248,7 @@ export class SsmincidentsReplicationSetTimeoutsOutputReference extends cdktf.Com
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -264,7 +264,7 @@ export class SsmincidentsReplicationSetTimeoutsOutputReference extends cdktf.Com
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -280,7 +280,7 @@ export class SsmincidentsReplicationSetTimeoutsOutputReference extends cdktf.Com
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -360,7 +360,7 @@ export class SsmincidentsReplicationSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -386,7 +386,7 @@ export class SsmincidentsReplicationSet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -402,7 +402,7 @@ export class SsmincidentsReplicationSet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

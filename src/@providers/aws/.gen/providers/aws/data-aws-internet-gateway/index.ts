@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/internet_gateway
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsInternetGatewayConfig extends cdktf.TerraformMetaArgumen
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/internet_gateway#filter DataAwsInternetGateway#filter}
   */
   readonly filter?: DataAwsInternetGatewayFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/internet_gateway#timeouts DataAwsInternetGateway#timeouts}
   */
   readonly timeouts?: DataAwsInternetGatewayTimeouts;
@@ -177,7 +177,7 @@ export class DataAwsInternetGatewayFilterOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -190,7 +190,7 @@ export class DataAwsInternetGatewayFilterOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -282,7 +282,7 @@ export class DataAwsInternetGatewayTimeoutsOutputReference extends cdktf.Complex
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -358,7 +358,7 @@ export class DataAwsInternetGateway extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -374,7 +374,7 @@ export class DataAwsInternetGateway extends cdktf.TerraformDataSource {
   }
 
   // internet_gateway_id - computed: true, optional: true, required: false
-  private _internetGatewayId?: string; 
+  private _internetGatewayId?: string;
   public get internetGatewayId() {
     return this.getStringAttribute('internet_gateway_id');
   }
@@ -395,7 +395,7 @@ export class DataAwsInternetGateway extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

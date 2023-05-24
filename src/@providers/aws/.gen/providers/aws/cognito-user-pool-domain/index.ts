@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_domain
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class CognitoUserPoolDomain extends cdktf.TerraformResource {
   }
 
   // certificate_arn - computed: false, optional: true, required: false
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -112,7 +112,7 @@ export class CognitoUserPoolDomain extends cdktf.TerraformResource {
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -125,7 +125,7 @@ export class CognitoUserPoolDomain extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -146,7 +146,7 @@ export class CognitoUserPoolDomain extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string; 
+  private _userPoolId?: string;
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }

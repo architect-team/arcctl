@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_local_gateway_route_table_vpc_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class Ec2LocalGatewayRouteTableVpcAssociation extends cdktf.TerraformReso
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class Ec2LocalGatewayRouteTableVpcAssociation extends cdktf.TerraformReso
   }
 
   // local_gateway_route_table_id - computed: false, optional: false, required: true
-  private _localGatewayRouteTableId?: string; 
+  private _localGatewayRouteTableId?: string;
   public get localGatewayRouteTableId() {
     return this.getStringAttribute('local_gateway_route_table_id');
   }
@@ -115,7 +115,7 @@ export class Ec2LocalGatewayRouteTableVpcAssociation extends cdktf.TerraformReso
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -131,7 +131,7 @@ export class Ec2LocalGatewayRouteTableVpcAssociation extends cdktf.TerraformReso
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -147,7 +147,7 @@ export class Ec2LocalGatewayRouteTableVpcAssociation extends cdktf.TerraformReso
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

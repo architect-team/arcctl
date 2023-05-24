@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface DynamodbTableReplicaAConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica#timeouts DynamodbTableReplicaA#timeouts}
   */
   readonly timeouts?: DynamodbTableReplicaTimeouts;
@@ -127,7 +127,7 @@ export class DynamodbTableReplicaTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -143,7 +143,7 @@ export class DynamodbTableReplicaTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -159,7 +159,7 @@ export class DynamodbTableReplicaTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -232,7 +232,7 @@ export class DynamodbTableReplicaA extends cdktf.TerraformResource {
   }
 
   // global_table_arn - computed: false, optional: false, required: true
-  private _globalTableArn?: string; 
+  private _globalTableArn?: string;
   public get globalTableArn() {
     return this.getStringAttribute('global_table_arn');
   }
@@ -245,7 +245,7 @@ export class DynamodbTableReplicaA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -261,7 +261,7 @@ export class DynamodbTableReplicaA extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: true, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -277,7 +277,7 @@ export class DynamodbTableReplicaA extends cdktf.TerraformResource {
   }
 
   // point_in_time_recovery - computed: false, optional: true, required: false
-  private _pointInTimeRecovery?: boolean | cdktf.IResolvable; 
+  private _pointInTimeRecovery?: boolean | cdktf.IResolvable;
   public get pointInTimeRecovery() {
     return this.getBooleanAttribute('point_in_time_recovery');
   }
@@ -293,7 +293,7 @@ export class DynamodbTableReplicaA extends cdktf.TerraformResource {
   }
 
   // table_class_override - computed: false, optional: true, required: false
-  private _tableClassOverride?: string; 
+  private _tableClassOverride?: string;
   public get tableClassOverride() {
     return this.getStringAttribute('table_class_override');
   }
@@ -309,7 +309,7 @@ export class DynamodbTableReplicaA extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -325,7 +325,7 @@ export class DynamodbTableReplicaA extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

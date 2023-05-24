@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_endpoint_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,19 +24,19 @@ export interface GlobalacceleratorCustomRoutingEndpointGroupConfig extends cdktf
   readonly listenerArn: string;
   /**
   * destination_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_endpoint_group#destination_configuration GlobalacceleratorCustomRoutingEndpointGroup#destination_configuration}
   */
   readonly destinationConfiguration: GlobalacceleratorCustomRoutingEndpointGroupDestinationConfiguration[] | cdktf.IResolvable;
   /**
   * endpoint_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_endpoint_group#endpoint_configuration GlobalacceleratorCustomRoutingEndpointGroup#endpoint_configuration}
   */
   readonly endpointConfiguration?: GlobalacceleratorCustomRoutingEndpointGroupEndpointConfiguration[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_endpoint_group#timeouts GlobalacceleratorCustomRoutingEndpointGroup#timeouts}
   */
   readonly timeouts?: GlobalacceleratorCustomRoutingEndpointGroupTimeouts;
@@ -125,7 +125,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroupDestinationConfiguration
   }
 
   // from_port - computed: false, optional: false, required: true
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -138,7 +138,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroupDestinationConfiguration
   }
 
   // protocols - computed: false, optional: false, required: true
-  private _protocols?: string[]; 
+  private _protocols?: string[];
   public get protocols() {
     return cdktf.Fn.tolist(this.getListAttribute('protocols'));
   }
@@ -151,7 +151,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroupDestinationConfiguration
   }
 
   // to_port - computed: false, optional: false, required: true
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -245,7 +245,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationOut
   }
 
   // endpoint_id - computed: false, optional: true, required: false
-  private _endpointId?: string; 
+  private _endpointId?: string;
   public get endpointId() {
     return this.getStringAttribute('endpoint_id');
   }
@@ -351,7 +351,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroupTimeoutsOutputReference 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -367,7 +367,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroupTimeoutsOutputReference 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -438,7 +438,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroup extends cdktf.Terraform
   }
 
   // endpoint_group_region - computed: true, optional: true, required: false
-  private _endpointGroupRegion?: string; 
+  private _endpointGroupRegion?: string;
   public get endpointGroupRegion() {
     return this.getStringAttribute('endpoint_group_region');
   }
@@ -454,7 +454,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroup extends cdktf.Terraform
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -470,7 +470,7 @@ export class GlobalacceleratorCustomRoutingEndpointGroup extends cdktf.Terraform
   }
 
   // listener_arn - computed: false, optional: false, required: true
-  private _listenerArn?: string; 
+  private _listenerArn?: string;
   public get listenerArn() {
     return this.getStringAttribute('listener_arn');
   }

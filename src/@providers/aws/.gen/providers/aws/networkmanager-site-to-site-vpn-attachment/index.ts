@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface NetworkmanagerSiteToSiteVpnAttachmentConfig extends cdktf.Terra
   readonly vpnConnectionArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#timeouts NetworkmanagerSiteToSiteVpnAttachment#timeouts}
   */
   readonly timeouts?: NetworkmanagerSiteToSiteVpnAttachmentTimeouts;
@@ -119,7 +119,7 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -135,7 +135,7 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -151,7 +151,7 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -237,7 +237,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // core_network_id - computed: false, optional: false, required: true
-  private _coreNetworkId?: string; 
+  private _coreNetworkId?: string;
   public get coreNetworkId() {
     return this.getStringAttribute('core_network_id');
   }
@@ -255,7 +255,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -291,7 +291,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -307,7 +307,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -323,7 +323,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // vpn_connection_arn - computed: false, optional: false, required: true
-  private _vpnConnectionArn?: string; 
+  private _vpnConnectionArn?: string;
   public get vpnConnectionArn() {
     return this.getStringAttribute('vpn_connection_arn');
   }

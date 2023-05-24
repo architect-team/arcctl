@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_monitoring_subscription
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface CloudfrontMonitoringSubscriptionConfig extends cdktf.TerraformM
   readonly id?: string;
   /**
   * monitoring_subscription block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_monitoring_subscription#monitoring_subscription CloudfrontMonitoringSubscription#monitoring_subscription}
   */
   readonly monitoringSubscription: CloudfrontMonitoringSubscriptionMonitoringSubscription;
@@ -75,7 +75,7 @@ export class CloudfrontMonitoringSubscriptionMonitoringSubscriptionRealtimeMetri
   }
 
   // realtime_metrics_subscription_status - computed: false, optional: false, required: true
-  private _realtimeMetricsSubscriptionStatus?: string; 
+  private _realtimeMetricsSubscriptionStatus?: string;
   public get realtimeMetricsSubscriptionStatus() {
     return this.getStringAttribute('realtime_metrics_subscription_status');
   }
@@ -90,7 +90,7 @@ export class CloudfrontMonitoringSubscriptionMonitoringSubscriptionRealtimeMetri
 export interface CloudfrontMonitoringSubscriptionMonitoringSubscription {
   /**
   * realtime_metrics_subscription_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_monitoring_subscription#realtime_metrics_subscription_config CloudfrontMonitoringSubscription#realtime_metrics_subscription_config}
   */
   readonly realtimeMetricsSubscriptionConfig: CloudfrontMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig;
@@ -199,7 +199,7 @@ export class CloudfrontMonitoringSubscription extends cdktf.TerraformResource {
   // ==========
 
   // distribution_id - computed: false, optional: false, required: true
-  private _distributionId?: string; 
+  private _distributionId?: string;
   public get distributionId() {
     return this.getStringAttribute('distribution_id');
   }
@@ -212,7 +212,7 @@ export class CloudfrontMonitoringSubscription extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

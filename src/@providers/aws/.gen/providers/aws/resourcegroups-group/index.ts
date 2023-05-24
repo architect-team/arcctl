@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/resourcegroups_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,19 +32,19 @@ export interface ResourcegroupsGroupConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#configuration ResourcegroupsGroup#configuration}
   */
   readonly configuration?: ResourcegroupsGroupConfiguration[] | cdktf.IResolvable;
   /**
   * resource_query block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#resource_query ResourcegroupsGroup#resource_query}
   */
   readonly resourceQuery?: ResourcegroupsGroupResourceQuery;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#timeouts ResourcegroupsGroup#timeouts}
   */
   readonly timeouts?: ResourcegroupsGroupTimeouts;
@@ -122,7 +122,7 @@ export class ResourcegroupsGroupConfigurationParametersOutputReference extends c
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -135,7 +135,7 @@ export class ResourcegroupsGroupConfigurationParametersOutputReference extends c
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -174,7 +174,7 @@ export interface ResourcegroupsGroupConfiguration {
   readonly type: string;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#parameters ResourcegroupsGroup#parameters}
   */
   readonly parameters?: ResourcegroupsGroupConfigurationParameters[] | cdktf.IResolvable;
@@ -242,7 +242,7 @@ export class ResourcegroupsGroupConfigurationOutputReference extends cdktf.Compl
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -351,7 +351,7 @@ export class ResourcegroupsGroupResourceQueryOutputReference extends cdktf.Compl
   }
 
   // query - computed: false, optional: false, required: true
-  private _query?: string; 
+  private _query?: string;
   public get query() {
     return this.getStringAttribute('query');
   }
@@ -364,7 +364,7 @@ export class ResourcegroupsGroupResourceQueryOutputReference extends cdktf.Compl
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -450,7 +450,7 @@ export class ResourcegroupsGroupTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -466,7 +466,7 @@ export class ResourcegroupsGroupTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -539,7 +539,7 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -555,7 +555,7 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -571,7 +571,7 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -584,7 +584,7 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -600,7 +600,7 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

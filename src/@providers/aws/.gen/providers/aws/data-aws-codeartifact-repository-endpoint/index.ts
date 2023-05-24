@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/codeartifact_repository_endpoint
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsCodeartifactRepositoryEndpoint extends cdktf.TerraformDataSo
   // ==========
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -94,7 +94,7 @@ export class DataAwsCodeartifactRepositoryEndpoint extends cdktf.TerraformDataSo
   }
 
   // domain_owner - computed: true, optional: true, required: false
-  private _domainOwner?: string; 
+  private _domainOwner?: string;
   public get domainOwner() {
     return this.getStringAttribute('domain_owner');
   }
@@ -110,7 +110,7 @@ export class DataAwsCodeartifactRepositoryEndpoint extends cdktf.TerraformDataSo
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string; 
+  private _format?: string;
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -123,7 +123,7 @@ export class DataAwsCodeartifactRepositoryEndpoint extends cdktf.TerraformDataSo
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class DataAwsCodeartifactRepositoryEndpoint extends cdktf.TerraformDataSo
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }

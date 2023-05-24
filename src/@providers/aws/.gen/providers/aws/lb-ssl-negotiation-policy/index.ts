@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lb_ssl_negotiation_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface LbSslNegotiationPolicyConfig extends cdktf.TerraformMetaArgumen
   readonly triggers?: { [key: string]: string };
   /**
   * attribute block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_ssl_negotiation_policy#attribute LbSslNegotiationPolicy#attribute}
   */
   readonly attribute?: LbSslNegotiationPolicyAttribute[] | cdktf.IResolvable;
@@ -110,7 +110,7 @@ export class LbSslNegotiationPolicyAttributeOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -123,7 +123,7 @@ export class LbSslNegotiationPolicyAttributeOutputReference extends cdktf.Comple
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -206,7 +206,7 @@ export class LbSslNegotiationPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -222,7 +222,7 @@ export class LbSslNegotiationPolicy extends cdktf.TerraformResource {
   }
 
   // lb_port - computed: false, optional: false, required: true
-  private _lbPort?: number; 
+  private _lbPort?: number;
   public get lbPort() {
     return this.getNumberAttribute('lb_port');
   }
@@ -235,7 +235,7 @@ export class LbSslNegotiationPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer - computed: false, optional: false, required: true
-  private _loadBalancer?: string; 
+  private _loadBalancer?: string;
   public get loadBalancer() {
     return this.getStringAttribute('load_balancer');
   }
@@ -248,7 +248,7 @@ export class LbSslNegotiationPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -261,7 +261,7 @@ export class LbSslNegotiationPolicy extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

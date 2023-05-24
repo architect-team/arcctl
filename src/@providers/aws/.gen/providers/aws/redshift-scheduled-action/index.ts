@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_scheduled_action
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface RedshiftScheduledActionConfig extends cdktf.TerraformMetaArgume
   readonly startTime?: string;
   /**
   * target_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_scheduled_action#target_action RedshiftScheduledAction#target_action}
   */
   readonly targetAction: RedshiftScheduledActionTargetAction;
@@ -99,7 +99,7 @@ export class RedshiftScheduledActionTargetActionPauseClusterOutputReference exte
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -205,7 +205,7 @@ export class RedshiftScheduledActionTargetActionResizeClusterOutputReference ext
   }
 
   // classic - computed: false, optional: true, required: false
-  private _classic?: boolean | cdktf.IResolvable; 
+  private _classic?: boolean | cdktf.IResolvable;
   public get classic() {
     return this.getBooleanAttribute('classic');
   }
@@ -221,7 +221,7 @@ export class RedshiftScheduledActionTargetActionResizeClusterOutputReference ext
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -234,7 +234,7 @@ export class RedshiftScheduledActionTargetActionResizeClusterOutputReference ext
   }
 
   // cluster_type - computed: false, optional: true, required: false
-  private _clusterType?: string; 
+  private _clusterType?: string;
   public get clusterType() {
     return this.getStringAttribute('cluster_type');
   }
@@ -250,7 +250,7 @@ export class RedshiftScheduledActionTargetActionResizeClusterOutputReference ext
   }
 
   // node_type - computed: false, optional: true, required: false
-  private _nodeType?: string; 
+  private _nodeType?: string;
   public get nodeType() {
     return this.getStringAttribute('node_type');
   }
@@ -266,7 +266,7 @@ export class RedshiftScheduledActionTargetActionResizeClusterOutputReference ext
   }
 
   // number_of_nodes - computed: false, optional: true, required: false
-  private _numberOfNodes?: number; 
+  private _numberOfNodes?: number;
   public get numberOfNodes() {
     return this.getNumberAttribute('number_of_nodes');
   }
@@ -331,7 +331,7 @@ export class RedshiftScheduledActionTargetActionResumeClusterOutputReference ext
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -346,19 +346,19 @@ export class RedshiftScheduledActionTargetActionResumeClusterOutputReference ext
 export interface RedshiftScheduledActionTargetAction {
   /**
   * pause_cluster block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_scheduled_action#pause_cluster RedshiftScheduledAction#pause_cluster}
   */
   readonly pauseCluster?: RedshiftScheduledActionTargetActionPauseCluster;
   /**
   * resize_cluster block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_scheduled_action#resize_cluster RedshiftScheduledAction#resize_cluster}
   */
   readonly resizeCluster?: RedshiftScheduledActionTargetActionResizeCluster;
   /**
   * resume_cluster block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_scheduled_action#resume_cluster RedshiftScheduledAction#resume_cluster}
   */
   readonly resumeCluster?: RedshiftScheduledActionTargetActionResumeCluster;
@@ -522,7 +522,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -538,7 +538,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   }
 
   // enable - computed: false, optional: true, required: false
-  private _enable?: boolean | cdktf.IResolvable; 
+  private _enable?: boolean | cdktf.IResolvable;
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -554,7 +554,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   }
 
   // end_time - computed: false, optional: true, required: false
-  private _endTime?: string; 
+  private _endTime?: string;
   public get endTime() {
     return this.getStringAttribute('end_time');
   }
@@ -570,7 +570,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   }
 
   // iam_role - computed: false, optional: false, required: true
-  private _iamRole?: string; 
+  private _iamRole?: string;
   public get iamRole() {
     return this.getStringAttribute('iam_role');
   }
@@ -583,7 +583,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -599,7 +599,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -612,7 +612,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   }
 
   // schedule - computed: false, optional: false, required: true
-  private _schedule?: string; 
+  private _schedule?: string;
   public get schedule() {
     return this.getStringAttribute('schedule');
   }
@@ -625,7 +625,7 @@ export class RedshiftScheduledAction extends cdktf.TerraformResource {
   }
 
   // start_time - computed: false, optional: true, required: false
-  private _startTime?: string; 
+  private _startTime?: string;
   public get startTime() {
     return this.getStringAttribute('start_time');
   }

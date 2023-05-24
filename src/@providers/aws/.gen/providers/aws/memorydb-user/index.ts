@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/memorydb_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface MemorydbUserConfig extends cdktf.TerraformMetaArguments {
   readonly userName: string;
   /**
   * authentication_mode block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/memorydb_user#authentication_mode MemorydbUser#authentication_mode}
   */
   readonly authenticationMode: MemorydbUserAuthenticationMode;
@@ -103,7 +103,7 @@ export class MemorydbUserAuthenticationModeOutputReference extends cdktf.Complex
   }
 
   // passwords - computed: false, optional: false, required: true
-  private _passwords?: string[]; 
+  private _passwords?: string[];
   public get passwords() {
     return cdktf.Fn.tolist(this.getListAttribute('passwords'));
   }
@@ -116,7 +116,7 @@ export class MemorydbUserAuthenticationModeOutputReference extends cdktf.Complex
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -179,7 +179,7 @@ export class MemorydbUser extends cdktf.TerraformResource {
   // ==========
 
   // access_string - computed: false, optional: false, required: true
-  private _accessString?: string; 
+  private _accessString?: string;
   public get accessString() {
     return this.getStringAttribute('access_string');
   }
@@ -197,7 +197,7 @@ export class MemorydbUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -218,7 +218,7 @@ export class MemorydbUser extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -234,7 +234,7 @@ export class MemorydbUser extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -250,7 +250,7 @@ export class MemorydbUser extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }

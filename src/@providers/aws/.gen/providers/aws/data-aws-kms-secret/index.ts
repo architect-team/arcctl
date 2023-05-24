@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/kms_secret
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataAwsKmsSecretConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * secret block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secret#secret DataAwsKmsSecret#secret}
   */
   readonly secret: DataAwsKmsSecretSecret[] | cdktf.IResolvable;
@@ -116,7 +116,7 @@ export class DataAwsKmsSecretSecretOutputReference extends cdktf.ComplexObject {
   }
 
   // context - computed: false, optional: true, required: false
-  private _context?: { [key: string]: string }; 
+  private _context?: { [key: string]: string };
   public get context() {
     return this.getStringMapAttribute('context');
   }
@@ -132,7 +132,7 @@ export class DataAwsKmsSecretSecretOutputReference extends cdktf.ComplexObject {
   }
 
   // grant_tokens - computed: false, optional: true, required: false
-  private _grantTokens?: string[]; 
+  private _grantTokens?: string[];
   public get grantTokens() {
     return this.getListAttribute('grant_tokens');
   }
@@ -148,7 +148,7 @@ export class DataAwsKmsSecretSecretOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -161,7 +161,7 @@ export class DataAwsKmsSecretSecretOutputReference extends cdktf.ComplexObject {
   }
 
   // payload - computed: false, optional: false, required: true
-  private _payload?: string; 
+  private _payload?: string;
   public get payload() {
     return this.getStringAttribute('payload');
   }
@@ -240,7 +240,7 @@ export class DataAwsKmsSecret extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

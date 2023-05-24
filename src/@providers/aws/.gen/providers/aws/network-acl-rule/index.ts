@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/network_acl_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -116,7 +116,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   // ==========
 
   // cidr_block - computed: false, optional: true, required: false
-  private _cidrBlock?: string; 
+  private _cidrBlock?: string;
   public get cidrBlock() {
     return this.getStringAttribute('cidr_block');
   }
@@ -132,7 +132,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // egress - computed: false, optional: true, required: false
-  private _egress?: boolean | cdktf.IResolvable; 
+  private _egress?: boolean | cdktf.IResolvable;
   public get egress() {
     return this.getBooleanAttribute('egress');
   }
@@ -148,7 +148,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // from_port - computed: false, optional: true, required: false
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -164,7 +164,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // icmp_code - computed: false, optional: true, required: false
-  private _icmpCode?: number; 
+  private _icmpCode?: number;
   public get icmpCode() {
     return this.getNumberAttribute('icmp_code');
   }
@@ -180,7 +180,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // icmp_type - computed: false, optional: true, required: false
-  private _icmpType?: number; 
+  private _icmpType?: number;
   public get icmpType() {
     return this.getNumberAttribute('icmp_type');
   }
@@ -196,7 +196,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -212,7 +212,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // ipv6_cidr_block - computed: false, optional: true, required: false
-  private _ipv6CidrBlock?: string; 
+  private _ipv6CidrBlock?: string;
   public get ipv6CidrBlock() {
     return this.getStringAttribute('ipv6_cidr_block');
   }
@@ -228,7 +228,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // network_acl_id - computed: false, optional: false, required: true
-  private _networkAclId?: string; 
+  private _networkAclId?: string;
   public get networkAclId() {
     return this.getStringAttribute('network_acl_id');
   }
@@ -241,7 +241,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -254,7 +254,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // rule_action - computed: false, optional: false, required: true
-  private _ruleAction?: string; 
+  private _ruleAction?: string;
   public get ruleAction() {
     return this.getStringAttribute('rule_action');
   }
@@ -267,7 +267,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // rule_number - computed: false, optional: false, required: true
-  private _ruleNumber?: number; 
+  private _ruleNumber?: number;
   public get ruleNumber() {
     return this.getNumberAttribute('rule_number');
   }
@@ -280,7 +280,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // to_port - computed: false, optional: true, required: false
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }

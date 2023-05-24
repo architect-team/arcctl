@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_transit_gateway_route_table_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface NetworkmanagerTransitGatewayRouteTableAttachmentConfig extends 
   readonly transitGatewayRouteTableArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_transit_gateway_route_table_attachment#timeouts NetworkmanagerTransitGatewayRouteTableAttachment#timeouts}
   */
   readonly timeouts?: NetworkmanagerTransitGatewayRouteTableAttachmentTimeouts;
@@ -108,7 +108,7 @@ export class NetworkmanagerTransitGatewayRouteTableAttachmentTimeoutsOutputRefer
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class NetworkmanagerTransitGatewayRouteTableAttachmentTimeoutsOutputRefer
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -220,7 +220,7 @@ export class NetworkmanagerTransitGatewayRouteTableAttachment extends cdktf.Terr
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -241,7 +241,7 @@ export class NetworkmanagerTransitGatewayRouteTableAttachment extends cdktf.Terr
   }
 
   // peering_id - computed: false, optional: false, required: true
-  private _peeringId?: string; 
+  private _peeringId?: string;
   public get peeringId() {
     return this.getStringAttribute('peering_id');
   }
@@ -269,7 +269,7 @@ export class NetworkmanagerTransitGatewayRouteTableAttachment extends cdktf.Terr
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -285,7 +285,7 @@ export class NetworkmanagerTransitGatewayRouteTableAttachment extends cdktf.Terr
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -301,7 +301,7 @@ export class NetworkmanagerTransitGatewayRouteTableAttachment extends cdktf.Terr
   }
 
   // transit_gateway_route_table_arn - computed: false, optional: false, required: true
-  private _transitGatewayRouteTableArn?: string; 
+  private _transitGatewayRouteTableArn?: string;
   public get transitGatewayRouteTableArn() {
     return this.getStringAttribute('transit_gateway_route_table_arn');
   }

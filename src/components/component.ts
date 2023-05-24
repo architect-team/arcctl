@@ -1,4 +1,4 @@
-import { CloudGraph } from '../cloud-graph/graph.js';
+import { CloudGraph } from '../cloud-graph/graph.ts';
 
 export type GraphContext = {
   environment: string;

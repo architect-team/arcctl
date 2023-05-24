@@ -2,12 +2,12 @@ import {
   ResourceInputs,
   ResourceOutputs,
   ResourceType,
-} from '../@resources/index.js';
-import { ProviderCredentials } from './credentials.js';
-import { ProviderStore } from './store.js';
-import { SaveFileFn } from './types.js';
-import { TerraformResource } from 'cdktf';
-import { Construct } from 'constructs';
+} from '../@resources/index.ts';
+import { ProviderCredentials } from './credentials.ts';
+import { ProviderStore } from './store.ts';
+import { SaveFileFn } from './types.ts';
+import { TerraformResource } from 'npm:cdktf';
+import { Construct } from 'npm:constructs';
 
 export interface ResourceModuleHooks {
   afterCreate?: (

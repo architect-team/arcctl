@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/lex_bot_alias
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsLexBotAlias extends cdktf.TerraformDataSource {
   }
 
   // bot_name - computed: false, optional: false, required: true
-  private _botName?: string; 
+  private _botName?: string;
   public get botName() {
     return this.getStringAttribute('bot_name');
   }
@@ -109,7 +109,7 @@ export class DataAwsLexBotAlias extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -130,7 +130,7 @@ export class DataAwsLexBotAlias extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

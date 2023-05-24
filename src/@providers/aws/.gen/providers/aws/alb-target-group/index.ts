@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/alb_target_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -88,19 +88,19 @@ export interface AlbTargetGroupConfig extends cdktf.TerraformMetaArguments {
   readonly vpcId?: string;
   /**
   * health_check block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#health_check AlbTargetGroup#health_check}
   */
   readonly healthCheck?: AlbTargetGroupHealthCheck;
   /**
   * stickiness block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#stickiness AlbTargetGroup#stickiness}
   */
   readonly stickiness?: AlbTargetGroupStickiness;
   /**
   * target_failover block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#target_failover AlbTargetGroup#target_failover}
   */
   readonly targetFailover?: AlbTargetGroupTargetFailover[] | cdktf.IResolvable;
@@ -243,7 +243,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -259,7 +259,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // healthy_threshold - computed: false, optional: true, required: false
-  private _healthyThreshold?: number; 
+  private _healthyThreshold?: number;
   public get healthyThreshold() {
     return this.getNumberAttribute('healthy_threshold');
   }
@@ -275,7 +275,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // interval - computed: false, optional: true, required: false
-  private _interval?: number; 
+  private _interval?: number;
   public get interval() {
     return this.getNumberAttribute('interval');
   }
@@ -291,7 +291,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // matcher - computed: true, optional: true, required: false
-  private _matcher?: string; 
+  private _matcher?: string;
   public get matcher() {
     return this.getStringAttribute('matcher');
   }
@@ -307,7 +307,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // path - computed: true, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -323,7 +323,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -339,7 +339,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -355,7 +355,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // timeout - computed: true, optional: true, required: false
-  private _timeout?: number; 
+  private _timeout?: number;
   public get timeout() {
     return this.getNumberAttribute('timeout');
   }
@@ -371,7 +371,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // unhealthy_threshold - computed: false, optional: true, required: false
-  private _unhealthyThreshold?: number; 
+  private _unhealthyThreshold?: number;
   public get unhealthyThreshold() {
     return this.getNumberAttribute('unhealthy_threshold');
   }
@@ -469,7 +469,7 @@ export class AlbTargetGroupStickinessOutputReference extends cdktf.ComplexObject
   }
 
   // cookie_duration - computed: false, optional: true, required: false
-  private _cookieDuration?: number; 
+  private _cookieDuration?: number;
   public get cookieDuration() {
     return this.getNumberAttribute('cookie_duration');
   }
@@ -485,7 +485,7 @@ export class AlbTargetGroupStickinessOutputReference extends cdktf.ComplexObject
   }
 
   // cookie_name - computed: false, optional: true, required: false
-  private _cookieName?: string; 
+  private _cookieName?: string;
   public get cookieName() {
     return this.getStringAttribute('cookie_name');
   }
@@ -501,7 +501,7 @@ export class AlbTargetGroupStickinessOutputReference extends cdktf.ComplexObject
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -517,7 +517,7 @@ export class AlbTargetGroupStickinessOutputReference extends cdktf.ComplexObject
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -602,7 +602,7 @@ export class AlbTargetGroupTargetFailoverOutputReference extends cdktf.ComplexOb
   }
 
   // on_deregistration - computed: false, optional: false, required: true
-  private _onDeregistration?: string; 
+  private _onDeregistration?: string;
   public get onDeregistration() {
     return this.getStringAttribute('on_deregistration');
   }
@@ -615,7 +615,7 @@ export class AlbTargetGroupTargetFailoverOutputReference extends cdktf.ComplexOb
   }
 
   // on_unhealthy - computed: false, optional: false, required: true
-  private _onUnhealthy?: string; 
+  private _onUnhealthy?: string;
   public get onUnhealthy() {
     return this.getStringAttribute('on_unhealthy');
   }
@@ -724,7 +724,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // connection_termination - computed: false, optional: true, required: false
-  private _connectionTermination?: boolean | cdktf.IResolvable; 
+  private _connectionTermination?: boolean | cdktf.IResolvable;
   public get connectionTermination() {
     return this.getBooleanAttribute('connection_termination');
   }
@@ -740,7 +740,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // deregistration_delay - computed: false, optional: true, required: false
-  private _deregistrationDelay?: string; 
+  private _deregistrationDelay?: string;
   public get deregistrationDelay() {
     return this.getStringAttribute('deregistration_delay');
   }
@@ -756,7 +756,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -772,7 +772,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // ip_address_type - computed: true, optional: true, required: false
-  private _ipAddressType?: string; 
+  private _ipAddressType?: string;
   public get ipAddressType() {
     return this.getStringAttribute('ip_address_type');
   }
@@ -788,7 +788,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // lambda_multi_value_headers_enabled - computed: false, optional: true, required: false
-  private _lambdaMultiValueHeadersEnabled?: boolean | cdktf.IResolvable; 
+  private _lambdaMultiValueHeadersEnabled?: boolean | cdktf.IResolvable;
   public get lambdaMultiValueHeadersEnabled() {
     return this.getBooleanAttribute('lambda_multi_value_headers_enabled');
   }
@@ -804,7 +804,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // load_balancing_algorithm_type - computed: true, optional: true, required: false
-  private _loadBalancingAlgorithmType?: string; 
+  private _loadBalancingAlgorithmType?: string;
   public get loadBalancingAlgorithmType() {
     return this.getStringAttribute('load_balancing_algorithm_type');
   }
@@ -820,7 +820,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // load_balancing_cross_zone_enabled - computed: true, optional: true, required: false
-  private _loadBalancingCrossZoneEnabled?: string; 
+  private _loadBalancingCrossZoneEnabled?: string;
   public get loadBalancingCrossZoneEnabled() {
     return this.getStringAttribute('load_balancing_cross_zone_enabled');
   }
@@ -836,7 +836,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -852,7 +852,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: false, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -868,7 +868,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -884,7 +884,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // preserve_client_ip - computed: true, optional: true, required: false
-  private _preserveClientIp?: string; 
+  private _preserveClientIp?: string;
   public get preserveClientIp() {
     return this.getStringAttribute('preserve_client_ip');
   }
@@ -900,7 +900,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -916,7 +916,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // protocol_version - computed: true, optional: true, required: false
-  private _protocolVersion?: string; 
+  private _protocolVersion?: string;
   public get protocolVersion() {
     return this.getStringAttribute('protocol_version');
   }
@@ -932,7 +932,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // proxy_protocol_v2 - computed: false, optional: true, required: false
-  private _proxyProtocolV2?: boolean | cdktf.IResolvable; 
+  private _proxyProtocolV2?: boolean | cdktf.IResolvable;
   public get proxyProtocolV2() {
     return this.getBooleanAttribute('proxy_protocol_v2');
   }
@@ -948,7 +948,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // slow_start - computed: false, optional: true, required: false
-  private _slowStart?: number; 
+  private _slowStart?: number;
   public get slowStart() {
     return this.getNumberAttribute('slow_start');
   }
@@ -964,7 +964,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -980,7 +980,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -996,7 +996,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // target_type - computed: false, optional: true, required: false
-  private _targetType?: string; 
+  private _targetType?: string;
   public get targetType() {
     return this.getStringAttribute('target_type');
   }
@@ -1012,7 +1012,7 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

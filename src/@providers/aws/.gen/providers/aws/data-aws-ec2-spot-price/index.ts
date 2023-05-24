@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_spot_price
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsEc2SpotPriceConfig extends cdktf.TerraformMetaArguments 
   readonly instanceType?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_spot_price#filter DataAwsEc2SpotPrice#filter}
   */
   readonly filter?: DataAwsEc2SpotPriceFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_spot_price#timeouts DataAwsEc2SpotPrice#timeouts}
   */
   readonly timeouts?: DataAwsEc2SpotPriceTimeouts;
@@ -108,7 +108,7 @@ export class DataAwsEc2SpotPriceFilterOutputReference extends cdktf.ComplexObjec
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +121,7 @@ export class DataAwsEc2SpotPriceFilterOutputReference extends cdktf.ComplexObjec
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -213,7 +213,7 @@ export class DataAwsEc2SpotPriceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -278,7 +278,7 @@ export class DataAwsEc2SpotPrice extends cdktf.TerraformDataSource {
   // ==========
 
   // availability_zone - computed: false, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -294,7 +294,7 @@ export class DataAwsEc2SpotPrice extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -310,7 +310,7 @@ export class DataAwsEc2SpotPrice extends cdktf.TerraformDataSource {
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }

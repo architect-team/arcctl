@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/acmpca_certificate
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsAcmpcaCertificate extends cdktf.TerraformDataSource {
   // ==========
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -89,7 +89,7 @@ export class DataAwsAcmpcaCertificate extends cdktf.TerraformDataSource {
   }
 
   // certificate_authority_arn - computed: false, optional: false, required: true
-  private _certificateAuthorityArn?: string; 
+  private _certificateAuthorityArn?: string;
   public get certificateAuthorityArn() {
     return this.getStringAttribute('certificate_authority_arn');
   }
@@ -107,7 +107,7 @@ export class DataAwsAcmpcaCertificate extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

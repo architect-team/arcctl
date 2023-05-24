@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/globalaccelerator_custom_routing_accelerator
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -219,7 +219,7 @@ export class DataAwsGlobalacceleratorCustomRoutingAccelerator extends cdktf.Terr
   // ==========
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -256,7 +256,7 @@ export class DataAwsGlobalacceleratorCustomRoutingAccelerator extends cdktf.Terr
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -283,7 +283,7 @@ export class DataAwsGlobalacceleratorCustomRoutingAccelerator extends cdktf.Terr
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -299,7 +299,7 @@ export class DataAwsGlobalacceleratorCustomRoutingAccelerator extends cdktf.Terr
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

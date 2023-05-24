@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface S3BucketReplicationConfigurationAConfig extends cdktf.Terraform
   readonly token?: string;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#rule S3BucketReplicationConfigurationA#rule}
   */
   readonly rule: S3BucketReplicationConfigurationRule[] | cdktf.IResolvable;
@@ -83,7 +83,7 @@ export class S3BucketReplicationConfigurationRuleDeleteMarkerReplicationOutputRe
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -145,7 +145,7 @@ export class S3BucketReplicationConfigurationRuleDestinationAccessControlTransla
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -207,7 +207,7 @@ export class S3BucketReplicationConfigurationRuleDestinationEncryptionConfigurat
   }
 
   // replica_kms_key_id - computed: false, optional: false, required: true
-  private _replicaKmsKeyId?: string; 
+  private _replicaKmsKeyId?: string;
   public get replicaKmsKeyId() {
     return this.getStringAttribute('replica_kms_key_id');
   }
@@ -269,7 +269,7 @@ export class S3BucketReplicationConfigurationRuleDestinationMetricsEventThreshol
   }
 
   // minutes - computed: false, optional: false, required: true
-  private _minutes?: number; 
+  private _minutes?: number;
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -288,7 +288,7 @@ export interface S3BucketReplicationConfigurationRuleDestinationMetrics {
   readonly status: string;
   /**
   * event_threshold block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#event_threshold S3BucketReplicationConfigurationA#event_threshold}
   */
   readonly eventThreshold?: S3BucketReplicationConfigurationRuleDestinationMetricsEventThreshold;
@@ -344,7 +344,7 @@ export class S3BucketReplicationConfigurationRuleDestinationMetricsOutputReferen
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -422,7 +422,7 @@ export class S3BucketReplicationConfigurationRuleDestinationReplicationTimeTimeO
   }
 
   // minutes - computed: false, optional: false, required: true
-  private _minutes?: number; 
+  private _minutes?: number;
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -441,7 +441,7 @@ export interface S3BucketReplicationConfigurationRuleDestinationReplicationTime 
   readonly status: string;
   /**
   * time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#time S3BucketReplicationConfigurationA#time}
   */
   readonly time: S3BucketReplicationConfigurationRuleDestinationReplicationTimeTime;
@@ -497,7 +497,7 @@ export class S3BucketReplicationConfigurationRuleDestinationReplicationTimeOutpu
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -537,25 +537,25 @@ export interface S3BucketReplicationConfigurationRuleDestination {
   readonly storageClass?: string;
   /**
   * access_control_translation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#access_control_translation S3BucketReplicationConfigurationA#access_control_translation}
   */
   readonly accessControlTranslation?: S3BucketReplicationConfigurationRuleDestinationAccessControlTranslation;
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#encryption_configuration S3BucketReplicationConfigurationA#encryption_configuration}
   */
   readonly encryptionConfiguration?: S3BucketReplicationConfigurationRuleDestinationEncryptionConfiguration;
   /**
   * metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#metrics S3BucketReplicationConfigurationA#metrics}
   */
   readonly metrics?: S3BucketReplicationConfigurationRuleDestinationMetrics;
   /**
   * replication_time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#replication_time S3BucketReplicationConfigurationA#replication_time}
   */
   readonly replicationTime?: S3BucketReplicationConfigurationRuleDestinationReplicationTime;
@@ -646,7 +646,7 @@ export class S3BucketReplicationConfigurationRuleDestinationOutputReference exte
   }
 
   // account - computed: false, optional: true, required: false
-  private _account?: string; 
+  private _account?: string;
   public get account() {
     return this.getStringAttribute('account');
   }
@@ -662,7 +662,7 @@ export class S3BucketReplicationConfigurationRuleDestinationOutputReference exte
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -675,7 +675,7 @@ export class S3BucketReplicationConfigurationRuleDestinationOutputReference exte
   }
 
   // storage_class - computed: false, optional: true, required: false
-  private _storageClass?: string; 
+  private _storageClass?: string;
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -804,7 +804,7 @@ export class S3BucketReplicationConfigurationRuleExistingObjectReplicationOutput
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -877,7 +877,7 @@ export class S3BucketReplicationConfigurationRuleFilterAndOutputReference extend
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -893,7 +893,7 @@ export class S3BucketReplicationConfigurationRuleFilterAndOutputReference extend
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -969,7 +969,7 @@ export class S3BucketReplicationConfigurationRuleFilterTagOutputReference extend
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -982,7 +982,7 @@ export class S3BucketReplicationConfigurationRuleFilterTagOutputReference extend
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1001,13 +1001,13 @@ export interface S3BucketReplicationConfigurationRuleFilter {
   readonly prefix?: string;
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#and S3BucketReplicationConfigurationA#and}
   */
   readonly and?: S3BucketReplicationConfigurationRuleFilterAnd;
   /**
   * tag block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#tag S3BucketReplicationConfigurationA#tag}
   */
   readonly tag?: S3BucketReplicationConfigurationRuleFilterTag;
@@ -1070,7 +1070,7 @@ export class S3BucketReplicationConfigurationRuleFilterOutputReference extends c
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1167,7 +1167,7 @@ export class S3BucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaM
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -1229,7 +1229,7 @@ export class S3BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEn
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -1244,13 +1244,13 @@ export class S3BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEn
 export interface S3BucketReplicationConfigurationRuleSourceSelectionCriteria {
   /**
   * replica_modifications block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#replica_modifications S3BucketReplicationConfigurationA#replica_modifications}
   */
   readonly replicaModifications?: S3BucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModifications;
   /**
   * sse_kms_encrypted_objects block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#sse_kms_encrypted_objects S3BucketReplicationConfigurationA#sse_kms_encrypted_objects}
   */
   readonly sseKmsEncryptedObjects?: S3BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects;
@@ -1359,31 +1359,31 @@ export interface S3BucketReplicationConfigurationRule {
   readonly status: string;
   /**
   * delete_marker_replication block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#delete_marker_replication S3BucketReplicationConfigurationA#delete_marker_replication}
   */
   readonly deleteMarkerReplication?: S3BucketReplicationConfigurationRuleDeleteMarkerReplication;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#destination S3BucketReplicationConfigurationA#destination}
   */
   readonly destination: S3BucketReplicationConfigurationRuleDestination;
   /**
   * existing_object_replication block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#existing_object_replication S3BucketReplicationConfigurationA#existing_object_replication}
   */
   readonly existingObjectReplication?: S3BucketReplicationConfigurationRuleExistingObjectReplication;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#filter S3BucketReplicationConfigurationA#filter}
   */
   readonly filter?: S3BucketReplicationConfigurationRuleFilter;
   /**
   * source_selection_criteria block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration#source_selection_criteria S3BucketReplicationConfigurationA#source_selection_criteria}
   */
   readonly sourceSelectionCriteria?: S3BucketReplicationConfigurationRuleSourceSelectionCriteria;
@@ -1500,7 +1500,7 @@ export class S3BucketReplicationConfigurationRuleOutputReference extends cdktf.C
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1516,7 +1516,7 @@ export class S3BucketReplicationConfigurationRuleOutputReference extends cdktf.C
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1532,7 +1532,7 @@ export class S3BucketReplicationConfigurationRuleOutputReference extends cdktf.C
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -1548,7 +1548,7 @@ export class S3BucketReplicationConfigurationRuleOutputReference extends cdktf.C
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -1707,7 +1707,7 @@ export class S3BucketReplicationConfigurationA extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1720,7 +1720,7 @@ export class S3BucketReplicationConfigurationA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1736,7 +1736,7 @@ export class S3BucketReplicationConfigurationA extends cdktf.TerraformResource {
   }
 
   // role - computed: false, optional: false, required: true
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -1749,7 +1749,7 @@ export class S3BucketReplicationConfigurationA extends cdktf.TerraformResource {
   }
 
   // token - computed: false, optional: true, required: false
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this.getStringAttribute('token');
   }

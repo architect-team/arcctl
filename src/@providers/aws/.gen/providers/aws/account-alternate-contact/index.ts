@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/account_alternate_contact
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface AccountAlternateContactConfig extends cdktf.TerraformMetaArgume
   readonly title: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/account_alternate_contact#timeouts AccountAlternateContact#timeouts}
   */
   readonly timeouts?: AccountAlternateContactTimeouts;
@@ -127,7 +127,7 @@ export class AccountAlternateContactTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -143,7 +143,7 @@ export class AccountAlternateContactTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -159,7 +159,7 @@ export class AccountAlternateContactTimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -227,7 +227,7 @@ export class AccountAlternateContact extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -243,7 +243,7 @@ export class AccountAlternateContact extends cdktf.TerraformResource {
   }
 
   // alternate_contact_type - computed: false, optional: false, required: true
-  private _alternateContactType?: string; 
+  private _alternateContactType?: string;
   public get alternateContactType() {
     return this.getStringAttribute('alternate_contact_type');
   }
@@ -256,7 +256,7 @@ export class AccountAlternateContact extends cdktf.TerraformResource {
   }
 
   // email_address - computed: false, optional: false, required: true
-  private _emailAddress?: string; 
+  private _emailAddress?: string;
   public get emailAddress() {
     return this.getStringAttribute('email_address');
   }
@@ -269,7 +269,7 @@ export class AccountAlternateContact extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -285,7 +285,7 @@ export class AccountAlternateContact extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -298,7 +298,7 @@ export class AccountAlternateContact extends cdktf.TerraformResource {
   }
 
   // phone_number - computed: false, optional: false, required: true
-  private _phoneNumber?: string; 
+  private _phoneNumber?: string;
   public get phoneNumber() {
     return this.getStringAttribute('phone_number');
   }
@@ -311,7 +311,7 @@ export class AccountAlternateContact extends cdktf.TerraformResource {
   }
 
   // title - computed: false, optional: false, required: true
-  private _title?: string; 
+  private _title?: string;
   public get title() {
     return this.getStringAttribute('title');
   }

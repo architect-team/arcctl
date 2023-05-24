@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/plugin
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,43 +9,43 @@ import * as cdktf from 'cdktf';
 export interface PluginConfig extends cdktf.TerraformMetaArguments {
   /**
   * Docker Plugin alias
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#alias Plugin#alias}
   */
   readonly alias?: string;
   /**
   * HTTP client timeout to enable the plugin
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#enable_timeout Plugin#enable_timeout}
   */
   readonly enableTimeout?: number;
   /**
   * If `true` the plugin is enabled. Defaults to `true`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#enabled Plugin#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * The environment variables in the form of `KEY=VALUE`, e.g. `DEBUG=0`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#env Plugin#env}
   */
   readonly env?: string[];
   /**
   * If true, then the plugin is destroyed forcibly
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#force_destroy Plugin#force_destroy}
   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
   * If true, then the plugin is disabled forcibly
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#force_disable Plugin#force_disable}
   */
   readonly forceDisable?: boolean | cdktf.IResolvable;
   /**
   * If true, grant all permissions necessary to run the plugin
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#grant_all_permissions Plugin#grant_all_permissions}
   */
   readonly grantAllPermissions?: boolean | cdktf.IResolvable;
@@ -58,13 +58,13 @@ export interface PluginConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Docker Plugin name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#name Plugin#name}
   */
   readonly name: string;
   /**
   * grant_permissions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#grant_permissions Plugin#grant_permissions}
   */
   readonly grantPermissions?: PluginGrantPermissions[] | cdktf.IResolvable;
@@ -72,13 +72,13 @@ export interface PluginConfig extends cdktf.TerraformMetaArguments {
 export interface PluginGrantPermissions {
   /**
   * The name of the permission
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#name Plugin#name}
   */
   readonly name: string;
   /**
   * The value of the permission
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#value Plugin#value}
   */
   readonly value: string[];
@@ -146,7 +146,7 @@ export class PluginGrantPermissionsOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -159,7 +159,7 @@ export class PluginGrantPermissionsOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string[]; 
+  private _value?: string[];
   public get value() {
     return cdktf.Fn.tolist(this.getListAttribute('value'));
   }
@@ -246,7 +246,7 @@ export class Plugin extends cdktf.TerraformResource {
   // ==========
 
   // alias - computed: true, optional: true, required: false
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this.getStringAttribute('alias');
   }
@@ -262,7 +262,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // enable_timeout - computed: false, optional: true, required: false
-  private _enableTimeout?: number; 
+  private _enableTimeout?: number;
   public get enableTimeout() {
     return this.getNumberAttribute('enable_timeout');
   }
@@ -278,7 +278,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -294,7 +294,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // env - computed: true, optional: true, required: false
-  private _env?: string[]; 
+  private _env?: string[];
   public get env() {
     return cdktf.Fn.tolist(this.getListAttribute('env'));
   }
@@ -310,7 +310,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -326,7 +326,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // force_disable - computed: false, optional: true, required: false
-  private _forceDisable?: boolean | cdktf.IResolvable; 
+  private _forceDisable?: boolean | cdktf.IResolvable;
   public get forceDisable() {
     return this.getBooleanAttribute('force_disable');
   }
@@ -342,7 +342,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // grant_all_permissions - computed: false, optional: true, required: false
-  private _grantAllPermissions?: boolean | cdktf.IResolvable; 
+  private _grantAllPermissions?: boolean | cdktf.IResolvable;
   public get grantAllPermissions() {
     return this.getBooleanAttribute('grant_all_permissions');
   }
@@ -358,7 +358,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -374,7 +374,7 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

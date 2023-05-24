@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/mwaa_environment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -92,19 +92,19 @@ export interface MwaaEnvironmentConfig extends cdktf.TerraformMetaArguments {
   readonly weeklyMaintenanceWindowStart?: string;
   /**
   * logging_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#logging_configuration MwaaEnvironment#logging_configuration}
   */
   readonly loggingConfiguration?: MwaaEnvironmentLoggingConfiguration;
   /**
   * network_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#network_configuration MwaaEnvironment#network_configuration}
   */
   readonly networkConfiguration: MwaaEnvironmentNetworkConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#timeouts MwaaEnvironment#timeouts}
   */
   readonly timeouts?: MwaaEnvironmentTimeouts;
@@ -319,7 +319,7 @@ export class MwaaEnvironmentLoggingConfigurationDagProcessingLogsOutputReference
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -335,7 +335,7 @@ export class MwaaEnvironmentLoggingConfigurationDagProcessingLogsOutputReference
   }
 
   // log_level - computed: true, optional: true, required: false
-  private _logLevel?: string; 
+  private _logLevel?: string;
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -416,7 +416,7 @@ export class MwaaEnvironmentLoggingConfigurationSchedulerLogsOutputReference ext
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -432,7 +432,7 @@ export class MwaaEnvironmentLoggingConfigurationSchedulerLogsOutputReference ext
   }
 
   // log_level - computed: true, optional: true, required: false
-  private _logLevel?: string; 
+  private _logLevel?: string;
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -513,7 +513,7 @@ export class MwaaEnvironmentLoggingConfigurationTaskLogsOutputReference extends 
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -529,7 +529,7 @@ export class MwaaEnvironmentLoggingConfigurationTaskLogsOutputReference extends 
   }
 
   // log_level - computed: true, optional: true, required: false
-  private _logLevel?: string; 
+  private _logLevel?: string;
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -610,7 +610,7 @@ export class MwaaEnvironmentLoggingConfigurationWebserverLogsOutputReference ext
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -626,7 +626,7 @@ export class MwaaEnvironmentLoggingConfigurationWebserverLogsOutputReference ext
   }
 
   // log_level - computed: true, optional: true, required: false
-  private _logLevel?: string; 
+  private _logLevel?: string;
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -707,7 +707,7 @@ export class MwaaEnvironmentLoggingConfigurationWorkerLogsOutputReference extend
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -723,7 +723,7 @@ export class MwaaEnvironmentLoggingConfigurationWorkerLogsOutputReference extend
   }
 
   // log_level - computed: true, optional: true, required: false
-  private _logLevel?: string; 
+  private _logLevel?: string;
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -741,31 +741,31 @@ export class MwaaEnvironmentLoggingConfigurationWorkerLogsOutputReference extend
 export interface MwaaEnvironmentLoggingConfiguration {
   /**
   * dag_processing_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#dag_processing_logs MwaaEnvironment#dag_processing_logs}
   */
   readonly dagProcessingLogs?: MwaaEnvironmentLoggingConfigurationDagProcessingLogs;
   /**
   * scheduler_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#scheduler_logs MwaaEnvironment#scheduler_logs}
   */
   readonly schedulerLogs?: MwaaEnvironmentLoggingConfigurationSchedulerLogs;
   /**
   * task_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#task_logs MwaaEnvironment#task_logs}
   */
   readonly taskLogs?: MwaaEnvironmentLoggingConfigurationTaskLogs;
   /**
   * webserver_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#webserver_logs MwaaEnvironment#webserver_logs}
   */
   readonly webserverLogs?: MwaaEnvironmentLoggingConfigurationWebserverLogs;
   /**
   * worker_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mwaa_environment#worker_logs MwaaEnvironment#worker_logs}
   */
   readonly workerLogs?: MwaaEnvironmentLoggingConfigurationWorkerLogs;
@@ -982,7 +982,7 @@ export class MwaaEnvironmentNetworkConfigurationOutputReference extends cdktf.Co
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -995,7 +995,7 @@ export class MwaaEnvironmentNetworkConfigurationOutputReference extends cdktf.Co
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -1089,7 +1089,7 @@ export class MwaaEnvironmentTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1105,7 +1105,7 @@ export class MwaaEnvironmentTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1121,7 +1121,7 @@ export class MwaaEnvironmentTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1204,7 +1204,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   // ==========
 
   // airflow_configuration_options - computed: false, optional: true, required: false
-  private _airflowConfigurationOptions?: { [key: string]: string }; 
+  private _airflowConfigurationOptions?: { [key: string]: string };
   public get airflowConfigurationOptions() {
     return this.getStringMapAttribute('airflow_configuration_options');
   }
@@ -1220,7 +1220,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // airflow_version - computed: true, optional: true, required: false
-  private _airflowVersion?: string; 
+  private _airflowVersion?: string;
   public get airflowVersion() {
     return this.getStringAttribute('airflow_version');
   }
@@ -1246,7 +1246,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // dag_s3_path - computed: false, optional: false, required: true
-  private _dagS3Path?: string; 
+  private _dagS3Path?: string;
   public get dagS3Path() {
     return this.getStringAttribute('dag_s3_path');
   }
@@ -1259,7 +1259,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // environment_class - computed: true, optional: true, required: false
-  private _environmentClass?: string; 
+  private _environmentClass?: string;
   public get environmentClass() {
     return this.getStringAttribute('environment_class');
   }
@@ -1275,7 +1275,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // execution_role_arn - computed: false, optional: false, required: true
-  private _executionRoleArn?: string; 
+  private _executionRoleArn?: string;
   public get executionRoleArn() {
     return this.getStringAttribute('execution_role_arn');
   }
@@ -1288,7 +1288,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1304,7 +1304,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // kms_key - computed: false, optional: true, required: false
-  private _kmsKey?: string; 
+  private _kmsKey?: string;
   public get kmsKey() {
     return this.getStringAttribute('kms_key');
   }
@@ -1326,7 +1326,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // max_workers - computed: true, optional: true, required: false
-  private _maxWorkers?: number; 
+  private _maxWorkers?: number;
   public get maxWorkers() {
     return this.getNumberAttribute('max_workers');
   }
@@ -1342,7 +1342,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // min_workers - computed: true, optional: true, required: false
-  private _minWorkers?: number; 
+  private _minWorkers?: number;
   public get minWorkers() {
     return this.getNumberAttribute('min_workers');
   }
@@ -1358,7 +1358,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1371,7 +1371,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // plugins_s3_object_version - computed: true, optional: true, required: false
-  private _pluginsS3ObjectVersion?: string; 
+  private _pluginsS3ObjectVersion?: string;
   public get pluginsS3ObjectVersion() {
     return this.getStringAttribute('plugins_s3_object_version');
   }
@@ -1387,7 +1387,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // plugins_s3_path - computed: false, optional: true, required: false
-  private _pluginsS3Path?: string; 
+  private _pluginsS3Path?: string;
   public get pluginsS3Path() {
     return this.getStringAttribute('plugins_s3_path');
   }
@@ -1403,7 +1403,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // requirements_s3_object_version - computed: true, optional: true, required: false
-  private _requirementsS3ObjectVersion?: string; 
+  private _requirementsS3ObjectVersion?: string;
   public get requirementsS3ObjectVersion() {
     return this.getStringAttribute('requirements_s3_object_version');
   }
@@ -1419,7 +1419,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // requirements_s3_path - computed: false, optional: true, required: false
-  private _requirementsS3Path?: string; 
+  private _requirementsS3Path?: string;
   public get requirementsS3Path() {
     return this.getStringAttribute('requirements_s3_path');
   }
@@ -1435,7 +1435,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // schedulers - computed: true, optional: true, required: false
-  private _schedulers?: number; 
+  private _schedulers?: number;
   public get schedulers() {
     return this.getNumberAttribute('schedulers');
   }
@@ -1456,7 +1456,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // source_bucket_arn - computed: false, optional: false, required: true
-  private _sourceBucketArn?: string; 
+  private _sourceBucketArn?: string;
   public get sourceBucketArn() {
     return this.getStringAttribute('source_bucket_arn');
   }
@@ -1474,7 +1474,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1490,7 +1490,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1506,7 +1506,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // webserver_access_mode - computed: true, optional: true, required: false
-  private _webserverAccessMode?: string; 
+  private _webserverAccessMode?: string;
   public get webserverAccessMode() {
     return this.getStringAttribute('webserver_access_mode');
   }
@@ -1527,7 +1527,7 @@ export class MwaaEnvironment extends cdktf.TerraformResource {
   }
 
   // weekly_maintenance_window_start - computed: true, optional: true, required: false
-  private _weeklyMaintenanceWindowStart?: string; 
+  private _weeklyMaintenanceWindowStart?: string;
   public get weeklyMaintenanceWindowStart() {
     return this.getStringAttribute('weekly_maintenance_window_start');
   }

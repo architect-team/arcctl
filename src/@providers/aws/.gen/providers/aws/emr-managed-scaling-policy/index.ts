@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/emr_managed_scaling_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface EmrManagedScalingPolicyConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * compute_limits block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_managed_scaling_policy#compute_limits EmrManagedScalingPolicy#compute_limits}
   */
   readonly computeLimits: EmrManagedScalingPolicyComputeLimits[] | cdktf.IResolvable;
@@ -131,7 +131,7 @@ export class EmrManagedScalingPolicyComputeLimitsOutputReference extends cdktf.C
   }
 
   // maximum_capacity_units - computed: false, optional: false, required: true
-  private _maximumCapacityUnits?: number; 
+  private _maximumCapacityUnits?: number;
   public get maximumCapacityUnits() {
     return this.getNumberAttribute('maximum_capacity_units');
   }
@@ -144,7 +144,7 @@ export class EmrManagedScalingPolicyComputeLimitsOutputReference extends cdktf.C
   }
 
   // maximum_core_capacity_units - computed: false, optional: true, required: false
-  private _maximumCoreCapacityUnits?: number; 
+  private _maximumCoreCapacityUnits?: number;
   public get maximumCoreCapacityUnits() {
     return this.getNumberAttribute('maximum_core_capacity_units');
   }
@@ -160,7 +160,7 @@ export class EmrManagedScalingPolicyComputeLimitsOutputReference extends cdktf.C
   }
 
   // maximum_ondemand_capacity_units - computed: false, optional: true, required: false
-  private _maximumOndemandCapacityUnits?: number; 
+  private _maximumOndemandCapacityUnits?: number;
   public get maximumOndemandCapacityUnits() {
     return this.getNumberAttribute('maximum_ondemand_capacity_units');
   }
@@ -176,7 +176,7 @@ export class EmrManagedScalingPolicyComputeLimitsOutputReference extends cdktf.C
   }
 
   // minimum_capacity_units - computed: false, optional: false, required: true
-  private _minimumCapacityUnits?: number; 
+  private _minimumCapacityUnits?: number;
   public get minimumCapacityUnits() {
     return this.getNumberAttribute('minimum_capacity_units');
   }
@@ -189,7 +189,7 @@ export class EmrManagedScalingPolicyComputeLimitsOutputReference extends cdktf.C
   }
 
   // unit_type - computed: false, optional: false, required: true
-  private _unitType?: string; 
+  private _unitType?: string;
   public get unitType() {
     return this.getStringAttribute('unit_type');
   }
@@ -269,7 +269,7 @@ export class EmrManagedScalingPolicy extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -282,7 +282,7 @@ export class EmrManagedScalingPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

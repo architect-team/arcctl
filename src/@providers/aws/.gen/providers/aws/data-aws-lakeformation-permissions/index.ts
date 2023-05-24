@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,37 +28,37 @@ export interface DataAwsLakeformationPermissionsConfig extends cdktf.TerraformMe
   readonly principal: string;
   /**
   * data_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#data_location DataAwsLakeformationPermissions#data_location}
   */
   readonly dataLocation?: DataAwsLakeformationPermissionsDataLocation;
   /**
   * database block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#database DataAwsLakeformationPermissions#database}
   */
   readonly database?: DataAwsLakeformationPermissionsDatabase;
   /**
   * lf_tag block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#lf_tag DataAwsLakeformationPermissions#lf_tag}
   */
   readonly lfTag?: DataAwsLakeformationPermissionsLfTag;
   /**
   * lf_tag_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#lf_tag_policy DataAwsLakeformationPermissions#lf_tag_policy}
   */
   readonly lfTagPolicy?: DataAwsLakeformationPermissionsLfTagPolicy;
   /**
   * table block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#table DataAwsLakeformationPermissions#table}
   */
   readonly table?: DataAwsLakeformationPermissionsTable;
   /**
   * table_with_columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#table_with_columns DataAwsLakeformationPermissions#table_with_columns}
   */
   readonly tableWithColumns?: DataAwsLakeformationPermissionsTableWithColumns;
@@ -124,7 +124,7 @@ export class DataAwsLakeformationPermissionsDataLocationOutputReference extends 
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -137,7 +137,7 @@ export class DataAwsLakeformationPermissionsDataLocationOutputReference extends 
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -213,7 +213,7 @@ export class DataAwsLakeformationPermissionsDatabaseOutputReference extends cdkt
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -229,7 +229,7 @@ export class DataAwsLakeformationPermissionsDatabaseOutputReference extends cdkt
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -313,7 +313,7 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -329,7 +329,7 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -342,7 +342,7 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -427,7 +427,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -440,7 +440,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -483,7 +483,7 @@ export interface DataAwsLakeformationPermissionsLfTagPolicy {
   readonly resourceType: string;
   /**
   * expression block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#expression DataAwsLakeformationPermissions#expression}
   */
   readonly expression: DataAwsLakeformationPermissionsLfTagPolicyExpression[] | cdktf.IResolvable;
@@ -546,7 +546,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends c
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -562,7 +562,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends c
   }
 
   // resource_type - computed: false, optional: false, required: true
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -670,7 +670,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -686,7 +686,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -699,7 +699,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -715,7 +715,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -835,7 +835,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -851,7 +851,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // column_names - computed: false, optional: true, required: false
-  private _columnNames?: string[]; 
+  private _columnNames?: string[];
   public get columnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('column_names'));
   }
@@ -867,7 +867,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -880,7 +880,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // excluded_column_names - computed: false, optional: true, required: false
-  private _excludedColumnNames?: string[]; 
+  private _excludedColumnNames?: string[];
   public get excludedColumnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_column_names'));
   }
@@ -896,7 +896,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -909,7 +909,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -979,7 +979,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   // ==========
 
   // catalog_id - computed: false, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -995,7 +995,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // catalog_resource - computed: false, optional: true, required: false
-  private _catalogResource?: boolean | cdktf.IResolvable; 
+  private _catalogResource?: boolean | cdktf.IResolvable;
   public get catalogResource() {
     return this.getBooleanAttribute('catalog_resource');
   }
@@ -1011,7 +1011,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1037,7 +1037,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_plan
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface BackupPlanConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * advanced_backup_setting block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_plan#advanced_backup_setting BackupPlan#advanced_backup_setting}
   */
   readonly advancedBackupSetting?: BackupPlanAdvancedBackupSetting[] | cdktf.IResolvable;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_plan#rule BackupPlan#rule}
   */
   readonly rule: BackupPlanRule[] | cdktf.IResolvable;
@@ -112,7 +112,7 @@ export class BackupPlanAdvancedBackupSettingOutputReference extends cdktf.Comple
   }
 
   // backup_options - computed: false, optional: false, required: true
-  private _backupOptions?: { [key: string]: string }; 
+  private _backupOptions?: { [key: string]: string };
   public get backupOptions() {
     return this.getStringMapAttribute('backup_options');
   }
@@ -125,7 +125,7 @@ export class BackupPlanAdvancedBackupSettingOutputReference extends cdktf.Comple
   }
 
   // resource_type - computed: false, optional: false, required: true
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -218,7 +218,7 @@ export class BackupPlanRuleCopyActionLifecycleOutputReference extends cdktf.Comp
   }
 
   // cold_storage_after - computed: false, optional: true, required: false
-  private _coldStorageAfter?: number; 
+  private _coldStorageAfter?: number;
   public get coldStorageAfter() {
     return this.getNumberAttribute('cold_storage_after');
   }
@@ -234,7 +234,7 @@ export class BackupPlanRuleCopyActionLifecycleOutputReference extends cdktf.Comp
   }
 
   // delete_after - computed: false, optional: true, required: false
-  private _deleteAfter?: number; 
+  private _deleteAfter?: number;
   public get deleteAfter() {
     return this.getNumberAttribute('delete_after');
   }
@@ -256,7 +256,7 @@ export interface BackupPlanRuleCopyAction {
   readonly destinationVaultArn: string;
   /**
   * lifecycle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_plan#lifecycle BackupPlan#lifecycle}
   */
   readonly lifecycle?: BackupPlanRuleCopyActionLifecycle;
@@ -324,7 +324,7 @@ export class BackupPlanRuleCopyActionOutputReference extends cdktf.ComplexObject
   }
 
   // destination_vault_arn - computed: false, optional: false, required: true
-  private _destinationVaultArn?: string; 
+  private _destinationVaultArn?: string;
   public get destinationVaultArn() {
     return this.getStringAttribute('destination_vault_arn');
   }
@@ -433,7 +433,7 @@ export class BackupPlanRuleLifecycleOutputReference extends cdktf.ComplexObject 
   }
 
   // cold_storage_after - computed: false, optional: true, required: false
-  private _coldStorageAfter?: number; 
+  private _coldStorageAfter?: number;
   public get coldStorageAfter() {
     return this.getNumberAttribute('cold_storage_after');
   }
@@ -449,7 +449,7 @@ export class BackupPlanRuleLifecycleOutputReference extends cdktf.ComplexObject 
   }
 
   // delete_after - computed: false, optional: true, required: false
-  private _deleteAfter?: number; 
+  private _deleteAfter?: number;
   public get deleteAfter() {
     return this.getNumberAttribute('delete_after');
   }
@@ -495,13 +495,13 @@ export interface BackupPlanRule {
   readonly targetVaultName: string;
   /**
   * copy_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_plan#copy_action BackupPlan#copy_action}
   */
   readonly copyAction?: BackupPlanRuleCopyAction[] | cdktf.IResolvable;
   /**
   * lifecycle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_plan#lifecycle BackupPlan#lifecycle}
   */
   readonly lifecycle?: BackupPlanRuleLifecycle;
@@ -618,7 +618,7 @@ export class BackupPlanRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // completion_window - computed: false, optional: true, required: false
-  private _completionWindow?: number; 
+  private _completionWindow?: number;
   public get completionWindow() {
     return this.getNumberAttribute('completion_window');
   }
@@ -634,7 +634,7 @@ export class BackupPlanRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // enable_continuous_backup - computed: false, optional: true, required: false
-  private _enableContinuousBackup?: boolean | cdktf.IResolvable; 
+  private _enableContinuousBackup?: boolean | cdktf.IResolvable;
   public get enableContinuousBackup() {
     return this.getBooleanAttribute('enable_continuous_backup');
   }
@@ -650,7 +650,7 @@ export class BackupPlanRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // recovery_point_tags - computed: false, optional: true, required: false
-  private _recoveryPointTags?: { [key: string]: string }; 
+  private _recoveryPointTags?: { [key: string]: string };
   public get recoveryPointTags() {
     return this.getStringMapAttribute('recovery_point_tags');
   }
@@ -666,7 +666,7 @@ export class BackupPlanRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // rule_name - computed: false, optional: false, required: true
-  private _ruleName?: string; 
+  private _ruleName?: string;
   public get ruleName() {
     return this.getStringAttribute('rule_name');
   }
@@ -679,7 +679,7 @@ export class BackupPlanRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // schedule - computed: false, optional: true, required: false
-  private _schedule?: string; 
+  private _schedule?: string;
   public get schedule() {
     return this.getStringAttribute('schedule');
   }
@@ -695,7 +695,7 @@ export class BackupPlanRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // start_window - computed: false, optional: true, required: false
-  private _startWindow?: number; 
+  private _startWindow?: number;
   public get startWindow() {
     return this.getNumberAttribute('start_window');
   }
@@ -711,7 +711,7 @@ export class BackupPlanRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // target_vault_name - computed: false, optional: false, required: true
-  private _targetVaultName?: string; 
+  private _targetVaultName?: string;
   public get targetVaultName() {
     return this.getStringAttribute('target_vault_name');
   }
@@ -831,7 +831,7 @@ export class BackupPlan extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -847,7 +847,7 @@ export class BackupPlan extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -860,7 +860,7 @@ export class BackupPlan extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -876,7 +876,7 @@ export class BackupPlan extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

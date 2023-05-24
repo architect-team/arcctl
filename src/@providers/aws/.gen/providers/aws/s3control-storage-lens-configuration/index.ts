@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface S3ControlStorageLensConfigurationConfig extends cdktf.Terraform
   readonly tagsAll?: { [key: string]: string };
   /**
   * storage_lens_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#storage_lens_configuration S3ControlStorageLensConfiguration#storage_lens_configuration}
   */
   readonly storageLensConfiguration: S3ControlStorageLensConfigurationStorageLensConfiguration;
@@ -87,7 +87,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -152,7 +152,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -217,7 +217,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -282,7 +282,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -347,7 +347,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -412,7 +412,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -477,7 +477,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -564,7 +564,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // delimiter - computed: false, optional: true, required: false
-  private _delimiter?: string; 
+  private _delimiter?: string;
   public get delimiter() {
     return this.getStringAttribute('delimiter');
   }
@@ -580,7 +580,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // max_depth - computed: false, optional: true, required: false
-  private _maxDepth?: number; 
+  private _maxDepth?: number;
   public get maxDepth() {
     return this.getNumberAttribute('max_depth');
   }
@@ -596,7 +596,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // min_storage_bytes_percentage - computed: false, optional: true, required: false
-  private _minStorageBytesPercentage?: number; 
+  private _minStorageBytesPercentage?: number;
   public get minStorageBytesPercentage() {
     return this.getNumberAttribute('min_storage_bytes_percentage');
   }
@@ -618,7 +618,7 @@ export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccoun
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * selection_criteria block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#selection_criteria S3ControlStorageLensConfiguration#selection_criteria}
   */
   readonly selectionCriteria?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria;
@@ -674,7 +674,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -708,7 +708,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
   /**
   * storage_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#storage_metrics S3ControlStorageLensConfiguration#storage_metrics}
   */
   readonly storageMetrics: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics;
@@ -772,31 +772,31 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
   /**
   * activity_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#activity_metrics S3ControlStorageLensConfiguration#activity_metrics}
   */
   readonly activityMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics;
   /**
   * advanced_cost_optimization_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_cost_optimization_metrics S3ControlStorageLensConfiguration#advanced_cost_optimization_metrics}
   */
   readonly advancedCostOptimizationMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics;
   /**
   * advanced_data_protection_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_data_protection_metrics S3ControlStorageLensConfiguration#advanced_data_protection_metrics}
   */
   readonly advancedDataProtectionMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics;
   /**
   * detailed_status_code_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#detailed_status_code_metrics S3ControlStorageLensConfiguration#detailed_status_code_metrics}
   */
   readonly detailedStatusCodeMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics;
   /**
   * prefix_level block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#prefix_level S3ControlStorageLensConfiguration#prefix_level}
   */
   readonly prefixLevel?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel;
@@ -1002,7 +1002,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1020,31 +1020,31 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel {
   /**
   * activity_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#activity_metrics S3ControlStorageLensConfiguration#activity_metrics}
   */
   readonly activityMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics;
   /**
   * advanced_cost_optimization_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_cost_optimization_metrics S3ControlStorageLensConfiguration#advanced_cost_optimization_metrics}
   */
   readonly advancedCostOptimizationMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics;
   /**
   * advanced_data_protection_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_data_protection_metrics S3ControlStorageLensConfiguration#advanced_data_protection_metrics}
   */
   readonly advancedDataProtectionMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics;
   /**
   * bucket_level block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#bucket_level S3ControlStorageLensConfiguration#bucket_level}
   */
   readonly bucketLevel: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel;
   /**
   * detailed_status_code_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#detailed_status_code_metrics S3ControlStorageLensConfiguration#detailed_status_code_metrics}
   */
   readonly detailedStatusCodeMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics;
@@ -1247,7 +1247,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutp
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1309,7 +1309,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1371,7 +1371,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // key_id - computed: false, optional: false, required: true
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -1456,13 +1456,13 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
   /**
   * sse_kms block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#sse_kms S3ControlStorageLensConfiguration#sse_kms}
   */
   readonly sseKms?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms;
   /**
   * sse_s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#sse_s3 S3ControlStorageLensConfiguration#sse_s3}
   */
   readonly sseS3?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3[] | cdktf.IResolvable;
@@ -1572,7 +1572,7 @@ export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataEx
   readonly prefix?: string;
   /**
   * encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#encryption S3ControlStorageLensConfiguration#encryption}
   */
   readonly encryption?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption;
@@ -1656,7 +1656,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -1669,7 +1669,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1682,7 +1682,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string; 
+  private _format?: string;
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -1695,7 +1695,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // output_schema_version - computed: false, optional: false, required: true
-  private _outputSchemaVersion?: string; 
+  private _outputSchemaVersion?: string;
   public get outputSchemaVersion() {
     return this.getStringAttribute('output_schema_version');
   }
@@ -1708,7 +1708,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1742,13 +1742,13 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExport {
   /**
   * cloud_watch_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#cloud_watch_metrics S3ControlStorageLensConfiguration#cloud_watch_metrics}
   */
   readonly cloudWatchMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics;
   /**
   * s3_bucket_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#s3_bucket_destination S3ControlStorageLensConfiguration#s3_bucket_destination}
   */
   readonly s3BucketDestination?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination;
@@ -1896,7 +1896,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOut
   }
 
   // buckets - computed: false, optional: true, required: false
-  private _buckets?: string[]; 
+  private _buckets?: string[];
   public get buckets() {
     return cdktf.Fn.tolist(this.getListAttribute('buckets'));
   }
@@ -1912,7 +1912,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOut
   }
 
   // regions - computed: false, optional: true, required: false
-  private _regions?: string[]; 
+  private _regions?: string[];
   public get regions() {
     return cdktf.Fn.tolist(this.getListAttribute('regions'));
   }
@@ -1988,7 +1988,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOut
   }
 
   // buckets - computed: false, optional: true, required: false
-  private _buckets?: string[]; 
+  private _buckets?: string[];
   public get buckets() {
     return cdktf.Fn.tolist(this.getListAttribute('buckets'));
   }
@@ -2004,7 +2004,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOut
   }
 
   // regions - computed: false, optional: true, required: false
-  private _regions?: string[]; 
+  private _regions?: string[];
   public get regions() {
     return cdktf.Fn.tolist(this.getListAttribute('regions'));
   }
@@ -2026,31 +2026,31 @@ export interface S3ControlStorageLensConfigurationStorageLensConfiguration {
   readonly enabled: boolean | cdktf.IResolvable;
   /**
   * account_level block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#account_level S3ControlStorageLensConfiguration#account_level}
   */
   readonly accountLevel: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel;
   /**
   * aws_org block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#aws_org S3ControlStorageLensConfiguration#aws_org}
   */
   readonly awsOrg?: S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg;
   /**
   * data_export block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#data_export S3ControlStorageLensConfiguration#data_export}
   */
   readonly dataExport?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExport;
   /**
   * exclude block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#exclude S3ControlStorageLensConfiguration#exclude}
   */
   readonly exclude?: S3ControlStorageLensConfigurationStorageLensConfigurationExclude;
   /**
   * include block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#include S3ControlStorageLensConfiguration#include}
   */
   readonly include?: S3ControlStorageLensConfigurationStorageLensConfigurationInclude;
@@ -2134,7 +2134,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -2274,7 +2274,7 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -2295,7 +2295,7 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
   }
 
   // config_id - computed: false, optional: false, required: true
-  private _configId?: string; 
+  private _configId?: string;
   public get configId() {
     return this.getStringAttribute('config_id');
   }
@@ -2308,7 +2308,7 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2324,7 +2324,7 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2340,7 +2340,7 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

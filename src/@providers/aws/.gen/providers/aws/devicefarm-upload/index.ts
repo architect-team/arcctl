@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/devicefarm_upload
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DevicefarmUpload extends cdktf.TerraformResource {
   }
 
   // content_type - computed: false, optional: true, required: false
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -107,7 +107,7 @@ export class DevicefarmUpload extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -128,7 +128,7 @@ export class DevicefarmUpload extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -141,7 +141,7 @@ export class DevicefarmUpload extends cdktf.TerraformResource {
   }
 
   // project_arn - computed: false, optional: false, required: true
-  private _projectArn?: string; 
+  private _projectArn?: string;
   public get projectArn() {
     return this.getStringAttribute('project_arn');
   }
@@ -154,7 +154,7 @@ export class DevicefarmUpload extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

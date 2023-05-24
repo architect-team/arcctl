@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_agent
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,7 +52,7 @@ export interface DatasyncAgentConfig extends cdktf.TerraformMetaArguments {
   readonly vpcEndpointId?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_agent#timeouts DatasyncAgent#timeouts}
   */
   readonly timeouts?: DatasyncAgentTimeouts;
@@ -117,7 +117,7 @@ export class DatasyncAgentTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -188,7 +188,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   // ==========
 
   // activation_key - computed: true, optional: true, required: false
-  private _activationKey?: string; 
+  private _activationKey?: string;
   public get activationKey() {
     return this.getStringAttribute('activation_key');
   }
@@ -209,7 +209,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -225,7 +225,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // ip_address - computed: true, optional: true, required: false
-  private _ipAddress?: string; 
+  private _ipAddress?: string;
   public get ipAddress() {
     return this.getStringAttribute('ip_address');
   }
@@ -241,7 +241,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -257,7 +257,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // private_link_endpoint - computed: false, optional: true, required: false
-  private _privateLinkEndpoint?: string; 
+  private _privateLinkEndpoint?: string;
   public get privateLinkEndpoint() {
     return this.getStringAttribute('private_link_endpoint');
   }
@@ -273,7 +273,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // security_group_arns - computed: false, optional: true, required: false
-  private _securityGroupArns?: string[]; 
+  private _securityGroupArns?: string[];
   public get securityGroupArns() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_arns'));
   }
@@ -289,7 +289,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // subnet_arns - computed: false, optional: true, required: false
-  private _subnetArns?: string[]; 
+  private _subnetArns?: string[];
   public get subnetArns() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_arns'));
   }
@@ -305,7 +305,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -321,7 +321,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -337,7 +337,7 @@ export class DatasyncAgent extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_id - computed: false, optional: true, required: false
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }

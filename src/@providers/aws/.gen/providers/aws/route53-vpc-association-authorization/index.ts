@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_vpc_association_authorization
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Route53VpcAssociationAuthorization extends cdktf.TerraformResource 
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class Route53VpcAssociationAuthorization extends cdktf.TerraformResource 
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -105,7 +105,7 @@ export class Route53VpcAssociationAuthorization extends cdktf.TerraformResource 
   }
 
   // vpc_region - computed: true, optional: true, required: false
-  private _vpcRegion?: string; 
+  private _vpcRegion?: string;
   public get vpcRegion() {
     return this.getStringAttribute('vpc_region');
   }
@@ -121,7 +121,7 @@ export class Route53VpcAssociationAuthorization extends cdktf.TerraformResource 
   }
 
   // zone_id - computed: false, optional: false, required: true
-  private _zoneId?: string; 
+  private _zoneId?: string;
   public get zoneId() {
     return this.getStringAttribute('zone_id');
   }

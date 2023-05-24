@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,7 +56,7 @@ export interface ConnectInstanceConfig extends cdktf.TerraformMetaArguments {
   readonly outboundCallsEnabled: boolean | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_instance#timeouts ConnectInstance#timeouts}
   */
   readonly timeouts?: ConnectInstanceTimeouts;
@@ -132,7 +132,7 @@ export class ConnectInstanceTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -148,7 +148,7 @@ export class ConnectInstanceTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -225,7 +225,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // auto_resolve_best_voices_enabled - computed: false, optional: true, required: false
-  private _autoResolveBestVoicesEnabled?: boolean | cdktf.IResolvable; 
+  private _autoResolveBestVoicesEnabled?: boolean | cdktf.IResolvable;
   public get autoResolveBestVoicesEnabled() {
     return this.getBooleanAttribute('auto_resolve_best_voices_enabled');
   }
@@ -241,7 +241,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // contact_flow_logs_enabled - computed: false, optional: true, required: false
-  private _contactFlowLogsEnabled?: boolean | cdktf.IResolvable; 
+  private _contactFlowLogsEnabled?: boolean | cdktf.IResolvable;
   public get contactFlowLogsEnabled() {
     return this.getBooleanAttribute('contact_flow_logs_enabled');
   }
@@ -257,7 +257,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // contact_lens_enabled - computed: false, optional: true, required: false
-  private _contactLensEnabled?: boolean | cdktf.IResolvable; 
+  private _contactLensEnabled?: boolean | cdktf.IResolvable;
   public get contactLensEnabled() {
     return this.getBooleanAttribute('contact_lens_enabled');
   }
@@ -278,7 +278,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: true, required: false
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -294,7 +294,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // early_media_enabled - computed: false, optional: true, required: false
-  private _earlyMediaEnabled?: boolean | cdktf.IResolvable; 
+  private _earlyMediaEnabled?: boolean | cdktf.IResolvable;
   public get earlyMediaEnabled() {
     return this.getBooleanAttribute('early_media_enabled');
   }
@@ -310,7 +310,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -326,7 +326,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // identity_management_type - computed: false, optional: false, required: true
-  private _identityManagementType?: string; 
+  private _identityManagementType?: string;
   public get identityManagementType() {
     return this.getStringAttribute('identity_management_type');
   }
@@ -339,7 +339,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // inbound_calls_enabled - computed: false, optional: false, required: true
-  private _inboundCallsEnabled?: boolean | cdktf.IResolvable; 
+  private _inboundCallsEnabled?: boolean | cdktf.IResolvable;
   public get inboundCallsEnabled() {
     return this.getBooleanAttribute('inbound_calls_enabled');
   }
@@ -352,7 +352,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // instance_alias - computed: false, optional: true, required: false
-  private _instanceAlias?: string; 
+  private _instanceAlias?: string;
   public get instanceAlias() {
     return this.getStringAttribute('instance_alias');
   }
@@ -368,7 +368,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // multi_party_conference_enabled - computed: false, optional: true, required: false
-  private _multiPartyConferenceEnabled?: boolean | cdktf.IResolvable; 
+  private _multiPartyConferenceEnabled?: boolean | cdktf.IResolvable;
   public get multiPartyConferenceEnabled() {
     return this.getBooleanAttribute('multi_party_conference_enabled');
   }
@@ -384,7 +384,7 @@ export class ConnectInstance extends cdktf.TerraformResource {
   }
 
   // outbound_calls_enabled - computed: false, optional: false, required: true
-  private _outboundCallsEnabled?: boolean | cdktf.IResolvable; 
+  private _outboundCallsEnabled?: boolean | cdktf.IResolvable;
   public get outboundCallsEnabled() {
     return this.getBooleanAttribute('outbound_calls_enabled');
   }

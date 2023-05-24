@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_prefix_list_reference
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class Ec2TransitGatewayPrefixListReference extends cdktf.TerraformResourc
   // ==========
 
   // blackhole - computed: false, optional: true, required: false
-  private _blackhole?: boolean | cdktf.IResolvable; 
+  private _blackhole?: boolean | cdktf.IResolvable;
   public get blackhole() {
     return this.getBooleanAttribute('blackhole');
   }
@@ -97,7 +97,7 @@ export class Ec2TransitGatewayPrefixListReference extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class Ec2TransitGatewayPrefixListReference extends cdktf.TerraformResourc
   }
 
   // prefix_list_id - computed: false, optional: false, required: true
-  private _prefixListId?: string; 
+  private _prefixListId?: string;
   public get prefixListId() {
     return this.getStringAttribute('prefix_list_id');
   }
@@ -131,7 +131,7 @@ export class Ec2TransitGatewayPrefixListReference extends cdktf.TerraformResourc
   }
 
   // transit_gateway_attachment_id - computed: false, optional: true, required: false
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }
@@ -147,7 +147,7 @@ export class Ec2TransitGatewayPrefixListReference extends cdktf.TerraformResourc
   }
 
   // transit_gateway_route_table_id - computed: false, optional: false, required: true
-  private _transitGatewayRouteTableId?: string; 
+  private _transitGatewayRouteTableId?: string;
   public get transitGatewayRouteTableId() {
     return this.getStringAttribute('transit_gateway_route_table_id');
   }

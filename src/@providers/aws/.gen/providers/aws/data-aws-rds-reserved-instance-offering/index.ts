@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/rds_reserved_instance_offering
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DataAwsRdsReservedInstanceOffering extends cdktf.TerraformDataSourc
   }
 
   // db_instance_class - computed: false, optional: false, required: true
-  private _dbInstanceClass?: string; 
+  private _dbInstanceClass?: string;
   public get dbInstanceClass() {
     return this.getStringAttribute('db_instance_class');
   }
@@ -104,7 +104,7 @@ export class DataAwsRdsReservedInstanceOffering extends cdktf.TerraformDataSourc
   }
 
   // duration - computed: false, optional: false, required: true
-  private _duration?: number; 
+  private _duration?: number;
   public get duration() {
     return this.getNumberAttribute('duration');
   }
@@ -122,7 +122,7 @@ export class DataAwsRdsReservedInstanceOffering extends cdktf.TerraformDataSourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -138,7 +138,7 @@ export class DataAwsRdsReservedInstanceOffering extends cdktf.TerraformDataSourc
   }
 
   // multi_az - computed: false, optional: false, required: true
-  private _multiAz?: boolean | cdktf.IResolvable; 
+  private _multiAz?: boolean | cdktf.IResolvable;
   public get multiAz() {
     return this.getBooleanAttribute('multi_az');
   }
@@ -156,7 +156,7 @@ export class DataAwsRdsReservedInstanceOffering extends cdktf.TerraformDataSourc
   }
 
   // offering_type - computed: false, optional: false, required: true
-  private _offeringType?: string; 
+  private _offeringType?: string;
   public get offeringType() {
     return this.getStringAttribute('offering_type');
   }
@@ -169,7 +169,7 @@ export class DataAwsRdsReservedInstanceOffering extends cdktf.TerraformDataSourc
   }
 
   // product_description - computed: false, optional: false, required: true
-  private _productDescription?: string; 
+  private _productDescription?: string;
   public get productDescription() {
     return this.getStringAttribute('product_description');
   }

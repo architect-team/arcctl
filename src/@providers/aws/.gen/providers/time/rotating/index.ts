@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/time/r/rotating
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -137,7 +137,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rfc3339 - computed: true, optional: true, required: false
-  private _rfc3339?: string; 
+  private _rfc3339?: string;
   public get rfc3339() {
     return this.getStringAttribute('rfc3339');
   }
@@ -153,7 +153,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_days - computed: false, optional: true, required: false
-  private _rotationDays?: number; 
+  private _rotationDays?: number;
   public get rotationDays() {
     return this.getNumberAttribute('rotation_days');
   }
@@ -169,7 +169,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_hours - computed: false, optional: true, required: false
-  private _rotationHours?: number; 
+  private _rotationHours?: number;
   public get rotationHours() {
     return this.getNumberAttribute('rotation_hours');
   }
@@ -185,7 +185,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_minutes - computed: false, optional: true, required: false
-  private _rotationMinutes?: number; 
+  private _rotationMinutes?: number;
   public get rotationMinutes() {
     return this.getNumberAttribute('rotation_minutes');
   }
@@ -201,7 +201,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_months - computed: false, optional: true, required: false
-  private _rotationMonths?: number; 
+  private _rotationMonths?: number;
   public get rotationMonths() {
     return this.getNumberAttribute('rotation_months');
   }
@@ -217,7 +217,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_rfc3339 - computed: true, optional: true, required: false
-  private _rotationRfc3339?: string; 
+  private _rotationRfc3339?: string;
   public get rotationRfc3339() {
     return this.getStringAttribute('rotation_rfc3339');
   }
@@ -233,7 +233,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_years - computed: false, optional: true, required: false
-  private _rotationYears?: number; 
+  private _rotationYears?: number;
   public get rotationYears() {
     return this.getNumberAttribute('rotation_years');
   }
@@ -254,7 +254,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

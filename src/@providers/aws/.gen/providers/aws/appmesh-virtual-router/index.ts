@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_router
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface AppmeshVirtualRouterConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_router#spec AppmeshVirtualRouter#spec}
   */
   readonly spec: AppmeshVirtualRouterSpec;
@@ -102,7 +102,7 @@ export class AppmeshVirtualRouterSpecListenerPortMappingOutputReference extends 
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -115,7 +115,7 @@ export class AppmeshVirtualRouterSpecListenerPortMappingOutputReference extends 
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -130,7 +130,7 @@ export class AppmeshVirtualRouterSpecListenerPortMappingOutputReference extends 
 export interface AppmeshVirtualRouterSpecListener {
   /**
   * port_mapping block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_router#port_mapping AppmeshVirtualRouter#port_mapping}
   */
   readonly portMapping: AppmeshVirtualRouterSpecListenerPortMapping;
@@ -226,7 +226,7 @@ export class AppmeshVirtualRouterSpecListenerList extends cdktf.ComplexList {
 export interface AppmeshVirtualRouterSpec {
   /**
   * listener block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_router#listener AppmeshVirtualRouter#listener}
   */
   readonly listener?: AppmeshVirtualRouterSpecListener[] | cdktf.IResolvable;
@@ -352,7 +352,7 @@ export class AppmeshVirtualRouter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -373,7 +373,7 @@ export class AppmeshVirtualRouter extends cdktf.TerraformResource {
   }
 
   // mesh_name - computed: false, optional: false, required: true
-  private _meshName?: string; 
+  private _meshName?: string;
   public get meshName() {
     return this.getStringAttribute('mesh_name');
   }
@@ -386,7 +386,7 @@ export class AppmeshVirtualRouter extends cdktf.TerraformResource {
   }
 
   // mesh_owner - computed: true, optional: true, required: false
-  private _meshOwner?: string; 
+  private _meshOwner?: string;
   public get meshOwner() {
     return this.getStringAttribute('mesh_owner');
   }
@@ -402,7 +402,7 @@ export class AppmeshVirtualRouter extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -420,7 +420,7 @@ export class AppmeshVirtualRouter extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -436,7 +436,7 @@ export class AppmeshVirtualRouter extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

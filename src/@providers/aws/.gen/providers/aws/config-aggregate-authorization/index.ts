@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/config_aggregate_authorization
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class ConfigAggregateAuthorization extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -99,7 +99,7 @@ export class ConfigAggregateAuthorization extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class ConfigAggregateAuthorization extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -128,7 +128,7 @@ export class ConfigAggregateAuthorization extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -144,7 +144,7 @@ export class ConfigAggregateAuthorization extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

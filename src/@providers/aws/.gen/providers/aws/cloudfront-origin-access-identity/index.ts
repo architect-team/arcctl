@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class CloudfrontOriginAccessIdentity extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -102,7 +102,7 @@ export class CloudfrontOriginAccessIdentity extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

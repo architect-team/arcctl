@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface DataAwsRoute53TrafficPolicyDocumentConfig extends cdktf.Terrafo
   readonly version?: string;
   /**
   * endpoint block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#endpoint DataAwsRoute53TrafficPolicyDocument#endpoint}
   */
   readonly endpoint?: DataAwsRoute53TrafficPolicyDocumentEndpoint[] | cdktf.IResolvable;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#rule DataAwsRoute53TrafficPolicyDocument#rule}
   */
   readonly rule?: DataAwsRoute53TrafficPolicyDocumentRule[] | cdktf.IResolvable;
@@ -141,7 +141,7 @@ export class DataAwsRoute53TrafficPolicyDocumentEndpointOutputReference extends 
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -154,7 +154,7 @@ export class DataAwsRoute53TrafficPolicyDocumentEndpointOutputReference extends 
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -170,7 +170,7 @@ export class DataAwsRoute53TrafficPolicyDocumentEndpointOutputReference extends 
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -186,7 +186,7 @@ export class DataAwsRoute53TrafficPolicyDocumentEndpointOutputReference extends 
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -360,7 +360,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // bias - computed: false, optional: true, required: false
-  private _bias?: string; 
+  private _bias?: string;
   public get bias() {
     return this.getStringAttribute('bias');
   }
@@ -376,7 +376,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // endpoint_reference - computed: false, optional: true, required: false
-  private _endpointReference?: string; 
+  private _endpointReference?: string;
   public get endpointReference() {
     return this.getStringAttribute('endpoint_reference');
   }
@@ -392,7 +392,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // evaluate_target_health - computed: false, optional: true, required: false
-  private _evaluateTargetHealth?: boolean | cdktf.IResolvable; 
+  private _evaluateTargetHealth?: boolean | cdktf.IResolvable;
   public get evaluateTargetHealth() {
     return this.getBooleanAttribute('evaluate_target_health');
   }
@@ -408,7 +408,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck?: string; 
+  private _healthCheck?: string;
   public get healthCheck() {
     return this.getStringAttribute('health_check');
   }
@@ -424,7 +424,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // latitude - computed: false, optional: true, required: false
-  private _latitude?: string; 
+  private _latitude?: string;
   public get latitude() {
     return this.getStringAttribute('latitude');
   }
@@ -440,7 +440,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // longitude - computed: false, optional: true, required: false
-  private _longitude?: string; 
+  private _longitude?: string;
   public get longitude() {
     return this.getStringAttribute('longitude');
   }
@@ -456,7 +456,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -472,7 +472,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocationOutputRe
   }
 
   // rule_reference - computed: false, optional: true, required: false
-  private _ruleReference?: string; 
+  private _ruleReference?: string;
   public get ruleReference() {
     return this.getStringAttribute('rule_reference');
   }
@@ -580,7 +580,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleItemsOutputReference extends
   }
 
   // endpoint_reference - computed: false, optional: true, required: false
-  private _endpointReference?: string; 
+  private _endpointReference?: string;
   public get endpointReference() {
     return this.getStringAttribute('endpoint_reference');
   }
@@ -596,7 +596,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleItemsOutputReference extends
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck?: string; 
+  private _healthCheck?: string;
   public get healthCheck() {
     return this.getStringAttribute('health_check');
   }
@@ -770,7 +770,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // continent - computed: false, optional: true, required: false
-  private _continent?: string; 
+  private _continent?: string;
   public get continent() {
     return this.getStringAttribute('continent');
   }
@@ -786,7 +786,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // country - computed: false, optional: true, required: false
-  private _country?: string; 
+  private _country?: string;
   public get country() {
     return this.getStringAttribute('country');
   }
@@ -802,7 +802,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // endpoint_reference - computed: false, optional: true, required: false
-  private _endpointReference?: string; 
+  private _endpointReference?: string;
   public get endpointReference() {
     return this.getStringAttribute('endpoint_reference');
   }
@@ -818,7 +818,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // evaluate_target_health - computed: false, optional: true, required: false
-  private _evaluateTargetHealth?: boolean | cdktf.IResolvable; 
+  private _evaluateTargetHealth?: boolean | cdktf.IResolvable;
   public get evaluateTargetHealth() {
     return this.getBooleanAttribute('evaluate_target_health');
   }
@@ -834,7 +834,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck?: string; 
+  private _healthCheck?: string;
   public get healthCheck() {
     return this.getStringAttribute('health_check');
   }
@@ -850,7 +850,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // is_default - computed: false, optional: true, required: false
-  private _isDefault?: boolean | cdktf.IResolvable; 
+  private _isDefault?: boolean | cdktf.IResolvable;
   public get isDefault() {
     return this.getBooleanAttribute('is_default');
   }
@@ -866,7 +866,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // rule_reference - computed: false, optional: true, required: false
-  private _ruleReference?: string; 
+  private _ruleReference?: string;
   public get ruleReference() {
     return this.getStringAttribute('rule_reference');
   }
@@ -882,7 +882,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleLocationOutputReference exte
   }
 
   // subdivision - computed: false, optional: true, required: false
-  private _subdivision?: string; 
+  private _subdivision?: string;
   public get subdivision() {
     return this.getStringAttribute('subdivision');
   }
@@ -1000,7 +1000,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRulePrimaryOutputReference exten
   }
 
   // endpoint_reference - computed: false, optional: true, required: false
-  private _endpointReference?: string; 
+  private _endpointReference?: string;
   public get endpointReference() {
     return this.getStringAttribute('endpoint_reference');
   }
@@ -1016,7 +1016,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRulePrimaryOutputReference exten
   }
 
   // evaluate_target_health - computed: false, optional: true, required: false
-  private _evaluateTargetHealth?: boolean | cdktf.IResolvable; 
+  private _evaluateTargetHealth?: boolean | cdktf.IResolvable;
   public get evaluateTargetHealth() {
     return this.getBooleanAttribute('evaluate_target_health');
   }
@@ -1032,7 +1032,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRulePrimaryOutputReference exten
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck?: string; 
+  private _healthCheck?: string;
   public get healthCheck() {
     return this.getStringAttribute('health_check');
   }
@@ -1048,7 +1048,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRulePrimaryOutputReference exten
   }
 
   // rule_reference - computed: false, optional: true, required: false
-  private _ruleReference?: string; 
+  private _ruleReference?: string;
   public get ruleReference() {
     return this.getStringAttribute('rule_reference');
   }
@@ -1169,7 +1169,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleRegionOutputReference extend
   }
 
   // endpoint_reference - computed: false, optional: true, required: false
-  private _endpointReference?: string; 
+  private _endpointReference?: string;
   public get endpointReference() {
     return this.getStringAttribute('endpoint_reference');
   }
@@ -1185,7 +1185,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleRegionOutputReference extend
   }
 
   // evaluate_target_health - computed: false, optional: true, required: false
-  private _evaluateTargetHealth?: boolean | cdktf.IResolvable; 
+  private _evaluateTargetHealth?: boolean | cdktf.IResolvable;
   public get evaluateTargetHealth() {
     return this.getBooleanAttribute('evaluate_target_health');
   }
@@ -1201,7 +1201,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleRegionOutputReference extend
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck?: string; 
+  private _healthCheck?: string;
   public get healthCheck() {
     return this.getStringAttribute('health_check');
   }
@@ -1217,7 +1217,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleRegionOutputReference extend
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -1233,7 +1233,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleRegionOutputReference extend
   }
 
   // rule_reference - computed: false, optional: true, required: false
-  private _ruleReference?: string; 
+  private _ruleReference?: string;
   public get ruleReference() {
     return this.getStringAttribute('rule_reference');
   }
@@ -1351,7 +1351,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleSecondaryOutputReference ext
   }
 
   // endpoint_reference - computed: false, optional: true, required: false
-  private _endpointReference?: string; 
+  private _endpointReference?: string;
   public get endpointReference() {
     return this.getStringAttribute('endpoint_reference');
   }
@@ -1367,7 +1367,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleSecondaryOutputReference ext
   }
 
   // evaluate_target_health - computed: false, optional: true, required: false
-  private _evaluateTargetHealth?: boolean | cdktf.IResolvable; 
+  private _evaluateTargetHealth?: boolean | cdktf.IResolvable;
   public get evaluateTargetHealth() {
     return this.getBooleanAttribute('evaluate_target_health');
   }
@@ -1383,7 +1383,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleSecondaryOutputReference ext
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck?: string; 
+  private _healthCheck?: string;
   public get healthCheck() {
     return this.getStringAttribute('health_check');
   }
@@ -1399,7 +1399,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleSecondaryOutputReference ext
   }
 
   // rule_reference - computed: false, optional: true, required: false
-  private _ruleReference?: string; 
+  private _ruleReference?: string;
   public get ruleReference() {
     return this.getStringAttribute('rule_reference');
   }
@@ -1428,37 +1428,37 @@ export interface DataAwsRoute53TrafficPolicyDocumentRule {
   readonly type?: string;
   /**
   * geo_proximity_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#geo_proximity_location DataAwsRoute53TrafficPolicyDocument#geo_proximity_location}
   */
   readonly geoProximityLocation?: DataAwsRoute53TrafficPolicyDocumentRuleGeoProximityLocation[] | cdktf.IResolvable;
   /**
   * items block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#items DataAwsRoute53TrafficPolicyDocument#items}
   */
   readonly items?: DataAwsRoute53TrafficPolicyDocumentRuleItems[] | cdktf.IResolvable;
   /**
   * location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#location DataAwsRoute53TrafficPolicyDocument#location}
   */
   readonly location?: DataAwsRoute53TrafficPolicyDocumentRuleLocation[] | cdktf.IResolvable;
   /**
   * primary block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#primary DataAwsRoute53TrafficPolicyDocument#primary}
   */
   readonly primary?: DataAwsRoute53TrafficPolicyDocumentRulePrimary;
   /**
   * region block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#region DataAwsRoute53TrafficPolicyDocument#region}
   */
   readonly region?: DataAwsRoute53TrafficPolicyDocumentRuleRegion[] | cdktf.IResolvable;
   /**
   * secondary block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_traffic_policy_document#secondary DataAwsRoute53TrafficPolicyDocument#secondary}
   */
   readonly secondary?: DataAwsRoute53TrafficPolicyDocumentRuleSecondary;
@@ -1568,7 +1568,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleOutputReference extends cdkt
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1581,7 +1581,7 @@ export class DataAwsRoute53TrafficPolicyDocumentRuleOutputReference extends cdkt
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1764,7 +1764,7 @@ export class DataAwsRoute53TrafficPolicyDocument extends cdktf.TerraformDataSour
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1785,7 +1785,7 @@ export class DataAwsRoute53TrafficPolicyDocument extends cdktf.TerraformDataSour
   }
 
   // record_type - computed: false, optional: true, required: false
-  private _recordType?: string; 
+  private _recordType?: string;
   public get recordType() {
     return this.getStringAttribute('record_type');
   }
@@ -1801,7 +1801,7 @@ export class DataAwsRoute53TrafficPolicyDocument extends cdktf.TerraformDataSour
   }
 
   // start_endpoint - computed: false, optional: true, required: false
-  private _startEndpoint?: string; 
+  private _startEndpoint?: string;
   public get startEndpoint() {
     return this.getStringAttribute('start_endpoint');
   }
@@ -1817,7 +1817,7 @@ export class DataAwsRoute53TrafficPolicyDocument extends cdktf.TerraformDataSour
   }
 
   // start_rule - computed: false, optional: true, required: false
-  private _startRule?: string; 
+  private _startRule?: string;
   public get startRule() {
     return this.getStringAttribute('start_rule');
   }
@@ -1833,7 +1833,7 @@ export class DataAwsRoute53TrafficPolicyDocument extends cdktf.TerraformDataSour
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

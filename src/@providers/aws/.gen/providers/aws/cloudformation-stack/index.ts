@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudformation_stack
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,7 +72,7 @@ export interface CloudformationStackConfig extends cdktf.TerraformMetaArguments 
   readonly timeoutInMinutes?: number;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack#timeouts CloudformationStack#timeouts}
   */
   readonly timeouts?: CloudformationStackTimeouts;
@@ -159,7 +159,7 @@ export class CloudformationStackTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -175,7 +175,7 @@ export class CloudformationStackTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -191,7 +191,7 @@ export class CloudformationStackTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -267,7 +267,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   // ==========
 
   // capabilities - computed: false, optional: true, required: false
-  private _capabilities?: string[]; 
+  private _capabilities?: string[];
   public get capabilities() {
     return cdktf.Fn.tolist(this.getListAttribute('capabilities'));
   }
@@ -283,7 +283,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // disable_rollback - computed: false, optional: true, required: false
-  private _disableRollback?: boolean | cdktf.IResolvable; 
+  private _disableRollback?: boolean | cdktf.IResolvable;
   public get disableRollback() {
     return this.getBooleanAttribute('disable_rollback');
   }
@@ -299,7 +299,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // iam_role_arn - computed: false, optional: true, required: false
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -315,7 +315,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -331,7 +331,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -344,7 +344,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // notification_arns - computed: false, optional: true, required: false
-  private _notificationArns?: string[]; 
+  private _notificationArns?: string[];
   public get notificationArns() {
     return cdktf.Fn.tolist(this.getListAttribute('notification_arns'));
   }
@@ -360,7 +360,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // on_failure - computed: false, optional: true, required: false
-  private _onFailure?: string; 
+  private _onFailure?: string;
   public get onFailure() {
     return this.getStringAttribute('on_failure');
   }
@@ -382,7 +382,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // parameters - computed: true, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -398,7 +398,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // policy_body - computed: true, optional: true, required: false
-  private _policyBody?: string; 
+  private _policyBody?: string;
   public get policyBody() {
     return this.getStringAttribute('policy_body');
   }
@@ -414,7 +414,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // policy_url - computed: false, optional: true, required: false
-  private _policyUrl?: string; 
+  private _policyUrl?: string;
   public get policyUrl() {
     return this.getStringAttribute('policy_url');
   }
@@ -430,7 +430,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -446,7 +446,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -462,7 +462,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // template_body - computed: true, optional: true, required: false
-  private _templateBody?: string; 
+  private _templateBody?: string;
   public get templateBody() {
     return this.getStringAttribute('template_body');
   }
@@ -478,7 +478,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // template_url - computed: false, optional: true, required: false
-  private _templateUrl?: string; 
+  private _templateUrl?: string;
   public get templateUrl() {
     return this.getStringAttribute('template_url');
   }
@@ -494,7 +494,7 @@ export class CloudformationStack extends cdktf.TerraformResource {
   }
 
   // timeout_in_minutes - computed: false, optional: true, required: false
-  private _timeoutInMinutes?: number; 
+  private _timeoutInMinutes?: number;
   public get timeoutInMinutes() {
     return this.getNumberAttribute('timeout_in_minutes');
   }

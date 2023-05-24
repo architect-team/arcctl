@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/eks_addon_version
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsEksAddonVersion extends cdktf.TerraformDataSource {
   // ==========
 
   // addon_name - computed: false, optional: false, required: true
-  private _addonName?: string; 
+  private _addonName?: string;
   public get addonName() {
     return this.getStringAttribute('addon_name');
   }
@@ -89,7 +89,7 @@ export class DataAwsEksAddonVersion extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class DataAwsEksAddonVersion extends cdktf.TerraformDataSource {
   }
 
   // kubernetes_version - computed: false, optional: false, required: true
-  private _kubernetesVersion?: string; 
+  private _kubernetesVersion?: string;
   public get kubernetesVersion() {
     return this.getStringAttribute('kubernetes_version');
   }
@@ -118,7 +118,7 @@ export class DataAwsEksAddonVersion extends cdktf.TerraformDataSource {
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable; 
+  private _mostRecent?: boolean | cdktf.IResolvable;
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }

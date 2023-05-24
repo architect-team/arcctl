@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_database
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -141,7 +141,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   // ==========
 
   // apply_immediately - computed: true, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -162,7 +162,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -178,7 +178,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // backup_retention_enabled - computed: false, optional: true, required: false
-  private _backupRetentionEnabled?: boolean | cdktf.IResolvable; 
+  private _backupRetentionEnabled?: boolean | cdktf.IResolvable;
   public get backupRetentionEnabled() {
     return this.getBooleanAttribute('backup_retention_enabled');
   }
@@ -194,7 +194,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // blueprint_id - computed: false, optional: false, required: true
-  private _blueprintId?: string; 
+  private _blueprintId?: string;
   public get blueprintId() {
     return this.getStringAttribute('blueprint_id');
   }
@@ -207,7 +207,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // bundle_id - computed: false, optional: false, required: true
-  private _bundleId?: string; 
+  private _bundleId?: string;
   public get bundleId() {
     return this.getStringAttribute('bundle_id');
   }
@@ -250,7 +250,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // final_snapshot_name - computed: false, optional: true, required: false
-  private _finalSnapshotName?: string; 
+  private _finalSnapshotName?: string;
   public get finalSnapshotName() {
     return this.getStringAttribute('final_snapshot_name');
   }
@@ -266,7 +266,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -282,7 +282,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // master_database_name - computed: false, optional: false, required: true
-  private _masterDatabaseName?: string; 
+  private _masterDatabaseName?: string;
   public get masterDatabaseName() {
     return this.getStringAttribute('master_database_name');
   }
@@ -305,7 +305,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // master_password - computed: false, optional: false, required: true
-  private _masterPassword?: string; 
+  private _masterPassword?: string;
   public get masterPassword() {
     return this.getStringAttribute('master_password');
   }
@@ -318,7 +318,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // master_username - computed: false, optional: false, required: true
-  private _masterUsername?: string; 
+  private _masterUsername?: string;
   public get masterUsername() {
     return this.getStringAttribute('master_username');
   }
@@ -331,7 +331,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // preferred_backup_window - computed: true, optional: true, required: false
-  private _preferredBackupWindow?: string; 
+  private _preferredBackupWindow?: string;
   public get preferredBackupWindow() {
     return this.getStringAttribute('preferred_backup_window');
   }
@@ -347,7 +347,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // preferred_maintenance_window - computed: true, optional: true, required: false
-  private _preferredMaintenanceWindow?: string; 
+  private _preferredMaintenanceWindow?: string;
   public get preferredMaintenanceWindow() {
     return this.getStringAttribute('preferred_maintenance_window');
   }
@@ -363,7 +363,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // publicly_accessible - computed: false, optional: true, required: false
-  private _publiclyAccessible?: boolean | cdktf.IResolvable; 
+  private _publiclyAccessible?: boolean | cdktf.IResolvable;
   public get publiclyAccessible() {
     return this.getBooleanAttribute('publicly_accessible');
   }
@@ -384,7 +384,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // relational_database_name - computed: false, optional: false, required: true
-  private _relationalDatabaseName?: string; 
+  private _relationalDatabaseName?: string;
   public get relationalDatabaseName() {
     return this.getStringAttribute('relational_database_name');
   }
@@ -402,7 +402,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // skip_final_snapshot - computed: false, optional: true, required: false
-  private _skipFinalSnapshot?: boolean | cdktf.IResolvable; 
+  private _skipFinalSnapshot?: boolean | cdktf.IResolvable;
   public get skipFinalSnapshot() {
     return this.getBooleanAttribute('skip_final_snapshot');
   }
@@ -423,7 +423,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -439,7 +439,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

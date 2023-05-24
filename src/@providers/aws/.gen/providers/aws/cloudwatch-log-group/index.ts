@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -117,7 +117,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -133,7 +133,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -149,7 +149,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -165,7 +165,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // retention_in_days - computed: false, optional: true, required: false
-  private _retentionInDays?: number; 
+  private _retentionInDays?: number;
   public get retentionInDays() {
     return this.getNumberAttribute('retention_in_days');
   }
@@ -181,7 +181,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // skip_destroy - computed: false, optional: true, required: false
-  private _skipDestroy?: boolean | cdktf.IResolvable; 
+  private _skipDestroy?: boolean | cdktf.IResolvable;
   public get skipDestroy() {
     return this.getBooleanAttribute('skip_destroy');
   }
@@ -197,7 +197,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -213,7 +213,7 @@ export class CloudwatchLogGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

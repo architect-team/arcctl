@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface DxHostedPublicVirtualInterfaceAccepterConfig extends cdktf.Terr
   readonly virtualInterfaceId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface_accepter#timeouts DxHostedPublicVirtualInterfaceAccepter#timeouts}
   */
   readonly timeouts?: DxHostedPublicVirtualInterfaceAccepterTimeouts;
@@ -104,7 +104,7 @@ export class DxHostedPublicVirtualInterfaceAccepterTimeoutsOutputReference exten
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -120,7 +120,7 @@ export class DxHostedPublicVirtualInterfaceAccepterTimeoutsOutputReference exten
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -190,7 +190,7 @@ export class DxHostedPublicVirtualInterfaceAccepter extends cdktf.TerraformResou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -206,7 +206,7 @@ export class DxHostedPublicVirtualInterfaceAccepter extends cdktf.TerraformResou
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -222,7 +222,7 @@ export class DxHostedPublicVirtualInterfaceAccepter extends cdktf.TerraformResou
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -238,7 +238,7 @@ export class DxHostedPublicVirtualInterfaceAccepter extends cdktf.TerraformResou
   }
 
   // virtual_interface_id - computed: false, optional: false, required: true
-  private _virtualInterfaceId?: string; 
+  private _virtualInterfaceId?: string;
   public get virtualInterfaceId() {
     return this.getStringAttribute('virtual_interface_id');
   }

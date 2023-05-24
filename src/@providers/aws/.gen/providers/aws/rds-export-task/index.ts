@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/rds_export_task
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -37,7 +37,7 @@ export interface RdsExportTaskConfig extends cdktf.TerraformMetaArguments {
   readonly sourceArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_export_task#timeouts RdsExportTask#timeouts}
   */
   readonly timeouts?: RdsExportTaskTimeouts;
@@ -113,7 +113,7 @@ export class RdsExportTaskTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -129,7 +129,7 @@ export class RdsExportTaskTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -197,7 +197,7 @@ export class RdsExportTask extends cdktf.TerraformResource {
   // ==========
 
   // export_only - computed: false, optional: true, required: false
-  private _exportOnly?: string[]; 
+  private _exportOnly?: string[];
   public get exportOnly() {
     return this.getListAttribute('export_only');
   }
@@ -213,7 +213,7 @@ export class RdsExportTask extends cdktf.TerraformResource {
   }
 
   // export_task_identifier - computed: false, optional: false, required: true
-  private _exportTaskIdentifier?: string; 
+  private _exportTaskIdentifier?: string;
   public get exportTaskIdentifier() {
     return this.getStringAttribute('export_task_identifier');
   }
@@ -231,7 +231,7 @@ export class RdsExportTask extends cdktf.TerraformResource {
   }
 
   // iam_role_arn - computed: false, optional: false, required: true
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -249,7 +249,7 @@ export class RdsExportTask extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: false, required: true
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -267,7 +267,7 @@ export class RdsExportTask extends cdktf.TerraformResource {
   }
 
   // s3_bucket_name - computed: false, optional: false, required: true
-  private _s3BucketName?: string; 
+  private _s3BucketName?: string;
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -280,7 +280,7 @@ export class RdsExportTask extends cdktf.TerraformResource {
   }
 
   // s3_prefix - computed: true, optional: true, required: false
-  private _s3Prefix?: string; 
+  private _s3Prefix?: string;
   public get s3Prefix() {
     return this.getStringAttribute('s3_prefix');
   }
@@ -301,7 +301,7 @@ export class RdsExportTask extends cdktf.TerraformResource {
   }
 
   // source_arn - computed: false, optional: false, required: true
-  private _sourceArn?: string; 
+  private _sourceArn?: string;
   public get sourceArn() {
     return this.getStringAttribute('source_arn');
   }

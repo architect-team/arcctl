@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsEc2LocalGatewayConfig extends cdktf.TerraformMetaArgumen
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway#filter DataAwsEc2LocalGateway#filter}
   */
   readonly filter?: DataAwsEc2LocalGatewayFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway#timeouts DataAwsEc2LocalGateway#timeouts}
   */
   readonly timeouts?: DataAwsEc2LocalGatewayTimeouts;
@@ -108,7 +108,7 @@ export class DataAwsEc2LocalGatewayFilterOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +121,7 @@ export class DataAwsEc2LocalGatewayFilterOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -213,7 +213,7 @@ export class DataAwsEc2LocalGatewayTimeoutsOutputReference extends cdktf.Complex
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -278,7 +278,7 @@ export class DataAwsEc2LocalGateway extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -304,7 +304,7 @@ export class DataAwsEc2LocalGateway extends cdktf.TerraformDataSource {
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -320,7 +320,7 @@ export class DataAwsEc2LocalGateway extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

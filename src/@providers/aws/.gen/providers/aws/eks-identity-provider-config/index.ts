@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface EksIdentityProviderConfigConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * oidc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#oidc EksIdentityProviderConfig#oidc}
   */
   readonly oidc: EksIdentityProviderConfigOidc;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#timeouts EksIdentityProviderConfig#timeouts}
   */
   readonly timeouts?: EksIdentityProviderConfigTimeouts;
@@ -166,7 +166,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -179,7 +179,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // groups_claim - computed: false, optional: true, required: false
-  private _groupsClaim?: string; 
+  private _groupsClaim?: string;
   public get groupsClaim() {
     return this.getStringAttribute('groups_claim');
   }
@@ -195,7 +195,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // groups_prefix - computed: false, optional: true, required: false
-  private _groupsPrefix?: string; 
+  private _groupsPrefix?: string;
   public get groupsPrefix() {
     return this.getStringAttribute('groups_prefix');
   }
@@ -211,7 +211,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // identity_provider_config_name - computed: false, optional: false, required: true
-  private _identityProviderConfigName?: string; 
+  private _identityProviderConfigName?: string;
   public get identityProviderConfigName() {
     return this.getStringAttribute('identity_provider_config_name');
   }
@@ -224,7 +224,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // issuer_url - computed: false, optional: false, required: true
-  private _issuerUrl?: string; 
+  private _issuerUrl?: string;
   public get issuerUrl() {
     return this.getStringAttribute('issuer_url');
   }
@@ -237,7 +237,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // required_claims - computed: false, optional: true, required: false
-  private _requiredClaims?: { [key: string]: string }; 
+  private _requiredClaims?: { [key: string]: string };
   public get requiredClaims() {
     return this.getStringMapAttribute('required_claims');
   }
@@ -253,7 +253,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // username_claim - computed: false, optional: true, required: false
-  private _usernameClaim?: string; 
+  private _usernameClaim?: string;
   public get usernameClaim() {
     return this.getStringAttribute('username_claim');
   }
@@ -269,7 +269,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // username_prefix - computed: false, optional: true, required: false
-  private _usernamePrefix?: string; 
+  private _usernamePrefix?: string;
   public get usernamePrefix() {
     return this.getStringAttribute('username_prefix');
   }
@@ -355,7 +355,7 @@ export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -371,7 +371,7 @@ export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -442,7 +442,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -455,7 +455,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -476,7 +476,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -492,7 +492,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

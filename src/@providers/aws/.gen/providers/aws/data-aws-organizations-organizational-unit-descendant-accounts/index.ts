@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/organizations_organizational_unit_descendant_accounts
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -156,7 +156,7 @@ export class DataAwsOrganizationsOrganizationalUnitDescendantAccounts extends cd
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -172,7 +172,7 @@ export class DataAwsOrganizationsOrganizationalUnitDescendantAccounts extends cd
   }
 
   // parent_id - computed: false, optional: false, required: true
-  private _parentId?: string; 
+  private _parentId?: string;
   public get parentId() {
     return this.getStringAttribute('parent_id');
   }

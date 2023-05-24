@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface LimitRangeV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#metadata LimitRangeV1#metadata}
   */
   readonly metadata: LimitRangeV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#spec LimitRangeV1#spec}
   */
   readonly spec?: LimitRangeV1Spec;
@@ -30,31 +30,31 @@ export interface LimitRangeV1Config extends cdktf.TerraformMetaArguments {
 export interface LimitRangeV1Metadata {
   /**
   * An unstructured key value map stored with the limit range that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#annotations LimitRangeV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#generate_name LimitRangeV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the limit range. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#labels LimitRangeV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the limit range, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#name LimitRangeV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the limit range must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#namespace LimitRangeV1#namespace}
   */
   readonly namespace?: string;
@@ -131,7 +131,7 @@ export class LimitRangeV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -147,7 +147,7 @@ export class LimitRangeV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -168,7 +168,7 @@ export class LimitRangeV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -184,7 +184,7 @@ export class LimitRangeV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -200,7 +200,7 @@ export class LimitRangeV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -228,37 +228,37 @@ export class LimitRangeV1MetadataOutputReference extends cdktf.ComplexObject {
 export interface LimitRangeV1SpecLimit {
   /**
   * Default resource requirement limit value by resource name if resource limit is omitted.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#default LimitRangeV1#default}
   */
   readonly default?: { [key: string]: string };
   /**
   * The default resource requirement request value by resource name if resource request is omitted.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#default_request LimitRangeV1#default_request}
   */
   readonly defaultRequest?: { [key: string]: string };
   /**
   * Max usage constraints on this kind by resource name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#max LimitRangeV1#max}
   */
   readonly max?: { [key: string]: string };
   /**
   * The named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#max_limit_request_ratio LimitRangeV1#max_limit_request_ratio}
   */
   readonly maxLimitRequestRatio?: { [key: string]: string };
   /**
   * Min usage constraints on this kind by resource name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#min LimitRangeV1#min}
   */
   readonly min?: { [key: string]: string };
   /**
   * Type of resource that this limit applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#type LimitRangeV1#type}
   */
   readonly type?: string;
@@ -354,7 +354,7 @@ export class LimitRangeV1SpecLimitOutputReference extends cdktf.ComplexObject {
   }
 
   // default - computed: false, optional: true, required: false
-  private _default?: { [key: string]: string }; 
+  private _default?: { [key: string]: string };
   public get default() {
     return this.getStringMapAttribute('default');
   }
@@ -370,7 +370,7 @@ export class LimitRangeV1SpecLimitOutputReference extends cdktf.ComplexObject {
   }
 
   // default_request - computed: true, optional: true, required: false
-  private _defaultRequest?: { [key: string]: string }; 
+  private _defaultRequest?: { [key: string]: string };
   public get defaultRequest() {
     return this.getStringMapAttribute('default_request');
   }
@@ -386,7 +386,7 @@ export class LimitRangeV1SpecLimitOutputReference extends cdktf.ComplexObject {
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: { [key: string]: string }; 
+  private _max?: { [key: string]: string };
   public get max() {
     return this.getStringMapAttribute('max');
   }
@@ -402,7 +402,7 @@ export class LimitRangeV1SpecLimitOutputReference extends cdktf.ComplexObject {
   }
 
   // max_limit_request_ratio - computed: false, optional: true, required: false
-  private _maxLimitRequestRatio?: { [key: string]: string }; 
+  private _maxLimitRequestRatio?: { [key: string]: string };
   public get maxLimitRequestRatio() {
     return this.getStringMapAttribute('max_limit_request_ratio');
   }
@@ -418,7 +418,7 @@ export class LimitRangeV1SpecLimitOutputReference extends cdktf.ComplexObject {
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: { [key: string]: string }; 
+  private _min?: { [key: string]: string };
   public get min() {
     return this.getStringMapAttribute('min');
   }
@@ -434,7 +434,7 @@ export class LimitRangeV1SpecLimitOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -472,7 +472,7 @@ export class LimitRangeV1SpecLimitList extends cdktf.ComplexList {
 export interface LimitRangeV1Spec {
   /**
   * limit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/limit_range_v1#limit LimitRangeV1#limit}
   */
   readonly limit?: LimitRangeV1SpecLimit[] | cdktf.IResolvable;
@@ -584,7 +584,7 @@ export class LimitRangeV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

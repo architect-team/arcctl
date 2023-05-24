@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/endpoints
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface EndpointsConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#metadata Endpoints#metadata}
   */
   readonly metadata: EndpointsMetadata;
   /**
   * subset block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#subset Endpoints#subset}
   */
   readonly subset?: EndpointsSubset[] | cdktf.IResolvable;
@@ -30,31 +30,31 @@ export interface EndpointsConfig extends cdktf.TerraformMetaArguments {
 export interface EndpointsMetadata {
   /**
   * An unstructured key value map stored with the endpoints that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#annotations Endpoints#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#generate_name Endpoints#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the endpoints. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#labels Endpoints#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the endpoints, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#name Endpoints#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the endpoints must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#namespace Endpoints#namespace}
   */
   readonly namespace?: string;
@@ -131,7 +131,7 @@ export class EndpointsMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -147,7 +147,7 @@ export class EndpointsMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -168,7 +168,7 @@ export class EndpointsMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -184,7 +184,7 @@ export class EndpointsMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -200,7 +200,7 @@ export class EndpointsMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -228,19 +228,19 @@ export class EndpointsMetadataOutputReference extends cdktf.ComplexObject {
 export interface EndpointsSubsetAddress {
   /**
   * The Hostname of this endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#hostname Endpoints#hostname}
   */
   readonly hostname?: string;
   /**
   * The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#ip Endpoints#ip}
   */
   readonly ip: string;
   /**
   * Node hosting this endpoint. This can be used to determine endpoints local to a node.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#node_name Endpoints#node_name}
   */
   readonly nodeName?: string;
@@ -315,7 +315,7 @@ export class EndpointsSubsetAddressOutputReference extends cdktf.ComplexObject {
   }
 
   // hostname - computed: false, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -331,7 +331,7 @@ export class EndpointsSubsetAddressOutputReference extends cdktf.ComplexObject {
   }
 
   // ip - computed: false, optional: false, required: true
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -344,7 +344,7 @@ export class EndpointsSubsetAddressOutputReference extends cdktf.ComplexObject {
   }
 
   // node_name - computed: false, optional: true, required: false
-  private _nodeName?: string; 
+  private _nodeName?: string;
   public get nodeName() {
     return this.getStringAttribute('node_name');
   }
@@ -382,19 +382,19 @@ export class EndpointsSubsetAddressList extends cdktf.ComplexList {
 export interface EndpointsSubsetNotReadyAddress {
   /**
   * The Hostname of this endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#hostname Endpoints#hostname}
   */
   readonly hostname?: string;
   /**
   * The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#ip Endpoints#ip}
   */
   readonly ip: string;
   /**
   * Node hosting this endpoint. This can be used to determine endpoints local to a node.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#node_name Endpoints#node_name}
   */
   readonly nodeName?: string;
@@ -469,7 +469,7 @@ export class EndpointsSubsetNotReadyAddressOutputReference extends cdktf.Complex
   }
 
   // hostname - computed: false, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -485,7 +485,7 @@ export class EndpointsSubsetNotReadyAddressOutputReference extends cdktf.Complex
   }
 
   // ip - computed: false, optional: false, required: true
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -498,7 +498,7 @@ export class EndpointsSubsetNotReadyAddressOutputReference extends cdktf.Complex
   }
 
   // node_name - computed: false, optional: true, required: false
-  private _nodeName?: string; 
+  private _nodeName?: string;
   public get nodeName() {
     return this.getStringAttribute('node_name');
   }
@@ -536,19 +536,19 @@ export class EndpointsSubsetNotReadyAddressList extends cdktf.ComplexList {
 export interface EndpointsSubsetPort {
   /**
   * The name of this port within the endpoint. Must be a DNS_LABEL. Optional if only one Port is defined on this endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#name Endpoints#name}
   */
   readonly name?: string;
   /**
   * The port that will be exposed by this endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#port Endpoints#port}
   */
   readonly port: number;
   /**
   * The IP protocol for this port. Supports `TCP` and `UDP`. Default is `TCP`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#protocol Endpoints#protocol}
   */
   readonly protocol?: string;
@@ -623,7 +623,7 @@ export class EndpointsSubsetPortOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -639,7 +639,7 @@ export class EndpointsSubsetPortOutputReference extends cdktf.ComplexObject {
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -652,7 +652,7 @@ export class EndpointsSubsetPortOutputReference extends cdktf.ComplexObject {
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -690,19 +690,19 @@ export class EndpointsSubsetPortList extends cdktf.ComplexList {
 export interface EndpointsSubset {
   /**
   * address block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#address Endpoints#address}
   */
   readonly address?: EndpointsSubsetAddress[] | cdktf.IResolvable;
   /**
   * not_ready_address block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#not_ready_address Endpoints#not_ready_address}
   */
   readonly notReadyAddress?: EndpointsSubsetNotReadyAddress[] | cdktf.IResolvable;
   /**
   * port block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints#port Endpoints#port}
   */
   readonly port?: EndpointsSubsetPort[] | cdktf.IResolvable;
@@ -892,7 +892,7 @@ export class Endpoints extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

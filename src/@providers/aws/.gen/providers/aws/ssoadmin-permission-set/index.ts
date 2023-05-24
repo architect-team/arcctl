@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssoadmin_permission_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -122,7 +122,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -138,7 +138,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // instance_arn - computed: false, optional: false, required: true
-  private _instanceArn?: string; 
+  private _instanceArn?: string;
   public get instanceArn() {
     return this.getStringAttribute('instance_arn');
   }
@@ -151,7 +151,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -164,7 +164,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // relay_state - computed: false, optional: true, required: false
-  private _relayState?: string; 
+  private _relayState?: string;
   public get relayState() {
     return this.getStringAttribute('relay_state');
   }
@@ -180,7 +180,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // session_duration - computed: false, optional: true, required: false
-  private _sessionDuration?: string; 
+  private _sessionDuration?: string;
   public get sessionDuration() {
     return this.getStringAttribute('session_duration');
   }
@@ -196,7 +196,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -212,7 +212,7 @@ export class SsoadminPermissionSet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

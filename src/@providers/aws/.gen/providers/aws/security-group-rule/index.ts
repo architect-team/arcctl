@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/security_group_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -60,7 +60,7 @@ export interface SecurityGroupRuleConfig extends cdktf.TerraformMetaArguments {
   readonly type: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#timeouts SecurityGroupRule#timeouts}
   */
   readonly timeouts?: SecurityGroupRuleTimeouts;
@@ -125,7 +125,7 @@ export class SecurityGroupRuleTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -198,7 +198,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   // ==========
 
   // cidr_blocks - computed: false, optional: true, required: false
-  private _cidrBlocks?: string[]; 
+  private _cidrBlocks?: string[];
   public get cidrBlocks() {
     return this.getListAttribute('cidr_blocks');
   }
@@ -214,7 +214,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -230,7 +230,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // from_port - computed: false, optional: false, required: true
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -243,7 +243,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -259,7 +259,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // ipv6_cidr_blocks - computed: false, optional: true, required: false
-  private _ipv6CidrBlocks?: string[]; 
+  private _ipv6CidrBlocks?: string[];
   public get ipv6CidrBlocks() {
     return this.getListAttribute('ipv6_cidr_blocks');
   }
@@ -275,7 +275,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // prefix_list_ids - computed: false, optional: true, required: false
-  private _prefixListIds?: string[]; 
+  private _prefixListIds?: string[];
   public get prefixListIds() {
     return this.getListAttribute('prefix_list_ids');
   }
@@ -291,7 +291,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -304,7 +304,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // security_group_id - computed: false, optional: false, required: true
-  private _securityGroupId?: string; 
+  private _securityGroupId?: string;
   public get securityGroupId() {
     return this.getStringAttribute('security_group_id');
   }
@@ -322,7 +322,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // self - computed: false, optional: true, required: false
-  private _self?: boolean | cdktf.IResolvable; 
+  private _self?: boolean | cdktf.IResolvable;
   public get selfAttribute() {
     return this.getBooleanAttribute('self');
   }
@@ -338,7 +338,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // source_security_group_id - computed: true, optional: true, required: false
-  private _sourceSecurityGroupId?: string; 
+  private _sourceSecurityGroupId?: string;
   public get sourceSecurityGroupId() {
     return this.getStringAttribute('source_security_group_id');
   }
@@ -354,7 +354,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // to_port - computed: false, optional: false, required: true
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -367,7 +367,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

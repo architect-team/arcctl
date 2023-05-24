@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/db_option_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,13 +44,13 @@ export interface DbOptionGroupConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * option block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option DbOptionGroup#option}
   */
   readonly option?: DbOptionGroupOption[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#timeouts DbOptionGroup#timeouts}
   */
   readonly timeouts?: DbOptionGroupTimeouts;
@@ -128,7 +128,7 @@ export class DbOptionGroupOptionOptionSettingsOutputReference extends cdktf.Comp
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -141,7 +141,7 @@ export class DbOptionGroupOptionOptionSettingsOutputReference extends cdktf.Comp
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -196,7 +196,7 @@ export interface DbOptionGroupOption {
   readonly vpcSecurityGroupMemberships?: string[];
   /**
   * option_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option_settings DbOptionGroup#option_settings}
   */
   readonly optionSettings?: DbOptionGroupOptionOptionSettings[] | cdktf.IResolvable;
@@ -292,7 +292,7 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   }
 
   // db_security_group_memberships - computed: false, optional: true, required: false
-  private _dbSecurityGroupMemberships?: string[]; 
+  private _dbSecurityGroupMemberships?: string[];
   public get dbSecurityGroupMemberships() {
     return cdktf.Fn.tolist(this.getListAttribute('db_security_group_memberships'));
   }
@@ -308,7 +308,7 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   }
 
   // option_name - computed: false, optional: false, required: true
-  private _optionName?: string; 
+  private _optionName?: string;
   public get optionName() {
     return this.getStringAttribute('option_name');
   }
@@ -321,7 +321,7 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -337,7 +337,7 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -353,7 +353,7 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   }
 
   // vpc_security_group_memberships - computed: false, optional: true, required: false
-  private _vpcSecurityGroupMemberships?: string[]; 
+  private _vpcSecurityGroupMemberships?: string[];
   public get vpcSecurityGroupMemberships() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_memberships'));
   }
@@ -464,7 +464,7 @@ export class DbOptionGroupTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -539,7 +539,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // engine_name - computed: false, optional: false, required: true
-  private _engineName?: string; 
+  private _engineName?: string;
   public get engineName() {
     return this.getStringAttribute('engine_name');
   }
@@ -552,7 +552,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -568,7 +568,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // major_engine_version - computed: false, optional: false, required: true
-  private _majorEngineVersion?: string; 
+  private _majorEngineVersion?: string;
   public get majorEngineVersion() {
     return this.getStringAttribute('major_engine_version');
   }
@@ -581,7 +581,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -597,7 +597,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -613,7 +613,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // option_group_description - computed: false, optional: true, required: false
-  private _optionGroupDescription?: string; 
+  private _optionGroupDescription?: string;
   public get optionGroupDescription() {
     return this.getStringAttribute('option_group_description');
   }
@@ -629,7 +629,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -645,7 +645,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

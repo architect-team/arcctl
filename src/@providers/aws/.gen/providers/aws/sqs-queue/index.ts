@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sqs_queue
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -161,7 +161,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // content_based_deduplication - computed: false, optional: true, required: false
-  private _contentBasedDeduplication?: boolean | cdktf.IResolvable; 
+  private _contentBasedDeduplication?: boolean | cdktf.IResolvable;
   public get contentBasedDeduplication() {
     return this.getBooleanAttribute('content_based_deduplication');
   }
@@ -177,7 +177,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // deduplication_scope - computed: true, optional: true, required: false
-  private _deduplicationScope?: string; 
+  private _deduplicationScope?: string;
   public get deduplicationScope() {
     return this.getStringAttribute('deduplication_scope');
   }
@@ -193,7 +193,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // delay_seconds - computed: false, optional: true, required: false
-  private _delaySeconds?: number; 
+  private _delaySeconds?: number;
   public get delaySeconds() {
     return this.getNumberAttribute('delay_seconds');
   }
@@ -209,7 +209,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // fifo_queue - computed: false, optional: true, required: false
-  private _fifoQueue?: boolean | cdktf.IResolvable; 
+  private _fifoQueue?: boolean | cdktf.IResolvable;
   public get fifoQueue() {
     return this.getBooleanAttribute('fifo_queue');
   }
@@ -225,7 +225,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // fifo_throughput_limit - computed: true, optional: true, required: false
-  private _fifoThroughputLimit?: string; 
+  private _fifoThroughputLimit?: string;
   public get fifoThroughputLimit() {
     return this.getStringAttribute('fifo_throughput_limit');
   }
@@ -241,7 +241,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -257,7 +257,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // kms_data_key_reuse_period_seconds - computed: true, optional: true, required: false
-  private _kmsDataKeyReusePeriodSeconds?: number; 
+  private _kmsDataKeyReusePeriodSeconds?: number;
   public get kmsDataKeyReusePeriodSeconds() {
     return this.getNumberAttribute('kms_data_key_reuse_period_seconds');
   }
@@ -273,7 +273,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // kms_master_key_id - computed: false, optional: true, required: false
-  private _kmsMasterKeyId?: string; 
+  private _kmsMasterKeyId?: string;
   public get kmsMasterKeyId() {
     return this.getStringAttribute('kms_master_key_id');
   }
@@ -289,7 +289,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // max_message_size - computed: false, optional: true, required: false
-  private _maxMessageSize?: number; 
+  private _maxMessageSize?: number;
   public get maxMessageSize() {
     return this.getNumberAttribute('max_message_size');
   }
@@ -305,7 +305,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // message_retention_seconds - computed: false, optional: true, required: false
-  private _messageRetentionSeconds?: number; 
+  private _messageRetentionSeconds?: number;
   public get messageRetentionSeconds() {
     return this.getNumberAttribute('message_retention_seconds');
   }
@@ -321,7 +321,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -337,7 +337,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -353,7 +353,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -369,7 +369,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // receive_wait_time_seconds - computed: false, optional: true, required: false
-  private _receiveWaitTimeSeconds?: number; 
+  private _receiveWaitTimeSeconds?: number;
   public get receiveWaitTimeSeconds() {
     return this.getNumberAttribute('receive_wait_time_seconds');
   }
@@ -385,7 +385,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // redrive_allow_policy - computed: true, optional: true, required: false
-  private _redriveAllowPolicy?: string; 
+  private _redriveAllowPolicy?: string;
   public get redriveAllowPolicy() {
     return this.getStringAttribute('redrive_allow_policy');
   }
@@ -401,7 +401,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // redrive_policy - computed: true, optional: true, required: false
-  private _redrivePolicy?: string; 
+  private _redrivePolicy?: string;
   public get redrivePolicy() {
     return this.getStringAttribute('redrive_policy');
   }
@@ -417,7 +417,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // sqs_managed_sse_enabled - computed: true, optional: true, required: false
-  private _sqsManagedSseEnabled?: boolean | cdktf.IResolvable; 
+  private _sqsManagedSseEnabled?: boolean | cdktf.IResolvable;
   public get sqsManagedSseEnabled() {
     return this.getBooleanAttribute('sqs_managed_sse_enabled');
   }
@@ -433,7 +433,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -449,7 +449,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -470,7 +470,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // visibility_timeout_seconds - computed: false, optional: true, required: false
-  private _visibilityTimeoutSeconds?: number; 
+  private _visibilityTimeoutSeconds?: number;
   public get visibilityTimeoutSeconds() {
     return this.getNumberAttribute('visibility_timeout_seconds');
   }

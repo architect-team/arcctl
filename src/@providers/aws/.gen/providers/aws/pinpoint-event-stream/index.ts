@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/pinpoint_event_stream
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class PinpointEventStream extends cdktf.TerraformResource {
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -89,7 +89,7 @@ export class PinpointEventStream extends cdktf.TerraformResource {
   }
 
   // destination_stream_arn - computed: false, optional: false, required: true
-  private _destinationStreamArn?: string; 
+  private _destinationStreamArn?: string;
   public get destinationStreamArn() {
     return this.getStringAttribute('destination_stream_arn');
   }
@@ -102,7 +102,7 @@ export class PinpointEventStream extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class PinpointEventStream extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

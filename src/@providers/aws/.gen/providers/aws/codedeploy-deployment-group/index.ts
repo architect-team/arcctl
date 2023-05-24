@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,61 +44,61 @@ export interface CodedeployDeploymentGroupConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * alarm_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#alarm_configuration CodedeployDeploymentGroup#alarm_configuration}
   */
   readonly alarmConfiguration?: CodedeployDeploymentGroupAlarmConfiguration;
   /**
   * auto_rollback_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#auto_rollback_configuration CodedeployDeploymentGroup#auto_rollback_configuration}
   */
   readonly autoRollbackConfiguration?: CodedeployDeploymentGroupAutoRollbackConfiguration;
   /**
   * blue_green_deployment_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#blue_green_deployment_config CodedeployDeploymentGroup#blue_green_deployment_config}
   */
   readonly blueGreenDeploymentConfig?: CodedeployDeploymentGroupBlueGreenDeploymentConfig;
   /**
   * deployment_style block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_style CodedeployDeploymentGroup#deployment_style}
   */
   readonly deploymentStyle?: CodedeployDeploymentGroupDeploymentStyle;
   /**
   * ec2_tag_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_filter CodedeployDeploymentGroup#ec2_tag_filter}
   */
   readonly ec2TagFilter?: CodedeployDeploymentGroupEc2TagFilter[] | cdktf.IResolvable;
   /**
   * ec2_tag_set block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_set CodedeployDeploymentGroup#ec2_tag_set}
   */
   readonly ec2TagSet?: CodedeployDeploymentGroupEc2TagSet[] | cdktf.IResolvable;
   /**
   * ecs_service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ecs_service CodedeployDeploymentGroup#ecs_service}
   */
   readonly ecsService?: CodedeployDeploymentGroupEcsService;
   /**
   * load_balancer_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#load_balancer_info CodedeployDeploymentGroup#load_balancer_info}
   */
   readonly loadBalancerInfo?: CodedeployDeploymentGroupLoadBalancerInfo;
   /**
   * on_premises_instance_tag_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#on_premises_instance_tag_filter CodedeployDeploymentGroup#on_premises_instance_tag_filter}
   */
   readonly onPremisesInstanceTagFilter?: CodedeployDeploymentGroupOnPremisesInstanceTagFilter[] | cdktf.IResolvable;
   /**
   * trigger_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_configuration CodedeployDeploymentGroup#trigger_configuration}
   */
   readonly triggerConfiguration?: CodedeployDeploymentGroupTriggerConfiguration[] | cdktf.IResolvable;
@@ -175,7 +175,7 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[]; 
+  private _alarms?: string[];
   public get alarms() {
     return cdktf.Fn.tolist(this.getListAttribute('alarms'));
   }
@@ -191,7 +191,7 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -207,7 +207,7 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
   }
 
   // ignore_poll_alarm_failure - computed: false, optional: true, required: false
-  private _ignorePollAlarmFailure?: boolean | cdktf.IResolvable; 
+  private _ignorePollAlarmFailure?: boolean | cdktf.IResolvable;
   public get ignorePollAlarmFailure() {
     return this.getBooleanAttribute('ignore_poll_alarm_failure');
   }
@@ -283,7 +283,7 @@ export class CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference e
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -299,7 +299,7 @@ export class CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference e
   }
 
   // events - computed: false, optional: true, required: false
-  private _events?: string[]; 
+  private _events?: string[];
   public get events() {
     return cdktf.Fn.tolist(this.getListAttribute('events'));
   }
@@ -375,7 +375,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOp
   }
 
   // action_on_timeout - computed: false, optional: true, required: false
-  private _actionOnTimeout?: string; 
+  private _actionOnTimeout?: string;
   public get actionOnTimeout() {
     return this.getStringAttribute('action_on_timeout');
   }
@@ -391,7 +391,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOp
   }
 
   // wait_time_in_minutes - computed: false, optional: true, required: false
-  private _waitTimeInMinutes?: number; 
+  private _waitTimeInMinutes?: number;
   public get waitTimeInMinutes() {
     return this.getNumberAttribute('wait_time_in_minutes');
   }
@@ -456,7 +456,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisi
   }
 
   // action - computed: false, optional: true, required: false
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -532,7 +532,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInst
   }
 
   // action - computed: false, optional: true, required: false
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -548,7 +548,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInst
   }
 
   // termination_wait_time_in_minutes - computed: false, optional: true, required: false
-  private _terminationWaitTimeInMinutes?: number; 
+  private _terminationWaitTimeInMinutes?: number;
   public get terminationWaitTimeInMinutes() {
     return this.getNumberAttribute('termination_wait_time_in_minutes');
   }
@@ -566,19 +566,19 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInst
 export interface CodedeployDeploymentGroupBlueGreenDeploymentConfig {
   /**
   * deployment_ready_option block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_ready_option CodedeployDeploymentGroup#deployment_ready_option}
   */
   readonly deploymentReadyOption?: CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption;
   /**
   * green_fleet_provisioning_option block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#green_fleet_provisioning_option CodedeployDeploymentGroup#green_fleet_provisioning_option}
   */
   readonly greenFleetProvisioningOption?: CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption;
   /**
   * terminate_blue_instances_on_deployment_success block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#terminate_blue_instances_on_deployment_success CodedeployDeploymentGroup#terminate_blue_instances_on_deployment_success}
   */
   readonly terminateBlueInstancesOnDeploymentSuccess?: CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess;
@@ -749,7 +749,7 @@ export class CodedeployDeploymentGroupDeploymentStyleOutputReference extends cdk
   }
 
   // deployment_option - computed: false, optional: true, required: false
-  private _deploymentOption?: string; 
+  private _deploymentOption?: string;
   public get deploymentOption() {
     return this.getStringAttribute('deployment_option');
   }
@@ -765,7 +765,7 @@ export class CodedeployDeploymentGroupDeploymentStyleOutputReference extends cdk
   }
 
   // deployment_type - computed: false, optional: true, required: false
-  private _deploymentType?: string; 
+  private _deploymentType?: string;
   public get deploymentType() {
     return this.getStringAttribute('deployment_type');
   }
@@ -864,7 +864,7 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -880,7 +880,7 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -896,7 +896,7 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1015,7 +1015,7 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1031,7 +1031,7 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1047,7 +1047,7 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1085,7 +1085,7 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterList extends cdktf.Co
 export interface CodedeployDeploymentGroupEc2TagSet {
   /**
   * ec2_tag_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_filter CodedeployDeploymentGroup#ec2_tag_filter}
   */
   readonly ec2TagFilter?: CodedeployDeploymentGroupEc2TagSetEc2TagFilter[] | cdktf.IResolvable;
@@ -1242,7 +1242,7 @@ export class CodedeployDeploymentGroupEcsServiceOutputReference extends cdktf.Co
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -1255,7 +1255,7 @@ export class CodedeployDeploymentGroupEcsServiceOutputReference extends cdktf.Co
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -1329,7 +1329,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference ext
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1426,7 +1426,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputRefer
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1511,7 +1511,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTra
   }
 
   // listener_arns - computed: false, optional: false, required: true
-  private _listenerArns?: string[]; 
+  private _listenerArns?: string[];
   public get listenerArns() {
     return cdktf.Fn.tolist(this.getListAttribute('listener_arns'));
   }
@@ -1585,7 +1585,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetG
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1667,7 +1667,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTra
   }
 
   // listener_arns - computed: false, optional: false, required: true
-  private _listenerArns?: string[]; 
+  private _listenerArns?: string[];
   public get listenerArns() {
     return cdktf.Fn.tolist(this.getListAttribute('listener_arns'));
   }
@@ -1682,19 +1682,19 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTra
 export interface CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
   /**
   * prod_traffic_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#prod_traffic_route CodedeployDeploymentGroup#prod_traffic_route}
   */
   readonly prodTrafficRoute: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute;
   /**
   * target_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group CodedeployDeploymentGroup#target_group}
   */
   readonly targetGroup: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[] | cdktf.IResolvable;
   /**
   * test_traffic_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#test_traffic_route CodedeployDeploymentGroup#test_traffic_route}
   */
   readonly testTrafficRoute?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute;
@@ -1801,19 +1801,19 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputR
 export interface CodedeployDeploymentGroupLoadBalancerInfo {
   /**
   * elb_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#elb_info CodedeployDeploymentGroup#elb_info}
   */
   readonly elbInfo?: CodedeployDeploymentGroupLoadBalancerInfoElbInfo[] | cdktf.IResolvable;
   /**
   * target_group_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group_info CodedeployDeploymentGroup#target_group_info}
   */
   readonly targetGroupInfo?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo[] | cdktf.IResolvable;
   /**
   * target_group_pair_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group_pair_info CodedeployDeploymentGroup#target_group_pair_info}
   */
   readonly targetGroupPairInfo?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo;
@@ -2007,7 +2007,7 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2023,7 +2023,7 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2039,7 +2039,7 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2158,7 +2158,7 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
   }
 
   // trigger_events - computed: false, optional: false, required: true
-  private _triggerEvents?: string[]; 
+  private _triggerEvents?: string[];
   public get triggerEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('trigger_events'));
   }
@@ -2171,7 +2171,7 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
   }
 
   // trigger_name - computed: false, optional: false, required: true
-  private _triggerName?: string; 
+  private _triggerName?: string;
   public get triggerName() {
     return this.getStringAttribute('trigger_name');
   }
@@ -2184,7 +2184,7 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
   }
 
   // trigger_target_arn - computed: false, optional: false, required: true
-  private _triggerTargetArn?: string; 
+  private _triggerTargetArn?: string;
   public get triggerTargetArn() {
     return this.getStringAttribute('trigger_target_arn');
   }
@@ -2279,7 +2279,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   // ==========
 
   // app_name - computed: false, optional: false, required: true
-  private _appName?: string; 
+  private _appName?: string;
   public get appName() {
     return this.getStringAttribute('app_name');
   }
@@ -2297,7 +2297,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // autoscaling_groups - computed: false, optional: true, required: false
-  private _autoscalingGroups?: string[]; 
+  private _autoscalingGroups?: string[];
   public get autoscalingGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('autoscaling_groups'));
   }
@@ -2318,7 +2318,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // deployment_config_name - computed: false, optional: true, required: false
-  private _deploymentConfigName?: string; 
+  private _deploymentConfigName?: string;
   public get deploymentConfigName() {
     return this.getStringAttribute('deployment_config_name');
   }
@@ -2339,7 +2339,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // deployment_group_name - computed: false, optional: false, required: true
-  private _deploymentGroupName?: string; 
+  private _deploymentGroupName?: string;
   public get deploymentGroupName() {
     return this.getStringAttribute('deployment_group_name');
   }
@@ -2352,7 +2352,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2368,7 +2368,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // service_role_arn - computed: false, optional: false, required: true
-  private _serviceRoleArn?: string; 
+  private _serviceRoleArn?: string;
   public get serviceRoleArn() {
     return this.getStringAttribute('service_role_arn');
   }
@@ -2381,7 +2381,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2397,7 +2397,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

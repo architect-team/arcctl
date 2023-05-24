@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface MutatingWebhookConfigurationConfig extends cdktf.TerraformMetaA
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#metadata MutatingWebhookConfiguration#metadata}
   */
   readonly metadata: MutatingWebhookConfigurationMetadata;
   /**
   * webhook block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#webhook MutatingWebhookConfiguration#webhook}
   */
   readonly webhook: MutatingWebhookConfigurationWebhook[] | cdktf.IResolvable;
@@ -30,25 +30,25 @@ export interface MutatingWebhookConfigurationConfig extends cdktf.TerraformMetaA
 export interface MutatingWebhookConfigurationMetadata {
   /**
   * An unstructured key value map stored with the mutating webhook configuration that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#annotations MutatingWebhookConfiguration#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#generate_name MutatingWebhookConfiguration#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the mutating webhook configuration. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#labels MutatingWebhookConfiguration#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the mutating webhook configuration, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#name MutatingWebhookConfiguration#name}
   */
   readonly name?: string;
@@ -118,7 +118,7 @@ export class MutatingWebhookConfigurationMetadataOutputReference extends cdktf.C
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -134,7 +134,7 @@ export class MutatingWebhookConfigurationMetadataOutputReference extends cdktf.C
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -155,7 +155,7 @@ export class MutatingWebhookConfigurationMetadataOutputReference extends cdktf.C
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -171,7 +171,7 @@ export class MutatingWebhookConfigurationMetadataOutputReference extends cdktf.C
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -199,25 +199,25 @@ export class MutatingWebhookConfigurationMetadataOutputReference extends cdktf.C
 export interface MutatingWebhookConfigurationWebhookClientConfigService {
   /**
   * `name` is the name of the service. Required
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#name MutatingWebhookConfiguration#name}
   */
   readonly name: string;
   /**
   * `namespace` is the namespace of the service. Required
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#namespace MutatingWebhookConfiguration#namespace}
   */
   readonly namespace: string;
   /**
   * `path` is an optional URL path which will be sent in any request to this service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#path MutatingWebhookConfiguration#path}
   */
   readonly path?: string;
   /**
   * If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#port MutatingWebhookConfiguration#port}
   */
   readonly port?: number;
@@ -287,7 +287,7 @@ export class MutatingWebhookConfigurationWebhookClientConfigServiceOutputReferen
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -300,7 +300,7 @@ export class MutatingWebhookConfigurationWebhookClientConfigServiceOutputReferen
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -313,7 +313,7 @@ export class MutatingWebhookConfigurationWebhookClientConfigServiceOutputReferen
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -329,7 +329,7 @@ export class MutatingWebhookConfigurationWebhookClientConfigServiceOutputReferen
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -347,7 +347,7 @@ export class MutatingWebhookConfigurationWebhookClientConfigServiceOutputReferen
 export interface MutatingWebhookConfigurationWebhookClientConfig {
   /**
   * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified, system trust roots on the apiserver are used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#ca_bundle MutatingWebhookConfiguration#ca_bundle}
   */
   readonly caBundle?: string;
@@ -363,13 +363,13 @@ The scheme must be "https"; the URL must begin with "https://".
 A path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.
 
 Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments ("#...") and query parameters ("?...") are not allowed, either.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#url MutatingWebhookConfiguration#url}
   */
   readonly url?: string;
   /**
   * service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#service MutatingWebhookConfiguration#service}
   */
   readonly service?: MutatingWebhookConfigurationWebhookClientConfigService;
@@ -432,7 +432,7 @@ export class MutatingWebhookConfigurationWebhookClientConfigOutputReference exte
   }
 
   // ca_bundle - computed: false, optional: true, required: false
-  private _caBundle?: string; 
+  private _caBundle?: string;
   public get caBundle() {
     return this.getStringAttribute('ca_bundle');
   }
@@ -448,7 +448,7 @@ export class MutatingWebhookConfigurationWebhookClientConfigOutputReference exte
   }
 
   // url - computed: false, optional: true, required: false
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -482,19 +482,19 @@ export class MutatingWebhookConfigurationWebhookClientConfigOutputReference exte
 export interface MutatingWebhookConfigurationWebhookNamespaceSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#key MutatingWebhookConfiguration#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#operator MutatingWebhookConfiguration#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#values MutatingWebhookConfiguration#values}
   */
   readonly values?: string[];
@@ -569,7 +569,7 @@ export class MutatingWebhookConfigurationWebhookNamespaceSelectorMatchExpression
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -585,7 +585,7 @@ export class MutatingWebhookConfigurationWebhookNamespaceSelectorMatchExpression
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -601,7 +601,7 @@ export class MutatingWebhookConfigurationWebhookNamespaceSelectorMatchExpression
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -639,13 +639,13 @@ export class MutatingWebhookConfigurationWebhookNamespaceSelectorMatchExpression
 export interface MutatingWebhookConfigurationWebhookNamespaceSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#match_labels MutatingWebhookConfiguration#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#match_expressions MutatingWebhookConfiguration#match_expressions}
   */
   readonly matchExpressions?: MutatingWebhookConfigurationWebhookNamespaceSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -701,7 +701,7 @@ export class MutatingWebhookConfigurationWebhookNamespaceSelectorOutputReference
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -735,19 +735,19 @@ export class MutatingWebhookConfigurationWebhookNamespaceSelectorOutputReference
 export interface MutatingWebhookConfigurationWebhookObjectSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#key MutatingWebhookConfiguration#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#operator MutatingWebhookConfiguration#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#values MutatingWebhookConfiguration#values}
   */
   readonly values?: string[];
@@ -822,7 +822,7 @@ export class MutatingWebhookConfigurationWebhookObjectSelectorMatchExpressionsOu
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -838,7 +838,7 @@ export class MutatingWebhookConfigurationWebhookObjectSelectorMatchExpressionsOu
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -854,7 +854,7 @@ export class MutatingWebhookConfigurationWebhookObjectSelectorMatchExpressionsOu
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -892,13 +892,13 @@ export class MutatingWebhookConfigurationWebhookObjectSelectorMatchExpressionsLi
 export interface MutatingWebhookConfigurationWebhookObjectSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#match_labels MutatingWebhookConfiguration#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#match_expressions MutatingWebhookConfiguration#match_expressions}
   */
   readonly matchExpressions?: MutatingWebhookConfigurationWebhookObjectSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -954,7 +954,7 @@ export class MutatingWebhookConfigurationWebhookObjectSelectorOutputReference ex
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -996,7 +996,7 @@ export interface MutatingWebhookConfigurationWebhookRule {
   readonly apiVersions: string[];
   /**
   * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#operations MutatingWebhookConfiguration#operations}
   */
   readonly operations: string[];
@@ -1093,7 +1093,7 @@ export class MutatingWebhookConfigurationWebhookRuleOutputReference extends cdkt
   }
 
   // api_groups - computed: false, optional: false, required: true
-  private _apiGroups?: string[]; 
+  private _apiGroups?: string[];
   public get apiGroups() {
     return this.getListAttribute('api_groups');
   }
@@ -1106,7 +1106,7 @@ export class MutatingWebhookConfigurationWebhookRuleOutputReference extends cdkt
   }
 
   // api_versions - computed: false, optional: false, required: true
-  private _apiVersions?: string[]; 
+  private _apiVersions?: string[];
   public get apiVersions() {
     return this.getListAttribute('api_versions');
   }
@@ -1119,7 +1119,7 @@ export class MutatingWebhookConfigurationWebhookRuleOutputReference extends cdkt
   }
 
   // operations - computed: false, optional: false, required: true
-  private _operations?: string[]; 
+  private _operations?: string[];
   public get operations() {
     return this.getListAttribute('operations');
   }
@@ -1132,7 +1132,7 @@ export class MutatingWebhookConfigurationWebhookRuleOutputReference extends cdkt
   }
 
   // resources - computed: false, optional: false, required: true
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return this.getListAttribute('resources');
   }
@@ -1145,7 +1145,7 @@ export class MutatingWebhookConfigurationWebhookRuleOutputReference extends cdkt
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -1183,13 +1183,13 @@ export class MutatingWebhookConfigurationWebhookRuleList extends cdktf.ComplexLi
 export interface MutatingWebhookConfigurationWebhook {
   /**
   * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#admission_review_versions MutatingWebhookConfiguration#admission_review_versions}
   */
   readonly admissionReviewVersions?: string[];
   /**
   * FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#failure_policy MutatingWebhookConfiguration#failure_policy}
   */
   readonly failurePolicy?: string;
@@ -1201,13 +1201,13 @@ export interface MutatingWebhookConfigurationWebhook {
 - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
 
 Defaults to "Equivalent"
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#match_policy MutatingWebhookConfiguration#match_policy}
   */
   readonly matchPolicy?: string;
   /**
   * The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#name MutatingWebhookConfiguration#name}
   */
   readonly name: string;
@@ -1219,43 +1219,43 @@ Never: the webhook will not be called more than once in a single admission evalu
 IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation if the object being admitted is modified by other admission plugins after the initial webhook call. Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted. Note: * the number of additional invocations is not guaranteed to be exactly one. * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again. * webhooks that use this option may be reordered to minimize the number of additional invocations. * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
 
 Defaults to "Never".
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#reinvocation_policy MutatingWebhookConfiguration#reinvocation_policy}
   */
   readonly reinvocationPolicy?: string;
   /**
   * SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#side_effects MutatingWebhookConfiguration#side_effects}
   */
   readonly sideEffects?: string;
   /**
   * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#timeout_seconds MutatingWebhookConfiguration#timeout_seconds}
   */
   readonly timeoutSeconds?: number;
   /**
   * client_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#client_config MutatingWebhookConfiguration#client_config}
   */
   readonly clientConfig: MutatingWebhookConfigurationWebhookClientConfig;
   /**
   * namespace_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#namespace_selector MutatingWebhookConfiguration#namespace_selector}
   */
   readonly namespaceSelector?: MutatingWebhookConfigurationWebhookNamespaceSelector;
   /**
   * object_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#object_selector MutatingWebhookConfiguration#object_selector}
   */
   readonly objectSelector?: MutatingWebhookConfigurationWebhookObjectSelector;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/mutating_webhook_configuration#rule MutatingWebhookConfiguration#rule}
   */
   readonly rule?: MutatingWebhookConfigurationWebhookRule[] | cdktf.IResolvable;
@@ -1386,7 +1386,7 @@ export class MutatingWebhookConfigurationWebhookOutputReference extends cdktf.Co
   }
 
   // admission_review_versions - computed: false, optional: true, required: false
-  private _admissionReviewVersions?: string[]; 
+  private _admissionReviewVersions?: string[];
   public get admissionReviewVersions() {
     return this.getListAttribute('admission_review_versions');
   }
@@ -1402,7 +1402,7 @@ export class MutatingWebhookConfigurationWebhookOutputReference extends cdktf.Co
   }
 
   // failure_policy - computed: false, optional: true, required: false
-  private _failurePolicy?: string; 
+  private _failurePolicy?: string;
   public get failurePolicy() {
     return this.getStringAttribute('failure_policy');
   }
@@ -1418,7 +1418,7 @@ export class MutatingWebhookConfigurationWebhookOutputReference extends cdktf.Co
   }
 
   // match_policy - computed: false, optional: true, required: false
-  private _matchPolicy?: string; 
+  private _matchPolicy?: string;
   public get matchPolicy() {
     return this.getStringAttribute('match_policy');
   }
@@ -1434,7 +1434,7 @@ export class MutatingWebhookConfigurationWebhookOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1447,7 +1447,7 @@ export class MutatingWebhookConfigurationWebhookOutputReference extends cdktf.Co
   }
 
   // reinvocation_policy - computed: false, optional: true, required: false
-  private _reinvocationPolicy?: string; 
+  private _reinvocationPolicy?: string;
   public get reinvocationPolicy() {
     return this.getStringAttribute('reinvocation_policy');
   }
@@ -1463,7 +1463,7 @@ export class MutatingWebhookConfigurationWebhookOutputReference extends cdktf.Co
   }
 
   // side_effects - computed: false, optional: true, required: false
-  private _sideEffects?: string; 
+  private _sideEffects?: string;
   public get sideEffects() {
     return this.getStringAttribute('side_effects');
   }
@@ -1479,7 +1479,7 @@ export class MutatingWebhookConfigurationWebhookOutputReference extends cdktf.Co
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -1623,7 +1623,7 @@ export class MutatingWebhookConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

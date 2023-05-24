@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/datapipeline_pipeline_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DataAwsDatapipelinePipelineDefinitionConfig extends cdktf.Terra
   readonly pipelineId: string;
   /**
   * parameter_value block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/datapipeline_pipeline_definition#parameter_value DataAwsDatapipelinePipelineDefinition#parameter_value}
   */
   readonly parameterValue?: DataAwsDatapipelinePipelineDefinitionParameterValue[] | cdktf.IResolvable;
@@ -441,7 +441,7 @@ export class DataAwsDatapipelinePipelineDefinition extends cdktf.TerraformDataSo
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -463,7 +463,7 @@ export class DataAwsDatapipelinePipelineDefinition extends cdktf.TerraformDataSo
   }
 
   // pipeline_id - computed: false, optional: false, required: true
-  private _pipelineId?: string; 
+  private _pipelineId?: string;
   public get pipelineId() {
     return this.getStringAttribute('pipeline_id');
   }

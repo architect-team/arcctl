@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/oam_link
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface OamLinkConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/oam_link#timeouts OamLink#timeouts}
   */
   readonly timeouts?: OamLinkTimeouts;
@@ -123,7 +123,7 @@ export class OamLinkTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -139,7 +139,7 @@ export class OamLinkTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -155,7 +155,7 @@ export class OamLinkTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -227,7 +227,7 @@ export class OamLink extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -248,7 +248,7 @@ export class OamLink extends cdktf.TerraformResource {
   }
 
   // label_template - computed: false, optional: false, required: true
-  private _labelTemplate?: string; 
+  private _labelTemplate?: string;
   public get labelTemplate() {
     return this.getStringAttribute('label_template');
   }
@@ -266,7 +266,7 @@ export class OamLink extends cdktf.TerraformResource {
   }
 
   // resource_types - computed: false, optional: false, required: true
-  private _resourceTypes?: string[]; 
+  private _resourceTypes?: string[];
   public get resourceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_types'));
   }
@@ -284,7 +284,7 @@ export class OamLink extends cdktf.TerraformResource {
   }
 
   // sink_identifier - computed: false, optional: false, required: true
-  private _sinkIdentifier?: string; 
+  private _sinkIdentifier?: string;
   public get sinkIdentifier() {
     return this.getStringAttribute('sink_identifier');
   }
@@ -297,7 +297,7 @@ export class OamLink extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -313,7 +313,7 @@ export class OamLink extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

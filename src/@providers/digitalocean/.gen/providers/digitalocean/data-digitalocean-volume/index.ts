@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/volume
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataDigitaloceanVolumeConfig extends cdktf.TerraformMetaArguments {
   /**
   * volume description
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#description DataDigitaloceanVolume#description}
   */
   readonly description?: string;
@@ -22,13 +22,13 @@ export interface DataDigitaloceanVolumeConfig extends cdktf.TerraformMetaArgumen
   readonly id?: string;
   /**
   * name of the volume
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#name DataDigitaloceanVolume#name}
   */
   readonly name: string;
   /**
   * the region that the volume is provisioned in
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#region DataDigitaloceanVolume#region}
   */
   readonly region?: string;
@@ -82,7 +82,7 @@ export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -113,7 +113,7 @@ export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -129,7 +129,7 @@ export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -142,7 +142,7 @@ export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dms_replication_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -80,7 +80,7 @@ export interface DmsReplicationInstanceConfig extends cdktf.TerraformMetaArgumen
   readonly vpcSecurityGroupIds?: string[];
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_instance#timeouts DmsReplicationInstance#timeouts}
   */
   readonly timeouts?: DmsReplicationInstanceTimeouts;
@@ -167,7 +167,7 @@ export class DmsReplicationInstanceTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -183,7 +183,7 @@ export class DmsReplicationInstanceTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -199,7 +199,7 @@ export class DmsReplicationInstanceTimeoutsOutputReference extends cdktf.Complex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -277,7 +277,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   // ==========
 
   // allocated_storage - computed: true, optional: true, required: false
-  private _allocatedStorage?: number; 
+  private _allocatedStorage?: number;
   public get allocatedStorage() {
     return this.getNumberAttribute('allocated_storage');
   }
@@ -293,7 +293,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // allow_major_version_upgrade - computed: false, optional: true, required: false
-  private _allowMajorVersionUpgrade?: boolean | cdktf.IResolvable; 
+  private _allowMajorVersionUpgrade?: boolean | cdktf.IResolvable;
   public get allowMajorVersionUpgrade() {
     return this.getBooleanAttribute('allow_major_version_upgrade');
   }
@@ -309,7 +309,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // apply_immediately - computed: false, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -325,7 +325,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // auto_minor_version_upgrade - computed: true, optional: true, required: false
-  private _autoMinorVersionUpgrade?: boolean | cdktf.IResolvable; 
+  private _autoMinorVersionUpgrade?: boolean | cdktf.IResolvable;
   public get autoMinorVersionUpgrade() {
     return this.getBooleanAttribute('auto_minor_version_upgrade');
   }
@@ -341,7 +341,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -357,7 +357,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -373,7 +373,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -389,7 +389,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: true, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -405,7 +405,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // multi_az - computed: true, optional: true, required: false
-  private _multiAz?: boolean | cdktf.IResolvable; 
+  private _multiAz?: boolean | cdktf.IResolvable;
   public get multiAz() {
     return this.getBooleanAttribute('multi_az');
   }
@@ -421,7 +421,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // preferred_maintenance_window - computed: true, optional: true, required: false
-  private _preferredMaintenanceWindow?: string; 
+  private _preferredMaintenanceWindow?: string;
   public get preferredMaintenanceWindow() {
     return this.getStringAttribute('preferred_maintenance_window');
   }
@@ -437,7 +437,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // publicly_accessible - computed: true, optional: true, required: false
-  private _publiclyAccessible?: boolean | cdktf.IResolvable; 
+  private _publiclyAccessible?: boolean | cdktf.IResolvable;
   public get publiclyAccessible() {
     return this.getBooleanAttribute('publicly_accessible');
   }
@@ -458,7 +458,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // replication_instance_class - computed: false, optional: false, required: true
-  private _replicationInstanceClass?: string; 
+  private _replicationInstanceClass?: string;
   public get replicationInstanceClass() {
     return this.getStringAttribute('replication_instance_class');
   }
@@ -471,7 +471,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // replication_instance_id - computed: false, optional: false, required: true
-  private _replicationInstanceId?: string; 
+  private _replicationInstanceId?: string;
   public get replicationInstanceId() {
     return this.getStringAttribute('replication_instance_id');
   }
@@ -494,7 +494,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // replication_subnet_group_id - computed: true, optional: true, required: false
-  private _replicationSubnetGroupId?: string; 
+  private _replicationSubnetGroupId?: string;
   public get replicationSubnetGroupId() {
     return this.getStringAttribute('replication_subnet_group_id');
   }
@@ -510,7 +510,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -526,7 +526,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -542,7 +542,7 @@ export class DmsReplicationInstance extends cdktf.TerraformResource {
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[]; 
+  private _vpcSecurityGroupIds?: string[];
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/waf_regex_match_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface WafRegexMatchSetConfig extends cdktf.TerraformMetaArguments {
   readonly name: string;
   /**
   * regex_match_tuple block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_match_set#regex_match_tuple WafRegexMatchSet#regex_match_tuple}
   */
   readonly regexMatchTuple?: WafRegexMatchSetRegexMatchTuple[] | cdktf.IResolvable;
@@ -86,7 +86,7 @@ export class WafRegexMatchSetRegexMatchTupleFieldToMatchOutputReference extends 
   }
 
   // data - computed: false, optional: true, required: false
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -102,7 +102,7 @@ export class WafRegexMatchSetRegexMatchTupleFieldToMatchOutputReference extends 
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -125,7 +125,7 @@ export interface WafRegexMatchSetRegexMatchTuple {
   readonly textTransformation: string;
   /**
   * field_to_match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_match_set#field_to_match WafRegexMatchSet#field_to_match}
   */
   readonly fieldToMatch: WafRegexMatchSetRegexMatchTupleFieldToMatch;
@@ -200,7 +200,7 @@ export class WafRegexMatchSetRegexMatchTupleOutputReference extends cdktf.Comple
   }
 
   // regex_pattern_set_id - computed: false, optional: false, required: true
-  private _regexPatternSetId?: string; 
+  private _regexPatternSetId?: string;
   public get regexPatternSetId() {
     return this.getStringAttribute('regex_pattern_set_id');
   }
@@ -213,7 +213,7 @@ export class WafRegexMatchSetRegexMatchTupleOutputReference extends cdktf.Comple
   }
 
   // text_transformation - computed: false, optional: false, required: true
-  private _textTransformation?: string; 
+  private _textTransformation?: string;
   public get textTransformation() {
     return this.getStringAttribute('text_transformation');
   }
@@ -311,7 +311,7 @@ export class WafRegexMatchSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -327,7 +327,7 @@ export class WafRegexMatchSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

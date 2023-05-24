@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/emrserverless_application
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,31 +40,31 @@ export interface EmrserverlessApplicationConfig extends cdktf.TerraformMetaArgum
   readonly type: string;
   /**
   * auto_start_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#auto_start_configuration EmrserverlessApplication#auto_start_configuration}
   */
   readonly autoStartConfiguration?: EmrserverlessApplicationAutoStartConfiguration;
   /**
   * auto_stop_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#auto_stop_configuration EmrserverlessApplication#auto_stop_configuration}
   */
   readonly autoStopConfiguration?: EmrserverlessApplicationAutoStopConfiguration;
   /**
   * initial_capacity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity EmrserverlessApplication#initial_capacity}
   */
   readonly initialCapacity?: EmrserverlessApplicationInitialCapacity[] | cdktf.IResolvable;
   /**
   * maximum_capacity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#maximum_capacity EmrserverlessApplication#maximum_capacity}
   */
   readonly maximumCapacity?: EmrserverlessApplicationMaximumCapacity;
   /**
   * network_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#network_configuration EmrserverlessApplication#network_configuration}
   */
   readonly networkConfiguration?: EmrserverlessApplicationNetworkConfiguration;
@@ -119,7 +119,7 @@ export class EmrserverlessApplicationAutoStartConfigurationOutputReference exten
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -195,7 +195,7 @@ export class EmrserverlessApplicationAutoStopConfigurationOutputReference extend
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -211,7 +211,7 @@ export class EmrserverlessApplicationAutoStopConfigurationOutputReference extend
   }
 
   // idle_timeout_minutes - computed: false, optional: true, required: false
-  private _idleTimeoutMinutes?: number; 
+  private _idleTimeoutMinutes?: number;
   public get idleTimeoutMinutes() {
     return this.getNumberAttribute('idle_timeout_minutes');
   }
@@ -298,7 +298,7 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerC
   }
 
   // cpu - computed: false, optional: false, required: true
-  private _cpu?: string; 
+  private _cpu?: string;
   public get cpu() {
     return this.getStringAttribute('cpu');
   }
@@ -311,7 +311,7 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerC
   }
 
   // disk - computed: true, optional: true, required: false
-  private _disk?: string; 
+  private _disk?: string;
   public get disk() {
     return this.getStringAttribute('disk');
   }
@@ -327,7 +327,7 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerC
   }
 
   // memory - computed: false, optional: false, required: true
-  private _memory?: string; 
+  private _memory?: string;
   public get memory() {
     return this.getStringAttribute('memory');
   }
@@ -346,7 +346,7 @@ export interface EmrserverlessApplicationInitialCapacityInitialCapacityConfig {
   readonly workerCount: number;
   /**
   * worker_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#worker_configuration EmrserverlessApplication#worker_configuration}
   */
   readonly workerConfiguration?: EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration;
@@ -402,7 +402,7 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputR
   }
 
   // worker_count - computed: false, optional: false, required: true
-  private _workerCount?: number; 
+  private _workerCount?: number;
   public get workerCount() {
     return this.getNumberAttribute('worker_count');
   }
@@ -437,7 +437,7 @@ export interface EmrserverlessApplicationInitialCapacity {
   readonly initialCapacityType: string;
   /**
   * initial_capacity_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity_config EmrserverlessApplication#initial_capacity_config}
   */
   readonly initialCapacityConfig?: EmrserverlessApplicationInitialCapacityInitialCapacityConfig;
@@ -505,7 +505,7 @@ export class EmrserverlessApplicationInitialCapacityOutputReference extends cdkt
   }
 
   // initial_capacity_type - computed: false, optional: false, required: true
-  private _initialCapacityType?: string; 
+  private _initialCapacityType?: string;
   public get initialCapacityType() {
     return this.getStringAttribute('initial_capacity_type');
   }
@@ -625,7 +625,7 @@ export class EmrserverlessApplicationMaximumCapacityOutputReference extends cdkt
   }
 
   // cpu - computed: false, optional: false, required: true
-  private _cpu?: string; 
+  private _cpu?: string;
   public get cpu() {
     return this.getStringAttribute('cpu');
   }
@@ -638,7 +638,7 @@ export class EmrserverlessApplicationMaximumCapacityOutputReference extends cdkt
   }
 
   // disk - computed: true, optional: true, required: false
-  private _disk?: string; 
+  private _disk?: string;
   public get disk() {
     return this.getStringAttribute('disk');
   }
@@ -654,7 +654,7 @@ export class EmrserverlessApplicationMaximumCapacityOutputReference extends cdkt
   }
 
   // memory - computed: false, optional: false, required: true
-  private _memory?: string; 
+  private _memory?: string;
   public get memory() {
     return this.getStringAttribute('memory');
   }
@@ -727,7 +727,7 @@ export class EmrserverlessApplicationNetworkConfigurationOutputReference extends
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -743,7 +743,7 @@ export class EmrserverlessApplicationNetworkConfigurationOutputReference extends
   }
 
   // subnet_ids - computed: false, optional: true, required: false
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -815,7 +815,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   // ==========
 
   // architecture - computed: false, optional: true, required: false
-  private _architecture?: string; 
+  private _architecture?: string;
   public get architecture() {
     return this.getStringAttribute('architecture');
   }
@@ -836,7 +836,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -852,7 +852,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -865,7 +865,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // release_label - computed: false, optional: false, required: true
-  private _releaseLabel?: string; 
+  private _releaseLabel?: string;
   public get releaseLabel() {
     return this.getStringAttribute('release_label');
   }
@@ -878,7 +878,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -894,7 +894,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -910,7 +910,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

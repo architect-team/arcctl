@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecs_task_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -68,37 +68,37 @@ export interface EcsTaskDefinitionConfig extends cdktf.TerraformMetaArguments {
   readonly taskRoleArn?: string;
   /**
   * ephemeral_storage block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#ephemeral_storage EcsTaskDefinition#ephemeral_storage}
   */
   readonly ephemeralStorage?: EcsTaskDefinitionEphemeralStorage;
   /**
   * inference_accelerator block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#inference_accelerator EcsTaskDefinition#inference_accelerator}
   */
   readonly inferenceAccelerator?: EcsTaskDefinitionInferenceAccelerator[] | cdktf.IResolvable;
   /**
   * placement_constraints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#placement_constraints EcsTaskDefinition#placement_constraints}
   */
   readonly placementConstraints?: EcsTaskDefinitionPlacementConstraints[] | cdktf.IResolvable;
   /**
   * proxy_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#proxy_configuration EcsTaskDefinition#proxy_configuration}
   */
   readonly proxyConfiguration?: EcsTaskDefinitionProxyConfiguration;
   /**
   * runtime_platform block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#runtime_platform EcsTaskDefinition#runtime_platform}
   */
   readonly runtimePlatform?: EcsTaskDefinitionRuntimePlatform;
   /**
   * volume block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#volume EcsTaskDefinition#volume}
   */
   readonly volume?: EcsTaskDefinitionVolume[] | cdktf.IResolvable;
@@ -153,7 +153,7 @@ export class EcsTaskDefinitionEphemeralStorageOutputReference extends cdktf.Comp
   }
 
   // size_in_gib - computed: false, optional: false, required: true
-  private _sizeInGib?: number; 
+  private _sizeInGib?: number;
   public get sizeInGib() {
     return this.getNumberAttribute('size_in_gib');
   }
@@ -238,7 +238,7 @@ export class EcsTaskDefinitionInferenceAcceleratorOutputReference extends cdktf.
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -251,7 +251,7 @@ export class EcsTaskDefinitionInferenceAcceleratorOutputReference extends cdktf.
   }
 
   // device_type - computed: false, optional: false, required: true
-  private _deviceType?: string; 
+  private _deviceType?: string;
   public get deviceType() {
     return this.getStringAttribute('device_type');
   }
@@ -356,7 +356,7 @@ export class EcsTaskDefinitionPlacementConstraintsOutputReference extends cdktf.
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -372,7 +372,7 @@ export class EcsTaskDefinitionPlacementConstraintsOutputReference extends cdktf.
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -476,7 +476,7 @@ export class EcsTaskDefinitionProxyConfigurationOutputReference extends cdktf.Co
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -489,7 +489,7 @@ export class EcsTaskDefinitionProxyConfigurationOutputReference extends cdktf.Co
   }
 
   // properties - computed: false, optional: true, required: false
-  private _properties?: { [key: string]: string }; 
+  private _properties?: { [key: string]: string };
   public get properties() {
     return this.getStringMapAttribute('properties');
   }
@@ -505,7 +505,7 @@ export class EcsTaskDefinitionProxyConfigurationOutputReference extends cdktf.Co
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -581,7 +581,7 @@ export class EcsTaskDefinitionRuntimePlatformOutputReference extends cdktf.Compl
   }
 
   // cpu_architecture - computed: false, optional: true, required: false
-  private _cpuArchitecture?: string; 
+  private _cpuArchitecture?: string;
   public get cpuArchitecture() {
     return this.getStringAttribute('cpu_architecture');
   }
@@ -597,7 +597,7 @@ export class EcsTaskDefinitionRuntimePlatformOutputReference extends cdktf.Compl
   }
 
   // operating_system_family - computed: false, optional: true, required: false
-  private _operatingSystemFamily?: string; 
+  private _operatingSystemFamily?: string;
   public get operatingSystemFamily() {
     return this.getStringAttribute('operating_system_family');
   }
@@ -706,7 +706,7 @@ export class EcsTaskDefinitionVolumeDockerVolumeConfigurationOutputReference ext
   }
 
   // autoprovision - computed: false, optional: true, required: false
-  private _autoprovision?: boolean | cdktf.IResolvable; 
+  private _autoprovision?: boolean | cdktf.IResolvable;
   public get autoprovision() {
     return this.getBooleanAttribute('autoprovision');
   }
@@ -722,7 +722,7 @@ export class EcsTaskDefinitionVolumeDockerVolumeConfigurationOutputReference ext
   }
 
   // driver - computed: false, optional: true, required: false
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -738,7 +738,7 @@ export class EcsTaskDefinitionVolumeDockerVolumeConfigurationOutputReference ext
   }
 
   // driver_opts - computed: false, optional: true, required: false
-  private _driverOpts?: { [key: string]: string }; 
+  private _driverOpts?: { [key: string]: string };
   public get driverOpts() {
     return this.getStringMapAttribute('driver_opts');
   }
@@ -754,7 +754,7 @@ export class EcsTaskDefinitionVolumeDockerVolumeConfigurationOutputReference ext
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -770,7 +770,7 @@ export class EcsTaskDefinitionVolumeDockerVolumeConfigurationOutputReference ext
   }
 
   // scope - computed: true, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -846,7 +846,7 @@ export class EcsTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOut
   }
 
   // access_point_id - computed: false, optional: true, required: false
-  private _accessPointId?: string; 
+  private _accessPointId?: string;
   public get accessPointId() {
     return this.getStringAttribute('access_point_id');
   }
@@ -862,7 +862,7 @@ export class EcsTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOut
   }
 
   // iam - computed: false, optional: true, required: false
-  private _iam?: string; 
+  private _iam?: string;
   public get iam() {
     return this.getStringAttribute('iam');
   }
@@ -896,7 +896,7 @@ export interface EcsTaskDefinitionVolumeEfsVolumeConfiguration {
   readonly transitEncryptionPort?: number;
   /**
   * authorization_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#authorization_config EcsTaskDefinition#authorization_config}
   */
   readonly authorizationConfig?: EcsTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig;
@@ -973,7 +973,7 @@ export class EcsTaskDefinitionVolumeEfsVolumeConfigurationOutputReference extend
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -986,7 +986,7 @@ export class EcsTaskDefinitionVolumeEfsVolumeConfigurationOutputReference extend
   }
 
   // root_directory - computed: false, optional: true, required: false
-  private _rootDirectory?: string; 
+  private _rootDirectory?: string;
   public get rootDirectory() {
     return this.getStringAttribute('root_directory');
   }
@@ -1002,7 +1002,7 @@ export class EcsTaskDefinitionVolumeEfsVolumeConfigurationOutputReference extend
   }
 
   // transit_encryption - computed: false, optional: true, required: false
-  private _transitEncryption?: string; 
+  private _transitEncryption?: string;
   public get transitEncryption() {
     return this.getStringAttribute('transit_encryption');
   }
@@ -1018,7 +1018,7 @@ export class EcsTaskDefinitionVolumeEfsVolumeConfigurationOutputReference extend
   }
 
   // transit_encryption_port - computed: false, optional: true, required: false
-  private _transitEncryptionPort?: number; 
+  private _transitEncryptionPort?: number;
   public get transitEncryptionPort() {
     return this.getNumberAttribute('transit_encryption_port');
   }
@@ -1110,7 +1110,7 @@ export class EcsTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAutho
   }
 
   // credentials_parameter - computed: false, optional: false, required: true
-  private _credentialsParameter?: string; 
+  private _credentialsParameter?: string;
   public get credentialsParameter() {
     return this.getStringAttribute('credentials_parameter');
   }
@@ -1123,7 +1123,7 @@ export class EcsTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAutho
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -1146,7 +1146,7 @@ export interface EcsTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration 
   readonly rootDirectory: string;
   /**
   * authorization_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#authorization_config EcsTaskDefinition#authorization_config}
   */
   readonly authorizationConfig: EcsTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig;
@@ -1209,7 +1209,7 @@ export class EcsTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutpu
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -1222,7 +1222,7 @@ export class EcsTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutpu
   }
 
   // root_directory - computed: false, optional: false, required: true
-  private _rootDirectory?: string; 
+  private _rootDirectory?: string;
   public get rootDirectory() {
     return this.getStringAttribute('root_directory');
   }
@@ -1258,19 +1258,19 @@ export interface EcsTaskDefinitionVolume {
   readonly name: string;
   /**
   * docker_volume_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#docker_volume_configuration EcsTaskDefinition#docker_volume_configuration}
   */
   readonly dockerVolumeConfiguration?: EcsTaskDefinitionVolumeDockerVolumeConfiguration;
   /**
   * efs_volume_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#efs_volume_configuration EcsTaskDefinition#efs_volume_configuration}
   */
   readonly efsVolumeConfiguration?: EcsTaskDefinitionVolumeEfsVolumeConfiguration;
   /**
   * fsx_windows_file_server_volume_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_definition#fsx_windows_file_server_volume_configuration EcsTaskDefinition#fsx_windows_file_server_volume_configuration}
   */
   readonly fsxWindowsFileServerVolumeConfiguration?: EcsTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration;
@@ -1359,7 +1359,7 @@ export class EcsTaskDefinitionVolumeOutputReference extends cdktf.ComplexObject 
   }
 
   // host_path - computed: false, optional: true, required: false
-  private _hostPath?: string; 
+  private _hostPath?: string;
   public get hostPath() {
     return this.getStringAttribute('host_path');
   }
@@ -1375,7 +1375,7 @@ export class EcsTaskDefinitionVolumeOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1530,7 +1530,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // container_definitions - computed: false, optional: false, required: true
-  private _containerDefinitions?: string; 
+  private _containerDefinitions?: string;
   public get containerDefinitions() {
     return this.getStringAttribute('container_definitions');
   }
@@ -1543,7 +1543,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // cpu - computed: false, optional: true, required: false
-  private _cpu?: string; 
+  private _cpu?: string;
   public get cpu() {
     return this.getStringAttribute('cpu');
   }
@@ -1559,7 +1559,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // execution_role_arn - computed: false, optional: true, required: false
-  private _executionRoleArn?: string; 
+  private _executionRoleArn?: string;
   public get executionRoleArn() {
     return this.getStringAttribute('execution_role_arn');
   }
@@ -1575,7 +1575,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // family - computed: false, optional: false, required: true
-  private _family?: string; 
+  private _family?: string;
   public get family() {
     return this.getStringAttribute('family');
   }
@@ -1588,7 +1588,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1604,7 +1604,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // ipc_mode - computed: false, optional: true, required: false
-  private _ipcMode?: string; 
+  private _ipcMode?: string;
   public get ipcMode() {
     return this.getStringAttribute('ipc_mode');
   }
@@ -1620,7 +1620,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // memory - computed: false, optional: true, required: false
-  private _memory?: string; 
+  private _memory?: string;
   public get memory() {
     return this.getStringAttribute('memory');
   }
@@ -1636,7 +1636,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // network_mode - computed: true, optional: true, required: false
-  private _networkMode?: string; 
+  private _networkMode?: string;
   public get networkMode() {
     return this.getStringAttribute('network_mode');
   }
@@ -1652,7 +1652,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // pid_mode - computed: false, optional: true, required: false
-  private _pidMode?: string; 
+  private _pidMode?: string;
   public get pidMode() {
     return this.getStringAttribute('pid_mode');
   }
@@ -1668,7 +1668,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // requires_compatibilities - computed: false, optional: true, required: false
-  private _requiresCompatibilities?: string[]; 
+  private _requiresCompatibilities?: string[];
   public get requiresCompatibilities() {
     return cdktf.Fn.tolist(this.getListAttribute('requires_compatibilities'));
   }
@@ -1689,7 +1689,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // skip_destroy - computed: false, optional: true, required: false
-  private _skipDestroy?: boolean | cdktf.IResolvable; 
+  private _skipDestroy?: boolean | cdktf.IResolvable;
   public get skipDestroy() {
     return this.getBooleanAttribute('skip_destroy');
   }
@@ -1705,7 +1705,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1721,7 +1721,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1737,7 +1737,7 @@ export class EcsTaskDefinition extends cdktf.TerraformResource {
   }
 
   // task_role_arn - computed: false, optional: true, required: false
-  private _taskRoleArn?: string; 
+  private _taskRoleArn?: string;
   public get taskRoleArn() {
     return this.getStringAttribute('task_role_arn');
   }

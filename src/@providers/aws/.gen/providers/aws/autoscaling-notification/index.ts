@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscaling_notification
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   // ==========
 
   // group_names - computed: false, optional: false, required: true
-  private _groupNames?: string[]; 
+  private _groupNames?: string[];
   public get groupNames() {
     return cdktf.Fn.tolist(this.getListAttribute('group_names'));
   }
@@ -89,7 +89,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   }
 
   // notifications - computed: false, optional: false, required: true
-  private _notifications?: string[]; 
+  private _notifications?: string[];
   public get notifications() {
     return cdktf.Fn.tolist(this.getListAttribute('notifications'));
   }
@@ -118,7 +118,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   }
 
   // topic_arn - computed: false, optional: false, required: true
-  private _topicArn?: string; 
+  private _topicArn?: string;
   public get topicArn() {
     return this.getStringAttribute('topic_arn');
   }

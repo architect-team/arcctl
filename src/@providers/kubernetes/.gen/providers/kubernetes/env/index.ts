@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/env
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,25 +9,25 @@ import * as cdktf from 'cdktf';
 export interface EnvConfig extends cdktf.TerraformMetaArguments {
   /**
   * Resource API version
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#api_version Env#api_version}
   */
   readonly apiVersion: string;
   /**
   * Name of the container for which we are updating the environment variables.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#container Env#container}
   */
   readonly container: string;
   /**
   * Set the name of the field manager for the specified environment variables.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#field_manager Env#field_manager}
   */
   readonly fieldManager?: string;
   /**
   * Force overwriting environments that were created or edited outside of Terraform.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#force Env#force}
   */
   readonly force?: boolean | cdktf.IResolvable;
@@ -40,19 +40,19 @@ export interface EnvConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Resource Kind
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#kind Env#kind}
   */
   readonly kind: string;
   /**
   * env block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#env Env#env}
   */
   readonly env: EnvEnv[] | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#metadata Env#metadata}
   */
   readonly metadata: EnvMetadata;
@@ -60,19 +60,19 @@ export interface EnvConfig extends cdktf.TerraformMetaArguments {
 export interface EnvEnvValueFromConfigMapKeyRef {
   /**
   * The key to select.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#key Env#key}
   */
   readonly key?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#name Env#name}
   */
   readonly name?: string;
   /**
   * Specify whether the ConfigMap or its key must be defined.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#optional Env#optional}
   */
   readonly optional?: boolean | cdktf.IResolvable;
@@ -135,7 +135,7 @@ export class EnvEnvValueFromConfigMapKeyRefOutputReference extends cdktf.Complex
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -151,7 +151,7 @@ export class EnvEnvValueFromConfigMapKeyRefOutputReference extends cdktf.Complex
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -167,7 +167,7 @@ export class EnvEnvValueFromConfigMapKeyRefOutputReference extends cdktf.Complex
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -185,13 +185,13 @@ export class EnvEnvValueFromConfigMapKeyRefOutputReference extends cdktf.Complex
 export interface EnvEnvValueFromFieldRef {
   /**
   * Version of the schema the FieldPath is written in terms of, defaults to "v1".
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#api_version Env#api_version}
   */
   readonly apiVersion?: string;
   /**
   * Path of the field to select in the specified API version
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#field_path Env#field_path}
   */
   readonly fieldPath?: string;
@@ -247,7 +247,7 @@ export class EnvEnvValueFromFieldRefOutputReference extends cdktf.ComplexObject 
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -263,7 +263,7 @@ export class EnvEnvValueFromFieldRefOutputReference extends cdktf.ComplexObject 
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -289,7 +289,7 @@ export interface EnvEnvValueFromResourceFieldRef {
   readonly divisor?: string;
   /**
   * Resource to select
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#resource Env#resource}
   */
   readonly resource: string;
@@ -352,7 +352,7 @@ export class EnvEnvValueFromResourceFieldRefOutputReference extends cdktf.Comple
   }
 
   // container_name - computed: false, optional: true, required: false
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -368,7 +368,7 @@ export class EnvEnvValueFromResourceFieldRefOutputReference extends cdktf.Comple
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -384,7 +384,7 @@ export class EnvEnvValueFromResourceFieldRefOutputReference extends cdktf.Comple
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -399,19 +399,19 @@ export class EnvEnvValueFromResourceFieldRefOutputReference extends cdktf.Comple
 export interface EnvEnvValueFromSecretKeyRef {
   /**
   * The key of the secret to select from. Must be a valid secret key.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#key Env#key}
   */
   readonly key?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#name Env#name}
   */
   readonly name?: string;
   /**
   * Specify whether the Secret or its key must be defined.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#optional Env#optional}
   */
   readonly optional?: boolean | cdktf.IResolvable;
@@ -474,7 +474,7 @@ export class EnvEnvValueFromSecretKeyRefOutputReference extends cdktf.ComplexObj
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -490,7 +490,7 @@ export class EnvEnvValueFromSecretKeyRefOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -506,7 +506,7 @@ export class EnvEnvValueFromSecretKeyRefOutputReference extends cdktf.ComplexObj
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -524,25 +524,25 @@ export class EnvEnvValueFromSecretKeyRefOutputReference extends cdktf.ComplexObj
 export interface EnvEnvValueFrom {
   /**
   * config_map_key_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#config_map_key_ref Env#config_map_key_ref}
   */
   readonly configMapKeyRef?: EnvEnvValueFromConfigMapKeyRef;
   /**
   * field_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#field_ref Env#field_ref}
   */
   readonly fieldRef?: EnvEnvValueFromFieldRef;
   /**
   * resource_field_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#resource_field_ref Env#resource_field_ref}
   */
   readonly resourceFieldRef?: EnvEnvValueFromResourceFieldRef;
   /**
   * secret_key_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#secret_key_ref Env#secret_key_ref}
   */
   readonly secretKeyRef?: EnvEnvValueFromSecretKeyRef;
@@ -678,19 +678,19 @@ export class EnvEnvValueFromOutputReference extends cdktf.ComplexObject {
 export interface EnvEnv {
   /**
   * Name of the environment variable. Must be a C_IDENTIFIER
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#name Env#name}
   */
   readonly name: string;
   /**
   * Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#value Env#value}
   */
   readonly value?: string;
   /**
   * value_from block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#value_from Env#value_from}
   */
   readonly valueFrom?: EnvEnvValueFrom;
@@ -765,7 +765,7 @@ export class EnvEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -778,7 +778,7 @@ export class EnvEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -832,13 +832,13 @@ export class EnvEnvList extends cdktf.ComplexList {
 export interface EnvMetadata {
   /**
   * The name of the resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#name Env#name}
   */
   readonly name: string;
   /**
   * The namespace of the resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/env#namespace Env#namespace}
   */
   readonly namespace?: string;
@@ -894,7 +894,7 @@ export class EnvMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -907,7 +907,7 @@ export class EnvMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -975,7 +975,7 @@ export class Env extends cdktf.TerraformResource {
   // ==========
 
   // api_version - computed: false, optional: false, required: true
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -988,7 +988,7 @@ export class Env extends cdktf.TerraformResource {
   }
 
   // container - computed: false, optional: false, required: true
-  private _container?: string; 
+  private _container?: string;
   public get container() {
     return this.getStringAttribute('container');
   }
@@ -1001,7 +1001,7 @@ export class Env extends cdktf.TerraformResource {
   }
 
   // field_manager - computed: false, optional: true, required: false
-  private _fieldManager?: string; 
+  private _fieldManager?: string;
   public get fieldManager() {
     return this.getStringAttribute('field_manager');
   }
@@ -1017,7 +1017,7 @@ export class Env extends cdktf.TerraformResource {
   }
 
   // force - computed: false, optional: true, required: false
-  private _force?: boolean | cdktf.IResolvable; 
+  private _force?: boolean | cdktf.IResolvable;
   public get force() {
     return this.getBooleanAttribute('force');
   }
@@ -1033,7 +1033,7 @@ export class Env extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1049,7 +1049,7 @@ export class Env extends cdktf.TerraformResource {
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }

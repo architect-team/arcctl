@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/identitystore_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsIdentitystoreGroupConfig extends cdktf.TerraformMetaArgu
   readonly identityStoreId: string;
   /**
   * alternate_identifier block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#alternate_identifier DataAwsIdentitystoreGroup#alternate_identifier}
   */
   readonly alternateIdentifier?: DataAwsIdentitystoreGroupAlternateIdentifier;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#filter DataAwsIdentitystoreGroup#filter}
   */
   readonly filter?: DataAwsIdentitystoreGroupFilter;
@@ -168,7 +168,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReferen
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -181,7 +181,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReferen
   }
 
   // issuer - computed: false, optional: false, required: true
-  private _issuer?: string; 
+  private _issuer?: string;
   public get issuer() {
     return this.getStringAttribute('issuer');
   }
@@ -254,7 +254,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputRe
   }
 
   // attribute_path - computed: false, optional: false, required: true
-  private _attributePath?: string; 
+  private _attributePath?: string;
   public get attributePath() {
     return this.getStringAttribute('attribute_path');
   }
@@ -267,7 +267,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputRe
   }
 
   // attribute_value - computed: false, optional: false, required: true
-  private _attributeValue?: string; 
+  private _attributeValue?: string;
   public get attributeValue() {
     return this.getStringAttribute('attribute_value');
   }
@@ -282,13 +282,13 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputRe
 export interface DataAwsIdentitystoreGroupAlternateIdentifier {
   /**
   * external_id block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#external_id DataAwsIdentitystoreGroup#external_id}
   */
   readonly externalId?: DataAwsIdentitystoreGroupAlternateIdentifierExternalId;
   /**
   * unique_attribute block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#unique_attribute DataAwsIdentitystoreGroup#unique_attribute}
   */
   readonly uniqueAttribute?: DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute;
@@ -436,7 +436,7 @@ export class DataAwsIdentitystoreGroupFilterOutputReference extends cdktf.Comple
   }
 
   // attribute_path - computed: false, optional: false, required: true
-  private _attributePath?: string; 
+  private _attributePath?: string;
   public get attributePath() {
     return this.getStringAttribute('attribute_path');
   }
@@ -449,7 +449,7 @@ export class DataAwsIdentitystoreGroupFilterOutputReference extends cdktf.Comple
   }
 
   // attribute_value - computed: false, optional: false, required: true
-  private _attributeValue?: string; 
+  private _attributeValue?: string;
   public get attributeValue() {
     return this.getStringAttribute('attribute_value');
   }
@@ -527,7 +527,7 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // group_id - computed: true, optional: true, required: false
-  private _groupId?: string; 
+  private _groupId?: string;
   public get groupId() {
     return this.getStringAttribute('group_id');
   }
@@ -543,7 +543,7 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -559,7 +559,7 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // identity_store_id - computed: false, optional: false, required: true
-  private _identityStoreId?: string; 
+  private _identityStoreId?: string;
   public get identityStoreId() {
     return this.getStringAttribute('identity_store_id');
   }

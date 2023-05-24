@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   // ==========
 
   // appliance_mode_support - computed: false, optional: true, required: false
-  private _applianceModeSupport?: string; 
+  private _applianceModeSupport?: string;
   public get applianceModeSupport() {
     return this.getStringAttribute('appliance_mode_support');
   }
@@ -127,7 +127,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // dns_support - computed: false, optional: true, required: false
-  private _dnsSupport?: string; 
+  private _dnsSupport?: string;
   public get dnsSupport() {
     return this.getStringAttribute('dns_support');
   }
@@ -143,7 +143,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -159,7 +159,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // ipv6_support - computed: false, optional: true, required: false
-  private _ipv6Support?: string; 
+  private _ipv6Support?: string;
   public get ipv6Support() {
     return this.getStringAttribute('ipv6_support');
   }
@@ -175,7 +175,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -188,7 +188,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -204,7 +204,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -220,7 +220,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // transit_gateway_default_route_table_association - computed: false, optional: true, required: false
-  private _transitGatewayDefaultRouteTableAssociation?: boolean | cdktf.IResolvable; 
+  private _transitGatewayDefaultRouteTableAssociation?: boolean | cdktf.IResolvable;
   public get transitGatewayDefaultRouteTableAssociation() {
     return this.getBooleanAttribute('transit_gateway_default_route_table_association');
   }
@@ -236,7 +236,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // transit_gateway_default_route_table_propagation - computed: false, optional: true, required: false
-  private _transitGatewayDefaultRouteTablePropagation?: boolean | cdktf.IResolvable; 
+  private _transitGatewayDefaultRouteTablePropagation?: boolean | cdktf.IResolvable;
   public get transitGatewayDefaultRouteTablePropagation() {
     return this.getBooleanAttribute('transit_gateway_default_route_table_propagation');
   }
@@ -252,7 +252,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // transit_gateway_id - computed: false, optional: false, required: true
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -265,7 +265,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

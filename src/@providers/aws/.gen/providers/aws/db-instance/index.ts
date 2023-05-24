@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/db_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -256,25 +256,25 @@ export interface DbInstanceConfig extends cdktf.TerraformMetaArguments {
   readonly vpcSecurityGroupIds?: string[];
   /**
   * blue_green_update block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#blue_green_update DbInstance#blue_green_update}
   */
   readonly blueGreenUpdate?: DbInstanceBlueGreenUpdate;
   /**
   * restore_to_point_in_time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#restore_to_point_in_time DbInstance#restore_to_point_in_time}
   */
   readonly restoreToPointInTime?: DbInstanceRestoreToPointInTime;
   /**
   * s3_import block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#s3_import DbInstance#s3_import}
   */
   readonly s3Import?: DbInstanceS3Import;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#timeouts DbInstance#timeouts}
   */
   readonly timeouts?: DbInstanceTimeouts;
@@ -477,7 +477,7 @@ export class DbInstanceBlueGreenUpdateOutputReference extends cdktf.ComplexObjec
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -586,7 +586,7 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
   }
 
   // restore_time - computed: false, optional: true, required: false
-  private _restoreTime?: string; 
+  private _restoreTime?: string;
   public get restoreTime() {
     return this.getStringAttribute('restore_time');
   }
@@ -602,7 +602,7 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
   }
 
   // source_db_instance_automated_backups_arn - computed: false, optional: true, required: false
-  private _sourceDbInstanceAutomatedBackupsArn?: string; 
+  private _sourceDbInstanceAutomatedBackupsArn?: string;
   public get sourceDbInstanceAutomatedBackupsArn() {
     return this.getStringAttribute('source_db_instance_automated_backups_arn');
   }
@@ -618,7 +618,7 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
   }
 
   // source_db_instance_identifier - computed: false, optional: true, required: false
-  private _sourceDbInstanceIdentifier?: string; 
+  private _sourceDbInstanceIdentifier?: string;
   public get sourceDbInstanceIdentifier() {
     return this.getStringAttribute('source_db_instance_identifier');
   }
@@ -634,7 +634,7 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
   }
 
   // source_dbi_resource_id - computed: false, optional: true, required: false
-  private _sourceDbiResourceId?: string; 
+  private _sourceDbiResourceId?: string;
   public get sourceDbiResourceId() {
     return this.getStringAttribute('source_dbi_resource_id');
   }
@@ -650,7 +650,7 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
   }
 
   // use_latest_restorable_time - computed: false, optional: true, required: false
-  private _useLatestRestorableTime?: boolean | cdktf.IResolvable; 
+  private _useLatestRestorableTime?: boolean | cdktf.IResolvable;
   public get useLatestRestorableTime() {
     return this.getBooleanAttribute('use_latest_restorable_time');
   }
@@ -759,7 +759,7 @@ export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -772,7 +772,7 @@ export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -788,7 +788,7 @@ export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
   }
 
   // ingestion_role - computed: false, optional: false, required: true
-  private _ingestionRole?: string; 
+  private _ingestionRole?: string;
   public get ingestionRole() {
     return this.getStringAttribute('ingestion_role');
   }
@@ -801,7 +801,7 @@ export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
   }
 
   // source_engine - computed: false, optional: false, required: true
-  private _sourceEngine?: string; 
+  private _sourceEngine?: string;
   public get sourceEngine() {
     return this.getStringAttribute('source_engine');
   }
@@ -814,7 +814,7 @@ export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
   }
 
   // source_engine_version - computed: false, optional: false, required: true
-  private _sourceEngineVersion?: string; 
+  private _sourceEngineVersion?: string;
   public get sourceEngineVersion() {
     return this.getStringAttribute('source_engine_version');
   }
@@ -908,7 +908,7 @@ export class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -924,7 +924,7 @@ export class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -940,7 +940,7 @@ export class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1070,7 +1070,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // allocated_storage - computed: true, optional: true, required: false
-  private _allocatedStorage?: number; 
+  private _allocatedStorage?: number;
   public get allocatedStorage() {
     return this.getNumberAttribute('allocated_storage');
   }
@@ -1086,7 +1086,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // allow_major_version_upgrade - computed: false, optional: true, required: false
-  private _allowMajorVersionUpgrade?: boolean | cdktf.IResolvable; 
+  private _allowMajorVersionUpgrade?: boolean | cdktf.IResolvable;
   public get allowMajorVersionUpgrade() {
     return this.getBooleanAttribute('allow_major_version_upgrade');
   }
@@ -1102,7 +1102,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // apply_immediately - computed: false, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -1123,7 +1123,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // auto_minor_version_upgrade - computed: false, optional: true, required: false
-  private _autoMinorVersionUpgrade?: boolean | cdktf.IResolvable; 
+  private _autoMinorVersionUpgrade?: boolean | cdktf.IResolvable;
   public get autoMinorVersionUpgrade() {
     return this.getBooleanAttribute('auto_minor_version_upgrade');
   }
@@ -1139,7 +1139,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -1155,7 +1155,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // backup_retention_period - computed: true, optional: true, required: false
-  private _backupRetentionPeriod?: number; 
+  private _backupRetentionPeriod?: number;
   public get backupRetentionPeriod() {
     return this.getNumberAttribute('backup_retention_period');
   }
@@ -1171,7 +1171,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // backup_window - computed: true, optional: true, required: false
-  private _backupWindow?: string; 
+  private _backupWindow?: string;
   public get backupWindow() {
     return this.getStringAttribute('backup_window');
   }
@@ -1187,7 +1187,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // ca_cert_identifier - computed: true, optional: true, required: false
-  private _caCertIdentifier?: string; 
+  private _caCertIdentifier?: string;
   public get caCertIdentifier() {
     return this.getStringAttribute('ca_cert_identifier');
   }
@@ -1203,7 +1203,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // character_set_name - computed: true, optional: true, required: false
-  private _characterSetName?: string; 
+  private _characterSetName?: string;
   public get characterSetName() {
     return this.getStringAttribute('character_set_name');
   }
@@ -1219,7 +1219,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // copy_tags_to_snapshot - computed: false, optional: true, required: false
-  private _copyTagsToSnapshot?: boolean | cdktf.IResolvable; 
+  private _copyTagsToSnapshot?: boolean | cdktf.IResolvable;
   public get copyTagsToSnapshot() {
     return this.getBooleanAttribute('copy_tags_to_snapshot');
   }
@@ -1235,7 +1235,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // custom_iam_instance_profile - computed: false, optional: true, required: false
-  private _customIamInstanceProfile?: string; 
+  private _customIamInstanceProfile?: string;
   public get customIamInstanceProfile() {
     return this.getStringAttribute('custom_iam_instance_profile');
   }
@@ -1251,7 +1251,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // customer_owned_ip_enabled - computed: false, optional: true, required: false
-  private _customerOwnedIpEnabled?: boolean | cdktf.IResolvable; 
+  private _customerOwnedIpEnabled?: boolean | cdktf.IResolvable;
   public get customerOwnedIpEnabled() {
     return this.getBooleanAttribute('customer_owned_ip_enabled');
   }
@@ -1267,7 +1267,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // db_name - computed: true, optional: true, required: false
-  private _dbName?: string; 
+  private _dbName?: string;
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -1283,7 +1283,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // db_subnet_group_name - computed: true, optional: true, required: false
-  private _dbSubnetGroupName?: string; 
+  private _dbSubnetGroupName?: string;
   public get dbSubnetGroupName() {
     return this.getStringAttribute('db_subnet_group_name');
   }
@@ -1299,7 +1299,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // delete_automated_backups - computed: false, optional: true, required: false
-  private _deleteAutomatedBackups?: boolean | cdktf.IResolvable; 
+  private _deleteAutomatedBackups?: boolean | cdktf.IResolvable;
   public get deleteAutomatedBackups() {
     return this.getBooleanAttribute('delete_automated_backups');
   }
@@ -1315,7 +1315,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // deletion_protection - computed: false, optional: true, required: false
-  private _deletionProtection?: boolean | cdktf.IResolvable; 
+  private _deletionProtection?: boolean | cdktf.IResolvable;
   public get deletionProtection() {
     return this.getBooleanAttribute('deletion_protection');
   }
@@ -1331,7 +1331,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // domain - computed: false, optional: true, required: false
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -1347,7 +1347,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // domain_iam_role_name - computed: false, optional: true, required: false
-  private _domainIamRoleName?: string; 
+  private _domainIamRoleName?: string;
   public get domainIamRoleName() {
     return this.getStringAttribute('domain_iam_role_name');
   }
@@ -1363,7 +1363,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // enabled_cloudwatch_logs_exports - computed: false, optional: true, required: false
-  private _enabledCloudwatchLogsExports?: string[]; 
+  private _enabledCloudwatchLogsExports?: string[];
   public get enabledCloudwatchLogsExports() {
     return cdktf.Fn.tolist(this.getListAttribute('enabled_cloudwatch_logs_exports'));
   }
@@ -1384,7 +1384,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // engine - computed: true, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -1400,7 +1400,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -1421,7 +1421,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // final_snapshot_identifier - computed: false, optional: true, required: false
-  private _finalSnapshotIdentifier?: string; 
+  private _finalSnapshotIdentifier?: string;
   public get finalSnapshotIdentifier() {
     return this.getStringAttribute('final_snapshot_identifier');
   }
@@ -1442,7 +1442,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // iam_database_authentication_enabled - computed: false, optional: true, required: false
-  private _iamDatabaseAuthenticationEnabled?: boolean | cdktf.IResolvable; 
+  private _iamDatabaseAuthenticationEnabled?: boolean | cdktf.IResolvable;
   public get iamDatabaseAuthenticationEnabled() {
     return this.getBooleanAttribute('iam_database_authentication_enabled');
   }
@@ -1458,7 +1458,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1474,7 +1474,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // identifier - computed: true, optional: true, required: false
-  private _identifier?: string; 
+  private _identifier?: string;
   public get identifier() {
     return this.getStringAttribute('identifier');
   }
@@ -1490,7 +1490,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // identifier_prefix - computed: true, optional: true, required: false
-  private _identifierPrefix?: string; 
+  private _identifierPrefix?: string;
   public get identifierPrefix() {
     return this.getStringAttribute('identifier_prefix');
   }
@@ -1506,7 +1506,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // instance_class - computed: false, optional: false, required: true
-  private _instanceClass?: string; 
+  private _instanceClass?: string;
   public get instanceClass() {
     return this.getStringAttribute('instance_class');
   }
@@ -1519,7 +1519,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -1535,7 +1535,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -1556,7 +1556,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // license_model - computed: true, optional: true, required: false
-  private _licenseModel?: string; 
+  private _licenseModel?: string;
   public get licenseModel() {
     return this.getStringAttribute('license_model');
   }
@@ -1578,7 +1578,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // maintenance_window - computed: true, optional: true, required: false
-  private _maintenanceWindow?: string; 
+  private _maintenanceWindow?: string;
   public get maintenanceWindow() {
     return this.getStringAttribute('maintenance_window');
   }
@@ -1594,7 +1594,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // manage_master_user_password - computed: false, optional: true, required: false
-  private _manageMasterUserPassword?: boolean | cdktf.IResolvable; 
+  private _manageMasterUserPassword?: boolean | cdktf.IResolvable;
   public get manageMasterUserPassword() {
     return this.getBooleanAttribute('manage_master_user_password');
   }
@@ -1616,7 +1616,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // master_user_secret_kms_key_id - computed: true, optional: true, required: false
-  private _masterUserSecretKmsKeyId?: string; 
+  private _masterUserSecretKmsKeyId?: string;
   public get masterUserSecretKmsKeyId() {
     return this.getStringAttribute('master_user_secret_kms_key_id');
   }
@@ -1632,7 +1632,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // max_allocated_storage - computed: false, optional: true, required: false
-  private _maxAllocatedStorage?: number; 
+  private _maxAllocatedStorage?: number;
   public get maxAllocatedStorage() {
     return this.getNumberAttribute('max_allocated_storage');
   }
@@ -1648,7 +1648,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // monitoring_interval - computed: false, optional: true, required: false
-  private _monitoringInterval?: number; 
+  private _monitoringInterval?: number;
   public get monitoringInterval() {
     return this.getNumberAttribute('monitoring_interval');
   }
@@ -1664,7 +1664,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // monitoring_role_arn - computed: true, optional: true, required: false
-  private _monitoringRoleArn?: string; 
+  private _monitoringRoleArn?: string;
   public get monitoringRoleArn() {
     return this.getStringAttribute('monitoring_role_arn');
   }
@@ -1680,7 +1680,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // multi_az - computed: true, optional: true, required: false
-  private _multiAz?: boolean | cdktf.IResolvable; 
+  private _multiAz?: boolean | cdktf.IResolvable;
   public get multiAz() {
     return this.getBooleanAttribute('multi_az');
   }
@@ -1696,7 +1696,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1712,7 +1712,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // nchar_character_set_name - computed: true, optional: true, required: false
-  private _ncharCharacterSetName?: string; 
+  private _ncharCharacterSetName?: string;
   public get ncharCharacterSetName() {
     return this.getStringAttribute('nchar_character_set_name');
   }
@@ -1728,7 +1728,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // network_type - computed: true, optional: true, required: false
-  private _networkType?: string; 
+  private _networkType?: string;
   public get networkType() {
     return this.getStringAttribute('network_type');
   }
@@ -1744,7 +1744,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // option_group_name - computed: true, optional: true, required: false
-  private _optionGroupName?: string; 
+  private _optionGroupName?: string;
   public get optionGroupName() {
     return this.getStringAttribute('option_group_name');
   }
@@ -1760,7 +1760,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // parameter_group_name - computed: true, optional: true, required: false
-  private _parameterGroupName?: string; 
+  private _parameterGroupName?: string;
   public get parameterGroupName() {
     return this.getStringAttribute('parameter_group_name');
   }
@@ -1776,7 +1776,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -1792,7 +1792,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // performance_insights_enabled - computed: false, optional: true, required: false
-  private _performanceInsightsEnabled?: boolean | cdktf.IResolvable; 
+  private _performanceInsightsEnabled?: boolean | cdktf.IResolvable;
   public get performanceInsightsEnabled() {
     return this.getBooleanAttribute('performance_insights_enabled');
   }
@@ -1808,7 +1808,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // performance_insights_kms_key_id - computed: true, optional: true, required: false
-  private _performanceInsightsKmsKeyId?: string; 
+  private _performanceInsightsKmsKeyId?: string;
   public get performanceInsightsKmsKeyId() {
     return this.getStringAttribute('performance_insights_kms_key_id');
   }
@@ -1824,7 +1824,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // performance_insights_retention_period - computed: true, optional: true, required: false
-  private _performanceInsightsRetentionPeriod?: number; 
+  private _performanceInsightsRetentionPeriod?: number;
   public get performanceInsightsRetentionPeriod() {
     return this.getNumberAttribute('performance_insights_retention_period');
   }
@@ -1840,7 +1840,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // port - computed: true, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1856,7 +1856,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // publicly_accessible - computed: false, optional: true, required: false
-  private _publiclyAccessible?: boolean | cdktf.IResolvable; 
+  private _publiclyAccessible?: boolean | cdktf.IResolvable;
   public get publiclyAccessible() {
     return this.getBooleanAttribute('publicly_accessible');
   }
@@ -1872,7 +1872,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // replica_mode - computed: true, optional: true, required: false
-  private _replicaMode?: string; 
+  private _replicaMode?: string;
   public get replicaMode() {
     return this.getStringAttribute('replica_mode');
   }
@@ -1893,7 +1893,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // replicate_source_db - computed: false, optional: true, required: false
-  private _replicateSourceDb?: string; 
+  private _replicateSourceDb?: string;
   public get replicateSourceDb() {
     return this.getStringAttribute('replicate_source_db');
   }
@@ -1914,7 +1914,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // security_group_names - computed: false, optional: true, required: false
-  private _securityGroupNames?: string[]; 
+  private _securityGroupNames?: string[];
   public get securityGroupNames() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_names'));
   }
@@ -1930,7 +1930,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // skip_final_snapshot - computed: false, optional: true, required: false
-  private _skipFinalSnapshot?: boolean | cdktf.IResolvable; 
+  private _skipFinalSnapshot?: boolean | cdktf.IResolvable;
   public get skipFinalSnapshot() {
     return this.getBooleanAttribute('skip_final_snapshot');
   }
@@ -1946,7 +1946,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // snapshot_identifier - computed: true, optional: true, required: false
-  private _snapshotIdentifier?: string; 
+  private _snapshotIdentifier?: string;
   public get snapshotIdentifier() {
     return this.getStringAttribute('snapshot_identifier');
   }
@@ -1967,7 +1967,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // storage_encrypted - computed: false, optional: true, required: false
-  private _storageEncrypted?: boolean | cdktf.IResolvable; 
+  private _storageEncrypted?: boolean | cdktf.IResolvable;
   public get storageEncrypted() {
     return this.getBooleanAttribute('storage_encrypted');
   }
@@ -1983,7 +1983,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // storage_throughput - computed: true, optional: true, required: false
-  private _storageThroughput?: number; 
+  private _storageThroughput?: number;
   public get storageThroughput() {
     return this.getNumberAttribute('storage_throughput');
   }
@@ -1999,7 +1999,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // storage_type - computed: true, optional: true, required: false
-  private _storageType?: string; 
+  private _storageType?: string;
   public get storageType() {
     return this.getStringAttribute('storage_type');
   }
@@ -2015,7 +2015,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2031,7 +2031,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -2047,7 +2047,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // timezone - computed: true, optional: true, required: false
-  private _timezone?: string; 
+  private _timezone?: string;
   public get timezone() {
     return this.getStringAttribute('timezone');
   }
@@ -2063,7 +2063,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // username - computed: true, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -2079,7 +2079,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[]; 
+  private _vpcSecurityGroupIds?: string[];
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }

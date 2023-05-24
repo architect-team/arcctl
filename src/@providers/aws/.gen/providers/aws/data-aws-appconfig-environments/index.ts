@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/appconfig_environments
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -66,7 +66,7 @@ export class DataAwsAppconfigEnvironments extends cdktf.TerraformDataSource {
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -84,7 +84,7 @@ export class DataAwsAppconfigEnvironments extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

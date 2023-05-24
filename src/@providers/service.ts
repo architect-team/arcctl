@@ -1,12 +1,12 @@
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import {
   ResourceInputs,
   ResourceOutputs,
   ResourceType
-} from '../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../utils/paging.js';
-import { ProviderCredentials } from './credentials.js';
-import { ResourceModule } from './module.js';
+} from '../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../utils/paging.ts';
+import { ProviderCredentials } from './credentials.ts';
+import { ResourceModule } from './module.ts';
 
 export type ModuleConstructor<
   T extends ResourceType,

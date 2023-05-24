@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/serverlessapplicationrepository_application
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsServerlessapplicationrepositoryApplication extends cdktf.Ter
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -84,7 +84,7 @@ export class DataAwsServerlessapplicationrepositoryApplication extends cdktf.Ter
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class DataAwsServerlessapplicationrepositoryApplication extends cdktf.Ter
   }
 
   // semantic_version - computed: true, optional: true, required: false
-  private _semanticVersion?: string; 
+  private _semanticVersion?: string;
   public get semanticVersion() {
     return this.getStringAttribute('semantic_version');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafregional_xss_match_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface WafregionalXssMatchSetConfig extends cdktf.TerraformMetaArgumen
   readonly name: string;
   /**
   * xss_match_tuple block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_xss_match_set#xss_match_tuple WafregionalXssMatchSet#xss_match_tuple}
   */
   readonly xssMatchTuple?: WafregionalXssMatchSetXssMatchTuple[] | cdktf.IResolvable;
@@ -86,7 +86,7 @@ export class WafregionalXssMatchSetXssMatchTupleFieldToMatchOutputReference exte
   }
 
   // data - computed: false, optional: true, required: false
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -102,7 +102,7 @@ export class WafregionalXssMatchSetXssMatchTupleFieldToMatchOutputReference exte
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -121,7 +121,7 @@ export interface WafregionalXssMatchSetXssMatchTuple {
   readonly textTransformation: string;
   /**
   * field_to_match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_xss_match_set#field_to_match WafregionalXssMatchSet#field_to_match}
   */
   readonly fieldToMatch: WafregionalXssMatchSetXssMatchTupleFieldToMatch;
@@ -189,7 +189,7 @@ export class WafregionalXssMatchSetXssMatchTupleOutputReference extends cdktf.Co
   }
 
   // text_transformation - computed: false, optional: false, required: true
-  private _textTransformation?: string; 
+  private _textTransformation?: string;
   public get textTransformation() {
     return this.getStringAttribute('text_transformation');
   }
@@ -282,7 +282,7 @@ export class WafregionalXssMatchSet extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -298,7 +298,7 @@ export class WafregionalXssMatchSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

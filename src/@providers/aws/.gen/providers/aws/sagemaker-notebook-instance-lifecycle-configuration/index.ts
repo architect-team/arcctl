@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance_lifecycle_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class SagemakerNotebookInstanceLifecycleConfiguration extends cdktf.Terra
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class SagemakerNotebookInstanceLifecycleConfiguration extends cdktf.Terra
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -113,7 +113,7 @@ export class SagemakerNotebookInstanceLifecycleConfiguration extends cdktf.Terra
   }
 
   // on_create - computed: false, optional: true, required: false
-  private _onCreate?: string; 
+  private _onCreate?: string;
   public get onCreate() {
     return this.getStringAttribute('on_create');
   }
@@ -129,7 +129,7 @@ export class SagemakerNotebookInstanceLifecycleConfiguration extends cdktf.Terra
   }
 
   // on_start - computed: false, optional: true, required: false
-  private _onStart?: string; 
+  private _onStart?: string;
   public get onStart() {
     return this.getStringAttribute('on_start');
   }

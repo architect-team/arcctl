@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/service_discovery_service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -391,7 +391,7 @@ export class DataAwsServiceDiscoveryService extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -407,7 +407,7 @@ export class DataAwsServiceDiscoveryService extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -420,7 +420,7 @@ export class DataAwsServiceDiscoveryService extends cdktf.TerraformDataSource {
   }
 
   // namespace_id - computed: false, optional: false, required: true
-  private _namespaceId?: string; 
+  private _namespaceId?: string;
   public get namespaceId() {
     return this.getStringAttribute('namespace_id');
   }
@@ -433,7 +433,7 @@ export class DataAwsServiceDiscoveryService extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -449,7 +449,7 @@ export class DataAwsServiceDiscoveryService extends cdktf.TerraformDataSource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

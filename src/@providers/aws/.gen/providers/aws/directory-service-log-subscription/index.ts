@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/directory_service_log_subscription
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DirectoryServiceLogSubscription extends cdktf.TerraformResource {
   // ==========
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -84,7 +84,7 @@ export class DirectoryServiceLogSubscription extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class DirectoryServiceLogSubscription extends cdktf.TerraformResource {
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }

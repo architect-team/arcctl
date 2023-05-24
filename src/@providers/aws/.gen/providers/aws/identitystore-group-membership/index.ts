@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/identitystore_group_membership
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class IdentitystoreGroupMembership extends cdktf.TerraformResource {
   // ==========
 
   // group_id - computed: false, optional: false, required: true
-  private _groupId?: string; 
+  private _groupId?: string;
   public get groupId() {
     return this.getStringAttribute('group_id');
   }
@@ -89,7 +89,7 @@ export class IdentitystoreGroupMembership extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class IdentitystoreGroupMembership extends cdktf.TerraformResource {
   }
 
   // identity_store_id - computed: false, optional: false, required: true
-  private _identityStoreId?: string; 
+  private _identityStoreId?: string;
   public get identityStoreId() {
     return this.getStringAttribute('identity_store_id');
   }
@@ -118,7 +118,7 @@ export class IdentitystoreGroupMembership extends cdktf.TerraformResource {
   }
 
   // member_id - computed: false, optional: false, required: true
-  private _memberId?: string; 
+  private _memberId?: string;
   public get memberId() {
     return this.getStringAttribute('member_id');
   }

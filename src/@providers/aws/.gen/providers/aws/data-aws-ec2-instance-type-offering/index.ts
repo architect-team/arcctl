@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_instance_type_offering
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsEc2InstanceTypeOfferingConfig extends cdktf.TerraformMet
   readonly preferredInstanceTypes?: string[];
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_instance_type_offering#filter DataAwsEc2InstanceTypeOffering#filter}
   */
   readonly filter?: DataAwsEc2InstanceTypeOfferingFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_instance_type_offering#timeouts DataAwsEc2InstanceTypeOffering#timeouts}
   */
   readonly timeouts?: DataAwsEc2InstanceTypeOfferingTimeouts;
@@ -108,7 +108,7 @@ export class DataAwsEc2InstanceTypeOfferingFilterOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +121,7 @@ export class DataAwsEc2InstanceTypeOfferingFilterOutputReference extends cdktf.C
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -213,7 +213,7 @@ export class DataAwsEc2InstanceTypeOfferingTimeoutsOutputReference extends cdktf
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -278,7 +278,7 @@ export class DataAwsEc2InstanceTypeOffering extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DataAwsEc2InstanceTypeOffering extends cdktf.TerraformDataSource {
   }
 
   // location_type - computed: false, optional: true, required: false
-  private _locationType?: string; 
+  private _locationType?: string;
   public get locationType() {
     return this.getStringAttribute('location_type');
   }
@@ -315,7 +315,7 @@ export class DataAwsEc2InstanceTypeOffering extends cdktf.TerraformDataSource {
   }
 
   // preferred_instance_types - computed: false, optional: true, required: false
-  private _preferredInstanceTypes?: string[]; 
+  private _preferredInstanceTypes?: string[];
   public get preferredInstanceTypes() {
     return this.getListAttribute('preferred_instance_types');
   }

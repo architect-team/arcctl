@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/evidently_feature
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface EvidentlyFeatureConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#timeouts EvidentlyFeature#timeouts}
   */
   readonly timeouts?: EvidentlyFeatureTimeouts;
   /**
   * variations block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#variations EvidentlyFeature#variations}
   */
   readonly variations: EvidentlyFeatureVariations[] | cdktf.IResolvable;
@@ -210,7 +210,7 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -226,7 +226,7 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -242,7 +242,7 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -340,7 +340,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // bool_value - computed: false, optional: true, required: false
-  private _boolValue?: string; 
+  private _boolValue?: string;
   public get boolValue() {
     return this.getStringAttribute('bool_value');
   }
@@ -356,7 +356,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // double_value - computed: false, optional: true, required: false
-  private _doubleValue?: string; 
+  private _doubleValue?: string;
   public get doubleValue() {
     return this.getStringAttribute('double_value');
   }
@@ -372,7 +372,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // long_value - computed: false, optional: true, required: false
-  private _longValue?: string; 
+  private _longValue?: string;
   public get longValue() {
     return this.getStringAttribute('long_value');
   }
@@ -388,7 +388,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // string_value - computed: false, optional: true, required: false
-  private _stringValue?: string; 
+  private _stringValue?: string;
   public get stringValue() {
     return this.getStringAttribute('string_value');
   }
@@ -410,7 +410,7 @@ export interface EvidentlyFeatureVariations {
   readonly name: string;
   /**
   * value block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#value EvidentlyFeature#value}
   */
   readonly value: EvidentlyFeatureVariationsValue;
@@ -478,7 +478,7 @@ export class EvidentlyFeatureVariationsOutputReference extends cdktf.ComplexObje
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -589,7 +589,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // default_variation - computed: true, optional: true, required: false
-  private _defaultVariation?: string; 
+  private _defaultVariation?: string;
   public get defaultVariation() {
     return this.getStringAttribute('default_variation');
   }
@@ -605,7 +605,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -621,7 +621,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // entity_overrides - computed: false, optional: true, required: false
-  private _entityOverrides?: { [key: string]: string }; 
+  private _entityOverrides?: { [key: string]: string };
   public get entityOverrides() {
     return this.getStringMapAttribute('entity_overrides');
   }
@@ -643,7 +643,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // evaluation_strategy - computed: true, optional: true, required: false
-  private _evaluationStrategy?: string; 
+  private _evaluationStrategy?: string;
   public get evaluationStrategy() {
     return this.getStringAttribute('evaluation_strategy');
   }
@@ -659,7 +659,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -680,7 +680,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -693,7 +693,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // project - computed: false, optional: false, required: true
-  private _project?: string; 
+  private _project?: string;
   public get project() {
     return this.getStringAttribute('project');
   }
@@ -711,7 +711,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -727,7 +727,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

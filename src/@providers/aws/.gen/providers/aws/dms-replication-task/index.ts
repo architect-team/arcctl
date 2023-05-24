@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dms_replication_task
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -121,7 +121,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   // ==========
 
   // cdc_start_position - computed: true, optional: true, required: false
-  private _cdcStartPosition?: string; 
+  private _cdcStartPosition?: string;
   public get cdcStartPosition() {
     return this.getStringAttribute('cdc_start_position');
   }
@@ -137,7 +137,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // cdc_start_time - computed: false, optional: true, required: false
-  private _cdcStartTime?: string; 
+  private _cdcStartTime?: string;
   public get cdcStartTime() {
     return this.getStringAttribute('cdc_start_time');
   }
@@ -153,7 +153,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -169,7 +169,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // migration_type - computed: false, optional: false, required: true
-  private _migrationType?: string; 
+  private _migrationType?: string;
   public get migrationType() {
     return this.getStringAttribute('migration_type');
   }
@@ -182,7 +182,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // replication_instance_arn - computed: false, optional: false, required: true
-  private _replicationInstanceArn?: string; 
+  private _replicationInstanceArn?: string;
   public get replicationInstanceArn() {
     return this.getStringAttribute('replication_instance_arn');
   }
@@ -200,7 +200,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // replication_task_id - computed: false, optional: false, required: true
-  private _replicationTaskId?: string; 
+  private _replicationTaskId?: string;
   public get replicationTaskId() {
     return this.getStringAttribute('replication_task_id');
   }
@@ -213,7 +213,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // replication_task_settings - computed: false, optional: true, required: false
-  private _replicationTaskSettings?: string; 
+  private _replicationTaskSettings?: string;
   public get replicationTaskSettings() {
     return this.getStringAttribute('replication_task_settings');
   }
@@ -229,7 +229,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // source_endpoint_arn - computed: false, optional: false, required: true
-  private _sourceEndpointArn?: string; 
+  private _sourceEndpointArn?: string;
   public get sourceEndpointArn() {
     return this.getStringAttribute('source_endpoint_arn');
   }
@@ -242,7 +242,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // start_replication_task - computed: false, optional: true, required: false
-  private _startReplicationTask?: boolean | cdktf.IResolvable; 
+  private _startReplicationTask?: boolean | cdktf.IResolvable;
   public get startReplicationTask() {
     return this.getBooleanAttribute('start_replication_task');
   }
@@ -263,7 +263,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // table_mappings - computed: false, optional: false, required: true
-  private _tableMappings?: string; 
+  private _tableMappings?: string;
   public get tableMappings() {
     return this.getStringAttribute('table_mappings');
   }
@@ -276,7 +276,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -292,7 +292,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -308,7 +308,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // target_endpoint_arn - computed: false, optional: false, required: true
-  private _targetEndpointArn?: string; 
+  private _targetEndpointArn?: string;
   public get targetEndpointArn() {
     return this.getStringAttribute('target_endpoint_arn');
   }

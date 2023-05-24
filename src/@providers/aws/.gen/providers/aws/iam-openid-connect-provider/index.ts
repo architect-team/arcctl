@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_openid_connect_provider
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class IamOpenidConnectProvider extends cdktf.TerraformResource {
   }
 
   // client_id_list - computed: false, optional: false, required: true
-  private _clientIdList?: string[]; 
+  private _clientIdList?: string[];
   public get clientIdList() {
     return this.getListAttribute('client_id_list');
   }
@@ -104,7 +104,7 @@ export class IamOpenidConnectProvider extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -120,7 +120,7 @@ export class IamOpenidConnectProvider extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -136,7 +136,7 @@ export class IamOpenidConnectProvider extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -152,7 +152,7 @@ export class IamOpenidConnectProvider extends cdktf.TerraformResource {
   }
 
   // thumbprint_list - computed: false, optional: false, required: true
-  private _thumbprintList?: string[]; 
+  private _thumbprintList?: string[];
   public get thumbprintList() {
     return this.getListAttribute('thumbprint_list');
   }
@@ -165,7 +165,7 @@ export class IamOpenidConnectProvider extends cdktf.TerraformResource {
   }
 
   // url - computed: false, optional: false, required: true
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }

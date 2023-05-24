@@ -4,57 +4,94 @@ import {
   ProviderCredentials,
   ResourceModule,
   ProviderStore,
-} from './@providers/index.js';
+} from './@providers/index.ts';
 import {
   ResourceInputs,
   ResourceType,
   ResourceTypeList,
-} from './@resources/index.js';
-import { ComponentStore } from './component-store/index.js';
-import { ExecutableGraph } from './executable-graph/index.js';
-import CloudCtlConfig from './utils/config.js';
-import { DatacenterStore } from './utils/datacenter-store.js';
-import { EnvironmentStore } from './utils/environment-store.js';
-import { CldCtlProviderStore } from './utils/provider-store.js';
-import { createProvider, getProviders } from './utils/providers.js';
-import { CldCtlTerraformStack } from './utils/stack.js';
-import { createTable } from './utils/table.js';
-import { Command, Config } from '@oclif/core';
-import { JSONSchemaType } from 'ajv';
-import { TerraformOutput, TerraformStack } from 'cdktf';
-import chalk from 'chalk';
-import cliSpinners from 'cli-spinners';
-import fs from 'fs/promises';
-import inquirer from 'inquirer';
-import path from 'path';
-import readline from 'readline';
-import url from 'url';
+} from './@resources/index.ts';
+import { ComponentStore } from './component-store/index.ts';
+import { ExecutableGraph } from './executable-graph/index.ts';
+import CloudCtlConfig from './utils/config.ts';
+import { DatacenterStore } from './utils/datacenter-store.ts';
+import { EnvironmentStore } from './utils/environment-store.ts';
+import { CldCtlProviderStore } from './utils/provider-store.ts';
+import { createProvider, getProviders } from './utils/providers.ts';
+import { CldCtlTerraformStack } from './utils/stack.ts';
+import { createTable } from './utils/table.ts';
 
-export abstract class BaseCommand extends Command {
-  private spinner_frame_index: number = 0;
+import { JSONSchemaType } from 'npm:ajv';
+import { TerraformOutput, TerraformStack } from 'npm:cdktf';
+import cliSpinners from 'npm:cli-spinners';
+import inquirer from 'npm:inquirer';
+import readline from 'npm:readline';
+import { Command } from "https://deno.land/x/cliffy@v0.25.7/command/mod.ts";
+import { colors } from "https://deno.land/x/cliffy@v0.25.7/ansi/colors.ts";
+import * as path from "https://deno.land/std@0.188.0/path/mod.ts";
 
-  constructor(argv: string[], config: Config) {
-    super(argv, config);
-    CloudCtlConfig.setOclifConfig(config);
+type ParentCommandGlobals = {
+  config?: string;
+}
+
+type ParentCommandTypes = void;
+
+export abstract class BaseCommand<T extends Record<string, unknown> | void , U extends Array<unknown> = unknown[]> extends Command<ParentCommandGlobals, ParentCommandTypes, T, U> {
+  private spinner_frame_index = 0;
+
+  static command_name: string | undefined;
+  static command_description: string | undefined;
+
+  // TODO: DO this somewhere
+  // CloudCtlConfig.setOclifConfig(config);
+
+  constructor() {
+    super()
+    return this
+      .name(this.getName())
+      .description(this.getDescription());
+  }
+
+  getName() {
+    const cls = (<typeof BaseCommand> this.constructor);
+    if (!cls.command_name) {
+      throw new Error(`static command_name is not set for ${cls.name}`);
+    }
+    return cls.command_name;
+  }
+
+  getDescription() {
+    const cls = (<typeof BaseCommand> this.constructor);
+    if (!cls.command_description) {
+      throw new Error(`static command_description is not set for ${cls.name}`);
+    }
+    return cls.command_description;
+  }
+
+  static getConfig(options: ParentCommandGlobals) {
+    if (options.config) {
+      return options.config;
+    }
+    return '~/.config/test'
   }
 
   protected get componentStore(): ComponentStore {
+    const config_dir = CloudCtlConfig.getConfigDirectory()
     return new ComponentStore(
-      path.join(this.config.configDir, 'component-store'),
+      path.join(config_dir, 'component-store'),
       'registry.architect.io',
     );
   }
 
   protected get providerStore(): ProviderStore {
-    return new CldCtlProviderStore(this.config.configDir);
+    return new CldCtlProviderStore(CloudCtlConfig.getConfigDirectory());
   }
 
   protected get datacenterStore(): DatacenterStore {
-    return new DatacenterStore(this.config.configDir);
+    return new DatacenterStore(CloudCtlConfig.getConfigDirectory());
   }
 
   protected get environmentStore(): EnvironmentStore {
-    return new EnvironmentStore(this.config.configDir);
+    return new EnvironmentStore(CloudCtlConfig.getConfigDirectory());
   }
 
   /**
@@ -104,15 +141,15 @@ export abstract class BaseCommand extends Command {
         }),
     );
 
-    readline.cursorTo(process.stdout, 0, 0);
-    readline.clearScreenDown(process.stdout);
+    readline.cursorTo(Deno.stdout, 0, 0);
+    readline.clearScreenDown(Deno.stdout);
 
     const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
     this.spinner_frame_index =
       ++this.spinner_frame_index % cliSpinners.dots.frames.length;
 
-    this.log(spinner + ' Applying changes to environment');
-    this.log('\n' + table.toString());
+    console.log(spinner + ' Applying changes to environment');
+    console.log('\n' + table.toString());
   }
 
   /**
@@ -144,6 +181,7 @@ export abstract class BaseCommand extends Command {
   ): Promise<Array<T>> {
     const results: Array<T> = [];
 
+    // TODO: Replace inquirer
     const { count } = await inquirer.prompt([
       {
         name: 'count',
@@ -167,7 +205,7 @@ export abstract class BaseCommand extends Command {
     ]);
 
     for (let i = 0; i < count; i++) {
-      this.log(`Inputs for ${property.name}[${i}]:`);
+      console.log(`Inputs for ${property.name}[${i}]:`);
       results.push(
         await this.promptForSchemaProperties(
           stack,
@@ -292,7 +330,7 @@ export abstract class BaseCommand extends Command {
     data: Record<string, unknown> = {},
   ): Promise<T> {
     const results: any = {};
-    this.log(`${property.name} is a key/value store.`);
+    console.log(`${property.name} is a key/value store.`);
 
     while (
       await this.promptForContinuation(
@@ -375,14 +413,14 @@ export abstract class BaseCommand extends Command {
     );
 
     if (answers[property.name as string] === 'create-new') {
-      this.log(`Inputs for ${property.name}`);
+      console.log(`Inputs for ${property.name}`);
       const module = await this.promptForNewResourceModule(
         stack as any,
         provider,
         property.name,
         data,
       );
-      this.log(`End ${property.name} inputs`);
+      console.log(`End ${property.name} inputs`);
       return module.module.outputs.id;
     } else {
       return answers[property.name];
@@ -434,7 +472,7 @@ export abstract class BaseCommand extends Command {
         schema.$ref.replace('#/definitions/', '')
       ] as JSONSchemaType<any>;
     } else if (schema.$ref) {
-      this.error('Invalid json schema');
+      console.error('Invalid json schema');
     }
 
     const validators = provider.resources[resourceType]?.manage?.validators;
@@ -559,7 +597,7 @@ export abstract class BaseCommand extends Command {
 
     const provider = providers.find((p) => p.name === res.provider);
     if (!provider) {
-      this.error(`Credentials ${res.provider} not found`);
+      console.error(`Credentials ${res.provider} not found`);
     }
 
     return provider;
@@ -579,7 +617,7 @@ export abstract class BaseCommand extends Command {
     });
 
     if (resources.length === 0) {
-      this.error(
+      console.error(
         `The cloud provider plugin for ${provider.name} does not support ${action} ${input}s`,
       );
     }
@@ -615,14 +653,14 @@ export abstract class BaseCommand extends Command {
     type: T,
     data: Record<string, unknown> = {},
   ): Promise<{ module: ResourceModule<T, C>; output: TerraformOutput }> {
-    const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+    const __dirname = new URL('.', import.meta.url).pathname;
     const schemaPath = path.join(
       __dirname,
       './@resources',
       type,
       './inputs.schema.json',
     );
-    const schemaString = await fs.readFile(schemaPath, 'utf8');
+    const schemaString = new TextDecoder().decode(await Deno.readFile(schemaPath));;
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {
       schema = schema.definitions[schema.$ref.replace('#/definitions/', '')];
@@ -630,14 +668,14 @@ export abstract class BaseCommand extends Command {
 
     const service = provider.resources[type];
     if (!service) {
-      this.error(
+      console.error(
         `The ${provider.type} provider does not work with ${type} resources`,
       );
     }
 
     const ModuleConstructor = service.manage?.module;
     if (!ModuleConstructor) {
-      this.error(
+      console.error(
         `The ${provider.type} provider cannot create ${type} resources`,
       );
     }
@@ -688,7 +726,7 @@ export abstract class BaseCommand extends Command {
     }
     const errorPrefix = 'Error: ';
     const errorPrefixLength = errorPrefix.length;
-    console.log(chalk.red('We have encountered an issue...'));
+    console.log(colors.red('We have encountered an issue...'));
     console.log(ex);
     for (const line of ex.stderr.split('\n') as string[]) {
       const index = line.indexOf(errorPrefix);
@@ -698,6 +736,6 @@ export abstract class BaseCommand extends Command {
       }
     }
     // eslint-disable-next-line no-process-exit
-    process.exit(1);
+    Deno.exit(1);
   }
 }

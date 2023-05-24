@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/servicequotas_service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -66,7 +66,7 @@ export class DataAwsServicequotasService extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DataAwsServicequotasService extends cdktf.TerraformDataSource {
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/app
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -5400,7 +5400,7 @@ export class DataDigitaloceanApp extends cdktf.TerraformDataSource {
   }
 
   // app_id - computed: false, optional: false, required: true
-  private _appId?: string; 
+  private _appId?: string;
   public get appId() {
     return this.getStringAttribute('app_id');
   }
@@ -5423,7 +5423,7 @@ export class DataDigitaloceanApp extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

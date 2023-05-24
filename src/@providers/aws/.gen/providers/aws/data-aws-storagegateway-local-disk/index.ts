@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/storagegateway_local_disk
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsStoragegatewayLocalDisk extends cdktf.TerraformDataSource {
   }
 
   // disk_node - computed: true, optional: true, required: false
-  private _diskNode?: string; 
+  private _diskNode?: string;
   public get diskNode() {
     return this.getStringAttribute('disk_node');
   }
@@ -97,7 +97,7 @@ export class DataAwsStoragegatewayLocalDisk extends cdktf.TerraformDataSource {
   }
 
   // disk_path - computed: true, optional: true, required: false
-  private _diskPath?: string; 
+  private _diskPath?: string;
   public get diskPath() {
     return this.getStringAttribute('disk_path');
   }
@@ -113,7 +113,7 @@ export class DataAwsStoragegatewayLocalDisk extends cdktf.TerraformDataSource {
   }
 
   // gateway_arn - computed: false, optional: false, required: true
-  private _gatewayArn?: string; 
+  private _gatewayArn?: string;
   public get gatewayArn() {
     return this.getStringAttribute('gateway_arn');
   }
@@ -126,7 +126,7 @@ export class DataAwsStoragegatewayLocalDisk extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

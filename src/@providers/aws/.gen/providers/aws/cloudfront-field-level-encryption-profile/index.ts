@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface CloudfrontFieldLevelEncryptionProfileConfig extends cdktf.Terra
   readonly name: string;
   /**
   * encryption_entities block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_profile#encryption_entities CloudfrontFieldLevelEncryptionProfile#encryption_entities}
   */
   readonly encryptionEntities: CloudfrontFieldLevelEncryptionProfileEncryptionEntities;
@@ -79,7 +79,7 @@ export class CloudfrontFieldLevelEncryptionProfileEncryptionEntitiesItemsFieldPa
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -105,7 +105,7 @@ export interface CloudfrontFieldLevelEncryptionProfileEncryptionEntitiesItems {
   readonly publicKeyId: string;
   /**
   * field_patterns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_profile#field_patterns CloudfrontFieldLevelEncryptionProfile#field_patterns}
   */
   readonly fieldPatterns: CloudfrontFieldLevelEncryptionProfileEncryptionEntitiesItemsFieldPatterns;
@@ -180,7 +180,7 @@ export class CloudfrontFieldLevelEncryptionProfileEncryptionEntitiesItemsOutputR
   }
 
   // provider_id - computed: false, optional: false, required: true
-  private _providerId?: string; 
+  private _providerId?: string;
   public get providerId() {
     return this.getStringAttribute('provider_id');
   }
@@ -193,7 +193,7 @@ export class CloudfrontFieldLevelEncryptionProfileEncryptionEntitiesItemsOutputR
   }
 
   // public_key_id - computed: false, optional: false, required: true
-  private _publicKeyId?: string; 
+  private _publicKeyId?: string;
   public get publicKeyId() {
     return this.getStringAttribute('public_key_id');
   }
@@ -241,7 +241,7 @@ export class CloudfrontFieldLevelEncryptionProfileEncryptionEntitiesItemsList ex
 export interface CloudfrontFieldLevelEncryptionProfileEncryptionEntities {
   /**
   * items block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_profile#items CloudfrontFieldLevelEncryptionProfile#items}
   */
   readonly items?: CloudfrontFieldLevelEncryptionProfileEncryptionEntitiesItems[] | cdktf.IResolvable;
@@ -359,7 +359,7 @@ export class CloudfrontFieldLevelEncryptionProfile extends cdktf.TerraformResour
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -380,7 +380,7 @@ export class CloudfrontFieldLevelEncryptionProfile extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -396,7 +396,7 @@ export class CloudfrontFieldLevelEncryptionProfile extends cdktf.TerraformResour
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

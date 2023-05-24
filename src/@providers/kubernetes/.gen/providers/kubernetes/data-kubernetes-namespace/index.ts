@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/namespace
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataKubernetesNamespaceConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/namespace#metadata DataKubernetesNamespace#metadata}
   */
   readonly metadata: DataKubernetesNamespaceMetadata;
@@ -88,19 +88,19 @@ export class DataKubernetesNamespaceSpecList extends cdktf.ComplexList {
 export interface DataKubernetesNamespaceMetadata {
   /**
   * An unstructured key value map stored with the namespace that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/namespace#annotations DataKubernetesNamespace#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the namespace. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/namespace#labels DataKubernetesNamespace#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the namespace, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/namespace#name DataKubernetesNamespace#name}
   */
   readonly name?: string;
@@ -163,7 +163,7 @@ export class DataKubernetesNamespaceMetadataOutputReference extends cdktf.Comple
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -184,7 +184,7 @@ export class DataKubernetesNamespaceMetadataOutputReference extends cdktf.Comple
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -200,7 +200,7 @@ export class DataKubernetesNamespaceMetadataOutputReference extends cdktf.Comple
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -272,7 +272,7 @@ export class DataKubernetesNamespace extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

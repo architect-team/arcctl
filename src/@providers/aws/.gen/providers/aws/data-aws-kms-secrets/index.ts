@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/kms_secrets
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataAwsKmsSecretsConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * secret block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#secret DataAwsKmsSecrets#secret}
   */
   readonly secret: DataAwsKmsSecretsSecret[] | cdktf.IResolvable;
@@ -138,7 +138,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // context - computed: false, optional: true, required: false
-  private _context?: { [key: string]: string }; 
+  private _context?: { [key: string]: string };
   public get context() {
     return this.getStringMapAttribute('context');
   }
@@ -154,7 +154,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // encryption_algorithm - computed: false, optional: true, required: false
-  private _encryptionAlgorithm?: string; 
+  private _encryptionAlgorithm?: string;
   public get encryptionAlgorithm() {
     return this.getStringAttribute('encryption_algorithm');
   }
@@ -170,7 +170,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // grant_tokens - computed: false, optional: true, required: false
-  private _grantTokens?: string[]; 
+  private _grantTokens?: string[];
   public get grantTokens() {
     return this.getListAttribute('grant_tokens');
   }
@@ -186,7 +186,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // key_id - computed: false, optional: true, required: false
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -202,7 +202,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -215,7 +215,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // payload - computed: false, optional: false, required: true
-  private _payload?: string; 
+  private _payload?: string;
   public get payload() {
     return this.getStringAttribute('payload');
   }
@@ -294,7 +294,7 @@ export class DataAwsKmsSecrets extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

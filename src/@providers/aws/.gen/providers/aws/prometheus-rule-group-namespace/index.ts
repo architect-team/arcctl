@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/prometheus_rule_group_namespace
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class PrometheusRuleGroupNamespace extends cdktf.TerraformResource {
   // ==========
 
   // data - computed: false, optional: false, required: true
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -89,7 +89,7 @@ export class PrometheusRuleGroupNamespace extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class PrometheusRuleGroupNamespace extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -118,7 +118,7 @@ export class PrometheusRuleGroupNamespace extends cdktf.TerraformResource {
   }
 
   // workspace_id - computed: false, optional: false, required: true
-  private _workspaceId?: string; 
+  private _workspaceId?: string;
   public get workspaceId() {
     return this.getStringAttribute('workspace_id');
   }

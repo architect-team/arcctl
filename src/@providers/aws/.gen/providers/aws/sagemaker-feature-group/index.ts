@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_feature_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,19 +44,19 @@ export interface SagemakerFeatureGroupConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * feature_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_feature_group#feature_definition SagemakerFeatureGroup#feature_definition}
   */
   readonly featureDefinition: SagemakerFeatureGroupFeatureDefinition[] | cdktf.IResolvable;
   /**
   * offline_store_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_feature_group#offline_store_config SagemakerFeatureGroup#offline_store_config}
   */
   readonly offlineStoreConfig?: SagemakerFeatureGroupOfflineStoreConfig;
   /**
   * online_store_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_feature_group#online_store_config SagemakerFeatureGroup#online_store_config}
   */
   readonly onlineStoreConfig?: SagemakerFeatureGroupOnlineStoreConfig;
@@ -134,7 +134,7 @@ export class SagemakerFeatureGroupFeatureDefinitionOutputReference extends cdktf
   }
 
   // feature_name - computed: false, optional: true, required: false
-  private _featureName?: string; 
+  private _featureName?: string;
   public get featureName() {
     return this.getStringAttribute('feature_name');
   }
@@ -150,7 +150,7 @@ export class SagemakerFeatureGroupFeatureDefinitionOutputReference extends cdktf
   }
 
   // feature_type - computed: false, optional: true, required: false
-  private _featureType?: string; 
+  private _featureType?: string;
   public get featureType() {
     return this.getStringAttribute('feature_type');
   }
@@ -257,7 +257,7 @@ export class SagemakerFeatureGroupOfflineStoreConfigDataCatalogConfigOutputRefer
   }
 
   // catalog - computed: true, optional: true, required: false
-  private _catalog?: string; 
+  private _catalog?: string;
   public get catalog() {
     return this.getStringAttribute('catalog');
   }
@@ -273,7 +273,7 @@ export class SagemakerFeatureGroupOfflineStoreConfigDataCatalogConfigOutputRefer
   }
 
   // database - computed: true, optional: true, required: false
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -289,7 +289,7 @@ export class SagemakerFeatureGroupOfflineStoreConfigDataCatalogConfigOutputRefer
   }
 
   // table_name - computed: true, optional: true, required: false
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -365,7 +365,7 @@ export class SagemakerFeatureGroupOfflineStoreConfigS3StorageConfigOutputReferen
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -381,7 +381,7 @@ export class SagemakerFeatureGroupOfflineStoreConfigS3StorageConfigOutputReferen
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -400,13 +400,13 @@ export interface SagemakerFeatureGroupOfflineStoreConfig {
   readonly disableGlueTableCreation?: boolean | cdktf.IResolvable;
   /**
   * data_catalog_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_feature_group#data_catalog_config SagemakerFeatureGroup#data_catalog_config}
   */
   readonly dataCatalogConfig?: SagemakerFeatureGroupOfflineStoreConfigDataCatalogConfig;
   /**
   * s3_storage_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_feature_group#s3_storage_config SagemakerFeatureGroup#s3_storage_config}
   */
   readonly s3StorageConfig: SagemakerFeatureGroupOfflineStoreConfigS3StorageConfig;
@@ -469,7 +469,7 @@ export class SagemakerFeatureGroupOfflineStoreConfigOutputReference extends cdkt
   }
 
   // disable_glue_table_creation - computed: false, optional: true, required: false
-  private _disableGlueTableCreation?: boolean | cdktf.IResolvable; 
+  private _disableGlueTableCreation?: boolean | cdktf.IResolvable;
   public get disableGlueTableCreation() {
     return this.getBooleanAttribute('disable_glue_table_creation');
   }
@@ -563,7 +563,7 @@ export class SagemakerFeatureGroupOnlineStoreConfigSecurityConfigOutputReference
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -585,7 +585,7 @@ export interface SagemakerFeatureGroupOnlineStoreConfig {
   readonly enableOnlineStore?: boolean | cdktf.IResolvable;
   /**
   * security_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_feature_group#security_config SagemakerFeatureGroup#security_config}
   */
   readonly securityConfig?: SagemakerFeatureGroupOnlineStoreConfigSecurityConfig;
@@ -641,7 +641,7 @@ export class SagemakerFeatureGroupOnlineStoreConfigOutputReference extends cdktf
   }
 
   // enable_online_store - computed: false, optional: true, required: false
-  private _enableOnlineStore?: boolean | cdktf.IResolvable; 
+  private _enableOnlineStore?: boolean | cdktf.IResolvable;
   public get enableOnlineStore() {
     return this.getBooleanAttribute('enable_online_store');
   }
@@ -733,7 +733,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -749,7 +749,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // event_time_feature_name - computed: false, optional: false, required: true
-  private _eventTimeFeatureName?: string; 
+  private _eventTimeFeatureName?: string;
   public get eventTimeFeatureName() {
     return this.getStringAttribute('event_time_feature_name');
   }
@@ -762,7 +762,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // feature_group_name - computed: false, optional: false, required: true
-  private _featureGroupName?: string; 
+  private _featureGroupName?: string;
   public get featureGroupName() {
     return this.getStringAttribute('feature_group_name');
   }
@@ -775,7 +775,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -791,7 +791,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // record_identifier_feature_name - computed: false, optional: false, required: true
-  private _recordIdentifierFeatureName?: string; 
+  private _recordIdentifierFeatureName?: string;
   public get recordIdentifierFeatureName() {
     return this.getStringAttribute('record_identifier_feature_name');
   }
@@ -804,7 +804,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -817,7 +817,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -833,7 +833,7 @@ export class SagemakerFeatureGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

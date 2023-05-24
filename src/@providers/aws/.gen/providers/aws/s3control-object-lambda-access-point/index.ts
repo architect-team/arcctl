@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_object_lambda_access_point
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface S3ControlObjectLambdaAccessPointConfig extends cdktf.TerraformM
   readonly name: string;
   /**
   * configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_object_lambda_access_point#configuration S3ControlObjectLambdaAccessPoint#configuration}
   */
   readonly configuration: S3ControlObjectLambdaAccessPointConfiguration;
@@ -90,7 +90,7 @@ export class S3ControlObjectLambdaAccessPointConfigurationTransformationConfigur
   }
 
   // function_arn - computed: false, optional: false, required: true
-  private _functionArn?: string; 
+  private _functionArn?: string;
   public get functionArn() {
     return this.getStringAttribute('function_arn');
   }
@@ -103,7 +103,7 @@ export class S3ControlObjectLambdaAccessPointConfigurationTransformationConfigur
   }
 
   // function_payload - computed: false, optional: true, required: false
-  private _functionPayload?: string; 
+  private _functionPayload?: string;
   public get functionPayload() {
     return this.getStringAttribute('function_payload');
   }
@@ -121,7 +121,7 @@ export class S3ControlObjectLambdaAccessPointConfigurationTransformationConfigur
 export interface S3ControlObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation {
   /**
   * aws_lambda block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_object_lambda_access_point#aws_lambda S3ControlObjectLambdaAccessPoint#aws_lambda}
   */
   readonly awsLambda: S3ControlObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda;
@@ -189,7 +189,7 @@ export interface S3ControlObjectLambdaAccessPointConfigurationTransformationConf
   readonly actions: string[];
   /**
   * content_transformation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_object_lambda_access_point#content_transformation S3ControlObjectLambdaAccessPoint#content_transformation}
   */
   readonly contentTransformation: S3ControlObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation;
@@ -257,7 +257,7 @@ export class S3ControlObjectLambdaAccessPointConfigurationTransformationConfigur
   }
 
   // actions - computed: false, optional: false, required: true
-  private _actions?: string[]; 
+  private _actions?: string[];
   public get actions() {
     return cdktf.Fn.tolist(this.getListAttribute('actions'));
   }
@@ -317,7 +317,7 @@ export interface S3ControlObjectLambdaAccessPointConfiguration {
   readonly supportingAccessPoint: string;
   /**
   * transformation_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_object_lambda_access_point#transformation_configuration S3ControlObjectLambdaAccessPoint#transformation_configuration}
   */
   readonly transformationConfiguration: S3ControlObjectLambdaAccessPointConfigurationTransformationConfiguration[] | cdktf.IResolvable;
@@ -387,7 +387,7 @@ export class S3ControlObjectLambdaAccessPointConfigurationOutputReference extend
   }
 
   // allowed_features - computed: false, optional: true, required: false
-  private _allowedFeatures?: string[]; 
+  private _allowedFeatures?: string[];
   public get allowedFeatures() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_features'));
   }
@@ -403,7 +403,7 @@ export class S3ControlObjectLambdaAccessPointConfigurationOutputReference extend
   }
 
   // cloud_watch_metrics_enabled - computed: false, optional: true, required: false
-  private _cloudWatchMetricsEnabled?: boolean | cdktf.IResolvable; 
+  private _cloudWatchMetricsEnabled?: boolean | cdktf.IResolvable;
   public get cloudWatchMetricsEnabled() {
     return this.getBooleanAttribute('cloud_watch_metrics_enabled');
   }
@@ -419,7 +419,7 @@ export class S3ControlObjectLambdaAccessPointConfigurationOutputReference extend
   }
 
   // supporting_access_point - computed: false, optional: false, required: true
-  private _supportingAccessPoint?: string; 
+  private _supportingAccessPoint?: string;
   public get supportingAccessPoint() {
     return this.getStringAttribute('supporting_access_point');
   }
@@ -493,7 +493,7 @@ export class S3ControlObjectLambdaAccessPoint extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -514,7 +514,7 @@ export class S3ControlObjectLambdaAccessPoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -530,7 +530,7 @@ export class S3ControlObjectLambdaAccessPoint extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

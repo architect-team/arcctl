@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,37 +36,37 @@ export interface LakeformationPermissionsConfig extends cdktf.TerraformMetaArgum
   readonly principal: string;
   /**
   * data_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions#data_location LakeformationPermissions#data_location}
   */
   readonly dataLocation?: LakeformationPermissionsDataLocation;
   /**
   * database block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions#database LakeformationPermissions#database}
   */
   readonly database?: LakeformationPermissionsDatabase;
   /**
   * lf_tag block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions#lf_tag LakeformationPermissions#lf_tag}
   */
   readonly lfTag?: LakeformationPermissionsLfTag;
   /**
   * lf_tag_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions#lf_tag_policy LakeformationPermissions#lf_tag_policy}
   */
   readonly lfTagPolicy?: LakeformationPermissionsLfTagPolicy;
   /**
   * table block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions#table LakeformationPermissions#table}
   */
   readonly table?: LakeformationPermissionsTable;
   /**
   * table_with_columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions#table_with_columns LakeformationPermissions#table_with_columns}
   */
   readonly tableWithColumns?: LakeformationPermissionsTableWithColumns;
@@ -132,7 +132,7 @@ export class LakeformationPermissionsDataLocationOutputReference extends cdktf.C
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -145,7 +145,7 @@ export class LakeformationPermissionsDataLocationOutputReference extends cdktf.C
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -221,7 +221,7 @@ export class LakeformationPermissionsDatabaseOutputReference extends cdktf.Compl
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -237,7 +237,7 @@ export class LakeformationPermissionsDatabaseOutputReference extends cdktf.Compl
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -321,7 +321,7 @@ export class LakeformationPermissionsLfTagOutputReference extends cdktf.ComplexO
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -337,7 +337,7 @@ export class LakeformationPermissionsLfTagOutputReference extends cdktf.ComplexO
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -350,7 +350,7 @@ export class LakeformationPermissionsLfTagOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -435,7 +435,7 @@ export class LakeformationPermissionsLfTagPolicyExpressionOutputReference extend
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -448,7 +448,7 @@ export class LakeformationPermissionsLfTagPolicyExpressionOutputReference extend
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -491,7 +491,7 @@ export interface LakeformationPermissionsLfTagPolicy {
   readonly resourceType: string;
   /**
   * expression block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_permissions#expression LakeformationPermissions#expression}
   */
   readonly expression: LakeformationPermissionsLfTagPolicyExpression[] | cdktf.IResolvable;
@@ -554,7 +554,7 @@ export class LakeformationPermissionsLfTagPolicyOutputReference extends cdktf.Co
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -570,7 +570,7 @@ export class LakeformationPermissionsLfTagPolicyOutputReference extends cdktf.Co
   }
 
   // resource_type - computed: false, optional: false, required: true
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -678,7 +678,7 @@ export class LakeformationPermissionsTableOutputReference extends cdktf.ComplexO
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -694,7 +694,7 @@ export class LakeformationPermissionsTableOutputReference extends cdktf.ComplexO
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -707,7 +707,7 @@ export class LakeformationPermissionsTableOutputReference extends cdktf.ComplexO
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -723,7 +723,7 @@ export class LakeformationPermissionsTableOutputReference extends cdktf.ComplexO
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -843,7 +843,7 @@ export class LakeformationPermissionsTableWithColumnsOutputReference extends cdk
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -859,7 +859,7 @@ export class LakeformationPermissionsTableWithColumnsOutputReference extends cdk
   }
 
   // column_names - computed: false, optional: true, required: false
-  private _columnNames?: string[]; 
+  private _columnNames?: string[];
   public get columnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('column_names'));
   }
@@ -875,7 +875,7 @@ export class LakeformationPermissionsTableWithColumnsOutputReference extends cdk
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -888,7 +888,7 @@ export class LakeformationPermissionsTableWithColumnsOutputReference extends cdk
   }
 
   // excluded_column_names - computed: false, optional: true, required: false
-  private _excludedColumnNames?: string[]; 
+  private _excludedColumnNames?: string[];
   public get excludedColumnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_column_names'));
   }
@@ -904,7 +904,7 @@ export class LakeformationPermissionsTableWithColumnsOutputReference extends cdk
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -917,7 +917,7 @@ export class LakeformationPermissionsTableWithColumnsOutputReference extends cdk
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -989,7 +989,7 @@ export class LakeformationPermissions extends cdktf.TerraformResource {
   // ==========
 
   // catalog_id - computed: false, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -1005,7 +1005,7 @@ export class LakeformationPermissions extends cdktf.TerraformResource {
   }
 
   // catalog_resource - computed: false, optional: true, required: false
-  private _catalogResource?: boolean | cdktf.IResolvable; 
+  private _catalogResource?: boolean | cdktf.IResolvable;
   public get catalogResource() {
     return this.getBooleanAttribute('catalog_resource');
   }
@@ -1021,7 +1021,7 @@ export class LakeformationPermissions extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1037,7 +1037,7 @@ export class LakeformationPermissions extends cdktf.TerraformResource {
   }
 
   // permissions - computed: false, optional: false, required: true
-  private _permissions?: string[]; 
+  private _permissions?: string[];
   public get permissions() {
     return this.getListAttribute('permissions');
   }
@@ -1050,7 +1050,7 @@ export class LakeformationPermissions extends cdktf.TerraformResource {
   }
 
   // permissions_with_grant_option - computed: true, optional: true, required: false
-  private _permissionsWithGrantOption?: string[]; 
+  private _permissionsWithGrantOption?: string[];
   public get permissionsWithGrantOption() {
     return this.getListAttribute('permissions_with_grant_option');
   }
@@ -1066,7 +1066,7 @@ export class LakeformationPermissions extends cdktf.TerraformResource {
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }

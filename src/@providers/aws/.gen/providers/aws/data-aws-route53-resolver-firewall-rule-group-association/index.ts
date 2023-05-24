@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsRoute53ResolverFirewallRuleGroupAssociation extends cdktf.Te
   }
 
   // firewall_rule_group_association_id - computed: false, optional: false, required: true
-  private _firewallRuleGroupAssociationId?: string; 
+  private _firewallRuleGroupAssociationId?: string;
   public get firewallRuleGroupAssociationId() {
     return this.getStringAttribute('firewall_rule_group_association_id');
   }
@@ -99,7 +99,7 @@ export class DataAwsRoute53ResolverFirewallRuleGroupAssociation extends cdktf.Te
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,61 +56,61 @@ export interface S3BucketConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * cors_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#cors_rule S3Bucket#cors_rule}
   */
   readonly corsRule?: S3BucketCorsRule[] | cdktf.IResolvable;
   /**
   * grant block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#grant S3Bucket#grant}
   */
   readonly grant?: S3BucketGrant[] | cdktf.IResolvable;
   /**
   * lifecycle_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#lifecycle_rule S3Bucket#lifecycle_rule}
   */
   readonly lifecycleRule?: S3BucketLifecycleRule[] | cdktf.IResolvable;
   /**
   * logging block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#logging S3Bucket#logging}
   */
   readonly logging?: S3BucketLogging;
   /**
   * object_lock_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#object_lock_configuration S3Bucket#object_lock_configuration}
   */
   readonly objectLockConfiguration?: S3BucketObjectLockConfiguration;
   /**
   * replication_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replication_configuration S3Bucket#replication_configuration}
   */
   readonly replicationConfiguration?: S3BucketReplicationConfiguration;
   /**
   * server_side_encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#server_side_encryption_configuration S3Bucket#server_side_encryption_configuration}
   */
   readonly serverSideEncryptionConfiguration?: S3BucketServerSideEncryptionConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#timeouts S3Bucket#timeouts}
   */
   readonly timeouts?: S3BucketTimeouts;
   /**
   * versioning block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#versioning S3Bucket#versioning}
   */
   readonly versioning?: S3BucketVersioning;
   /**
   * website block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#website S3Bucket#website}
   */
   readonly website?: S3BucketWebsite;
@@ -221,7 +221,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_headers - computed: false, optional: true, required: false
-  private _allowedHeaders?: string[]; 
+  private _allowedHeaders?: string[];
   public get allowedHeaders() {
     return this.getListAttribute('allowed_headers');
   }
@@ -237,7 +237,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[]; 
+  private _allowedMethods?: string[];
   public get allowedMethods() {
     return this.getListAttribute('allowed_methods');
   }
@@ -250,7 +250,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_origins - computed: false, optional: false, required: true
-  private _allowedOrigins?: string[]; 
+  private _allowedOrigins?: string[];
   public get allowedOrigins() {
     return this.getListAttribute('allowed_origins');
   }
@@ -263,7 +263,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[]; 
+  private _exposeHeaders?: string[];
   public get exposeHeaders() {
     return this.getListAttribute('expose_headers');
   }
@@ -279,7 +279,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age_seconds - computed: false, optional: true, required: false
-  private _maxAgeSeconds?: number; 
+  private _maxAgeSeconds?: number;
   public get maxAgeSeconds() {
     return this.getNumberAttribute('max_age_seconds');
   }
@@ -412,7 +412,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -428,7 +428,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // permissions - computed: false, optional: false, required: true
-  private _permissions?: string[]; 
+  private _permissions?: string[];
   public get permissions() {
     return cdktf.Fn.tolist(this.getListAttribute('permissions'));
   }
@@ -441,7 +441,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -454,7 +454,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -561,7 +561,7 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
   }
 
   // date - computed: false, optional: true, required: false
-  private _date?: string; 
+  private _date?: string;
   public get date() {
     return this.getStringAttribute('date');
   }
@@ -577,7 +577,7 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number; 
+  private _days?: number;
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -593,7 +593,7 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
   }
 
   // expired_object_delete_marker - computed: false, optional: true, required: false
-  private _expiredObjectDeleteMarker?: boolean | cdktf.IResolvable; 
+  private _expiredObjectDeleteMarker?: boolean | cdktf.IResolvable;
   public get expiredObjectDeleteMarker() {
     return this.getBooleanAttribute('expired_object_delete_marker');
   }
@@ -658,7 +658,7 @@ export class S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference ext
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number; 
+  private _days?: number;
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -746,7 +746,7 @@ export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference ext
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number; 
+  private _days?: number;
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -762,7 +762,7 @@ export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference ext
   }
 
   // storage_class - computed: false, optional: false, required: true
-  private _storageClass?: string; 
+  private _storageClass?: string;
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -878,7 +878,7 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
   }
 
   // date - computed: false, optional: true, required: false
-  private _date?: string; 
+  private _date?: string;
   public get date() {
     return this.getStringAttribute('date');
   }
@@ -894,7 +894,7 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number; 
+  private _days?: number;
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -910,7 +910,7 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
   }
 
   // storage_class - computed: false, optional: false, required: true
-  private _storageClass?: string; 
+  private _storageClass?: string;
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -968,25 +968,25 @@ export interface S3BucketLifecycleRule {
   readonly tags?: { [key: string]: string };
   /**
   * expiration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#expiration S3Bucket#expiration}
   */
   readonly expiration?: S3BucketLifecycleRuleExpiration;
   /**
   * noncurrent_version_expiration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#noncurrent_version_expiration S3Bucket#noncurrent_version_expiration}
   */
   readonly noncurrentVersionExpiration?: S3BucketLifecycleRuleNoncurrentVersionExpiration;
   /**
   * noncurrent_version_transition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#noncurrent_version_transition S3Bucket#noncurrent_version_transition}
   */
   readonly noncurrentVersionTransition?: S3BucketLifecycleRuleNoncurrentVersionTransition[] | cdktf.IResolvable;
   /**
   * transition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#transition S3Bucket#transition}
   */
   readonly transition?: S3BucketLifecycleRuleTransition[] | cdktf.IResolvable;
@@ -1103,7 +1103,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // abort_incomplete_multipart_upload_days - computed: false, optional: true, required: false
-  private _abortIncompleteMultipartUploadDays?: number; 
+  private _abortIncompleteMultipartUploadDays?: number;
   public get abortIncompleteMultipartUploadDays() {
     return this.getNumberAttribute('abort_incomplete_multipart_upload_days');
   }
@@ -1119,7 +1119,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1132,7 +1132,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1148,7 +1148,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1164,7 +1164,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1324,7 +1324,7 @@ export class S3BucketLoggingOutputReference extends cdktf.ComplexObject {
   }
 
   // target_bucket - computed: false, optional: false, required: true
-  private _targetBucket?: string; 
+  private _targetBucket?: string;
   public get targetBucket() {
     return this.getStringAttribute('target_bucket');
   }
@@ -1337,7 +1337,7 @@ export class S3BucketLoggingOutputReference extends cdktf.ComplexObject {
   }
 
   // target_prefix - computed: false, optional: true, required: false
-  private _targetPrefix?: string; 
+  private _targetPrefix?: string;
   public get targetPrefix() {
     return this.getStringAttribute('target_prefix');
   }
@@ -1424,7 +1424,7 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number; 
+  private _days?: number;
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -1440,7 +1440,7 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -1453,7 +1453,7 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
   }
 
   // years - computed: false, optional: true, required: false
-  private _years?: number; 
+  private _years?: number;
   public get years() {
     return this.getNumberAttribute('years');
   }
@@ -1471,7 +1471,7 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
 export interface S3BucketObjectLockConfigurationRule {
   /**
   * default_retention block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#default_retention S3Bucket#default_retention}
   */
   readonly defaultRetention: S3BucketObjectLockConfigurationRuleDefaultRetention;
@@ -1539,7 +1539,7 @@ export interface S3BucketObjectLockConfiguration {
   readonly objectLockEnabled?: string;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rule S3Bucket#rule}
   */
   readonly rule?: S3BucketObjectLockConfigurationRule;
@@ -1595,7 +1595,7 @@ export class S3BucketObjectLockConfigurationOutputReference extends cdktf.Comple
   }
 
   // object_lock_enabled - computed: false, optional: true, required: false
-  private _objectLockEnabled?: string; 
+  private _objectLockEnabled?: string;
   public get objectLockEnabled() {
     return this.getStringAttribute('object_lock_enabled');
   }
@@ -1676,7 +1676,7 @@ export class S3BucketReplicationConfigurationRulesDestinationAccessControlTransl
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -1749,7 +1749,7 @@ export class S3BucketReplicationConfigurationRulesDestinationMetricsOutputRefere
   }
 
   // minutes - computed: false, optional: true, required: false
-  private _minutes?: number; 
+  private _minutes?: number;
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -1765,7 +1765,7 @@ export class S3BucketReplicationConfigurationRulesDestinationMetricsOutputRefere
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -1841,7 +1841,7 @@ export class S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutp
   }
 
   // minutes - computed: false, optional: true, required: false
-  private _minutes?: number; 
+  private _minutes?: number;
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -1857,7 +1857,7 @@ export class S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutp
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -1891,19 +1891,19 @@ export interface S3BucketReplicationConfigurationRulesDestination {
   readonly storageClass?: string;
   /**
   * access_control_translation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#access_control_translation S3Bucket#access_control_translation}
   */
   readonly accessControlTranslation?: S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation;
   /**
   * metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#metrics S3Bucket#metrics}
   */
   readonly metrics?: S3BucketReplicationConfigurationRulesDestinationMetrics;
   /**
   * replication_time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replication_time S3Bucket#replication_time}
   */
   readonly replicationTime?: S3BucketReplicationConfigurationRulesDestinationReplicationTime;
@@ -1994,7 +1994,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // account_id - computed: false, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -2010,7 +2010,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -2023,7 +2023,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // replica_kms_key_id - computed: false, optional: true, required: false
-  private _replicaKmsKeyId?: string; 
+  private _replicaKmsKeyId?: string;
   public get replicaKmsKeyId() {
     return this.getStringAttribute('replica_kms_key_id');
   }
@@ -2039,7 +2039,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // storage_class - computed: false, optional: true, required: false
-  private _storageClass?: string; 
+  private _storageClass?: string;
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -2163,7 +2163,7 @@ export class S3BucketReplicationConfigurationRulesFilterOutputReference extends 
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -2179,7 +2179,7 @@ export class S3BucketReplicationConfigurationRulesFilterOutputReference extends 
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2244,7 +2244,7 @@ export class S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsE
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -2259,7 +2259,7 @@ export class S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsE
 export interface S3BucketReplicationConfigurationRulesSourceSelectionCriteria {
   /**
   * sse_kms_encrypted_objects block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#sse_kms_encrypted_objects S3Bucket#sse_kms_encrypted_objects}
   */
   readonly sseKmsEncryptedObjects?: S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects;
@@ -2349,19 +2349,19 @@ export interface S3BucketReplicationConfigurationRules {
   readonly status: string;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#destination S3Bucket#destination}
   */
   readonly destination: S3BucketReplicationConfigurationRulesDestination;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#filter S3Bucket#filter}
   */
   readonly filter?: S3BucketReplicationConfigurationRulesFilter;
   /**
   * source_selection_criteria block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#source_selection_criteria S3Bucket#source_selection_criteria}
   */
   readonly sourceSelectionCriteria?: S3BucketReplicationConfigurationRulesSourceSelectionCriteria;
@@ -2471,7 +2471,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // delete_marker_replication_status - computed: false, optional: true, required: false
-  private _deleteMarkerReplicationStatus?: string; 
+  private _deleteMarkerReplicationStatus?: string;
   public get deleteMarkerReplicationStatus() {
     return this.getStringAttribute('delete_marker_replication_status');
   }
@@ -2487,7 +2487,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2503,7 +2503,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -2519,7 +2519,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -2535,7 +2535,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -2619,7 +2619,7 @@ export interface S3BucketReplicationConfiguration {
   readonly role: string;
   /**
   * rules block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rules S3Bucket#rules}
   */
   readonly rules: S3BucketReplicationConfigurationRules[] | cdktf.IResolvable;
@@ -2675,7 +2675,7 @@ export class S3BucketReplicationConfigurationOutputReference extends cdktf.Compl
   }
 
   // role - computed: false, optional: false, required: true
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -2761,7 +2761,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
   }
 
   // kms_master_key_id - computed: false, optional: true, required: false
-  private _kmsMasterKeyId?: string; 
+  private _kmsMasterKeyId?: string;
   public get kmsMasterKeyId() {
     return this.getStringAttribute('kms_master_key_id');
   }
@@ -2777,7 +2777,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
   }
 
   // sse_algorithm - computed: false, optional: false, required: true
-  private _sseAlgorithm?: string; 
+  private _sseAlgorithm?: string;
   public get sseAlgorithm() {
     return this.getStringAttribute('sse_algorithm');
   }
@@ -2796,7 +2796,7 @@ export interface S3BucketServerSideEncryptionConfigurationRule {
   readonly bucketKeyEnabled?: boolean | cdktf.IResolvable;
   /**
   * apply_server_side_encryption_by_default block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#apply_server_side_encryption_by_default S3Bucket#apply_server_side_encryption_by_default}
   */
   readonly applyServerSideEncryptionByDefault: S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault;
@@ -2852,7 +2852,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleOutputReference extend
   }
 
   // bucket_key_enabled - computed: false, optional: true, required: false
-  private _bucketKeyEnabled?: boolean | cdktf.IResolvable; 
+  private _bucketKeyEnabled?: boolean | cdktf.IResolvable;
   public get bucketKeyEnabled() {
     return this.getBooleanAttribute('bucket_key_enabled');
   }
@@ -2883,7 +2883,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleOutputReference extend
 export interface S3BucketServerSideEncryptionConfiguration {
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rule S3Bucket#rule}
   */
   readonly rule: S3BucketServerSideEncryptionConfigurationRule;
@@ -3037,7 +3037,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -3053,7 +3053,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -3069,7 +3069,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -3085,7 +3085,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -3161,7 +3161,7 @@ export class S3BucketVersioningOutputReference extends cdktf.ComplexObject {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3177,7 +3177,7 @@ export class S3BucketVersioningOutputReference extends cdktf.ComplexObject {
   }
 
   // mfa_delete - computed: false, optional: true, required: false
-  private _mfaDelete?: boolean | cdktf.IResolvable; 
+  private _mfaDelete?: boolean | cdktf.IResolvable;
   public get mfaDelete() {
     return this.getBooleanAttribute('mfa_delete');
   }
@@ -3275,7 +3275,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // error_document - computed: false, optional: true, required: false
-  private _errorDocument?: string; 
+  private _errorDocument?: string;
   public get errorDocument() {
     return this.getStringAttribute('error_document');
   }
@@ -3291,7 +3291,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // index_document - computed: false, optional: true, required: false
-  private _indexDocument?: string; 
+  private _indexDocument?: string;
   public get indexDocument() {
     return this.getStringAttribute('index_document');
   }
@@ -3307,7 +3307,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // redirect_all_requests_to - computed: false, optional: true, required: false
-  private _redirectAllRequestsTo?: string; 
+  private _redirectAllRequestsTo?: string;
   public get redirectAllRequestsTo() {
     return this.getStringAttribute('redirect_all_requests_to');
   }
@@ -3323,7 +3323,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // routing_rules - computed: false, optional: true, required: false
-  private _routingRules?: string; 
+  private _routingRules?: string;
   public get routingRules() {
     return this.getStringAttribute('routing_rules');
   }
@@ -3404,7 +3404,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   // ==========
 
   // acceleration_status - computed: true, optional: true, required: false
-  private _accelerationStatus?: string; 
+  private _accelerationStatus?: string;
   public get accelerationStatus() {
     return this.getStringAttribute('acceleration_status');
   }
@@ -3420,7 +3420,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // acl - computed: true, optional: true, required: false
-  private _acl?: string; 
+  private _acl?: string;
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -3441,7 +3441,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // bucket - computed: true, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -3462,7 +3462,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // bucket_prefix - computed: true, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -3483,7 +3483,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -3504,7 +3504,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3520,7 +3520,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // object_lock_enabled - computed: true, optional: true, required: false
-  private _objectLockEnabled?: boolean | cdktf.IResolvable; 
+  private _objectLockEnabled?: boolean | cdktf.IResolvable;
   public get objectLockEnabled() {
     return this.getBooleanAttribute('object_lock_enabled');
   }
@@ -3536,7 +3536,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -3557,7 +3557,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // request_payer - computed: true, optional: true, required: false
-  private _requestPayer?: string; 
+  private _requestPayer?: string;
   public get requestPayer() {
     return this.getStringAttribute('request_payer');
   }
@@ -3573,7 +3573,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3589,7 +3589,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

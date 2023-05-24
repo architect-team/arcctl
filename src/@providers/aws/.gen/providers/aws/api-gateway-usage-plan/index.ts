@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_usage_plan
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,19 +36,19 @@ export interface ApiGatewayUsagePlanConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * api_stages block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_usage_plan#api_stages ApiGatewayUsagePlan#api_stages}
   */
   readonly apiStages?: ApiGatewayUsagePlanApiStages[] | cdktf.IResolvable;
   /**
   * quota_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_usage_plan#quota_settings ApiGatewayUsagePlan#quota_settings}
   */
   readonly quotaSettings?: ApiGatewayUsagePlanQuotaSettings;
   /**
   * throttle_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_usage_plan#throttle_settings ApiGatewayUsagePlan#throttle_settings}
   */
   readonly throttleSettings?: ApiGatewayUsagePlanThrottleSettings;
@@ -137,7 +137,7 @@ export class ApiGatewayUsagePlanApiStagesThrottleOutputReference extends cdktf.C
   }
 
   // burst_limit - computed: false, optional: true, required: false
-  private _burstLimit?: number; 
+  private _burstLimit?: number;
   public get burstLimit() {
     return this.getNumberAttribute('burst_limit');
   }
@@ -153,7 +153,7 @@ export class ApiGatewayUsagePlanApiStagesThrottleOutputReference extends cdktf.C
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -166,7 +166,7 @@ export class ApiGatewayUsagePlanApiStagesThrottleOutputReference extends cdktf.C
   }
 
   // rate_limit - computed: false, optional: true, required: false
-  private _rateLimit?: number; 
+  private _rateLimit?: number;
   public get rateLimit() {
     return this.getNumberAttribute('rate_limit');
   }
@@ -212,7 +212,7 @@ export interface ApiGatewayUsagePlanApiStages {
   readonly stage: string;
   /**
   * throttle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_usage_plan#throttle ApiGatewayUsagePlan#throttle}
   */
   readonly throttle?: ApiGatewayUsagePlanApiStagesThrottle[] | cdktf.IResolvable;
@@ -287,7 +287,7 @@ export class ApiGatewayUsagePlanApiStagesOutputReference extends cdktf.ComplexOb
   }
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -300,7 +300,7 @@ export class ApiGatewayUsagePlanApiStagesOutputReference extends cdktf.ComplexOb
   }
 
   // stage - computed: false, optional: false, required: true
-  private _stage?: string; 
+  private _stage?: string;
   public get stage() {
     return this.getStringAttribute('stage');
   }
@@ -420,7 +420,7 @@ export class ApiGatewayUsagePlanQuotaSettingsOutputReference extends cdktf.Compl
   }
 
   // limit - computed: false, optional: false, required: true
-  private _limit?: number; 
+  private _limit?: number;
   public get limit() {
     return this.getNumberAttribute('limit');
   }
@@ -433,7 +433,7 @@ export class ApiGatewayUsagePlanQuotaSettingsOutputReference extends cdktf.Compl
   }
 
   // offset - computed: false, optional: true, required: false
-  private _offset?: number; 
+  private _offset?: number;
   public get offset() {
     return this.getNumberAttribute('offset');
   }
@@ -449,7 +449,7 @@ export class ApiGatewayUsagePlanQuotaSettingsOutputReference extends cdktf.Compl
   }
 
   // period - computed: false, optional: false, required: true
-  private _period?: string; 
+  private _period?: string;
   public get period() {
     return this.getStringAttribute('period');
   }
@@ -522,7 +522,7 @@ export class ApiGatewayUsagePlanThrottleSettingsOutputReference extends cdktf.Co
   }
 
   // burst_limit - computed: false, optional: true, required: false
-  private _burstLimit?: number; 
+  private _burstLimit?: number;
   public get burstLimit() {
     return this.getNumberAttribute('burst_limit');
   }
@@ -538,7 +538,7 @@ export class ApiGatewayUsagePlanThrottleSettingsOutputReference extends cdktf.Co
   }
 
   // rate_limit - computed: false, optional: true, required: false
-  private _rateLimit?: number; 
+  private _rateLimit?: number;
   public get rateLimit() {
     return this.getNumberAttribute('rate_limit');
   }
@@ -612,7 +612,7 @@ export class ApiGatewayUsagePlan extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -628,7 +628,7 @@ export class ApiGatewayUsagePlan extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -644,7 +644,7 @@ export class ApiGatewayUsagePlan extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -657,7 +657,7 @@ export class ApiGatewayUsagePlan extends cdktf.TerraformResource {
   }
 
   // product_code - computed: false, optional: true, required: false
-  private _productCode?: string; 
+  private _productCode?: string;
   public get productCode() {
     return this.getStringAttribute('product_code');
   }
@@ -673,7 +673,7 @@ export class ApiGatewayUsagePlan extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -689,7 +689,7 @@ export class ApiGatewayUsagePlan extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

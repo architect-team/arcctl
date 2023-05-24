@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class LbListenerCertificate extends cdktf.TerraformResource {
   // ==========
 
   // certificate_arn - computed: false, optional: false, required: true
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -84,7 +84,7 @@ export class LbListenerCertificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class LbListenerCertificate extends cdktf.TerraformResource {
   }
 
   // listener_arn - computed: false, optional: false, required: true
-  private _listenerArn?: string; 
+  private _listenerArn?: string;
   public get listenerArn() {
     return this.getStringAttribute('listener_arn');
   }

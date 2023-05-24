@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface S3ControlMultiRegionAccessPointConfig extends cdktf.TerraformMe
   readonly id?: string;
   /**
   * details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#details S3ControlMultiRegionAccessPoint#details}
   */
   readonly details: S3ControlMultiRegionAccessPointDetails;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#timeouts S3ControlMultiRegionAccessPoint#timeouts}
   */
   readonly timeouts?: S3ControlMultiRegionAccessPointTimeouts;
@@ -114,7 +114,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // block_public_acls - computed: false, optional: true, required: false
-  private _blockPublicAcls?: boolean | cdktf.IResolvable; 
+  private _blockPublicAcls?: boolean | cdktf.IResolvable;
   public get blockPublicAcls() {
     return this.getBooleanAttribute('block_public_acls');
   }
@@ -130,7 +130,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // block_public_policy - computed: false, optional: true, required: false
-  private _blockPublicPolicy?: boolean | cdktf.IResolvable; 
+  private _blockPublicPolicy?: boolean | cdktf.IResolvable;
   public get blockPublicPolicy() {
     return this.getBooleanAttribute('block_public_policy');
   }
@@ -146,7 +146,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // ignore_public_acls - computed: false, optional: true, required: false
-  private _ignorePublicAcls?: boolean | cdktf.IResolvable; 
+  private _ignorePublicAcls?: boolean | cdktf.IResolvable;
   public get ignorePublicAcls() {
     return this.getBooleanAttribute('ignore_public_acls');
   }
@@ -162,7 +162,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // restrict_public_buckets - computed: false, optional: true, required: false
-  private _restrictPublicBuckets?: boolean | cdktf.IResolvable; 
+  private _restrictPublicBuckets?: boolean | cdktf.IResolvable;
   public get restrictPublicBuckets() {
     return this.getBooleanAttribute('restrict_public_buckets');
   }
@@ -239,7 +239,7 @@ export class S3ControlMultiRegionAccessPointDetailsRegionOutputReference extends
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -278,13 +278,13 @@ export interface S3ControlMultiRegionAccessPointDetails {
   readonly name: string;
   /**
   * public_access_block block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#public_access_block S3ControlMultiRegionAccessPoint#public_access_block}
   */
   readonly publicAccessBlock?: S3ControlMultiRegionAccessPointDetailsPublicAccessBlock;
   /**
   * region block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#region S3ControlMultiRegionAccessPoint#region}
   */
   readonly region: S3ControlMultiRegionAccessPointDetailsRegion[] | cdktf.IResolvable;
@@ -347,7 +347,7 @@ export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,7 +459,7 @@ export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdkt
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -475,7 +475,7 @@ export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdkt
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -539,7 +539,7 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -570,7 +570,7 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

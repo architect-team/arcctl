@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_notification
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,19 +24,19 @@ export interface S3BucketNotificationConfig extends cdktf.TerraformMetaArguments
   readonly id?: string;
   /**
   * lambda_function block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_notification#lambda_function S3BucketNotification#lambda_function}
   */
   readonly lambdaFunction?: S3BucketNotificationLambdaFunction[] | cdktf.IResolvable;
   /**
   * queue block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_notification#queue S3BucketNotification#queue}
   */
   readonly queue?: S3BucketNotificationQueue[] | cdktf.IResolvable;
   /**
   * topic block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_notification#topic S3BucketNotification#topic}
   */
   readonly topic?: S3BucketNotificationTopic[] | cdktf.IResolvable;
@@ -150,7 +150,7 @@ export class S3BucketNotificationLambdaFunctionOutputReference extends cdktf.Com
   }
 
   // events - computed: false, optional: false, required: true
-  private _events?: string[]; 
+  private _events?: string[];
   public get events() {
     return cdktf.Fn.tolist(this.getListAttribute('events'));
   }
@@ -163,7 +163,7 @@ export class S3BucketNotificationLambdaFunctionOutputReference extends cdktf.Com
   }
 
   // filter_prefix - computed: false, optional: true, required: false
-  private _filterPrefix?: string; 
+  private _filterPrefix?: string;
   public get filterPrefix() {
     return this.getStringAttribute('filter_prefix');
   }
@@ -179,7 +179,7 @@ export class S3BucketNotificationLambdaFunctionOutputReference extends cdktf.Com
   }
 
   // filter_suffix - computed: false, optional: true, required: false
-  private _filterSuffix?: string; 
+  private _filterSuffix?: string;
   public get filterSuffix() {
     return this.getStringAttribute('filter_suffix');
   }
@@ -195,7 +195,7 @@ export class S3BucketNotificationLambdaFunctionOutputReference extends cdktf.Com
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -211,7 +211,7 @@ export class S3BucketNotificationLambdaFunctionOutputReference extends cdktf.Com
   }
 
   // lambda_function_arn - computed: false, optional: true, required: false
-  private _lambdaFunctionArn?: string; 
+  private _lambdaFunctionArn?: string;
   public get lambdaFunctionArn() {
     return this.getStringAttribute('lambda_function_arn');
   }
@@ -355,7 +355,7 @@ export class S3BucketNotificationQueueOutputReference extends cdktf.ComplexObjec
   }
 
   // events - computed: false, optional: false, required: true
-  private _events?: string[]; 
+  private _events?: string[];
   public get events() {
     return cdktf.Fn.tolist(this.getListAttribute('events'));
   }
@@ -368,7 +368,7 @@ export class S3BucketNotificationQueueOutputReference extends cdktf.ComplexObjec
   }
 
   // filter_prefix - computed: false, optional: true, required: false
-  private _filterPrefix?: string; 
+  private _filterPrefix?: string;
   public get filterPrefix() {
     return this.getStringAttribute('filter_prefix');
   }
@@ -384,7 +384,7 @@ export class S3BucketNotificationQueueOutputReference extends cdktf.ComplexObjec
   }
 
   // filter_suffix - computed: false, optional: true, required: false
-  private _filterSuffix?: string; 
+  private _filterSuffix?: string;
   public get filterSuffix() {
     return this.getStringAttribute('filter_suffix');
   }
@@ -400,7 +400,7 @@ export class S3BucketNotificationQueueOutputReference extends cdktf.ComplexObjec
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -416,7 +416,7 @@ export class S3BucketNotificationQueueOutputReference extends cdktf.ComplexObjec
   }
 
   // queue_arn - computed: false, optional: false, required: true
-  private _queueArn?: string; 
+  private _queueArn?: string;
   public get queueArn() {
     return this.getStringAttribute('queue_arn');
   }
@@ -557,7 +557,7 @@ export class S3BucketNotificationTopicOutputReference extends cdktf.ComplexObjec
   }
 
   // events - computed: false, optional: false, required: true
-  private _events?: string[]; 
+  private _events?: string[];
   public get events() {
     return cdktf.Fn.tolist(this.getListAttribute('events'));
   }
@@ -570,7 +570,7 @@ export class S3BucketNotificationTopicOutputReference extends cdktf.ComplexObjec
   }
 
   // filter_prefix - computed: false, optional: true, required: false
-  private _filterPrefix?: string; 
+  private _filterPrefix?: string;
   public get filterPrefix() {
     return this.getStringAttribute('filter_prefix');
   }
@@ -586,7 +586,7 @@ export class S3BucketNotificationTopicOutputReference extends cdktf.ComplexObjec
   }
 
   // filter_suffix - computed: false, optional: true, required: false
-  private _filterSuffix?: string; 
+  private _filterSuffix?: string;
   public get filterSuffix() {
     return this.getStringAttribute('filter_suffix');
   }
@@ -602,7 +602,7 @@ export class S3BucketNotificationTopicOutputReference extends cdktf.ComplexObjec
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -618,7 +618,7 @@ export class S3BucketNotificationTopicOutputReference extends cdktf.ComplexObjec
   }
 
   // topic_arn - computed: false, optional: false, required: true
-  private _topicArn?: string; 
+  private _topicArn?: string;
   public get topicArn() {
     return this.getStringAttribute('topic_arn');
   }
@@ -701,7 +701,7 @@ export class S3BucketNotification extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -714,7 +714,7 @@ export class S3BucketNotification extends cdktf.TerraformResource {
   }
 
   // eventbridge - computed: false, optional: true, required: false
-  private _eventbridge?: boolean | cdktf.IResolvable; 
+  private _eventbridge?: boolean | cdktf.IResolvable;
   public get eventbridge() {
     return this.getBooleanAttribute('eventbridge');
   }
@@ -730,7 +730,7 @@ export class S3BucketNotification extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

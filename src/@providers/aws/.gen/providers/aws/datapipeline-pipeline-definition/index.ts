@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,19 +20,19 @@ export interface DatapipelinePipelineDefinitionConfig extends cdktf.TerraformMet
   readonly pipelineId: string;
   /**
   * parameter_object block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#parameter_object DatapipelinePipelineDefinition#parameter_object}
   */
   readonly parameterObject?: DatapipelinePipelineDefinitionParameterObject[] | cdktf.IResolvable;
   /**
   * parameter_value block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#parameter_value DatapipelinePipelineDefinition#parameter_value}
   */
   readonly parameterValue?: DatapipelinePipelineDefinitionParameterValue[] | cdktf.IResolvable;
   /**
   * pipeline_object block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#pipeline_object DatapipelinePipelineDefinition#pipeline_object}
   */
   readonly pipelineObject: DatapipelinePipelineDefinitionPipelineObject[] | cdktf.IResolvable;
@@ -110,7 +110,7 @@ export class DatapipelinePipelineDefinitionParameterObjectAttributeOutputReferen
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -123,7 +123,7 @@ export class DatapipelinePipelineDefinitionParameterObjectAttributeOutputReferen
   }
 
   // string_value - computed: false, optional: false, required: true
-  private _stringValue?: string; 
+  private _stringValue?: string;
   public get stringValue() {
     return this.getStringAttribute('string_value');
   }
@@ -165,7 +165,7 @@ export interface DatapipelinePipelineDefinitionParameterObject {
   readonly id: string;
   /**
   * attribute block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#attribute DatapipelinePipelineDefinition#attribute}
   */
   readonly attribute?: DatapipelinePipelineDefinitionParameterObjectAttribute[] | cdktf.IResolvable;
@@ -233,7 +233,7 @@ export class DatapipelinePipelineDefinitionParameterObjectOutputReference extend
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -357,7 +357,7 @@ export class DatapipelinePipelineDefinitionParameterValueOutputReference extends
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -370,7 +370,7 @@ export class DatapipelinePipelineDefinitionParameterValueOutputReference extends
   }
 
   // string_value - computed: false, optional: false, required: true
-  private _stringValue?: string; 
+  private _stringValue?: string;
   public get stringValue() {
     return this.getStringAttribute('string_value');
   }
@@ -486,7 +486,7 @@ export class DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference ex
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -499,7 +499,7 @@ export class DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference ex
   }
 
   // ref_value - computed: false, optional: true, required: false
-  private _refValue?: string; 
+  private _refValue?: string;
   public get refValue() {
     return this.getStringAttribute('ref_value');
   }
@@ -515,7 +515,7 @@ export class DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference ex
   }
 
   // string_value - computed: false, optional: true, required: false
-  private _stringValue?: string; 
+  private _stringValue?: string;
   public get stringValue() {
     return this.getStringAttribute('string_value');
   }
@@ -564,7 +564,7 @@ export interface DatapipelinePipelineDefinitionPipelineObject {
   readonly name: string;
   /**
   * field block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#field DatapipelinePipelineDefinition#field}
   */
   readonly field?: DatapipelinePipelineDefinitionPipelineObjectField[] | cdktf.IResolvable;
@@ -639,7 +639,7 @@ export class DatapipelinePipelineDefinitionPipelineObjectOutputReference extends
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -652,7 +652,7 @@ export class DatapipelinePipelineDefinitionPipelineObjectOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -750,7 +750,7 @@ export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -766,7 +766,7 @@ export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
   }
 
   // pipeline_id - computed: false, optional: false, required: true
-  private _pipelineId?: string; 
+  private _pipelineId?: string;
   public get pipelineId() {
     return this.getStringAttribute('pipeline_id');
   }

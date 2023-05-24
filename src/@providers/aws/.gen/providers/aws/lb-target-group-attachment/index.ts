@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lb_target_group_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class LbTargetGroupAttachment extends cdktf.TerraformResource {
   // ==========
 
   // availability_zone - computed: false, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -97,7 +97,7 @@ export class LbTargetGroupAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class LbTargetGroupAttachment extends cdktf.TerraformResource {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -129,7 +129,7 @@ export class LbTargetGroupAttachment extends cdktf.TerraformResource {
   }
 
   // target_group_arn - computed: false, optional: false, required: true
-  private _targetGroupArn?: string; 
+  private _targetGroupArn?: string;
   public get targetGroupArn() {
     return this.getStringAttribute('target_group_arn');
   }
@@ -142,7 +142,7 @@ export class LbTargetGroupAttachment extends cdktf.TerraformResource {
   }
 
   // target_id - computed: false, optional: false, required: true
-  private _targetId?: string; 
+  private _targetId?: string;
   public get targetId() {
     return this.getStringAttribute('target_id');
   }

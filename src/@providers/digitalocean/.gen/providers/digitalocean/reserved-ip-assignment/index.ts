@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class ReservedIpAssignment extends cdktf.TerraformResource {
   // ==========
 
   // droplet_id - computed: false, optional: false, required: true
-  private _dropletId?: number; 
+  private _dropletId?: number;
   public get dropletId() {
     return this.getNumberAttribute('droplet_id');
   }
@@ -84,7 +84,7 @@ export class ReservedIpAssignment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class ReservedIpAssignment extends cdktf.TerraformResource {
   }
 
   // ip_address - computed: false, optional: false, required: true
-  private _ipAddress?: string; 
+  private _ipAddress?: string;
   public get ipAddress() {
     return this.getStringAttribute('ip_address');
   }

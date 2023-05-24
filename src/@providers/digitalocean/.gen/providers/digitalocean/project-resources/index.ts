@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/project_resources
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface ProjectResourcesConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * project ID
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#project ProjectResources#project}
   */
   readonly project: string;
   /**
   * the resources associated with the project
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#resources ProjectResources#resources}
   */
   readonly resources: string[];
@@ -75,7 +75,7 @@ export class ProjectResources extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -91,7 +91,7 @@ export class ProjectResources extends cdktf.TerraformResource {
   }
 
   // project - computed: false, optional: false, required: true
-  private _project?: string; 
+  private _project?: string;
   public get project() {
     return this.getStringAttribute('project');
   }
@@ -104,7 +104,7 @@ export class ProjectResources extends cdktf.TerraformResource {
   }
 
   // resources - computed: false, optional: false, required: true
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return cdktf.Fn.tolist(this.getListAttribute('resources'));
   }

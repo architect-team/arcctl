@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -80,7 +80,7 @@ export interface SagemakerNotebookInstanceConfig extends cdktf.TerraformMetaArgu
   readonly volumeSize?: number;
   /**
   * instance_metadata_service_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#instance_metadata_service_configuration SagemakerNotebookInstance#instance_metadata_service_configuration}
   */
   readonly instanceMetadataServiceConfiguration?: SagemakerNotebookInstanceInstanceMetadataServiceConfiguration;
@@ -135,7 +135,7 @@ export class SagemakerNotebookInstanceInstanceMetadataServiceConfigurationOutput
   }
 
   // minimum_instance_metadata_service_version - computed: true, optional: true, required: false
-  private _minimumInstanceMetadataServiceVersion?: string; 
+  private _minimumInstanceMetadataServiceVersion?: string;
   public get minimumInstanceMetadataServiceVersion() {
     return this.getStringAttribute('minimum_instance_metadata_service_version');
   }
@@ -213,7 +213,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   // ==========
 
   // accelerator_types - computed: false, optional: true, required: false
-  private _acceleratorTypes?: string[]; 
+  private _acceleratorTypes?: string[];
   public get acceleratorTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_types'));
   }
@@ -229,7 +229,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // additional_code_repositories - computed: false, optional: true, required: false
-  private _additionalCodeRepositories?: string[]; 
+  private _additionalCodeRepositories?: string[];
   public get additionalCodeRepositories() {
     return cdktf.Fn.tolist(this.getListAttribute('additional_code_repositories'));
   }
@@ -250,7 +250,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // default_code_repository - computed: false, optional: true, required: false
-  private _defaultCodeRepository?: string; 
+  private _defaultCodeRepository?: string;
   public get defaultCodeRepository() {
     return this.getStringAttribute('default_code_repository');
   }
@@ -266,7 +266,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // direct_internet_access - computed: false, optional: true, required: false
-  private _directInternetAccess?: string; 
+  private _directInternetAccess?: string;
   public get directInternetAccess() {
     return this.getStringAttribute('direct_internet_access');
   }
@@ -282,7 +282,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -298,7 +298,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -311,7 +311,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -327,7 +327,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // lifecycle_config_name - computed: false, optional: true, required: false
-  private _lifecycleConfigName?: string; 
+  private _lifecycleConfigName?: string;
   public get lifecycleConfigName() {
     return this.getStringAttribute('lifecycle_config_name');
   }
@@ -343,7 +343,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -361,7 +361,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // platform_identifier - computed: true, optional: true, required: false
-  private _platformIdentifier?: string; 
+  private _platformIdentifier?: string;
   public get platformIdentifier() {
     return this.getStringAttribute('platform_identifier');
   }
@@ -377,7 +377,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -390,7 +390,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // root_access - computed: false, optional: true, required: false
-  private _rootAccess?: string; 
+  private _rootAccess?: string;
   public get rootAccess() {
     return this.getStringAttribute('root_access');
   }
@@ -406,7 +406,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // security_groups - computed: true, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -422,7 +422,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -438,7 +438,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -454,7 +454,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -475,7 +475,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // volume_size - computed: false, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }

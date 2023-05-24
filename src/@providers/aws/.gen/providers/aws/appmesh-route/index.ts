@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appmesh_route
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface AppmeshRouteConfig extends cdktf.TerraformMetaArguments {
   readonly virtualRouterName: string;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#spec AppmeshRoute#spec}
   */
   readonly spec: AppmeshRouteSpec;
@@ -129,7 +129,7 @@ export class AppmeshRouteSpecGrpcRouteActionWeightedTargetOutputReference extend
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -145,7 +145,7 @@ export class AppmeshRouteSpecGrpcRouteActionWeightedTargetOutputReference extend
   }
 
   // virtual_node - computed: false, optional: false, required: true
-  private _virtualNode?: string; 
+  private _virtualNode?: string;
   public get virtualNode() {
     return this.getStringAttribute('virtual_node');
   }
@@ -158,7 +158,7 @@ export class AppmeshRouteSpecGrpcRouteActionWeightedTargetOutputReference extend
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -193,7 +193,7 @@ export class AppmeshRouteSpecGrpcRouteActionWeightedTargetList extends cdktf.Com
 export interface AppmeshRouteSpecGrpcRouteAction {
   /**
   * weighted_target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#weighted_target AppmeshRoute#weighted_target}
   */
   readonly weightedTarget: AppmeshRouteSpecGrpcRouteActionWeightedTarget[] | cdktf.IResolvable;
@@ -315,7 +315,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataMatchRangeOutputReference ext
   }
 
   // end - computed: false, optional: false, required: true
-  private _end?: number; 
+  private _end?: number;
   public get end() {
     return this.getNumberAttribute('end');
   }
@@ -328,7 +328,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataMatchRangeOutputReference ext
   }
 
   // start - computed: false, optional: false, required: true
-  private _start?: number; 
+  private _start?: number;
   public get start() {
     return this.getNumberAttribute('start');
   }
@@ -359,7 +359,7 @@ export interface AppmeshRouteSpecGrpcRouteMatchMetadataMatch {
   readonly suffix?: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#range AppmeshRoute#range}
   */
   readonly range?: AppmeshRouteSpecGrpcRouteMatchMetadataMatchRange;
@@ -436,7 +436,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataMatchOutputReference extends 
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -452,7 +452,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataMatchOutputReference extends 
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -468,7 +468,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataMatchOutputReference extends 
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -484,7 +484,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataMatchOutputReference extends 
   }
 
   // suffix - computed: false, optional: true, required: false
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -526,7 +526,7 @@ export interface AppmeshRouteSpecGrpcRouteMatchMetadata {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match?: AppmeshRouteSpecGrpcRouteMatchMetadataMatch;
@@ -601,7 +601,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataOutputReference extends cdktf
   }
 
   // invert - computed: false, optional: true, required: false
-  private _invert?: boolean | cdktf.IResolvable; 
+  private _invert?: boolean | cdktf.IResolvable;
   public get invert() {
     return this.getBooleanAttribute('invert');
   }
@@ -617,7 +617,7 @@ export class AppmeshRouteSpecGrpcRouteMatchMetadataOutputReference extends cdktf
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -684,7 +684,7 @@ export interface AppmeshRouteSpecGrpcRouteMatch {
   readonly serviceName?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#metadata AppmeshRoute#metadata}
   */
   readonly metadata?: AppmeshRouteSpecGrpcRouteMatchMetadata[] | cdktf.IResolvable;
@@ -761,7 +761,7 @@ export class AppmeshRouteSpecGrpcRouteMatchOutputReference extends cdktf.Complex
   }
 
   // method_name - computed: false, optional: true, required: false
-  private _methodName?: string; 
+  private _methodName?: string;
   public get methodName() {
     return this.getStringAttribute('method_name');
   }
@@ -777,7 +777,7 @@ export class AppmeshRouteSpecGrpcRouteMatchOutputReference extends cdktf.Complex
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -793,7 +793,7 @@ export class AppmeshRouteSpecGrpcRouteMatchOutputReference extends cdktf.Complex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -809,7 +809,7 @@ export class AppmeshRouteSpecGrpcRouteMatchOutputReference extends cdktf.Complex
   }
 
   // service_name - computed: false, optional: true, required: false
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -901,7 +901,7 @@ export class AppmeshRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputReference 
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -914,7 +914,7 @@ export class AppmeshRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputReference 
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -945,7 +945,7 @@ export interface AppmeshRouteSpecGrpcRouteRetryPolicy {
   readonly tcpRetryEvents?: string[];
   /**
   * per_retry_timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#per_retry_timeout AppmeshRoute#per_retry_timeout}
   */
   readonly perRetryTimeout: AppmeshRouteSpecGrpcRouteRetryPolicyPerRetryTimeout;
@@ -1022,7 +1022,7 @@ export class AppmeshRouteSpecGrpcRouteRetryPolicyOutputReference extends cdktf.C
   }
 
   // grpc_retry_events - computed: false, optional: true, required: false
-  private _grpcRetryEvents?: string[]; 
+  private _grpcRetryEvents?: string[];
   public get grpcRetryEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('grpc_retry_events'));
   }
@@ -1038,7 +1038,7 @@ export class AppmeshRouteSpecGrpcRouteRetryPolicyOutputReference extends cdktf.C
   }
 
   // http_retry_events - computed: false, optional: true, required: false
-  private _httpRetryEvents?: string[]; 
+  private _httpRetryEvents?: string[];
   public get httpRetryEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('http_retry_events'));
   }
@@ -1054,7 +1054,7 @@ export class AppmeshRouteSpecGrpcRouteRetryPolicyOutputReference extends cdktf.C
   }
 
   // max_retries - computed: false, optional: false, required: true
-  private _maxRetries?: number; 
+  private _maxRetries?: number;
   public get maxRetries() {
     return this.getNumberAttribute('max_retries');
   }
@@ -1067,7 +1067,7 @@ export class AppmeshRouteSpecGrpcRouteRetryPolicyOutputReference extends cdktf.C
   }
 
   // tcp_retry_events - computed: false, optional: true, required: false
-  private _tcpRetryEvents?: string[]; 
+  private _tcpRetryEvents?: string[];
   public get tcpRetryEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('tcp_retry_events'));
   }
@@ -1156,7 +1156,7 @@ export class AppmeshRouteSpecGrpcRouteTimeoutIdleOutputReference extends cdktf.C
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -1169,7 +1169,7 @@ export class AppmeshRouteSpecGrpcRouteTimeoutIdleOutputReference extends cdktf.C
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -1242,7 +1242,7 @@ export class AppmeshRouteSpecGrpcRouteTimeoutPerRequestOutputReference extends c
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -1255,7 +1255,7 @@ export class AppmeshRouteSpecGrpcRouteTimeoutPerRequestOutputReference extends c
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -1270,13 +1270,13 @@ export class AppmeshRouteSpecGrpcRouteTimeoutPerRequestOutputReference extends c
 export interface AppmeshRouteSpecGrpcRouteTimeout {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#idle AppmeshRoute#idle}
   */
   readonly idle?: AppmeshRouteSpecGrpcRouteTimeoutIdle;
   /**
   * per_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#per_request AppmeshRoute#per_request}
   */
   readonly perRequest?: AppmeshRouteSpecGrpcRouteTimeoutPerRequest;
@@ -1366,25 +1366,25 @@ export class AppmeshRouteSpecGrpcRouteTimeoutOutputReference extends cdktf.Compl
 export interface AppmeshRouteSpecGrpcRoute {
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#action AppmeshRoute#action}
   */
   readonly action: AppmeshRouteSpecGrpcRouteAction;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match?: AppmeshRouteSpecGrpcRouteMatch;
   /**
   * retry_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#retry_policy AppmeshRoute#retry_policy}
   */
   readonly retryPolicy?: AppmeshRouteSpecGrpcRouteRetryPolicy;
   /**
   * timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#timeout AppmeshRoute#timeout}
   */
   readonly timeout?: AppmeshRouteSpecGrpcRouteTimeout;
@@ -1598,7 +1598,7 @@ export class AppmeshRouteSpecHttp2RouteActionWeightedTargetOutputReference exten
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1614,7 +1614,7 @@ export class AppmeshRouteSpecHttp2RouteActionWeightedTargetOutputReference exten
   }
 
   // virtual_node - computed: false, optional: false, required: true
-  private _virtualNode?: string; 
+  private _virtualNode?: string;
   public get virtualNode() {
     return this.getStringAttribute('virtual_node');
   }
@@ -1627,7 +1627,7 @@ export class AppmeshRouteSpecHttp2RouteActionWeightedTargetOutputReference exten
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -1662,7 +1662,7 @@ export class AppmeshRouteSpecHttp2RouteActionWeightedTargetList extends cdktf.Co
 export interface AppmeshRouteSpecHttp2RouteAction {
   /**
   * weighted_target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#weighted_target AppmeshRoute#weighted_target}
   */
   readonly weightedTarget: AppmeshRouteSpecHttp2RouteActionWeightedTarget[] | cdktf.IResolvable;
@@ -1784,7 +1784,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderMatchRangeOutputReference exte
   }
 
   // end - computed: false, optional: false, required: true
-  private _end?: number; 
+  private _end?: number;
   public get end() {
     return this.getNumberAttribute('end');
   }
@@ -1797,7 +1797,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderMatchRangeOutputReference exte
   }
 
   // start - computed: false, optional: false, required: true
-  private _start?: number; 
+  private _start?: number;
   public get start() {
     return this.getNumberAttribute('start');
   }
@@ -1828,7 +1828,7 @@ export interface AppmeshRouteSpecHttp2RouteMatchHeaderMatch {
   readonly suffix?: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#range AppmeshRoute#range}
   */
   readonly range?: AppmeshRouteSpecHttp2RouteMatchHeaderMatchRange;
@@ -1905,7 +1905,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderMatchOutputReference extends c
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -1921,7 +1921,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderMatchOutputReference extends c
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1937,7 +1937,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderMatchOutputReference extends c
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -1953,7 +1953,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderMatchOutputReference extends c
   }
 
   // suffix - computed: false, optional: true, required: false
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -1995,7 +1995,7 @@ export interface AppmeshRouteSpecHttp2RouteMatchHeader {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match?: AppmeshRouteSpecHttp2RouteMatchHeaderMatch;
@@ -2070,7 +2070,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderOutputReference extends cdktf.
   }
 
   // invert - computed: false, optional: true, required: false
-  private _invert?: boolean | cdktf.IResolvable; 
+  private _invert?: boolean | cdktf.IResolvable;
   public get invert() {
     return this.getBooleanAttribute('invert');
   }
@@ -2086,7 +2086,7 @@ export class AppmeshRouteSpecHttp2RouteMatchHeaderOutputReference extends cdktf.
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2195,7 +2195,7 @@ export class AppmeshRouteSpecHttp2RouteMatchPathOutputReference extends cdktf.Co
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -2211,7 +2211,7 @@ export class AppmeshRouteSpecHttp2RouteMatchPathOutputReference extends cdktf.Co
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -2276,7 +2276,7 @@ export class AppmeshRouteSpecHttp2RouteMatchQueryParameterMatchOutputReference e
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -2298,7 +2298,7 @@ export interface AppmeshRouteSpecHttp2RouteMatchQueryParameter {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match?: AppmeshRouteSpecHttp2RouteMatchQueryParameterMatch;
@@ -2366,7 +2366,7 @@ export class AppmeshRouteSpecHttp2RouteMatchQueryParameterOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2433,19 +2433,19 @@ export interface AppmeshRouteSpecHttp2RouteMatch {
   readonly scheme?: string;
   /**
   * header block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#header AppmeshRoute#header}
   */
   readonly header?: AppmeshRouteSpecHttp2RouteMatchHeader[] | cdktf.IResolvable;
   /**
   * path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#path AppmeshRoute#path}
   */
   readonly path?: AppmeshRouteSpecHttp2RouteMatchPath;
   /**
   * query_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#query_parameter AppmeshRoute#query_parameter}
   */
   readonly queryParameter?: AppmeshRouteSpecHttp2RouteMatchQueryParameter[] | cdktf.IResolvable;
@@ -2536,7 +2536,7 @@ export class AppmeshRouteSpecHttp2RouteMatchOutputReference extends cdktf.Comple
   }
 
   // method - computed: false, optional: true, required: false
-  private _method?: string; 
+  private _method?: string;
   public get method() {
     return this.getStringAttribute('method');
   }
@@ -2552,7 +2552,7 @@ export class AppmeshRouteSpecHttp2RouteMatchOutputReference extends cdktf.Comple
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2568,7 +2568,7 @@ export class AppmeshRouteSpecHttp2RouteMatchOutputReference extends cdktf.Comple
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -2584,7 +2584,7 @@ export class AppmeshRouteSpecHttp2RouteMatchOutputReference extends cdktf.Comple
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -2708,7 +2708,7 @@ export class AppmeshRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputReference
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -2721,7 +2721,7 @@ export class AppmeshRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputReference
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -2748,7 +2748,7 @@ export interface AppmeshRouteSpecHttp2RouteRetryPolicy {
   readonly tcpRetryEvents?: string[];
   /**
   * per_retry_timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#per_retry_timeout AppmeshRoute#per_retry_timeout}
   */
   readonly perRetryTimeout: AppmeshRouteSpecHttp2RouteRetryPolicyPerRetryTimeout;
@@ -2818,7 +2818,7 @@ export class AppmeshRouteSpecHttp2RouteRetryPolicyOutputReference extends cdktf.
   }
 
   // http_retry_events - computed: false, optional: true, required: false
-  private _httpRetryEvents?: string[]; 
+  private _httpRetryEvents?: string[];
   public get httpRetryEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('http_retry_events'));
   }
@@ -2834,7 +2834,7 @@ export class AppmeshRouteSpecHttp2RouteRetryPolicyOutputReference extends cdktf.
   }
 
   // max_retries - computed: false, optional: false, required: true
-  private _maxRetries?: number; 
+  private _maxRetries?: number;
   public get maxRetries() {
     return this.getNumberAttribute('max_retries');
   }
@@ -2847,7 +2847,7 @@ export class AppmeshRouteSpecHttp2RouteRetryPolicyOutputReference extends cdktf.
   }
 
   // tcp_retry_events - computed: false, optional: true, required: false
-  private _tcpRetryEvents?: string[]; 
+  private _tcpRetryEvents?: string[];
   public get tcpRetryEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('tcp_retry_events'));
   }
@@ -2936,7 +2936,7 @@ export class AppmeshRouteSpecHttp2RouteTimeoutIdleOutputReference extends cdktf.
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -2949,7 +2949,7 @@ export class AppmeshRouteSpecHttp2RouteTimeoutIdleOutputReference extends cdktf.
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3022,7 +3022,7 @@ export class AppmeshRouteSpecHttp2RouteTimeoutPerRequestOutputReference extends 
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -3035,7 +3035,7 @@ export class AppmeshRouteSpecHttp2RouteTimeoutPerRequestOutputReference extends 
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3050,13 +3050,13 @@ export class AppmeshRouteSpecHttp2RouteTimeoutPerRequestOutputReference extends 
 export interface AppmeshRouteSpecHttp2RouteTimeout {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#idle AppmeshRoute#idle}
   */
   readonly idle?: AppmeshRouteSpecHttp2RouteTimeoutIdle;
   /**
   * per_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#per_request AppmeshRoute#per_request}
   */
   readonly perRequest?: AppmeshRouteSpecHttp2RouteTimeoutPerRequest;
@@ -3146,25 +3146,25 @@ export class AppmeshRouteSpecHttp2RouteTimeoutOutputReference extends cdktf.Comp
 export interface AppmeshRouteSpecHttp2Route {
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#action AppmeshRoute#action}
   */
   readonly action: AppmeshRouteSpecHttp2RouteAction;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match: AppmeshRouteSpecHttp2RouteMatch;
   /**
   * retry_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#retry_policy AppmeshRoute#retry_policy}
   */
   readonly retryPolicy?: AppmeshRouteSpecHttp2RouteRetryPolicy;
   /**
   * timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#timeout AppmeshRoute#timeout}
   */
   readonly timeout?: AppmeshRouteSpecHttp2RouteTimeout;
@@ -3375,7 +3375,7 @@ export class AppmeshRouteSpecHttpRouteActionWeightedTargetOutputReference extend
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -3391,7 +3391,7 @@ export class AppmeshRouteSpecHttpRouteActionWeightedTargetOutputReference extend
   }
 
   // virtual_node - computed: false, optional: false, required: true
-  private _virtualNode?: string; 
+  private _virtualNode?: string;
   public get virtualNode() {
     return this.getStringAttribute('virtual_node');
   }
@@ -3404,7 +3404,7 @@ export class AppmeshRouteSpecHttpRouteActionWeightedTargetOutputReference extend
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -3439,7 +3439,7 @@ export class AppmeshRouteSpecHttpRouteActionWeightedTargetList extends cdktf.Com
 export interface AppmeshRouteSpecHttpRouteAction {
   /**
   * weighted_target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#weighted_target AppmeshRoute#weighted_target}
   */
   readonly weightedTarget: AppmeshRouteSpecHttpRouteActionWeightedTarget[] | cdktf.IResolvable;
@@ -3561,7 +3561,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderMatchRangeOutputReference exten
   }
 
   // end - computed: false, optional: false, required: true
-  private _end?: number; 
+  private _end?: number;
   public get end() {
     return this.getNumberAttribute('end');
   }
@@ -3574,7 +3574,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderMatchRangeOutputReference exten
   }
 
   // start - computed: false, optional: false, required: true
-  private _start?: number; 
+  private _start?: number;
   public get start() {
     return this.getNumberAttribute('start');
   }
@@ -3605,7 +3605,7 @@ export interface AppmeshRouteSpecHttpRouteMatchHeaderMatch {
   readonly suffix?: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#range AppmeshRoute#range}
   */
   readonly range?: AppmeshRouteSpecHttpRouteMatchHeaderMatchRange;
@@ -3682,7 +3682,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderMatchOutputReference extends cd
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -3698,7 +3698,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderMatchOutputReference extends cd
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -3714,7 +3714,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderMatchOutputReference extends cd
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -3730,7 +3730,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderMatchOutputReference extends cd
   }
 
   // suffix - computed: false, optional: true, required: false
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -3772,7 +3772,7 @@ export interface AppmeshRouteSpecHttpRouteMatchHeader {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match?: AppmeshRouteSpecHttpRouteMatchHeaderMatch;
@@ -3847,7 +3847,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderOutputReference extends cdktf.C
   }
 
   // invert - computed: false, optional: true, required: false
-  private _invert?: boolean | cdktf.IResolvable; 
+  private _invert?: boolean | cdktf.IResolvable;
   public get invert() {
     return this.getBooleanAttribute('invert');
   }
@@ -3863,7 +3863,7 @@ export class AppmeshRouteSpecHttpRouteMatchHeaderOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3972,7 +3972,7 @@ export class AppmeshRouteSpecHttpRouteMatchPathOutputReference extends cdktf.Com
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -3988,7 +3988,7 @@ export class AppmeshRouteSpecHttpRouteMatchPathOutputReference extends cdktf.Com
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -4053,7 +4053,7 @@ export class AppmeshRouteSpecHttpRouteMatchQueryParameterMatchOutputReference ex
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -4075,7 +4075,7 @@ export interface AppmeshRouteSpecHttpRouteMatchQueryParameter {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match?: AppmeshRouteSpecHttpRouteMatchQueryParameterMatch;
@@ -4143,7 +4143,7 @@ export class AppmeshRouteSpecHttpRouteMatchQueryParameterOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4210,19 +4210,19 @@ export interface AppmeshRouteSpecHttpRouteMatch {
   readonly scheme?: string;
   /**
   * header block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#header AppmeshRoute#header}
   */
   readonly header?: AppmeshRouteSpecHttpRouteMatchHeader[] | cdktf.IResolvable;
   /**
   * path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#path AppmeshRoute#path}
   */
   readonly path?: AppmeshRouteSpecHttpRouteMatchPath;
   /**
   * query_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#query_parameter AppmeshRoute#query_parameter}
   */
   readonly queryParameter?: AppmeshRouteSpecHttpRouteMatchQueryParameter[] | cdktf.IResolvable;
@@ -4313,7 +4313,7 @@ export class AppmeshRouteSpecHttpRouteMatchOutputReference extends cdktf.Complex
   }
 
   // method - computed: false, optional: true, required: false
-  private _method?: string; 
+  private _method?: string;
   public get method() {
     return this.getStringAttribute('method');
   }
@@ -4329,7 +4329,7 @@ export class AppmeshRouteSpecHttpRouteMatchOutputReference extends cdktf.Complex
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -4345,7 +4345,7 @@ export class AppmeshRouteSpecHttpRouteMatchOutputReference extends cdktf.Complex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -4361,7 +4361,7 @@ export class AppmeshRouteSpecHttpRouteMatchOutputReference extends cdktf.Complex
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -4485,7 +4485,7 @@ export class AppmeshRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputReference 
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -4498,7 +4498,7 @@ export class AppmeshRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputReference 
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -4525,7 +4525,7 @@ export interface AppmeshRouteSpecHttpRouteRetryPolicy {
   readonly tcpRetryEvents?: string[];
   /**
   * per_retry_timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#per_retry_timeout AppmeshRoute#per_retry_timeout}
   */
   readonly perRetryTimeout: AppmeshRouteSpecHttpRouteRetryPolicyPerRetryTimeout;
@@ -4595,7 +4595,7 @@ export class AppmeshRouteSpecHttpRouteRetryPolicyOutputReference extends cdktf.C
   }
 
   // http_retry_events - computed: false, optional: true, required: false
-  private _httpRetryEvents?: string[]; 
+  private _httpRetryEvents?: string[];
   public get httpRetryEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('http_retry_events'));
   }
@@ -4611,7 +4611,7 @@ export class AppmeshRouteSpecHttpRouteRetryPolicyOutputReference extends cdktf.C
   }
 
   // max_retries - computed: false, optional: false, required: true
-  private _maxRetries?: number; 
+  private _maxRetries?: number;
   public get maxRetries() {
     return this.getNumberAttribute('max_retries');
   }
@@ -4624,7 +4624,7 @@ export class AppmeshRouteSpecHttpRouteRetryPolicyOutputReference extends cdktf.C
   }
 
   // tcp_retry_events - computed: false, optional: true, required: false
-  private _tcpRetryEvents?: string[]; 
+  private _tcpRetryEvents?: string[];
   public get tcpRetryEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('tcp_retry_events'));
   }
@@ -4713,7 +4713,7 @@ export class AppmeshRouteSpecHttpRouteTimeoutIdleOutputReference extends cdktf.C
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -4726,7 +4726,7 @@ export class AppmeshRouteSpecHttpRouteTimeoutIdleOutputReference extends cdktf.C
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -4799,7 +4799,7 @@ export class AppmeshRouteSpecHttpRouteTimeoutPerRequestOutputReference extends c
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -4812,7 +4812,7 @@ export class AppmeshRouteSpecHttpRouteTimeoutPerRequestOutputReference extends c
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -4827,13 +4827,13 @@ export class AppmeshRouteSpecHttpRouteTimeoutPerRequestOutputReference extends c
 export interface AppmeshRouteSpecHttpRouteTimeout {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#idle AppmeshRoute#idle}
   */
   readonly idle?: AppmeshRouteSpecHttpRouteTimeoutIdle;
   /**
   * per_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#per_request AppmeshRoute#per_request}
   */
   readonly perRequest?: AppmeshRouteSpecHttpRouteTimeoutPerRequest;
@@ -4923,25 +4923,25 @@ export class AppmeshRouteSpecHttpRouteTimeoutOutputReference extends cdktf.Compl
 export interface AppmeshRouteSpecHttpRoute {
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#action AppmeshRoute#action}
   */
   readonly action: AppmeshRouteSpecHttpRouteAction;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match: AppmeshRouteSpecHttpRouteMatch;
   /**
   * retry_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#retry_policy AppmeshRoute#retry_policy}
   */
   readonly retryPolicy?: AppmeshRouteSpecHttpRouteRetryPolicy;
   /**
   * timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#timeout AppmeshRoute#timeout}
   */
   readonly timeout?: AppmeshRouteSpecHttpRouteTimeout;
@@ -5152,7 +5152,7 @@ export class AppmeshRouteSpecTcpRouteActionWeightedTargetOutputReference extends
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -5168,7 +5168,7 @@ export class AppmeshRouteSpecTcpRouteActionWeightedTargetOutputReference extends
   }
 
   // virtual_node - computed: false, optional: false, required: true
-  private _virtualNode?: string; 
+  private _virtualNode?: string;
   public get virtualNode() {
     return this.getStringAttribute('virtual_node');
   }
@@ -5181,7 +5181,7 @@ export class AppmeshRouteSpecTcpRouteActionWeightedTargetOutputReference extends
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -5216,7 +5216,7 @@ export class AppmeshRouteSpecTcpRouteActionWeightedTargetList extends cdktf.Comp
 export interface AppmeshRouteSpecTcpRouteAction {
   /**
   * weighted_target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#weighted_target AppmeshRoute#weighted_target}
   */
   readonly weightedTarget: AppmeshRouteSpecTcpRouteActionWeightedTarget[] | cdktf.IResolvable;
@@ -5327,7 +5327,7 @@ export class AppmeshRouteSpecTcpRouteMatchOutputReference extends cdktf.ComplexO
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -5403,7 +5403,7 @@ export class AppmeshRouteSpecTcpRouteTimeoutIdleOutputReference extends cdktf.Co
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -5416,7 +5416,7 @@ export class AppmeshRouteSpecTcpRouteTimeoutIdleOutputReference extends cdktf.Co
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -5431,7 +5431,7 @@ export class AppmeshRouteSpecTcpRouteTimeoutIdleOutputReference extends cdktf.Co
 export interface AppmeshRouteSpecTcpRouteTimeout {
   /**
   * idle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#idle AppmeshRoute#idle}
   */
   readonly idle?: AppmeshRouteSpecTcpRouteTimeoutIdle;
@@ -5498,19 +5498,19 @@ export class AppmeshRouteSpecTcpRouteTimeoutOutputReference extends cdktf.Comple
 export interface AppmeshRouteSpecTcpRoute {
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#action AppmeshRoute#action}
   */
   readonly action: AppmeshRouteSpecTcpRouteAction;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#match AppmeshRoute#match}
   */
   readonly match?: AppmeshRouteSpecTcpRouteMatch;
   /**
   * timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#timeout AppmeshRoute#timeout}
   */
   readonly timeout?: AppmeshRouteSpecTcpRouteTimeout;
@@ -5624,25 +5624,25 @@ export interface AppmeshRouteSpec {
   readonly priority?: number;
   /**
   * grpc_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#grpc_route AppmeshRoute#grpc_route}
   */
   readonly grpcRoute?: AppmeshRouteSpecGrpcRoute;
   /**
   * http2_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#http2_route AppmeshRoute#http2_route}
   */
   readonly http2Route?: AppmeshRouteSpecHttp2Route;
   /**
   * http_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#http_route AppmeshRoute#http_route}
   */
   readonly httpRoute?: AppmeshRouteSpecHttpRoute;
   /**
   * tcp_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_route#tcp_route AppmeshRoute#tcp_route}
   */
   readonly tcpRoute?: AppmeshRouteSpecTcpRoute;
@@ -5719,7 +5719,7 @@ export class AppmeshRouteSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -5861,7 +5861,7 @@ export class AppmeshRoute extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -5882,7 +5882,7 @@ export class AppmeshRoute extends cdktf.TerraformResource {
   }
 
   // mesh_name - computed: false, optional: false, required: true
-  private _meshName?: string; 
+  private _meshName?: string;
   public get meshName() {
     return this.getStringAttribute('mesh_name');
   }
@@ -5895,7 +5895,7 @@ export class AppmeshRoute extends cdktf.TerraformResource {
   }
 
   // mesh_owner - computed: true, optional: true, required: false
-  private _meshOwner?: string; 
+  private _meshOwner?: string;
   public get meshOwner() {
     return this.getStringAttribute('mesh_owner');
   }
@@ -5911,7 +5911,7 @@ export class AppmeshRoute extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5929,7 +5929,7 @@ export class AppmeshRoute extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -5945,7 +5945,7 @@ export class AppmeshRoute extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -5961,7 +5961,7 @@ export class AppmeshRoute extends cdktf.TerraformResource {
   }
 
   // virtual_router_name - computed: false, optional: false, required: true
-  private _virtualRouterName?: string; 
+  private _virtualRouterName?: string;
   public get virtualRouterName() {
     return this.getStringAttribute('virtual_router_name');
   }

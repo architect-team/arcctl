@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface MonitorAlertConfig extends cdktf.TerraformMetaArguments {
   /**
   * The comparison operator to use for value
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#compare MonitorAlert#compare}
   */
   readonly compare: string;
   /**
   * Description of the alert policy
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#description MonitorAlert#description}
   */
   readonly description: string;
@@ -25,7 +25,7 @@ export interface MonitorAlertConfig extends cdktf.TerraformMetaArguments {
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * The droplets to apply the alert policy to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#entities MonitorAlert#entities}
   */
   readonly entities?: string[];
@@ -54,7 +54,7 @@ export interface MonitorAlertConfig extends cdktf.TerraformMetaArguments {
   readonly window: string;
   /**
   * alerts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#alerts MonitorAlert#alerts}
   */
   readonly alerts: MonitorAlertAlerts;
@@ -62,13 +62,13 @@ export interface MonitorAlertConfig extends cdktf.TerraformMetaArguments {
 export interface MonitorAlertAlertsSlack {
   /**
   * The Slack channel to send alerts to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#channel MonitorAlert#channel}
   */
   readonly channel: string;
   /**
   * The webhook URL for Slack
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#url MonitorAlert#url}
   */
   readonly url: string;
@@ -136,7 +136,7 @@ export class MonitorAlertAlertsSlackOutputReference extends cdktf.ComplexObject 
   }
 
   // channel - computed: false, optional: false, required: true
-  private _channel?: string; 
+  private _channel?: string;
   public get channel() {
     return this.getStringAttribute('channel');
   }
@@ -149,7 +149,7 @@ export class MonitorAlertAlertsSlackOutputReference extends cdktf.ComplexObject 
   }
 
   // url - computed: false, optional: false, required: true
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -184,13 +184,13 @@ export class MonitorAlertAlertsSlackList extends cdktf.ComplexList {
 export interface MonitorAlertAlerts {
   /**
   * List of email addresses to sent notifications to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#email MonitorAlert#email}
   */
   readonly email?: string[];
   /**
   * slack block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#slack MonitorAlert#slack}
   */
   readonly slack?: MonitorAlertAlertsSlack[] | cdktf.IResolvable;
@@ -246,7 +246,7 @@ export class MonitorAlertAlertsOutputReference extends cdktf.ComplexObject {
   }
 
   // email - computed: false, optional: true, required: false
-  private _email?: string[]; 
+  private _email?: string[];
   public get email() {
     return this.getListAttribute('email');
   }
@@ -332,7 +332,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   // ==========
 
   // compare - computed: false, optional: false, required: true
-  private _compare?: string; 
+  private _compare?: string;
   public get compare() {
     return this.getStringAttribute('compare');
   }
@@ -345,7 +345,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: false, required: true
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -358,7 +358,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -374,7 +374,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // entities - computed: false, optional: true, required: false
-  private _entities?: string[]; 
+  private _entities?: string[];
   public get entities() {
     return cdktf.Fn.tolist(this.getListAttribute('entities'));
   }
@@ -390,7 +390,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -406,7 +406,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -422,7 +422,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -440,7 +440,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -453,7 +453,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string; 
+  private _window?: string;
   public get window() {
     return this.getStringAttribute('window');
   }

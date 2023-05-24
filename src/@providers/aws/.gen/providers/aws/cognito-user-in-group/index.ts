@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_user_in_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class CognitoUserInGroup extends cdktf.TerraformResource {
   // ==========
 
   // group_name - computed: false, optional: false, required: true
-  private _groupName?: string; 
+  private _groupName?: string;
   public get groupName() {
     return this.getStringAttribute('group_name');
   }
@@ -89,7 +89,7 @@ export class CognitoUserInGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class CognitoUserInGroup extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string; 
+  private _userPoolId?: string;
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }
@@ -118,7 +118,7 @@ export class CognitoUserInGroup extends cdktf.TerraformResource {
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }

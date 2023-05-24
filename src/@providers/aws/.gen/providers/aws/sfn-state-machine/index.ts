@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sfn_state_machine
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,13 +44,13 @@ export interface SfnStateMachineConfig extends cdktf.TerraformMetaArguments {
   readonly type?: string;
   /**
   * logging_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sfn_state_machine#logging_configuration SfnStateMachine#logging_configuration}
   */
   readonly loggingConfiguration?: SfnStateMachineLoggingConfiguration;
   /**
   * tracing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sfn_state_machine#tracing_configuration SfnStateMachine#tracing_configuration}
   */
   readonly tracingConfiguration?: SfnStateMachineTracingConfiguration;
@@ -127,7 +127,7 @@ export class SfnStateMachineLoggingConfigurationOutputReference extends cdktf.Co
   }
 
   // include_execution_data - computed: false, optional: true, required: false
-  private _includeExecutionData?: boolean | cdktf.IResolvable; 
+  private _includeExecutionData?: boolean | cdktf.IResolvable;
   public get includeExecutionData() {
     return this.getBooleanAttribute('include_execution_data');
   }
@@ -143,7 +143,7 @@ export class SfnStateMachineLoggingConfigurationOutputReference extends cdktf.Co
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -159,7 +159,7 @@ export class SfnStateMachineLoggingConfigurationOutputReference extends cdktf.Co
   }
 
   // log_destination - computed: false, optional: true, required: false
-  private _logDestination?: string; 
+  private _logDestination?: string;
   public get logDestination() {
     return this.getStringAttribute('log_destination');
   }
@@ -224,7 +224,7 @@ export class SfnStateMachineTracingConfigurationOutputReference extends cdktf.Co
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -304,7 +304,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // definition - computed: false, optional: false, required: true
-  private _definition?: string; 
+  private _definition?: string;
   public get definition() {
     return this.getStringAttribute('definition');
   }
@@ -317,7 +317,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -333,7 +333,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -349,7 +349,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -365,7 +365,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -383,7 +383,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -399,7 +399,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -415,7 +415,7 @@ export class SfnStateMachine extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

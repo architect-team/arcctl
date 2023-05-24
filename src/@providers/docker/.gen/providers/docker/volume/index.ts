@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/volume
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface VolumeConfig extends cdktf.TerraformMetaArguments {
   /**
   * Driver type for the volume. Defaults to `local`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#driver Volume#driver}
   */
   readonly driver?: string;
   /**
   * Options specific to the driver.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#driver_opts Volume#driver_opts}
   */
   readonly driverOpts?: { [key: string]: string };
@@ -28,13 +28,13 @@ export interface VolumeConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * The name of the Docker volume (will be generated if not provided).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#name Volume#name}
   */
   readonly name?: string;
   /**
   * labels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#labels Volume#labels}
   */
   readonly labels?: VolumeLabels[] | cdktf.IResolvable;
@@ -42,13 +42,13 @@ export interface VolumeConfig extends cdktf.TerraformMetaArguments {
 export interface VolumeLabels {
   /**
   * Name of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#label Volume#label}
   */
   readonly label: string;
   /**
   * Value of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#value Volume#value}
   */
   readonly value: string;
@@ -116,7 +116,7 @@ export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -129,7 +129,7 @@ export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -211,7 +211,7 @@ export class Volume extends cdktf.TerraformResource {
   // ==========
 
   // driver - computed: true, optional: true, required: false
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -227,7 +227,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // driver_opts - computed: false, optional: true, required: false
-  private _driverOpts?: { [key: string]: string }; 
+  private _driverOpts?: { [key: string]: string };
   public get driverOpts() {
     return this.getStringMapAttribute('driver_opts');
   }
@@ -243,7 +243,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -264,7 +264,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

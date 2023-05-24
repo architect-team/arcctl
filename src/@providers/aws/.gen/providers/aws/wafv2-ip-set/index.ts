@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafv2_ip_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   // ==========
 
   // addresses - computed: false, optional: true, required: false
-  private _addresses?: string[]; 
+  private _addresses?: string[];
   public get addresses() {
     return cdktf.Fn.tolist(this.getListAttribute('addresses'));
   }
@@ -117,7 +117,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -133,7 +133,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -149,7 +149,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   }
 
   // ip_address_version - computed: false, optional: false, required: true
-  private _ipAddressVersion?: string; 
+  private _ipAddressVersion?: string;
   public get ipAddressVersion() {
     return this.getStringAttribute('ip_address_version');
   }
@@ -167,7 +167,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -180,7 +180,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   }
 
   // scope - computed: false, optional: false, required: true
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -193,7 +193,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -209,7 +209,7 @@ export class Wafv2IpSet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

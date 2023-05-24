@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/nodes
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataKubernetesNodesConfig extends cdktf.TerraformMetaArguments 
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/nodes#metadata DataKubernetesNodes#metadata}
   */
   readonly metadata?: DataKubernetesNodesMetadata;
@@ -537,7 +537,7 @@ export class DataKubernetesNodesNodesList extends cdktf.ComplexList {
 export interface DataKubernetesNodesMetadata {
   /**
   * Select nodes with these labels. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/nodes#labels DataKubernetesNodes#labels}
   */
   readonly labels: { [key: string]: string };
@@ -586,7 +586,7 @@ export class DataKubernetesNodesMetadataOutputReference extends cdktf.ComplexObj
   }
 
   // labels - computed: false, optional: false, required: true
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -645,7 +645,7 @@ export class DataKubernetesNodes extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

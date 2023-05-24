@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opensearch_domain
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,73 +40,73 @@ export interface OpensearchDomainConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * advanced_security_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#advanced_security_options OpensearchDomain#advanced_security_options}
   */
   readonly advancedSecurityOptions?: OpensearchDomainAdvancedSecurityOptions;
   /**
   * auto_tune_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#auto_tune_options OpensearchDomain#auto_tune_options}
   */
   readonly autoTuneOptions?: OpensearchDomainAutoTuneOptions;
   /**
   * cluster_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#cluster_config OpensearchDomain#cluster_config}
   */
   readonly clusterConfig?: OpensearchDomainClusterConfig;
   /**
   * cognito_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#cognito_options OpensearchDomain#cognito_options}
   */
   readonly cognitoOptions?: OpensearchDomainCognitoOptions;
   /**
   * domain_endpoint_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#domain_endpoint_options OpensearchDomain#domain_endpoint_options}
   */
   readonly domainEndpointOptions?: OpensearchDomainDomainEndpointOptions;
   /**
   * ebs_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#ebs_options OpensearchDomain#ebs_options}
   */
   readonly ebsOptions?: OpensearchDomainEbsOptions;
   /**
   * encrypt_at_rest block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#encrypt_at_rest OpensearchDomain#encrypt_at_rest}
   */
   readonly encryptAtRest?: OpensearchDomainEncryptAtRest;
   /**
   * log_publishing_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#log_publishing_options OpensearchDomain#log_publishing_options}
   */
   readonly logPublishingOptions?: OpensearchDomainLogPublishingOptions[] | cdktf.IResolvable;
   /**
   * node_to_node_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#node_to_node_encryption OpensearchDomain#node_to_node_encryption}
   */
   readonly nodeToNodeEncryption?: OpensearchDomainNodeToNodeEncryption;
   /**
   * snapshot_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#snapshot_options OpensearchDomain#snapshot_options}
   */
   readonly snapshotOptions?: OpensearchDomainSnapshotOptions;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#timeouts OpensearchDomain#timeouts}
   */
   readonly timeouts?: OpensearchDomainTimeouts;
   /**
   * vpc_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#vpc_options OpensearchDomain#vpc_options}
   */
   readonly vpcOptions?: OpensearchDomainVpcOptions;
@@ -183,7 +183,7 @@ export class OpensearchDomainAdvancedSecurityOptionsMasterUserOptionsOutputRefer
   }
 
   // master_user_arn - computed: false, optional: true, required: false
-  private _masterUserArn?: string; 
+  private _masterUserArn?: string;
   public get masterUserArn() {
     return this.getStringAttribute('master_user_arn');
   }
@@ -199,7 +199,7 @@ export class OpensearchDomainAdvancedSecurityOptionsMasterUserOptionsOutputRefer
   }
 
   // master_user_name - computed: false, optional: true, required: false
-  private _masterUserName?: string; 
+  private _masterUserName?: string;
   public get masterUserName() {
     return this.getStringAttribute('master_user_name');
   }
@@ -215,7 +215,7 @@ export class OpensearchDomainAdvancedSecurityOptionsMasterUserOptionsOutputRefer
   }
 
   // master_user_password - computed: false, optional: true, required: false
-  private _masterUserPassword?: string; 
+  private _masterUserPassword?: string;
   public get masterUserPassword() {
     return this.getStringAttribute('master_user_password');
   }
@@ -245,7 +245,7 @@ export interface OpensearchDomainAdvancedSecurityOptions {
   readonly internalUserDatabaseEnabled?: boolean | cdktf.IResolvable;
   /**
   * master_user_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#master_user_options OpensearchDomain#master_user_options}
   */
   readonly masterUserOptions?: OpensearchDomainAdvancedSecurityOptionsMasterUserOptions;
@@ -315,7 +315,7 @@ export class OpensearchDomainAdvancedSecurityOptionsOutputReference extends cdkt
   }
 
   // anonymous_auth_enabled - computed: true, optional: true, required: false
-  private _anonymousAuthEnabled?: boolean | cdktf.IResolvable; 
+  private _anonymousAuthEnabled?: boolean | cdktf.IResolvable;
   public get anonymousAuthEnabled() {
     return this.getBooleanAttribute('anonymous_auth_enabled');
   }
@@ -331,7 +331,7 @@ export class OpensearchDomainAdvancedSecurityOptionsOutputReference extends cdkt
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -344,7 +344,7 @@ export class OpensearchDomainAdvancedSecurityOptionsOutputReference extends cdkt
   }
 
   // internal_user_database_enabled - computed: false, optional: true, required: false
-  private _internalUserDatabaseEnabled?: boolean | cdktf.IResolvable; 
+  private _internalUserDatabaseEnabled?: boolean | cdktf.IResolvable;
   public get internalUserDatabaseEnabled() {
     return this.getBooleanAttribute('internal_user_database_enabled');
   }
@@ -436,7 +436,7 @@ export class OpensearchDomainAutoTuneOptionsMaintenanceScheduleDurationOutputRef
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -449,7 +449,7 @@ export class OpensearchDomainAutoTuneOptionsMaintenanceScheduleDurationOutputRef
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -472,7 +472,7 @@ export interface OpensearchDomainAutoTuneOptionsMaintenanceSchedule {
   readonly startAt: string;
   /**
   * duration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#duration OpensearchDomain#duration}
   */
   readonly duration: OpensearchDomainAutoTuneOptionsMaintenanceScheduleDuration;
@@ -547,7 +547,7 @@ export class OpensearchDomainAutoTuneOptionsMaintenanceScheduleOutputReference e
   }
 
   // cron_expression_for_recurrence - computed: false, optional: false, required: true
-  private _cronExpressionForRecurrence?: string; 
+  private _cronExpressionForRecurrence?: string;
   public get cronExpressionForRecurrence() {
     return this.getStringAttribute('cron_expression_for_recurrence');
   }
@@ -560,7 +560,7 @@ export class OpensearchDomainAutoTuneOptionsMaintenanceScheduleOutputReference e
   }
 
   // start_at - computed: false, optional: false, required: true
-  private _startAt?: string; 
+  private _startAt?: string;
   public get startAt() {
     return this.getStringAttribute('start_at');
   }
@@ -616,7 +616,7 @@ export interface OpensearchDomainAutoTuneOptions {
   readonly rollbackOnDisable?: string;
   /**
   * maintenance_schedule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#maintenance_schedule OpensearchDomain#maintenance_schedule}
   */
   readonly maintenanceSchedule?: OpensearchDomainAutoTuneOptionsMaintenanceSchedule[] | cdktf.IResolvable;
@@ -679,7 +679,7 @@ export class OpensearchDomainAutoTuneOptionsOutputReference extends cdktf.Comple
   }
 
   // desired_state - computed: false, optional: false, required: true
-  private _desiredState?: string; 
+  private _desiredState?: string;
   public get desiredState() {
     return this.getStringAttribute('desired_state');
   }
@@ -692,7 +692,7 @@ export class OpensearchDomainAutoTuneOptionsOutputReference extends cdktf.Comple
   }
 
   // rollback_on_disable - computed: true, optional: true, required: false
-  private _rollbackOnDisable?: string; 
+  private _rollbackOnDisable?: string;
   public get rollbackOnDisable() {
     return this.getStringAttribute('rollback_on_disable');
   }
@@ -773,7 +773,7 @@ export class OpensearchDomainClusterConfigColdStorageOptionsOutputReference exte
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -838,7 +838,7 @@ export class OpensearchDomainClusterConfigZoneAwarenessConfigOutputReference ext
   }
 
   // availability_zone_count - computed: false, optional: true, required: false
-  private _availabilityZoneCount?: number; 
+  private _availabilityZoneCount?: number;
   public get availabilityZoneCount() {
     return this.getNumberAttribute('availability_zone_count');
   }
@@ -892,13 +892,13 @@ export interface OpensearchDomainClusterConfig {
   readonly zoneAwarenessEnabled?: boolean | cdktf.IResolvable;
   /**
   * cold_storage_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#cold_storage_options OpensearchDomain#cold_storage_options}
   */
   readonly coldStorageOptions?: OpensearchDomainClusterConfigColdStorageOptions;
   /**
   * zone_awareness_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain#zone_awareness_config OpensearchDomain#zone_awareness_config}
   */
   readonly zoneAwarenessConfig?: OpensearchDomainClusterConfigZoneAwarenessConfig;
@@ -1017,7 +1017,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // dedicated_master_count - computed: false, optional: true, required: false
-  private _dedicatedMasterCount?: number; 
+  private _dedicatedMasterCount?: number;
   public get dedicatedMasterCount() {
     return this.getNumberAttribute('dedicated_master_count');
   }
@@ -1033,7 +1033,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // dedicated_master_enabled - computed: false, optional: true, required: false
-  private _dedicatedMasterEnabled?: boolean | cdktf.IResolvable; 
+  private _dedicatedMasterEnabled?: boolean | cdktf.IResolvable;
   public get dedicatedMasterEnabled() {
     return this.getBooleanAttribute('dedicated_master_enabled');
   }
@@ -1049,7 +1049,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // dedicated_master_type - computed: false, optional: true, required: false
-  private _dedicatedMasterType?: string; 
+  private _dedicatedMasterType?: string;
   public get dedicatedMasterType() {
     return this.getStringAttribute('dedicated_master_type');
   }
@@ -1065,7 +1065,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -1081,7 +1081,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -1097,7 +1097,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // warm_count - computed: false, optional: true, required: false
-  private _warmCount?: number; 
+  private _warmCount?: number;
   public get warmCount() {
     return this.getNumberAttribute('warm_count');
   }
@@ -1113,7 +1113,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // warm_enabled - computed: false, optional: true, required: false
-  private _warmEnabled?: boolean | cdktf.IResolvable; 
+  private _warmEnabled?: boolean | cdktf.IResolvable;
   public get warmEnabled() {
     return this.getBooleanAttribute('warm_enabled');
   }
@@ -1129,7 +1129,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // warm_type - computed: false, optional: true, required: false
-  private _warmType?: string; 
+  private _warmType?: string;
   public get warmType() {
     return this.getStringAttribute('warm_type');
   }
@@ -1145,7 +1145,7 @@ export class OpensearchDomainClusterConfigOutputReference extends cdktf.ComplexO
   }
 
   // zone_awareness_enabled - computed: false, optional: true, required: false
-  private _zoneAwarenessEnabled?: boolean | cdktf.IResolvable; 
+  private _zoneAwarenessEnabled?: boolean | cdktf.IResolvable;
   public get zoneAwarenessEnabled() {
     return this.getBooleanAttribute('zone_awareness_enabled');
   }
@@ -1275,7 +1275,7 @@ export class OpensearchDomainCognitoOptionsOutputReference extends cdktf.Complex
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1291,7 +1291,7 @@ export class OpensearchDomainCognitoOptionsOutputReference extends cdktf.Complex
   }
 
   // identity_pool_id - computed: false, optional: false, required: true
-  private _identityPoolId?: string; 
+  private _identityPoolId?: string;
   public get identityPoolId() {
     return this.getStringAttribute('identity_pool_id');
   }
@@ -1304,7 +1304,7 @@ export class OpensearchDomainCognitoOptionsOutputReference extends cdktf.Complex
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1317,7 +1317,7 @@ export class OpensearchDomainCognitoOptionsOutputReference extends cdktf.Complex
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string; 
+  private _userPoolId?: string;
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }
@@ -1423,7 +1423,7 @@ export class OpensearchDomainDomainEndpointOptionsOutputReference extends cdktf.
   }
 
   // custom_endpoint - computed: false, optional: true, required: false
-  private _customEndpoint?: string; 
+  private _customEndpoint?: string;
   public get customEndpoint() {
     return this.getStringAttribute('custom_endpoint');
   }
@@ -1439,7 +1439,7 @@ export class OpensearchDomainDomainEndpointOptionsOutputReference extends cdktf.
   }
 
   // custom_endpoint_certificate_arn - computed: false, optional: true, required: false
-  private _customEndpointCertificateArn?: string; 
+  private _customEndpointCertificateArn?: string;
   public get customEndpointCertificateArn() {
     return this.getStringAttribute('custom_endpoint_certificate_arn');
   }
@@ -1455,7 +1455,7 @@ export class OpensearchDomainDomainEndpointOptionsOutputReference extends cdktf.
   }
 
   // custom_endpoint_enabled - computed: false, optional: true, required: false
-  private _customEndpointEnabled?: boolean | cdktf.IResolvable; 
+  private _customEndpointEnabled?: boolean | cdktf.IResolvable;
   public get customEndpointEnabled() {
     return this.getBooleanAttribute('custom_endpoint_enabled');
   }
@@ -1471,7 +1471,7 @@ export class OpensearchDomainDomainEndpointOptionsOutputReference extends cdktf.
   }
 
   // enforce_https - computed: false, optional: true, required: false
-  private _enforceHttps?: boolean | cdktf.IResolvable; 
+  private _enforceHttps?: boolean | cdktf.IResolvable;
   public get enforceHttps() {
     return this.getBooleanAttribute('enforce_https');
   }
@@ -1487,7 +1487,7 @@ export class OpensearchDomainDomainEndpointOptionsOutputReference extends cdktf.
   }
 
   // tls_security_policy - computed: true, optional: true, required: false
-  private _tlsSecurityPolicy?: string; 
+  private _tlsSecurityPolicy?: string;
   public get tlsSecurityPolicy() {
     return this.getStringAttribute('tls_security_policy');
   }
@@ -1596,7 +1596,7 @@ export class OpensearchDomainEbsOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // ebs_enabled - computed: false, optional: false, required: true
-  private _ebsEnabled?: boolean | cdktf.IResolvable; 
+  private _ebsEnabled?: boolean | cdktf.IResolvable;
   public get ebsEnabled() {
     return this.getBooleanAttribute('ebs_enabled');
   }
@@ -1609,7 +1609,7 @@ export class OpensearchDomainEbsOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -1625,7 +1625,7 @@ export class OpensearchDomainEbsOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number; 
+  private _throughput?: number;
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -1641,7 +1641,7 @@ export class OpensearchDomainEbsOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // volume_size - computed: false, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -1657,7 +1657,7 @@ export class OpensearchDomainEbsOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -1733,7 +1733,7 @@ export class OpensearchDomainEncryptAtRestOutputReference extends cdktf.ComplexO
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1746,7 +1746,7 @@ export class OpensearchDomainEncryptAtRestOutputReference extends cdktf.ComplexO
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -1845,7 +1845,7 @@ export class OpensearchDomainLogPublishingOptionsOutputReference extends cdktf.C
   }
 
   // cloudwatch_log_group_arn - computed: false, optional: false, required: true
-  private _cloudwatchLogGroupArn?: string; 
+  private _cloudwatchLogGroupArn?: string;
   public get cloudwatchLogGroupArn() {
     return this.getStringAttribute('cloudwatch_log_group_arn');
   }
@@ -1858,7 +1858,7 @@ export class OpensearchDomainLogPublishingOptionsOutputReference extends cdktf.C
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1874,7 +1874,7 @@ export class OpensearchDomainLogPublishingOptionsOutputReference extends cdktf.C
   }
 
   // log_type - computed: false, optional: false, required: true
-  private _logType?: string; 
+  private _logType?: string;
   public get logType() {
     return this.getStringAttribute('log_type');
   }
@@ -1956,7 +1956,7 @@ export class OpensearchDomainNodeToNodeEncryptionOutputReference extends cdktf.C
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -2018,7 +2018,7 @@ export class OpensearchDomainSnapshotOptionsOutputReference extends cdktf.Comple
   }
 
   // automated_snapshot_start_hour - computed: false, optional: false, required: true
-  private _automatedSnapshotStartHour?: number; 
+  private _automatedSnapshotStartHour?: number;
   public get automatedSnapshotStartHour() {
     return this.getNumberAttribute('automated_snapshot_start_hour');
   }
@@ -2112,7 +2112,7 @@ export class OpensearchDomainTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -2128,7 +2128,7 @@ export class OpensearchDomainTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -2144,7 +2144,7 @@ export class OpensearchDomainTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -2225,7 +2225,7 @@ export class OpensearchDomainVpcOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -2241,7 +2241,7 @@ export class OpensearchDomainVpcOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // subnet_ids - computed: false, optional: true, required: false
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -2325,7 +2325,7 @@ export class OpensearchDomain extends cdktf.TerraformResource {
   // ==========
 
   // access_policies - computed: true, optional: true, required: false
-  private _accessPolicies?: string; 
+  private _accessPolicies?: string;
   public get accessPolicies() {
     return this.getStringAttribute('access_policies');
   }
@@ -2341,7 +2341,7 @@ export class OpensearchDomain extends cdktf.TerraformResource {
   }
 
   // advanced_options - computed: true, optional: true, required: false
-  private _advancedOptions?: { [key: string]: string }; 
+  private _advancedOptions?: { [key: string]: string };
   public get advancedOptions() {
     return this.getStringMapAttribute('advanced_options');
   }
@@ -2372,7 +2372,7 @@ export class OpensearchDomain extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -2390,7 +2390,7 @@ export class OpensearchDomain extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: false, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -2406,7 +2406,7 @@ export class OpensearchDomain extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2427,7 +2427,7 @@ export class OpensearchDomain extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2443,7 +2443,7 @@ export class OpensearchDomain extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

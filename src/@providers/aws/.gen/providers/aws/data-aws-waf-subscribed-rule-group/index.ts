@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/waf_subscribed_rule_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsWafSubscribedRuleGroup extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DataAwsWafSubscribedRuleGroup extends cdktf.TerraformDataSource {
   }
 
   // metric_name - computed: false, optional: true, required: false
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -103,7 +103,7 @@ export class DataAwsWafSubscribedRuleGroup extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

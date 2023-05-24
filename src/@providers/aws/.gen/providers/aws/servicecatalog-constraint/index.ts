@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_constraint
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface ServicecatalogConstraintConfig extends cdktf.TerraformMetaArgum
   readonly type: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_constraint#timeouts ServicecatalogConstraint#timeouts}
   */
   readonly timeouts?: ServicecatalogConstraintTimeouts;
@@ -138,7 +138,7 @@ export class ServicecatalogConstraintTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -154,7 +154,7 @@ export class ServicecatalogConstraintTimeoutsOutputReference extends cdktf.Compl
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -170,7 +170,7 @@ export class ServicecatalogConstraintTimeoutsOutputReference extends cdktf.Compl
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -186,7 +186,7 @@ export class ServicecatalogConstraintTimeoutsOutputReference extends cdktf.Compl
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -254,7 +254,7 @@ export class ServicecatalogConstraint extends cdktf.TerraformResource {
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string; 
+  private _acceptLanguage?: string;
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -270,7 +270,7 @@ export class ServicecatalogConstraint extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -286,7 +286,7 @@ export class ServicecatalogConstraint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -307,7 +307,7 @@ export class ServicecatalogConstraint extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: false, required: true
-  private _parameters?: string; 
+  private _parameters?: string;
   public get parameters() {
     return this.getStringAttribute('parameters');
   }
@@ -320,7 +320,7 @@ export class ServicecatalogConstraint extends cdktf.TerraformResource {
   }
 
   // portfolio_id - computed: false, optional: false, required: true
-  private _portfolioId?: string; 
+  private _portfolioId?: string;
   public get portfolioId() {
     return this.getStringAttribute('portfolio_id');
   }
@@ -333,7 +333,7 @@ export class ServicecatalogConstraint extends cdktf.TerraformResource {
   }
 
   // product_id - computed: false, optional: false, required: true
-  private _productId?: string; 
+  private _productId?: string;
   public get productId() {
     return this.getStringAttribute('product_id');
   }
@@ -351,7 +351,7 @@ export class ServicecatalogConstraint extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

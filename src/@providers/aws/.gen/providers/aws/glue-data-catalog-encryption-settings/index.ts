@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_data_catalog_encryption_settings
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface GlueDataCatalogEncryptionSettingsConfig extends cdktf.Terraform
   readonly id?: string;
   /**
   * data_catalog_encryption_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_data_catalog_encryption_settings#data_catalog_encryption_settings GlueDataCatalogEncryptionSettings#data_catalog_encryption_settings}
   */
   readonly dataCatalogEncryptionSettings: GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettings;
@@ -86,7 +86,7 @@ export class GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConne
   }
 
   // aws_kms_key_id - computed: false, optional: true, required: false
-  private _awsKmsKeyId?: string; 
+  private _awsKmsKeyId?: string;
   public get awsKmsKeyId() {
     return this.getStringAttribute('aws_kms_key_id');
   }
@@ -102,7 +102,7 @@ export class GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConne
   }
 
   // return_connection_password_encrypted - computed: false, optional: false, required: true
-  private _returnConnectionPasswordEncrypted?: boolean | cdktf.IResolvable; 
+  private _returnConnectionPasswordEncrypted?: boolean | cdktf.IResolvable;
   public get returnConnectionPasswordEncrypted() {
     return this.getBooleanAttribute('return_connection_password_encrypted');
   }
@@ -175,7 +175,7 @@ export class GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncry
   }
 
   // catalog_encryption_mode - computed: false, optional: false, required: true
-  private _catalogEncryptionMode?: string; 
+  private _catalogEncryptionMode?: string;
   public get catalogEncryptionMode() {
     return this.getStringAttribute('catalog_encryption_mode');
   }
@@ -188,7 +188,7 @@ export class GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncry
   }
 
   // sse_aws_kms_key_id - computed: false, optional: true, required: false
-  private _sseAwsKmsKeyId?: string; 
+  private _sseAwsKmsKeyId?: string;
   public get sseAwsKmsKeyId() {
     return this.getStringAttribute('sse_aws_kms_key_id');
   }
@@ -206,13 +206,13 @@ export class GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncry
 export interface GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
   /**
   * connection_password_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_data_catalog_encryption_settings#connection_password_encryption GlueDataCatalogEncryptionSettings#connection_password_encryption}
   */
   readonly connectionPasswordEncryption: GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption;
   /**
   * encryption_at_rest block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_data_catalog_encryption_settings#encryption_at_rest GlueDataCatalogEncryptionSettings#encryption_at_rest}
   */
   readonly encryptionAtRest: GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest;
@@ -341,7 +341,7 @@ export class GlueDataCatalogEncryptionSettings extends cdktf.TerraformResource {
   // ==========
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -357,7 +357,7 @@ export class GlueDataCatalogEncryptionSettings extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

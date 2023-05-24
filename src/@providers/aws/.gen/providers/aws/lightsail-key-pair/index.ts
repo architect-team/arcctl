@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_key_pair
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class LightsailKeyPair extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -117,7 +117,7 @@ export class LightsailKeyPair extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -133,7 +133,7 @@ export class LightsailKeyPair extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: false, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -149,7 +149,7 @@ export class LightsailKeyPair extends cdktf.TerraformResource {
   }
 
   // pgp_key - computed: false, optional: true, required: false
-  private _pgpKey?: string; 
+  private _pgpKey?: string;
   public get pgpKey() {
     return this.getStringAttribute('pgp_key');
   }
@@ -170,7 +170,7 @@ export class LightsailKeyPair extends cdktf.TerraformResource {
   }
 
   // public_key - computed: true, optional: true, required: false
-  private _publicKey?: string; 
+  private _publicKey?: string;
   public get publicKey() {
     return this.getStringAttribute('public_key');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/rds_global_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,7 +48,7 @@ export interface RdsGlobalClusterConfig extends cdktf.TerraformMetaArguments {
   readonly storageEncrypted?: boolean | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#timeouts RdsGlobalCluster#timeouts}
   */
   readonly timeouts?: RdsGlobalClusterTimeouts;
@@ -204,7 +204,7 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -220,7 +220,7 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -236,7 +236,7 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -311,7 +311,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: true, required: false
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -327,7 +327,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // deletion_protection - computed: false, optional: true, required: false
-  private _deletionProtection?: boolean | cdktf.IResolvable; 
+  private _deletionProtection?: boolean | cdktf.IResolvable;
   public get deletionProtection() {
     return this.getBooleanAttribute('deletion_protection');
   }
@@ -343,7 +343,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // engine - computed: true, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -359,7 +359,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -380,7 +380,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -396,7 +396,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // global_cluster_identifier - computed: false, optional: false, required: true
-  private _globalClusterIdentifier?: string; 
+  private _globalClusterIdentifier?: string;
   public get globalClusterIdentifier() {
     return this.getStringAttribute('global_cluster_identifier');
   }
@@ -420,7 +420,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -436,7 +436,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // source_db_cluster_identifier - computed: true, optional: true, required: false
-  private _sourceDbClusterIdentifier?: string; 
+  private _sourceDbClusterIdentifier?: string;
   public get sourceDbClusterIdentifier() {
     return this.getStringAttribute('source_db_cluster_identifier');
   }
@@ -452,7 +452,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // storage_encrypted - computed: true, optional: true, required: false
-  private _storageEncrypted?: boolean | cdktf.IResolvable; 
+  private _storageEncrypted?: boolean | cdktf.IResolvable;
   public get storageEncrypted() {
     return this.getBooleanAttribute('storage_encrypted');
   }

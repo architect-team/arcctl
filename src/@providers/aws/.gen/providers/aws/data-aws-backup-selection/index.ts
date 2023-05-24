@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/backup_selection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsBackupSelection extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class DataAwsBackupSelection extends cdktf.TerraformDataSource {
   }
 
   // plan_id - computed: false, optional: false, required: true
-  private _planId?: string; 
+  private _planId?: string;
   public get planId() {
     return this.getStringAttribute('plan_id');
   }
@@ -115,7 +115,7 @@ export class DataAwsBackupSelection extends cdktf.TerraformDataSource {
   }
 
   // selection_id - computed: false, optional: false, required: true
-  private _selectionId?: string; 
+  private _selectionId?: string;
   public get selectionId() {
     return this.getStringAttribute('selection_id');
   }

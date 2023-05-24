@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { StatefulSetMetadata, 
-statefulSetMetadataToTerraform, 
-StatefulSetMetadataOutputReference, 
-StatefulSetSpec, 
-statefulSetSpecToTerraform, 
-StatefulSetSpecOutputReference, 
-StatefulSetTimeouts, 
-statefulSetTimeoutsToTerraform, 
+import { StatefulSetMetadata,
+statefulSetMetadataToTerraform,
+StatefulSetMetadataOutputReference,
+StatefulSetSpec,
+statefulSetSpecToTerraform,
+StatefulSetSpecOutputReference,
+StatefulSetTimeouts,
+statefulSetTimeoutsToTerraform,
 StatefulSetTimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface StatefulSetConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -22,25 +22,25 @@ export interface StatefulSetConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Wait for the rollout of the stateful set to complete. Defaults to true.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#wait_for_rollout StatefulSet#wait_for_rollout}
   */
   readonly waitForRollout?: boolean | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#metadata StatefulSet#metadata}
   */
   readonly metadata: StatefulSetMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#spec StatefulSet#spec}
   */
   readonly spec: StatefulSetSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#timeouts StatefulSet#timeouts}
   */
   readonly timeouts?: StatefulSetTimeouts;
@@ -95,7 +95,7 @@ export class StatefulSet extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -111,7 +111,7 @@ export class StatefulSet extends cdktf.TerraformResource {
   }
 
   // wait_for_rollout - computed: false, optional: true, required: false
-  private _waitForRollout?: boolean | cdktf.IResolvable; 
+  private _waitForRollout?: boolean | cdktf.IResolvable;
   public get waitForRollout() {
     return this.getBooleanAttribute('wait_for_rollout');
   }

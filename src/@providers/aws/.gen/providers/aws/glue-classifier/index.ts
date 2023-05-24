@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_classifier
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,25 +20,25 @@ export interface GlueClassifierConfig extends cdktf.TerraformMetaArguments {
   readonly name: string;
   /**
   * csv_classifier block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_classifier#csv_classifier GlueClassifier#csv_classifier}
   */
   readonly csvClassifier?: GlueClassifierCsvClassifier;
   /**
   * grok_classifier block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_classifier#grok_classifier GlueClassifier#grok_classifier}
   */
   readonly grokClassifier?: GlueClassifierGrokClassifier;
   /**
   * json_classifier block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_classifier#json_classifier GlueClassifier#json_classifier}
   */
   readonly jsonClassifier?: GlueClassifierJsonClassifier;
   /**
   * xml_classifier block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_classifier#xml_classifier GlueClassifier#xml_classifier}
   */
   readonly xmlClassifier?: GlueClassifierXmlClassifier;
@@ -170,7 +170,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // allow_single_column - computed: false, optional: true, required: false
-  private _allowSingleColumn?: boolean | cdktf.IResolvable; 
+  private _allowSingleColumn?: boolean | cdktf.IResolvable;
   public get allowSingleColumn() {
     return this.getBooleanAttribute('allow_single_column');
   }
@@ -186,7 +186,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // contains_header - computed: false, optional: true, required: false
-  private _containsHeader?: string; 
+  private _containsHeader?: string;
   public get containsHeader() {
     return this.getStringAttribute('contains_header');
   }
@@ -202,7 +202,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // custom_datatype_configured - computed: false, optional: true, required: false
-  private _customDatatypeConfigured?: boolean | cdktf.IResolvable; 
+  private _customDatatypeConfigured?: boolean | cdktf.IResolvable;
   public get customDatatypeConfigured() {
     return this.getBooleanAttribute('custom_datatype_configured');
   }
@@ -218,7 +218,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // custom_datatypes - computed: false, optional: true, required: false
-  private _customDatatypes?: string[]; 
+  private _customDatatypes?: string[];
   public get customDatatypes() {
     return this.getListAttribute('custom_datatypes');
   }
@@ -234,7 +234,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // delimiter - computed: false, optional: true, required: false
-  private _delimiter?: string; 
+  private _delimiter?: string;
   public get delimiter() {
     return this.getStringAttribute('delimiter');
   }
@@ -250,7 +250,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // disable_value_trimming - computed: false, optional: true, required: false
-  private _disableValueTrimming?: boolean | cdktf.IResolvable; 
+  private _disableValueTrimming?: boolean | cdktf.IResolvable;
   public get disableValueTrimming() {
     return this.getBooleanAttribute('disable_value_trimming');
   }
@@ -266,7 +266,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // header - computed: false, optional: true, required: false
-  private _header?: string[]; 
+  private _header?: string[];
   public get header() {
     return this.getListAttribute('header');
   }
@@ -282,7 +282,7 @@ export class GlueClassifierCsvClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // quote_symbol - computed: false, optional: true, required: false
-  private _quoteSymbol?: string; 
+  private _quoteSymbol?: string;
   public get quoteSymbol() {
     return this.getStringAttribute('quote_symbol');
   }
@@ -369,7 +369,7 @@ export class GlueClassifierGrokClassifierOutputReference extends cdktf.ComplexOb
   }
 
   // classification - computed: false, optional: false, required: true
-  private _classification?: string; 
+  private _classification?: string;
   public get classification() {
     return this.getStringAttribute('classification');
   }
@@ -382,7 +382,7 @@ export class GlueClassifierGrokClassifierOutputReference extends cdktf.ComplexOb
   }
 
   // custom_patterns - computed: false, optional: true, required: false
-  private _customPatterns?: string; 
+  private _customPatterns?: string;
   public get customPatterns() {
     return this.getStringAttribute('custom_patterns');
   }
@@ -398,7 +398,7 @@ export class GlueClassifierGrokClassifierOutputReference extends cdktf.ComplexOb
   }
 
   // grok_pattern - computed: false, optional: false, required: true
-  private _grokPattern?: string; 
+  private _grokPattern?: string;
   public get grokPattern() {
     return this.getStringAttribute('grok_pattern');
   }
@@ -460,7 +460,7 @@ export class GlueClassifierJsonClassifierOutputReference extends cdktf.ComplexOb
   }
 
   // json_path - computed: false, optional: false, required: true
-  private _jsonPath?: string; 
+  private _jsonPath?: string;
   public get jsonPath() {
     return this.getStringAttribute('json_path');
   }
@@ -533,7 +533,7 @@ export class GlueClassifierXmlClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // classification - computed: false, optional: false, required: true
-  private _classification?: string; 
+  private _classification?: string;
   public get classification() {
     return this.getStringAttribute('classification');
   }
@@ -546,7 +546,7 @@ export class GlueClassifierXmlClassifierOutputReference extends cdktf.ComplexObj
   }
 
   // row_tag - computed: false, optional: false, required: true
-  private _rowTag?: string; 
+  private _rowTag?: string;
   public get rowTag() {
     return this.getStringAttribute('row_tag');
   }
@@ -609,7 +609,7 @@ export class GlueClassifier extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -625,7 +625,7 @@ export class GlueClassifier extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

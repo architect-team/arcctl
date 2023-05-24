@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_resolver_firewall_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class Route53ResolverFirewallConfig extends cdktf.TerraformResource {
   // ==========
 
   // firewall_fail_open - computed: true, optional: true, required: false
-  private _firewallFailOpen?: string; 
+  private _firewallFailOpen?: string;
   public get firewallFailOpen() {
     return this.getStringAttribute('firewall_fail_open');
   }
@@ -87,7 +87,7 @@ export class Route53ResolverFirewallConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -108,7 +108,7 @@ export class Route53ResolverFirewallConfig extends cdktf.TerraformResource {
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }

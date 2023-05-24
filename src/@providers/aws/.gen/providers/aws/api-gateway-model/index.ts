@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_model
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class ApiGatewayModel extends cdktf.TerraformResource {
   // ==========
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -99,7 +99,7 @@ export class ApiGatewayModel extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -115,7 +115,7 @@ export class ApiGatewayModel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -131,7 +131,7 @@ export class ApiGatewayModel extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -144,7 +144,7 @@ export class ApiGatewayModel extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -157,7 +157,7 @@ export class ApiGatewayModel extends cdktf.TerraformResource {
   }
 
   // schema - computed: false, optional: true, required: false
-  private _schema?: string; 
+  private _schema?: string;
   public get schema() {
     return this.getStringAttribute('schema');
   }

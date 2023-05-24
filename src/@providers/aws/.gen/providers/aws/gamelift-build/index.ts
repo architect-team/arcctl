@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/gamelift_build
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface GameliftBuildConfig extends cdktf.TerraformMetaArguments {
   readonly version?: string;
   /**
   * storage_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_build#storage_location GameliftBuild#storage_location}
   */
   readonly storageLocation: GameliftBuildStorageLocation;
@@ -124,7 +124,7 @@ export class GameliftBuildStorageLocationOutputReference extends cdktf.ComplexOb
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -137,7 +137,7 @@ export class GameliftBuildStorageLocationOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -150,7 +150,7 @@ export class GameliftBuildStorageLocationOutputReference extends cdktf.ComplexOb
   }
 
   // object_version - computed: false, optional: true, required: false
-  private _objectVersion?: string; 
+  private _objectVersion?: string;
   public get objectVersion() {
     return this.getStringAttribute('object_version');
   }
@@ -166,7 +166,7 @@ export class GameliftBuildStorageLocationOutputReference extends cdktf.ComplexOb
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -235,7 +235,7 @@ export class GameliftBuild extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -251,7 +251,7 @@ export class GameliftBuild extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -264,7 +264,7 @@ export class GameliftBuild extends cdktf.TerraformResource {
   }
 
   // operating_system - computed: false, optional: false, required: true
-  private _operatingSystem?: string; 
+  private _operatingSystem?: string;
   public get operatingSystem() {
     return this.getStringAttribute('operating_system');
   }
@@ -277,7 +277,7 @@ export class GameliftBuild extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -293,7 +293,7 @@ export class GameliftBuild extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -309,7 +309,7 @@ export class GameliftBuild extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

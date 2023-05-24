@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_partner
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class RedshiftPartner extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -94,7 +94,7 @@ export class RedshiftPartner extends cdktf.TerraformResource {
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -107,7 +107,7 @@ export class RedshiftPartner extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -120,7 +120,7 @@ export class RedshiftPartner extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -136,7 +136,7 @@ export class RedshiftPartner extends cdktf.TerraformResource {
   }
 
   // partner_name - computed: false, optional: false, required: true
-  private _partnerName?: string; 
+  private _partnerName?: string;
   public get partnerName() {
     return this.getStringAttribute('partner_name');
   }

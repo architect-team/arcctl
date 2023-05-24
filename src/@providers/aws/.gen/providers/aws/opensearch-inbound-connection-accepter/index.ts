@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opensearch_inbound_connection_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface OpensearchInboundConnectionAccepterConfig extends cdktf.Terrafo
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_inbound_connection_accepter#timeouts OpensearchInboundConnectionAccepter#timeouts}
   */
   readonly timeouts?: OpensearchInboundConnectionAccepterTimeouts;
@@ -96,7 +96,7 @@ export class OpensearchInboundConnectionAccepterTimeoutsOutputReference extends 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -112,7 +112,7 @@ export class OpensearchInboundConnectionAccepterTimeoutsOutputReference extends 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -175,7 +175,7 @@ export class OpensearchInboundConnectionAccepter extends cdktf.TerraformResource
   // ==========
 
   // connection_id - computed: false, optional: false, required: true
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -193,7 +193,7 @@ export class OpensearchInboundConnectionAccepter extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

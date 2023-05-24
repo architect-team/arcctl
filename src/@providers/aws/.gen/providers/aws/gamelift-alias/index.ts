@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/gamelift_alias
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface GameliftAliasConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * routing_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_alias#routing_strategy GameliftAlias#routing_strategy}
   */
   readonly routingStrategy: GameliftAliasRoutingStrategy;
@@ -109,7 +109,7 @@ export class GameliftAliasRoutingStrategyOutputReference extends cdktf.ComplexOb
   }
 
   // fleet_id - computed: false, optional: true, required: false
-  private _fleetId?: string; 
+  private _fleetId?: string;
   public get fleetId() {
     return this.getStringAttribute('fleet_id');
   }
@@ -125,7 +125,7 @@ export class GameliftAliasRoutingStrategyOutputReference extends cdktf.ComplexOb
   }
 
   // message - computed: false, optional: true, required: false
-  private _message?: string; 
+  private _message?: string;
   public get message() {
     return this.getStringAttribute('message');
   }
@@ -141,7 +141,7 @@ export class GameliftAliasRoutingStrategyOutputReference extends cdktf.ComplexOb
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -209,7 +209,7 @@ export class GameliftAlias extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -225,7 +225,7 @@ export class GameliftAlias extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -241,7 +241,7 @@ export class GameliftAlias extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -254,7 +254,7 @@ export class GameliftAlias extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -270,7 +270,7 @@ export class GameliftAlias extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

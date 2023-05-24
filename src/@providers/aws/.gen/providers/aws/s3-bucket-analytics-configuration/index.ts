@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_analytics_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface S3BucketAnalyticsConfigurationConfig extends cdktf.TerraformMet
   readonly name: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_analytics_configuration#filter S3BucketAnalyticsConfiguration#filter}
   */
   readonly filter?: S3BucketAnalyticsConfigurationFilter;
   /**
   * storage_class_analysis block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_analytics_configuration#storage_class_analysis S3BucketAnalyticsConfiguration#storage_class_analysis}
   */
   readonly storageClassAnalysis?: S3BucketAnalyticsConfigurationStorageClassAnalysis;
@@ -96,7 +96,7 @@ export class S3BucketAnalyticsConfigurationFilterOutputReference extends cdktf.C
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -112,7 +112,7 @@ export class S3BucketAnalyticsConfigurationFilterOutputReference extends cdktf.C
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -210,7 +210,7 @@ export class S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestina
   }
 
   // bucket_account_id - computed: false, optional: true, required: false
-  private _bucketAccountId?: string; 
+  private _bucketAccountId?: string;
   public get bucketAccountId() {
     return this.getStringAttribute('bucket_account_id');
   }
@@ -226,7 +226,7 @@ export class S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestina
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -239,7 +239,7 @@ export class S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestina
   }
 
   // format - computed: false, optional: true, required: false
-  private _format?: string; 
+  private _format?: string;
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -255,7 +255,7 @@ export class S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestina
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -273,7 +273,7 @@ export class S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestina
 export interface S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestination {
   /**
   * s3_bucket_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_analytics_configuration#s3_bucket_destination S3BucketAnalyticsConfiguration#s3_bucket_destination}
   */
   readonly s3BucketDestination: S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination;
@@ -341,7 +341,7 @@ export interface S3BucketAnalyticsConfigurationStorageClassAnalysisDataExport {
   readonly outputSchemaVersion?: string;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_analytics_configuration#destination S3BucketAnalyticsConfiguration#destination}
   */
   readonly destination: S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportDestination;
@@ -397,7 +397,7 @@ export class S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportOutputR
   }
 
   // output_schema_version - computed: false, optional: true, required: false
-  private _outputSchemaVersion?: string; 
+  private _outputSchemaVersion?: string;
   public get outputSchemaVersion() {
     return this.getStringAttribute('output_schema_version');
   }
@@ -428,7 +428,7 @@ export class S3BucketAnalyticsConfigurationStorageClassAnalysisDataExportOutputR
 export interface S3BucketAnalyticsConfigurationStorageClassAnalysis {
   /**
   * data_export block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_analytics_configuration#data_export S3BucketAnalyticsConfiguration#data_export}
   */
   readonly dataExport: S3BucketAnalyticsConfigurationStorageClassAnalysisDataExport;
@@ -539,7 +539,7 @@ export class S3BucketAnalyticsConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -552,7 +552,7 @@ export class S3BucketAnalyticsConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -568,7 +568,7 @@ export class S3BucketAnalyticsConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

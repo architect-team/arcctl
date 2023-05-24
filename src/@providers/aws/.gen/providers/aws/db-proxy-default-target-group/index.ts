@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/db_proxy_default_target_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface DbProxyDefaultTargetGroupConfig extends cdktf.TerraformMetaArgu
   readonly id?: string;
   /**
   * connection_pool_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_default_target_group#connection_pool_config DbProxyDefaultTargetGroup#connection_pool_config}
   */
   readonly connectionPoolConfig?: DbProxyDefaultTargetGroupConnectionPoolConfig;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_default_target_group#timeouts DbProxyDefaultTargetGroup#timeouts}
   */
   readonly timeouts?: DbProxyDefaultTargetGroupTimeouts;
@@ -125,7 +125,7 @@ export class DbProxyDefaultTargetGroupConnectionPoolConfigOutputReference extend
   }
 
   // connection_borrow_timeout - computed: false, optional: true, required: false
-  private _connectionBorrowTimeout?: number; 
+  private _connectionBorrowTimeout?: number;
   public get connectionBorrowTimeout() {
     return this.getNumberAttribute('connection_borrow_timeout');
   }
@@ -141,7 +141,7 @@ export class DbProxyDefaultTargetGroupConnectionPoolConfigOutputReference extend
   }
 
   // init_query - computed: false, optional: true, required: false
-  private _initQuery?: string; 
+  private _initQuery?: string;
   public get initQuery() {
     return this.getStringAttribute('init_query');
   }
@@ -157,7 +157,7 @@ export class DbProxyDefaultTargetGroupConnectionPoolConfigOutputReference extend
   }
 
   // max_connections_percent - computed: false, optional: true, required: false
-  private _maxConnectionsPercent?: number; 
+  private _maxConnectionsPercent?: number;
   public get maxConnectionsPercent() {
     return this.getNumberAttribute('max_connections_percent');
   }
@@ -173,7 +173,7 @@ export class DbProxyDefaultTargetGroupConnectionPoolConfigOutputReference extend
   }
 
   // max_idle_connections_percent - computed: false, optional: true, required: false
-  private _maxIdleConnectionsPercent?: number; 
+  private _maxIdleConnectionsPercent?: number;
   public get maxIdleConnectionsPercent() {
     return this.getNumberAttribute('max_idle_connections_percent');
   }
@@ -189,7 +189,7 @@ export class DbProxyDefaultTargetGroupConnectionPoolConfigOutputReference extend
   }
 
   // session_pinning_filters - computed: false, optional: true, required: false
-  private _sessionPinningFilters?: string[]; 
+  private _sessionPinningFilters?: string[];
   public get sessionPinningFilters() {
     return cdktf.Fn.tolist(this.getListAttribute('session_pinning_filters'));
   }
@@ -275,7 +275,7 @@ export class DbProxyDefaultTargetGroupTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -291,7 +291,7 @@ export class DbProxyDefaultTargetGroupTimeoutsOutputReference extends cdktf.Comp
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -360,7 +360,7 @@ export class DbProxyDefaultTargetGroup extends cdktf.TerraformResource {
   }
 
   // db_proxy_name - computed: false, optional: false, required: true
-  private _dbProxyName?: string; 
+  private _dbProxyName?: string;
   public get dbProxyName() {
     return this.getStringAttribute('db_proxy_name');
   }
@@ -373,7 +373,7 @@ export class DbProxyDefaultTargetGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

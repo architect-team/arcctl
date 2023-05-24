@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/globalaccelerator_listener
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface GlobalacceleratorListenerConfig extends cdktf.TerraformMetaArgu
   readonly protocol: string;
   /**
   * port_range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_listener#port_range GlobalacceleratorListener#port_range}
   */
   readonly portRange: GlobalacceleratorListenerPortRange[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_listener#timeouts GlobalacceleratorListener#timeouts}
   */
   readonly timeouts?: GlobalacceleratorListenerTimeouts;
@@ -112,7 +112,7 @@ export class GlobalacceleratorListenerPortRangeOutputReference extends cdktf.Com
   }
 
   // from_port - computed: false, optional: true, required: false
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -128,7 +128,7 @@ export class GlobalacceleratorListenerPortRangeOutputReference extends cdktf.Com
   }
 
   // to_port - computed: false, optional: true, required: false
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -245,7 +245,7 @@ export class GlobalacceleratorListenerTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -261,7 +261,7 @@ export class GlobalacceleratorListenerTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -277,7 +277,7 @@ export class GlobalacceleratorListenerTimeoutsOutputReference extends cdktf.Comp
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -343,7 +343,7 @@ export class GlobalacceleratorListener extends cdktf.TerraformResource {
   // ==========
 
   // accelerator_arn - computed: false, optional: false, required: true
-  private _acceleratorArn?: string; 
+  private _acceleratorArn?: string;
   public get acceleratorArn() {
     return this.getStringAttribute('accelerator_arn');
   }
@@ -356,7 +356,7 @@ export class GlobalacceleratorListener extends cdktf.TerraformResource {
   }
 
   // client_affinity - computed: false, optional: true, required: false
-  private _clientAffinity?: string; 
+  private _clientAffinity?: string;
   public get clientAffinity() {
     return this.getStringAttribute('client_affinity');
   }
@@ -372,7 +372,7 @@ export class GlobalacceleratorListener extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -388,7 +388,7 @@ export class GlobalacceleratorListener extends cdktf.TerraformResource {
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }

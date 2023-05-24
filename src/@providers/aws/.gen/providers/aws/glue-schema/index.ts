@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_schema
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // compatibility - computed: false, optional: false, required: true
-  private _compatibility?: string; 
+  private _compatibility?: string;
   public get compatibility() {
     return this.getStringAttribute('compatibility');
   }
@@ -119,7 +119,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // data_format - computed: false, optional: false, required: true
-  private _dataFormat?: string; 
+  private _dataFormat?: string;
   public get dataFormat() {
     return this.getStringAttribute('data_format');
   }
@@ -132,7 +132,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -148,7 +148,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -174,7 +174,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // registry_arn - computed: true, optional: true, required: false
-  private _registryArn?: string; 
+  private _registryArn?: string;
   public get registryArn() {
     return this.getStringAttribute('registry_arn');
   }
@@ -200,7 +200,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // schema_definition - computed: false, optional: false, required: true
-  private _schemaDefinition?: string; 
+  private _schemaDefinition?: string;
   public get schemaDefinition() {
     return this.getStringAttribute('schema_definition');
   }
@@ -213,7 +213,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // schema_name - computed: false, optional: false, required: true
-  private _schemaName?: string; 
+  private _schemaName?: string;
   public get schemaName() {
     return this.getStringAttribute('schema_name');
   }
@@ -226,7 +226,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -242,7 +242,7 @@ export class GlueSchema extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

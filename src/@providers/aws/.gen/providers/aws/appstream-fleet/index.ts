@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appstream_fleet
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,19 +76,19 @@ export interface AppstreamFleetConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * compute_capacity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#compute_capacity AppstreamFleet#compute_capacity}
   */
   readonly computeCapacity: AppstreamFleetComputeCapacity;
   /**
   * domain_join_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#domain_join_info AppstreamFleet#domain_join_info}
   */
   readonly domainJoinInfo?: AppstreamFleetDomainJoinInfo;
   /**
   * vpc_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#vpc_config AppstreamFleet#vpc_config}
   */
   readonly vpcConfig?: AppstreamFleetVpcConfig;
@@ -148,7 +148,7 @@ export class AppstreamFleetComputeCapacityOutputReference extends cdktf.ComplexO
   }
 
   // desired_instances - computed: false, optional: false, required: true
-  private _desiredInstances?: number; 
+  private _desiredInstances?: number;
   public get desiredInstances() {
     return this.getNumberAttribute('desired_instances');
   }
@@ -231,7 +231,7 @@ export class AppstreamFleetDomainJoinInfoOutputReference extends cdktf.ComplexOb
   }
 
   // directory_name - computed: true, optional: true, required: false
-  private _directoryName?: string; 
+  private _directoryName?: string;
   public get directoryName() {
     return this.getStringAttribute('directory_name');
   }
@@ -247,7 +247,7 @@ export class AppstreamFleetDomainJoinInfoOutputReference extends cdktf.ComplexOb
   }
 
   // organizational_unit_distinguished_name - computed: true, optional: true, required: false
-  private _organizationalUnitDistinguishedName?: string; 
+  private _organizationalUnitDistinguishedName?: string;
   public get organizationalUnitDistinguishedName() {
     return this.getStringAttribute('organizational_unit_distinguished_name');
   }
@@ -323,7 +323,7 @@ export class AppstreamFleetVpcConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return this.getListAttribute('security_group_ids');
   }
@@ -339,7 +339,7 @@ export class AppstreamFleetVpcConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // subnet_ids - computed: true, optional: true, required: false
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return this.getListAttribute('subnet_ids');
   }
@@ -428,7 +428,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -444,7 +444,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // disconnect_timeout_in_seconds - computed: true, optional: true, required: false
-  private _disconnectTimeoutInSeconds?: number; 
+  private _disconnectTimeoutInSeconds?: number;
   public get disconnectTimeoutInSeconds() {
     return this.getNumberAttribute('disconnect_timeout_in_seconds');
   }
@@ -460,7 +460,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // display_name - computed: true, optional: true, required: false
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -476,7 +476,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // enable_default_internet_access - computed: true, optional: true, required: false
-  private _enableDefaultInternetAccess?: boolean | cdktf.IResolvable; 
+  private _enableDefaultInternetAccess?: boolean | cdktf.IResolvable;
   public get enableDefaultInternetAccess() {
     return this.getBooleanAttribute('enable_default_internet_access');
   }
@@ -492,7 +492,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // fleet_type - computed: true, optional: true, required: false
-  private _fleetType?: string; 
+  private _fleetType?: string;
   public get fleetType() {
     return this.getStringAttribute('fleet_type');
   }
@@ -508,7 +508,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // iam_role_arn - computed: true, optional: true, required: false
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -524,7 +524,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -540,7 +540,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // idle_disconnect_timeout_in_seconds - computed: false, optional: true, required: false
-  private _idleDisconnectTimeoutInSeconds?: number; 
+  private _idleDisconnectTimeoutInSeconds?: number;
   public get idleDisconnectTimeoutInSeconds() {
     return this.getNumberAttribute('idle_disconnect_timeout_in_seconds');
   }
@@ -556,7 +556,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // image_arn - computed: true, optional: true, required: false
-  private _imageArn?: string; 
+  private _imageArn?: string;
   public get imageArn() {
     return this.getStringAttribute('image_arn');
   }
@@ -572,7 +572,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // image_name - computed: true, optional: true, required: false
-  private _imageName?: string; 
+  private _imageName?: string;
   public get imageName() {
     return this.getStringAttribute('image_name');
   }
@@ -588,7 +588,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -601,7 +601,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // max_user_duration_in_seconds - computed: true, optional: true, required: false
-  private _maxUserDurationInSeconds?: number; 
+  private _maxUserDurationInSeconds?: number;
   public get maxUserDurationInSeconds() {
     return this.getNumberAttribute('max_user_duration_in_seconds');
   }
@@ -617,7 +617,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -635,7 +635,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // stream_view - computed: true, optional: true, required: false
-  private _streamView?: string; 
+  private _streamView?: string;
   public get streamView() {
     return this.getStringAttribute('stream_view');
   }
@@ -651,7 +651,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -667,7 +667,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

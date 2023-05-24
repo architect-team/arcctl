@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,37 +9,37 @@ import * as cdktf from 'cdktf';
 export interface DigitaloceanProviderConfig {
   /**
   * The URL to use for the DigitalOcean API.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#api_endpoint DigitaloceanProvider#api_endpoint}
   */
   readonly apiEndpoint?: string;
   /**
   * The access key ID for Spaces API operations.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_access_id DigitaloceanProvider#spaces_access_id}
   */
   readonly spacesAccessId?: string;
   /**
   * The URL to use for the DigitalOcean Spaces API.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_endpoint DigitaloceanProvider#spaces_endpoint}
   */
   readonly spacesEndpoint?: string;
   /**
   * The secret access key for Spaces API operations.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_secret_key DigitaloceanProvider#spaces_secret_key}
   */
   readonly spacesSecretKey?: string;
   /**
   * The token key for API operations.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#token DigitaloceanProvider#token}
   */
   readonly token?: string;
   /**
   * Alias name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#alias DigitaloceanProvider#alias}
   */
   readonly alias?: string;
@@ -89,7 +89,7 @@ export class DigitaloceanProvider extends cdktf.TerraformProvider {
   // ==========
 
   // api_endpoint - computed: false, optional: true, required: false
-  private _apiEndpoint?: string; 
+  private _apiEndpoint?: string;
   public get apiEndpoint() {
     return this._apiEndpoint;
   }
@@ -105,7 +105,7 @@ export class DigitaloceanProvider extends cdktf.TerraformProvider {
   }
 
   // spaces_access_id - computed: false, optional: true, required: false
-  private _spacesAccessId?: string; 
+  private _spacesAccessId?: string;
   public get spacesAccessId() {
     return this._spacesAccessId;
   }
@@ -121,7 +121,7 @@ export class DigitaloceanProvider extends cdktf.TerraformProvider {
   }
 
   // spaces_endpoint - computed: false, optional: true, required: false
-  private _spacesEndpoint?: string; 
+  private _spacesEndpoint?: string;
   public get spacesEndpoint() {
     return this._spacesEndpoint;
   }
@@ -137,7 +137,7 @@ export class DigitaloceanProvider extends cdktf.TerraformProvider {
   }
 
   // spaces_secret_key - computed: false, optional: true, required: false
-  private _spacesSecretKey?: string; 
+  private _spacesSecretKey?: string;
   public get spacesSecretKey() {
     return this._spacesSecretKey;
   }
@@ -153,7 +153,7 @@ export class DigitaloceanProvider extends cdktf.TerraformProvider {
   }
 
   // token - computed: false, optional: true, required: false
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this._token;
   }
@@ -169,7 +169,7 @@ export class DigitaloceanProvider extends cdktf.TerraformProvider {
   }
 
   // alias - computed: false, optional: true, required: false
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this._alias;
   }

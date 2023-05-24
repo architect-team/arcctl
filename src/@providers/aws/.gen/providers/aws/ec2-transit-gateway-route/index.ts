@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_route
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class Ec2TransitGatewayRoute extends cdktf.TerraformResource {
   // ==========
 
   // blackhole - computed: false, optional: true, required: false
-  private _blackhole?: boolean | cdktf.IResolvable; 
+  private _blackhole?: boolean | cdktf.IResolvable;
   public get blackhole() {
     return this.getBooleanAttribute('blackhole');
   }
@@ -97,7 +97,7 @@ export class Ec2TransitGatewayRoute extends cdktf.TerraformResource {
   }
 
   // destination_cidr_block - computed: false, optional: false, required: true
-  private _destinationCidrBlock?: string; 
+  private _destinationCidrBlock?: string;
   public get destinationCidrBlock() {
     return this.getStringAttribute('destination_cidr_block');
   }
@@ -110,7 +110,7 @@ export class Ec2TransitGatewayRoute extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -126,7 +126,7 @@ export class Ec2TransitGatewayRoute extends cdktf.TerraformResource {
   }
 
   // transit_gateway_attachment_id - computed: false, optional: true, required: false
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }
@@ -142,7 +142,7 @@ export class Ec2TransitGatewayRoute extends cdktf.TerraformResource {
   }
 
   // transit_gateway_route_table_id - computed: false, optional: false, required: true
-  private _transitGatewayRouteTableId?: string; 
+  private _transitGatewayRouteTableId?: string;
   public get transitGatewayRouteTableId() {
     return this.getStringAttribute('transit_gateway_route_table_id');
   }

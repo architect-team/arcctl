@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecs_capacity_provider
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface EcsCapacityProviderConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * auto_scaling_group_provider block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_capacity_provider#auto_scaling_group_provider EcsCapacityProvider#auto_scaling_group_provider}
   */
   readonly autoScalingGroupProvider: EcsCapacityProviderAutoScalingGroupProvider;
@@ -127,7 +127,7 @@ export class EcsCapacityProviderAutoScalingGroupProviderManagedScalingOutputRefe
   }
 
   // instance_warmup_period - computed: true, optional: true, required: false
-  private _instanceWarmupPeriod?: number; 
+  private _instanceWarmupPeriod?: number;
   public get instanceWarmupPeriod() {
     return this.getNumberAttribute('instance_warmup_period');
   }
@@ -143,7 +143,7 @@ export class EcsCapacityProviderAutoScalingGroupProviderManagedScalingOutputRefe
   }
 
   // maximum_scaling_step_size - computed: true, optional: true, required: false
-  private _maximumScalingStepSize?: number; 
+  private _maximumScalingStepSize?: number;
   public get maximumScalingStepSize() {
     return this.getNumberAttribute('maximum_scaling_step_size');
   }
@@ -159,7 +159,7 @@ export class EcsCapacityProviderAutoScalingGroupProviderManagedScalingOutputRefe
   }
 
   // minimum_scaling_step_size - computed: true, optional: true, required: false
-  private _minimumScalingStepSize?: number; 
+  private _minimumScalingStepSize?: number;
   public get minimumScalingStepSize() {
     return this.getNumberAttribute('minimum_scaling_step_size');
   }
@@ -175,7 +175,7 @@ export class EcsCapacityProviderAutoScalingGroupProviderManagedScalingOutputRefe
   }
 
   // status - computed: true, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -191,7 +191,7 @@ export class EcsCapacityProviderAutoScalingGroupProviderManagedScalingOutputRefe
   }
 
   // target_capacity - computed: true, optional: true, required: false
-  private _targetCapacity?: number; 
+  private _targetCapacity?: number;
   public get targetCapacity() {
     return this.getNumberAttribute('target_capacity');
   }
@@ -217,7 +217,7 @@ export interface EcsCapacityProviderAutoScalingGroupProvider {
   readonly managedTerminationProtection?: string;
   /**
   * managed_scaling block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_capacity_provider#managed_scaling EcsCapacityProvider#managed_scaling}
   */
   readonly managedScaling?: EcsCapacityProviderAutoScalingGroupProviderManagedScaling;
@@ -280,7 +280,7 @@ export class EcsCapacityProviderAutoScalingGroupProviderOutputReference extends 
   }
 
   // auto_scaling_group_arn - computed: false, optional: false, required: true
-  private _autoScalingGroupArn?: string; 
+  private _autoScalingGroupArn?: string;
   public get autoScalingGroupArn() {
     return this.getStringAttribute('auto_scaling_group_arn');
   }
@@ -293,7 +293,7 @@ export class EcsCapacityProviderAutoScalingGroupProviderOutputReference extends 
   }
 
   // managed_termination_protection - computed: true, optional: true, required: false
-  private _managedTerminationProtection?: string; 
+  private _managedTerminationProtection?: string;
   public get managedTerminationProtection() {
     return this.getStringAttribute('managed_termination_protection');
   }
@@ -379,7 +379,7 @@ export class EcsCapacityProvider extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -395,7 +395,7 @@ export class EcsCapacityProvider extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -408,7 +408,7 @@ export class EcsCapacityProvider extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -424,7 +424,7 @@ export class EcsCapacityProvider extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

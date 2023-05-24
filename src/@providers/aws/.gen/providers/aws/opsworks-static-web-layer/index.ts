@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -100,19 +100,19 @@ export interface OpsworksStaticWebLayerConfig extends cdktf.TerraformMetaArgumen
   readonly useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
   /**
   * cloudwatch_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#cloudwatch_configuration OpsworksStaticWebLayer#cloudwatch_configuration}
   */
   readonly cloudwatchConfiguration?: OpsworksStaticWebLayerCloudwatchConfiguration;
   /**
   * ebs_volume block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#ebs_volume OpsworksStaticWebLayer#ebs_volume}
   */
   readonly ebsVolume?: OpsworksStaticWebLayerEbsVolume[] | cdktf.IResolvable;
   /**
   * load_based_auto_scaling block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#load_based_auto_scaling OpsworksStaticWebLayer#load_based_auto_scaling}
   */
   readonly loadBasedAutoScaling?: OpsworksStaticWebLayerLoadBasedAutoScaling;
@@ -289,7 +289,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // batch_count - computed: false, optional: true, required: false
-  private _batchCount?: number; 
+  private _batchCount?: number;
   public get batchCount() {
     return this.getNumberAttribute('batch_count');
   }
@@ -305,7 +305,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // batch_size - computed: false, optional: true, required: false
-  private _batchSize?: number; 
+  private _batchSize?: number;
   public get batchSize() {
     return this.getNumberAttribute('batch_size');
   }
@@ -321,7 +321,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // buffer_duration - computed: false, optional: true, required: false
-  private _bufferDuration?: number; 
+  private _bufferDuration?: number;
   public get bufferDuration() {
     return this.getNumberAttribute('buffer_duration');
   }
@@ -337,7 +337,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // datetime_format - computed: false, optional: true, required: false
-  private _datetimeFormat?: string; 
+  private _datetimeFormat?: string;
   public get datetimeFormat() {
     return this.getStringAttribute('datetime_format');
   }
@@ -353,7 +353,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // encoding - computed: false, optional: true, required: false
-  private _encoding?: string; 
+  private _encoding?: string;
   public get encoding() {
     return this.getStringAttribute('encoding');
   }
@@ -369,7 +369,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // file - computed: false, optional: false, required: true
-  private _file?: string; 
+  private _file?: string;
   public get file() {
     return this.getStringAttribute('file');
   }
@@ -382,7 +382,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // file_fingerprint_lines - computed: false, optional: true, required: false
-  private _fileFingerprintLines?: string; 
+  private _fileFingerprintLines?: string;
   public get fileFingerprintLines() {
     return this.getStringAttribute('file_fingerprint_lines');
   }
@@ -398,7 +398,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // initial_position - computed: false, optional: true, required: false
-  private _initialPosition?: string; 
+  private _initialPosition?: string;
   public get initialPosition() {
     return this.getStringAttribute('initial_position');
   }
@@ -414,7 +414,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -427,7 +427,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // multiline_start_pattern - computed: false, optional: true, required: false
-  private _multilineStartPattern?: string; 
+  private _multilineStartPattern?: string;
   public get multilineStartPattern() {
     return this.getStringAttribute('multiline_start_pattern');
   }
@@ -443,7 +443,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // time_zone - computed: false, optional: true, required: false
-  private _timeZone?: string; 
+  private _timeZone?: string;
   public get timeZone() {
     return this.getStringAttribute('time_zone');
   }
@@ -485,7 +485,7 @@ export interface OpsworksStaticWebLayerCloudwatchConfiguration {
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * log_streams block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#log_streams OpsworksStaticWebLayer#log_streams}
   */
   readonly logStreams?: OpsworksStaticWebLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable;
@@ -541,7 +541,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationOutputReference extend
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -700,7 +700,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // encrypted - computed: false, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -716,7 +716,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // iops - computed: false, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -732,7 +732,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // mount_point - computed: false, optional: false, required: true
-  private _mountPoint?: string; 
+  private _mountPoint?: string;
   public get mountPoint() {
     return this.getStringAttribute('mount_point');
   }
@@ -745,7 +745,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // number_of_disks - computed: false, optional: false, required: true
-  private _numberOfDisks?: number; 
+  private _numberOfDisks?: number;
   public get numberOfDisks() {
     return this.getNumberAttribute('number_of_disks');
   }
@@ -758,7 +758,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // raid_level - computed: false, optional: true, required: false
-  private _raidLevel?: string; 
+  private _raidLevel?: string;
   public get raidLevel() {
     return this.getStringAttribute('raid_level');
   }
@@ -774,7 +774,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -787,7 +787,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -938,7 +938,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[]; 
+  private _alarms?: string[];
   public get alarms() {
     return this.getListAttribute('alarms');
   }
@@ -954,7 +954,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // cpu_threshold - computed: false, optional: true, required: false
-  private _cpuThreshold?: number; 
+  private _cpuThreshold?: number;
   public get cpuThreshold() {
     return this.getNumberAttribute('cpu_threshold');
   }
@@ -970,7 +970,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // ignore_metrics_time - computed: false, optional: true, required: false
-  private _ignoreMetricsTime?: number; 
+  private _ignoreMetricsTime?: number;
   public get ignoreMetricsTime() {
     return this.getNumberAttribute('ignore_metrics_time');
   }
@@ -986,7 +986,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -1002,7 +1002,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // load_threshold - computed: false, optional: true, required: false
-  private _loadThreshold?: number; 
+  private _loadThreshold?: number;
   public get loadThreshold() {
     return this.getNumberAttribute('load_threshold');
   }
@@ -1018,7 +1018,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // memory_threshold - computed: false, optional: true, required: false
-  private _memoryThreshold?: number; 
+  private _memoryThreshold?: number;
   public get memoryThreshold() {
     return this.getNumberAttribute('memory_threshold');
   }
@@ -1034,7 +1034,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // thresholds_wait_time - computed: false, optional: true, required: false
-  private _thresholdsWaitTime?: number; 
+  private _thresholdsWaitTime?: number;
   public get thresholdsWaitTime() {
     return this.getNumberAttribute('thresholds_wait_time');
   }
@@ -1165,7 +1165,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[]; 
+  private _alarms?: string[];
   public get alarms() {
     return this.getListAttribute('alarms');
   }
@@ -1181,7 +1181,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // cpu_threshold - computed: false, optional: true, required: false
-  private _cpuThreshold?: number; 
+  private _cpuThreshold?: number;
   public get cpuThreshold() {
     return this.getNumberAttribute('cpu_threshold');
   }
@@ -1197,7 +1197,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // ignore_metrics_time - computed: false, optional: true, required: false
-  private _ignoreMetricsTime?: number; 
+  private _ignoreMetricsTime?: number;
   public get ignoreMetricsTime() {
     return this.getNumberAttribute('ignore_metrics_time');
   }
@@ -1213,7 +1213,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -1229,7 +1229,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // load_threshold - computed: false, optional: true, required: false
-  private _loadThreshold?: number; 
+  private _loadThreshold?: number;
   public get loadThreshold() {
     return this.getNumberAttribute('load_threshold');
   }
@@ -1245,7 +1245,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // memory_threshold - computed: false, optional: true, required: false
-  private _memoryThreshold?: number; 
+  private _memoryThreshold?: number;
   public get memoryThreshold() {
     return this.getNumberAttribute('memory_threshold');
   }
@@ -1261,7 +1261,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // thresholds_wait_time - computed: false, optional: true, required: false
-  private _thresholdsWaitTime?: number; 
+  private _thresholdsWaitTime?: number;
   public get thresholdsWaitTime() {
     return this.getNumberAttribute('thresholds_wait_time');
   }
@@ -1283,13 +1283,13 @@ export interface OpsworksStaticWebLayerLoadBasedAutoScaling {
   readonly enable?: boolean | cdktf.IResolvable;
   /**
   * downscaling block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#downscaling OpsworksStaticWebLayer#downscaling}
   */
   readonly downscaling?: OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling;
   /**
   * upscaling block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#upscaling OpsworksStaticWebLayer#upscaling}
   */
   readonly upscaling?: OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling;
@@ -1352,7 +1352,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference extends c
   }
 
   // enable - computed: false, optional: true, required: false
-  private _enable?: boolean | cdktf.IResolvable; 
+  private _enable?: boolean | cdktf.IResolvable;
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -1474,7 +1474,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // auto_assign_elastic_ips - computed: false, optional: true, required: false
-  private _autoAssignElasticIps?: boolean | cdktf.IResolvable; 
+  private _autoAssignElasticIps?: boolean | cdktf.IResolvable;
   public get autoAssignElasticIps() {
     return this.getBooleanAttribute('auto_assign_elastic_ips');
   }
@@ -1490,7 +1490,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // auto_assign_public_ips - computed: false, optional: true, required: false
-  private _autoAssignPublicIps?: boolean | cdktf.IResolvable; 
+  private _autoAssignPublicIps?: boolean | cdktf.IResolvable;
   public get autoAssignPublicIps() {
     return this.getBooleanAttribute('auto_assign_public_ips');
   }
@@ -1506,7 +1506,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // auto_healing - computed: false, optional: true, required: false
-  private _autoHealing?: boolean | cdktf.IResolvable; 
+  private _autoHealing?: boolean | cdktf.IResolvable;
   public get autoHealing() {
     return this.getBooleanAttribute('auto_healing');
   }
@@ -1522,7 +1522,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_configure_recipes - computed: false, optional: true, required: false
-  private _customConfigureRecipes?: string[]; 
+  private _customConfigureRecipes?: string[];
   public get customConfigureRecipes() {
     return this.getListAttribute('custom_configure_recipes');
   }
@@ -1538,7 +1538,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_deploy_recipes - computed: false, optional: true, required: false
-  private _customDeployRecipes?: string[]; 
+  private _customDeployRecipes?: string[];
   public get customDeployRecipes() {
     return this.getListAttribute('custom_deploy_recipes');
   }
@@ -1554,7 +1554,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_instance_profile_arn - computed: false, optional: true, required: false
-  private _customInstanceProfileArn?: string; 
+  private _customInstanceProfileArn?: string;
   public get customInstanceProfileArn() {
     return this.getStringAttribute('custom_instance_profile_arn');
   }
@@ -1570,7 +1570,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_json - computed: false, optional: true, required: false
-  private _customJson?: string; 
+  private _customJson?: string;
   public get customJson() {
     return this.getStringAttribute('custom_json');
   }
@@ -1586,7 +1586,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_security_group_ids - computed: false, optional: true, required: false
-  private _customSecurityGroupIds?: string[]; 
+  private _customSecurityGroupIds?: string[];
   public get customSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('custom_security_group_ids'));
   }
@@ -1602,7 +1602,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_setup_recipes - computed: false, optional: true, required: false
-  private _customSetupRecipes?: string[]; 
+  private _customSetupRecipes?: string[];
   public get customSetupRecipes() {
     return this.getListAttribute('custom_setup_recipes');
   }
@@ -1618,7 +1618,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_shutdown_recipes - computed: false, optional: true, required: false
-  private _customShutdownRecipes?: string[]; 
+  private _customShutdownRecipes?: string[];
   public get customShutdownRecipes() {
     return this.getListAttribute('custom_shutdown_recipes');
   }
@@ -1634,7 +1634,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_undeploy_recipes - computed: false, optional: true, required: false
-  private _customUndeployRecipes?: string[]; 
+  private _customUndeployRecipes?: string[];
   public get customUndeployRecipes() {
     return this.getListAttribute('custom_undeploy_recipes');
   }
@@ -1650,7 +1650,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // drain_elb_on_shutdown - computed: false, optional: true, required: false
-  private _drainElbOnShutdown?: boolean | cdktf.IResolvable; 
+  private _drainElbOnShutdown?: boolean | cdktf.IResolvable;
   public get drainElbOnShutdown() {
     return this.getBooleanAttribute('drain_elb_on_shutdown');
   }
@@ -1666,7 +1666,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // elastic_load_balancer - computed: false, optional: true, required: false
-  private _elasticLoadBalancer?: string; 
+  private _elasticLoadBalancer?: string;
   public get elasticLoadBalancer() {
     return this.getStringAttribute('elastic_load_balancer');
   }
@@ -1682,7 +1682,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1698,7 +1698,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // install_updates_on_boot - computed: false, optional: true, required: false
-  private _installUpdatesOnBoot?: boolean | cdktf.IResolvable; 
+  private _installUpdatesOnBoot?: boolean | cdktf.IResolvable;
   public get installUpdatesOnBoot() {
     return this.getBooleanAttribute('install_updates_on_boot');
   }
@@ -1714,7 +1714,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // instance_shutdown_timeout - computed: false, optional: true, required: false
-  private _instanceShutdownTimeout?: number; 
+  private _instanceShutdownTimeout?: number;
   public get instanceShutdownTimeout() {
     return this.getNumberAttribute('instance_shutdown_timeout');
   }
@@ -1730,7 +1730,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1746,7 +1746,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // stack_id - computed: false, optional: false, required: true
-  private _stackId?: string; 
+  private _stackId?: string;
   public get stackId() {
     return this.getStringAttribute('stack_id');
   }
@@ -1759,7 +1759,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // system_packages - computed: false, optional: true, required: false
-  private _systemPackages?: string[]; 
+  private _systemPackages?: string[];
   public get systemPackages() {
     return cdktf.Fn.tolist(this.getListAttribute('system_packages'));
   }
@@ -1775,7 +1775,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1791,7 +1791,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1807,7 +1807,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // use_ebs_optimized_instances - computed: false, optional: true, required: false
-  private _useEbsOptimizedInstances?: boolean | cdktf.IResolvable; 
+  private _useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
   public get useEbsOptimizedInstances() {
     return this.getBooleanAttribute('use_ebs_optimized_instances');
   }

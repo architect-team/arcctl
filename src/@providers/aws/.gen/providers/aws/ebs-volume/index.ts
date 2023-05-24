@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ebs_volume
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -68,7 +68,7 @@ export interface EbsVolumeConfig extends cdktf.TerraformMetaArguments {
   readonly type?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ebs_volume#timeouts EbsVolume#timeouts}
   */
   readonly timeouts?: EbsVolumeTimeouts;
@@ -155,7 +155,7 @@ export class EbsVolumeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -171,7 +171,7 @@ export class EbsVolumeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -187,7 +187,7 @@ export class EbsVolumeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -267,7 +267,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: false, optional: false, required: true
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -280,7 +280,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -296,7 +296,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // final_snapshot - computed: false, optional: true, required: false
-  private _finalSnapshot?: boolean | cdktf.IResolvable; 
+  private _finalSnapshot?: boolean | cdktf.IResolvable;
   public get finalSnapshot() {
     return this.getBooleanAttribute('final_snapshot');
   }
@@ -312,7 +312,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -328,7 +328,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -344,7 +344,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -360,7 +360,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // multi_attach_enabled - computed: false, optional: true, required: false
-  private _multiAttachEnabled?: boolean | cdktf.IResolvable; 
+  private _multiAttachEnabled?: boolean | cdktf.IResolvable;
   public get multiAttachEnabled() {
     return this.getBooleanAttribute('multi_attach_enabled');
   }
@@ -376,7 +376,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // outpost_arn - computed: false, optional: true, required: false
-  private _outpostArn?: string; 
+  private _outpostArn?: string;
   public get outpostArn() {
     return this.getStringAttribute('outpost_arn');
   }
@@ -392,7 +392,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // size - computed: true, optional: true, required: false
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -408,7 +408,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // snapshot_id - computed: true, optional: true, required: false
-  private _snapshotId?: string; 
+  private _snapshotId?: string;
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -424,7 +424,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -440,7 +440,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -456,7 +456,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number; 
+  private _throughput?: number;
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -472,7 +472,7 @@ export class EbsVolume extends cdktf.TerraformResource {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

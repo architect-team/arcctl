@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/emr_instance_fleet
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface EmrInstanceFleetConfig extends cdktf.TerraformMetaArguments {
   readonly targetSpotCapacity?: number;
   /**
   * instance_type_configs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_instance_fleet#instance_type_configs EmrInstanceFleet#instance_type_configs}
   */
   readonly instanceTypeConfigs?: EmrInstanceFleetInstanceTypeConfigs[] | cdktf.IResolvable;
   /**
   * launch_specifications block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_instance_fleet#launch_specifications EmrInstanceFleet#launch_specifications}
   */
   readonly launchSpecifications?: EmrInstanceFleetLaunchSpecifications;
@@ -116,7 +116,7 @@ export class EmrInstanceFleetInstanceTypeConfigsConfigurationsOutputReference ex
   }
 
   // classification - computed: false, optional: true, required: false
-  private _classification?: string; 
+  private _classification?: string;
   public get classification() {
     return this.getStringAttribute('classification');
   }
@@ -132,7 +132,7 @@ export class EmrInstanceFleetInstanceTypeConfigsConfigurationsOutputReference ex
   }
 
   // properties - computed: false, optional: true, required: false
-  private _properties?: { [key: string]: string }; 
+  private _properties?: { [key: string]: string };
   public get properties() {
     return this.getStringMapAttribute('properties');
   }
@@ -262,7 +262,7 @@ export class EmrInstanceFleetInstanceTypeConfigsEbsConfigOutputReference extends
   }
 
   // iops - computed: false, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -278,7 +278,7 @@ export class EmrInstanceFleetInstanceTypeConfigsEbsConfigOutputReference extends
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -291,7 +291,7 @@ export class EmrInstanceFleetInstanceTypeConfigsEbsConfigOutputReference extends
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -304,7 +304,7 @@ export class EmrInstanceFleetInstanceTypeConfigsEbsConfigOutputReference extends
   }
 
   // volumes_per_instance - computed: false, optional: true, required: false
-  private _volumesPerInstance?: number; 
+  private _volumesPerInstance?: number;
   public get volumesPerInstance() {
     return this.getNumberAttribute('volumes_per_instance');
   }
@@ -358,13 +358,13 @@ export interface EmrInstanceFleetInstanceTypeConfigs {
   readonly weightedCapacity?: number;
   /**
   * configurations block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_instance_fleet#configurations EmrInstanceFleet#configurations}
   */
   readonly configurations?: EmrInstanceFleetInstanceTypeConfigsConfigurations[] | cdktf.IResolvable;
   /**
   * ebs_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_instance_fleet#ebs_config EmrInstanceFleet#ebs_config}
   */
   readonly ebsConfig?: EmrInstanceFleetInstanceTypeConfigsEbsConfig[] | cdktf.IResolvable;
@@ -460,7 +460,7 @@ export class EmrInstanceFleetInstanceTypeConfigsOutputReference extends cdktf.Co
   }
 
   // bid_price - computed: false, optional: true, required: false
-  private _bidPrice?: string; 
+  private _bidPrice?: string;
   public get bidPrice() {
     return this.getStringAttribute('bid_price');
   }
@@ -476,7 +476,7 @@ export class EmrInstanceFleetInstanceTypeConfigsOutputReference extends cdktf.Co
   }
 
   // bid_price_as_percentage_of_on_demand_price - computed: false, optional: true, required: false
-  private _bidPriceAsPercentageOfOnDemandPrice?: number; 
+  private _bidPriceAsPercentageOfOnDemandPrice?: number;
   public get bidPriceAsPercentageOfOnDemandPrice() {
     return this.getNumberAttribute('bid_price_as_percentage_of_on_demand_price');
   }
@@ -492,7 +492,7 @@ export class EmrInstanceFleetInstanceTypeConfigsOutputReference extends cdktf.Co
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -505,7 +505,7 @@ export class EmrInstanceFleetInstanceTypeConfigsOutputReference extends cdktf.Co
   }
 
   // weighted_capacity - computed: false, optional: true, required: false
-  private _weightedCapacity?: number; 
+  private _weightedCapacity?: number;
   public get weightedCapacity() {
     return this.getNumberAttribute('weighted_capacity');
   }
@@ -634,7 +634,7 @@ export class EmrInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputRefe
   }
 
   // allocation_strategy - computed: false, optional: false, required: true
-  private _allocationStrategy?: string; 
+  private _allocationStrategy?: string;
   public get allocationStrategy() {
     return this.getStringAttribute('allocation_strategy');
   }
@@ -761,7 +761,7 @@ export class EmrInstanceFleetLaunchSpecificationsSpotSpecificationOutputReferenc
   }
 
   // allocation_strategy - computed: false, optional: false, required: true
-  private _allocationStrategy?: string; 
+  private _allocationStrategy?: string;
   public get allocationStrategy() {
     return this.getStringAttribute('allocation_strategy');
   }
@@ -774,7 +774,7 @@ export class EmrInstanceFleetLaunchSpecificationsSpotSpecificationOutputReferenc
   }
 
   // block_duration_minutes - computed: false, optional: true, required: false
-  private _blockDurationMinutes?: number; 
+  private _blockDurationMinutes?: number;
   public get blockDurationMinutes() {
     return this.getNumberAttribute('block_duration_minutes');
   }
@@ -790,7 +790,7 @@ export class EmrInstanceFleetLaunchSpecificationsSpotSpecificationOutputReferenc
   }
 
   // timeout_action - computed: false, optional: false, required: true
-  private _timeoutAction?: string; 
+  private _timeoutAction?: string;
   public get timeoutAction() {
     return this.getStringAttribute('timeout_action');
   }
@@ -803,7 +803,7 @@ export class EmrInstanceFleetLaunchSpecificationsSpotSpecificationOutputReferenc
   }
 
   // timeout_duration_minutes - computed: false, optional: false, required: true
-  private _timeoutDurationMinutes?: number; 
+  private _timeoutDurationMinutes?: number;
   public get timeoutDurationMinutes() {
     return this.getNumberAttribute('timeout_duration_minutes');
   }
@@ -838,13 +838,13 @@ export class EmrInstanceFleetLaunchSpecificationsSpotSpecificationList extends c
 export interface EmrInstanceFleetLaunchSpecifications {
   /**
   * on_demand_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_instance_fleet#on_demand_specification EmrInstanceFleet#on_demand_specification}
   */
   readonly onDemandSpecification?: EmrInstanceFleetLaunchSpecificationsOnDemandSpecification[] | cdktf.IResolvable;
   /**
   * spot_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_instance_fleet#spot_specification EmrInstanceFleet#spot_specification}
   */
   readonly spotSpecification?: EmrInstanceFleetLaunchSpecificationsSpotSpecification[] | cdktf.IResolvable;
@@ -983,7 +983,7 @@ export class EmrInstanceFleet extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -996,7 +996,7 @@ export class EmrInstanceFleet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1012,7 +1012,7 @@ export class EmrInstanceFleet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1038,7 +1038,7 @@ export class EmrInstanceFleet extends cdktf.TerraformResource {
   }
 
   // target_on_demand_capacity - computed: false, optional: true, required: false
-  private _targetOnDemandCapacity?: number; 
+  private _targetOnDemandCapacity?: number;
   public get targetOnDemandCapacity() {
     return this.getNumberAttribute('target_on_demand_capacity');
   }
@@ -1054,7 +1054,7 @@ export class EmrInstanceFleet extends cdktf.TerraformResource {
   }
 
   // target_spot_capacity - computed: false, optional: true, required: false
-  private _targetSpotCapacity?: number; 
+  private _targetSpotCapacity?: number;
   public get targetSpotCapacity() {
     return this.getNumberAttribute('target_spot_capacity');
   }

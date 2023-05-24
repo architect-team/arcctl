@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface SagemakerCodeRepositoryConfig extends cdktf.TerraformMetaArgume
   readonly tagsAll?: { [key: string]: string };
   /**
   * git_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#git_config SagemakerCodeRepository#git_config}
   */
   readonly gitConfig: SagemakerCodeRepositoryGitConfig;
@@ -105,7 +105,7 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -121,7 +121,7 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
   }
 
   // repository_url - computed: false, optional: false, required: true
-  private _repositoryUrl?: string; 
+  private _repositoryUrl?: string;
   public get repositoryUrl() {
     return this.getStringAttribute('repository_url');
   }
@@ -134,7 +134,7 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
   }
 
   // secret_arn - computed: false, optional: true, required: false
-  private _secretArn?: string; 
+  private _secretArn?: string;
   public get secretArn() {
     return this.getStringAttribute('secret_arn');
   }
@@ -204,7 +204,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // code_repository_name - computed: false, optional: false, required: true
-  private _codeRepositoryName?: string; 
+  private _codeRepositoryName?: string;
   public get codeRepositoryName() {
     return this.getStringAttribute('code_repository_name');
   }
@@ -217,7 +217,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -233,7 +233,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -249,7 +249,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

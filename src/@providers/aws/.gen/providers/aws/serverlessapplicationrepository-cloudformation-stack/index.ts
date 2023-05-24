@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/serverlessapplicationrepository_cloudformation_stack
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface ServerlessapplicationrepositoryCloudformationStackConfig extend
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/serverlessapplicationrepository_cloudformation_stack#timeouts ServerlessapplicationrepositoryCloudformationStack#timeouts}
   */
   readonly timeouts?: ServerlessapplicationrepositoryCloudformationStackTimeouts;
@@ -131,7 +131,7 @@ export class ServerlessapplicationrepositoryCloudformationStackTimeoutsOutputRef
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -147,7 +147,7 @@ export class ServerlessapplicationrepositoryCloudformationStackTimeoutsOutputRef
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -163,7 +163,7 @@ export class ServerlessapplicationrepositoryCloudformationStackTimeoutsOutputRef
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -232,7 +232,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -245,7 +245,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   }
 
   // capabilities - computed: false, optional: false, required: true
-  private _capabilities?: string[]; 
+  private _capabilities?: string[];
   public get capabilities() {
     return cdktf.Fn.tolist(this.getListAttribute('capabilities'));
   }
@@ -258,7 +258,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -274,7 +274,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -293,7 +293,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   }
 
   // parameters - computed: true, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -309,7 +309,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   }
 
   // semantic_version - computed: true, optional: true, required: false
-  private _semanticVersion?: string; 
+  private _semanticVersion?: string;
   public get semanticVersion() {
     return this.getStringAttribute('semantic_version');
   }
@@ -325,7 +325,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -341,7 +341,7 @@ export class ServerlessapplicationrepositoryCloudformationStack extends cdktf.Te
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

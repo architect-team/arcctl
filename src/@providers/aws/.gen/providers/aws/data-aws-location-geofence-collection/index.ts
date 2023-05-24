@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/location_geofence_collection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsLocationGeofenceCollection extends cdktf.TerraformDataSource
   }
 
   // collection_name - computed: false, optional: false, required: true
-  private _collectionName?: string; 
+  private _collectionName?: string;
   public get collectionName() {
     return this.getStringAttribute('collection_name');
   }
@@ -104,7 +104,7 @@ export class DataAwsLocationGeofenceCollection extends cdktf.TerraformDataSource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -120,7 +120,7 @@ export class DataAwsLocationGeofenceCollection extends cdktf.TerraformDataSource
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -136,7 +136,7 @@ export class DataAwsLocationGeofenceCollection extends cdktf.TerraformDataSource
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

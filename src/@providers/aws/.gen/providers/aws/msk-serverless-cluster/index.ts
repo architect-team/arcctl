@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,19 +28,19 @@ export interface MskServerlessClusterConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * client_authentication block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#client_authentication MskServerlessCluster#client_authentication}
   */
   readonly clientAuthentication: MskServerlessClusterClientAuthentication;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#timeouts MskServerlessCluster#timeouts}
   */
   readonly timeouts?: MskServerlessClusterTimeouts;
   /**
   * vpc_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#vpc_config MskServerlessCluster#vpc_config}
   */
   readonly vpcConfig: MskServerlessClusterVpcConfig[] | cdktf.IResolvable;
@@ -95,7 +95,7 @@ export class MskServerlessClusterClientAuthenticationSaslIamOutputReference exte
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -110,7 +110,7 @@ export class MskServerlessClusterClientAuthenticationSaslIamOutputReference exte
 export interface MskServerlessClusterClientAuthenticationSasl {
   /**
   * iam block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#iam MskServerlessCluster#iam}
   */
   readonly iam: MskServerlessClusterClientAuthenticationSaslIam;
@@ -174,7 +174,7 @@ export class MskServerlessClusterClientAuthenticationSaslOutputReference extends
 export interface MskServerlessClusterClientAuthentication {
   /**
   * sasl block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#sasl MskServerlessCluster#sasl}
   */
   readonly sasl: MskServerlessClusterClientAuthenticationSasl;
@@ -306,7 +306,7 @@ export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -322,7 +322,7 @@ export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -410,7 +410,7 @@ export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexO
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -426,7 +426,7 @@ export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexO
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -515,7 +515,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -528,7 +528,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -544,7 +544,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -560,7 +560,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

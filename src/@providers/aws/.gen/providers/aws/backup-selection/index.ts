@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_selection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface BackupSelectionConfig extends cdktf.TerraformMetaArguments {
   readonly resources?: string[];
   /**
   * condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_selection#condition BackupSelection#condition}
   */
   readonly condition?: BackupSelectionCondition[] | cdktf.IResolvable;
   /**
   * selection_tag block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_selection#selection_tag BackupSelection#selection_tag}
   */
   readonly selectionTag?: BackupSelectionSelectionTag[] | cdktf.IResolvable;
@@ -120,7 +120,7 @@ export class BackupSelectionConditionStringEqualsOutputReference extends cdktf.C
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -133,7 +133,7 @@ export class BackupSelectionConditionStringEqualsOutputReference extends cdktf.C
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -238,7 +238,7 @@ export class BackupSelectionConditionStringLikeOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -251,7 +251,7 @@ export class BackupSelectionConditionStringLikeOutputReference extends cdktf.Com
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -356,7 +356,7 @@ export class BackupSelectionConditionStringNotEqualsOutputReference extends cdkt
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -369,7 +369,7 @@ export class BackupSelectionConditionStringNotEqualsOutputReference extends cdkt
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -474,7 +474,7 @@ export class BackupSelectionConditionStringNotLikeOutputReference extends cdktf.
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -487,7 +487,7 @@ export class BackupSelectionConditionStringNotLikeOutputReference extends cdktf.
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -522,25 +522,25 @@ export class BackupSelectionConditionStringNotLikeList extends cdktf.ComplexList
 export interface BackupSelectionCondition {
   /**
   * string_equals block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_selection#string_equals BackupSelection#string_equals}
   */
   readonly stringEquals?: BackupSelectionConditionStringEquals[] | cdktf.IResolvable;
   /**
   * string_like block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_selection#string_like BackupSelection#string_like}
   */
   readonly stringLike?: BackupSelectionConditionStringLike[] | cdktf.IResolvable;
   /**
   * string_not_equals block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_selection#string_not_equals BackupSelection#string_not_equals}
   */
   readonly stringNotEquals?: BackupSelectionConditionStringNotEquals[] | cdktf.IResolvable;
   /**
   * string_not_like block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_selection#string_not_like BackupSelection#string_not_like}
   */
   readonly stringNotLike?: BackupSelectionConditionStringNotLike[] | cdktf.IResolvable;
@@ -789,7 +789,7 @@ export class BackupSelectionSelectionTagOutputReference extends cdktf.ComplexObj
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -802,7 +802,7 @@ export class BackupSelectionSelectionTagOutputReference extends cdktf.ComplexObj
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -815,7 +815,7 @@ export class BackupSelectionSelectionTagOutputReference extends cdktf.ComplexObj
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -900,7 +900,7 @@ export class BackupSelection extends cdktf.TerraformResource {
   // ==========
 
   // iam_role_arn - computed: false, optional: false, required: true
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -913,7 +913,7 @@ export class BackupSelection extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -929,7 +929,7 @@ export class BackupSelection extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -942,7 +942,7 @@ export class BackupSelection extends cdktf.TerraformResource {
   }
 
   // not_resources - computed: true, optional: true, required: false
-  private _notResources?: string[]; 
+  private _notResources?: string[];
   public get notResources() {
     return cdktf.Fn.tolist(this.getListAttribute('not_resources'));
   }
@@ -958,7 +958,7 @@ export class BackupSelection extends cdktf.TerraformResource {
   }
 
   // plan_id - computed: false, optional: false, required: true
-  private _planId?: string; 
+  private _planId?: string;
   public get planId() {
     return this.getStringAttribute('plan_id');
   }
@@ -971,7 +971,7 @@ export class BackupSelection extends cdktf.TerraformResource {
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return cdktf.Fn.tolist(this.getListAttribute('resources'));
   }

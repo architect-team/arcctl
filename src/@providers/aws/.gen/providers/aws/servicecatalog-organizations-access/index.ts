@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_organizations_access
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface ServicecatalogOrganizationsAccessConfig extends cdktf.Terraform
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_organizations_access#timeouts ServicecatalogOrganizationsAccess#timeouts}
   */
   readonly timeouts?: ServicecatalogOrganizationsAccessTimeouts;
@@ -85,7 +85,7 @@ export class ServicecatalogOrganizationsAccessTimeoutsOutputReference extends cd
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -148,7 +148,7 @@ export class ServicecatalogOrganizationsAccess extends cdktf.TerraformResource {
   // ==========
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -161,7 +161,7 @@ export class ServicecatalogOrganizationsAccess extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

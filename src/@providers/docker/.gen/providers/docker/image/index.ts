@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/image
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,43 +9,43 @@ import * as cdktf from 'cdktf';
 export interface ImageConfig extends cdktf.TerraformMetaArguments {
   /**
   * If true, then the image is removed forcibly when the resource is destroyed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#force_remove Image#force_remove}
   */
   readonly forceRemove?: boolean | cdktf.IResolvable;
   /**
   * If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#keep_locally Image#keep_locally}
   */
   readonly keepLocally?: boolean | cdktf.IResolvable;
   /**
   * The name of the Docker image, including any tags or SHA256 repo digests.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#name Image#name}
   */
   readonly name: string;
   /**
   * The platform to use when pulling the image. Defaults to the platform of the current machine.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#platform Image#platform}
   */
   readonly platform?: string;
   /**
   * List of values which cause an image pull when changed. This is used to store the image digest from the registry when using the [docker_registry_image](../data-sources/registry_image.md).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#pull_triggers Image#pull_triggers}
   */
   readonly pullTriggers?: string[];
   /**
   * A map of arbitrary strings that, when changed, will force the `docker_image` resource to be replaced. This can be used to rebuild an image when contents of source code folders change
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#triggers Image#triggers}
   */
   readonly triggers?: { [key: string]: string };
   /**
   * build block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build Image#build}
   */
   readonly buildAttribute?: ImageBuild;
@@ -53,49 +53,49 @@ export interface ImageConfig extends cdktf.TerraformMetaArguments {
 export interface ImageBuildAuthConfig {
   /**
   * the auth token
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#auth Image#auth}
   */
   readonly auth?: string;
   /**
   * the user emal
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#email Image#email}
   */
   readonly email?: string;
   /**
   * hostname of the registry
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#host_name Image#host_name}
   */
   readonly hostName: string;
   /**
   * the identity token
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#identity_token Image#identity_token}
   */
   readonly identityToken?: string;
   /**
   * the registry password
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#password Image#password}
   */
   readonly password?: string;
   /**
   * the registry token
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#registry_token Image#registry_token}
   */
   readonly registryToken?: string;
   /**
   * the server address
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#server_address Image#server_address}
   */
   readonly serverAddress?: string;
   /**
   * the registry user name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#user_name Image#user_name}
   */
   readonly userName?: string;
@@ -205,7 +205,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // auth - computed: false, optional: true, required: false
-  private _auth?: string; 
+  private _auth?: string;
   public get auth() {
     return this.getStringAttribute('auth');
   }
@@ -221,7 +221,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // email - computed: false, optional: true, required: false
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -237,7 +237,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // host_name - computed: false, optional: false, required: true
-  private _hostName?: string; 
+  private _hostName?: string;
   public get hostName() {
     return this.getStringAttribute('host_name');
   }
@@ -250,7 +250,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // identity_token - computed: false, optional: true, required: false
-  private _identityToken?: string; 
+  private _identityToken?: string;
   public get identityToken() {
     return this.getStringAttribute('identity_token');
   }
@@ -266,7 +266,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -282,7 +282,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // registry_token - computed: false, optional: true, required: false
-  private _registryToken?: string; 
+  private _registryToken?: string;
   public get registryToken() {
     return this.getStringAttribute('registry_token');
   }
@@ -298,7 +298,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // server_address - computed: false, optional: true, required: false
-  private _serverAddress?: string; 
+  private _serverAddress?: string;
   public get serverAddress() {
     return this.getStringAttribute('server_address');
   }
@@ -314,7 +314,7 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // user_name - computed: false, optional: true, required: false
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }
@@ -352,19 +352,19 @@ export class ImageBuildAuthConfigList extends cdktf.ComplexList {
 export interface ImageBuildUlimit {
   /**
   * soft limit
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#hard Image#hard}
   */
   readonly hard: number;
   /**
   * type of ulimit, e.g. `nofile`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#name Image#name}
   */
   readonly name: string;
   /**
   * hard limit
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#soft Image#soft}
   */
   readonly soft: number;
@@ -439,7 +439,7 @@ export class ImageBuildUlimitOutputReference extends cdktf.ComplexObject {
   }
 
   // hard - computed: false, optional: false, required: true
-  private _hard?: number; 
+  private _hard?: number;
   public get hard() {
     return this.getNumberAttribute('hard');
   }
@@ -452,7 +452,7 @@ export class ImageBuildUlimitOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -465,7 +465,7 @@ export class ImageBuildUlimitOutputReference extends cdktf.ComplexObject {
   }
 
   // soft - computed: false, optional: false, required: true
-  private _soft?: number; 
+  private _soft?: number;
   public get soft() {
     return this.getNumberAttribute('soft');
   }
@@ -500,211 +500,211 @@ export class ImageBuildUlimitList extends cdktf.ComplexList {
 export interface ImageBuild {
   /**
   * Set build-time variables
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_arg Image#build_arg}
   */
   readonly buildArg?: { [key: string]: string };
   /**
   * Pairs for build-time variables in the form TODO
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_args Image#build_args}
   */
   readonly buildArgs?: { [key: string]: string };
   /**
   * BuildID is an optional identifier that can be passed together with the build request. The same identifier can be used to gracefully cancel the build with the cancel request.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_id Image#build_id}
   */
   readonly buildId?: string;
   /**
   * Images to consider as cache sources
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cache_from Image#cache_from}
   */
   readonly cacheFrom?: string[];
   /**
   * Optional parent cgroup for the container
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cgroup_parent Image#cgroup_parent}
   */
   readonly cgroupParent?: string;
   /**
   * Value to specify the build context. Currently, only a `PATH` context is supported. You can use the helper function '${path.cwd}/context-dir'. Please see https://docs.docker.com/build/building/context/ for more information about build contexts.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#context Image#context}
   */
   readonly context: string;
   /**
   * The length of a CPU period in microseconds
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_period Image#cpu_period}
   */
   readonly cpuPeriod?: number;
   /**
   * Microseconds of CPU time that the container can get in a CPU period
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_quota Image#cpu_quota}
   */
   readonly cpuQuota?: number;
   /**
   * CPUs in which to allow execution (e.g., `0-3`, `0`, `1`)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_set_cpus Image#cpu_set_cpus}
   */
   readonly cpuSetCpus?: string;
   /**
   * MEMs in which to allow execution (`0-3`, `0`, `1`)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_set_mems Image#cpu_set_mems}
   */
   readonly cpuSetMems?: string;
   /**
   * CPU shares (relative weight)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_shares Image#cpu_shares}
   */
   readonly cpuShares?: number;
   /**
   * Name of the Dockerfile. Defaults to `Dockerfile`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#dockerfile Image#dockerfile}
   */
   readonly dockerfile?: string;
   /**
   * A list of hostnames/IP mappings to add to the container’s /etc/hosts file. Specified in the form ["hostname:IP"]
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#extra_hosts Image#extra_hosts}
   */
   readonly extraHosts?: string[];
   /**
   * Always remove intermediate containers
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#force_remove Image#force_remove}
   */
   readonly forceRemove?: boolean | cdktf.IResolvable;
   /**
-  * Isolation represents the isolation technology of a container. The supported values are 
-  * 
+  * Isolation represents the isolation technology of a container. The supported values are
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#isolation Image#isolation}
   */
   readonly isolation?: string;
   /**
   * Set metadata for an image
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#label Image#label}
   */
   readonly label?: { [key: string]: string };
   /**
   * User-defined key/value metadata
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#labels Image#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Set memory limit for build
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#memory Image#memory}
   */
   readonly memory?: number;
   /**
   * Total memory (memory + swap), -1 to enable unlimited swap
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#memory_swap Image#memory_swap}
   */
   readonly memorySwap?: number;
   /**
   * Set the networking mode for the RUN instructions during build
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#network_mode Image#network_mode}
   */
   readonly networkMode?: string;
   /**
   * Do not use the cache when building the image
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#no_cache Image#no_cache}
   */
   readonly noCache?: boolean | cdktf.IResolvable;
   /**
   * Set platform if server is multi-platform capable
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#platform Image#platform}
   */
   readonly platform?: string;
   /**
   * Attempt to pull the image even if an older image exists locally
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#pull_parent Image#pull_parent}
   */
   readonly pullParent?: boolean | cdktf.IResolvable;
   /**
   * A Git repository URI or HTTP/HTTPS context URI
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#remote_context Image#remote_context}
   */
   readonly remoteContext?: string;
   /**
   * Remove intermediate containers after a successful build. Defaults to `true`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#remove Image#remove}
   */
   readonly remove?: boolean | cdktf.IResolvable;
   /**
   * The security options
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#security_opt Image#security_opt}
   */
   readonly securityOpt?: string[];
   /**
   * Set an ID for the build session
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#session_id Image#session_id}
   */
   readonly sessionId?: string;
   /**
   * Size of /dev/shm in bytes. The size must be greater than 0
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#shm_size Image#shm_size}
   */
   readonly shmSize?: number;
   /**
   * If true the new layers are squashed into a new image with a single new layer
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#squash Image#squash}
   */
   readonly squash?: boolean | cdktf.IResolvable;
   /**
   * Suppress the build output and print image ID on success
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#suppress_output Image#suppress_output}
   */
   readonly suppressOutput?: boolean | cdktf.IResolvable;
   /**
   * Name and optionally a tag in the 'name:tag' format
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#tag Image#tag}
   */
   readonly tag?: string[];
   /**
   * Set the target build stage to build
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#target Image#target}
   */
   readonly target?: string;
   /**
   * Version of the underlying builder to use
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#version Image#version}
   */
   readonly version?: string;
   /**
   * auth_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#auth_config Image#auth_config}
   */
   readonly authConfig?: ImageBuildAuthConfig[] | cdktf.IResolvable;
   /**
   * ulimit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#ulimit Image#ulimit}
   */
   readonly ulimit?: ImageBuildUlimit[] | cdktf.IResolvable;
@@ -991,7 +991,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // build_arg - computed: false, optional: true, required: false
-  private _buildArg?: { [key: string]: string }; 
+  private _buildArg?: { [key: string]: string };
   public get buildArg() {
     return this.getStringMapAttribute('build_arg');
   }
@@ -1007,7 +1007,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // build_args - computed: false, optional: true, required: false
-  private _buildArgs?: { [key: string]: string }; 
+  private _buildArgs?: { [key: string]: string };
   public get buildArgs() {
     return this.getStringMapAttribute('build_args');
   }
@@ -1023,7 +1023,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // build_id - computed: false, optional: true, required: false
-  private _buildId?: string; 
+  private _buildId?: string;
   public get buildId() {
     return this.getStringAttribute('build_id');
   }
@@ -1039,7 +1039,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // cache_from - computed: false, optional: true, required: false
-  private _cacheFrom?: string[]; 
+  private _cacheFrom?: string[];
   public get cacheFrom() {
     return this.getListAttribute('cache_from');
   }
@@ -1055,7 +1055,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // cgroup_parent - computed: false, optional: true, required: false
-  private _cgroupParent?: string; 
+  private _cgroupParent?: string;
   public get cgroupParent() {
     return this.getStringAttribute('cgroup_parent');
   }
@@ -1071,7 +1071,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // context - computed: false, optional: false, required: true
-  private _context?: string; 
+  private _context?: string;
   public get context() {
     return this.getStringAttribute('context');
   }
@@ -1084,7 +1084,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // cpu_period - computed: false, optional: true, required: false
-  private _cpuPeriod?: number; 
+  private _cpuPeriod?: number;
   public get cpuPeriod() {
     return this.getNumberAttribute('cpu_period');
   }
@@ -1100,7 +1100,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // cpu_quota - computed: false, optional: true, required: false
-  private _cpuQuota?: number; 
+  private _cpuQuota?: number;
   public get cpuQuota() {
     return this.getNumberAttribute('cpu_quota');
   }
@@ -1116,7 +1116,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // cpu_set_cpus - computed: false, optional: true, required: false
-  private _cpuSetCpus?: string; 
+  private _cpuSetCpus?: string;
   public get cpuSetCpus() {
     return this.getStringAttribute('cpu_set_cpus');
   }
@@ -1132,7 +1132,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // cpu_set_mems - computed: false, optional: true, required: false
-  private _cpuSetMems?: string; 
+  private _cpuSetMems?: string;
   public get cpuSetMems() {
     return this.getStringAttribute('cpu_set_mems');
   }
@@ -1148,7 +1148,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // cpu_shares - computed: false, optional: true, required: false
-  private _cpuShares?: number; 
+  private _cpuShares?: number;
   public get cpuShares() {
     return this.getNumberAttribute('cpu_shares');
   }
@@ -1164,7 +1164,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile - computed: false, optional: true, required: false
-  private _dockerfile?: string; 
+  private _dockerfile?: string;
   public get dockerfile() {
     return this.getStringAttribute('dockerfile');
   }
@@ -1180,7 +1180,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // extra_hosts - computed: false, optional: true, required: false
-  private _extraHosts?: string[]; 
+  private _extraHosts?: string[];
   public get extraHosts() {
     return this.getListAttribute('extra_hosts');
   }
@@ -1196,7 +1196,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // force_remove - computed: false, optional: true, required: false
-  private _forceRemove?: boolean | cdktf.IResolvable; 
+  private _forceRemove?: boolean | cdktf.IResolvable;
   public get forceRemove() {
     return this.getBooleanAttribute('force_remove');
   }
@@ -1212,7 +1212,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // isolation - computed: false, optional: true, required: false
-  private _isolation?: string; 
+  private _isolation?: string;
   public get isolation() {
     return this.getStringAttribute('isolation');
   }
@@ -1228,7 +1228,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // label - computed: false, optional: true, required: false
-  private _label?: { [key: string]: string }; 
+  private _label?: { [key: string]: string };
   public get label() {
     return this.getStringMapAttribute('label');
   }
@@ -1244,7 +1244,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -1260,7 +1260,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // memory - computed: false, optional: true, required: false
-  private _memory?: number; 
+  private _memory?: number;
   public get memory() {
     return this.getNumberAttribute('memory');
   }
@@ -1276,7 +1276,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // memory_swap - computed: false, optional: true, required: false
-  private _memorySwap?: number; 
+  private _memorySwap?: number;
   public get memorySwap() {
     return this.getNumberAttribute('memory_swap');
   }
@@ -1292,7 +1292,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // network_mode - computed: false, optional: true, required: false
-  private _networkMode?: string; 
+  private _networkMode?: string;
   public get networkMode() {
     return this.getStringAttribute('network_mode');
   }
@@ -1308,7 +1308,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // no_cache - computed: false, optional: true, required: false
-  private _noCache?: boolean | cdktf.IResolvable; 
+  private _noCache?: boolean | cdktf.IResolvable;
   public get noCache() {
     return this.getBooleanAttribute('no_cache');
   }
@@ -1324,7 +1324,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // platform - computed: false, optional: true, required: false
-  private _platform?: string; 
+  private _platform?: string;
   public get platform() {
     return this.getStringAttribute('platform');
   }
@@ -1340,7 +1340,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // pull_parent - computed: false, optional: true, required: false
-  private _pullParent?: boolean | cdktf.IResolvable; 
+  private _pullParent?: boolean | cdktf.IResolvable;
   public get pullParent() {
     return this.getBooleanAttribute('pull_parent');
   }
@@ -1356,7 +1356,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // remote_context - computed: false, optional: true, required: false
-  private _remoteContext?: string; 
+  private _remoteContext?: string;
   public get remoteContext() {
     return this.getStringAttribute('remote_context');
   }
@@ -1372,7 +1372,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // remove - computed: false, optional: true, required: false
-  private _remove?: boolean | cdktf.IResolvable; 
+  private _remove?: boolean | cdktf.IResolvable;
   public get remove() {
     return this.getBooleanAttribute('remove');
   }
@@ -1388,7 +1388,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // security_opt - computed: false, optional: true, required: false
-  private _securityOpt?: string[]; 
+  private _securityOpt?: string[];
   public get securityOpt() {
     return this.getListAttribute('security_opt');
   }
@@ -1404,7 +1404,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // session_id - computed: false, optional: true, required: false
-  private _sessionId?: string; 
+  private _sessionId?: string;
   public get sessionId() {
     return this.getStringAttribute('session_id');
   }
@@ -1420,7 +1420,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // shm_size - computed: false, optional: true, required: false
-  private _shmSize?: number; 
+  private _shmSize?: number;
   public get shmSize() {
     return this.getNumberAttribute('shm_size');
   }
@@ -1436,7 +1436,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // squash - computed: false, optional: true, required: false
-  private _squash?: boolean | cdktf.IResolvable; 
+  private _squash?: boolean | cdktf.IResolvable;
   public get squash() {
     return this.getBooleanAttribute('squash');
   }
@@ -1452,7 +1452,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // suppress_output - computed: false, optional: true, required: false
-  private _suppressOutput?: boolean | cdktf.IResolvable; 
+  private _suppressOutput?: boolean | cdktf.IResolvable;
   public get suppressOutput() {
     return this.getBooleanAttribute('suppress_output');
   }
@@ -1468,7 +1468,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string[]; 
+  private _tag?: string[];
   public get tag() {
     return this.getListAttribute('tag');
   }
@@ -1484,7 +1484,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // target - computed: false, optional: true, required: false
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -1500,7 +1500,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -1599,7 +1599,7 @@ export class Image extends cdktf.TerraformResource {
   // ==========
 
   // force_remove - computed: false, optional: true, required: false
-  private _forceRemove?: boolean | cdktf.IResolvable; 
+  private _forceRemove?: boolean | cdktf.IResolvable;
   public get forceRemove() {
     return this.getBooleanAttribute('force_remove');
   }
@@ -1625,7 +1625,7 @@ export class Image extends cdktf.TerraformResource {
   }
 
   // keep_locally - computed: false, optional: true, required: false
-  private _keepLocally?: boolean | cdktf.IResolvable; 
+  private _keepLocally?: boolean | cdktf.IResolvable;
   public get keepLocally() {
     return this.getBooleanAttribute('keep_locally');
   }
@@ -1641,7 +1641,7 @@ export class Image extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1654,7 +1654,7 @@ export class Image extends cdktf.TerraformResource {
   }
 
   // platform - computed: false, optional: true, required: false
-  private _platform?: string; 
+  private _platform?: string;
   public get platform() {
     return this.getStringAttribute('platform');
   }
@@ -1670,7 +1670,7 @@ export class Image extends cdktf.TerraformResource {
   }
 
   // pull_triggers - computed: false, optional: true, required: false
-  private _pullTriggers?: string[]; 
+  private _pullTriggers?: string[];
   public get pullTriggers() {
     return cdktf.Fn.tolist(this.getListAttribute('pull_triggers'));
   }
@@ -1691,7 +1691,7 @@ export class Image extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

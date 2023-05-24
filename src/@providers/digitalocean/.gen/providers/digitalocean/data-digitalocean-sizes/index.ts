@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/sizes
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataDigitaloceanSizesConfig extends cdktf.TerraformMetaArgument
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/sizes#filter DataDigitaloceanSizes#filter}
   */
   readonly filter?: DataDigitaloceanSizesFilter[] | cdktf.IResolvable;
   /**
   * sort block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/sizes#sort DataDigitaloceanSizes#sort}
   */
   readonly sort?: DataDigitaloceanSizesSort[] | cdktf.IResolvable;
@@ -226,7 +226,7 @@ export class DataDigitaloceanSizesFilterOutputReference extends cdktf.ComplexObj
   }
 
   // all - computed: false, optional: true, required: false
-  private _all?: boolean | cdktf.IResolvable; 
+  private _all?: boolean | cdktf.IResolvable;
   public get all() {
     return this.getBooleanAttribute('all');
   }
@@ -242,7 +242,7 @@ export class DataDigitaloceanSizesFilterOutputReference extends cdktf.ComplexObj
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -255,7 +255,7 @@ export class DataDigitaloceanSizesFilterOutputReference extends cdktf.ComplexObj
   }
 
   // match_by - computed: false, optional: true, required: false
-  private _matchBy?: string; 
+  private _matchBy?: string;
   public get matchBy() {
     return this.getStringAttribute('match_by');
   }
@@ -271,7 +271,7 @@ export class DataDigitaloceanSizesFilterOutputReference extends cdktf.ComplexObj
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -376,7 +376,7 @@ export class DataDigitaloceanSizesSortOutputReference extends cdktf.ComplexObjec
   }
 
   // direction - computed: false, optional: true, required: false
-  private _direction?: string; 
+  private _direction?: string;
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -392,7 +392,7 @@ export class DataDigitaloceanSizesSortOutputReference extends cdktf.ComplexObjec
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -472,7 +472,7 @@ export class DataDigitaloceanSizes extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

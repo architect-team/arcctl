@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_multicast_domain
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsEc2TransitGatewayMulticastDomainConfig extends cdktf.Ter
   readonly transitGatewayMulticastDomainId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_multicast_domain#filter DataAwsEc2TransitGatewayMulticastDomain#filter}
   */
   readonly filter?: DataAwsEc2TransitGatewayMulticastDomainFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_multicast_domain#timeouts DataAwsEc2TransitGatewayMulticastDomain#timeouts}
   */
   readonly timeouts?: DataAwsEc2TransitGatewayMulticastDomainTimeouts;
@@ -315,7 +315,7 @@ export class DataAwsEc2TransitGatewayMulticastDomainFilterOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -328,7 +328,7 @@ export class DataAwsEc2TransitGatewayMulticastDomainFilterOutputReference extend
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -420,7 +420,7 @@ export class DataAwsEc2TransitGatewayMulticastDomainTimeoutsOutputReference exte
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -501,7 +501,7 @@ export class DataAwsEc2TransitGatewayMulticastDomain extends cdktf.TerraformData
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -549,7 +549,7 @@ export class DataAwsEc2TransitGatewayMulticastDomain extends cdktf.TerraformData
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -575,7 +575,7 @@ export class DataAwsEc2TransitGatewayMulticastDomain extends cdktf.TerraformData
   }
 
   // transit_gateway_multicast_domain_id - computed: true, optional: true, required: false
-  private _transitGatewayMulticastDomainId?: string; 
+  private _transitGatewayMulticastDomainId?: string;
   public get transitGatewayMulticastDomainId() {
     return this.getStringAttribute('transit_gateway_multicast_domain_id');
   }

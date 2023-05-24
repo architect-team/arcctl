@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,13 +52,13 @@ export interface NetworkfirewallFirewallConfig extends cdktf.TerraformMetaArgume
   readonly vpcId: string;
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#encryption_configuration NetworkfirewallFirewall#encryption_configuration}
   */
   readonly encryptionConfiguration?: NetworkfirewallFirewallEncryptionConfiguration;
   /**
   * subnet_mapping block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#subnet_mapping NetworkfirewallFirewall#subnet_mapping}
   */
   readonly subnetMapping: NetworkfirewallFirewallSubnetMapping[] | cdktf.IResolvable;
@@ -328,7 +328,7 @@ export class NetworkfirewallFirewallEncryptionConfigurationOutputReference exten
   }
 
   // key_id - computed: false, optional: true, required: false
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -344,7 +344,7 @@ export class NetworkfirewallFirewallEncryptionConfigurationOutputReference exten
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -429,7 +429,7 @@ export class NetworkfirewallFirewallSubnetMappingOutputReference extends cdktf.C
   }
 
   // ip_address_type - computed: true, optional: true, required: false
-  private _ipAddressType?: string; 
+  private _ipAddressType?: string;
   public get ipAddressType() {
     return this.getStringAttribute('ip_address_type');
   }
@@ -445,7 +445,7 @@ export class NetworkfirewallFirewallSubnetMappingOutputReference extends cdktf.C
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -539,7 +539,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // delete_protection - computed: false, optional: true, required: false
-  private _deleteProtection?: boolean | cdktf.IResolvable; 
+  private _deleteProtection?: boolean | cdktf.IResolvable;
   public get deleteProtection() {
     return this.getBooleanAttribute('delete_protection');
   }
@@ -555,7 +555,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -571,7 +571,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // firewall_policy_arn - computed: false, optional: false, required: true
-  private _firewallPolicyArn?: string; 
+  private _firewallPolicyArn?: string;
   public get firewallPolicyArn() {
     return this.getStringAttribute('firewall_policy_arn');
   }
@@ -584,7 +584,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // firewall_policy_change_protection - computed: false, optional: true, required: false
-  private _firewallPolicyChangeProtection?: boolean | cdktf.IResolvable; 
+  private _firewallPolicyChangeProtection?: boolean | cdktf.IResolvable;
   public get firewallPolicyChangeProtection() {
     return this.getBooleanAttribute('firewall_policy_change_protection');
   }
@@ -606,7 +606,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -622,7 +622,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -635,7 +635,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // subnet_change_protection - computed: false, optional: true, required: false
-  private _subnetChangeProtection?: boolean | cdktf.IResolvable; 
+  private _subnetChangeProtection?: boolean | cdktf.IResolvable;
   public get subnetChangeProtection() {
     return this.getBooleanAttribute('subnet_change_protection');
   }
@@ -651,7 +651,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -667,7 +667,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -688,7 +688,7 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

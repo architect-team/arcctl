@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface S3ControlMultiRegionAccessPointPolicyConfig extends cdktf.Terra
   readonly id?: string;
   /**
   * details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point_policy#details S3ControlMultiRegionAccessPointPolicy#details}
   */
   readonly details: S3ControlMultiRegionAccessPointPolicyDetails;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point_policy#timeouts S3ControlMultiRegionAccessPointPolicy#timeouts}
   */
   readonly timeouts?: S3ControlMultiRegionAccessPointPolicyTimeouts;
@@ -92,7 +92,7 @@ export class S3ControlMultiRegionAccessPointPolicyDetailsOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -105,7 +105,7 @@ export class S3ControlMultiRegionAccessPointPolicyDetailsOutputReference extends
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -188,7 +188,7 @@ export class S3ControlMultiRegionAccessPointPolicyTimeoutsOutputReference extend
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -204,7 +204,7 @@ export class S3ControlMultiRegionAccessPointPolicyTimeoutsOutputReference extend
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -268,7 +268,7 @@ export class S3ControlMultiRegionAccessPointPolicy extends cdktf.TerraformResour
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -289,7 +289,7 @@ export class S3ControlMultiRegionAccessPointPolicy extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

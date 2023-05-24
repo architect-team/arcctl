@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecr_repository
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,19 +36,19 @@ export interface EcrRepositoryConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_repository#encryption_configuration EcrRepository#encryption_configuration}
   */
   readonly encryptionConfiguration?: EcrRepositoryEncryptionConfiguration[] | cdktf.IResolvable;
   /**
   * image_scanning_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_repository#image_scanning_configuration EcrRepository#image_scanning_configuration}
   */
   readonly imageScanningConfiguration?: EcrRepositoryImageScanningConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_repository#timeouts EcrRepository#timeouts}
   */
   readonly timeouts?: EcrRepositoryTimeouts;
@@ -126,7 +126,7 @@ export class EcrRepositoryEncryptionConfigurationOutputReference extends cdktf.C
   }
 
   // encryption_type - computed: false, optional: true, required: false
-  private _encryptionType?: string; 
+  private _encryptionType?: string;
   public get encryptionType() {
     return this.getStringAttribute('encryption_type');
   }
@@ -142,7 +142,7 @@ export class EcrRepositoryEncryptionConfigurationOutputReference extends cdktf.C
   }
 
   // kms_key - computed: true, optional: true, required: false
-  private _kmsKey?: string; 
+  private _kmsKey?: string;
   public get kmsKey() {
     return this.getStringAttribute('kms_key');
   }
@@ -227,7 +227,7 @@ export class EcrRepositoryImageScanningConfigurationOutputReference extends cdkt
   }
 
   // scan_on_push - computed: false, optional: false, required: true
-  private _scanOnPush?: boolean | cdktf.IResolvable; 
+  private _scanOnPush?: boolean | cdktf.IResolvable;
   public get scanOnPush() {
     return this.getBooleanAttribute('scan_on_push');
   }
@@ -299,7 +299,7 @@ export class EcrRepositoryTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -373,7 +373,7 @@ export class EcrRepository extends cdktf.TerraformResource {
   }
 
   // force_delete - computed: false, optional: true, required: false
-  private _forceDelete?: boolean | cdktf.IResolvable; 
+  private _forceDelete?: boolean | cdktf.IResolvable;
   public get forceDelete() {
     return this.getBooleanAttribute('force_delete');
   }
@@ -389,7 +389,7 @@ export class EcrRepository extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -405,7 +405,7 @@ export class EcrRepository extends cdktf.TerraformResource {
   }
 
   // image_tag_mutability - computed: false, optional: true, required: false
-  private _imageTagMutability?: string; 
+  private _imageTagMutability?: string;
   public get imageTagMutability() {
     return this.getStringAttribute('image_tag_mutability');
   }
@@ -421,7 +421,7 @@ export class EcrRepository extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -444,7 +444,7 @@ export class EcrRepository extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -460,7 +460,7 @@ export class EcrRepository extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

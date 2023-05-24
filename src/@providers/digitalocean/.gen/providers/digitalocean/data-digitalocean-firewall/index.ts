@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/firewall
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface DataDigitaloceanFirewallConfig extends cdktf.TerraformMetaArgum
   readonly tags?: string[];
   /**
   * inbound_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#inbound_rule DataDigitaloceanFirewall#inbound_rule}
   */
   readonly inboundRule?: DataDigitaloceanFirewallInboundRule[] | cdktf.IResolvable;
   /**
   * outbound_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#outbound_rule DataDigitaloceanFirewall#outbound_rule}
   */
   readonly outboundRule?: DataDigitaloceanFirewallOutboundRule[] | cdktf.IResolvable;
@@ -241,7 +241,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // port_range - computed: false, optional: true, required: false
-  private _portRange?: string; 
+  private _portRange?: string;
   public get portRange() {
     return this.getStringAttribute('port_range');
   }
@@ -257,7 +257,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -270,7 +270,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_addresses - computed: false, optional: true, required: false
-  private _sourceAddresses?: string[]; 
+  private _sourceAddresses?: string[];
   public get sourceAddresses() {
     return cdktf.Fn.tolist(this.getListAttribute('source_addresses'));
   }
@@ -286,7 +286,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_droplet_ids - computed: false, optional: true, required: false
-  private _sourceDropletIds?: number[]; 
+  private _sourceDropletIds?: number[];
   public get sourceDropletIds() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('source_droplet_ids')));
   }
@@ -302,7 +302,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_kubernetes_ids - computed: false, optional: true, required: false
-  private _sourceKubernetesIds?: string[]; 
+  private _sourceKubernetesIds?: string[];
   public get sourceKubernetesIds() {
     return cdktf.Fn.tolist(this.getListAttribute('source_kubernetes_ids'));
   }
@@ -318,7 +318,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_load_balancer_uids - computed: false, optional: true, required: false
-  private _sourceLoadBalancerUids?: string[]; 
+  private _sourceLoadBalancerUids?: string[];
   public get sourceLoadBalancerUids() {
     return cdktf.Fn.tolist(this.getListAttribute('source_load_balancer_uids'));
   }
@@ -334,7 +334,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_tags - computed: false, optional: true, required: false
-  private _sourceTags?: string[]; 
+  private _sourceTags?: string[];
   public get sourceTags() {
     return cdktf.Fn.tolist(this.getListAttribute('source_tags'));
   }
@@ -497,7 +497,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_addresses - computed: false, optional: true, required: false
-  private _destinationAddresses?: string[]; 
+  private _destinationAddresses?: string[];
   public get destinationAddresses() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_addresses'));
   }
@@ -513,7 +513,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_droplet_ids - computed: false, optional: true, required: false
-  private _destinationDropletIds?: number[]; 
+  private _destinationDropletIds?: number[];
   public get destinationDropletIds() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('destination_droplet_ids')));
   }
@@ -529,7 +529,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_kubernetes_ids - computed: false, optional: true, required: false
-  private _destinationKubernetesIds?: string[]; 
+  private _destinationKubernetesIds?: string[];
   public get destinationKubernetesIds() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_kubernetes_ids'));
   }
@@ -545,7 +545,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_load_balancer_uids - computed: false, optional: true, required: false
-  private _destinationLoadBalancerUids?: string[]; 
+  private _destinationLoadBalancerUids?: string[];
   public get destinationLoadBalancerUids() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_load_balancer_uids'));
   }
@@ -561,7 +561,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_tags - computed: false, optional: true, required: false
-  private _destinationTags?: string[]; 
+  private _destinationTags?: string[];
   public get destinationTags() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_tags'));
   }
@@ -577,7 +577,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // port_range - computed: false, optional: true, required: false
-  private _portRange?: string; 
+  private _portRange?: string;
   public get portRange() {
     return this.getStringAttribute('port_range');
   }
@@ -593,7 +593,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -681,7 +681,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // droplet_ids - computed: true, optional: true, required: false
-  private _dropletIds?: number[]; 
+  private _dropletIds?: number[];
   public get dropletIds() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')));
   }
@@ -697,7 +697,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // firewall_id - computed: false, optional: false, required: true
-  private _firewallId?: string; 
+  private _firewallId?: string;
   public get firewallId() {
     return this.getStringAttribute('firewall_id');
   }
@@ -710,7 +710,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -742,7 +742,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }

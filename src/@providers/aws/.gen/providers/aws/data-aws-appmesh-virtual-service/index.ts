@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/appmesh_virtual_service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -355,7 +355,7 @@ export class DataAwsAppmeshVirtualService extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -376,7 +376,7 @@ export class DataAwsAppmeshVirtualService extends cdktf.TerraformDataSource {
   }
 
   // mesh_name - computed: false, optional: false, required: true
-  private _meshName?: string; 
+  private _meshName?: string;
   public get meshName() {
     return this.getStringAttribute('mesh_name');
   }
@@ -389,7 +389,7 @@ export class DataAwsAppmeshVirtualService extends cdktf.TerraformDataSource {
   }
 
   // mesh_owner - computed: true, optional: true, required: false
-  private _meshOwner?: string; 
+  private _meshOwner?: string;
   public get meshOwner() {
     return this.getStringAttribute('mesh_owner');
   }
@@ -405,7 +405,7 @@ export class DataAwsAppmeshVirtualService extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -429,7 +429,7 @@ export class DataAwsAppmeshVirtualService extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

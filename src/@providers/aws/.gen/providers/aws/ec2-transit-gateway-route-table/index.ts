@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_route_table
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class Ec2TransitGatewayRouteTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class Ec2TransitGatewayRouteTable extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -123,7 +123,7 @@ export class Ec2TransitGatewayRouteTable extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -139,7 +139,7 @@ export class Ec2TransitGatewayRouteTable extends cdktf.TerraformResource {
   }
 
   // transit_gateway_id - computed: false, optional: false, required: true
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }

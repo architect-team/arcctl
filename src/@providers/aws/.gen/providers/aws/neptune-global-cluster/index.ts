@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/neptune_global_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface NeptuneGlobalClusterConfig extends cdktf.TerraformMetaArguments
   readonly storageEncrypted?: boolean | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_global_cluster#timeouts NeptuneGlobalCluster#timeouts}
   */
   readonly timeouts?: NeptuneGlobalClusterTimeouts;
@@ -196,7 +196,7 @@ export class NeptuneGlobalClusterTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -212,7 +212,7 @@ export class NeptuneGlobalClusterTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -228,7 +228,7 @@ export class NeptuneGlobalClusterTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -301,7 +301,7 @@ export class NeptuneGlobalCluster extends cdktf.TerraformResource {
   }
 
   // deletion_protection - computed: false, optional: true, required: false
-  private _deletionProtection?: boolean | cdktf.IResolvable; 
+  private _deletionProtection?: boolean | cdktf.IResolvable;
   public get deletionProtection() {
     return this.getBooleanAttribute('deletion_protection');
   }
@@ -317,7 +317,7 @@ export class NeptuneGlobalCluster extends cdktf.TerraformResource {
   }
 
   // engine - computed: true, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -333,7 +333,7 @@ export class NeptuneGlobalCluster extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -349,7 +349,7 @@ export class NeptuneGlobalCluster extends cdktf.TerraformResource {
   }
 
   // global_cluster_identifier - computed: false, optional: false, required: true
-  private _globalClusterIdentifier?: string; 
+  private _globalClusterIdentifier?: string;
   public get globalClusterIdentifier() {
     return this.getStringAttribute('global_cluster_identifier');
   }
@@ -373,7 +373,7 @@ export class NeptuneGlobalCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -389,7 +389,7 @@ export class NeptuneGlobalCluster extends cdktf.TerraformResource {
   }
 
   // source_db_cluster_identifier - computed: true, optional: true, required: false
-  private _sourceDbClusterIdentifier?: string; 
+  private _sourceDbClusterIdentifier?: string;
   public get sourceDbClusterIdentifier() {
     return this.getStringAttribute('source_db_cluster_identifier');
   }
@@ -410,7 +410,7 @@ export class NeptuneGlobalCluster extends cdktf.TerraformResource {
   }
 
   // storage_encrypted - computed: true, optional: true, required: false
-  private _storageEncrypted?: boolean | cdktf.IResolvable; 
+  private _storageEncrypted?: boolean | cdktf.IResolvable;
   public get storageEncrypted() {
     return this.getBooleanAttribute('storage_encrypted');
   }

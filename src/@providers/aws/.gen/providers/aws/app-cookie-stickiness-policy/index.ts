@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   // ==========
 
   // cookie_name - computed: false, optional: false, required: true
-  private _cookieName?: string; 
+  private _cookieName?: string;
   public get cookieName() {
     return this.getStringAttribute('cookie_name');
   }
@@ -94,7 +94,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // lb_port - computed: false, optional: false, required: true
-  private _lbPort?: number; 
+  private _lbPort?: number;
   public get lbPort() {
     return this.getNumberAttribute('lb_port');
   }
@@ -123,7 +123,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer - computed: false, optional: false, required: true
-  private _loadBalancer?: string; 
+  private _loadBalancer?: string;
   public get loadBalancer() {
     return this.getStringAttribute('load_balancer');
   }
@@ -136,7 +136,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

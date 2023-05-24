@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_security_group_egress_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -108,7 +108,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // cidr_ipv4 - computed: false, optional: true, required: false
-  private _cidrIpv4?: string; 
+  private _cidrIpv4?: string;
   public get cidrIpv4() {
     return this.getStringAttribute('cidr_ipv4');
   }
@@ -124,7 +124,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // cidr_ipv6 - computed: false, optional: true, required: false
-  private _cidrIpv6?: string; 
+  private _cidrIpv6?: string;
   public get cidrIpv6() {
     return this.getStringAttribute('cidr_ipv6');
   }
@@ -140,7 +140,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -156,7 +156,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // from_port - computed: false, optional: true, required: false
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -177,7 +177,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // ip_protocol - computed: false, optional: false, required: true
-  private _ipProtocol?: string; 
+  private _ipProtocol?: string;
   public get ipProtocol() {
     return this.getStringAttribute('ip_protocol');
   }
@@ -190,7 +190,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // prefix_list_id - computed: false, optional: true, required: false
-  private _prefixListId?: string; 
+  private _prefixListId?: string;
   public get prefixListId() {
     return this.getStringAttribute('prefix_list_id');
   }
@@ -206,7 +206,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // referenced_security_group_id - computed: false, optional: true, required: false
-  private _referencedSecurityGroupId?: string; 
+  private _referencedSecurityGroupId?: string;
   public get referencedSecurityGroupId() {
     return this.getStringAttribute('referenced_security_group_id');
   }
@@ -222,7 +222,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // security_group_id - computed: false, optional: true, required: false
-  private _securityGroupId?: string; 
+  private _securityGroupId?: string;
   public get securityGroupId() {
     return this.getStringAttribute('security_group_id');
   }
@@ -243,7 +243,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -265,7 +265,7 @@ export class VpcSecurityGroupEgressRule extends cdktf.TerraformResource {
   }
 
   // to_port - computed: false, optional: true, required: false
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }

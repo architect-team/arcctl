@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/licensemanager_license_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -122,7 +122,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -138,7 +138,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // license_count - computed: false, optional: true, required: false
-  private _licenseCount?: number; 
+  private _licenseCount?: number;
   public get licenseCount() {
     return this.getNumberAttribute('license_count');
   }
@@ -154,7 +154,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // license_count_hard_limit - computed: false, optional: true, required: false
-  private _licenseCountHardLimit?: boolean | cdktf.IResolvable; 
+  private _licenseCountHardLimit?: boolean | cdktf.IResolvable;
   public get licenseCountHardLimit() {
     return this.getBooleanAttribute('license_count_hard_limit');
   }
@@ -170,7 +170,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // license_counting_type - computed: false, optional: false, required: true
-  private _licenseCountingType?: string; 
+  private _licenseCountingType?: string;
   public get licenseCountingType() {
     return this.getStringAttribute('license_counting_type');
   }
@@ -183,7 +183,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // license_rules - computed: false, optional: true, required: false
-  private _licenseRules?: string[]; 
+  private _licenseRules?: string[];
   public get licenseRules() {
     return this.getListAttribute('license_rules');
   }
@@ -199,7 +199,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -217,7 +217,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -233,7 +233,7 @@ export class LicensemanagerLicenseConfiguration extends cdktf.TerraformResource 
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_resolver
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,25 +52,25 @@ export interface AppsyncResolverConfig extends cdktf.TerraformMetaArguments {
   readonly type: string;
   /**
   * caching_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#caching_config AppsyncResolver#caching_config}
   */
   readonly cachingConfig?: AppsyncResolverCachingConfig;
   /**
   * pipeline_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#pipeline_config AppsyncResolver#pipeline_config}
   */
   readonly pipelineConfig?: AppsyncResolverPipelineConfig;
   /**
   * runtime block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#runtime AppsyncResolver#runtime}
   */
   readonly runtime?: AppsyncResolverRuntime;
   /**
   * sync_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#sync_config AppsyncResolver#sync_config}
   */
   readonly syncConfig?: AppsyncResolverSyncConfig;
@@ -136,7 +136,7 @@ export class AppsyncResolverCachingConfigOutputReference extends cdktf.ComplexOb
   }
 
   // caching_keys - computed: false, optional: true, required: false
-  private _cachingKeys?: string[]; 
+  private _cachingKeys?: string[];
   public get cachingKeys() {
     return cdktf.Fn.tolist(this.getListAttribute('caching_keys'));
   }
@@ -152,7 +152,7 @@ export class AppsyncResolverCachingConfigOutputReference extends cdktf.ComplexOb
   }
 
   // ttl - computed: false, optional: true, required: false
-  private _ttl?: number; 
+  private _ttl?: number;
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }
@@ -217,7 +217,7 @@ export class AppsyncResolverPipelineConfigOutputReference extends cdktf.ComplexO
   }
 
   // functions - computed: false, optional: true, required: false
-  private _functions?: string[]; 
+  private _functions?: string[];
   public get functions() {
     return this.getListAttribute('functions');
   }
@@ -293,7 +293,7 @@ export class AppsyncResolverRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -306,7 +306,7 @@ export class AppsyncResolverRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // runtime_version - computed: false, optional: false, required: true
-  private _runtimeVersion?: string; 
+  private _runtimeVersion?: string;
   public get runtimeVersion() {
     return this.getStringAttribute('runtime_version');
   }
@@ -368,7 +368,7 @@ export class AppsyncResolverSyncConfigLambdaConflictHandlerConfigOutputReference
   }
 
   // lambda_conflict_handler_arn - computed: false, optional: true, required: false
-  private _lambdaConflictHandlerArn?: string; 
+  private _lambdaConflictHandlerArn?: string;
   public get lambdaConflictHandlerArn() {
     return this.getStringAttribute('lambda_conflict_handler_arn');
   }
@@ -394,7 +394,7 @@ export interface AppsyncResolverSyncConfig {
   readonly conflictHandler?: string;
   /**
   * lambda_conflict_handler_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#lambda_conflict_handler_config AppsyncResolver#lambda_conflict_handler_config}
   */
   readonly lambdaConflictHandlerConfig?: AppsyncResolverSyncConfigLambdaConflictHandlerConfig;
@@ -457,7 +457,7 @@ export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // conflict_detection - computed: false, optional: true, required: false
-  private _conflictDetection?: string; 
+  private _conflictDetection?: string;
   public get conflictDetection() {
     return this.getStringAttribute('conflict_detection');
   }
@@ -473,7 +473,7 @@ export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // conflict_handler - computed: false, optional: true, required: false
-  private _conflictHandler?: string; 
+  private _conflictHandler?: string;
   public get conflictHandler() {
     return this.getStringAttribute('conflict_handler');
   }
@@ -563,7 +563,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -581,7 +581,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // code - computed: false, optional: true, required: false
-  private _code?: string; 
+  private _code?: string;
   public get code() {
     return this.getStringAttribute('code');
   }
@@ -597,7 +597,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // data_source - computed: false, optional: true, required: false
-  private _dataSource?: string; 
+  private _dataSource?: string;
   public get dataSource() {
     return this.getStringAttribute('data_source');
   }
@@ -613,7 +613,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // field - computed: false, optional: false, required: true
-  private _field?: string; 
+  private _field?: string;
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -626,7 +626,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -642,7 +642,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // kind - computed: false, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -658,7 +658,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // max_batch_size - computed: false, optional: true, required: false
-  private _maxBatchSize?: number; 
+  private _maxBatchSize?: number;
   public get maxBatchSize() {
     return this.getNumberAttribute('max_batch_size');
   }
@@ -674,7 +674,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // request_template - computed: false, optional: true, required: false
-  private _requestTemplate?: string; 
+  private _requestTemplate?: string;
   public get requestTemplate() {
     return this.getStringAttribute('request_template');
   }
@@ -690,7 +690,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // response_template - computed: false, optional: true, required: false
-  private _responseTemplate?: string; 
+  private _responseTemplate?: string;
   public get responseTemplate() {
     return this.getStringAttribute('response_template');
   }
@@ -706,7 +706,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

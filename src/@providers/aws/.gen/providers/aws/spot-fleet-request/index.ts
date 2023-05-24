@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/spot_fleet_request
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -104,25 +104,25 @@ export interface SpotFleetRequestConfig extends cdktf.TerraformMetaArguments {
   readonly waitForFulfillment?: boolean | cdktf.IResolvable;
   /**
   * launch_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_specification SpotFleetRequest#launch_specification}
   */
   readonly launchSpecification?: SpotFleetRequestLaunchSpecification[] | cdktf.IResolvable;
   /**
   * launch_template_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_template_config SpotFleetRequest#launch_template_config}
   */
   readonly launchTemplateConfig?: SpotFleetRequestLaunchTemplateConfig[] | cdktf.IResolvable;
   /**
   * spot_maintenance_strategies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_maintenance_strategies SpotFleetRequest#spot_maintenance_strategies}
   */
   readonly spotMaintenanceStrategies?: SpotFleetRequestSpotMaintenanceStrategies;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#timeouts SpotFleetRequest#timeouts}
   */
   readonly timeouts?: SpotFleetRequestTimeouts;
@@ -277,7 +277,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
+  private _deleteOnTermination?: boolean | cdktf.IResolvable;
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -293,7 +293,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -306,7 +306,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -322,7 +322,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -338,7 +338,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -354,7 +354,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // snapshot_id - computed: true, optional: true, required: false
-  private _snapshotId?: string; 
+  private _snapshotId?: string;
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -370,7 +370,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number; 
+  private _throughput?: number;
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -386,7 +386,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -402,7 +402,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -510,7 +510,7 @@ export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputRefere
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -523,7 +523,7 @@ export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputRefere
   }
 
   // virtual_name - computed: false, optional: false, required: true
-  private _virtualName?: string; 
+  private _virtualName?: string;
   public get virtualName() {
     return this.getStringAttribute('virtual_name');
   }
@@ -683,7 +683,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
+  private _deleteOnTermination?: boolean | cdktf.IResolvable;
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -699,7 +699,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -715,7 +715,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -731,7 +731,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -747,7 +747,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number; 
+  private _throughput?: number;
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -763,7 +763,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -779,7 +779,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -885,19 +885,19 @@ export interface SpotFleetRequestLaunchSpecification {
   readonly weightedCapacity?: string;
   /**
   * ebs_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ebs_block_device SpotFleetRequest#ebs_block_device}
   */
   readonly ebsBlockDevice?: SpotFleetRequestLaunchSpecificationEbsBlockDevice[] | cdktf.IResolvable;
   /**
   * ephemeral_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ephemeral_block_device SpotFleetRequest#ephemeral_block_device}
   */
   readonly ephemeralBlockDevice?: SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[] | cdktf.IResolvable;
   /**
   * root_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#root_block_device SpotFleetRequest#root_block_device}
   */
   readonly rootBlockDevice?: SpotFleetRequestLaunchSpecificationRootBlockDevice[] | cdktf.IResolvable;
@@ -1091,7 +1091,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // ami - computed: false, optional: false, required: true
-  private _ami?: string; 
+  private _ami?: string;
   public get ami() {
     return this.getStringAttribute('ami');
   }
@@ -1104,7 +1104,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // associate_public_ip_address - computed: false, optional: true, required: false
-  private _associatePublicIpAddress?: boolean | cdktf.IResolvable; 
+  private _associatePublicIpAddress?: boolean | cdktf.IResolvable;
   public get associatePublicIpAddress() {
     return this.getBooleanAttribute('associate_public_ip_address');
   }
@@ -1120,7 +1120,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -1136,7 +1136,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // ebs_optimized - computed: false, optional: true, required: false
-  private _ebsOptimized?: boolean | cdktf.IResolvable; 
+  private _ebsOptimized?: boolean | cdktf.IResolvable;
   public get ebsOptimized() {
     return this.getBooleanAttribute('ebs_optimized');
   }
@@ -1152,7 +1152,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // iam_instance_profile - computed: false, optional: true, required: false
-  private _iamInstanceProfile?: string; 
+  private _iamInstanceProfile?: string;
   public get iamInstanceProfile() {
     return this.getStringAttribute('iam_instance_profile');
   }
@@ -1168,7 +1168,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // iam_instance_profile_arn - computed: false, optional: true, required: false
-  private _iamInstanceProfileArn?: string; 
+  private _iamInstanceProfileArn?: string;
   public get iamInstanceProfileArn() {
     return this.getStringAttribute('iam_instance_profile_arn');
   }
@@ -1184,7 +1184,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -1197,7 +1197,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // key_name - computed: true, optional: true, required: false
-  private _keyName?: string; 
+  private _keyName?: string;
   public get keyName() {
     return this.getStringAttribute('key_name');
   }
@@ -1213,7 +1213,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // monitoring - computed: false, optional: true, required: false
-  private _monitoring?: boolean | cdktf.IResolvable; 
+  private _monitoring?: boolean | cdktf.IResolvable;
   public get monitoring() {
     return this.getBooleanAttribute('monitoring');
   }
@@ -1229,7 +1229,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // placement_group - computed: true, optional: true, required: false
-  private _placementGroup?: string; 
+  private _placementGroup?: string;
   public get placementGroup() {
     return this.getStringAttribute('placement_group');
   }
@@ -1245,7 +1245,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // placement_tenancy - computed: false, optional: true, required: false
-  private _placementTenancy?: string; 
+  private _placementTenancy?: string;
   public get placementTenancy() {
     return this.getStringAttribute('placement_tenancy');
   }
@@ -1261,7 +1261,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // spot_price - computed: false, optional: true, required: false
-  private _spotPrice?: string; 
+  private _spotPrice?: string;
   public get spotPrice() {
     return this.getStringAttribute('spot_price');
   }
@@ -1277,7 +1277,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // subnet_id - computed: true, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -1293,7 +1293,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1309,7 +1309,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // user_data - computed: false, optional: true, required: false
-  private _userData?: string; 
+  private _userData?: string;
   public get userData() {
     return this.getStringAttribute('user_data');
   }
@@ -1325,7 +1325,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[]; 
+  private _vpcSecurityGroupIds?: string[];
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }
@@ -1341,7 +1341,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // weighted_capacity - computed: false, optional: true, required: false
-  private _weightedCapacity?: string; 
+  private _weightedCapacity?: string;
   public get weightedCapacity() {
     return this.getStringAttribute('weighted_capacity');
   }
@@ -1499,7 +1499,7 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1515,7 +1515,7 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1531,7 +1531,7 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -1607,7 +1607,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1623,7 +1623,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1699,7 +1699,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1715,7 +1715,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1791,7 +1791,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBa
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1807,7 +1807,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBa
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1883,7 +1883,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1899,7 +1899,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1975,7 +1975,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1991,7 +1991,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2067,7 +2067,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2083,7 +2083,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2159,7 +2159,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2175,7 +2175,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2251,7 +2251,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTo
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2267,7 +2267,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTo
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2343,7 +2343,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVc
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2359,7 +2359,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVc
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2433,55 +2433,55 @@ export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequiremen
   readonly spotMaxPricePercentageOverLowestPrice?: number;
   /**
   * accelerator_count block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_count SpotFleetRequest#accelerator_count}
   */
   readonly acceleratorCount?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount;
   /**
   * accelerator_total_memory_mib block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_total_memory_mib SpotFleetRequest#accelerator_total_memory_mib}
   */
   readonly acceleratorTotalMemoryMib?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib;
   /**
   * baseline_ebs_bandwidth_mbps block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#baseline_ebs_bandwidth_mbps SpotFleetRequest#baseline_ebs_bandwidth_mbps}
   */
   readonly baselineEbsBandwidthMbps?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps;
   /**
   * memory_gib_per_vcpu block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#memory_gib_per_vcpu SpotFleetRequest#memory_gib_per_vcpu}
   */
   readonly memoryGibPerVcpu?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu;
   /**
   * memory_mib block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#memory_mib SpotFleetRequest#memory_mib}
   */
   readonly memoryMib?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib;
   /**
   * network_bandwidth_gbps block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#network_bandwidth_gbps SpotFleetRequest#network_bandwidth_gbps}
   */
   readonly networkBandwidthGbps?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps;
   /**
   * network_interface_count block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#network_interface_count SpotFleetRequest#network_interface_count}
   */
   readonly networkInterfaceCount?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount;
   /**
   * total_local_storage_gb block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#total_local_storage_gb SpotFleetRequest#total_local_storage_gb}
   */
   readonly totalLocalStorageGb?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb;
   /**
   * vcpu_count block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#vcpu_count SpotFleetRequest#vcpu_count}
   */
   readonly vcpuCount?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount;
@@ -2684,7 +2684,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_manufacturers - computed: false, optional: true, required: false
-  private _acceleratorManufacturers?: string[]; 
+  private _acceleratorManufacturers?: string[];
   public get acceleratorManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_manufacturers'));
   }
@@ -2700,7 +2700,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_names - computed: false, optional: true, required: false
-  private _acceleratorNames?: string[]; 
+  private _acceleratorNames?: string[];
   public get acceleratorNames() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_names'));
   }
@@ -2716,7 +2716,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_types - computed: false, optional: true, required: false
-  private _acceleratorTypes?: string[]; 
+  private _acceleratorTypes?: string[];
   public get acceleratorTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_types'));
   }
@@ -2732,7 +2732,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // allowed_instance_types - computed: false, optional: true, required: false
-  private _allowedInstanceTypes?: string[]; 
+  private _allowedInstanceTypes?: string[];
   public get allowedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_instance_types'));
   }
@@ -2748,7 +2748,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // bare_metal - computed: false, optional: true, required: false
-  private _bareMetal?: string; 
+  private _bareMetal?: string;
   public get bareMetal() {
     return this.getStringAttribute('bare_metal');
   }
@@ -2764,7 +2764,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // burstable_performance - computed: false, optional: true, required: false
-  private _burstablePerformance?: string; 
+  private _burstablePerformance?: string;
   public get burstablePerformance() {
     return this.getStringAttribute('burstable_performance');
   }
@@ -2780,7 +2780,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // cpu_manufacturers - computed: false, optional: true, required: false
-  private _cpuManufacturers?: string[]; 
+  private _cpuManufacturers?: string[];
   public get cpuManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('cpu_manufacturers'));
   }
@@ -2796,7 +2796,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // excluded_instance_types - computed: false, optional: true, required: false
-  private _excludedInstanceTypes?: string[]; 
+  private _excludedInstanceTypes?: string[];
   public get excludedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_instance_types'));
   }
@@ -2812,7 +2812,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // instance_generations - computed: false, optional: true, required: false
-  private _instanceGenerations?: string[]; 
+  private _instanceGenerations?: string[];
   public get instanceGenerations() {
     return cdktf.Fn.tolist(this.getListAttribute('instance_generations'));
   }
@@ -2828,7 +2828,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // local_storage - computed: false, optional: true, required: false
-  private _localStorage?: string; 
+  private _localStorage?: string;
   public get localStorage() {
     return this.getStringAttribute('local_storage');
   }
@@ -2844,7 +2844,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // local_storage_types - computed: false, optional: true, required: false
-  private _localStorageTypes?: string[]; 
+  private _localStorageTypes?: string[];
   public get localStorageTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('local_storage_types'));
   }
@@ -2860,7 +2860,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // on_demand_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _onDemandMaxPricePercentageOverLowestPrice?: number; 
+  private _onDemandMaxPricePercentageOverLowestPrice?: number;
   public get onDemandMaxPricePercentageOverLowestPrice() {
     return this.getNumberAttribute('on_demand_max_price_percentage_over_lowest_price');
   }
@@ -2876,7 +2876,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // require_hibernate_support - computed: false, optional: true, required: false
-  private _requireHibernateSupport?: boolean | cdktf.IResolvable; 
+  private _requireHibernateSupport?: boolean | cdktf.IResolvable;
   public get requireHibernateSupport() {
     return this.getBooleanAttribute('require_hibernate_support');
   }
@@ -2892,7 +2892,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // spot_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _spotMaxPricePercentageOverLowestPrice?: number; 
+  private _spotMaxPricePercentageOverLowestPrice?: number;
   public get spotMaxPricePercentageOverLowestPrice() {
     return this.getNumberAttribute('spot_max_price_percentage_over_lowest_price');
   }
@@ -3078,7 +3078,7 @@ export interface SpotFleetRequestLaunchTemplateConfigOverrides {
   readonly weightedCapacity?: number;
   /**
   * instance_requirements block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_requirements SpotFleetRequest#instance_requirements}
   */
   readonly instanceRequirements?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements;
@@ -3181,7 +3181,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // availability_zone - computed: false, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -3197,7 +3197,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -3213,7 +3213,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // priority - computed: true, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -3229,7 +3229,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // spot_price - computed: true, optional: true, required: false
-  private _spotPrice?: string; 
+  private _spotPrice?: string;
   public get spotPrice() {
     return this.getStringAttribute('spot_price');
   }
@@ -3245,7 +3245,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // subnet_id - computed: true, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -3261,7 +3261,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // weighted_capacity - computed: true, optional: true, required: false
-  private _weightedCapacity?: number; 
+  private _weightedCapacity?: number;
   public get weightedCapacity() {
     return this.getNumberAttribute('weighted_capacity');
   }
@@ -3315,13 +3315,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesList extends cdktf.Com
 export interface SpotFleetRequestLaunchTemplateConfig {
   /**
   * launch_template_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_template_specification SpotFleetRequest#launch_template_specification}
   */
   readonly launchTemplateSpecification: SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification;
   /**
   * overrides block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#overrides SpotFleetRequest#overrides}
   */
   readonly overrides?: SpotFleetRequestLaunchTemplateConfigOverrides[] | cdktf.IResolvable;
@@ -3487,7 +3487,7 @@ export class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputRef
   }
 
   // replacement_strategy - computed: false, optional: true, required: false
-  private _replacementStrategy?: string; 
+  private _replacementStrategy?: string;
   public get replacementStrategy() {
     return this.getStringAttribute('replacement_strategy');
   }
@@ -3505,7 +3505,7 @@ export class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputRef
 export interface SpotFleetRequestSpotMaintenanceStrategies {
   /**
   * capacity_rebalance block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#capacity_rebalance SpotFleetRequest#capacity_rebalance}
   */
   readonly capacityRebalance?: SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance;
@@ -3651,7 +3651,7 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -3667,7 +3667,7 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -3683,7 +3683,7 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -3770,7 +3770,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   // ==========
 
   // allocation_strategy - computed: false, optional: true, required: false
-  private _allocationStrategy?: string; 
+  private _allocationStrategy?: string;
   public get allocationStrategy() {
     return this.getStringAttribute('allocation_strategy');
   }
@@ -3791,7 +3791,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // excess_capacity_termination_policy - computed: false, optional: true, required: false
-  private _excessCapacityTerminationPolicy?: string; 
+  private _excessCapacityTerminationPolicy?: string;
   public get excessCapacityTerminationPolicy() {
     return this.getStringAttribute('excess_capacity_termination_policy');
   }
@@ -3807,7 +3807,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // fleet_type - computed: false, optional: true, required: false
-  private _fleetType?: string; 
+  private _fleetType?: string;
   public get fleetType() {
     return this.getStringAttribute('fleet_type');
   }
@@ -3823,7 +3823,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // iam_fleet_role - computed: false, optional: false, required: true
-  private _iamFleetRole?: string; 
+  private _iamFleetRole?: string;
   public get iamFleetRole() {
     return this.getStringAttribute('iam_fleet_role');
   }
@@ -3836,7 +3836,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3852,7 +3852,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // instance_interruption_behaviour - computed: false, optional: true, required: false
-  private _instanceInterruptionBehaviour?: string; 
+  private _instanceInterruptionBehaviour?: string;
   public get instanceInterruptionBehaviour() {
     return this.getStringAttribute('instance_interruption_behaviour');
   }
@@ -3868,7 +3868,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // instance_pools_to_use_count - computed: false, optional: true, required: false
-  private _instancePoolsToUseCount?: number; 
+  private _instancePoolsToUseCount?: number;
   public get instancePoolsToUseCount() {
     return this.getNumberAttribute('instance_pools_to_use_count');
   }
@@ -3884,7 +3884,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // load_balancers - computed: true, optional: true, required: false
-  private _loadBalancers?: string[]; 
+  private _loadBalancers?: string[];
   public get loadBalancers() {
     return cdktf.Fn.tolist(this.getListAttribute('load_balancers'));
   }
@@ -3900,7 +3900,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // on_demand_allocation_strategy - computed: false, optional: true, required: false
-  private _onDemandAllocationStrategy?: string; 
+  private _onDemandAllocationStrategy?: string;
   public get onDemandAllocationStrategy() {
     return this.getStringAttribute('on_demand_allocation_strategy');
   }
@@ -3916,7 +3916,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // on_demand_max_total_price - computed: false, optional: true, required: false
-  private _onDemandMaxTotalPrice?: string; 
+  private _onDemandMaxTotalPrice?: string;
   public get onDemandMaxTotalPrice() {
     return this.getStringAttribute('on_demand_max_total_price');
   }
@@ -3932,7 +3932,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // on_demand_target_capacity - computed: false, optional: true, required: false
-  private _onDemandTargetCapacity?: number; 
+  private _onDemandTargetCapacity?: number;
   public get onDemandTargetCapacity() {
     return this.getNumberAttribute('on_demand_target_capacity');
   }
@@ -3948,7 +3948,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // replace_unhealthy_instances - computed: false, optional: true, required: false
-  private _replaceUnhealthyInstances?: boolean | cdktf.IResolvable; 
+  private _replaceUnhealthyInstances?: boolean | cdktf.IResolvable;
   public get replaceUnhealthyInstances() {
     return this.getBooleanAttribute('replace_unhealthy_instances');
   }
@@ -3964,7 +3964,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // spot_price - computed: false, optional: true, required: false
-  private _spotPrice?: string; 
+  private _spotPrice?: string;
   public get spotPrice() {
     return this.getStringAttribute('spot_price');
   }
@@ -3985,7 +3985,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -4001,7 +4001,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -4017,7 +4017,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // target_capacity - computed: false, optional: false, required: true
-  private _targetCapacity?: number; 
+  private _targetCapacity?: number;
   public get targetCapacity() {
     return this.getNumberAttribute('target_capacity');
   }
@@ -4030,7 +4030,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // target_capacity_unit_type - computed: false, optional: true, required: false
-  private _targetCapacityUnitType?: string; 
+  private _targetCapacityUnitType?: string;
   public get targetCapacityUnitType() {
     return this.getStringAttribute('target_capacity_unit_type');
   }
@@ -4046,7 +4046,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // target_group_arns - computed: true, optional: true, required: false
-  private _targetGroupArns?: string[]; 
+  private _targetGroupArns?: string[];
   public get targetGroupArns() {
     return cdktf.Fn.tolist(this.getListAttribute('target_group_arns'));
   }
@@ -4062,7 +4062,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // terminate_instances_on_delete - computed: false, optional: true, required: false
-  private _terminateInstancesOnDelete?: string; 
+  private _terminateInstancesOnDelete?: string;
   public get terminateInstancesOnDelete() {
     return this.getStringAttribute('terminate_instances_on_delete');
   }
@@ -4078,7 +4078,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // terminate_instances_with_expiration - computed: false, optional: true, required: false
-  private _terminateInstancesWithExpiration?: boolean | cdktf.IResolvable; 
+  private _terminateInstancesWithExpiration?: boolean | cdktf.IResolvable;
   public get terminateInstancesWithExpiration() {
     return this.getBooleanAttribute('terminate_instances_with_expiration');
   }
@@ -4094,7 +4094,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // valid_from - computed: false, optional: true, required: false
-  private _validFrom?: string; 
+  private _validFrom?: string;
   public get validFrom() {
     return this.getStringAttribute('valid_from');
   }
@@ -4110,7 +4110,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // valid_until - computed: false, optional: true, required: false
-  private _validUntil?: string; 
+  private _validUntil?: string;
   public get validUntil() {
     return this.getStringAttribute('valid_until');
   }
@@ -4126,7 +4126,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // wait_for_fulfillment - computed: false, optional: true, required: false
-  private _waitForFulfillment?: boolean | cdktf.IResolvable; 
+  private _waitForFulfillment?: boolean | cdktf.IResolvable;
   public get waitForFulfillment() {
     return this.getBooleanAttribute('wait_for_fulfillment');
   }

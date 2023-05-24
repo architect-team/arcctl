@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsRedshiftserverlessCredentials extends cdktf.TerraformDataSou
   // ==========
 
   // db_name - computed: false, optional: true, required: false
-  private _dbName?: string; 
+  private _dbName?: string;
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -102,7 +102,7 @@ export class DataAwsRedshiftserverlessCredentials extends cdktf.TerraformDataSou
   }
 
   // duration_seconds - computed: false, optional: true, required: false
-  private _durationSeconds?: number; 
+  private _durationSeconds?: number;
   public get durationSeconds() {
     return this.getNumberAttribute('duration_seconds');
   }
@@ -123,7 +123,7 @@ export class DataAwsRedshiftserverlessCredentials extends cdktf.TerraformDataSou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class DataAwsRedshiftserverlessCredentials extends cdktf.TerraformDataSou
   }
 
   // workgroup_name - computed: false, optional: false, required: true
-  private _workgroupName?: string; 
+  private _workgroupName?: string;
   public get workgroupName() {
     return this.getStringAttribute('workgroup_name');
   }

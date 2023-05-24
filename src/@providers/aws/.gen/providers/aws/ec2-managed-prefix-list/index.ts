@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface Ec2ManagedPrefixListConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * entry block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list#entry Ec2ManagedPrefixList#entry}
   */
   readonly entry?: Ec2ManagedPrefixListEntry[] | cdktf.IResolvable;
@@ -114,7 +114,7 @@ export class Ec2ManagedPrefixListEntryOutputReference extends cdktf.ComplexObjec
   }
 
   // cidr - computed: false, optional: false, required: true
-  private _cidr?: string; 
+  private _cidr?: string;
   public get cidr() {
     return this.getStringAttribute('cidr');
   }
@@ -127,7 +127,7 @@ export class Ec2ManagedPrefixListEntryOutputReference extends cdktf.ComplexObjec
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -214,7 +214,7 @@ export class Ec2ManagedPrefixList extends cdktf.TerraformResource {
   // ==========
 
   // address_family - computed: false, optional: false, required: true
-  private _addressFamily?: string; 
+  private _addressFamily?: string;
   public get addressFamily() {
     return this.getStringAttribute('address_family');
   }
@@ -232,7 +232,7 @@ export class Ec2ManagedPrefixList extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -248,7 +248,7 @@ export class Ec2ManagedPrefixList extends cdktf.TerraformResource {
   }
 
   // max_entries - computed: false, optional: false, required: true
-  private _maxEntries?: number; 
+  private _maxEntries?: number;
   public get maxEntries() {
     return this.getNumberAttribute('max_entries');
   }
@@ -261,7 +261,7 @@ export class Ec2ManagedPrefixList extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -279,7 +279,7 @@ export class Ec2ManagedPrefixList extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -295,7 +295,7 @@ export class Ec2ManagedPrefixList extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

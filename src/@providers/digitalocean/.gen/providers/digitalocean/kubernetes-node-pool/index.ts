@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,13 +52,13 @@ export interface KubernetesNodePoolConfig extends cdktf.TerraformMetaArguments {
   readonly tags?: string[];
   /**
   * taint block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#taint KubernetesNodePool#taint}
   */
   readonly taint?: KubernetesNodePoolTaint[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#timeouts KubernetesNodePool#timeouts}
   */
   readonly timeouts?: KubernetesNodePoolTimeouts;
@@ -236,7 +236,7 @@ export class KubernetesNodePoolTaintOutputReference extends cdktf.ComplexObject 
   }
 
   // effect - computed: false, optional: false, required: true
-  private _effect?: string; 
+  private _effect?: string;
   public get effect() {
     return this.getStringAttribute('effect');
   }
@@ -249,7 +249,7 @@ export class KubernetesNodePoolTaintOutputReference extends cdktf.ComplexObject 
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -262,7 +262,7 @@ export class KubernetesNodePoolTaintOutputReference extends cdktf.ComplexObject 
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -365,7 +365,7 @@ export class KubernetesNodePoolTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -381,7 +381,7 @@ export class KubernetesNodePoolTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -458,7 +458,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // auto_scale - computed: false, optional: true, required: false
-  private _autoScale?: boolean | cdktf.IResolvable; 
+  private _autoScale?: boolean | cdktf.IResolvable;
   public get autoScale() {
     return this.getBooleanAttribute('auto_scale');
   }
@@ -474,7 +474,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -487,7 +487,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -503,7 +503,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -519,7 +519,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // max_nodes - computed: false, optional: true, required: false
-  private _maxNodes?: number; 
+  private _maxNodes?: number;
   public get maxNodes() {
     return this.getNumberAttribute('max_nodes');
   }
@@ -535,7 +535,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // min_nodes - computed: false, optional: true, required: false
-  private _minNodes?: number; 
+  private _minNodes?: number;
   public get minNodes() {
     return this.getNumberAttribute('min_nodes');
   }
@@ -551,7 +551,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -564,7 +564,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // node_count - computed: false, optional: true, required: false
-  private _nodeCount?: number; 
+  private _nodeCount?: number;
   public get nodeCount() {
     return this.getNumberAttribute('node_count');
   }
@@ -586,7 +586,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: string; 
+  private _size?: string;
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -599,7 +599,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }

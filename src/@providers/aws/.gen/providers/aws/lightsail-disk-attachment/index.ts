@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   // ==========
 
   // disk_name - computed: false, optional: false, required: true
-  private _diskName?: string; 
+  private _diskName?: string;
   public get diskName() {
     return this.getStringAttribute('disk_name');
   }
@@ -89,7 +89,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   }
 
   // disk_path - computed: false, optional: false, required: true
-  private _diskPath?: string; 
+  private _diskPath?: string;
   public get diskPath() {
     return this.getStringAttribute('disk_path');
   }
@@ -102,7 +102,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   }
 
   // instance_name - computed: false, optional: false, required: true
-  private _instanceName?: string; 
+  private _instanceName?: string;
   public get instanceName() {
     return this.getStringAttribute('instance_name');
   }

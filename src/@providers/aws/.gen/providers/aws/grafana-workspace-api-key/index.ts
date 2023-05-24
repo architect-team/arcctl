@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/grafana_workspace_api_key
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class GrafanaWorkspaceApiKey extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class GrafanaWorkspaceApiKey extends cdktf.TerraformResource {
   }
 
   // key_name - computed: false, optional: false, required: true
-  private _keyName?: string; 
+  private _keyName?: string;
   public get keyName() {
     return this.getStringAttribute('key_name');
   }
@@ -115,7 +115,7 @@ export class GrafanaWorkspaceApiKey extends cdktf.TerraformResource {
   }
 
   // key_role - computed: false, optional: false, required: true
-  private _keyRole?: string; 
+  private _keyRole?: string;
   public get keyRole() {
     return this.getStringAttribute('key_role');
   }
@@ -128,7 +128,7 @@ export class GrafanaWorkspaceApiKey extends cdktf.TerraformResource {
   }
 
   // seconds_to_live - computed: false, optional: false, required: true
-  private _secondsToLive?: number; 
+  private _secondsToLive?: number;
   public get secondsToLive() {
     return this.getNumberAttribute('seconds_to_live');
   }
@@ -141,7 +141,7 @@ export class GrafanaWorkspaceApiKey extends cdktf.TerraformResource {
   }
 
   // workspace_id - computed: false, optional: false, required: true
-  private _workspaceId?: string; 
+  private _workspaceId?: string;
   public get workspaceId() {
     return this.getStringAttribute('workspace_id');
   }

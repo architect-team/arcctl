@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/cur_report_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsCurReportDefinition extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class DataAwsCurReportDefinition extends cdktf.TerraformDataSource {
   }
 
   // report_name - computed: false, optional: false, required: true
-  private _reportName?: string; 
+  private _reportName?: string;
   public get reportName() {
     return this.getStringAttribute('report_name');
   }

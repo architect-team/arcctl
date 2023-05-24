@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,25 +32,25 @@ export interface SagemakerFlowDefinitionConfig extends cdktf.TerraformMetaArgume
   readonly tagsAll?: { [key: string]: string };
   /**
   * human_loop_activation_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition#human_loop_activation_config SagemakerFlowDefinition#human_loop_activation_config}
   */
   readonly humanLoopActivationConfig?: SagemakerFlowDefinitionHumanLoopActivationConfig;
   /**
   * human_loop_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition#human_loop_config SagemakerFlowDefinition#human_loop_config}
   */
   readonly humanLoopConfig: SagemakerFlowDefinitionHumanLoopConfig;
   /**
   * human_loop_request_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition#human_loop_request_source SagemakerFlowDefinition#human_loop_request_source}
   */
   readonly humanLoopRequestSource?: SagemakerFlowDefinitionHumanLoopRequestSource;
   /**
   * output_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition#output_config SagemakerFlowDefinition#output_config}
   */
   readonly outputConfig: SagemakerFlowDefinitionOutputConfig;
@@ -105,7 +105,7 @@ export class SagemakerFlowDefinitionHumanLoopActivationConfigHumanLoopActivation
   }
 
   // human_loop_activation_conditions - computed: false, optional: false, required: true
-  private _humanLoopActivationConditions?: string; 
+  private _humanLoopActivationConditions?: string;
   public get humanLoopActivationConditions() {
     return this.getStringAttribute('human_loop_activation_conditions');
   }
@@ -120,7 +120,7 @@ export class SagemakerFlowDefinitionHumanLoopActivationConfigHumanLoopActivation
 export interface SagemakerFlowDefinitionHumanLoopActivationConfig {
   /**
   * human_loop_activation_conditions_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition#human_loop_activation_conditions_config SagemakerFlowDefinition#human_loop_activation_conditions_config}
   */
   readonly humanLoopActivationConditionsConfig?: SagemakerFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig;
@@ -256,7 +256,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmoun
   }
 
   // cents - computed: false, optional: true, required: false
-  private _cents?: number; 
+  private _cents?: number;
   public get cents() {
     return this.getNumberAttribute('cents');
   }
@@ -272,7 +272,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmoun
   }
 
   // dollars - computed: false, optional: true, required: false
-  private _dollars?: number; 
+  private _dollars?: number;
   public get dollars() {
     return this.getNumberAttribute('dollars');
   }
@@ -288,7 +288,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmoun
   }
 
   // tenth_fractions_of_a_cent - computed: false, optional: true, required: false
-  private _tenthFractionsOfACent?: number; 
+  private _tenthFractionsOfACent?: number;
   public get tenthFractionsOfACent() {
     return this.getNumberAttribute('tenth_fractions_of_a_cent');
   }
@@ -306,7 +306,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmoun
 export interface SagemakerFlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
   /**
   * amount_in_usd block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition#amount_in_usd SagemakerFlowDefinition#amount_in_usd}
   */
   readonly amountInUsd?: SagemakerFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd;
@@ -405,7 +405,7 @@ export interface SagemakerFlowDefinitionHumanLoopConfig {
   readonly workteamArn: string;
   /**
   * public_workforce_task_price block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_flow_definition#public_workforce_task_price SagemakerFlowDefinition#public_workforce_task_price}
   */
   readonly publicWorkforceTaskPrice?: SagemakerFlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice;
@@ -510,7 +510,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // human_task_ui_arn - computed: false, optional: false, required: true
-  private _humanTaskUiArn?: string; 
+  private _humanTaskUiArn?: string;
   public get humanTaskUiArn() {
     return this.getStringAttribute('human_task_ui_arn');
   }
@@ -523,7 +523,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // task_availability_lifetime_in_seconds - computed: false, optional: true, required: false
-  private _taskAvailabilityLifetimeInSeconds?: number; 
+  private _taskAvailabilityLifetimeInSeconds?: number;
   public get taskAvailabilityLifetimeInSeconds() {
     return this.getNumberAttribute('task_availability_lifetime_in_seconds');
   }
@@ -539,7 +539,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // task_count - computed: false, optional: false, required: true
-  private _taskCount?: number; 
+  private _taskCount?: number;
   public get taskCount() {
     return this.getNumberAttribute('task_count');
   }
@@ -552,7 +552,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // task_description - computed: false, optional: false, required: true
-  private _taskDescription?: string; 
+  private _taskDescription?: string;
   public get taskDescription() {
     return this.getStringAttribute('task_description');
   }
@@ -565,7 +565,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // task_keywords - computed: false, optional: true, required: false
-  private _taskKeywords?: string[]; 
+  private _taskKeywords?: string[];
   public get taskKeywords() {
     return cdktf.Fn.tolist(this.getListAttribute('task_keywords'));
   }
@@ -581,7 +581,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // task_time_limit_in_seconds - computed: false, optional: true, required: false
-  private _taskTimeLimitInSeconds?: number; 
+  private _taskTimeLimitInSeconds?: number;
   public get taskTimeLimitInSeconds() {
     return this.getNumberAttribute('task_time_limit_in_seconds');
   }
@@ -597,7 +597,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // task_title - computed: false, optional: false, required: true
-  private _taskTitle?: string; 
+  private _taskTitle?: string;
   public get taskTitle() {
     return this.getStringAttribute('task_title');
   }
@@ -610,7 +610,7 @@ export class SagemakerFlowDefinitionHumanLoopConfigOutputReference extends cdktf
   }
 
   // workteam_arn - computed: false, optional: false, required: true
-  private _workteamArn?: string; 
+  private _workteamArn?: string;
   public get workteamArn() {
     return this.getStringAttribute('workteam_arn');
   }
@@ -688,7 +688,7 @@ export class SagemakerFlowDefinitionHumanLoopRequestSourceOutputReference extend
   }
 
   // aws_managed_human_loop_request_source - computed: false, optional: false, required: true
-  private _awsManagedHumanLoopRequestSource?: string; 
+  private _awsManagedHumanLoopRequestSource?: string;
   public get awsManagedHumanLoopRequestSource() {
     return this.getStringAttribute('aws_managed_human_loop_request_source');
   }
@@ -761,7 +761,7 @@ export class SagemakerFlowDefinitionOutputConfigOutputReference extends cdktf.Co
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -777,7 +777,7 @@ export class SagemakerFlowDefinitionOutputConfigOutputReference extends cdktf.Co
   }
 
   // s3_output_path - computed: false, optional: false, required: true
-  private _s3OutputPath?: string; 
+  private _s3OutputPath?: string;
   public get s3OutputPath() {
     return this.getStringAttribute('s3_output_path');
   }
@@ -848,7 +848,7 @@ export class SagemakerFlowDefinition extends cdktf.TerraformResource {
   }
 
   // flow_definition_name - computed: false, optional: false, required: true
-  private _flowDefinitionName?: string; 
+  private _flowDefinitionName?: string;
   public get flowDefinitionName() {
     return this.getStringAttribute('flow_definition_name');
   }
@@ -861,7 +861,7 @@ export class SagemakerFlowDefinition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -877,7 +877,7 @@ export class SagemakerFlowDefinition extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -890,7 +890,7 @@ export class SagemakerFlowDefinition extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -906,7 +906,7 @@ export class SagemakerFlowDefinition extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

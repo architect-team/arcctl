@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface IngressClassV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#metadata IngressClassV1#metadata}
   */
   readonly metadata: IngressClassV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#spec IngressClassV1#spec}
   */
   readonly spec: IngressClassV1Spec;
@@ -30,25 +30,25 @@ export interface IngressClassV1Config extends cdktf.TerraformMetaArguments {
 export interface IngressClassV1Metadata {
   /**
   * An unstructured key value map stored with the ingress_class that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#annotations IngressClassV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#generate_name IngressClassV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the ingress_class. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#labels IngressClassV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the ingress_class, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#name IngressClassV1#name}
   */
   readonly name?: string;
@@ -118,7 +118,7 @@ export class IngressClassV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -134,7 +134,7 @@ export class IngressClassV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -155,7 +155,7 @@ export class IngressClassV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -171,7 +171,7 @@ export class IngressClassV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -199,19 +199,19 @@ export class IngressClassV1MetadataOutputReference extends cdktf.ComplexObject {
 export interface IngressClassV1SpecParameters {
   /**
   * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#api_group IngressClassV1#api_group}
   */
   readonly apiGroup?: string;
   /**
   * Kind is the type of resource being referenced
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#kind IngressClassV1#kind}
   */
   readonly kind: string;
   /**
   * Name is the name of resource being referenced
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#name IngressClassV1#name}
   */
   readonly name: string;
@@ -308,7 +308,7 @@ export class IngressClassV1SpecParametersOutputReference extends cdktf.ComplexOb
   }
 
   // api_group - computed: false, optional: true, required: false
-  private _apiGroup?: string; 
+  private _apiGroup?: string;
   public get apiGroup() {
     return this.getStringAttribute('api_group');
   }
@@ -324,7 +324,7 @@ export class IngressClassV1SpecParametersOutputReference extends cdktf.ComplexOb
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -337,7 +337,7 @@ export class IngressClassV1SpecParametersOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -350,7 +350,7 @@ export class IngressClassV1SpecParametersOutputReference extends cdktf.ComplexOb
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -366,7 +366,7 @@ export class IngressClassV1SpecParametersOutputReference extends cdktf.ComplexOb
   }
 
   // scope - computed: true, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -404,13 +404,13 @@ export class IngressClassV1SpecParametersList extends cdktf.ComplexList {
 export interface IngressClassV1Spec {
   /**
   * Controller refers to the name of the controller that should handle this class. This allows for different "flavors" that are controlled by the same controller. For example, you may have different Parameters for the same implementing controller. This should be specified as a domain-prefixed path no more than 250 characters in length, e.g. "acme.io/ingress-controller". This field is immutable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#controller IngressClassV1#controller}
   */
   readonly controller?: string;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/ingress_class_v1#parameters IngressClassV1#parameters}
   */
   readonly parameters?: IngressClassV1SpecParameters[] | cdktf.IResolvable;
@@ -466,7 +466,7 @@ export class IngressClassV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // controller - computed: false, optional: true, required: false
-  private _controller?: string; 
+  private _controller?: string;
   public get controller() {
     return this.getStringAttribute('controller');
   }
@@ -545,7 +545,7 @@ export class IngressClassV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

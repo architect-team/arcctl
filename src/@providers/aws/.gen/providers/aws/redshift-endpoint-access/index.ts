@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_access
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -245,7 +245,7 @@ export class RedshiftEndpointAccess extends cdktf.TerraformResource {
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -258,7 +258,7 @@ export class RedshiftEndpointAccess extends cdktf.TerraformResource {
   }
 
   // endpoint_name - computed: false, optional: false, required: true
-  private _endpointName?: string; 
+  private _endpointName?: string;
   public get endpointName() {
     return this.getStringAttribute('endpoint_name');
   }
@@ -271,7 +271,7 @@ export class RedshiftEndpointAccess extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -292,7 +292,7 @@ export class RedshiftEndpointAccess extends cdktf.TerraformResource {
   }
 
   // resource_owner - computed: true, optional: true, required: false
-  private _resourceOwner?: string; 
+  private _resourceOwner?: string;
   public get resourceOwner() {
     return this.getStringAttribute('resource_owner');
   }
@@ -308,7 +308,7 @@ export class RedshiftEndpointAccess extends cdktf.TerraformResource {
   }
 
   // subnet_group_name - computed: false, optional: false, required: true
-  private _subnetGroupName?: string; 
+  private _subnetGroupName?: string;
   public get subnetGroupName() {
     return this.getStringAttribute('subnet_group_name');
   }
@@ -327,7 +327,7 @@ export class RedshiftEndpointAccess extends cdktf.TerraformResource {
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[]; 
+  private _vpcSecurityGroupIds?: string[];
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   }
 
   // instance_port - computed: false, optional: false, required: true
-  private _instancePort?: number; 
+  private _instancePort?: number;
   public get instancePort() {
     return this.getNumberAttribute('instance_port');
   }
@@ -105,7 +105,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer_name - computed: false, optional: false, required: true
-  private _loadBalancerName?: string; 
+  private _loadBalancerName?: string;
   public get loadBalancerName() {
     return this.getStringAttribute('load_balancer_name');
   }
@@ -118,7 +118,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   }
 
   // policy_names - computed: false, optional: true, required: false
-  private _policyNames?: string[]; 
+  private _policyNames?: string[];
   public get policyNames() {
     return cdktf.Fn.tolist(this.getListAttribute('policy_names'));
   }

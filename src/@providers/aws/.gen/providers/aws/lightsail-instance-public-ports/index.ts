@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_instance_public_ports
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface LightsailInstancePublicPortsConfig extends cdktf.TerraformMetaA
   readonly instanceName: string;
   /**
   * port_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_instance_public_ports#port_info LightsailInstancePublicPorts#port_info}
   */
   readonly portInfo: LightsailInstancePublicPortsPortInfo[] | cdktf.IResolvable;
@@ -142,7 +142,7 @@ export class LightsailInstancePublicPortsPortInfoOutputReference extends cdktf.C
   }
 
   // cidr_list_aliases - computed: true, optional: true, required: false
-  private _cidrListAliases?: string[]; 
+  private _cidrListAliases?: string[];
   public get cidrListAliases() {
     return cdktf.Fn.tolist(this.getListAttribute('cidr_list_aliases'));
   }
@@ -158,7 +158,7 @@ export class LightsailInstancePublicPortsPortInfoOutputReference extends cdktf.C
   }
 
   // cidrs - computed: true, optional: true, required: false
-  private _cidrs?: string[]; 
+  private _cidrs?: string[];
   public get cidrs() {
     return cdktf.Fn.tolist(this.getListAttribute('cidrs'));
   }
@@ -174,7 +174,7 @@ export class LightsailInstancePublicPortsPortInfoOutputReference extends cdktf.C
   }
 
   // from_port - computed: false, optional: false, required: true
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -187,7 +187,7 @@ export class LightsailInstancePublicPortsPortInfoOutputReference extends cdktf.C
   }
 
   // ipv6_cidrs - computed: true, optional: true, required: false
-  private _ipv6Cidrs?: string[]; 
+  private _ipv6Cidrs?: string[];
   public get ipv6Cidrs() {
     return cdktf.Fn.tolist(this.getListAttribute('ipv6_cidrs'));
   }
@@ -203,7 +203,7 @@ export class LightsailInstancePublicPortsPortInfoOutputReference extends cdktf.C
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -216,7 +216,7 @@ export class LightsailInstancePublicPortsPortInfoOutputReference extends cdktf.C
   }
 
   // to_port - computed: false, optional: false, required: true
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -296,7 +296,7 @@ export class LightsailInstancePublicPorts extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -312,7 +312,7 @@ export class LightsailInstancePublicPorts extends cdktf.TerraformResource {
   }
 
   // instance_name - computed: false, optional: false, required: true
-  private _instanceName?: string; 
+  private _instanceName?: string;
   public get instanceName() {
     return this.getStringAttribute('instance_name');
   }

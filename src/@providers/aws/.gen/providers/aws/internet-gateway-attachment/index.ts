@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface InternetGatewayAttachmentConfig extends cdktf.TerraformMetaArgu
   readonly vpcId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#timeouts InternetGatewayAttachment#timeouts}
   */
   readonly timeouts?: InternetGatewayAttachmentTimeouts;
@@ -100,7 +100,7 @@ export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -196,7 +196,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
   }
 
   // internet_gateway_id - computed: false, optional: false, required: true
-  private _internetGatewayId?: string; 
+  private _internetGatewayId?: string;
   public get internetGatewayId() {
     return this.getStringAttribute('internet_gateway_id');
   }
@@ -209,7 +209,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

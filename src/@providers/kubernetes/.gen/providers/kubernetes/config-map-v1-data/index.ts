@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1_data
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,19 +9,19 @@ import * as cdktf from 'cdktf';
 export interface ConfigMapV1DataConfig extends cdktf.TerraformMetaArguments {
   /**
   * The data we want to add to the ConfigMap.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1_data#data ConfigMapV1Data#data}
   */
   readonly data: { [key: string]: string };
   /**
   * Set the name of the field manager for the specified labels.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1_data#field_manager ConfigMapV1Data#field_manager}
   */
   readonly fieldManager?: string;
   /**
   * Force overwriting data that is managed outside of Terraform.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1_data#force ConfigMapV1Data#force}
   */
   readonly force?: boolean | cdktf.IResolvable;
@@ -34,7 +34,7 @@ export interface ConfigMapV1DataConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1_data#metadata ConfigMapV1Data#metadata}
   */
   readonly metadata: ConfigMapV1DataMetadata;
@@ -42,13 +42,13 @@ export interface ConfigMapV1DataConfig extends cdktf.TerraformMetaArguments {
 export interface ConfigMapV1DataMetadata {
   /**
   * The name of the ConfigMap.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1_data#name ConfigMapV1Data#name}
   */
   readonly name: string;
   /**
   * The namespace of the ConfigMap.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1_data#namespace ConfigMapV1Data#namespace}
   */
   readonly namespace?: string;
@@ -104,7 +104,7 @@ export class ConfigMapV1DataMetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -117,7 +117,7 @@ export class ConfigMapV1DataMetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -182,7 +182,7 @@ export class ConfigMapV1Data extends cdktf.TerraformResource {
   // ==========
 
   // data - computed: false, optional: false, required: true
-  private _data?: { [key: string]: string }; 
+  private _data?: { [key: string]: string };
   public get data() {
     return this.getStringMapAttribute('data');
   }
@@ -195,7 +195,7 @@ export class ConfigMapV1Data extends cdktf.TerraformResource {
   }
 
   // field_manager - computed: false, optional: true, required: false
-  private _fieldManager?: string; 
+  private _fieldManager?: string;
   public get fieldManager() {
     return this.getStringAttribute('field_manager');
   }
@@ -211,7 +211,7 @@ export class ConfigMapV1Data extends cdktf.TerraformResource {
   }
 
   // force - computed: false, optional: true, required: false
-  private _force?: boolean | cdktf.IResolvable; 
+  private _force?: boolean | cdktf.IResolvable;
   public get force() {
     return this.getBooleanAttribute('force');
   }
@@ -227,7 +227,7 @@ export class ConfigMapV1Data extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

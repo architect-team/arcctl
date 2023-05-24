@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecs_cluster_capacity_providers
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface EcsClusterCapacityProvidersConfig extends cdktf.TerraformMetaAr
   readonly id?: string;
   /**
   * default_capacity_provider_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_cluster_capacity_providers#default_capacity_provider_strategy EcsClusterCapacityProviders#default_capacity_provider_strategy}
   */
   readonly defaultCapacityProviderStrategy?: EcsClusterCapacityProvidersDefaultCapacityProviderStrategy[] | cdktf.IResolvable;
@@ -113,7 +113,7 @@ export class EcsClusterCapacityProvidersDefaultCapacityProviderStrategyOutputRef
   }
 
   // base - computed: false, optional: true, required: false
-  private _base?: number; 
+  private _base?: number;
   public get base() {
     return this.getNumberAttribute('base');
   }
@@ -129,7 +129,7 @@ export class EcsClusterCapacityProvidersDefaultCapacityProviderStrategyOutputRef
   }
 
   // capacity_provider - computed: false, optional: false, required: true
-  private _capacityProvider?: string; 
+  private _capacityProvider?: string;
   public get capacityProvider() {
     return this.getStringAttribute('capacity_provider');
   }
@@ -142,7 +142,7 @@ export class EcsClusterCapacityProvidersDefaultCapacityProviderStrategyOutputRef
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -226,7 +226,7 @@ export class EcsClusterCapacityProviders extends cdktf.TerraformResource {
   // ==========
 
   // capacity_providers - computed: false, optional: true, required: false
-  private _capacityProviders?: string[]; 
+  private _capacityProviders?: string[];
   public get capacityProviders() {
     return cdktf.Fn.tolist(this.getListAttribute('capacity_providers'));
   }
@@ -242,7 +242,7 @@ export class EcsClusterCapacityProviders extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -255,7 +255,7 @@ export class EcsClusterCapacityProviders extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

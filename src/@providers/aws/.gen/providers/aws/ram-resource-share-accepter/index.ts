@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface RamResourceShareAccepterConfig extends cdktf.TerraformMetaArgum
   readonly shareArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter#timeouts RamResourceShareAccepter#timeouts}
   */
   readonly timeouts?: RamResourceShareAccepterTimeouts;
@@ -96,7 +96,7 @@ export class RamResourceShareAccepterTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -112,7 +112,7 @@ export class RamResourceShareAccepterTimeoutsOutputReference extends cdktf.Compl
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -175,7 +175,7 @@ export class RamResourceShareAccepter extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -211,7 +211,7 @@ export class RamResourceShareAccepter extends cdktf.TerraformResource {
   }
 
   // share_arn - computed: false, optional: false, required: true
-  private _shareArn?: string; 
+  private _shareArn?: string;
   public get shareArn() {
     return this.getStringAttribute('share_arn');
   }

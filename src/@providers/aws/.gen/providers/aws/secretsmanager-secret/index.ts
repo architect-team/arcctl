@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,13 +56,13 @@ export interface SecretsmanagerSecretConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * replica block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret#replica SecretsmanagerSecret#replica}
   */
   readonly replica?: SecretsmanagerSecretReplica[] | cdktf.IResolvable;
   /**
   * rotation_rules block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret#rotation_rules SecretsmanagerSecret#rotation_rules}
   */
   readonly rotationRules?: SecretsmanagerSecretRotationRules;
@@ -140,7 +140,7 @@ export class SecretsmanagerSecretReplicaOutputReference extends cdktf.ComplexObj
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -161,7 +161,7 @@ export class SecretsmanagerSecretReplicaOutputReference extends cdktf.ComplexObj
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -253,7 +253,7 @@ export class SecretsmanagerSecretRotationRulesOutputReference extends cdktf.Comp
   }
 
   // automatically_after_days - computed: false, optional: false, required: true
-  private _automaticallyAfterDays?: number; 
+  private _automaticallyAfterDays?: number;
   public get automaticallyAfterDays() {
     return this.getNumberAttribute('automatically_after_days');
   }
@@ -328,7 +328,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -344,7 +344,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // force_overwrite_replica_secret - computed: false, optional: true, required: false
-  private _forceOverwriteReplicaSecret?: boolean | cdktf.IResolvable; 
+  private _forceOverwriteReplicaSecret?: boolean | cdktf.IResolvable;
   public get forceOverwriteReplicaSecret() {
     return this.getBooleanAttribute('force_overwrite_replica_secret');
   }
@@ -360,7 +360,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -376,7 +376,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -392,7 +392,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -408,7 +408,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -424,7 +424,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -440,7 +440,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // recovery_window_in_days - computed: false, optional: true, required: false
-  private _recoveryWindowInDays?: number; 
+  private _recoveryWindowInDays?: number;
   public get recoveryWindowInDays() {
     return this.getNumberAttribute('recovery_window_in_days');
   }
@@ -461,7 +461,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // rotation_lambda_arn - computed: true, optional: true, required: false
-  private _rotationLambdaArn?: string; 
+  private _rotationLambdaArn?: string;
   public get rotationLambdaArn() {
     return this.getStringAttribute('rotation_lambda_arn');
   }
@@ -477,7 +477,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -493,7 +493,7 @@ export class SecretsmanagerSecret extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

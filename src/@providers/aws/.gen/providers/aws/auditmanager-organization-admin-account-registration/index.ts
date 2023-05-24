@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -58,7 +58,7 @@ export class AuditmanagerOrganizationAdminAccountRegistration extends cdktf.Terr
   // ==========
 
   // admin_account_id - computed: false, optional: false, required: true
-  private _adminAccountId?: string; 
+  private _adminAccountId?: string;
   public get adminAccountId() {
     return this.getStringAttribute('admin_account_id');
   }

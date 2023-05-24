@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/route
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,7 +72,7 @@ export interface DataAwsRouteConfig extends cdktf.TerraformMetaArguments {
   readonly vpcPeeringConnectionId?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#timeouts DataAwsRoute#timeouts}
   */
   readonly timeouts?: DataAwsRouteTimeouts;
@@ -137,7 +137,7 @@ export class DataAwsRouteTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -213,7 +213,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   // ==========
 
   // carrier_gateway_id - computed: true, optional: true, required: false
-  private _carrierGatewayId?: string; 
+  private _carrierGatewayId?: string;
   public get carrierGatewayId() {
     return this.getStringAttribute('carrier_gateway_id');
   }
@@ -229,7 +229,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // core_network_arn - computed: true, optional: true, required: false
-  private _coreNetworkArn?: string; 
+  private _coreNetworkArn?: string;
   public get coreNetworkArn() {
     return this.getStringAttribute('core_network_arn');
   }
@@ -245,7 +245,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // destination_cidr_block - computed: true, optional: true, required: false
-  private _destinationCidrBlock?: string; 
+  private _destinationCidrBlock?: string;
   public get destinationCidrBlock() {
     return this.getStringAttribute('destination_cidr_block');
   }
@@ -261,7 +261,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // destination_ipv6_cidr_block - computed: true, optional: true, required: false
-  private _destinationIpv6CidrBlock?: string; 
+  private _destinationIpv6CidrBlock?: string;
   public get destinationIpv6CidrBlock() {
     return this.getStringAttribute('destination_ipv6_cidr_block');
   }
@@ -277,7 +277,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // destination_prefix_list_id - computed: true, optional: true, required: false
-  private _destinationPrefixListId?: string; 
+  private _destinationPrefixListId?: string;
   public get destinationPrefixListId() {
     return this.getStringAttribute('destination_prefix_list_id');
   }
@@ -293,7 +293,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // egress_only_gateway_id - computed: true, optional: true, required: false
-  private _egressOnlyGatewayId?: string; 
+  private _egressOnlyGatewayId?: string;
   public get egressOnlyGatewayId() {
     return this.getStringAttribute('egress_only_gateway_id');
   }
@@ -309,7 +309,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // gateway_id - computed: true, optional: true, required: false
-  private _gatewayId?: string; 
+  private _gatewayId?: string;
   public get gatewayId() {
     return this.getStringAttribute('gateway_id');
   }
@@ -325,7 +325,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -341,7 +341,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // instance_id - computed: true, optional: true, required: false
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -357,7 +357,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // local_gateway_id - computed: true, optional: true, required: false
-  private _localGatewayId?: string; 
+  private _localGatewayId?: string;
   public get localGatewayId() {
     return this.getStringAttribute('local_gateway_id');
   }
@@ -373,7 +373,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // nat_gateway_id - computed: true, optional: true, required: false
-  private _natGatewayId?: string; 
+  private _natGatewayId?: string;
   public get natGatewayId() {
     return this.getStringAttribute('nat_gateway_id');
   }
@@ -389,7 +389,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // network_interface_id - computed: true, optional: true, required: false
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -405,7 +405,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string; 
+  private _routeTableId?: string;
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -418,7 +418,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // transit_gateway_id - computed: true, optional: true, required: false
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -434,7 +434,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // vpc_peering_connection_id - computed: true, optional: true, required: false
-  private _vpcPeeringConnectionId?: string; 
+  private _vpcPeeringConnectionId?: string;
   public get vpcPeeringConnectionId() {
     return this.getStringAttribute('vpc_peering_connection_id');
   }

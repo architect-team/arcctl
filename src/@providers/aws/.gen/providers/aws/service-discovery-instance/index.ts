@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/service_discovery_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class ServiceDiscoveryInstance extends cdktf.TerraformResource {
   // ==========
 
   // attributes - computed: false, optional: false, required: true
-  private _attributes?: { [key: string]: string }; 
+  private _attributes?: { [key: string]: string };
   public get attributes() {
     return this.getStringMapAttribute('attributes');
   }
@@ -89,7 +89,7 @@ export class ServiceDiscoveryInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class ServiceDiscoveryInstance extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -118,7 +118,7 @@ export class ServiceDiscoveryInstance extends cdktf.TerraformResource {
   }
 
   // service_id - computed: false, optional: false, required: true
-  private _serviceId?: string; 
+  private _serviceId?: string;
   public get serviceId() {
     return this.getStringAttribute('service_id');
   }

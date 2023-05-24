@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/grafana_workspace
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,19 +72,19 @@ export interface GrafanaWorkspaceConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * network_access_control block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace#network_access_control GrafanaWorkspace#network_access_control}
   */
   readonly networkAccessControl?: GrafanaWorkspaceNetworkAccessControl;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace#timeouts GrafanaWorkspace#timeouts}
   */
   readonly timeouts?: GrafanaWorkspaceTimeouts;
   /**
   * vpc_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace#vpc_configuration GrafanaWorkspace#vpc_configuration}
   */
   readonly vpcConfiguration?: GrafanaWorkspaceVpcConfiguration;
@@ -150,7 +150,7 @@ export class GrafanaWorkspaceNetworkAccessControlOutputReference extends cdktf.C
   }
 
   // prefix_list_ids - computed: false, optional: false, required: true
-  private _prefixListIds?: string[]; 
+  private _prefixListIds?: string[];
   public get prefixListIds() {
     return cdktf.Fn.tolist(this.getListAttribute('prefix_list_ids'));
   }
@@ -163,7 +163,7 @@ export class GrafanaWorkspaceNetworkAccessControlOutputReference extends cdktf.C
   }
 
   // vpce_ids - computed: false, optional: false, required: true
-  private _vpceIds?: string[]; 
+  private _vpceIds?: string[];
   public get vpceIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpce_ids'));
   }
@@ -246,7 +246,7 @@ export class GrafanaWorkspaceTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -262,7 +262,7 @@ export class GrafanaWorkspaceTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -338,7 +338,7 @@ export class GrafanaWorkspaceVpcConfigurationOutputReference extends cdktf.Compl
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -351,7 +351,7 @@ export class GrafanaWorkspaceVpcConfigurationOutputReference extends cdktf.Compl
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -426,7 +426,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   // ==========
 
   // account_access_type - computed: false, optional: false, required: true
-  private _accountAccessType?: string; 
+  private _accountAccessType?: string;
   public get accountAccessType() {
     return this.getStringAttribute('account_access_type');
   }
@@ -444,7 +444,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // authentication_providers - computed: false, optional: false, required: true
-  private _authenticationProviders?: string[]; 
+  private _authenticationProviders?: string[];
   public get authenticationProviders() {
     return this.getListAttribute('authentication_providers');
   }
@@ -457,7 +457,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // configuration - computed: true, optional: true, required: false
-  private _configuration?: string; 
+  private _configuration?: string;
   public get configuration() {
     return this.getStringAttribute('configuration');
   }
@@ -473,7 +473,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // data_sources - computed: false, optional: true, required: false
-  private _dataSources?: string[]; 
+  private _dataSources?: string[];
   public get dataSources() {
     return this.getListAttribute('data_sources');
   }
@@ -489,7 +489,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -515,7 +515,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -531,7 +531,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -547,7 +547,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // notification_destinations - computed: false, optional: true, required: false
-  private _notificationDestinations?: string[]; 
+  private _notificationDestinations?: string[];
   public get notificationDestinations() {
     return this.getListAttribute('notification_destinations');
   }
@@ -563,7 +563,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // organization_role_name - computed: false, optional: true, required: false
-  private _organizationRoleName?: string; 
+  private _organizationRoleName?: string;
   public get organizationRoleName() {
     return this.getStringAttribute('organization_role_name');
   }
@@ -579,7 +579,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // organizational_units - computed: false, optional: true, required: false
-  private _organizationalUnits?: string[]; 
+  private _organizationalUnits?: string[];
   public get organizationalUnits() {
     return this.getListAttribute('organizational_units');
   }
@@ -595,7 +595,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // permission_type - computed: false, optional: false, required: true
-  private _permissionType?: string; 
+  private _permissionType?: string;
   public get permissionType() {
     return this.getStringAttribute('permission_type');
   }
@@ -608,7 +608,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -629,7 +629,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // stack_set_name - computed: false, optional: true, required: false
-  private _stackSetName?: string; 
+  private _stackSetName?: string;
   public get stackSetName() {
     return this.getStringAttribute('stack_set_name');
   }
@@ -645,7 +645,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -661,7 +661,7 @@ export class GrafanaWorkspace extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

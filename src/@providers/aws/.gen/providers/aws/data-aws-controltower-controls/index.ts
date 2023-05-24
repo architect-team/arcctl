@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/controltower_controls
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsControltowerControls extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DataAwsControltowerControls extends cdktf.TerraformDataSource {
   }
 
   // target_identifier - computed: false, optional: false, required: true
-  private _targetIdentifier?: string; 
+  private _targetIdentifier?: string;
   public get targetIdentifier() {
     return this.getStringAttribute('target_identifier');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface BatchSchedulingPolicyConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * fair_share_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#fair_share_policy BatchSchedulingPolicy#fair_share_policy}
   */
   readonly fairSharePolicy?: BatchSchedulingPolicyFairSharePolicy;
@@ -106,7 +106,7 @@ export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReferenc
   }
 
   // share_identifier - computed: false, optional: false, required: true
-  private _shareIdentifier?: string; 
+  private _shareIdentifier?: string;
   public get shareIdentifier() {
     return this.getStringAttribute('share_identifier');
   }
@@ -119,7 +119,7 @@ export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReferenc
   }
 
   // weight_factor - computed: false, optional: true, required: false
-  private _weightFactor?: number; 
+  private _weightFactor?: number;
   public get weightFactor() {
     return this.getNumberAttribute('weight_factor');
   }
@@ -165,7 +165,7 @@ export interface BatchSchedulingPolicyFairSharePolicy {
   readonly shareDecaySeconds?: number;
   /**
   * share_distribution block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#share_distribution BatchSchedulingPolicy#share_distribution}
   */
   readonly shareDistribution?: BatchSchedulingPolicyFairSharePolicyShareDistribution[] | cdktf.IResolvable;
@@ -228,7 +228,7 @@ export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.C
   }
 
   // compute_reservation - computed: false, optional: true, required: false
-  private _computeReservation?: number; 
+  private _computeReservation?: number;
   public get computeReservation() {
     return this.getNumberAttribute('compute_reservation');
   }
@@ -244,7 +244,7 @@ export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.C
   }
 
   // share_decay_seconds - computed: false, optional: true, required: false
-  private _shareDecaySeconds?: number; 
+  private _shareDecaySeconds?: number;
   public get shareDecaySeconds() {
     return this.getNumberAttribute('share_decay_seconds');
   }
@@ -330,7 +330,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -346,7 +346,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -359,7 +359,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -375,7 +375,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

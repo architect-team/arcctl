@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio_constraints
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface DataAwsServicecatalogPortfolioConstraintsConfig extends cdktf.T
   readonly productId?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio_constraints#timeouts DataAwsServicecatalogPortfolioConstraints#timeouts}
   */
   readonly timeouts?: DataAwsServicecatalogPortfolioConstraintsTimeouts;
@@ -182,7 +182,7 @@ export class DataAwsServicecatalogPortfolioConstraintsTimeoutsOutputReference ex
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -247,7 +247,7 @@ export class DataAwsServicecatalogPortfolioConstraints extends cdktf.TerraformDa
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string; 
+  private _acceptLanguage?: string;
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -269,7 +269,7 @@ export class DataAwsServicecatalogPortfolioConstraints extends cdktf.TerraformDa
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -285,7 +285,7 @@ export class DataAwsServicecatalogPortfolioConstraints extends cdktf.TerraformDa
   }
 
   // portfolio_id - computed: false, optional: false, required: true
-  private _portfolioId?: string; 
+  private _portfolioId?: string;
   public get portfolioId() {
     return this.getStringAttribute('portfolio_id');
   }
@@ -298,7 +298,7 @@ export class DataAwsServicecatalogPortfolioConstraints extends cdktf.TerraformDa
   }
 
   // product_id - computed: false, optional: true, required: false
-  private _productId?: string; 
+  private _productId?: string;
   public get productId() {
     return this.getStringAttribute('product_id');
   }

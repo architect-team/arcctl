@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_view
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -21,13 +21,13 @@ export interface Resourceexplorer2ViewConfig extends cdktf.TerraformMetaArgument
   readonly tags?: { [key: string]: string };
   /**
   * filters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_view#filters Resourceexplorer2View#filters}
   */
   readonly filters?: Resourceexplorer2ViewFilters[] | cdktf.IResolvable;
   /**
   * included_property block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_view#included_property Resourceexplorer2View#included_property}
   */
   readonly includedProperty?: Resourceexplorer2ViewIncludedProperty[] | cdktf.IResolvable;
@@ -94,7 +94,7 @@ export class Resourceexplorer2ViewFiltersOutputReference extends cdktf.ComplexOb
   }
 
   // filter_string - computed: false, optional: false, required: true
-  private _filterString?: string; 
+  private _filterString?: string;
   public get filterString() {
     return this.getStringAttribute('filter_string');
   }
@@ -188,7 +188,7 @@ export class Resourceexplorer2ViewIncludedPropertyOutputReference extends cdktf.
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -275,7 +275,7 @@ export class Resourceexplorer2View extends cdktf.TerraformResource {
   }
 
   // default_view - computed: true, optional: true, required: false
-  private _defaultView?: boolean | cdktf.IResolvable; 
+  private _defaultView?: boolean | cdktf.IResolvable;
   public get defaultView() {
     return this.getBooleanAttribute('default_view');
   }
@@ -296,7 +296,7 @@ export class Resourceexplorer2View extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -309,7 +309,7 @@ export class Resourceexplorer2View extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/security_groups
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface DataAwsSecurityGroupsConfig extends cdktf.TerraformMetaArgument
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/security_groups#filter DataAwsSecurityGroups#filter}
   */
   readonly filter?: DataAwsSecurityGroupsFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/security_groups#timeouts DataAwsSecurityGroups#timeouts}
   */
   readonly timeouts?: DataAwsSecurityGroupsTimeouts;
@@ -104,7 +104,7 @@ export class DataAwsSecurityGroupsFilterOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -117,7 +117,7 @@ export class DataAwsSecurityGroupsFilterOutputReference extends cdktf.ComplexObj
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -209,7 +209,7 @@ export class DataAwsSecurityGroupsTimeoutsOutputReference extends cdktf.ComplexO
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -278,7 +278,7 @@ export class DataAwsSecurityGroups extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DataAwsSecurityGroups extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

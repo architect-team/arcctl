@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_macsec_key_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DxMacsecKeyAssociation extends cdktf.TerraformResource {
   // ==========
 
   // cak - computed: false, optional: true, required: false
-  private _cak?: string; 
+  private _cak?: string;
   public get cak() {
     return this.getStringAttribute('cak');
   }
@@ -97,7 +97,7 @@ export class DxMacsecKeyAssociation extends cdktf.TerraformResource {
   }
 
   // ckn - computed: true, optional: true, required: false
-  private _ckn?: string; 
+  private _ckn?: string;
   public get ckn() {
     return this.getStringAttribute('ckn');
   }
@@ -113,7 +113,7 @@ export class DxMacsecKeyAssociation extends cdktf.TerraformResource {
   }
 
   // connection_id - computed: false, optional: false, required: true
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -126,7 +126,7 @@ export class DxMacsecKeyAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -142,7 +142,7 @@ export class DxMacsecKeyAssociation extends cdktf.TerraformResource {
   }
 
   // secret_arn - computed: true, optional: true, required: false
-  private _secretArn?: string; 
+  private _secretArn?: string;
   public get secretArn() {
     return this.getStringAttribute('secret_arn');
   }

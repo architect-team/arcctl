@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lb_listener
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface LbListenerConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * default_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#default_action LbListener#default_action}
   */
   readonly defaultAction: LbListenerDefaultAction[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#timeouts LbListener#timeouts}
   */
   readonly timeouts?: LbListenerTimeouts;
@@ -186,7 +186,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // authentication_request_extra_params - computed: false, optional: true, required: false
-  private _authenticationRequestExtraParams?: { [key: string]: string }; 
+  private _authenticationRequestExtraParams?: { [key: string]: string };
   public get authenticationRequestExtraParams() {
     return this.getStringMapAttribute('authentication_request_extra_params');
   }
@@ -202,7 +202,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // on_unauthenticated_request - computed: true, optional: true, required: false
-  private _onUnauthenticatedRequest?: string; 
+  private _onUnauthenticatedRequest?: string;
   public get onUnauthenticatedRequest() {
     return this.getStringAttribute('on_unauthenticated_request');
   }
@@ -218,7 +218,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // scope - computed: true, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -234,7 +234,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // session_cookie_name - computed: true, optional: true, required: false
-  private _sessionCookieName?: string; 
+  private _sessionCookieName?: string;
   public get sessionCookieName() {
     return this.getStringAttribute('session_cookie_name');
   }
@@ -250,7 +250,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // session_timeout - computed: true, optional: true, required: false
-  private _sessionTimeout?: number; 
+  private _sessionTimeout?: number;
   public get sessionTimeout() {
     return this.getNumberAttribute('session_timeout');
   }
@@ -266,7 +266,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // user_pool_arn - computed: false, optional: false, required: true
-  private _userPoolArn?: string; 
+  private _userPoolArn?: string;
   public get userPoolArn() {
     return this.getStringAttribute('user_pool_arn');
   }
@@ -279,7 +279,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // user_pool_client_id - computed: false, optional: false, required: true
-  private _userPoolClientId?: string; 
+  private _userPoolClientId?: string;
   public get userPoolClientId() {
     return this.getStringAttribute('user_pool_client_id');
   }
@@ -292,7 +292,7 @@ export class LbListenerDefaultActionAuthenticateCognitoOutputReference extends c
   }
 
   // user_pool_domain - computed: false, optional: false, required: true
-  private _userPoolDomain?: string; 
+  private _userPoolDomain?: string;
   public get userPoolDomain() {
     return this.getStringAttribute('user_pool_domain');
   }
@@ -464,7 +464,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // authentication_request_extra_params - computed: false, optional: true, required: false
-  private _authenticationRequestExtraParams?: { [key: string]: string }; 
+  private _authenticationRequestExtraParams?: { [key: string]: string };
   public get authenticationRequestExtraParams() {
     return this.getStringMapAttribute('authentication_request_extra_params');
   }
@@ -480,7 +480,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // authorization_endpoint - computed: false, optional: false, required: true
-  private _authorizationEndpoint?: string; 
+  private _authorizationEndpoint?: string;
   public get authorizationEndpoint() {
     return this.getStringAttribute('authorization_endpoint');
   }
@@ -493,7 +493,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -506,7 +506,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // client_secret - computed: false, optional: false, required: true
-  private _clientSecret?: string; 
+  private _clientSecret?: string;
   public get clientSecret() {
     return this.getStringAttribute('client_secret');
   }
@@ -519,7 +519,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // issuer - computed: false, optional: false, required: true
-  private _issuer?: string; 
+  private _issuer?: string;
   public get issuer() {
     return this.getStringAttribute('issuer');
   }
@@ -532,7 +532,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // on_unauthenticated_request - computed: true, optional: true, required: false
-  private _onUnauthenticatedRequest?: string; 
+  private _onUnauthenticatedRequest?: string;
   public get onUnauthenticatedRequest() {
     return this.getStringAttribute('on_unauthenticated_request');
   }
@@ -548,7 +548,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // scope - computed: true, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -564,7 +564,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // session_cookie_name - computed: true, optional: true, required: false
-  private _sessionCookieName?: string; 
+  private _sessionCookieName?: string;
   public get sessionCookieName() {
     return this.getStringAttribute('session_cookie_name');
   }
@@ -580,7 +580,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // session_timeout - computed: true, optional: true, required: false
-  private _sessionTimeout?: number; 
+  private _sessionTimeout?: number;
   public get sessionTimeout() {
     return this.getNumberAttribute('session_timeout');
   }
@@ -596,7 +596,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // token_endpoint - computed: false, optional: false, required: true
-  private _tokenEndpoint?: string; 
+  private _tokenEndpoint?: string;
   public get tokenEndpoint() {
     return this.getStringAttribute('token_endpoint');
   }
@@ -609,7 +609,7 @@ export class LbListenerDefaultActionAuthenticateOidcOutputReference extends cdkt
   }
 
   // user_info_endpoint - computed: false, optional: false, required: true
-  private _userInfoEndpoint?: string; 
+  private _userInfoEndpoint?: string;
   public get userInfoEndpoint() {
     return this.getStringAttribute('user_info_endpoint');
   }
@@ -693,7 +693,7 @@ export class LbListenerDefaultActionFixedResponseOutputReference extends cdktf.C
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -706,7 +706,7 @@ export class LbListenerDefaultActionFixedResponseOutputReference extends cdktf.C
   }
 
   // message_body - computed: false, optional: true, required: false
-  private _messageBody?: string; 
+  private _messageBody?: string;
   public get messageBody() {
     return this.getStringAttribute('message_body');
   }
@@ -722,7 +722,7 @@ export class LbListenerDefaultActionFixedResponseOutputReference extends cdktf.C
   }
 
   // status_code - computed: true, optional: true, required: false
-  private _statusCode?: string; 
+  private _statusCode?: string;
   public get statusCode() {
     return this.getStringAttribute('status_code');
   }
@@ -798,7 +798,7 @@ export class LbListenerDefaultActionForwardStickinessOutputReference extends cdk
   }
 
   // duration - computed: false, optional: false, required: true
-  private _duration?: number; 
+  private _duration?: number;
   public get duration() {
     return this.getNumberAttribute('duration');
   }
@@ -811,7 +811,7 @@ export class LbListenerDefaultActionForwardStickinessOutputReference extends cdk
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -899,7 +899,7 @@ export class LbListenerDefaultActionForwardTargetGroupOutputReference extends cd
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -912,7 +912,7 @@ export class LbListenerDefaultActionForwardTargetGroupOutputReference extends cd
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -950,13 +950,13 @@ export class LbListenerDefaultActionForwardTargetGroupList extends cdktf.Complex
 export interface LbListenerDefaultActionForward {
   /**
   * stickiness block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#stickiness LbListener#stickiness}
   */
   readonly stickiness?: LbListenerDefaultActionForwardStickiness;
   /**
   * target_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#target_group LbListener#target_group}
   */
   readonly targetGroup: LbListenerDefaultActionForwardTargetGroup[] | cdktf.IResolvable;
@@ -1145,7 +1145,7 @@ export class LbListenerDefaultActionRedirectOutputReference extends cdktf.Comple
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1161,7 +1161,7 @@ export class LbListenerDefaultActionRedirectOutputReference extends cdktf.Comple
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -1177,7 +1177,7 @@ export class LbListenerDefaultActionRedirectOutputReference extends cdktf.Comple
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -1193,7 +1193,7 @@ export class LbListenerDefaultActionRedirectOutputReference extends cdktf.Comple
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -1209,7 +1209,7 @@ export class LbListenerDefaultActionRedirectOutputReference extends cdktf.Comple
   }
 
   // query - computed: false, optional: true, required: false
-  private _query?: string; 
+  private _query?: string;
   public get query() {
     return this.getStringAttribute('query');
   }
@@ -1225,7 +1225,7 @@ export class LbListenerDefaultActionRedirectOutputReference extends cdktf.Comple
   }
 
   // status_code - computed: false, optional: false, required: true
-  private _statusCode?: string; 
+  private _statusCode?: string;
   public get statusCode() {
     return this.getStringAttribute('status_code');
   }
@@ -1252,31 +1252,31 @@ export interface LbListenerDefaultAction {
   readonly type: string;
   /**
   * authenticate_cognito block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#authenticate_cognito LbListener#authenticate_cognito}
   */
   readonly authenticateCognito?: LbListenerDefaultActionAuthenticateCognito;
   /**
   * authenticate_oidc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#authenticate_oidc LbListener#authenticate_oidc}
   */
   readonly authenticateOidc?: LbListenerDefaultActionAuthenticateOidc;
   /**
   * fixed_response block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#fixed_response LbListener#fixed_response}
   */
   readonly fixedResponse?: LbListenerDefaultActionFixedResponse;
   /**
   * forward block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#forward LbListener#forward}
   */
   readonly forward?: LbListenerDefaultActionForward;
   /**
   * redirect block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb_listener#redirect LbListener#redirect}
   */
   readonly redirect?: LbListenerDefaultActionRedirect;
@@ -1386,7 +1386,7 @@ export class LbListenerDefaultActionOutputReference extends cdktf.ComplexObject 
   }
 
   // order - computed: true, optional: true, required: false
-  private _order?: number; 
+  private _order?: number;
   public get order() {
     return this.getNumberAttribute('order');
   }
@@ -1402,7 +1402,7 @@ export class LbListenerDefaultActionOutputReference extends cdktf.ComplexObject 
   }
 
   // target_group_arn - computed: false, optional: true, required: false
-  private _targetGroupArn?: string; 
+  private _targetGroupArn?: string;
   public get targetGroupArn() {
     return this.getStringAttribute('target_group_arn');
   }
@@ -1418,7 +1418,7 @@ export class LbListenerDefaultActionOutputReference extends cdktf.ComplexObject 
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1590,7 +1590,7 @@ export class LbListenerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -1661,7 +1661,7 @@ export class LbListener extends cdktf.TerraformResource {
   // ==========
 
   // alpn_policy - computed: false, optional: true, required: false
-  private _alpnPolicy?: string; 
+  private _alpnPolicy?: string;
   public get alpnPolicy() {
     return this.getStringAttribute('alpn_policy');
   }
@@ -1682,7 +1682,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // certificate_arn - computed: false, optional: true, required: false
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -1698,7 +1698,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1714,7 +1714,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // load_balancer_arn - computed: false, optional: false, required: true
-  private _loadBalancerArn?: string; 
+  private _loadBalancerArn?: string;
   public get loadBalancerArn() {
     return this.getStringAttribute('load_balancer_arn');
   }
@@ -1727,7 +1727,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1743,7 +1743,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // protocol - computed: true, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -1759,7 +1759,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // ssl_policy - computed: true, optional: true, required: false
-  private _sslPolicy?: string; 
+  private _sslPolicy?: string;
   public get sslPolicy() {
     return this.getStringAttribute('ssl_policy');
   }
@@ -1775,7 +1775,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1791,7 +1791,7 @@ export class LbListener extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

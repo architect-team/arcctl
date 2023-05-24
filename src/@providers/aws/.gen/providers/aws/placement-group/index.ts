@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/placement_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +112,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -125,7 +125,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // partition_count - computed: true, optional: true, required: false
-  private _partitionCount?: number; 
+  private _partitionCount?: number;
   public get partitionCount() {
     return this.getNumberAttribute('partition_count');
   }
@@ -146,7 +146,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // spread_level - computed: true, optional: true, required: false
-  private _spreadLevel?: string; 
+  private _spreadLevel?: string;
   public get spreadLevel() {
     return this.getStringAttribute('spread_level');
   }
@@ -162,7 +162,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // strategy - computed: false, optional: false, required: true
-  private _strategy?: string; 
+  private _strategy?: string;
   public get strategy() {
     return this.getStringAttribute('strategy');
   }
@@ -175,7 +175,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -191,7 +191,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

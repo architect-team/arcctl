@@ -1,7 +1,7 @@
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
 import { ResourceModule } from '../../module.js';
 import { DockerCredentials } from '../credentials.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class DockerServiceModule extends ResourceModule<
   'service',

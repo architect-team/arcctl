@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/efs_mount_target
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface EfsMountTargetConfig extends cdktf.TerraformMetaArguments {
   readonly subnetId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_mount_target#timeouts EfsMountTarget#timeouts}
   */
   readonly timeouts?: EfsMountTargetTimeouts;
@@ -108,7 +108,7 @@ export class EfsMountTargetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class EfsMountTargetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -210,7 +210,7 @@ export class EfsMountTarget extends cdktf.TerraformResource {
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -223,7 +223,7 @@ export class EfsMountTarget extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -239,7 +239,7 @@ export class EfsMountTarget extends cdktf.TerraformResource {
   }
 
   // ip_address - computed: true, optional: true, required: false
-  private _ipAddress?: string; 
+  private _ipAddress?: string;
   public get ipAddress() {
     return this.getStringAttribute('ip_address');
   }
@@ -270,7 +270,7 @@ export class EfsMountTarget extends cdktf.TerraformResource {
   }
 
   // security_groups - computed: true, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -286,7 +286,7 @@ export class EfsMountTarget extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }

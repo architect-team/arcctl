@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/mskconnect_connector
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,49 +36,49 @@ export interface MskconnectConnectorConfig extends cdktf.TerraformMetaArguments 
   readonly serviceExecutionRoleArn: string;
   /**
   * capacity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#capacity MskconnectConnector#capacity}
   */
   readonly capacity: MskconnectConnectorCapacity;
   /**
   * kafka_cluster block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#kafka_cluster MskconnectConnector#kafka_cluster}
   */
   readonly kafkaCluster: MskconnectConnectorKafkaCluster;
   /**
   * kafka_cluster_client_authentication block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#kafka_cluster_client_authentication MskconnectConnector#kafka_cluster_client_authentication}
   */
   readonly kafkaClusterClientAuthentication: MskconnectConnectorKafkaClusterClientAuthentication;
   /**
   * kafka_cluster_encryption_in_transit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#kafka_cluster_encryption_in_transit MskconnectConnector#kafka_cluster_encryption_in_transit}
   */
   readonly kafkaClusterEncryptionInTransit: MskconnectConnectorKafkaClusterEncryptionInTransit;
   /**
   * log_delivery block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#log_delivery MskconnectConnector#log_delivery}
   */
   readonly logDelivery?: MskconnectConnectorLogDelivery;
   /**
   * plugin block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#plugin MskconnectConnector#plugin}
   */
   readonly plugin: MskconnectConnectorPlugin[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#timeouts MskconnectConnector#timeouts}
   */
   readonly timeouts?: MskconnectConnectorTimeouts;
   /**
   * worker_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#worker_configuration MskconnectConnector#worker_configuration}
   */
   readonly workerConfiguration?: MskconnectConnectorWorkerConfiguration;
@@ -133,7 +133,7 @@ export class MskconnectConnectorCapacityAutoscalingScaleInPolicyOutputReference 
   }
 
   // cpu_utilization_percentage - computed: true, optional: true, required: false
-  private _cpuUtilizationPercentage?: number; 
+  private _cpuUtilizationPercentage?: number;
   public get cpuUtilizationPercentage() {
     return this.getNumberAttribute('cpu_utilization_percentage');
   }
@@ -198,7 +198,7 @@ export class MskconnectConnectorCapacityAutoscalingScaleOutPolicyOutputReference
   }
 
   // cpu_utilization_percentage - computed: true, optional: true, required: false
-  private _cpuUtilizationPercentage?: number; 
+  private _cpuUtilizationPercentage?: number;
   public get cpuUtilizationPercentage() {
     return this.getNumberAttribute('cpu_utilization_percentage');
   }
@@ -228,13 +228,13 @@ export interface MskconnectConnectorCapacityAutoscaling {
   readonly minWorkerCount: number;
   /**
   * scale_in_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#scale_in_policy MskconnectConnector#scale_in_policy}
   */
   readonly scaleInPolicy?: MskconnectConnectorCapacityAutoscalingScaleInPolicy;
   /**
   * scale_out_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#scale_out_policy MskconnectConnector#scale_out_policy}
   */
   readonly scaleOutPolicy?: MskconnectConnectorCapacityAutoscalingScaleOutPolicy;
@@ -311,7 +311,7 @@ export class MskconnectConnectorCapacityAutoscalingOutputReference extends cdktf
   }
 
   // max_worker_count - computed: false, optional: false, required: true
-  private _maxWorkerCount?: number; 
+  private _maxWorkerCount?: number;
   public get maxWorkerCount() {
     return this.getNumberAttribute('max_worker_count');
   }
@@ -324,7 +324,7 @@ export class MskconnectConnectorCapacityAutoscalingOutputReference extends cdktf
   }
 
   // mcu_count - computed: false, optional: true, required: false
-  private _mcuCount?: number; 
+  private _mcuCount?: number;
   public get mcuCount() {
     return this.getNumberAttribute('mcu_count');
   }
@@ -340,7 +340,7 @@ export class MskconnectConnectorCapacityAutoscalingOutputReference extends cdktf
   }
 
   // min_worker_count - computed: false, optional: false, required: true
-  private _minWorkerCount?: number; 
+  private _minWorkerCount?: number;
   public get minWorkerCount() {
     return this.getNumberAttribute('min_worker_count');
   }
@@ -445,7 +445,7 @@ export class MskconnectConnectorCapacityProvisionedCapacityOutputReference exten
   }
 
   // mcu_count - computed: false, optional: true, required: false
-  private _mcuCount?: number; 
+  private _mcuCount?: number;
   public get mcuCount() {
     return this.getNumberAttribute('mcu_count');
   }
@@ -461,7 +461,7 @@ export class MskconnectConnectorCapacityProvisionedCapacityOutputReference exten
   }
 
   // worker_count - computed: false, optional: false, required: true
-  private _workerCount?: number; 
+  private _workerCount?: number;
   public get workerCount() {
     return this.getNumberAttribute('worker_count');
   }
@@ -476,13 +476,13 @@ export class MskconnectConnectorCapacityProvisionedCapacityOutputReference exten
 export interface MskconnectConnectorCapacity {
   /**
   * autoscaling block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#autoscaling MskconnectConnector#autoscaling}
   */
   readonly autoscaling?: MskconnectConnectorCapacityAutoscaling;
   /**
   * provisioned_capacity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#provisioned_capacity MskconnectConnector#provisioned_capacity}
   */
   readonly provisionedCapacity?: MskconnectConnectorCapacityProvisionedCapacity;
@@ -630,7 +630,7 @@ export class MskconnectConnectorKafkaClusterApacheKafkaClusterVpcOutputReference
   }
 
   // security_groups - computed: false, optional: false, required: true
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -643,7 +643,7 @@ export class MskconnectConnectorKafkaClusterApacheKafkaClusterVpcOutputReference
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -662,7 +662,7 @@ export interface MskconnectConnectorKafkaClusterApacheKafkaCluster {
   readonly bootstrapServers: string;
   /**
   * vpc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#vpc MskconnectConnector#vpc}
   */
   readonly vpc: MskconnectConnectorKafkaClusterApacheKafkaClusterVpc;
@@ -718,7 +718,7 @@ export class MskconnectConnectorKafkaClusterApacheKafkaClusterOutputReference ex
   }
 
   // bootstrap_servers - computed: false, optional: false, required: true
-  private _bootstrapServers?: string; 
+  private _bootstrapServers?: string;
   public get bootstrapServers() {
     return this.getStringAttribute('bootstrap_servers');
   }
@@ -746,7 +746,7 @@ export class MskconnectConnectorKafkaClusterApacheKafkaClusterOutputReference ex
 export interface MskconnectConnectorKafkaCluster {
   /**
   * apache_kafka_cluster block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#apache_kafka_cluster MskconnectConnector#apache_kafka_cluster}
   */
   readonly apacheKafkaCluster: MskconnectConnectorKafkaClusterApacheKafkaCluster;
@@ -857,7 +857,7 @@ export class MskconnectConnectorKafkaClusterClientAuthenticationOutputReference 
   }
 
   // authentication_type - computed: false, optional: true, required: false
-  private _authenticationType?: string; 
+  private _authenticationType?: string;
   public get authenticationType() {
     return this.getStringAttribute('authentication_type');
   }
@@ -922,7 +922,7 @@ export class MskconnectConnectorKafkaClusterEncryptionInTransitOutputReference e
   }
 
   // encryption_type - computed: false, optional: true, required: false
-  private _encryptionType?: string; 
+  private _encryptionType?: string;
   public get encryptionType() {
     return this.getStringAttribute('encryption_type');
   }
@@ -998,7 +998,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1011,7 +1011,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput
   }
 
   // log_group - computed: false, optional: true, required: false
-  private _logGroup?: string; 
+  private _logGroup?: string;
   public get logGroup() {
     return this.getStringAttribute('log_group');
   }
@@ -1087,7 +1087,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryFirehoseOutputRefere
   }
 
   // delivery_stream - computed: false, optional: true, required: false
-  private _deliveryStream?: string; 
+  private _deliveryStream?: string;
   public get deliveryStream() {
     return this.getStringAttribute('delivery_stream');
   }
@@ -1103,7 +1103,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryFirehoseOutputRefere
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1187,7 +1187,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryS3OutputReference ex
   }
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1203,7 +1203,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryS3OutputReference ex
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1216,7 +1216,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryS3OutputReference ex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1234,19 +1234,19 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryS3OutputReference ex
 export interface MskconnectConnectorLogDeliveryWorkerLogDelivery {
   /**
   * cloudwatch_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#cloudwatch_logs MskconnectConnector#cloudwatch_logs}
   */
   readonly cloudwatchLogs?: MskconnectConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs;
   /**
   * firehose block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#firehose MskconnectConnector#firehose}
   */
   readonly firehose?: MskconnectConnectorLogDeliveryWorkerLogDeliveryFirehose;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#s3 MskconnectConnector#s3}
   */
   readonly s3?: MskconnectConnectorLogDeliveryWorkerLogDeliveryS3;
@@ -1359,7 +1359,7 @@ export class MskconnectConnectorLogDeliveryWorkerLogDeliveryOutputReference exte
 export interface MskconnectConnectorLogDelivery {
   /**
   * worker_log_delivery block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#worker_log_delivery MskconnectConnector#worker_log_delivery}
   */
   readonly workerLogDelivery: MskconnectConnectorLogDeliveryWorkerLogDelivery;
@@ -1481,7 +1481,7 @@ export class MskconnectConnectorPluginCustomPluginOutputReference extends cdktf.
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1494,7 +1494,7 @@ export class MskconnectConnectorPluginCustomPluginOutputReference extends cdktf.
   }
 
   // revision - computed: false, optional: false, required: true
-  private _revision?: number; 
+  private _revision?: number;
   public get revision() {
     return this.getNumberAttribute('revision');
   }
@@ -1509,7 +1509,7 @@ export class MskconnectConnectorPluginCustomPluginOutputReference extends cdktf.
 export interface MskconnectConnectorPlugin {
   /**
   * custom_plugin block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_connector#custom_plugin MskconnectConnector#custom_plugin}
   */
   readonly customPlugin: MskconnectConnectorPluginCustomPlugin;
@@ -1684,7 +1684,7 @@ export class MskconnectConnectorTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1700,7 +1700,7 @@ export class MskconnectConnectorTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1716,7 +1716,7 @@ export class MskconnectConnectorTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1792,7 +1792,7 @@ export class MskconnectConnectorWorkerConfigurationOutputReference extends cdktf
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1805,7 +1805,7 @@ export class MskconnectConnectorWorkerConfigurationOutputReference extends cdktf
   }
 
   // revision - computed: false, optional: false, required: true
-  private _revision?: number; 
+  private _revision?: number;
   public get revision() {
     return this.getNumberAttribute('revision');
   }
@@ -1881,7 +1881,7 @@ export class MskconnectConnector extends cdktf.TerraformResource {
   }
 
   // connector_configuration - computed: false, optional: false, required: true
-  private _connectorConfiguration?: { [key: string]: string }; 
+  private _connectorConfiguration?: { [key: string]: string };
   public get connectorConfiguration() {
     return this.getStringMapAttribute('connector_configuration');
   }
@@ -1894,7 +1894,7 @@ export class MskconnectConnector extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1910,7 +1910,7 @@ export class MskconnectConnector extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1926,7 +1926,7 @@ export class MskconnectConnector extends cdktf.TerraformResource {
   }
 
   // kafkaconnect_version - computed: false, optional: false, required: true
-  private _kafkaconnectVersion?: string; 
+  private _kafkaconnectVersion?: string;
   public get kafkaconnectVersion() {
     return this.getStringAttribute('kafkaconnect_version');
   }
@@ -1939,7 +1939,7 @@ export class MskconnectConnector extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1952,7 +1952,7 @@ export class MskconnectConnector extends cdktf.TerraformResource {
   }
 
   // service_execution_role_arn - computed: false, optional: false, required: true
-  private _serviceExecutionRoleArn?: string; 
+  private _serviceExecutionRoleArn?: string;
   public get serviceExecutionRoleArn() {
     return this.getStringAttribute('service_execution_role_arn');
   }

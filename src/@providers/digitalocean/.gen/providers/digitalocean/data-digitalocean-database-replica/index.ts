@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/database_replica
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -99,7 +99,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -158,7 +158,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }

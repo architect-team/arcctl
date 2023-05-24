@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,37 +28,37 @@ export interface Sesv2ConfigurationSetConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * delivery_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#delivery_options Sesv2ConfigurationSet#delivery_options}
   */
   readonly deliveryOptions?: Sesv2ConfigurationSetDeliveryOptions;
   /**
   * reputation_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#reputation_options Sesv2ConfigurationSet#reputation_options}
   */
   readonly reputationOptions?: Sesv2ConfigurationSetReputationOptions;
   /**
   * sending_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#sending_options Sesv2ConfigurationSet#sending_options}
   */
   readonly sendingOptions?: Sesv2ConfigurationSetSendingOptions;
   /**
   * suppression_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#suppression_options Sesv2ConfigurationSet#suppression_options}
   */
   readonly suppressionOptions?: Sesv2ConfigurationSetSuppressionOptions;
   /**
   * tracking_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#tracking_options Sesv2ConfigurationSet#tracking_options}
   */
   readonly trackingOptions?: Sesv2ConfigurationSetTrackingOptions;
   /**
   * vdm_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#vdm_options Sesv2ConfigurationSet#vdm_options}
   */
   readonly vdmOptions?: Sesv2ConfigurationSetVdmOptions;
@@ -124,7 +124,7 @@ export class Sesv2ConfigurationSetDeliveryOptionsOutputReference extends cdktf.C
   }
 
   // sending_pool_name - computed: false, optional: true, required: false
-  private _sendingPoolName?: string; 
+  private _sendingPoolName?: string;
   public get sendingPoolName() {
     return this.getStringAttribute('sending_pool_name');
   }
@@ -140,7 +140,7 @@ export class Sesv2ConfigurationSetDeliveryOptionsOutputReference extends cdktf.C
   }
 
   // tls_policy - computed: false, optional: true, required: false
-  private _tlsPolicy?: string; 
+  private _tlsPolicy?: string;
   public get tlsPolicy() {
     return this.getStringAttribute('tls_policy');
   }
@@ -210,7 +210,7 @@ export class Sesv2ConfigurationSetReputationOptionsOutputReference extends cdktf
   }
 
   // reputation_metrics_enabled - computed: true, optional: true, required: false
-  private _reputationMetricsEnabled?: boolean | cdktf.IResolvable; 
+  private _reputationMetricsEnabled?: boolean | cdktf.IResolvable;
   public get reputationMetricsEnabled() {
     return this.getBooleanAttribute('reputation_metrics_enabled');
   }
@@ -275,7 +275,7 @@ export class Sesv2ConfigurationSetSendingOptionsOutputReference extends cdktf.Co
   }
 
   // sending_enabled - computed: true, optional: true, required: false
-  private _sendingEnabled?: boolean | cdktf.IResolvable; 
+  private _sendingEnabled?: boolean | cdktf.IResolvable;
   public get sendingEnabled() {
     return this.getBooleanAttribute('sending_enabled');
   }
@@ -340,7 +340,7 @@ export class Sesv2ConfigurationSetSuppressionOptionsOutputReference extends cdkt
   }
 
   // suppressed_reasons - computed: false, optional: true, required: false
-  private _suppressedReasons?: string[]; 
+  private _suppressedReasons?: string[];
   public get suppressedReasons() {
     return this.getListAttribute('suppressed_reasons');
   }
@@ -405,7 +405,7 @@ export class Sesv2ConfigurationSetTrackingOptionsOutputReference extends cdktf.C
   }
 
   // custom_redirect_domain - computed: false, optional: false, required: true
-  private _customRedirectDomain?: string; 
+  private _customRedirectDomain?: string;
   public get customRedirectDomain() {
     return this.getStringAttribute('custom_redirect_domain');
   }
@@ -467,7 +467,7 @@ export class Sesv2ConfigurationSetVdmOptionsDashboardOptionsOutputReference exte
   }
 
   // engagement_metrics - computed: false, optional: true, required: false
-  private _engagementMetrics?: string; 
+  private _engagementMetrics?: string;
   public get engagementMetrics() {
     return this.getStringAttribute('engagement_metrics');
   }
@@ -532,7 +532,7 @@ export class Sesv2ConfigurationSetVdmOptionsGuardianOptionsOutputReference exten
   }
 
   // optimized_shared_delivery - computed: false, optional: true, required: false
-  private _optimizedSharedDelivery?: string; 
+  private _optimizedSharedDelivery?: string;
   public get optimizedSharedDelivery() {
     return this.getStringAttribute('optimized_shared_delivery');
   }
@@ -550,13 +550,13 @@ export class Sesv2ConfigurationSetVdmOptionsGuardianOptionsOutputReference exten
 export interface Sesv2ConfigurationSetVdmOptions {
   /**
   * dashboard_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#dashboard_options Sesv2ConfigurationSet#dashboard_options}
   */
   readonly dashboardOptions?: Sesv2ConfigurationSetVdmOptionsDashboardOptions;
   /**
   * guardian_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set#guardian_options Sesv2ConfigurationSet#guardian_options}
   */
   readonly guardianOptions?: Sesv2ConfigurationSetVdmOptionsGuardianOptions;
@@ -703,7 +703,7 @@ export class Sesv2ConfigurationSet extends cdktf.TerraformResource {
   }
 
   // configuration_set_name - computed: false, optional: false, required: true
-  private _configurationSetName?: string; 
+  private _configurationSetName?: string;
   public get configurationSetName() {
     return this.getStringAttribute('configuration_set_name');
   }
@@ -716,7 +716,7 @@ export class Sesv2ConfigurationSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -732,7 +732,7 @@ export class Sesv2ConfigurationSet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -748,7 +748,7 @@ export class Sesv2ConfigurationSet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

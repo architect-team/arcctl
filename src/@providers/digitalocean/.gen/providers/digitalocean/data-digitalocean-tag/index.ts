@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/tag
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataDigitaloceanTagConfig extends cdktf.TerraformMetaArguments 
   readonly id?: string;
   /**
   * name of the tag
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/tag#name DataDigitaloceanTag#name}
   */
   readonly name: string;
@@ -78,7 +78,7 @@ export class DataDigitaloceanTag extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -99,7 +99,7 @@ export class DataDigitaloceanTag extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface ServicecatalogTagOptionResourceAssociationConfig extends cdktf.
   readonly tagOptionId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#timeouts ServicecatalogTagOptionResourceAssociation#timeouts}
   */
   readonly timeouts?: ServicecatalogTagOptionResourceAssociationTimeouts;
@@ -111,7 +111,7 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -127,7 +127,7 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -143,7 +143,7 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -207,7 +207,7 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -238,7 +238,7 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }
@@ -256,7 +256,7 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
   }
 
   // tag_option_id - computed: false, optional: false, required: true
-  private _tagOptionId?: string; 
+  private _tagOptionId?: string;
   public get tagOptionId() {
     return this.getStringAttribute('tag_option_id');
   }

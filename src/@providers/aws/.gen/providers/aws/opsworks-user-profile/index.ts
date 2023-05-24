@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   // ==========
 
   // allow_self_management - computed: false, optional: true, required: false
-  private _allowSelfManagement?: boolean | cdktf.IResolvable; 
+  private _allowSelfManagement?: boolean | cdktf.IResolvable;
   public get allowSelfManagement() {
     return this.getBooleanAttribute('allow_self_management');
   }
@@ -97,7 +97,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // ssh_public_key - computed: false, optional: true, required: false
-  private _sshPublicKey?: string; 
+  private _sshPublicKey?: string;
   public get sshPublicKey() {
     return this.getStringAttribute('ssh_public_key');
   }
@@ -129,7 +129,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // ssh_username - computed: false, optional: false, required: true
-  private _sshUsername?: string; 
+  private _sshUsername?: string;
   public get sshUsername() {
     return this.getStringAttribute('ssh_username');
   }
@@ -142,7 +142,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // user_arn - computed: false, optional: false, required: true
-  private _userArn?: string; 
+  private _userArn?: string;
   public get userArn() {
     return this.getStringAttribute('user_arn');
   }

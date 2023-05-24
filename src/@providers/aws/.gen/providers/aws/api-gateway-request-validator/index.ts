@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_request_validator
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class ApiGatewayRequestValidator extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class ApiGatewayRequestValidator extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -110,7 +110,7 @@ export class ApiGatewayRequestValidator extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -123,7 +123,7 @@ export class ApiGatewayRequestValidator extends cdktf.TerraformResource {
   }
 
   // validate_request_body - computed: false, optional: true, required: false
-  private _validateRequestBody?: boolean | cdktf.IResolvable; 
+  private _validateRequestBody?: boolean | cdktf.IResolvable;
   public get validateRequestBody() {
     return this.getBooleanAttribute('validate_request_body');
   }
@@ -139,7 +139,7 @@ export class ApiGatewayRequestValidator extends cdktf.TerraformResource {
   }
 
   // validate_request_parameters - computed: false, optional: true, required: false
-  private _validateRequestParameters?: boolean | cdktf.IResolvable; 
+  private _validateRequestParameters?: boolean | cdktf.IResolvable;
   public get validateRequestParameters() {
     return this.getBooleanAttribute('validate_request_parameters');
   }

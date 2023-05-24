@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_backup
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface FsxBackupConfig extends cdktf.TerraformMetaArguments {
   readonly volumeId?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_backup#timeouts FsxBackup#timeouts}
   */
   readonly timeouts?: FsxBackupTimeouts;
@@ -108,7 +108,7 @@ export class FsxBackupTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class FsxBackupTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -195,7 +195,7 @@ export class FsxBackup extends cdktf.TerraformResource {
   }
 
   // file_system_id - computed: false, optional: true, required: false
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -211,7 +211,7 @@ export class FsxBackup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -237,7 +237,7 @@ export class FsxBackup extends cdktf.TerraformResource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -253,7 +253,7 @@ export class FsxBackup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -274,7 +274,7 @@ export class FsxBackup extends cdktf.TerraformResource {
   }
 
   // volume_id - computed: false, optional: true, required: false
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_base_path_mapping
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class ApiGatewayBasePathMapping extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -94,7 +94,7 @@ export class ApiGatewayBasePathMapping extends cdktf.TerraformResource {
   }
 
   // base_path - computed: false, optional: true, required: false
-  private _basePath?: string; 
+  private _basePath?: string;
   public get basePath() {
     return this.getStringAttribute('base_path');
   }
@@ -110,7 +110,7 @@ export class ApiGatewayBasePathMapping extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -123,7 +123,7 @@ export class ApiGatewayBasePathMapping extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class ApiGatewayBasePathMapping extends cdktf.TerraformResource {
   }
 
   // stage_name - computed: false, optional: true, required: false
-  private _stageName?: string; 
+  private _stageName?: string;
   public get stageName() {
     return this.getStringAttribute('stage_name');
   }

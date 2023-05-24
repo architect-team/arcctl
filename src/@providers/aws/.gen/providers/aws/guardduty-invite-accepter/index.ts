@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/guardduty_invite_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface GuarddutyInviteAccepterConfig extends cdktf.TerraformMetaArgume
   readonly masterAccountId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_invite_accepter#timeouts GuarddutyInviteAccepter#timeouts}
   */
   readonly timeouts?: GuarddutyInviteAccepterTimeouts;
@@ -89,7 +89,7 @@ export class GuarddutyInviteAccepterTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -153,7 +153,7 @@ export class GuarddutyInviteAccepter extends cdktf.TerraformResource {
   // ==========
 
   // detector_id - computed: false, optional: false, required: true
-  private _detectorId?: string; 
+  private _detectorId?: string;
   public get detectorId() {
     return this.getStringAttribute('detector_id');
   }
@@ -166,7 +166,7 @@ export class GuarddutyInviteAccepter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -182,7 +182,7 @@ export class GuarddutyInviteAccepter extends cdktf.TerraformResource {
   }
 
   // master_account_id - computed: false, optional: false, required: true
-  private _masterAccountId?: string; 
+  private _masterAccountId?: string;
   public get masterAccountId() {
     return this.getStringAttribute('master_account_id');
   }

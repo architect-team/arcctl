@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { PodMetadata, 
-podMetadataToTerraform, 
-PodMetadataOutputReference, 
-PodSpec, 
-podSpecToTerraform, 
-PodSpecOutputReference, 
-PodTimeouts, 
-podTimeoutsToTerraform, 
+import { PodMetadata,
+podMetadataToTerraform,
+PodMetadataOutputReference,
+PodSpec,
+podSpecToTerraform,
+PodSpecOutputReference,
+PodTimeouts,
+podTimeoutsToTerraform,
 PodTimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface PodConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -22,19 +22,19 @@ export interface PodConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#metadata Pod#metadata}
   */
   readonly metadata: PodMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#spec Pod#spec}
   */
   readonly spec: PodSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#timeouts Pod#timeouts}
   */
   readonly timeouts?: PodTimeouts;
@@ -88,7 +88,7 @@ export class Pod extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

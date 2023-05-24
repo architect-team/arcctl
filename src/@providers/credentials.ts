@@ -1,6 +1,6 @@
-import { JSONSchemaType } from 'ajv';
+import { JSONSchemaType } from 'npm:ajv';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// deno-lint-ignore no-empty-interface
 export interface ProviderCredentials {}
 
 export type ProviderCredentialsSchema<

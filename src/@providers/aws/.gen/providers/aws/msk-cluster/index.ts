@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/msk_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,43 +44,43 @@ export interface MskClusterConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * broker_node_group_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#broker_node_group_info MskCluster#broker_node_group_info}
   */
   readonly brokerNodeGroupInfo: MskClusterBrokerNodeGroupInfo;
   /**
   * client_authentication block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#client_authentication MskCluster#client_authentication}
   */
   readonly clientAuthentication?: MskClusterClientAuthentication;
   /**
   * configuration_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#configuration_info MskCluster#configuration_info}
   */
   readonly configurationInfo?: MskClusterConfigurationInfo;
   /**
   * encryption_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_info MskCluster#encryption_info}
   */
   readonly encryptionInfo?: MskClusterEncryptionInfo;
   /**
   * logging_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#logging_info MskCluster#logging_info}
   */
   readonly loggingInfo?: MskClusterLoggingInfo;
   /**
   * open_monitoring block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#open_monitoring MskCluster#open_monitoring}
   */
   readonly openMonitoring?: MskClusterOpenMonitoring;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#timeouts MskCluster#timeouts}
   */
   readonly timeouts?: MskClusterTimeouts;
@@ -135,7 +135,7 @@ export class MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputRefe
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -153,7 +153,7 @@ export class MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputRefe
 export interface MskClusterBrokerNodeGroupInfoConnectivityInfo {
   /**
   * public_access block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#public_access MskCluster#public_access}
   */
   readonly publicAccess?: MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
@@ -278,7 +278,7 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedTh
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -294,7 +294,7 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedTh
   }
 
   // volume_throughput - computed: false, optional: true, required: false
-  private _volumeThroughput?: number; 
+  private _volumeThroughput?: number;
   public get volumeThroughput() {
     return this.getNumberAttribute('volume_throughput');
   }
@@ -316,7 +316,7 @@ export interface MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
   readonly volumeSize?: number;
   /**
   * provisioned_throughput block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#provisioned_throughput MskCluster#provisioned_throughput}
   */
   readonly provisionedThroughput?: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput;
@@ -372,7 +372,7 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReferen
   }
 
   // volume_size - computed: false, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -406,7 +406,7 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReferen
 export interface MskClusterBrokerNodeGroupInfoStorageInfo {
   /**
   * ebs_storage_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#ebs_storage_info MskCluster#ebs_storage_info}
   */
   readonly ebsStorageInfo?: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo;
@@ -493,13 +493,13 @@ export interface MskClusterBrokerNodeGroupInfo {
   readonly securityGroups: string[];
   /**
   * connectivity_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#connectivity_info MskCluster#connectivity_info}
   */
   readonly connectivityInfo?: MskClusterBrokerNodeGroupInfoConnectivityInfo;
   /**
   * storage_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#storage_info MskCluster#storage_info}
   */
   readonly storageInfo?: MskClusterBrokerNodeGroupInfoStorageInfo;
@@ -590,7 +590,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // az_distribution - computed: false, optional: true, required: false
-  private _azDistribution?: string; 
+  private _azDistribution?: string;
   public get azDistribution() {
     return this.getStringAttribute('az_distribution');
   }
@@ -606,7 +606,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // client_subnets - computed: false, optional: false, required: true
-  private _clientSubnets?: string[]; 
+  private _clientSubnets?: string[];
   public get clientSubnets() {
     return cdktf.Fn.tolist(this.getListAttribute('client_subnets'));
   }
@@ -619,7 +619,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // ebs_volume_size - computed: true, optional: true, required: false
-  private _ebsVolumeSize?: number; 
+  private _ebsVolumeSize?: number;
   public get ebsVolumeSize() {
     return this.getNumberAttribute('ebs_volume_size');
   }
@@ -635,7 +635,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -648,7 +648,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // security_groups - computed: false, optional: false, required: true
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -753,7 +753,7 @@ export class MskClusterClientAuthenticationSaslOutputReference extends cdktf.Com
   }
 
   // iam - computed: false, optional: true, required: false
-  private _iam?: boolean | cdktf.IResolvable; 
+  private _iam?: boolean | cdktf.IResolvable;
   public get iam() {
     return this.getBooleanAttribute('iam');
   }
@@ -769,7 +769,7 @@ export class MskClusterClientAuthenticationSaslOutputReference extends cdktf.Com
   }
 
   // scram - computed: false, optional: true, required: false
-  private _scram?: boolean | cdktf.IResolvable; 
+  private _scram?: boolean | cdktf.IResolvable;
   public get scram() {
     return this.getBooleanAttribute('scram');
   }
@@ -834,7 +834,7 @@ export class MskClusterClientAuthenticationTlsOutputReference extends cdktf.Comp
   }
 
   // certificate_authority_arns - computed: false, optional: true, required: false
-  private _certificateAuthorityArns?: string[]; 
+  private _certificateAuthorityArns?: string[];
   public get certificateAuthorityArns() {
     return cdktf.Fn.tolist(this.getListAttribute('certificate_authority_arns'));
   }
@@ -856,13 +856,13 @@ export interface MskClusterClientAuthentication {
   readonly unauthenticated?: boolean | cdktf.IResolvable;
   /**
   * sasl block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#sasl MskCluster#sasl}
   */
   readonly sasl?: MskClusterClientAuthenticationSasl;
   /**
   * tls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#tls MskCluster#tls}
   */
   readonly tls?: MskClusterClientAuthenticationTls;
@@ -925,7 +925,7 @@ export class MskClusterClientAuthenticationOutputReference extends cdktf.Complex
   }
 
   // unauthenticated - computed: false, optional: true, required: false
-  private _unauthenticated?: boolean | cdktf.IResolvable; 
+  private _unauthenticated?: boolean | cdktf.IResolvable;
   public get unauthenticated() {
     return this.getBooleanAttribute('unauthenticated');
   }
@@ -1033,7 +1033,7 @@ export class MskClusterConfigurationInfoOutputReference extends cdktf.ComplexObj
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1046,7 +1046,7 @@ export class MskClusterConfigurationInfoOutputReference extends cdktf.ComplexObj
   }
 
   // revision - computed: false, optional: false, required: true
-  private _revision?: number; 
+  private _revision?: number;
   public get revision() {
     return this.getNumberAttribute('revision');
   }
@@ -1119,7 +1119,7 @@ export class MskClusterEncryptionInfoEncryptionInTransitOutputReference extends 
   }
 
   // client_broker - computed: false, optional: true, required: false
-  private _clientBroker?: string; 
+  private _clientBroker?: string;
   public get clientBroker() {
     return this.getStringAttribute('client_broker');
   }
@@ -1135,7 +1135,7 @@ export class MskClusterEncryptionInfoEncryptionInTransitOutputReference extends 
   }
 
   // in_cluster - computed: false, optional: true, required: false
-  private _inCluster?: boolean | cdktf.IResolvable; 
+  private _inCluster?: boolean | cdktf.IResolvable;
   public get inCluster() {
     return this.getBooleanAttribute('in_cluster');
   }
@@ -1157,7 +1157,7 @@ export interface MskClusterEncryptionInfo {
   readonly encryptionAtRestKmsKeyArn?: string;
   /**
   * encryption_in_transit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_in_transit MskCluster#encryption_in_transit}
   */
   readonly encryptionInTransit?: MskClusterEncryptionInfoEncryptionInTransit;
@@ -1213,7 +1213,7 @@ export class MskClusterEncryptionInfoOutputReference extends cdktf.ComplexObject
   }
 
   // encryption_at_rest_kms_key_arn - computed: true, optional: true, required: false
-  private _encryptionAtRestKmsKeyArn?: string; 
+  private _encryptionAtRestKmsKeyArn?: string;
   public get encryptionAtRestKmsKeyArn() {
     return this.getStringAttribute('encryption_at_rest_kms_key_arn');
   }
@@ -1305,7 +1305,7 @@ export class MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference extend
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1318,7 +1318,7 @@ export class MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference extend
   }
 
   // log_group - computed: false, optional: true, required: false
-  private _logGroup?: string; 
+  private _logGroup?: string;
   public get logGroup() {
     return this.getStringAttribute('log_group');
   }
@@ -1394,7 +1394,7 @@ export class MskClusterLoggingInfoBrokerLogsFirehoseOutputReference extends cdkt
   }
 
   // delivery_stream - computed: false, optional: true, required: false
-  private _deliveryStream?: string; 
+  private _deliveryStream?: string;
   public get deliveryStream() {
     return this.getStringAttribute('delivery_stream');
   }
@@ -1410,7 +1410,7 @@ export class MskClusterLoggingInfoBrokerLogsFirehoseOutputReference extends cdkt
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1494,7 +1494,7 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
   }
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1510,7 +1510,7 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1523,7 +1523,7 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1541,19 +1541,19 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
 export interface MskClusterLoggingInfoBrokerLogs {
   /**
   * cloudwatch_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#cloudwatch_logs MskCluster#cloudwatch_logs}
   */
   readonly cloudwatchLogs?: MskClusterLoggingInfoBrokerLogsCloudwatchLogs;
   /**
   * firehose block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#firehose MskCluster#firehose}
   */
   readonly firehose?: MskClusterLoggingInfoBrokerLogsFirehose;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#s3 MskCluster#s3}
   */
   readonly s3?: MskClusterLoggingInfoBrokerLogsS3;
@@ -1666,7 +1666,7 @@ export class MskClusterLoggingInfoBrokerLogsOutputReference extends cdktf.Comple
 export interface MskClusterLoggingInfo {
   /**
   * broker_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#broker_logs MskCluster#broker_logs}
   */
   readonly brokerLogs: MskClusterLoggingInfoBrokerLogs;
@@ -1777,7 +1777,7 @@ export class MskClusterOpenMonitoringPrometheusJmxExporterOutputReference extend
   }
 
   // enabled_in_broker - computed: false, optional: false, required: true
-  private _enabledInBroker?: boolean | cdktf.IResolvable; 
+  private _enabledInBroker?: boolean | cdktf.IResolvable;
   public get enabledInBroker() {
     return this.getBooleanAttribute('enabled_in_broker');
   }
@@ -1839,7 +1839,7 @@ export class MskClusterOpenMonitoringPrometheusNodeExporterOutputReference exten
   }
 
   // enabled_in_broker - computed: false, optional: false, required: true
-  private _enabledInBroker?: boolean | cdktf.IResolvable; 
+  private _enabledInBroker?: boolean | cdktf.IResolvable;
   public get enabledInBroker() {
     return this.getBooleanAttribute('enabled_in_broker');
   }
@@ -1854,13 +1854,13 @@ export class MskClusterOpenMonitoringPrometheusNodeExporterOutputReference exten
 export interface MskClusterOpenMonitoringPrometheus {
   /**
   * jmx_exporter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#jmx_exporter MskCluster#jmx_exporter}
   */
   readonly jmxExporter?: MskClusterOpenMonitoringPrometheusJmxExporter;
   /**
   * node_exporter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#node_exporter MskCluster#node_exporter}
   */
   readonly nodeExporter?: MskClusterOpenMonitoringPrometheusNodeExporter;
@@ -1950,7 +1950,7 @@ export class MskClusterOpenMonitoringPrometheusOutputReference extends cdktf.Com
 export interface MskClusterOpenMonitoring {
   /**
   * prometheus block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#prometheus MskCluster#prometheus}
   */
   readonly prometheus: MskClusterOpenMonitoringPrometheus;
@@ -2093,7 +2093,7 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -2109,7 +2109,7 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -2125,7 +2125,7 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -2240,7 +2240,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -2258,7 +2258,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // enhanced_monitoring - computed: false, optional: true, required: false
-  private _enhancedMonitoring?: string; 
+  private _enhancedMonitoring?: string;
   public get enhancedMonitoring() {
     return this.getStringAttribute('enhanced_monitoring');
   }
@@ -2274,7 +2274,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2290,7 +2290,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // kafka_version - computed: false, optional: false, required: true
-  private _kafkaVersion?: string; 
+  private _kafkaVersion?: string;
   public get kafkaVersion() {
     return this.getStringAttribute('kafka_version');
   }
@@ -2303,7 +2303,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // number_of_broker_nodes - computed: false, optional: false, required: true
-  private _numberOfBrokerNodes?: number; 
+  private _numberOfBrokerNodes?: number;
   public get numberOfBrokerNodes() {
     return this.getNumberAttribute('number_of_broker_nodes');
   }
@@ -2316,7 +2316,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // storage_mode - computed: true, optional: true, required: false
-  private _storageMode?: string; 
+  private _storageMode?: string;
   public get storageMode() {
     return this.getStringAttribute('storage_mode');
   }
@@ -2332,7 +2332,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2348,7 +2348,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

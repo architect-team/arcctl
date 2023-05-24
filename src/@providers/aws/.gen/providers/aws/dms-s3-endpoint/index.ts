@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -208,7 +208,7 @@ export interface DmsS3EndpointConfig extends cdktf.TerraformMetaArguments {
   readonly useTaskStartTimeForFullLoadTimestamp?: boolean | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#timeouts DmsS3Endpoint#timeouts}
   */
   readonly timeouts?: DmsS3EndpointTimeouts;
@@ -284,7 +284,7 @@ export class DmsS3EndpointTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -300,7 +300,7 @@ export class DmsS3EndpointTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -410,7 +410,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   // ==========
 
   // add_column_name - computed: false, optional: true, required: false
-  private _addColumnName?: boolean | cdktf.IResolvable; 
+  private _addColumnName?: boolean | cdktf.IResolvable;
   public get addColumnName() {
     return this.getBooleanAttribute('add_column_name');
   }
@@ -426,7 +426,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // add_trailing_padding_character - computed: false, optional: true, required: false
-  private _addTrailingPaddingCharacter?: boolean | cdktf.IResolvable; 
+  private _addTrailingPaddingCharacter?: boolean | cdktf.IResolvable;
   public get addTrailingPaddingCharacter() {
     return this.getBooleanAttribute('add_trailing_padding_character');
   }
@@ -442,7 +442,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // bucket_folder - computed: false, optional: true, required: false
-  private _bucketFolder?: string; 
+  private _bucketFolder?: string;
   public get bucketFolder() {
     return this.getStringAttribute('bucket_folder');
   }
@@ -458,7 +458,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -471,7 +471,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // canned_acl_for_objects - computed: false, optional: true, required: false
-  private _cannedAclForObjects?: string; 
+  private _cannedAclForObjects?: string;
   public get cannedAclForObjects() {
     return this.getStringAttribute('canned_acl_for_objects');
   }
@@ -487,7 +487,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // cdc_inserts_and_updates - computed: false, optional: true, required: false
-  private _cdcInsertsAndUpdates?: boolean | cdktf.IResolvable; 
+  private _cdcInsertsAndUpdates?: boolean | cdktf.IResolvable;
   public get cdcInsertsAndUpdates() {
     return this.getBooleanAttribute('cdc_inserts_and_updates');
   }
@@ -503,7 +503,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // cdc_inserts_only - computed: false, optional: true, required: false
-  private _cdcInsertsOnly?: boolean | cdktf.IResolvable; 
+  private _cdcInsertsOnly?: boolean | cdktf.IResolvable;
   public get cdcInsertsOnly() {
     return this.getBooleanAttribute('cdc_inserts_only');
   }
@@ -519,7 +519,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // cdc_max_batch_interval - computed: false, optional: true, required: false
-  private _cdcMaxBatchInterval?: number; 
+  private _cdcMaxBatchInterval?: number;
   public get cdcMaxBatchInterval() {
     return this.getNumberAttribute('cdc_max_batch_interval');
   }
@@ -535,7 +535,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // cdc_min_file_size - computed: false, optional: true, required: false
-  private _cdcMinFileSize?: number; 
+  private _cdcMinFileSize?: number;
   public get cdcMinFileSize() {
     return this.getNumberAttribute('cdc_min_file_size');
   }
@@ -551,7 +551,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // cdc_path - computed: false, optional: true, required: false
-  private _cdcPath?: string; 
+  private _cdcPath?: string;
   public get cdcPath() {
     return this.getStringAttribute('cdc_path');
   }
@@ -567,7 +567,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // certificate_arn - computed: true, optional: true, required: false
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -583,7 +583,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // compression_type - computed: false, optional: true, required: false
-  private _compressionType?: string; 
+  private _compressionType?: string;
   public get compressionType() {
     return this.getStringAttribute('compression_type');
   }
@@ -599,7 +599,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // csv_delimiter - computed: false, optional: true, required: false
-  private _csvDelimiter?: string; 
+  private _csvDelimiter?: string;
   public get csvDelimiter() {
     return this.getStringAttribute('csv_delimiter');
   }
@@ -615,7 +615,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // csv_no_sup_value - computed: false, optional: true, required: false
-  private _csvNoSupValue?: string; 
+  private _csvNoSupValue?: string;
   public get csvNoSupValue() {
     return this.getStringAttribute('csv_no_sup_value');
   }
@@ -631,7 +631,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // csv_null_value - computed: false, optional: true, required: false
-  private _csvNullValue?: string; 
+  private _csvNullValue?: string;
   public get csvNullValue() {
     return this.getStringAttribute('csv_null_value');
   }
@@ -647,7 +647,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // csv_row_delimiter - computed: false, optional: true, required: false
-  private _csvRowDelimiter?: string; 
+  private _csvRowDelimiter?: string;
   public get csvRowDelimiter() {
     return this.getStringAttribute('csv_row_delimiter');
   }
@@ -663,7 +663,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // data_format - computed: false, optional: true, required: false
-  private _dataFormat?: string; 
+  private _dataFormat?: string;
   public get dataFormat() {
     return this.getStringAttribute('data_format');
   }
@@ -679,7 +679,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // data_page_size - computed: false, optional: true, required: false
-  private _dataPageSize?: number; 
+  private _dataPageSize?: number;
   public get dataPageSize() {
     return this.getNumberAttribute('data_page_size');
   }
@@ -695,7 +695,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // date_partition_delimiter - computed: false, optional: true, required: false
-  private _datePartitionDelimiter?: string; 
+  private _datePartitionDelimiter?: string;
   public get datePartitionDelimiter() {
     return this.getStringAttribute('date_partition_delimiter');
   }
@@ -711,7 +711,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // date_partition_enabled - computed: false, optional: true, required: false
-  private _datePartitionEnabled?: boolean | cdktf.IResolvable; 
+  private _datePartitionEnabled?: boolean | cdktf.IResolvable;
   public get datePartitionEnabled() {
     return this.getBooleanAttribute('date_partition_enabled');
   }
@@ -727,7 +727,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // date_partition_sequence - computed: false, optional: true, required: false
-  private _datePartitionSequence?: string; 
+  private _datePartitionSequence?: string;
   public get datePartitionSequence() {
     return this.getStringAttribute('date_partition_sequence');
   }
@@ -743,7 +743,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // date_partition_timezone - computed: false, optional: true, required: false
-  private _datePartitionTimezone?: string; 
+  private _datePartitionTimezone?: string;
   public get datePartitionTimezone() {
     return this.getStringAttribute('date_partition_timezone');
   }
@@ -759,7 +759,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // detach_target_on_lob_lookup_failure_parquet - computed: false, optional: true, required: false
-  private _detachTargetOnLobLookupFailureParquet?: boolean | cdktf.IResolvable; 
+  private _detachTargetOnLobLookupFailureParquet?: boolean | cdktf.IResolvable;
   public get detachTargetOnLobLookupFailureParquet() {
     return this.getBooleanAttribute('detach_target_on_lob_lookup_failure_parquet');
   }
@@ -775,7 +775,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // dict_page_size_limit - computed: false, optional: true, required: false
-  private _dictPageSizeLimit?: number; 
+  private _dictPageSizeLimit?: number;
   public get dictPageSizeLimit() {
     return this.getNumberAttribute('dict_page_size_limit');
   }
@@ -791,7 +791,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // enable_statistics - computed: false, optional: true, required: false
-  private _enableStatistics?: boolean | cdktf.IResolvable; 
+  private _enableStatistics?: boolean | cdktf.IResolvable;
   public get enableStatistics() {
     return this.getBooleanAttribute('enable_statistics');
   }
@@ -807,7 +807,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // encoding_type - computed: false, optional: true, required: false
-  private _encodingType?: string; 
+  private _encodingType?: string;
   public get encodingType() {
     return this.getStringAttribute('encoding_type');
   }
@@ -823,7 +823,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // encryption_mode - computed: false, optional: true, required: false
-  private _encryptionMode?: string; 
+  private _encryptionMode?: string;
   public get encryptionMode() {
     return this.getStringAttribute('encryption_mode');
   }
@@ -844,7 +844,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // endpoint_id - computed: false, optional: false, required: true
-  private _endpointId?: string; 
+  private _endpointId?: string;
   public get endpointId() {
     return this.getStringAttribute('endpoint_id');
   }
@@ -857,7 +857,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // endpoint_type - computed: false, optional: false, required: true
-  private _endpointType?: string; 
+  private _endpointType?: string;
   public get endpointType() {
     return this.getStringAttribute('endpoint_type');
   }
@@ -875,7 +875,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -896,7 +896,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // external_table_definition - computed: false, optional: true, required: false
-  private _externalTableDefinition?: string; 
+  private _externalTableDefinition?: string;
   public get externalTableDefinition() {
     return this.getStringAttribute('external_table_definition');
   }
@@ -912,7 +912,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -928,7 +928,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // ignore_header_rows - computed: false, optional: true, required: false
-  private _ignoreHeaderRows?: number; 
+  private _ignoreHeaderRows?: number;
   public get ignoreHeaderRows() {
     return this.getNumberAttribute('ignore_header_rows');
   }
@@ -944,7 +944,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // include_op_for_full_load - computed: false, optional: true, required: false
-  private _includeOpForFullLoad?: boolean | cdktf.IResolvable; 
+  private _includeOpForFullLoad?: boolean | cdktf.IResolvable;
   public get includeOpForFullLoad() {
     return this.getBooleanAttribute('include_op_for_full_load');
   }
@@ -960,7 +960,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: true, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -976,7 +976,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // max_file_size - computed: false, optional: true, required: false
-  private _maxFileSize?: number; 
+  private _maxFileSize?: number;
   public get maxFileSize() {
     return this.getNumberAttribute('max_file_size');
   }
@@ -992,7 +992,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // parquet_timestamp_in_millisecond - computed: false, optional: true, required: false
-  private _parquetTimestampInMillisecond?: boolean | cdktf.IResolvable; 
+  private _parquetTimestampInMillisecond?: boolean | cdktf.IResolvable;
   public get parquetTimestampInMillisecond() {
     return this.getBooleanAttribute('parquet_timestamp_in_millisecond');
   }
@@ -1008,7 +1008,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // parquet_version - computed: false, optional: true, required: false
-  private _parquetVersion?: string; 
+  private _parquetVersion?: string;
   public get parquetVersion() {
     return this.getStringAttribute('parquet_version');
   }
@@ -1024,7 +1024,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // preserve_transactions - computed: false, optional: true, required: false
-  private _preserveTransactions?: boolean | cdktf.IResolvable; 
+  private _preserveTransactions?: boolean | cdktf.IResolvable;
   public get preserveTransactions() {
     return this.getBooleanAttribute('preserve_transactions');
   }
@@ -1040,7 +1040,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // rfc_4180 - computed: false, optional: true, required: false
-  private _rfc4180?: boolean | cdktf.IResolvable; 
+  private _rfc4180?: boolean | cdktf.IResolvable;
   public get rfc4180() {
     return this.getBooleanAttribute('rfc_4180');
   }
@@ -1056,7 +1056,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // row_group_length - computed: false, optional: true, required: false
-  private _rowGroupLength?: number; 
+  private _rowGroupLength?: number;
   public get rowGroupLength() {
     return this.getNumberAttribute('row_group_length');
   }
@@ -1072,7 +1072,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // server_side_encryption_kms_key_id - computed: false, optional: true, required: false
-  private _serverSideEncryptionKmsKeyId?: string; 
+  private _serverSideEncryptionKmsKeyId?: string;
   public get serverSideEncryptionKmsKeyId() {
     return this.getStringAttribute('server_side_encryption_kms_key_id');
   }
@@ -1088,7 +1088,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // service_access_role_arn - computed: false, optional: false, required: true
-  private _serviceAccessRoleArn?: string; 
+  private _serviceAccessRoleArn?: string;
   public get serviceAccessRoleArn() {
     return this.getStringAttribute('service_access_role_arn');
   }
@@ -1101,7 +1101,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // ssl_mode - computed: true, optional: true, required: false
-  private _sslMode?: string; 
+  private _sslMode?: string;
   public get sslMode() {
     return this.getStringAttribute('ssl_mode');
   }
@@ -1122,7 +1122,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1138,7 +1138,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1154,7 +1154,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // timestamp_column_name - computed: false, optional: true, required: false
-  private _timestampColumnName?: string; 
+  private _timestampColumnName?: string;
   public get timestampColumnName() {
     return this.getStringAttribute('timestamp_column_name');
   }
@@ -1170,7 +1170,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // use_csv_no_sup_value - computed: false, optional: true, required: false
-  private _useCsvNoSupValue?: boolean | cdktf.IResolvable; 
+  private _useCsvNoSupValue?: boolean | cdktf.IResolvable;
   public get useCsvNoSupValue() {
     return this.getBooleanAttribute('use_csv_no_sup_value');
   }
@@ -1186,7 +1186,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // use_task_start_time_for_full_load_timestamp - computed: false, optional: true, required: false
-  private _useTaskStartTimeForFullLoadTimestamp?: boolean | cdktf.IResolvable; 
+  private _useTaskStartTimeForFullLoadTimestamp?: boolean | cdktf.IResolvable;
   public get useTaskStartTimeForFullLoadTimestamp() {
     return this.getBooleanAttribute('use_task_start_time_for_full_load_timestamp');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface NetworkPolicyV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#metadata NetworkPolicyV1#metadata}
   */
   readonly metadata: NetworkPolicyV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#spec NetworkPolicyV1#spec}
   */
   readonly spec: NetworkPolicyV1Spec;
@@ -30,31 +30,31 @@ export interface NetworkPolicyV1Config extends cdktf.TerraformMetaArguments {
 export interface NetworkPolicyV1Metadata {
   /**
   * An unstructured key value map stored with the network policy that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#annotations NetworkPolicyV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#generate_name NetworkPolicyV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the network policy. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#labels NetworkPolicyV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the network policy, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#name NetworkPolicyV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the network policy must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#namespace NetworkPolicyV1#namespace}
   */
   readonly namespace?: string;
@@ -131,7 +131,7 @@ export class NetworkPolicyV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -147,7 +147,7 @@ export class NetworkPolicyV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -168,7 +168,7 @@ export class NetworkPolicyV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -184,7 +184,7 @@ export class NetworkPolicyV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -200,7 +200,7 @@ export class NetworkPolicyV1MetadataOutputReference extends cdktf.ComplexObject 
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -228,13 +228,13 @@ export class NetworkPolicyV1MetadataOutputReference extends cdktf.ComplexObject 
 export interface NetworkPolicyV1SpecEgressPorts {
   /**
   * The port on the given protocol. This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers. If present, only traffic on the specified protocol AND port will be matched.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#port NetworkPolicyV1#port}
   */
   readonly port?: string;
   /**
   * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#protocol NetworkPolicyV1#protocol}
   */
   readonly protocol?: string;
@@ -302,7 +302,7 @@ export class NetworkPolicyV1SpecEgressPortsOutputReference extends cdktf.Complex
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -318,7 +318,7 @@ export class NetworkPolicyV1SpecEgressPortsOutputReference extends cdktf.Complex
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -356,13 +356,13 @@ export class NetworkPolicyV1SpecEgressPortsList extends cdktf.ComplexList {
 export interface NetworkPolicyV1SpecEgressToIpBlock {
   /**
   * CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24" or "2001:db9::/64"
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#cidr NetworkPolicyV1#cidr}
   */
   readonly cidr?: string;
   /**
   * Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" or "2001:db9::/64" Except values will be rejected if they are outside the CIDR range
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#except NetworkPolicyV1#except}
   */
   readonly except?: string[];
@@ -418,7 +418,7 @@ export class NetworkPolicyV1SpecEgressToIpBlockOutputReference extends cdktf.Com
   }
 
   // cidr - computed: false, optional: true, required: false
-  private _cidr?: string; 
+  private _cidr?: string;
   public get cidr() {
     return this.getStringAttribute('cidr');
   }
@@ -434,7 +434,7 @@ export class NetworkPolicyV1SpecEgressToIpBlockOutputReference extends cdktf.Com
   }
 
   // except - computed: false, optional: true, required: false
-  private _except?: string[]; 
+  private _except?: string[];
   public get except() {
     return this.getListAttribute('except');
   }
@@ -452,19 +452,19 @@ export class NetworkPolicyV1SpecEgressToIpBlockOutputReference extends cdktf.Com
 export interface NetworkPolicyV1SpecEgressToNamespaceSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#key NetworkPolicyV1#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#operator NetworkPolicyV1#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#values NetworkPolicyV1#values}
   */
   readonly values?: string[];
@@ -539,7 +539,7 @@ export class NetworkPolicyV1SpecEgressToNamespaceSelectorMatchExpressionsOutputR
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -555,7 +555,7 @@ export class NetworkPolicyV1SpecEgressToNamespaceSelectorMatchExpressionsOutputR
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -571,7 +571,7 @@ export class NetworkPolicyV1SpecEgressToNamespaceSelectorMatchExpressionsOutputR
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -609,13 +609,13 @@ export class NetworkPolicyV1SpecEgressToNamespaceSelectorMatchExpressionsList ex
 export interface NetworkPolicyV1SpecEgressToNamespaceSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_labels NetworkPolicyV1#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_expressions NetworkPolicyV1#match_expressions}
   */
   readonly matchExpressions?: NetworkPolicyV1SpecEgressToNamespaceSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -671,7 +671,7 @@ export class NetworkPolicyV1SpecEgressToNamespaceSelectorOutputReference extends
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -705,19 +705,19 @@ export class NetworkPolicyV1SpecEgressToNamespaceSelectorOutputReference extends
 export interface NetworkPolicyV1SpecEgressToPodSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#key NetworkPolicyV1#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#operator NetworkPolicyV1#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#values NetworkPolicyV1#values}
   */
   readonly values?: string[];
@@ -792,7 +792,7 @@ export class NetworkPolicyV1SpecEgressToPodSelectorMatchExpressionsOutputReferen
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -808,7 +808,7 @@ export class NetworkPolicyV1SpecEgressToPodSelectorMatchExpressionsOutputReferen
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -824,7 +824,7 @@ export class NetworkPolicyV1SpecEgressToPodSelectorMatchExpressionsOutputReferen
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -862,13 +862,13 @@ export class NetworkPolicyV1SpecEgressToPodSelectorMatchExpressionsList extends 
 export interface NetworkPolicyV1SpecEgressToPodSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_labels NetworkPolicyV1#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_expressions NetworkPolicyV1#match_expressions}
   */
   readonly matchExpressions?: NetworkPolicyV1SpecEgressToPodSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -924,7 +924,7 @@ export class NetworkPolicyV1SpecEgressToPodSelectorOutputReference extends cdktf
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -958,19 +958,19 @@ export class NetworkPolicyV1SpecEgressToPodSelectorOutputReference extends cdktf
 export interface NetworkPolicyV1SpecEgressTo {
   /**
   * ip_block block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#ip_block NetworkPolicyV1#ip_block}
   */
   readonly ipBlock?: NetworkPolicyV1SpecEgressToIpBlock;
   /**
   * namespace_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#namespace_selector NetworkPolicyV1#namespace_selector}
   */
   readonly namespaceSelector?: NetworkPolicyV1SpecEgressToNamespaceSelector;
   /**
   * pod_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#pod_selector NetworkPolicyV1#pod_selector}
   */
   readonly podSelector?: NetworkPolicyV1SpecEgressToPodSelector;
@@ -1115,13 +1115,13 @@ export class NetworkPolicyV1SpecEgressToList extends cdktf.ComplexList {
 export interface NetworkPolicyV1SpecEgress {
   /**
   * ports block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#ports NetworkPolicyV1#ports}
   */
   readonly ports?: NetworkPolicyV1SpecEgressPorts[] | cdktf.IResolvable;
   /**
   * to block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#to NetworkPolicyV1#to}
   */
   readonly to?: NetworkPolicyV1SpecEgressTo[] | cdktf.IResolvable;
@@ -1243,13 +1243,13 @@ export class NetworkPolicyV1SpecEgressList extends cdktf.ComplexList {
 export interface NetworkPolicyV1SpecIngressFromIpBlock {
   /**
   * CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24" or "2001:db9::/64"
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#cidr NetworkPolicyV1#cidr}
   */
   readonly cidr?: string;
   /**
   * Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" or "2001:db9::/64" Except values will be rejected if they are outside the CIDR range
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#except NetworkPolicyV1#except}
   */
   readonly except?: string[];
@@ -1305,7 +1305,7 @@ export class NetworkPolicyV1SpecIngressFromIpBlockOutputReference extends cdktf.
   }
 
   // cidr - computed: false, optional: true, required: false
-  private _cidr?: string; 
+  private _cidr?: string;
   public get cidr() {
     return this.getStringAttribute('cidr');
   }
@@ -1321,7 +1321,7 @@ export class NetworkPolicyV1SpecIngressFromIpBlockOutputReference extends cdktf.
   }
 
   // except - computed: false, optional: true, required: false
-  private _except?: string[]; 
+  private _except?: string[];
   public get except() {
     return this.getListAttribute('except');
   }
@@ -1339,19 +1339,19 @@ export class NetworkPolicyV1SpecIngressFromIpBlockOutputReference extends cdktf.
 export interface NetworkPolicyV1SpecIngressFromNamespaceSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#key NetworkPolicyV1#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#operator NetworkPolicyV1#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#values NetworkPolicyV1#values}
   */
   readonly values?: string[];
@@ -1426,7 +1426,7 @@ export class NetworkPolicyV1SpecIngressFromNamespaceSelectorMatchExpressionsOutp
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1442,7 +1442,7 @@ export class NetworkPolicyV1SpecIngressFromNamespaceSelectorMatchExpressionsOutp
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -1458,7 +1458,7 @@ export class NetworkPolicyV1SpecIngressFromNamespaceSelectorMatchExpressionsOutp
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1496,13 +1496,13 @@ export class NetworkPolicyV1SpecIngressFromNamespaceSelectorMatchExpressionsList
 export interface NetworkPolicyV1SpecIngressFromNamespaceSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_labels NetworkPolicyV1#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_expressions NetworkPolicyV1#match_expressions}
   */
   readonly matchExpressions?: NetworkPolicyV1SpecIngressFromNamespaceSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -1558,7 +1558,7 @@ export class NetworkPolicyV1SpecIngressFromNamespaceSelectorOutputReference exte
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -1592,19 +1592,19 @@ export class NetworkPolicyV1SpecIngressFromNamespaceSelectorOutputReference exte
 export interface NetworkPolicyV1SpecIngressFromPodSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#key NetworkPolicyV1#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#operator NetworkPolicyV1#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#values NetworkPolicyV1#values}
   */
   readonly values?: string[];
@@ -1679,7 +1679,7 @@ export class NetworkPolicyV1SpecIngressFromPodSelectorMatchExpressionsOutputRefe
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1695,7 +1695,7 @@ export class NetworkPolicyV1SpecIngressFromPodSelectorMatchExpressionsOutputRefe
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -1711,7 +1711,7 @@ export class NetworkPolicyV1SpecIngressFromPodSelectorMatchExpressionsOutputRefe
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1749,13 +1749,13 @@ export class NetworkPolicyV1SpecIngressFromPodSelectorMatchExpressionsList exten
 export interface NetworkPolicyV1SpecIngressFromPodSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_labels NetworkPolicyV1#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_expressions NetworkPolicyV1#match_expressions}
   */
   readonly matchExpressions?: NetworkPolicyV1SpecIngressFromPodSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -1811,7 +1811,7 @@ export class NetworkPolicyV1SpecIngressFromPodSelectorOutputReference extends cd
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -1845,19 +1845,19 @@ export class NetworkPolicyV1SpecIngressFromPodSelectorOutputReference extends cd
 export interface NetworkPolicyV1SpecIngressFrom {
   /**
   * ip_block block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#ip_block NetworkPolicyV1#ip_block}
   */
   readonly ipBlock?: NetworkPolicyV1SpecIngressFromIpBlock;
   /**
   * namespace_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#namespace_selector NetworkPolicyV1#namespace_selector}
   */
   readonly namespaceSelector?: NetworkPolicyV1SpecIngressFromNamespaceSelector;
   /**
   * pod_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#pod_selector NetworkPolicyV1#pod_selector}
   */
   readonly podSelector?: NetworkPolicyV1SpecIngressFromPodSelector;
@@ -2002,13 +2002,13 @@ export class NetworkPolicyV1SpecIngressFromList extends cdktf.ComplexList {
 export interface NetworkPolicyV1SpecIngressPorts {
   /**
   * The port on the given protocol. This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers. If present, only traffic on the specified protocol AND port will be matched.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#port NetworkPolicyV1#port}
   */
   readonly port?: string;
   /**
   * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#protocol NetworkPolicyV1#protocol}
   */
   readonly protocol?: string;
@@ -2076,7 +2076,7 @@ export class NetworkPolicyV1SpecIngressPortsOutputReference extends cdktf.Comple
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -2092,7 +2092,7 @@ export class NetworkPolicyV1SpecIngressPortsOutputReference extends cdktf.Comple
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -2130,13 +2130,13 @@ export class NetworkPolicyV1SpecIngressPortsList extends cdktf.ComplexList {
 export interface NetworkPolicyV1SpecIngress {
   /**
   * from block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#from NetworkPolicyV1#from}
   */
   readonly from?: NetworkPolicyV1SpecIngressFrom[] | cdktf.IResolvable;
   /**
   * ports block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#ports NetworkPolicyV1#ports}
   */
   readonly ports?: NetworkPolicyV1SpecIngressPorts[] | cdktf.IResolvable;
@@ -2258,19 +2258,19 @@ export class NetworkPolicyV1SpecIngressList extends cdktf.ComplexList {
 export interface NetworkPolicyV1SpecPodSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#key NetworkPolicyV1#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#operator NetworkPolicyV1#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#values NetworkPolicyV1#values}
   */
   readonly values?: string[];
@@ -2345,7 +2345,7 @@ export class NetworkPolicyV1SpecPodSelectorMatchExpressionsOutputReference exten
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2361,7 +2361,7 @@ export class NetworkPolicyV1SpecPodSelectorMatchExpressionsOutputReference exten
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2377,7 +2377,7 @@ export class NetworkPolicyV1SpecPodSelectorMatchExpressionsOutputReference exten
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2415,13 +2415,13 @@ export class NetworkPolicyV1SpecPodSelectorMatchExpressionsList extends cdktf.Co
 export interface NetworkPolicyV1SpecPodSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_labels NetworkPolicyV1#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#match_expressions NetworkPolicyV1#match_expressions}
   */
   readonly matchExpressions?: NetworkPolicyV1SpecPodSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -2477,7 +2477,7 @@ export class NetworkPolicyV1SpecPodSelectorOutputReference extends cdktf.Complex
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2511,25 +2511,25 @@ export class NetworkPolicyV1SpecPodSelectorOutputReference extends cdktf.Complex
 export interface NetworkPolicyV1Spec {
   /**
   * List of rule types that the NetworkPolicy relates to. Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"]. If this field is not specified, it will default based on the existence of Ingress or Egress rules; policies that contain an Egress section are assumed to affect Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ "Egress" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include "Egress" (since such a policy would not include an Egress section and would otherwise default to just [ "Ingress" ]). This field is beta-level in 1.8
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#policy_types NetworkPolicyV1#policy_types}
   */
   readonly policyTypes: string[];
   /**
   * egress block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#egress NetworkPolicyV1#egress}
   */
   readonly egress?: NetworkPolicyV1SpecEgress[] | cdktf.IResolvable;
   /**
   * ingress block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#ingress NetworkPolicyV1#ingress}
   */
   readonly ingress?: NetworkPolicyV1SpecIngress[] | cdktf.IResolvable;
   /**
   * pod_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/network_policy_v1#pod_selector NetworkPolicyV1#pod_selector}
   */
   readonly podSelector: NetworkPolicyV1SpecPodSelector;
@@ -2599,7 +2599,7 @@ export class NetworkPolicyV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // policy_types - computed: false, optional: false, required: true
-  private _policyTypes?: string[]; 
+  private _policyTypes?: string[];
   public get policyTypes() {
     return this.getListAttribute('policy_types');
   }
@@ -2704,7 +2704,7 @@ export class NetworkPolicyV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder_status
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class ConfigConfigurationRecorderStatus extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class ConfigConfigurationRecorderStatus extends cdktf.TerraformResource {
   }
 
   // is_enabled - computed: false, optional: false, required: true
-  private _isEnabled?: boolean | cdktf.IResolvable; 
+  private _isEnabled?: boolean | cdktf.IResolvable;
   public get isEnabled() {
     return this.getBooleanAttribute('is_enabled');
   }
@@ -100,7 +100,7 @@ export class ConfigConfigurationRecorderStatus extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

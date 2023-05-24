@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_thing_type
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface IotThingTypeConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_thing_type#properties IotThingType#properties}
   */
   readonly properties?: IotThingTypeProperties;
@@ -98,7 +98,7 @@ export class IotThingTypePropertiesOutputReference extends cdktf.ComplexObject {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -114,7 +114,7 @@ export class IotThingTypePropertiesOutputReference extends cdktf.ComplexObject {
   }
 
   // searchable_attributes - computed: true, optional: true, required: false
-  private _searchableAttributes?: string[]; 
+  private _searchableAttributes?: string[];
   public get searchableAttributes() {
     return cdktf.Fn.tolist(this.getListAttribute('searchable_attributes'));
   }
@@ -185,7 +185,7 @@ export class IotThingType extends cdktf.TerraformResource {
   }
 
   // deprecated - computed: false, optional: true, required: false
-  private _deprecated?: boolean | cdktf.IResolvable; 
+  private _deprecated?: boolean | cdktf.IResolvable;
   public get deprecated() {
     return this.getBooleanAttribute('deprecated');
   }
@@ -201,7 +201,7 @@ export class IotThingType extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -217,7 +217,7 @@ export class IotThingType extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -230,7 +230,7 @@ export class IotThingType extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -246,7 +246,7 @@ export class IotThingType extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

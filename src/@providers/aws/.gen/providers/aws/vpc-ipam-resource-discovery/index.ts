@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_ipam_resource_discovery
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface VpcIpamResourceDiscoveryConfig extends cdktf.TerraformMetaArgum
   readonly tagsAll?: { [key: string]: string };
   /**
   * operating_regions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_resource_discovery#operating_regions VpcIpamResourceDiscovery#operating_regions}
   */
   readonly operatingRegions: VpcIpamResourceDiscoveryOperatingRegions[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_resource_discovery#timeouts VpcIpamResourceDiscovery#timeouts}
   */
   readonly timeouts?: VpcIpamResourceDiscoveryTimeouts;
@@ -101,7 +101,7 @@ export class VpcIpamResourceDiscoveryOperatingRegionsOutputReference extends cdk
   }
 
   // region_name - computed: false, optional: false, required: true
-  private _regionName?: string; 
+  private _regionName?: string;
   public get regionName() {
     return this.getStringAttribute('region_name');
   }
@@ -215,7 +215,7 @@ export class VpcIpamResourceDiscoveryTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -231,7 +231,7 @@ export class VpcIpamResourceDiscoveryTimeoutsOutputReference extends cdktf.Compl
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -247,7 +247,7 @@ export class VpcIpamResourceDiscoveryTimeoutsOutputReference extends cdktf.Compl
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -318,7 +318,7 @@ export class VpcIpamResourceDiscovery extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -334,7 +334,7 @@ export class VpcIpamResourceDiscovery extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -365,7 +365,7 @@ export class VpcIpamResourceDiscovery extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -381,7 +381,7 @@ export class VpcIpamResourceDiscovery extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

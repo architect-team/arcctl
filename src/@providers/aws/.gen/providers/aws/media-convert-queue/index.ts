@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/media_convert_queue
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface MediaConvertQueueConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * reservation_plan_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#reservation_plan_settings MediaConvertQueue#reservation_plan_settings}
   */
   readonly reservationPlanSettings?: MediaConvertQueueReservationPlanSettings;
@@ -117,7 +117,7 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
   }
 
   // commitment - computed: false, optional: false, required: true
-  private _commitment?: string; 
+  private _commitment?: string;
   public get commitment() {
     return this.getStringAttribute('commitment');
   }
@@ -130,7 +130,7 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
   }
 
   // renewal_type - computed: false, optional: false, required: true
-  private _renewalType?: string; 
+  private _renewalType?: string;
   public get renewalType() {
     return this.getStringAttribute('renewal_type');
   }
@@ -143,7 +143,7 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
   }
 
   // reserved_slots - computed: false, optional: false, required: true
-  private _reservedSlots?: number; 
+  private _reservedSlots?: number;
   public get reservedSlots() {
     return this.getNumberAttribute('reserved_slots');
   }
@@ -213,7 +213,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -229,7 +229,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -245,7 +245,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -258,7 +258,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // pricing_plan - computed: false, optional: true, required: false
-  private _pricingPlan?: string; 
+  private _pricingPlan?: string;
   public get pricingPlan() {
     return this.getStringAttribute('pricing_plan');
   }
@@ -274,7 +274,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -290,7 +290,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -306,7 +306,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

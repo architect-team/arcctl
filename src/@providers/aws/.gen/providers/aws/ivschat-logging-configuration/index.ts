@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface IvschatLoggingConfigurationConfig extends cdktf.TerraformMetaAr
   readonly tagsAll?: { [key: string]: string };
   /**
   * destination_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#destination_configuration IvschatLoggingConfiguration#destination_configuration}
   */
   readonly destinationConfiguration?: IvschatLoggingConfigurationDestinationConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#timeouts IvschatLoggingConfiguration#timeouts}
   */
   readonly timeouts?: IvschatLoggingConfigurationTimeouts;
@@ -89,7 +89,7 @@ export class IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOu
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -151,7 +151,7 @@ export class IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputRe
   }
 
   // delivery_stream_name - computed: false, optional: false, required: true
-  private _deliveryStreamName?: string; 
+  private _deliveryStreamName?: string;
   public get deliveryStreamName() {
     return this.getStringAttribute('delivery_stream_name');
   }
@@ -213,7 +213,7 @@ export class IvschatLoggingConfigurationDestinationConfigurationS3OutputReferenc
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -228,19 +228,19 @@ export class IvschatLoggingConfigurationDestinationConfigurationS3OutputReferenc
 export interface IvschatLoggingConfigurationDestinationConfiguration {
   /**
   * cloudwatch_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#cloudwatch_logs IvschatLoggingConfiguration#cloudwatch_logs}
   */
   readonly cloudwatchLogs?: IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs;
   /**
   * firehose block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#firehose IvschatLoggingConfiguration#firehose}
   */
   readonly firehose?: IvschatLoggingConfigurationDestinationConfigurationFirehose;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#s3 IvschatLoggingConfiguration#s3}
   */
   readonly s3?: IvschatLoggingConfigurationDestinationConfigurationS3;
@@ -432,7 +432,7 @@ export class IvschatLoggingConfigurationTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -448,7 +448,7 @@ export class IvschatLoggingConfigurationTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -464,7 +464,7 @@ export class IvschatLoggingConfigurationTimeoutsOutputReference extends cdktf.Co
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -535,7 +535,7 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -551,7 +551,7 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -572,7 +572,7 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -588,7 +588,7 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

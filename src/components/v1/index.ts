@@ -1,19 +1,19 @@
-import { ResourceInputs } from '../../@resources/index.js';
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.js';
+import { ResourceInputs } from '../../@resources/index.ts';
+import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import {
   Component,
   DockerBuildFn,
   DockerPushFn,
   DockerTagFn,
   GraphContext,
-} from '../component.js';
-import { DatabaseSchemaV1 } from './database-schema-v1.js';
-import { parseExpressionRefs } from './expressions.js';
-import { InterfaceSchemaV1 } from './interface-schema-v1';
-import { ParameterSchemaV1 } from './parameter-schema-v1';
-import { DebuggableServiceSchemaV1 } from './service-schema-v1';
-import { DebuggableStaticBucketSchemaV1 } from './static-schema-v1.js';
-import { DebuggableTaskSchemaV1 } from './task-schema-v1';
+} from '../component.ts';
+import { DatabaseSchemaV1 } from "./database-schema-v1.ts";
+import { parseExpressionRefs } from './expressions.ts';
+import { InterfaceSchemaV1 } from "./interface-schema-v1.ts";
+import { ParameterSchemaV1 } from "./parameter-schema-v1.ts";
+import { DebuggableServiceSchemaV1 } from "./service-schema-v1.ts";
+import { DebuggableStaticBucketSchemaV1 } from "./static-schema-v1.ts";
+import { DebuggableTaskSchemaV1 } from "./task-schema-v1.ts";
 
 export default class ComponentV1 extends Component {
   /**

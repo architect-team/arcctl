@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_container_service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,19 +40,19 @@ export interface LightsailContainerServiceConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * private_registry_access block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#private_registry_access LightsailContainerService#private_registry_access}
   */
   readonly privateRegistryAccess?: LightsailContainerServicePrivateRegistryAccess;
   /**
   * public_domain_names block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#public_domain_names LightsailContainerService#public_domain_names}
   */
   readonly publicDomainNames?: LightsailContainerServicePublicDomainNames;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#timeouts LightsailContainerService#timeouts}
   */
   readonly timeouts?: LightsailContainerServiceTimeouts;
@@ -107,7 +107,7 @@ export class LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOut
   }
 
   // is_active - computed: false, optional: true, required: false
-  private _isActive?: boolean | cdktf.IResolvable; 
+  private _isActive?: boolean | cdktf.IResolvable;
   public get isActive() {
     return this.getBooleanAttribute('is_active');
   }
@@ -130,7 +130,7 @@ export class LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOut
 export interface LightsailContainerServicePrivateRegistryAccess {
   /**
   * ecr_image_puller_role block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#ecr_image_puller_role LightsailContainerService#ecr_image_puller_role}
   */
   readonly ecrImagePullerRole?: LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole;
@@ -267,7 +267,7 @@ export class LightsailContainerServicePublicDomainNamesCertificateOutputReferenc
   }
 
   // certificate_name - computed: false, optional: false, required: true
-  private _certificateName?: string; 
+  private _certificateName?: string;
   public get certificateName() {
     return this.getStringAttribute('certificate_name');
   }
@@ -280,7 +280,7 @@ export class LightsailContainerServicePublicDomainNamesCertificateOutputReferenc
   }
 
   // domain_names - computed: false, optional: false, required: true
-  private _domainNames?: string[]; 
+  private _domainNames?: string[];
   public get domainNames() {
     return this.getListAttribute('domain_names');
   }
@@ -315,7 +315,7 @@ export class LightsailContainerServicePublicDomainNamesCertificateList extends c
 export interface LightsailContainerServicePublicDomainNames {
   /**
   * certificate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#certificate LightsailContainerService#certificate}
   */
   readonly certificate: LightsailContainerServicePublicDomainNamesCertificate[] | cdktf.IResolvable;
@@ -458,7 +458,7 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -474,7 +474,7 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -490,7 +490,7 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -575,7 +575,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -591,7 +591,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // is_disabled - computed: false, optional: true, required: false
-  private _isDisabled?: boolean | cdktf.IResolvable; 
+  private _isDisabled?: boolean | cdktf.IResolvable;
   public get isDisabled() {
     return this.getBooleanAttribute('is_disabled');
   }
@@ -607,7 +607,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -620,7 +620,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // power - computed: false, optional: false, required: true
-  private _power?: string; 
+  private _power?: string;
   public get power() {
     return this.getStringAttribute('power');
   }
@@ -653,7 +653,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // scale - computed: false, optional: false, required: true
-  private _scale?: number; 
+  private _scale?: number;
   public get scale() {
     return this.getNumberAttribute('scale');
   }
@@ -671,7 +671,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -687,7 +687,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

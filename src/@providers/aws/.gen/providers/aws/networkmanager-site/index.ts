@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_site
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface NetworkmanagerSiteConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site#location NetworkmanagerSite#location}
   */
   readonly location?: NetworkmanagerSiteLocation;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site#timeouts NetworkmanagerSite#timeouts}
   */
   readonly timeouts?: NetworkmanagerSiteTimeouts;
@@ -115,7 +115,7 @@ export class NetworkmanagerSiteLocationOutputReference extends cdktf.ComplexObje
   }
 
   // address - computed: false, optional: true, required: false
-  private _address?: string; 
+  private _address?: string;
   public get address() {
     return this.getStringAttribute('address');
   }
@@ -131,7 +131,7 @@ export class NetworkmanagerSiteLocationOutputReference extends cdktf.ComplexObje
   }
 
   // latitude - computed: false, optional: true, required: false
-  private _latitude?: string; 
+  private _latitude?: string;
   public get latitude() {
     return this.getStringAttribute('latitude');
   }
@@ -147,7 +147,7 @@ export class NetworkmanagerSiteLocationOutputReference extends cdktf.ComplexObje
   }
 
   // longitude - computed: false, optional: true, required: false
-  private _longitude?: string; 
+  private _longitude?: string;
   public get longitude() {
     return this.getStringAttribute('longitude');
   }
@@ -244,7 +244,7 @@ export class NetworkmanagerSiteTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -260,7 +260,7 @@ export class NetworkmanagerSiteTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -276,7 +276,7 @@ export class NetworkmanagerSiteTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -348,7 +348,7 @@ export class NetworkmanagerSite extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -364,7 +364,7 @@ export class NetworkmanagerSite extends cdktf.TerraformResource {
   }
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -377,7 +377,7 @@ export class NetworkmanagerSite extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -393,7 +393,7 @@ export class NetworkmanagerSite extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -409,7 +409,7 @@ export class NetworkmanagerSite extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

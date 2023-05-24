@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   // ==========
 
   // destination_arn - computed: false, optional: false, required: true
-  private _destinationArn?: string; 
+  private _destinationArn?: string;
   public get destinationArn() {
     return this.getStringAttribute('destination_arn');
   }
@@ -94,7 +94,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // destination_type - computed: false, optional: true, required: false
-  private _destinationType?: string; 
+  private _destinationType?: string;
   public get destinationType() {
     return this.getStringAttribute('destination_type');
   }
@@ -110,7 +110,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // detector_id - computed: false, optional: false, required: true
-  private _detectorId?: string; 
+  private _detectorId?: string;
   public get detectorId() {
     return this.getStringAttribute('detector_id');
   }
@@ -123,7 +123,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: false, optional: false, required: true
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/organizations_delegated_administrators
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -171,7 +171,7 @@ export class DataAwsOrganizationsDelegatedAdministrators extends cdktf.Terraform
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -187,7 +187,7 @@ export class DataAwsOrganizationsDelegatedAdministrators extends cdktf.Terraform
   }
 
   // service_principal - computed: false, optional: true, required: false
-  private _servicePrincipal?: string; 
+  private _servicePrincipal?: string;
   public get servicePrincipal() {
     return this.getStringAttribute('service_principal');
   }

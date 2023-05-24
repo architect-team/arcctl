@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appstream_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class AppstreamUser extends cdktf.TerraformResource {
   }
 
   // authentication_type - computed: false, optional: false, required: true
-  private _authenticationType?: string; 
+  private _authenticationType?: string;
   public get authenticationType() {
     return this.getStringAttribute('authentication_type');
   }
@@ -114,7 +114,7 @@ export class AppstreamUser extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -130,7 +130,7 @@ export class AppstreamUser extends cdktf.TerraformResource {
   }
 
   // first_name - computed: false, optional: true, required: false
-  private _firstName?: string; 
+  private _firstName?: string;
   public get firstName() {
     return this.getStringAttribute('first_name');
   }
@@ -146,7 +146,7 @@ export class AppstreamUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +162,7 @@ export class AppstreamUser extends cdktf.TerraformResource {
   }
 
   // last_name - computed: false, optional: true, required: false
-  private _lastName?: string; 
+  private _lastName?: string;
   public get lastName() {
     return this.getStringAttribute('last_name');
   }
@@ -178,7 +178,7 @@ export class AppstreamUser extends cdktf.TerraformResource {
   }
 
   // send_email_notification - computed: false, optional: true, required: false
-  private _sendEmailNotification?: boolean | cdktf.IResolvable; 
+  private _sendEmailNotification?: boolean | cdktf.IResolvable;
   public get sendEmailNotification() {
     return this.getBooleanAttribute('send_email_notification');
   }
@@ -194,7 +194,7 @@ export class AppstreamUser extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }

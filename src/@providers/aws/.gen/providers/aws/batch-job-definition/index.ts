@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/batch_job_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface BatchJobDefinitionConfig extends cdktf.TerraformMetaArguments {
   readonly type: string;
   /**
   * retry_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#retry_strategy BatchJobDefinition#retry_strategy}
   */
   readonly retryStrategy?: BatchJobDefinitionRetryStrategy;
   /**
   * timeout block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#timeout BatchJobDefinition#timeout}
   */
   readonly timeout?: BatchJobDefinitionTimeout;
@@ -154,7 +154,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // action - computed: false, optional: false, required: true
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -167,7 +167,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // on_exit_code - computed: false, optional: true, required: false
-  private _onExitCode?: string; 
+  private _onExitCode?: string;
   public get onExitCode() {
     return this.getStringAttribute('on_exit_code');
   }
@@ -183,7 +183,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // on_reason - computed: false, optional: true, required: false
-  private _onReason?: string; 
+  private _onReason?: string;
   public get onReason() {
     return this.getStringAttribute('on_reason');
   }
@@ -199,7 +199,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // on_status_reason - computed: false, optional: true, required: false
-  private _onStatusReason?: string; 
+  private _onStatusReason?: string;
   public get onStatusReason() {
     return this.getStringAttribute('on_status_reason');
   }
@@ -241,7 +241,7 @@ export interface BatchJobDefinitionRetryStrategy {
   readonly attempts?: number;
   /**
   * evaluate_on_exit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#evaluate_on_exit BatchJobDefinition#evaluate_on_exit}
   */
   readonly evaluateOnExit?: BatchJobDefinitionRetryStrategyEvaluateOnExit[] | cdktf.IResolvable;
@@ -297,7 +297,7 @@ export class BatchJobDefinitionRetryStrategyOutputReference extends cdktf.Comple
   }
 
   // attempts - computed: false, optional: true, required: false
-  private _attempts?: number; 
+  private _attempts?: number;
   public get attempts() {
     return this.getNumberAttribute('attempts');
   }
@@ -378,7 +378,7 @@ export class BatchJobDefinitionTimeoutOutputReference extends cdktf.ComplexObjec
   }
 
   // attempt_duration_seconds - computed: false, optional: true, required: false
-  private _attemptDurationSeconds?: number; 
+  private _attemptDurationSeconds?: number;
   public get attemptDurationSeconds() {
     return this.getNumberAttribute('attempt_duration_seconds');
   }
@@ -454,7 +454,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // container_properties - computed: false, optional: true, required: false
-  private _containerProperties?: string; 
+  private _containerProperties?: string;
   public get containerProperties() {
     return this.getStringAttribute('container_properties');
   }
@@ -470,7 +470,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -486,7 +486,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -499,7 +499,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -515,7 +515,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // platform_capabilities - computed: false, optional: true, required: false
-  private _platformCapabilities?: string[]; 
+  private _platformCapabilities?: string[];
   public get platformCapabilities() {
     return cdktf.Fn.tolist(this.getListAttribute('platform_capabilities'));
   }
@@ -531,7 +531,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // propagate_tags - computed: false, optional: true, required: false
-  private _propagateTags?: boolean | cdktf.IResolvable; 
+  private _propagateTags?: boolean | cdktf.IResolvable;
   public get propagateTags() {
     return this.getBooleanAttribute('propagate_tags');
   }
@@ -552,7 +552,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -568,7 +568,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -584,7 +584,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

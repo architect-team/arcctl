@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_framework
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -25,7 +25,7 @@ export interface AuditmanagerFrameworkConfig extends cdktf.TerraformMetaArgument
   readonly tags?: { [key: string]: string };
   /**
   * control_sets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_framework#control_sets AuditmanagerFramework#control_sets}
   */
   readonly controlSets?: AuditmanagerFrameworkControlSets[] | cdktf.IResolvable;
@@ -95,7 +95,7 @@ export class AuditmanagerFrameworkControlSetsControlsOutputReference extends cdk
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -134,7 +134,7 @@ export interface AuditmanagerFrameworkControlSets {
   readonly name: string;
   /**
   * controls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_framework#controls AuditmanagerFramework#controls}
   */
   readonly controls?: AuditmanagerFrameworkControlSetsControls[] | cdktf.IResolvable;
@@ -207,7 +207,7 @@ export class AuditmanagerFrameworkControlSetsOutputReference extends cdktf.Compl
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -310,7 +310,7 @@ export class AuditmanagerFramework extends cdktf.TerraformResource {
   }
 
   // compliance_type - computed: false, optional: true, required: false
-  private _complianceType?: string; 
+  private _complianceType?: string;
   public get complianceType() {
     return this.getStringAttribute('compliance_type');
   }
@@ -326,7 +326,7 @@ export class AuditmanagerFramework extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -352,7 +352,7 @@ export class AuditmanagerFramework extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -365,7 +365,7 @@ export class AuditmanagerFramework extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

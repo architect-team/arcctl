@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -68,7 +68,7 @@ export class AuditmanagerAccountRegistration extends cdktf.TerraformResource {
   // ==========
 
   // delegated_admin_account - computed: false, optional: true, required: false
-  private _delegatedAdminAccount?: string; 
+  private _delegatedAdminAccount?: string;
   public get delegatedAdminAccount() {
     return this.getStringAttribute('delegated_admin_account');
   }
@@ -84,7 +84,7 @@ export class AuditmanagerAccountRegistration extends cdktf.TerraformResource {
   }
 
   // deregister_on_destroy - computed: false, optional: true, required: false
-  private _deregisterOnDestroy?: boolean | cdktf.IResolvable; 
+  private _deregisterOnDestroy?: boolean | cdktf.IResolvable;
   public get deregisterOnDestroy() {
     return this.getBooleanAttribute('deregister_on_destroy');
   }
@@ -105,7 +105,7 @@ export class AuditmanagerAccountRegistration extends cdktf.TerraformResource {
   }
 
   // kms_key - computed: false, optional: true, required: false
-  private _kmsKey?: string; 
+  private _kmsKey?: string;
   public get kmsKey() {
     return this.getStringAttribute('kms_key');
   }

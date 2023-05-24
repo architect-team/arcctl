@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssoadmin_permission_set_inline_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class SsoadminPermissionSetInlinePolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class SsoadminPermissionSetInlinePolicy extends cdktf.TerraformResource {
   }
 
   // inline_policy - computed: false, optional: false, required: true
-  private _inlinePolicy?: string; 
+  private _inlinePolicy?: string;
   public get inlinePolicy() {
     return this.getStringAttribute('inline_policy');
   }
@@ -105,7 +105,7 @@ export class SsoadminPermissionSetInlinePolicy extends cdktf.TerraformResource {
   }
 
   // instance_arn - computed: false, optional: false, required: true
-  private _instanceArn?: string; 
+  private _instanceArn?: string;
   public get instanceArn() {
     return this.getStringAttribute('instance_arn');
   }
@@ -118,7 +118,7 @@ export class SsoadminPermissionSetInlinePolicy extends cdktf.TerraformResource {
   }
 
   // permission_set_arn - computed: false, optional: false, required: true
-  private _permissionSetArn?: string; 
+  private _permissionSetArn?: string;
   public get permissionSetArn() {
     return this.getStringAttribute('permission_set_arn');
   }

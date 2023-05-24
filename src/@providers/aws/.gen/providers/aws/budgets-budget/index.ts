@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/budgets_budget
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,31 +56,31 @@ export interface BudgetsBudgetConfig extends cdktf.TerraformMetaArguments {
   readonly timeUnit: string;
   /**
   * auto_adjust_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#auto_adjust_data BudgetsBudget#auto_adjust_data}
   */
   readonly autoAdjustData?: BudgetsBudgetAutoAdjustData;
   /**
   * cost_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_filter BudgetsBudget#cost_filter}
   */
   readonly costFilter?: BudgetsBudgetCostFilter[] | cdktf.IResolvable;
   /**
   * cost_types block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_types BudgetsBudget#cost_types}
   */
   readonly costTypes?: BudgetsBudgetCostTypes;
   /**
   * notification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#notification BudgetsBudget#notification}
   */
   readonly notification?: BudgetsBudgetNotification[] | cdktf.IResolvable;
   /**
   * planned_limit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#planned_limit BudgetsBudget#planned_limit}
   */
   readonly plannedLimit?: BudgetsBudgetPlannedLimit[] | cdktf.IResolvable;
@@ -135,7 +135,7 @@ export class BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference extends
   }
 
   // budget_adjustment_period - computed: false, optional: false, required: true
-  private _budgetAdjustmentPeriod?: number; 
+  private _budgetAdjustmentPeriod?: number;
   public get budgetAdjustmentPeriod() {
     return this.getNumberAttribute('budget_adjustment_period');
   }
@@ -159,7 +159,7 @@ export interface BudgetsBudgetAutoAdjustData {
   readonly autoAdjustType: string;
   /**
   * historical_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#historical_options BudgetsBudget#historical_options}
   */
   readonly historicalOptions?: BudgetsBudgetAutoAdjustDataHistoricalOptions;
@@ -215,7 +215,7 @@ export class BudgetsBudgetAutoAdjustDataOutputReference extends cdktf.ComplexObj
   }
 
   // auto_adjust_type - computed: false, optional: false, required: true
-  private _autoAdjustType?: string; 
+  private _autoAdjustType?: string;
   public get autoAdjustType() {
     return this.getStringAttribute('auto_adjust_type');
   }
@@ -321,7 +321,7 @@ export class BudgetsBudgetCostFilterOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -334,7 +334,7 @@ export class BudgetsBudgetCostFilterOutputReference extends cdktf.ComplexObject 
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -526,7 +526,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_credit - computed: false, optional: true, required: false
-  private _includeCredit?: boolean | cdktf.IResolvable; 
+  private _includeCredit?: boolean | cdktf.IResolvable;
   public get includeCredit() {
     return this.getBooleanAttribute('include_credit');
   }
@@ -542,7 +542,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_discount - computed: false, optional: true, required: false
-  private _includeDiscount?: boolean | cdktf.IResolvable; 
+  private _includeDiscount?: boolean | cdktf.IResolvable;
   public get includeDiscount() {
     return this.getBooleanAttribute('include_discount');
   }
@@ -558,7 +558,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_other_subscription - computed: false, optional: true, required: false
-  private _includeOtherSubscription?: boolean | cdktf.IResolvable; 
+  private _includeOtherSubscription?: boolean | cdktf.IResolvable;
   public get includeOtherSubscription() {
     return this.getBooleanAttribute('include_other_subscription');
   }
@@ -574,7 +574,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_recurring - computed: false, optional: true, required: false
-  private _includeRecurring?: boolean | cdktf.IResolvable; 
+  private _includeRecurring?: boolean | cdktf.IResolvable;
   public get includeRecurring() {
     return this.getBooleanAttribute('include_recurring');
   }
@@ -590,7 +590,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_refund - computed: false, optional: true, required: false
-  private _includeRefund?: boolean | cdktf.IResolvable; 
+  private _includeRefund?: boolean | cdktf.IResolvable;
   public get includeRefund() {
     return this.getBooleanAttribute('include_refund');
   }
@@ -606,7 +606,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_subscription - computed: false, optional: true, required: false
-  private _includeSubscription?: boolean | cdktf.IResolvable; 
+  private _includeSubscription?: boolean | cdktf.IResolvable;
   public get includeSubscription() {
     return this.getBooleanAttribute('include_subscription');
   }
@@ -622,7 +622,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_support - computed: false, optional: true, required: false
-  private _includeSupport?: boolean | cdktf.IResolvable; 
+  private _includeSupport?: boolean | cdktf.IResolvable;
   public get includeSupport() {
     return this.getBooleanAttribute('include_support');
   }
@@ -638,7 +638,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_tax - computed: false, optional: true, required: false
-  private _includeTax?: boolean | cdktf.IResolvable; 
+  private _includeTax?: boolean | cdktf.IResolvable;
   public get includeTax() {
     return this.getBooleanAttribute('include_tax');
   }
@@ -654,7 +654,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // include_upfront - computed: false, optional: true, required: false
-  private _includeUpfront?: boolean | cdktf.IResolvable; 
+  private _includeUpfront?: boolean | cdktf.IResolvable;
   public get includeUpfront() {
     return this.getBooleanAttribute('include_upfront');
   }
@@ -670,7 +670,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // use_amortized - computed: false, optional: true, required: false
-  private _useAmortized?: boolean | cdktf.IResolvable; 
+  private _useAmortized?: boolean | cdktf.IResolvable;
   public get useAmortized() {
     return this.getBooleanAttribute('use_amortized');
   }
@@ -686,7 +686,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   }
 
   // use_blended - computed: false, optional: true, required: false
-  private _useBlended?: boolean | cdktf.IResolvable; 
+  private _useBlended?: boolean | cdktf.IResolvable;
   public get useBlended() {
     return this.getBooleanAttribute('use_blended');
   }
@@ -818,7 +818,7 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
   }
 
   // comparison_operator - computed: false, optional: false, required: true
-  private _comparisonOperator?: string; 
+  private _comparisonOperator?: string;
   public get comparisonOperator() {
     return this.getStringAttribute('comparison_operator');
   }
@@ -831,7 +831,7 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
   }
 
   // notification_type - computed: false, optional: false, required: true
-  private _notificationType?: string; 
+  private _notificationType?: string;
   public get notificationType() {
     return this.getStringAttribute('notification_type');
   }
@@ -844,7 +844,7 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
   }
 
   // subscriber_email_addresses - computed: false, optional: true, required: false
-  private _subscriberEmailAddresses?: string[]; 
+  private _subscriberEmailAddresses?: string[];
   public get subscriberEmailAddresses() {
     return cdktf.Fn.tolist(this.getListAttribute('subscriber_email_addresses'));
   }
@@ -860,7 +860,7 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
   }
 
   // subscriber_sns_topic_arns - computed: false, optional: true, required: false
-  private _subscriberSnsTopicArns?: string[]; 
+  private _subscriberSnsTopicArns?: string[];
   public get subscriberSnsTopicArns() {
     return cdktf.Fn.tolist(this.getListAttribute('subscriber_sns_topic_arns'));
   }
@@ -876,7 +876,7 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
   }
 
   // threshold - computed: false, optional: false, required: true
-  private _threshold?: number; 
+  private _threshold?: number;
   public get threshold() {
     return this.getNumberAttribute('threshold');
   }
@@ -889,7 +889,7 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
   }
 
   // threshold_type - computed: false, optional: false, required: true
-  private _thresholdType?: string; 
+  private _thresholdType?: string;
   public get thresholdType() {
     return this.getStringAttribute('threshold_type');
   }
@@ -1005,7 +1005,7 @@ export class BudgetsBudgetPlannedLimitOutputReference extends cdktf.ComplexObjec
   }
 
   // amount - computed: false, optional: false, required: true
-  private _amount?: string; 
+  private _amount?: string;
   public get amount() {
     return this.getStringAttribute('amount');
   }
@@ -1018,7 +1018,7 @@ export class BudgetsBudgetPlannedLimitOutputReference extends cdktf.ComplexObjec
   }
 
   // start_time - computed: false, optional: false, required: true
-  private _startTime?: string; 
+  private _startTime?: string;
   public get startTime() {
     return this.getStringAttribute('start_time');
   }
@@ -1031,7 +1031,7 @@ export class BudgetsBudgetPlannedLimitOutputReference extends cdktf.ComplexObjec
   }
 
   // unit - computed: false, optional: false, required: true
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -1124,7 +1124,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -1145,7 +1145,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // budget_type - computed: false, optional: false, required: true
-  private _budgetType?: string; 
+  private _budgetType?: string;
   public get budgetType() {
     return this.getStringAttribute('budget_type');
   }
@@ -1158,7 +1158,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // cost_filters - computed: true, optional: true, required: false
-  private _costFilters?: { [key: string]: string }; 
+  private _costFilters?: { [key: string]: string };
   public get costFilters() {
     return this.getStringMapAttribute('cost_filters');
   }
@@ -1174,7 +1174,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1190,7 +1190,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // limit_amount - computed: true, optional: true, required: false
-  private _limitAmount?: string; 
+  private _limitAmount?: string;
   public get limitAmount() {
     return this.getStringAttribute('limit_amount');
   }
@@ -1206,7 +1206,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // limit_unit - computed: true, optional: true, required: false
-  private _limitUnit?: string; 
+  private _limitUnit?: string;
   public get limitUnit() {
     return this.getStringAttribute('limit_unit');
   }
@@ -1222,7 +1222,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1238,7 +1238,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -1254,7 +1254,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // time_period_end - computed: false, optional: true, required: false
-  private _timePeriodEnd?: string; 
+  private _timePeriodEnd?: string;
   public get timePeriodEnd() {
     return this.getStringAttribute('time_period_end');
   }
@@ -1270,7 +1270,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // time_period_start - computed: true, optional: true, required: false
-  private _timePeriodStart?: string; 
+  private _timePeriodStart?: string;
   public get timePeriodStart() {
     return this.getStringAttribute('time_period_start');
   }
@@ -1286,7 +1286,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // time_unit - computed: false, optional: false, required: true
-  private _timeUnit?: string; 
+  private _timeUnit?: string;
   public get timeUnit() {
     return this.getStringAttribute('time_unit');
   }

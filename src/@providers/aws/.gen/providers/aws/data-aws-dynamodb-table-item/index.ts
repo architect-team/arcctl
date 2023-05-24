@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/dynamodb_table_item
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsDynamodbTableItem extends cdktf.TerraformDataSource {
   // ==========
 
   // expression_attribute_names - computed: false, optional: true, required: false
-  private _expressionAttributeNames?: { [key: string]: string }; 
+  private _expressionAttributeNames?: { [key: string]: string };
   public get expressionAttributeNames() {
     return this.getStringMapAttribute('expression_attribute_names');
   }
@@ -97,7 +97,7 @@ export class DataAwsDynamodbTableItem extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class DataAwsDynamodbTableItem extends cdktf.TerraformDataSource {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -131,7 +131,7 @@ export class DataAwsDynamodbTableItem extends cdktf.TerraformDataSource {
   }
 
   // projection_expression - computed: false, optional: true, required: false
-  private _projectionExpression?: string; 
+  private _projectionExpression?: string;
   public get projectionExpression() {
     return this.getStringAttribute('projection_expression');
   }
@@ -147,7 +147,7 @@ export class DataAwsDynamodbTableItem extends cdktf.TerraformDataSource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/organizations_policy_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class OrganizationsPolicyAttachment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class OrganizationsPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // policy_id - computed: false, optional: false, required: true
-  private _policyId?: string; 
+  private _policyId?: string;
   public get policyId() {
     return this.getStringAttribute('policy_id');
   }
@@ -105,7 +105,7 @@ export class OrganizationsPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // skip_destroy - computed: false, optional: true, required: false
-  private _skipDestroy?: boolean | cdktf.IResolvable; 
+  private _skipDestroy?: boolean | cdktf.IResolvable;
   public get skipDestroy() {
     return this.getBooleanAttribute('skip_destroy');
   }
@@ -121,7 +121,7 @@ export class OrganizationsPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // target_id - computed: false, optional: false, required: true
-  private _targetId?: string; 
+  private _targetId?: string;
   public get targetId() {
     return this.getStringAttribute('target_id');
   }

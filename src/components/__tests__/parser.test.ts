@@ -4,7 +4,7 @@ import ComponentV2 from '../v2/index.js';
 import yaml from 'js-yaml';
 import url from 'url';
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = new URL('.', import.meta.url).pathname;
 
 describe('Component parser', () => {
   it('should parse default schema', async () => {

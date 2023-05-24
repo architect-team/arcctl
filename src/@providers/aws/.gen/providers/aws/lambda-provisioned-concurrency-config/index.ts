@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_provisioned_concurrency_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface LambdaProvisionedConcurrencyConfigConfig extends cdktf.Terrafor
   readonly qualifier: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_provisioned_concurrency_config#timeouts LambdaProvisionedConcurrencyConfig#timeouts}
   */
   readonly timeouts?: LambdaProvisionedConcurrencyConfigTimeouts;
@@ -104,7 +104,7 @@ export class LambdaProvisionedConcurrencyConfigTimeoutsOutputReference extends c
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -120,7 +120,7 @@ export class LambdaProvisionedConcurrencyConfigTimeoutsOutputReference extends c
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -185,7 +185,7 @@ export class LambdaProvisionedConcurrencyConfig extends cdktf.TerraformResource 
   // ==========
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -198,7 +198,7 @@ export class LambdaProvisionedConcurrencyConfig extends cdktf.TerraformResource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -214,7 +214,7 @@ export class LambdaProvisionedConcurrencyConfig extends cdktf.TerraformResource 
   }
 
   // provisioned_concurrent_executions - computed: false, optional: false, required: true
-  private _provisionedConcurrentExecutions?: number; 
+  private _provisionedConcurrentExecutions?: number;
   public get provisionedConcurrentExecutions() {
     return this.getNumberAttribute('provisioned_concurrent_executions');
   }
@@ -227,7 +227,7 @@ export class LambdaProvisionedConcurrencyConfig extends cdktf.TerraformResource 
   }
 
   // qualifier - computed: false, optional: false, required: true
-  private _qualifier?: string; 
+  private _qualifier?: string;
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }

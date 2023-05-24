@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataAwsEc2TransitGatewayVpcAttachmentsConfig extends cdktf.Terr
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#filter DataAwsEc2TransitGatewayVpcAttachments#filter}
   */
   readonly filter?: DataAwsEc2TransitGatewayVpcAttachmentsFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#timeouts DataAwsEc2TransitGatewayVpcAttachments#timeouts}
   */
   readonly timeouts?: DataAwsEc2TransitGatewayVpcAttachmentsTimeouts;
@@ -100,7 +100,7 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -113,7 +113,7 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -205,7 +205,7 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference exten
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -268,7 +268,7 @@ export class DataAwsEc2TransitGatewayVpcAttachments extends cdktf.TerraformDataS
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

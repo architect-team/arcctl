@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/rds_reserved_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface RdsReservedInstanceConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_reserved_instance#timeouts RdsReservedInstance#timeouts}
   */
   readonly timeouts?: RdsReservedInstanceTimeouts;
@@ -192,7 +192,7 @@ export class RdsReservedInstanceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -208,7 +208,7 @@ export class RdsReservedInstanceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -224,7 +224,7 @@ export class RdsReservedInstanceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -316,7 +316,7 @@ export class RdsReservedInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -332,7 +332,7 @@ export class RdsReservedInstance extends cdktf.TerraformResource {
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -358,7 +358,7 @@ export class RdsReservedInstance extends cdktf.TerraformResource {
   }
 
   // offering_id - computed: false, optional: false, required: true
-  private _offeringId?: string; 
+  private _offeringId?: string;
   public get offeringId() {
     return this.getStringAttribute('offering_id');
   }
@@ -387,7 +387,7 @@ export class RdsReservedInstance extends cdktf.TerraformResource {
   }
 
   // reservation_id - computed: false, optional: true, required: false
-  private _reservationId?: string; 
+  private _reservationId?: string;
   public get reservationId() {
     return this.getStringAttribute('reservation_id');
   }
@@ -413,7 +413,7 @@ export class RdsReservedInstance extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -429,7 +429,7 @@ export class RdsReservedInstance extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

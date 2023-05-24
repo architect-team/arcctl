@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_account_public_access_block
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class S3AccountPublicAccessBlock extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -102,7 +102,7 @@ export class S3AccountPublicAccessBlock extends cdktf.TerraformResource {
   }
 
   // block_public_acls - computed: false, optional: true, required: false
-  private _blockPublicAcls?: boolean | cdktf.IResolvable; 
+  private _blockPublicAcls?: boolean | cdktf.IResolvable;
   public get blockPublicAcls() {
     return this.getBooleanAttribute('block_public_acls');
   }
@@ -118,7 +118,7 @@ export class S3AccountPublicAccessBlock extends cdktf.TerraformResource {
   }
 
   // block_public_policy - computed: false, optional: true, required: false
-  private _blockPublicPolicy?: boolean | cdktf.IResolvable; 
+  private _blockPublicPolicy?: boolean | cdktf.IResolvable;
   public get blockPublicPolicy() {
     return this.getBooleanAttribute('block_public_policy');
   }
@@ -134,7 +134,7 @@ export class S3AccountPublicAccessBlock extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -150,7 +150,7 @@ export class S3AccountPublicAccessBlock extends cdktf.TerraformResource {
   }
 
   // ignore_public_acls - computed: false, optional: true, required: false
-  private _ignorePublicAcls?: boolean | cdktf.IResolvable; 
+  private _ignorePublicAcls?: boolean | cdktf.IResolvable;
   public get ignorePublicAcls() {
     return this.getBooleanAttribute('ignore_public_acls');
   }
@@ -166,7 +166,7 @@ export class S3AccountPublicAccessBlock extends cdktf.TerraformResource {
   }
 
   // restrict_public_buckets - computed: false, optional: true, required: false
-  private _restrictPublicBuckets?: boolean | cdktf.IResolvable; 
+  private _restrictPublicBuckets?: boolean | cdktf.IResolvable;
   public get restrictPublicBuckets() {
     return this.getBooleanAttribute('restrict_public_buckets');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ssm_parameters_by_path
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsSsmParametersByPath extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class DataAwsSsmParametersByPath extends cdktf.TerraformDataSource {
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -115,7 +115,7 @@ export class DataAwsSsmParametersByPath extends cdktf.TerraformDataSource {
   }
 
   // recursive - computed: false, optional: true, required: false
-  private _recursive?: boolean | cdktf.IResolvable; 
+  private _recursive?: boolean | cdktf.IResolvable;
   public get recursive() {
     return this.getBooleanAttribute('recursive');
   }
@@ -141,7 +141,7 @@ export class DataAwsSsmParametersByPath extends cdktf.TerraformDataSource {
   }
 
   // with_decryption - computed: false, optional: true, required: false
-  private _withDecryption?: boolean | cdktf.IResolvable; 
+  private _withDecryption?: boolean | cdktf.IResolvable;
   public get withDecryption() {
     return this.getBooleanAttribute('with_decryption');
   }

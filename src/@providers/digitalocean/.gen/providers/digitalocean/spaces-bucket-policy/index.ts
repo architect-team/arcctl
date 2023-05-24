@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class SpacesBucketPolicy extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -89,7 +89,7 @@ export class SpacesBucketPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class SpacesBucketPolicy extends cdktf.TerraformResource {
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -118,7 +118,7 @@ export class SpacesBucketPolicy extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

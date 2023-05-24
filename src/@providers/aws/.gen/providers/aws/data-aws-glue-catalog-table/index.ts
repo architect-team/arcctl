@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/glue_catalog_table
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -891,7 +891,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -907,7 +907,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -925,7 +925,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -941,7 +941,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -977,7 +977,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // query_as_of_time - computed: false, optional: true, required: false
-  private _queryAsOfTime?: string; 
+  private _queryAsOfTime?: string;
   public get queryAsOfTime() {
     return this.getStringAttribute('query_as_of_time');
   }
@@ -1015,7 +1015,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // transaction_id - computed: false, optional: true, required: false
-  private _transactionId?: number; 
+  private _transactionId?: number;
   public get transactionId() {
     return this.getNumberAttribute('transaction_id');
   }

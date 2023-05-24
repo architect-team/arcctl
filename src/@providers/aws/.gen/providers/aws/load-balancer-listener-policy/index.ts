@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/load_balancer_listener_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class LoadBalancerListenerPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class LoadBalancerListenerPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer_name - computed: false, optional: false, required: true
-  private _loadBalancerName?: string; 
+  private _loadBalancerName?: string;
   public get loadBalancerName() {
     return this.getStringAttribute('load_balancer_name');
   }
@@ -110,7 +110,7 @@ export class LoadBalancerListenerPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer_port - computed: false, optional: false, required: true
-  private _loadBalancerPort?: number; 
+  private _loadBalancerPort?: number;
   public get loadBalancerPort() {
     return this.getNumberAttribute('load_balancer_port');
   }
@@ -123,7 +123,7 @@ export class LoadBalancerListenerPolicy extends cdktf.TerraformResource {
   }
 
   // policy_names - computed: false, optional: true, required: false
-  private _policyNames?: string[]; 
+  private _policyNames?: string[];
   public get policyNames() {
     return cdktf.Fn.tolist(this.getListAttribute('policy_names'));
   }
@@ -139,7 +139,7 @@ export class LoadBalancerListenerPolicy extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

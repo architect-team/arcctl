@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface AppmeshVirtualServiceConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#spec AppmeshVirtualService#spec}
   */
   readonly spec: AppmeshVirtualServiceSpec;
@@ -91,7 +91,7 @@ export class AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference extends
   }
 
   // virtual_node_name - computed: false, optional: false, required: true
-  private _virtualNodeName?: string; 
+  private _virtualNodeName?: string;
   public get virtualNodeName() {
     return this.getStringAttribute('virtual_node_name');
   }
@@ -153,7 +153,7 @@ export class AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference exten
   }
 
   // virtual_router_name - computed: false, optional: false, required: true
-  private _virtualRouterName?: string; 
+  private _virtualRouterName?: string;
   public get virtualRouterName() {
     return this.getStringAttribute('virtual_router_name');
   }
@@ -168,13 +168,13 @@ export class AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference exten
 export interface AppmeshVirtualServiceSpecProvider {
   /**
   * virtual_node block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_node AppmeshVirtualService#virtual_node}
   */
   readonly virtualNode?: AppmeshVirtualServiceSpecProviderVirtualNode;
   /**
   * virtual_router block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_router AppmeshVirtualService#virtual_router}
   */
   readonly virtualRouter?: AppmeshVirtualServiceSpecProviderVirtualRouter;
@@ -264,7 +264,7 @@ export class AppmeshVirtualServiceSpecProviderOutputReference extends cdktf.Comp
 export interface AppmeshVirtualServiceSpec {
   /**
   * provider block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#provider AppmeshVirtualService#provider}
   */
   readonly provider?: AppmeshVirtualServiceSpecProvider;
@@ -390,7 +390,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -411,7 +411,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
   }
 
   // mesh_name - computed: false, optional: false, required: true
-  private _meshName?: string; 
+  private _meshName?: string;
   public get meshName() {
     return this.getStringAttribute('mesh_name');
   }
@@ -424,7 +424,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
   }
 
   // mesh_owner - computed: true, optional: true, required: false
-  private _meshOwner?: string; 
+  private _meshOwner?: string;
   public get meshOwner() {
     return this.getStringAttribute('mesh_owner');
   }
@@ -440,7 +440,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -458,7 +458,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -474,7 +474,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

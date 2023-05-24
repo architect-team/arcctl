@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_access_point
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface S3AccessPointConfig extends cdktf.TerraformMetaArguments {
   readonly policy?: string;
   /**
   * public_access_block_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_access_point#public_access_block_configuration S3AccessPoint#public_access_block_configuration}
   */
   readonly publicAccessBlockConfiguration?: S3AccessPointPublicAccessBlockConfiguration;
   /**
   * vpc_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_access_point#vpc_configuration S3AccessPoint#vpc_configuration}
   */
   readonly vpcConfiguration?: S3AccessPointVpcConfiguration;
@@ -130,7 +130,7 @@ export class S3AccessPointPublicAccessBlockConfigurationOutputReference extends 
   }
 
   // block_public_acls - computed: false, optional: true, required: false
-  private _blockPublicAcls?: boolean | cdktf.IResolvable; 
+  private _blockPublicAcls?: boolean | cdktf.IResolvable;
   public get blockPublicAcls() {
     return this.getBooleanAttribute('block_public_acls');
   }
@@ -146,7 +146,7 @@ export class S3AccessPointPublicAccessBlockConfigurationOutputReference extends 
   }
 
   // block_public_policy - computed: false, optional: true, required: false
-  private _blockPublicPolicy?: boolean | cdktf.IResolvable; 
+  private _blockPublicPolicy?: boolean | cdktf.IResolvable;
   public get blockPublicPolicy() {
     return this.getBooleanAttribute('block_public_policy');
   }
@@ -162,7 +162,7 @@ export class S3AccessPointPublicAccessBlockConfigurationOutputReference extends 
   }
 
   // ignore_public_acls - computed: false, optional: true, required: false
-  private _ignorePublicAcls?: boolean | cdktf.IResolvable; 
+  private _ignorePublicAcls?: boolean | cdktf.IResolvable;
   public get ignorePublicAcls() {
     return this.getBooleanAttribute('ignore_public_acls');
   }
@@ -178,7 +178,7 @@ export class S3AccessPointPublicAccessBlockConfigurationOutputReference extends 
   }
 
   // restrict_public_buckets - computed: false, optional: true, required: false
-  private _restrictPublicBuckets?: boolean | cdktf.IResolvable; 
+  private _restrictPublicBuckets?: boolean | cdktf.IResolvable;
   public get restrictPublicBuckets() {
     return this.getBooleanAttribute('restrict_public_buckets');
   }
@@ -243,7 +243,7 @@ export class S3AccessPointVpcConfigurationOutputReference extends cdktf.ComplexO
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -308,7 +308,7 @@ export class S3AccessPoint extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -334,7 +334,7 @@ export class S3AccessPoint extends cdktf.TerraformResource {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -347,7 +347,7 @@ export class S3AccessPoint extends cdktf.TerraformResource {
   }
 
   // bucket_account_id - computed: true, optional: true, required: false
-  private _bucketAccountId?: string; 
+  private _bucketAccountId?: string;
   public get bucketAccountId() {
     return this.getStringAttribute('bucket_account_id');
   }
@@ -379,7 +379,7 @@ export class S3AccessPoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -395,7 +395,7 @@ export class S3AccessPoint extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -413,7 +413,7 @@ export class S3AccessPoint extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }

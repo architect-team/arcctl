@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_volume
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -60,25 +60,25 @@ export interface FsxOpenzfsVolumeConfig extends cdktf.TerraformMetaArguments {
   readonly volumeType?: string;
   /**
   * nfs_exports block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_volume#nfs_exports FsxOpenzfsVolume#nfs_exports}
   */
   readonly nfsExports?: FsxOpenzfsVolumeNfsExports;
   /**
   * origin_snapshot block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_volume#origin_snapshot FsxOpenzfsVolume#origin_snapshot}
   */
   readonly originSnapshot?: FsxOpenzfsVolumeOriginSnapshot;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_volume#timeouts FsxOpenzfsVolume#timeouts}
   */
   readonly timeouts?: FsxOpenzfsVolumeTimeouts;
   /**
   * user_and_group_quotas block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_volume#user_and_group_quotas FsxOpenzfsVolume#user_and_group_quotas}
   */
   readonly userAndGroupQuotas?: FsxOpenzfsVolumeUserAndGroupQuotas[] | cdktf.IResolvable;
@@ -156,7 +156,7 @@ export class FsxOpenzfsVolumeNfsExportsClientConfigurationsOutputReference exten
   }
 
   // clients - computed: false, optional: false, required: true
-  private _clients?: string; 
+  private _clients?: string;
   public get clients() {
     return this.getStringAttribute('clients');
   }
@@ -169,7 +169,7 @@ export class FsxOpenzfsVolumeNfsExportsClientConfigurationsOutputReference exten
   }
 
   // options - computed: false, optional: false, required: true
-  private _options?: string[]; 
+  private _options?: string[];
   public get options() {
     return this.getListAttribute('options');
   }
@@ -204,7 +204,7 @@ export class FsxOpenzfsVolumeNfsExportsClientConfigurationsList extends cdktf.Co
 export interface FsxOpenzfsVolumeNfsExports {
   /**
   * client_configurations block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_volume#client_configurations FsxOpenzfsVolume#client_configurations}
   */
   readonly clientConfigurations: FsxOpenzfsVolumeNfsExportsClientConfigurations[] | cdktf.IResolvable;
@@ -326,7 +326,7 @@ export class FsxOpenzfsVolumeOriginSnapshotOutputReference extends cdktf.Complex
   }
 
   // copy_strategy - computed: false, optional: false, required: true
-  private _copyStrategy?: string; 
+  private _copyStrategy?: string;
   public get copyStrategy() {
     return this.getStringAttribute('copy_strategy');
   }
@@ -339,7 +339,7 @@ export class FsxOpenzfsVolumeOriginSnapshotOutputReference extends cdktf.Complex
   }
 
   // snapshot_arn - computed: false, optional: false, required: true
-  private _snapshotArn?: string; 
+  private _snapshotArn?: string;
   public get snapshotArn() {
     return this.getStringAttribute('snapshot_arn');
   }
@@ -433,7 +433,7 @@ export class FsxOpenzfsVolumeTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -449,7 +449,7 @@ export class FsxOpenzfsVolumeTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -465,7 +465,7 @@ export class FsxOpenzfsVolumeTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -567,7 +567,7 @@ export class FsxOpenzfsVolumeUserAndGroupQuotasOutputReference extends cdktf.Com
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: number; 
+  private _id?: number;
   public get id() {
     return this.getNumberAttribute('id');
   }
@@ -580,7 +580,7 @@ export class FsxOpenzfsVolumeUserAndGroupQuotasOutputReference extends cdktf.Com
   }
 
   // storage_capacity_quota_gib - computed: false, optional: false, required: true
-  private _storageCapacityQuotaGib?: number; 
+  private _storageCapacityQuotaGib?: number;
   public get storageCapacityQuotaGib() {
     return this.getNumberAttribute('storage_capacity_quota_gib');
   }
@@ -593,7 +593,7 @@ export class FsxOpenzfsVolumeUserAndGroupQuotasOutputReference extends cdktf.Com
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -691,7 +691,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // copy_tags_to_snapshots - computed: false, optional: true, required: false
-  private _copyTagsToSnapshots?: boolean | cdktf.IResolvable; 
+  private _copyTagsToSnapshots?: boolean | cdktf.IResolvable;
   public get copyTagsToSnapshots() {
     return this.getBooleanAttribute('copy_tags_to_snapshots');
   }
@@ -707,7 +707,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // data_compression_type - computed: false, optional: true, required: false
-  private _dataCompressionType?: string; 
+  private _dataCompressionType?: string;
   public get dataCompressionType() {
     return this.getStringAttribute('data_compression_type');
   }
@@ -723,7 +723,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -739,7 +739,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -752,7 +752,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // parent_volume_id - computed: false, optional: false, required: true
-  private _parentVolumeId?: string; 
+  private _parentVolumeId?: string;
   public get parentVolumeId() {
     return this.getStringAttribute('parent_volume_id');
   }
@@ -765,7 +765,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // read_only - computed: true, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -781,7 +781,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // record_size_kib - computed: false, optional: true, required: false
-  private _recordSizeKib?: number; 
+  private _recordSizeKib?: number;
   public get recordSizeKib() {
     return this.getNumberAttribute('record_size_kib');
   }
@@ -797,7 +797,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // storage_capacity_quota_gib - computed: true, optional: true, required: false
-  private _storageCapacityQuotaGib?: number; 
+  private _storageCapacityQuotaGib?: number;
   public get storageCapacityQuotaGib() {
     return this.getNumberAttribute('storage_capacity_quota_gib');
   }
@@ -813,7 +813,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // storage_capacity_reservation_gib - computed: true, optional: true, required: false
-  private _storageCapacityReservationGib?: number; 
+  private _storageCapacityReservationGib?: number;
   public get storageCapacityReservationGib() {
     return this.getNumberAttribute('storage_capacity_reservation_gib');
   }
@@ -829,7 +829,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -845,7 +845,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -861,7 +861,7 @@ export class FsxOpenzfsVolume extends cdktf.TerraformResource {
   }
 
   // volume_type - computed: false, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }

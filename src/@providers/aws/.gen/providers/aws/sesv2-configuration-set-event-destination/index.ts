@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set_event_destination
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface Sesv2ConfigurationSetEventDestinationConfig extends cdktf.Terra
   readonly id?: string;
   /**
   * event_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set_event_destination#event_destination Sesv2ConfigurationSetEventDestination#event_destination}
   */
   readonly eventDestination: Sesv2ConfigurationSetEventDestinationEventDestination;
@@ -113,7 +113,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationCloudWatchDest
   }
 
   // default_dimension_value - computed: false, optional: false, required: true
-  private _defaultDimensionValue?: string; 
+  private _defaultDimensionValue?: string;
   public get defaultDimensionValue() {
     return this.getStringAttribute('default_dimension_value');
   }
@@ -126,7 +126,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationCloudWatchDest
   }
 
   // dimension_name - computed: false, optional: false, required: true
-  private _dimensionName?: string; 
+  private _dimensionName?: string;
   public get dimensionName() {
     return this.getStringAttribute('dimension_name');
   }
@@ -139,7 +139,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationCloudWatchDest
   }
 
   // dimension_value_source - computed: false, optional: false, required: true
-  private _dimensionValueSource?: string; 
+  private _dimensionValueSource?: string;
   public get dimensionValueSource() {
     return this.getStringAttribute('dimension_value_source');
   }
@@ -174,7 +174,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationCloudWatchDest
 export interface Sesv2ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
   /**
   * dimension_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set_event_destination#dimension_configuration Sesv2ConfigurationSetEventDestination#dimension_configuration}
   */
   readonly dimensionConfiguration: Sesv2ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration[] | cdktf.IResolvable;
@@ -296,7 +296,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationKinesisFirehos
   }
 
   // delivery_stream_arn - computed: false, optional: false, required: true
-  private _deliveryStreamArn?: string; 
+  private _deliveryStreamArn?: string;
   public get deliveryStreamArn() {
     return this.getStringAttribute('delivery_stream_arn');
   }
@@ -309,7 +309,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationKinesisFirehos
   }
 
   // iam_role_arn - computed: false, optional: false, required: true
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -371,7 +371,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationPinpointDestin
   }
 
   // application_arn - computed: false, optional: false, required: true
-  private _applicationArn?: string; 
+  private _applicationArn?: string;
   public get applicationArn() {
     return this.getStringAttribute('application_arn');
   }
@@ -433,7 +433,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationSnsDestination
   }
 
   // topic_arn - computed: false, optional: false, required: true
-  private _topicArn?: string; 
+  private _topicArn?: string;
   public get topicArn() {
     return this.getStringAttribute('topic_arn');
   }
@@ -456,25 +456,25 @@ export interface Sesv2ConfigurationSetEventDestinationEventDestination {
   readonly matchingEventTypes: string[];
   /**
   * cloud_watch_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set_event_destination#cloud_watch_destination Sesv2ConfigurationSetEventDestination#cloud_watch_destination}
   */
   readonly cloudWatchDestination?: Sesv2ConfigurationSetEventDestinationEventDestinationCloudWatchDestination;
   /**
   * kinesis_firehose_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set_event_destination#kinesis_firehose_destination Sesv2ConfigurationSetEventDestination#kinesis_firehose_destination}
   */
   readonly kinesisFirehoseDestination?: Sesv2ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination;
   /**
   * pinpoint_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set_event_destination#pinpoint_destination Sesv2ConfigurationSetEventDestination#pinpoint_destination}
   */
   readonly pinpointDestination?: Sesv2ConfigurationSetEventDestinationEventDestinationPinpointDestination;
   /**
   * sns_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_configuration_set_event_destination#sns_destination Sesv2ConfigurationSetEventDestination#sns_destination}
   */
   readonly snsDestination?: Sesv2ConfigurationSetEventDestinationEventDestinationSnsDestination;
@@ -558,7 +558,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationOutputReferenc
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -574,7 +574,7 @@ export class Sesv2ConfigurationSetEventDestinationEventDestinationOutputReferenc
   }
 
   // matching_event_types - computed: false, optional: false, required: true
-  private _matchingEventTypes?: string[]; 
+  private _matchingEventTypes?: string[];
   public get matchingEventTypes() {
     return this.getListAttribute('matching_event_types');
   }
@@ -699,7 +699,7 @@ export class Sesv2ConfigurationSetEventDestination extends cdktf.TerraformResour
   // ==========
 
   // configuration_set_name - computed: false, optional: false, required: true
-  private _configurationSetName?: string; 
+  private _configurationSetName?: string;
   public get configurationSetName() {
     return this.getStringAttribute('configuration_set_name');
   }
@@ -712,7 +712,7 @@ export class Sesv2ConfigurationSetEventDestination extends cdktf.TerraformResour
   }
 
   // event_destination_name - computed: false, optional: false, required: true
-  private _eventDestinationName?: string; 
+  private _eventDestinationName?: string;
   public get eventDestinationName() {
     return this.getStringAttribute('event_destination_name');
   }
@@ -725,7 +725,7 @@ export class Sesv2ConfigurationSetEventDestination extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/imagebuilder_component
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -126,7 +126,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // change_description - computed: false, optional: true, required: false
-  private _changeDescription?: string; 
+  private _changeDescription?: string;
   public get changeDescription() {
     return this.getStringAttribute('change_description');
   }
@@ -142,7 +142,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // data - computed: true, optional: true, required: false
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -163,7 +163,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -184,7 +184,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -200,7 +200,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -216,7 +216,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -234,7 +234,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // platform - computed: false, optional: false, required: true
-  private _platform?: string; 
+  private _platform?: string;
   public get platform() {
     return this.getStringAttribute('platform');
   }
@@ -247,7 +247,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // skip_destroy - computed: false, optional: true, required: false
-  private _skipDestroy?: boolean | cdktf.IResolvable; 
+  private _skipDestroy?: boolean | cdktf.IResolvable;
   public get skipDestroy() {
     return this.getBooleanAttribute('skip_destroy');
   }
@@ -263,7 +263,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // supported_os_versions - computed: false, optional: true, required: false
-  private _supportedOsVersions?: string[]; 
+  private _supportedOsVersions?: string[];
   public get supportedOsVersions() {
     return cdktf.Fn.tolist(this.getListAttribute('supported_os_versions'));
   }
@@ -279,7 +279,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -295,7 +295,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -316,7 +316,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -332,7 +332,7 @@ export class ImagebuilderComponent extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

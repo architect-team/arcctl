@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_connection_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DxConnectionAssociation extends cdktf.TerraformResource {
   // ==========
 
   // connection_id - computed: false, optional: false, required: true
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -84,7 +84,7 @@ export class DxConnectionAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class DxConnectionAssociation extends cdktf.TerraformResource {
   }
 
   // lag_id - computed: false, optional: false, required: true
-  private _lagId?: string; 
+  private _lagId?: string;
   public get lagId() {
     return this.getStringAttribute('lag_id');
   }

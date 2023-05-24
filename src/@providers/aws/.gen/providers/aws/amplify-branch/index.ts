@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/amplify_branch
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -151,7 +151,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   // ==========
 
   // app_id - computed: false, optional: false, required: true
-  private _appId?: string; 
+  private _appId?: string;
   public get appId() {
     return this.getStringAttribute('app_id');
   }
@@ -174,7 +174,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // backend_environment_arn - computed: false, optional: true, required: false
-  private _backendEnvironmentArn?: string; 
+  private _backendEnvironmentArn?: string;
   public get backendEnvironmentArn() {
     return this.getStringAttribute('backend_environment_arn');
   }
@@ -190,7 +190,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // basic_auth_credentials - computed: false, optional: true, required: false
-  private _basicAuthCredentials?: string; 
+  private _basicAuthCredentials?: string;
   public get basicAuthCredentials() {
     return this.getStringAttribute('basic_auth_credentials');
   }
@@ -206,7 +206,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // branch_name - computed: false, optional: false, required: true
-  private _branchName?: string; 
+  private _branchName?: string;
   public get branchName() {
     return this.getStringAttribute('branch_name');
   }
@@ -224,7 +224,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -245,7 +245,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // display_name - computed: true, optional: true, required: false
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -261,7 +261,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // enable_auto_build - computed: false, optional: true, required: false
-  private _enableAutoBuild?: boolean | cdktf.IResolvable; 
+  private _enableAutoBuild?: boolean | cdktf.IResolvable;
   public get enableAutoBuild() {
     return this.getBooleanAttribute('enable_auto_build');
   }
@@ -277,7 +277,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // enable_basic_auth - computed: false, optional: true, required: false
-  private _enableBasicAuth?: boolean | cdktf.IResolvable; 
+  private _enableBasicAuth?: boolean | cdktf.IResolvable;
   public get enableBasicAuth() {
     return this.getBooleanAttribute('enable_basic_auth');
   }
@@ -293,7 +293,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // enable_notification - computed: false, optional: true, required: false
-  private _enableNotification?: boolean | cdktf.IResolvable; 
+  private _enableNotification?: boolean | cdktf.IResolvable;
   public get enableNotification() {
     return this.getBooleanAttribute('enable_notification');
   }
@@ -309,7 +309,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // enable_performance_mode - computed: false, optional: true, required: false
-  private _enablePerformanceMode?: boolean | cdktf.IResolvable; 
+  private _enablePerformanceMode?: boolean | cdktf.IResolvable;
   public get enablePerformanceMode() {
     return this.getBooleanAttribute('enable_performance_mode');
   }
@@ -325,7 +325,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // enable_pull_request_preview - computed: false, optional: true, required: false
-  private _enablePullRequestPreview?: boolean | cdktf.IResolvable; 
+  private _enablePullRequestPreview?: boolean | cdktf.IResolvable;
   public get enablePullRequestPreview() {
     return this.getBooleanAttribute('enable_pull_request_preview');
   }
@@ -341,7 +341,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // environment_variables - computed: false, optional: true, required: false
-  private _environmentVariables?: { [key: string]: string }; 
+  private _environmentVariables?: { [key: string]: string };
   public get environmentVariables() {
     return this.getStringMapAttribute('environment_variables');
   }
@@ -357,7 +357,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // framework - computed: false, optional: true, required: false
-  private _framework?: string; 
+  private _framework?: string;
   public get framework() {
     return this.getStringAttribute('framework');
   }
@@ -373,7 +373,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -389,7 +389,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // pull_request_environment_name - computed: false, optional: true, required: false
-  private _pullRequestEnvironmentName?: string; 
+  private _pullRequestEnvironmentName?: string;
   public get pullRequestEnvironmentName() {
     return this.getStringAttribute('pull_request_environment_name');
   }
@@ -410,7 +410,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // stage - computed: false, optional: true, required: false
-  private _stage?: string; 
+  private _stage?: string;
   public get stage() {
     return this.getStringAttribute('stage');
   }
@@ -426,7 +426,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -442,7 +442,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -458,7 +458,7 @@ export class AmplifyBranch extends cdktf.TerraformResource {
   }
 
   // ttl - computed: false, optional: true, required: false
-  private _ttl?: string; 
+  private _ttl?: string;
   public get ttl() {
     return this.getStringAttribute('ttl');
   }

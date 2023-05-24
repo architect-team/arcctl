@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codebuild_webhook
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface CodebuildWebhookConfig extends cdktf.TerraformMetaArguments {
   readonly projectName: string;
   /**
   * filter_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#filter_group CodebuildWebhook#filter_group}
   */
   readonly filterGroup?: CodebuildWebhookFilterGroup[] | cdktf.IResolvable;
@@ -117,7 +117,7 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
   }
 
   // exclude_matched_pattern - computed: false, optional: true, required: false
-  private _excludeMatchedPattern?: boolean | cdktf.IResolvable; 
+  private _excludeMatchedPattern?: boolean | cdktf.IResolvable;
   public get excludeMatchedPattern() {
     return this.getBooleanAttribute('exclude_matched_pattern');
   }
@@ -133,7 +133,7 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
   }
 
   // pattern - computed: false, optional: false, required: true
-  private _pattern?: string; 
+  private _pattern?: string;
   public get pattern() {
     return this.getStringAttribute('pattern');
   }
@@ -146,7 +146,7 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -181,7 +181,7 @@ export class CodebuildWebhookFilterGroupFilterList extends cdktf.ComplexList {
 export interface CodebuildWebhookFilterGroup {
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#filter CodebuildWebhook#filter}
   */
   readonly filter?: CodebuildWebhookFilterGroupFilter[] | cdktf.IResolvable;
@@ -327,7 +327,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   // ==========
 
   // branch_filter - computed: false, optional: true, required: false
-  private _branchFilter?: string; 
+  private _branchFilter?: string;
   public get branchFilter() {
     return this.getStringAttribute('branch_filter');
   }
@@ -343,7 +343,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   }
 
   // build_type - computed: false, optional: true, required: false
-  private _buildType?: string; 
+  private _buildType?: string;
   public get buildType() {
     return this.getStringAttribute('build_type');
   }
@@ -359,7 +359,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -380,7 +380,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   }
 
   // project_name - computed: false, optional: false, required: true
-  private _projectName?: string; 
+  private _projectName?: string;
   public get projectName() {
     return this.getStringAttribute('project_name');
   }

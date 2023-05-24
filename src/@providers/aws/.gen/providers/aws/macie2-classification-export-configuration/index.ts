@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface Macie2ClassificationExportConfigurationConfig extends cdktf.Ter
   readonly id?: string;
   /**
   * s3_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#s3_destination Macie2ClassificationExportConfiguration#s3_destination}
   */
   readonly s3Destination?: Macie2ClassificationExportConfigurationS3Destination;
@@ -93,7 +93,7 @@ export class Macie2ClassificationExportConfigurationS3DestinationOutputReference
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -106,7 +106,7 @@ export class Macie2ClassificationExportConfigurationS3DestinationOutputReference
   }
 
   // key_prefix - computed: false, optional: true, required: false
-  private _keyPrefix?: string; 
+  private _keyPrefix?: string;
   public get keyPrefix() {
     return this.getStringAttribute('key_prefix');
   }
@@ -122,7 +122,7 @@ export class Macie2ClassificationExportConfigurationS3DestinationOutputReference
   }
 
   // kms_key_arn - computed: false, optional: false, required: true
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -181,7 +181,7 @@ export class Macie2ClassificationExportConfiguration extends cdktf.TerraformReso
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

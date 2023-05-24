@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface Kinesisanalyticsv2ApplicationSnapshotConfig extends cdktf.Terra
   readonly snapshotName: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application_snapshot#timeouts Kinesisanalyticsv2ApplicationSnapshot#timeouts}
   */
   readonly timeouts?: Kinesisanalyticsv2ApplicationSnapshotTimeouts;
@@ -100,7 +100,7 @@ export class Kinesisanalyticsv2ApplicationSnapshotTimeoutsOutputReference extend
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class Kinesisanalyticsv2ApplicationSnapshotTimeoutsOutputReference extend
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class Kinesisanalyticsv2ApplicationSnapshot extends cdktf.TerraformResour
   // ==========
 
   // application_name - computed: false, optional: false, required: true
-  private _applicationName?: string; 
+  private _applicationName?: string;
   public get applicationName() {
     return this.getStringAttribute('application_name');
   }
@@ -198,7 +198,7 @@ export class Kinesisanalyticsv2ApplicationSnapshot extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -219,7 +219,7 @@ export class Kinesisanalyticsv2ApplicationSnapshot extends cdktf.TerraformResour
   }
 
   // snapshot_name - computed: false, optional: false, required: true
-  private _snapshotName?: string; 
+  private _snapshotName?: string;
   public get snapshotName() {
     return this.getStringAttribute('snapshot_name');
   }

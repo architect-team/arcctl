@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/network_interface_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class NetworkInterfaceAttachmentA extends cdktf.TerraformResource {
   }
 
   // device_index - computed: false, optional: false, required: true
-  private _deviceIndex?: number; 
+  private _deviceIndex?: number;
   public get deviceIndex() {
     return this.getNumberAttribute('device_index');
   }
@@ -94,7 +94,7 @@ export class NetworkInterfaceAttachmentA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class NetworkInterfaceAttachmentA extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -123,7 +123,7 @@ export class NetworkInterfaceAttachmentA extends cdktf.TerraformResource {
   }
 
   // network_interface_id - computed: false, optional: false, required: true
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }

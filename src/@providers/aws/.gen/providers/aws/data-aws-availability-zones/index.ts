@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/availability_zones
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface DataAwsAvailabilityZonesConfig extends cdktf.TerraformMetaArgum
   readonly state?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/availability_zones#filter DataAwsAvailabilityZones#filter}
   */
   readonly filter?: DataAwsAvailabilityZonesFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/availability_zones#timeouts DataAwsAvailabilityZones#timeouts}
   */
   readonly timeouts?: DataAwsAvailabilityZonesTimeouts;
@@ -116,7 +116,7 @@ export class DataAwsAvailabilityZonesFilterOutputReference extends cdktf.Complex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -129,7 +129,7 @@ export class DataAwsAvailabilityZonesFilterOutputReference extends cdktf.Complex
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -221,7 +221,7 @@ export class DataAwsAvailabilityZonesTimeoutsOutputReference extends cdktf.Compl
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -288,7 +288,7 @@ export class DataAwsAvailabilityZones extends cdktf.TerraformDataSource {
   // ==========
 
   // all_availability_zones - computed: false, optional: true, required: false
-  private _allAvailabilityZones?: boolean | cdktf.IResolvable; 
+  private _allAvailabilityZones?: boolean | cdktf.IResolvable;
   public get allAvailabilityZones() {
     return this.getBooleanAttribute('all_availability_zones');
   }
@@ -304,7 +304,7 @@ export class DataAwsAvailabilityZones extends cdktf.TerraformDataSource {
   }
 
   // exclude_names - computed: false, optional: true, required: false
-  private _excludeNames?: string[]; 
+  private _excludeNames?: string[];
   public get excludeNames() {
     return cdktf.Fn.tolist(this.getListAttribute('exclude_names'));
   }
@@ -320,7 +320,7 @@ export class DataAwsAvailabilityZones extends cdktf.TerraformDataSource {
   }
 
   // exclude_zone_ids - computed: false, optional: true, required: false
-  private _excludeZoneIds?: string[]; 
+  private _excludeZoneIds?: string[];
   public get excludeZoneIds() {
     return cdktf.Fn.tolist(this.getListAttribute('exclude_zone_ids'));
   }
@@ -341,7 +341,7 @@ export class DataAwsAvailabilityZones extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -362,7 +362,7 @@ export class DataAwsAvailabilityZones extends cdktf.TerraformDataSource {
   }
 
   // state - computed: false, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }

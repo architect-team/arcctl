@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/workspaces_directory
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,19 +36,19 @@ export interface WorkspacesDirectoryConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * self_service_permissions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#self_service_permissions WorkspacesDirectory#self_service_permissions}
   */
   readonly selfServicePermissions?: WorkspacesDirectorySelfServicePermissions;
   /**
   * workspace_access_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#workspace_access_properties WorkspacesDirectory#workspace_access_properties}
   */
   readonly workspaceAccessProperties?: WorkspacesDirectoryWorkspaceAccessProperties;
   /**
   * workspace_creation_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#workspace_creation_properties WorkspacesDirectory#workspace_creation_properties}
   */
   readonly workspaceCreationProperties?: WorkspacesDirectoryWorkspaceCreationProperties;
@@ -147,7 +147,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // change_compute_type - computed: false, optional: true, required: false
-  private _changeComputeType?: boolean | cdktf.IResolvable; 
+  private _changeComputeType?: boolean | cdktf.IResolvable;
   public get changeComputeType() {
     return this.getBooleanAttribute('change_compute_type');
   }
@@ -163,7 +163,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // increase_volume_size - computed: false, optional: true, required: false
-  private _increaseVolumeSize?: boolean | cdktf.IResolvable; 
+  private _increaseVolumeSize?: boolean | cdktf.IResolvable;
   public get increaseVolumeSize() {
     return this.getBooleanAttribute('increase_volume_size');
   }
@@ -179,7 +179,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // rebuild_workspace - computed: false, optional: true, required: false
-  private _rebuildWorkspace?: boolean | cdktf.IResolvable; 
+  private _rebuildWorkspace?: boolean | cdktf.IResolvable;
   public get rebuildWorkspace() {
     return this.getBooleanAttribute('rebuild_workspace');
   }
@@ -195,7 +195,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // restart_workspace - computed: false, optional: true, required: false
-  private _restartWorkspace?: boolean | cdktf.IResolvable; 
+  private _restartWorkspace?: boolean | cdktf.IResolvable;
   public get restartWorkspace() {
     return this.getBooleanAttribute('restart_workspace');
   }
@@ -211,7 +211,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // switch_running_mode - computed: false, optional: true, required: false
-  private _switchRunningMode?: boolean | cdktf.IResolvable; 
+  private _switchRunningMode?: boolean | cdktf.IResolvable;
   public get switchRunningMode() {
     return this.getBooleanAttribute('switch_running_mode');
   }
@@ -353,7 +353,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_android - computed: false, optional: true, required: false
-  private _deviceTypeAndroid?: string; 
+  private _deviceTypeAndroid?: string;
   public get deviceTypeAndroid() {
     return this.getStringAttribute('device_type_android');
   }
@@ -369,7 +369,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_chromeos - computed: false, optional: true, required: false
-  private _deviceTypeChromeos?: string; 
+  private _deviceTypeChromeos?: string;
   public get deviceTypeChromeos() {
     return this.getStringAttribute('device_type_chromeos');
   }
@@ -385,7 +385,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_ios - computed: false, optional: true, required: false
-  private _deviceTypeIos?: string; 
+  private _deviceTypeIos?: string;
   public get deviceTypeIos() {
     return this.getStringAttribute('device_type_ios');
   }
@@ -401,7 +401,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_linux - computed: false, optional: true, required: false
-  private _deviceTypeLinux?: string; 
+  private _deviceTypeLinux?: string;
   public get deviceTypeLinux() {
     return this.getStringAttribute('device_type_linux');
   }
@@ -417,7 +417,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_osx - computed: false, optional: true, required: false
-  private _deviceTypeOsx?: string; 
+  private _deviceTypeOsx?: string;
   public get deviceTypeOsx() {
     return this.getStringAttribute('device_type_osx');
   }
@@ -433,7 +433,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_web - computed: false, optional: true, required: false
-  private _deviceTypeWeb?: string; 
+  private _deviceTypeWeb?: string;
   public get deviceTypeWeb() {
     return this.getStringAttribute('device_type_web');
   }
@@ -449,7 +449,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_windows - computed: false, optional: true, required: false
-  private _deviceTypeWindows?: string; 
+  private _deviceTypeWindows?: string;
   public get deviceTypeWindows() {
     return this.getStringAttribute('device_type_windows');
   }
@@ -465,7 +465,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_zeroclient - computed: false, optional: true, required: false
-  private _deviceTypeZeroclient?: string; 
+  private _deviceTypeZeroclient?: string;
   public get deviceTypeZeroclient() {
     return this.getStringAttribute('device_type_zeroclient');
   }
@@ -574,7 +574,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // custom_security_group_id - computed: false, optional: true, required: false
-  private _customSecurityGroupId?: string; 
+  private _customSecurityGroupId?: string;
   public get customSecurityGroupId() {
     return this.getStringAttribute('custom_security_group_id');
   }
@@ -590,7 +590,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // default_ou - computed: false, optional: true, required: false
-  private _defaultOu?: string; 
+  private _defaultOu?: string;
   public get defaultOu() {
     return this.getStringAttribute('default_ou');
   }
@@ -606,7 +606,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // enable_internet_access - computed: false, optional: true, required: false
-  private _enableInternetAccess?: boolean | cdktf.IResolvable; 
+  private _enableInternetAccess?: boolean | cdktf.IResolvable;
   public get enableInternetAccess() {
     return this.getBooleanAttribute('enable_internet_access');
   }
@@ -622,7 +622,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // enable_maintenance_mode - computed: false, optional: true, required: false
-  private _enableMaintenanceMode?: boolean | cdktf.IResolvable; 
+  private _enableMaintenanceMode?: boolean | cdktf.IResolvable;
   public get enableMaintenanceMode() {
     return this.getBooleanAttribute('enable_maintenance_mode');
   }
@@ -638,7 +638,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // user_enabled_as_local_administrator - computed: false, optional: true, required: false
-  private _userEnabledAsLocalAdministrator?: boolean | cdktf.IResolvable; 
+  private _userEnabledAsLocalAdministrator?: boolean | cdktf.IResolvable;
   public get userEnabledAsLocalAdministrator() {
     return this.getBooleanAttribute('user_enabled_as_local_administrator');
   }
@@ -717,7 +717,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -750,7 +750,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -766,7 +766,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // ip_group_ids - computed: true, optional: true, required: false
-  private _ipGroupIds?: string[]; 
+  private _ipGroupIds?: string[];
   public get ipGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('ip_group_ids'));
   }
@@ -787,7 +787,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: true, optional: true, required: false
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -803,7 +803,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -819,7 +819,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

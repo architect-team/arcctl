@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,19 +16,19 @@ export interface ClusterRoleBindingConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#metadata ClusterRoleBinding#metadata}
   */
   readonly metadata: ClusterRoleBindingMetadata;
   /**
   * role_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#role_ref ClusterRoleBinding#role_ref}
   */
   readonly roleRef: ClusterRoleBindingRoleRef;
   /**
   * subject block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#subject ClusterRoleBinding#subject}
   */
   readonly subject: ClusterRoleBindingSubject[] | cdktf.IResolvable;
@@ -36,25 +36,25 @@ export interface ClusterRoleBindingConfig extends cdktf.TerraformMetaArguments {
 export interface ClusterRoleBindingMetadata {
   /**
   * An unstructured key value map stored with the clusterRoleBinding that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#annotations ClusterRoleBinding#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#generate_name ClusterRoleBinding#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the clusterRoleBinding. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#labels ClusterRoleBinding#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the clusterRoleBinding, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#name ClusterRoleBinding#name}
   */
   readonly name?: string;
@@ -124,7 +124,7 @@ export class ClusterRoleBindingMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -140,7 +140,7 @@ export class ClusterRoleBindingMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -161,7 +161,7 @@ export class ClusterRoleBindingMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -177,7 +177,7 @@ export class ClusterRoleBindingMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -205,19 +205,19 @@ export class ClusterRoleBindingMetadataOutputReference extends cdktf.ComplexObje
 export interface ClusterRoleBindingRoleRef {
   /**
   * The API group of the user. The only value possible at the moment is `rbac.authorization.k8s.io`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#api_group ClusterRoleBinding#api_group}
   */
   readonly apiGroup: string;
   /**
   * The kind of resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#kind ClusterRoleBinding#kind}
   */
   readonly kind: string;
   /**
   * The name of the User to bind to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#name ClusterRoleBinding#name}
   */
   readonly name: string;
@@ -280,7 +280,7 @@ export class ClusterRoleBindingRoleRefOutputReference extends cdktf.ComplexObjec
   }
 
   // api_group - computed: false, optional: false, required: true
-  private _apiGroup?: string; 
+  private _apiGroup?: string;
   public get apiGroup() {
     return this.getStringAttribute('api_group');
   }
@@ -293,7 +293,7 @@ export class ClusterRoleBindingRoleRefOutputReference extends cdktf.ComplexObjec
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -306,7 +306,7 @@ export class ClusterRoleBindingRoleRefOutputReference extends cdktf.ComplexObjec
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -321,25 +321,25 @@ export class ClusterRoleBindingRoleRefOutputReference extends cdktf.ComplexObjec
 export interface ClusterRoleBindingSubject {
   /**
   * The API group of the subject resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#api_group ClusterRoleBinding#api_group}
   */
   readonly apiGroup?: string;
   /**
   * The kind of resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#kind ClusterRoleBinding#kind}
   */
   readonly kind: string;
   /**
   * The name of the resource to bind to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#name ClusterRoleBinding#name}
   */
   readonly name: string;
   /**
   * The Namespace of the subject resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_binding#namespace ClusterRoleBinding#namespace}
   */
   readonly namespace?: string;
@@ -421,7 +421,7 @@ export class ClusterRoleBindingSubjectOutputReference extends cdktf.ComplexObjec
   }
 
   // api_group - computed: true, optional: true, required: false
-  private _apiGroup?: string; 
+  private _apiGroup?: string;
   public get apiGroup() {
     return this.getStringAttribute('api_group');
   }
@@ -437,7 +437,7 @@ export class ClusterRoleBindingSubjectOutputReference extends cdktf.ComplexObjec
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -450,7 +450,7 @@ export class ClusterRoleBindingSubjectOutputReference extends cdktf.ComplexObjec
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -463,7 +463,7 @@ export class ClusterRoleBindingSubjectOutputReference extends cdktf.ComplexObjec
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -547,7 +547,7 @@ export class ClusterRoleBinding extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,19 +40,19 @@ export interface AcmpcaCertificateAuthorityConfig extends cdktf.TerraformMetaArg
   readonly usageMode?: string;
   /**
   * certificate_authority_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority#certificate_authority_configuration AcmpcaCertificateAuthority#certificate_authority_configuration}
   */
   readonly certificateAuthorityConfiguration: AcmpcaCertificateAuthorityCertificateAuthorityConfiguration;
   /**
   * revocation_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority#revocation_configuration AcmpcaCertificateAuthority#revocation_configuration}
   */
   readonly revocationConfiguration?: AcmpcaCertificateAuthorityRevocationConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority#timeouts AcmpcaCertificateAuthority#timeouts}
   */
   readonly timeouts?: AcmpcaCertificateAuthorityTimeouts;
@@ -239,7 +239,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // common_name - computed: false, optional: true, required: false
-  private _commonName?: string; 
+  private _commonName?: string;
   public get commonName() {
     return this.getStringAttribute('common_name');
   }
@@ -255,7 +255,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // country - computed: false, optional: true, required: false
-  private _country?: string; 
+  private _country?: string;
   public get country() {
     return this.getStringAttribute('country');
   }
@@ -271,7 +271,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // distinguished_name_qualifier - computed: false, optional: true, required: false
-  private _distinguishedNameQualifier?: string; 
+  private _distinguishedNameQualifier?: string;
   public get distinguishedNameQualifier() {
     return this.getStringAttribute('distinguished_name_qualifier');
   }
@@ -287,7 +287,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // generation_qualifier - computed: false, optional: true, required: false
-  private _generationQualifier?: string; 
+  private _generationQualifier?: string;
   public get generationQualifier() {
     return this.getStringAttribute('generation_qualifier');
   }
@@ -303,7 +303,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // given_name - computed: false, optional: true, required: false
-  private _givenName?: string; 
+  private _givenName?: string;
   public get givenName() {
     return this.getStringAttribute('given_name');
   }
@@ -319,7 +319,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // initials - computed: false, optional: true, required: false
-  private _initials?: string; 
+  private _initials?: string;
   public get initials() {
     return this.getStringAttribute('initials');
   }
@@ -335,7 +335,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // locality - computed: false, optional: true, required: false
-  private _locality?: string; 
+  private _locality?: string;
   public get locality() {
     return this.getStringAttribute('locality');
   }
@@ -351,7 +351,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // organization - computed: false, optional: true, required: false
-  private _organization?: string; 
+  private _organization?: string;
   public get organization() {
     return this.getStringAttribute('organization');
   }
@@ -367,7 +367,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // organizational_unit - computed: false, optional: true, required: false
-  private _organizationalUnit?: string; 
+  private _organizationalUnit?: string;
   public get organizationalUnit() {
     return this.getStringAttribute('organizational_unit');
   }
@@ -383,7 +383,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // pseudonym - computed: false, optional: true, required: false
-  private _pseudonym?: string; 
+  private _pseudonym?: string;
   public get pseudonym() {
     return this.getStringAttribute('pseudonym');
   }
@@ -399,7 +399,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // state - computed: false, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -415,7 +415,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // surname - computed: false, optional: true, required: false
-  private _surname?: string; 
+  private _surname?: string;
   public get surname() {
     return this.getStringAttribute('surname');
   }
@@ -431,7 +431,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubjectO
   }
 
   // title - computed: false, optional: true, required: false
-  private _title?: string; 
+  private _title?: string;
   public get title() {
     return this.getStringAttribute('title');
   }
@@ -457,7 +457,7 @@ export interface AcmpcaCertificateAuthorityCertificateAuthorityConfiguration {
   readonly signingAlgorithm: string;
   /**
   * subject block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority#subject AcmpcaCertificateAuthority#subject}
   */
   readonly subject: AcmpcaCertificateAuthorityCertificateAuthorityConfigurationSubject;
@@ -520,7 +520,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationOutputRe
   }
 
   // key_algorithm - computed: false, optional: false, required: true
-  private _keyAlgorithm?: string; 
+  private _keyAlgorithm?: string;
   public get keyAlgorithm() {
     return this.getStringAttribute('key_algorithm');
   }
@@ -533,7 +533,7 @@ export class AcmpcaCertificateAuthorityCertificateAuthorityConfigurationOutputRe
   }
 
   // signing_algorithm - computed: false, optional: false, required: true
-  private _signingAlgorithm?: string; 
+  private _signingAlgorithm?: string;
   public get signingAlgorithm() {
     return this.getStringAttribute('signing_algorithm');
   }
@@ -652,7 +652,7 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationCrlConfigurationOu
   }
 
   // custom_cname - computed: false, optional: true, required: false
-  private _customCname?: string; 
+  private _customCname?: string;
   public get customCname() {
     return this.getStringAttribute('custom_cname');
   }
@@ -668,7 +668,7 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationCrlConfigurationOu
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -684,7 +684,7 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationCrlConfigurationOu
   }
 
   // expiration_in_days - computed: false, optional: true, required: false
-  private _expirationInDays?: number; 
+  private _expirationInDays?: number;
   public get expirationInDays() {
     return this.getNumberAttribute('expiration_in_days');
   }
@@ -700,7 +700,7 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationCrlConfigurationOu
   }
 
   // s3_bucket_name - computed: false, optional: true, required: false
-  private _s3BucketName?: string; 
+  private _s3BucketName?: string;
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -716,7 +716,7 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationCrlConfigurationOu
   }
 
   // s3_object_acl - computed: true, optional: true, required: false
-  private _s3ObjectAcl?: string; 
+  private _s3ObjectAcl?: string;
   public get s3ObjectAcl() {
     return this.getStringAttribute('s3_object_acl');
   }
@@ -792,7 +792,7 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationOcspConfigurationO
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -805,7 +805,7 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationOcspConfigurationO
   }
 
   // ocsp_custom_cname - computed: false, optional: true, required: false
-  private _ocspCustomCname?: string; 
+  private _ocspCustomCname?: string;
   public get ocspCustomCname() {
     return this.getStringAttribute('ocsp_custom_cname');
   }
@@ -823,13 +823,13 @@ export class AcmpcaCertificateAuthorityRevocationConfigurationOcspConfigurationO
 export interface AcmpcaCertificateAuthorityRevocationConfiguration {
   /**
   * crl_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority#crl_configuration AcmpcaCertificateAuthority#crl_configuration}
   */
   readonly crlConfiguration?: AcmpcaCertificateAuthorityRevocationConfigurationCrlConfiguration;
   /**
   * ocsp_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority#ocsp_configuration AcmpcaCertificateAuthority#ocsp_configuration}
   */
   readonly ocspConfiguration?: AcmpcaCertificateAuthorityRevocationConfigurationOcspConfiguration;
@@ -976,7 +976,7 @@ export class AcmpcaCertificateAuthorityTimeoutsOutputReference extends cdktf.Com
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1066,7 +1066,7 @@ export class AcmpcaCertificateAuthority extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1082,7 +1082,7 @@ export class AcmpcaCertificateAuthority extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1108,7 +1108,7 @@ export class AcmpcaCertificateAuthority extends cdktf.TerraformResource {
   }
 
   // permanent_deletion_time_in_days - computed: false, optional: true, required: false
-  private _permanentDeletionTimeInDays?: number; 
+  private _permanentDeletionTimeInDays?: number;
   public get permanentDeletionTimeInDays() {
     return this.getNumberAttribute('permanent_deletion_time_in_days');
   }
@@ -1134,7 +1134,7 @@ export class AcmpcaCertificateAuthority extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1150,7 +1150,7 @@ export class AcmpcaCertificateAuthority extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1166,7 +1166,7 @@ export class AcmpcaCertificateAuthority extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1182,7 +1182,7 @@ export class AcmpcaCertificateAuthority extends cdktf.TerraformResource {
   }
 
   // usage_mode - computed: true, optional: true, required: false
-  private _usageMode?: string; 
+  private _usageMode?: string;
   public get usageMode() {
     return this.getStringAttribute('usage_mode');
   }

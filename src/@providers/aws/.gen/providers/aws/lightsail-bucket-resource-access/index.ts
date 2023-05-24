@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_bucket_resource_access
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class LightsailBucketResourceAccess extends cdktf.TerraformResource {
   // ==========
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -84,7 +84,7 @@ export class LightsailBucketResourceAccess extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class LightsailBucketResourceAccess extends cdktf.TerraformResource {
   }
 
   // resource_name - computed: false, optional: false, required: true
-  private _resourceName?: string; 
+  private _resourceName?: string;
   public get resourceName() {
     return this.getStringAttribute('resource_name');
   }

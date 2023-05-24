@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_vault_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class BackupVaultPolicy extends cdktf.TerraformResource {
   }
 
   // backup_vault_name - computed: false, optional: false, required: true
-  private _backupVaultName?: string; 
+  private _backupVaultName?: string;
   public get backupVaultName() {
     return this.getStringAttribute('backup_vault_name');
   }
@@ -89,7 +89,7 @@ export class BackupVaultPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class BackupVaultPolicy extends cdktf.TerraformResource {
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }

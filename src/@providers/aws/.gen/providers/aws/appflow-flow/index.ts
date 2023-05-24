@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appflow_flow
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,25 +36,25 @@ export interface AppflowFlowConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * destination_flow_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_flow_config AppflowFlow#destination_flow_config}
   */
   readonly destinationFlowConfig: AppflowFlowDestinationFlowConfig[] | cdktf.IResolvable;
   /**
   * source_flow_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_flow_config AppflowFlow#source_flow_config}
   */
   readonly sourceFlowConfig: AppflowFlowSourceFlowConfig;
   /**
   * task block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#task AppflowFlow#task}
   */
   readonly task: AppflowFlowTask[] | cdktf.IResolvable;
   /**
   * trigger_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_config AppflowFlow#trigger_config}
   */
   readonly triggerConfig: AppflowFlowTriggerConfig;
@@ -131,7 +131,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -147,7 +147,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -163,7 +163,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -197,7 +197,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesC
   readonly writeOperationType?: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
@@ -274,7 +274,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // custom_properties - computed: false, optional: true, required: false
-  private _customProperties?: { [key: string]: string }; 
+  private _customProperties?: { [key: string]: string };
   public get customProperties() {
     return this.getStringMapAttribute('custom_properties');
   }
@@ -290,7 +290,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // entity_name - computed: false, optional: false, required: true
-  private _entityName?: string; 
+  private _entityName?: string;
   public get entityName() {
     return this.getStringAttribute('entity_name');
   }
@@ -303,7 +303,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -319,7 +319,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -411,7 +411,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -424,7 +424,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // object_type_name - computed: false, optional: true, required: false
-  private _objectTypeName?: string; 
+  private _objectTypeName?: string;
   public get objectTypeName() {
     return this.getStringAttribute('object_type_name');
   }
@@ -511,7 +511,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -527,7 +527,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -543,7 +543,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -565,7 +565,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesE
   readonly object: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig;
@@ -621,7 +621,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -721,7 +721,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -737,7 +737,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -753,7 +753,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -775,7 +775,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesH
   readonly object: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig;
@@ -831,7 +831,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -969,7 +969,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -985,7 +985,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1001,7 +1001,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -1023,7 +1023,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesM
   readonly object: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig;
@@ -1079,7 +1079,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -1179,7 +1179,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -1195,7 +1195,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1211,7 +1211,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -1241,7 +1241,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesR
   readonly object: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig;
@@ -1311,7 +1311,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1327,7 +1327,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // intermediate_bucket_name - computed: false, optional: false, required: true
-  private _intermediateBucketName?: string; 
+  private _intermediateBucketName?: string;
   public get intermediateBucketName() {
     return this.getStringAttribute('intermediate_bucket_name');
   }
@@ -1340,7 +1340,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -1418,7 +1418,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // aggregation_type - computed: false, optional: true, required: false
-  private _aggregationType?: string; 
+  private _aggregationType?: string;
   public get aggregationType() {
     return this.getStringAttribute('aggregation_type');
   }
@@ -1494,7 +1494,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // prefix_format - computed: false, optional: true, required: false
-  private _prefixFormat?: string; 
+  private _prefixFormat?: string;
   public get prefixFormat() {
     return this.getStringAttribute('prefix_format');
   }
@@ -1510,7 +1510,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // prefix_type - computed: false, optional: true, required: false
-  private _prefixType?: string; 
+  private _prefixType?: string;
   public get prefixType() {
     return this.getStringAttribute('prefix_type');
   }
@@ -1536,13 +1536,13 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS
   readonly preserveSourceDataTyping?: boolean | cdktf.IResolvable;
   /**
   * aggregation_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_config AppflowFlow#aggregation_config}
   */
   readonly aggregationConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig;
   /**
   * prefix_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_config AppflowFlow#prefix_config}
   */
   readonly prefixConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig;
@@ -1612,7 +1612,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // file_type - computed: false, optional: true, required: false
-  private _fileType?: string; 
+  private _fileType?: string;
   public get fileType() {
     return this.getStringAttribute('file_type');
   }
@@ -1628,7 +1628,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // preserve_source_data_typing - computed: false, optional: true, required: false
-  private _preserveSourceDataTyping?: boolean | cdktf.IResolvable; 
+  private _preserveSourceDataTyping?: boolean | cdktf.IResolvable;
   public get preserveSourceDataTyping() {
     return this.getBooleanAttribute('preserve_source_data_typing');
   }
@@ -1686,7 +1686,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS
   readonly bucketPrefix?: string;
   /**
   * s3_output_format_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_output_format_config AppflowFlow#s3_output_format_config}
   */
   readonly s3OutputFormatConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig;
@@ -1749,7 +1749,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3Out
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -1762,7 +1762,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3Out
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1865,7 +1865,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -1881,7 +1881,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1897,7 +1897,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -1927,7 +1927,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS
   readonly writeOperationType?: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig;
@@ -1997,7 +1997,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -2013,7 +2013,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -2026,7 +2026,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -2129,7 +2129,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -2145,7 +2145,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2161,7 +2161,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -2237,7 +2237,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -2253,7 +2253,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2283,13 +2283,13 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS
   readonly writeOperationType?: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig;
   /**
   * success_response_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#success_response_handling_config AppflowFlow#success_response_handling_config}
   */
   readonly successResponseHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig;
@@ -2366,7 +2366,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -2382,7 +2382,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // object_path - computed: false, optional: false, required: true
-  private _objectPath?: string; 
+  private _objectPath?: string;
   public get objectPath() {
     return this.getStringAttribute('object_path');
   }
@@ -2395,7 +2395,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -2514,7 +2514,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -2530,7 +2530,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2546,7 +2546,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -2576,7 +2576,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS
   readonly object: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig;
@@ -2646,7 +2646,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2662,7 +2662,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // intermediate_bucket_name - computed: false, optional: false, required: true
-  private _intermediateBucketName?: string; 
+  private _intermediateBucketName?: string;
   public get intermediateBucketName() {
     return this.getStringAttribute('intermediate_bucket_name');
   }
@@ -2675,7 +2675,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -2753,7 +2753,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // aggregation_type - computed: false, optional: true, required: false
-  private _aggregationType?: string; 
+  private _aggregationType?: string;
   public get aggregationType() {
     return this.getStringAttribute('aggregation_type');
   }
@@ -2829,7 +2829,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // prefix_format - computed: false, optional: true, required: false
-  private _prefixFormat?: string; 
+  private _prefixFormat?: string;
   public get prefixFormat() {
     return this.getStringAttribute('prefix_format');
   }
@@ -2845,7 +2845,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // prefix_type - computed: false, optional: false, required: true
-  private _prefixType?: string; 
+  private _prefixType?: string;
   public get prefixType() {
     return this.getStringAttribute('prefix_type');
   }
@@ -2864,13 +2864,13 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesU
   readonly fileType?: string;
   /**
   * aggregation_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_config AppflowFlow#aggregation_config}
   */
   readonly aggregationConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig;
   /**
   * prefix_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_config AppflowFlow#prefix_config}
   */
   readonly prefixConfig: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig;
@@ -2933,7 +2933,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // file_type - computed: false, optional: true, required: false
-  private _fileType?: string; 
+  private _fileType?: string;
   public get fileType() {
     return this.getStringAttribute('file_type');
   }
@@ -2988,7 +2988,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesU
   readonly bucketPrefix?: string;
   /**
   * s3_output_format_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_output_format_config AppflowFlow#s3_output_format_config}
   */
   readonly s3OutputFormatConfig: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig;
@@ -3051,7 +3051,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -3064,7 +3064,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -3164,7 +3164,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -3180,7 +3180,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -3196,7 +3196,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -3226,7 +3226,7 @@ export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZ
   readonly writeOperationType?: string;
   /**
   * error_handling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig;
@@ -3296,7 +3296,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -3312,7 +3312,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -3325,7 +3325,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -3359,79 +3359,79 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorProperties {
   /**
   * custom_connector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
   */
   readonly customConnector?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector;
   /**
   * customer_profiles block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#customer_profiles AppflowFlow#customer_profiles}
   */
   readonly customerProfiles?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles;
   /**
   * event_bridge block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#event_bridge AppflowFlow#event_bridge}
   */
   readonly eventBridge?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge;
   /**
   * honeycode block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#honeycode AppflowFlow#honeycode}
   */
   readonly honeycode?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode;
   /**
   * lookout_metrics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#lookout_metrics AppflowFlow#lookout_metrics}
   */
   readonly lookoutMetrics?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics;
   /**
   * marketo block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
   */
   readonly marketo?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo;
   /**
   * redshift block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#redshift AppflowFlow#redshift}
   */
   readonly redshift?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
   */
   readonly s3?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3;
   /**
   * salesforce block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
   */
   readonly salesforce?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce;
   /**
   * sapo_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
   */
   readonly sapoData?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData;
   /**
   * snowflake block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#snowflake AppflowFlow#snowflake}
   */
   readonly snowflake?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake;
   /**
   * upsolver block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#upsolver AppflowFlow#upsolver}
   */
   readonly upsolver?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver;
   /**
   * zendesk block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
   */
   readonly zendesk?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk;
@@ -3786,7 +3786,7 @@ export interface AppflowFlowDestinationFlowConfig {
   readonly connectorType: string;
   /**
   * destination_connector_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_connector_properties AppflowFlow#destination_connector_properties}
   */
   readonly destinationConnectorProperties: AppflowFlowDestinationFlowConfigDestinationConnectorProperties;
@@ -3868,7 +3868,7 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -3884,7 +3884,7 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
   }
 
   // connector_profile_name - computed: false, optional: true, required: false
-  private _connectorProfileName?: string; 
+  private _connectorProfileName?: string;
   public get connectorProfileName() {
     return this.getStringAttribute('connector_profile_name');
   }
@@ -3900,7 +3900,7 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
   }
 
   // connector_type - computed: false, optional: false, required: true
-  private _connectorType?: string; 
+  private _connectorType?: string;
   public get connectorType() {
     return this.getStringAttribute('connector_type');
   }
@@ -3995,7 +3995,7 @@ export class AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference ext
   }
 
   // datetime_type_field_name - computed: false, optional: true, required: false
-  private _datetimeTypeFieldName?: string; 
+  private _datetimeTypeFieldName?: string;
   public get datetimeTypeFieldName() {
     return this.getStringAttribute('datetime_type_field_name');
   }
@@ -4060,7 +4060,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4133,7 +4133,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
   }
 
   // custom_properties - computed: false, optional: true, required: false
-  private _customProperties?: { [key: string]: string }; 
+  private _customProperties?: { [key: string]: string };
   public get customProperties() {
     return this.getStringMapAttribute('custom_properties');
   }
@@ -4149,7 +4149,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
   }
 
   // entity_name - computed: false, optional: false, required: true
-  private _entityName?: string; 
+  private _entityName?: string;
   public get entityName() {
     return this.getStringAttribute('entity_name');
   }
@@ -4211,7 +4211,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputRe
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4273,7 +4273,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4335,7 +4335,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4397,7 +4397,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutpu
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4459,7 +4459,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputRe
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4521,7 +4521,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormat
   }
 
   // s3_input_file_type - computed: false, optional: true, required: false
-  private _s3InputFileType?: string; 
+  private _s3InputFileType?: string;
   public get s3InputFileType() {
     return this.getStringAttribute('s3_input_file_type');
   }
@@ -4547,7 +4547,7 @@ export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3 {
   readonly bucketPrefix?: string;
   /**
   * s3_input_format_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_input_format_config AppflowFlow#s3_input_format_config}
   */
   readonly s3InputFormatConfig?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig;
@@ -4610,7 +4610,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReferen
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -4623,7 +4623,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReferen
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -4726,7 +4726,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
   }
 
   // enable_dynamic_field_update - computed: false, optional: true, required: false
-  private _enableDynamicFieldUpdate?: boolean | cdktf.IResolvable; 
+  private _enableDynamicFieldUpdate?: boolean | cdktf.IResolvable;
   public get enableDynamicFieldUpdate() {
     return this.getBooleanAttribute('enable_dynamic_field_update');
   }
@@ -4742,7 +4742,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
   }
 
   // include_deleted_records - computed: false, optional: true, required: false
-  private _includeDeletedRecords?: boolean | cdktf.IResolvable; 
+  private _includeDeletedRecords?: boolean | cdktf.IResolvable;
   public get includeDeletedRecords() {
     return this.getBooleanAttribute('include_deleted_records');
   }
@@ -4758,7 +4758,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4820,7 +4820,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputR
   }
 
   // object_path - computed: false, optional: false, required: true
-  private _objectPath?: string; 
+  private _objectPath?: string;
   public get objectPath() {
     return this.getStringAttribute('object_path');
   }
@@ -4882,7 +4882,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutpu
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4944,7 +4944,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputR
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5006,7 +5006,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputRefe
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5068,7 +5068,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutpu
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5174,7 +5174,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // document_type - computed: false, optional: true, required: false
-  private _documentType?: string; 
+  private _documentType?: string;
   public get documentType() {
     return this.getStringAttribute('document_type');
   }
@@ -5190,7 +5190,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // include_all_versions - computed: false, optional: true, required: false
-  private _includeAllVersions?: boolean | cdktf.IResolvable; 
+  private _includeAllVersions?: boolean | cdktf.IResolvable;
   public get includeAllVersions() {
     return this.getBooleanAttribute('include_all_versions');
   }
@@ -5206,7 +5206,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // include_renditions - computed: false, optional: true, required: false
-  private _includeRenditions?: boolean | cdktf.IResolvable; 
+  private _includeRenditions?: boolean | cdktf.IResolvable;
   public get includeRenditions() {
     return this.getBooleanAttribute('include_renditions');
   }
@@ -5222,7 +5222,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // include_source_files - computed: false, optional: true, required: false
-  private _includeSourceFiles?: boolean | cdktf.IResolvable; 
+  private _includeSourceFiles?: boolean | cdktf.IResolvable;
   public get includeSourceFiles() {
     return this.getBooleanAttribute('include_source_files');
   }
@@ -5238,7 +5238,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5300,7 +5300,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputRe
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5315,97 +5315,97 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputRe
 export interface AppflowFlowSourceFlowConfigSourceConnectorProperties {
   /**
   * amplitude block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#amplitude AppflowFlow#amplitude}
   */
   readonly amplitude?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude;
   /**
   * custom_connector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
   */
   readonly customConnector?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector;
   /**
   * datadog block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#datadog AppflowFlow#datadog}
   */
   readonly datadog?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog;
   /**
   * dynatrace block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#dynatrace AppflowFlow#dynatrace}
   */
   readonly dynatrace?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace;
   /**
   * google_analytics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#google_analytics AppflowFlow#google_analytics}
   */
   readonly googleAnalytics?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics;
   /**
   * infor_nexus block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#infor_nexus AppflowFlow#infor_nexus}
   */
   readonly inforNexus?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus;
   /**
   * marketo block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
   */
   readonly marketo?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
   */
   readonly s3?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3;
   /**
   * salesforce block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
   */
   readonly salesforce?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce;
   /**
   * sapo_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
   */
   readonly sapoData?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData;
   /**
   * service_now block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#service_now AppflowFlow#service_now}
   */
   readonly serviceNow?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow;
   /**
   * singular block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#singular AppflowFlow#singular}
   */
   readonly singular?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular;
   /**
   * slack block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#slack AppflowFlow#slack}
   */
   readonly slack?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack;
   /**
   * trendmicro block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trendmicro AppflowFlow#trendmicro}
   */
   readonly trendmicro?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro;
   /**
   * veeva block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#veeva AppflowFlow#veeva}
   */
   readonly veeva?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva;
   /**
   * zendesk block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
   */
   readonly zendesk?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk;
@@ -5829,13 +5829,13 @@ export interface AppflowFlowSourceFlowConfig {
   readonly connectorType: string;
   /**
   * incremental_pull_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#incremental_pull_config AppflowFlow#incremental_pull_config}
   */
   readonly incrementalPullConfig?: AppflowFlowSourceFlowConfigIncrementalPullConfig;
   /**
   * source_connector_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_connector_properties AppflowFlow#source_connector_properties}
   */
   readonly sourceConnectorProperties: AppflowFlowSourceFlowConfigSourceConnectorProperties;
@@ -5912,7 +5912,7 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -5928,7 +5928,7 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
   }
 
   // connector_profile_name - computed: false, optional: true, required: false
-  private _connectorProfileName?: string; 
+  private _connectorProfileName?: string;
   public get connectorProfileName() {
     return this.getStringAttribute('connector_profile_name');
   }
@@ -5944,7 +5944,7 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
   }
 
   // connector_type - computed: false, optional: false, required: true
-  private _connectorType?: string; 
+  private _connectorType?: string;
   public get connectorType() {
     return this.getStringAttribute('connector_type');
   }
@@ -6212,7 +6212,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // amplitude - computed: false, optional: true, required: false
-  private _amplitude?: string; 
+  private _amplitude?: string;
   public get amplitude() {
     return this.getStringAttribute('amplitude');
   }
@@ -6228,7 +6228,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // custom_connector - computed: false, optional: true, required: false
-  private _customConnector?: string; 
+  private _customConnector?: string;
   public get customConnector() {
     return this.getStringAttribute('custom_connector');
   }
@@ -6244,7 +6244,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // datadog - computed: false, optional: true, required: false
-  private _datadog?: string; 
+  private _datadog?: string;
   public get datadog() {
     return this.getStringAttribute('datadog');
   }
@@ -6260,7 +6260,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // dynatrace - computed: false, optional: true, required: false
-  private _dynatrace?: string; 
+  private _dynatrace?: string;
   public get dynatrace() {
     return this.getStringAttribute('dynatrace');
   }
@@ -6276,7 +6276,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // google_analytics - computed: false, optional: true, required: false
-  private _googleAnalytics?: string; 
+  private _googleAnalytics?: string;
   public get googleAnalytics() {
     return this.getStringAttribute('google_analytics');
   }
@@ -6292,7 +6292,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // infor_nexus - computed: false, optional: true, required: false
-  private _inforNexus?: string; 
+  private _inforNexus?: string;
   public get inforNexus() {
     return this.getStringAttribute('infor_nexus');
   }
@@ -6308,7 +6308,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // marketo - computed: false, optional: true, required: false
-  private _marketo?: string; 
+  private _marketo?: string;
   public get marketo() {
     return this.getStringAttribute('marketo');
   }
@@ -6324,7 +6324,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // s3 - computed: false, optional: true, required: false
-  private _s3?: string; 
+  private _s3?: string;
   public get s3() {
     return this.getStringAttribute('s3');
   }
@@ -6340,7 +6340,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // salesforce - computed: false, optional: true, required: false
-  private _salesforce?: string; 
+  private _salesforce?: string;
   public get salesforce() {
     return this.getStringAttribute('salesforce');
   }
@@ -6356,7 +6356,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // sapo_data - computed: false, optional: true, required: false
-  private _sapoData?: string; 
+  private _sapoData?: string;
   public get sapoData() {
     return this.getStringAttribute('sapo_data');
   }
@@ -6372,7 +6372,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // service_now - computed: false, optional: true, required: false
-  private _serviceNow?: string; 
+  private _serviceNow?: string;
   public get serviceNow() {
     return this.getStringAttribute('service_now');
   }
@@ -6388,7 +6388,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // singular - computed: false, optional: true, required: false
-  private _singular?: string; 
+  private _singular?: string;
   public get singular() {
     return this.getStringAttribute('singular');
   }
@@ -6404,7 +6404,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // slack - computed: false, optional: true, required: false
-  private _slack?: string; 
+  private _slack?: string;
   public get slack() {
     return this.getStringAttribute('slack');
   }
@@ -6420,7 +6420,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // trendmicro - computed: false, optional: true, required: false
-  private _trendmicro?: string; 
+  private _trendmicro?: string;
   public get trendmicro() {
     return this.getStringAttribute('trendmicro');
   }
@@ -6436,7 +6436,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // veeva - computed: false, optional: true, required: false
-  private _veeva?: string; 
+  private _veeva?: string;
   public get veeva() {
     return this.getStringAttribute('veeva');
   }
@@ -6452,7 +6452,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // zendesk - computed: false, optional: true, required: false
-  private _zendesk?: string; 
+  private _zendesk?: string;
   public get zendesk() {
     return this.getStringAttribute('zendesk');
   }
@@ -6506,7 +6506,7 @@ export interface AppflowFlowTask {
   readonly taskType: string;
   /**
   * connector_operator block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_operator AppflowFlow#connector_operator}
   */
   readonly connectorOperator?: AppflowFlowTaskConnectorOperator[] | cdktf.IResolvable;
@@ -6595,7 +6595,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // destination_field - computed: false, optional: true, required: false
-  private _destinationField?: string; 
+  private _destinationField?: string;
   public get destinationField() {
     return this.getStringAttribute('destination_field');
   }
@@ -6611,7 +6611,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // source_fields - computed: false, optional: false, required: true
-  private _sourceFields?: string[]; 
+  private _sourceFields?: string[];
   public get sourceFields() {
     return this.getListAttribute('source_fields');
   }
@@ -6624,7 +6624,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // task_properties - computed: false, optional: true, required: false
-  private _taskProperties?: { [key: string]: string }; 
+  private _taskProperties?: { [key: string]: string };
   public get taskProperties() {
     return this.getStringMapAttribute('task_properties');
   }
@@ -6640,7 +6640,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // task_type - computed: false, optional: false, required: true
-  private _taskType?: string; 
+  private _taskType?: string;
   public get taskType() {
     return this.getStringAttribute('task_type');
   }
@@ -6804,7 +6804,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // data_pull_mode - computed: false, optional: true, required: false
-  private _dataPullMode?: string; 
+  private _dataPullMode?: string;
   public get dataPullMode() {
     return this.getStringAttribute('data_pull_mode');
   }
@@ -6820,7 +6820,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // first_execution_from - computed: false, optional: true, required: false
-  private _firstExecutionFrom?: string; 
+  private _firstExecutionFrom?: string;
   public get firstExecutionFrom() {
     return this.getStringAttribute('first_execution_from');
   }
@@ -6836,7 +6836,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_end_time - computed: false, optional: true, required: false
-  private _scheduleEndTime?: string; 
+  private _scheduleEndTime?: string;
   public get scheduleEndTime() {
     return this.getStringAttribute('schedule_end_time');
   }
@@ -6852,7 +6852,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_expression - computed: false, optional: false, required: true
-  private _scheduleExpression?: string; 
+  private _scheduleExpression?: string;
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -6865,7 +6865,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_offset - computed: false, optional: true, required: false
-  private _scheduleOffset?: number; 
+  private _scheduleOffset?: number;
   public get scheduleOffset() {
     return this.getNumberAttribute('schedule_offset');
   }
@@ -6881,7 +6881,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_start_time - computed: false, optional: true, required: false
-  private _scheduleStartTime?: string; 
+  private _scheduleStartTime?: string;
   public get scheduleStartTime() {
     return this.getStringAttribute('schedule_start_time');
   }
@@ -6897,7 +6897,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // timezone - computed: false, optional: true, required: false
-  private _timezone?: string; 
+  private _timezone?: string;
   public get timezone() {
     return this.getStringAttribute('timezone');
   }
@@ -6915,7 +6915,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
 export interface AppflowFlowTriggerConfigTriggerProperties {
   /**
   * scheduled block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#scheduled AppflowFlow#scheduled}
   */
   readonly scheduled?: AppflowFlowTriggerConfigTriggerPropertiesScheduled;
@@ -6986,7 +6986,7 @@ export interface AppflowFlowTriggerConfig {
   readonly triggerType: string;
   /**
   * trigger_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_properties AppflowFlow#trigger_properties}
   */
   readonly triggerProperties?: AppflowFlowTriggerConfigTriggerProperties;
@@ -7042,7 +7042,7 @@ export class AppflowFlowTriggerConfigOutputReference extends cdktf.ComplexObject
   }
 
   // trigger_type - computed: false, optional: false, required: true
-  private _triggerType?: string; 
+  private _triggerType?: string;
   public get triggerType() {
     return this.getStringAttribute('trigger_type');
   }
@@ -7130,7 +7130,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -7146,7 +7146,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -7162,7 +7162,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // kms_arn - computed: true, optional: true, required: false
-  private _kmsArn?: string; 
+  private _kmsArn?: string;
   public get kmsArn() {
     return this.getStringAttribute('kms_arn');
   }
@@ -7178,7 +7178,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7191,7 +7191,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -7207,7 +7207,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssoadmin_permissions_boundary_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface SsoadminPermissionsBoundaryAttachmentConfig extends cdktf.Terra
   readonly permissionSetArn: string;
   /**
   * permissions_boundary block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_permissions_boundary_attachment#permissions_boundary SsoadminPermissionsBoundaryAttachment#permissions_boundary}
   */
   readonly permissionsBoundary: SsoadminPermissionsBoundaryAttachmentPermissionsBoundary;
@@ -90,7 +90,7 @@ export class SsoadminPermissionsBoundaryAttachmentPermissionsBoundaryCustomerMan
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -103,7 +103,7 @@ export class SsoadminPermissionsBoundaryAttachmentPermissionsBoundaryCustomerMan
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -125,7 +125,7 @@ export interface SsoadminPermissionsBoundaryAttachmentPermissionsBoundary {
   readonly managedPolicyArn?: string;
   /**
   * customer_managed_policy_reference block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_permissions_boundary_attachment#customer_managed_policy_reference SsoadminPermissionsBoundaryAttachment#customer_managed_policy_reference}
   */
   readonly customerManagedPolicyReference?: SsoadminPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference;
@@ -181,7 +181,7 @@ export class SsoadminPermissionsBoundaryAttachmentPermissionsBoundaryOutputRefer
   }
 
   // managed_policy_arn - computed: false, optional: true, required: false
-  private _managedPolicyArn?: string; 
+  private _managedPolicyArn?: string;
   public get managedPolicyArn() {
     return this.getStringAttribute('managed_policy_arn');
   }
@@ -261,7 +261,7 @@ export class SsoadminPermissionsBoundaryAttachment extends cdktf.TerraformResour
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -277,7 +277,7 @@ export class SsoadminPermissionsBoundaryAttachment extends cdktf.TerraformResour
   }
 
   // instance_arn - computed: false, optional: false, required: true
-  private _instanceArn?: string; 
+  private _instanceArn?: string;
   public get instanceArn() {
     return this.getStringAttribute('instance_arn');
   }
@@ -290,7 +290,7 @@ export class SsoadminPermissionsBoundaryAttachment extends cdktf.TerraformResour
   }
 
   // permission_set_arn - computed: false, optional: false, required: true
-  private _permissionSetArn?: string; 
+  private _permissionSetArn?: string;
   public get permissionSetArn() {
     return this.getStringAttribute('permission_set_arn');
   }

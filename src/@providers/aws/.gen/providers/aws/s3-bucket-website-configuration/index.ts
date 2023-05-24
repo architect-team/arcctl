@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,25 +28,25 @@ export interface S3BucketWebsiteConfigurationConfig extends cdktf.TerraformMetaA
   readonly routingRules?: string;
   /**
   * error_document block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#error_document S3BucketWebsiteConfiguration#error_document}
   */
   readonly errorDocument?: S3BucketWebsiteConfigurationErrorDocument;
   /**
   * index_document block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#index_document S3BucketWebsiteConfiguration#index_document}
   */
   readonly indexDocument?: S3BucketWebsiteConfigurationIndexDocument;
   /**
   * redirect_all_requests_to block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#redirect_all_requests_to S3BucketWebsiteConfiguration#redirect_all_requests_to}
   */
   readonly redirectAllRequestsTo?: S3BucketWebsiteConfigurationRedirectAllRequestsTo;
   /**
   * routing_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#routing_rule S3BucketWebsiteConfiguration#routing_rule}
   */
   readonly routingRule?: S3BucketWebsiteConfigurationRoutingRule[] | cdktf.IResolvable;
@@ -101,7 +101,7 @@ export class S3BucketWebsiteConfigurationErrorDocumentOutputReference extends cd
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -163,7 +163,7 @@ export class S3BucketWebsiteConfigurationIndexDocumentOutputReference extends cd
   }
 
   // suffix - computed: false, optional: false, required: true
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -236,7 +236,7 @@ export class S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference ex
   }
 
   // host_name - computed: false, optional: false, required: true
-  private _hostName?: string; 
+  private _hostName?: string;
   public get hostName() {
     return this.getStringAttribute('host_name');
   }
@@ -249,7 +249,7 @@ export class S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference ex
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -325,7 +325,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference ext
   }
 
   // http_error_code_returned_equals - computed: false, optional: true, required: false
-  private _httpErrorCodeReturnedEquals?: string; 
+  private _httpErrorCodeReturnedEquals?: string;
   public get httpErrorCodeReturnedEquals() {
     return this.getStringAttribute('http_error_code_returned_equals');
   }
@@ -341,7 +341,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference ext
   }
 
   // key_prefix_equals - computed: false, optional: true, required: false
-  private _keyPrefixEquals?: string; 
+  private _keyPrefixEquals?: string;
   public get keyPrefixEquals() {
     return this.getStringAttribute('key_prefix_equals');
   }
@@ -450,7 +450,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
   }
 
   // host_name - computed: false, optional: true, required: false
-  private _hostName?: string; 
+  private _hostName?: string;
   public get hostName() {
     return this.getStringAttribute('host_name');
   }
@@ -466,7 +466,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
   }
 
   // http_redirect_code - computed: false, optional: true, required: false
-  private _httpRedirectCode?: string; 
+  private _httpRedirectCode?: string;
   public get httpRedirectCode() {
     return this.getStringAttribute('http_redirect_code');
   }
@@ -482,7 +482,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -498,7 +498,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
   }
 
   // replace_key_prefix_with - computed: false, optional: true, required: false
-  private _replaceKeyPrefixWith?: string; 
+  private _replaceKeyPrefixWith?: string;
   public get replaceKeyPrefixWith() {
     return this.getStringAttribute('replace_key_prefix_with');
   }
@@ -514,7 +514,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
   }
 
   // replace_key_with - computed: false, optional: true, required: false
-  private _replaceKeyWith?: string; 
+  private _replaceKeyWith?: string;
   public get replaceKeyWith() {
     return this.getStringAttribute('replace_key_with');
   }
@@ -532,13 +532,13 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
 export interface S3BucketWebsiteConfigurationRoutingRule {
   /**
   * condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#condition S3BucketWebsiteConfiguration#condition}
   */
   readonly condition?: S3BucketWebsiteConfigurationRoutingRuleCondition;
   /**
   * redirect block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#redirect S3BucketWebsiteConfiguration#redirect}
   */
   readonly redirect: S3BucketWebsiteConfigurationRoutingRuleRedirect;
@@ -707,7 +707,7 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -720,7 +720,7 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -736,7 +736,7 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -752,7 +752,7 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   }
 
   // routing_rules - computed: true, optional: true, required: false
-  private _routingRules?: string; 
+  private _routingRules?: string;
   public get routingRules() {
     return this.getStringAttribute('routing_rules');
   }

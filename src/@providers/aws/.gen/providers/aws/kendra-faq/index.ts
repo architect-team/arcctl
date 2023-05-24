@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kendra_faq
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface KendraFaqConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * s3_path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_faq#s3_path KendraFaq#s3_path}
   */
   readonly s3Path: KendraFaqS3Path;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_faq#timeouts KendraFaq#timeouts}
   */
   readonly timeouts?: KendraFaqTimeouts;
@@ -120,7 +120,7 @@ export class KendraFaqS3PathOutputReference extends cdktf.ComplexObject {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -133,7 +133,7 @@ export class KendraFaqS3PathOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -216,7 +216,7 @@ export class KendraFaqTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -232,7 +232,7 @@ export class KendraFaqTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -313,7 +313,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -339,7 +339,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // file_format - computed: false, optional: true, required: false
-  private _fileFormat?: string; 
+  private _fileFormat?: string;
   public get fileFormat() {
     return this.getStringAttribute('file_format');
   }
@@ -355,7 +355,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -371,7 +371,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // index_id - computed: false, optional: false, required: true
-  private _indexId?: string; 
+  private _indexId?: string;
   public get indexId() {
     return this.getStringAttribute('index_id');
   }
@@ -384,7 +384,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // language_code - computed: true, optional: true, required: false
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -400,7 +400,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -413,7 +413,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -431,7 +431,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -447,7 +447,7 @@ export class KendraFaq extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

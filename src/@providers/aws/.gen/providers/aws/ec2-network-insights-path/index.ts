@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_network_insights_path
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -119,7 +119,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // destination_ip - computed: false, optional: true, required: false
-  private _destinationIp?: string; 
+  private _destinationIp?: string;
   public get destinationIp() {
     return this.getStringAttribute('destination_ip');
   }
@@ -135,7 +135,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // destination_port - computed: false, optional: true, required: false
-  private _destinationPort?: number; 
+  private _destinationPort?: number;
   public get destinationPort() {
     return this.getNumberAttribute('destination_port');
   }
@@ -151,7 +151,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -167,7 +167,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -180,7 +180,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -193,7 +193,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // source_ip - computed: false, optional: true, required: false
-  private _sourceIp?: string; 
+  private _sourceIp?: string;
   public get sourceIp() {
     return this.getStringAttribute('source_ip');
   }
@@ -209,7 +209,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -225,7 +225,7 @@ export class Ec2NetworkInsightsPath extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

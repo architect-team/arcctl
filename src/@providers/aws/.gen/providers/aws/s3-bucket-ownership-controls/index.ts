@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_ownership_controls
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface S3BucketOwnershipControlsConfig extends cdktf.TerraformMetaArgu
   readonly id?: string;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_ownership_controls#rule S3BucketOwnershipControls#rule}
   */
   readonly rule: S3BucketOwnershipControlsRule;
@@ -75,7 +75,7 @@ export class S3BucketOwnershipControlsRuleOutputReference extends cdktf.ComplexO
   }
 
   // object_ownership - computed: false, optional: false, required: true
-  private _objectOwnership?: string; 
+  private _objectOwnership?: string;
   public get objectOwnership() {
     return this.getStringAttribute('object_ownership');
   }
@@ -135,7 +135,7 @@ export class S3BucketOwnershipControls extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -148,7 +148,7 @@ export class S3BucketOwnershipControls extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

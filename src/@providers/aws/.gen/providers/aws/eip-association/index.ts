@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/eip_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class EipAssociation extends cdktf.TerraformResource {
   // ==========
 
   // allocation_id - computed: true, optional: true, required: false
-  private _allocationId?: string; 
+  private _allocationId?: string;
   public get allocationId() {
     return this.getStringAttribute('allocation_id');
   }
@@ -107,7 +107,7 @@ export class EipAssociation extends cdktf.TerraformResource {
   }
 
   // allow_reassociation - computed: false, optional: true, required: false
-  private _allowReassociation?: boolean | cdktf.IResolvable; 
+  private _allowReassociation?: boolean | cdktf.IResolvable;
   public get allowReassociation() {
     return this.getBooleanAttribute('allow_reassociation');
   }
@@ -123,7 +123,7 @@ export class EipAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class EipAssociation extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: true, optional: true, required: false
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -155,7 +155,7 @@ export class EipAssociation extends cdktf.TerraformResource {
   }
 
   // network_interface_id - computed: true, optional: true, required: false
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -171,7 +171,7 @@ export class EipAssociation extends cdktf.TerraformResource {
   }
 
   // private_ip_address - computed: true, optional: true, required: false
-  private _privateIpAddress?: string; 
+  private _privateIpAddress?: string;
   public get privateIpAddress() {
     return this.getStringAttribute('private_ip_address');
   }
@@ -187,7 +187,7 @@ export class EipAssociation extends cdktf.TerraformResource {
   }
 
   // public_ip - computed: true, optional: true, required: false
-  private _publicIp?: string; 
+  private _publicIp?: string;
   public get publicIp() {
     return this.getStringAttribute('public_ip');
   }

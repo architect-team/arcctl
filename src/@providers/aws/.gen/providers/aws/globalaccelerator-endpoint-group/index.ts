@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,19 +48,19 @@ export interface GlobalacceleratorEndpointGroupConfig extends cdktf.TerraformMet
   readonly trafficDialPercentage?: number;
   /**
   * endpoint_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_configuration GlobalacceleratorEndpointGroup#endpoint_configuration}
   */
   readonly endpointConfiguration?: GlobalacceleratorEndpointGroupEndpointConfiguration[] | cdktf.IResolvable;
   /**
   * port_override block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#port_override GlobalacceleratorEndpointGroup#port_override}
   */
   readonly portOverride?: GlobalacceleratorEndpointGroupPortOverride[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#timeouts GlobalacceleratorEndpointGroup#timeouts}
   */
   readonly timeouts?: GlobalacceleratorEndpointGroupTimeouts;
@@ -149,7 +149,7 @@ export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference 
   }
 
   // client_ip_preservation_enabled - computed: true, optional: true, required: false
-  private _clientIpPreservationEnabled?: boolean | cdktf.IResolvable; 
+  private _clientIpPreservationEnabled?: boolean | cdktf.IResolvable;
   public get clientIpPreservationEnabled() {
     return this.getBooleanAttribute('client_ip_preservation_enabled');
   }
@@ -165,7 +165,7 @@ export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference 
   }
 
   // endpoint_id - computed: false, optional: true, required: false
-  private _endpointId?: string; 
+  private _endpointId?: string;
   public get endpointId() {
     return this.getStringAttribute('endpoint_id');
   }
@@ -181,7 +181,7 @@ export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference 
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -289,7 +289,7 @@ export class GlobalacceleratorEndpointGroupPortOverrideOutputReference extends c
   }
 
   // endpoint_port - computed: false, optional: false, required: true
-  private _endpointPort?: number; 
+  private _endpointPort?: number;
   public get endpointPort() {
     return this.getNumberAttribute('endpoint_port');
   }
@@ -302,7 +302,7 @@ export class GlobalacceleratorEndpointGroupPortOverrideOutputReference extends c
   }
 
   // listener_port - computed: false, optional: false, required: true
-  private _listenerPort?: number; 
+  private _listenerPort?: number;
   public get listenerPort() {
     return this.getNumberAttribute('listener_port');
   }
@@ -416,7 +416,7 @@ export class GlobalacceleratorEndpointGroupTimeoutsOutputReference extends cdktf
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -432,7 +432,7 @@ export class GlobalacceleratorEndpointGroupTimeoutsOutputReference extends cdktf
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -448,7 +448,7 @@ export class GlobalacceleratorEndpointGroupTimeoutsOutputReference extends cdktf
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -525,7 +525,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // endpoint_group_region - computed: true, optional: true, required: false
-  private _endpointGroupRegion?: string; 
+  private _endpointGroupRegion?: string;
   public get endpointGroupRegion() {
     return this.getStringAttribute('endpoint_group_region');
   }
@@ -541,7 +541,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // health_check_interval_seconds - computed: false, optional: true, required: false
-  private _healthCheckIntervalSeconds?: number; 
+  private _healthCheckIntervalSeconds?: number;
   public get healthCheckIntervalSeconds() {
     return this.getNumberAttribute('health_check_interval_seconds');
   }
@@ -557,7 +557,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // health_check_path - computed: true, optional: true, required: false
-  private _healthCheckPath?: string; 
+  private _healthCheckPath?: string;
   public get healthCheckPath() {
     return this.getStringAttribute('health_check_path');
   }
@@ -573,7 +573,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // health_check_port - computed: true, optional: true, required: false
-  private _healthCheckPort?: number; 
+  private _healthCheckPort?: number;
   public get healthCheckPort() {
     return this.getNumberAttribute('health_check_port');
   }
@@ -589,7 +589,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // health_check_protocol - computed: false, optional: true, required: false
-  private _healthCheckProtocol?: string; 
+  private _healthCheckProtocol?: string;
   public get healthCheckProtocol() {
     return this.getStringAttribute('health_check_protocol');
   }
@@ -605,7 +605,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -621,7 +621,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // listener_arn - computed: false, optional: false, required: true
-  private _listenerArn?: string; 
+  private _listenerArn?: string;
   public get listenerArn() {
     return this.getStringAttribute('listener_arn');
   }
@@ -634,7 +634,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // threshold_count - computed: false, optional: true, required: false
-  private _thresholdCount?: number; 
+  private _thresholdCount?: number;
   public get thresholdCount() {
     return this.getNumberAttribute('threshold_count');
   }
@@ -650,7 +650,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // traffic_dial_percentage - computed: false, optional: true, required: false
-  private _trafficDialPercentage?: number; 
+  private _trafficDialPercentage?: number;
   public get trafficDialPercentage() {
     return this.getNumberAttribute('traffic_dial_percentage');
   }

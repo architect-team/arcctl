@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -29,13 +29,13 @@ export interface AuditmanagerAssessmentConfig extends cdktf.TerraformMetaArgumen
   readonly tags?: { [key: string]: string };
   /**
   * assessment_reports_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment#assessment_reports_destination AuditmanagerAssessment#assessment_reports_destination}
   */
   readonly assessmentReportsDestination?: AuditmanagerAssessmentAssessmentReportsDestination[] | cdktf.IResolvable;
   /**
   * scope block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment#scope AuditmanagerAssessment#scope}
   */
   readonly scope?: AuditmanagerAssessmentScope[] | cdktf.IResolvable;
@@ -113,7 +113,7 @@ export class AuditmanagerAssessmentRolesOutputReference extends cdktf.ComplexObj
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -126,7 +126,7 @@ export class AuditmanagerAssessmentRolesOutputReference extends cdktf.ComplexObj
   }
 
   // role_type - computed: false, optional: false, required: true
-  private _roleType?: string; 
+  private _roleType?: string;
   public get roleType() {
     return this.getStringAttribute('role_type');
   }
@@ -300,7 +300,7 @@ export class AuditmanagerAssessmentAssessmentReportsDestinationOutputReference e
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -313,7 +313,7 @@ export class AuditmanagerAssessmentAssessmentReportsDestinationOutputReference e
   }
 
   // destination_type - computed: false, optional: false, required: true
-  private _destinationType?: string; 
+  private _destinationType?: string;
   public get destinationType() {
     return this.getStringAttribute('destination_type');
   }
@@ -410,7 +410,7 @@ export class AuditmanagerAssessmentScopeAwsAccountsOutputReference extends cdktf
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -504,7 +504,7 @@ export class AuditmanagerAssessmentScopeAwsServicesOutputReference extends cdktf
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -539,13 +539,13 @@ export class AuditmanagerAssessmentScopeAwsServicesList extends cdktf.ComplexLis
 export interface AuditmanagerAssessmentScope {
   /**
   * aws_accounts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment#aws_accounts AuditmanagerAssessment#aws_accounts}
   */
   readonly awsAccounts?: AuditmanagerAssessmentScopeAwsAccounts[] | cdktf.IResolvable;
   /**
   * aws_services block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment#aws_services AuditmanagerAssessment#aws_services}
   */
   readonly awsServices?: AuditmanagerAssessmentScopeAwsServices[] | cdktf.IResolvable;
@@ -721,7 +721,7 @@ export class AuditmanagerAssessment extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -737,7 +737,7 @@ export class AuditmanagerAssessment extends cdktf.TerraformResource {
   }
 
   // framework_id - computed: false, optional: false, required: true
-  private _frameworkId?: string; 
+  private _frameworkId?: string;
   public get frameworkId() {
     return this.getStringAttribute('framework_id');
   }
@@ -755,7 +755,7 @@ export class AuditmanagerAssessment extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -792,7 +792,7 @@ export class AuditmanagerAssessment extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

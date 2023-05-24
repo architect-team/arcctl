@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface DataAwsServicecatalogLaunchPathsConfig extends cdktf.TerraformM
   readonly productId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#timeouts DataAwsServicecatalogLaunchPaths#timeouts}
   */
   readonly timeouts?: DataAwsServicecatalogLaunchPathsTimeouts;
@@ -239,7 +239,7 @@ export class DataAwsServicecatalogLaunchPathsTimeoutsOutputReference extends cdk
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -303,7 +303,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string; 
+  private _acceptLanguage?: string;
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -319,7 +319,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -335,7 +335,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
   }
 
   // product_id - computed: false, optional: false, required: true
-  private _productId?: string; 
+  private _productId?: string;
   public get productId() {
     return this.getStringAttribute('product_id');
   }

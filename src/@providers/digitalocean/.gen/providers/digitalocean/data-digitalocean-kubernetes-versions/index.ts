@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_versions
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -66,7 +66,7 @@ export class DataDigitaloceanKubernetesVersions extends cdktf.TerraformDataSourc
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class DataDigitaloceanKubernetesVersions extends cdktf.TerraformDataSourc
   }
 
   // version_prefix - computed: false, optional: true, required: false
-  private _versionPrefix?: string; 
+  private _versionPrefix?: string;
   public get versionPrefix() {
     return this.getStringAttribute('version_prefix');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface OpensearchDomainSamlOptionsConfig extends cdktf.TerraformMetaAr
   readonly id?: string;
   /**
   * saml_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#saml_options OpensearchDomainSamlOptions#saml_options}
   */
   readonly samlOptions?: OpensearchDomainSamlOptionsSamlOptions;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#timeouts OpensearchDomainSamlOptions#timeouts}
   */
   readonly timeouts?: OpensearchDomainSamlOptionsTimeouts;
@@ -92,7 +92,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference extends cd
   }
 
   // entity_id - computed: false, optional: false, required: true
-  private _entityId?: string; 
+  private _entityId?: string;
   public get entityId() {
     return this.getStringAttribute('entity_id');
   }
@@ -105,7 +105,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference extends cd
   }
 
   // metadata_content - computed: false, optional: false, required: true
-  private _metadataContent?: string; 
+  private _metadataContent?: string;
   public get metadataContent() {
     return this.getStringAttribute('metadata_content');
   }
@@ -144,7 +144,7 @@ export interface OpensearchDomainSamlOptionsSamlOptions {
   readonly subjectKey?: string;
   /**
   * idp block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#idp OpensearchDomainSamlOptions#idp}
   */
   readonly idp?: OpensearchDomainSamlOptionsSamlOptionsIdp;
@@ -235,7 +235,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -251,7 +251,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
   }
 
   // master_backend_role - computed: false, optional: true, required: false
-  private _masterBackendRole?: string; 
+  private _masterBackendRole?: string;
   public get masterBackendRole() {
     return this.getStringAttribute('master_backend_role');
   }
@@ -267,7 +267,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
   }
 
   // master_user_name - computed: false, optional: true, required: false
-  private _masterUserName?: string; 
+  private _masterUserName?: string;
   public get masterUserName() {
     return this.getStringAttribute('master_user_name');
   }
@@ -283,7 +283,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
   }
 
   // roles_key - computed: false, optional: true, required: false
-  private _rolesKey?: string; 
+  private _rolesKey?: string;
   public get rolesKey() {
     return this.getStringAttribute('roles_key');
   }
@@ -299,7 +299,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
   }
 
   // session_timeout_minutes - computed: false, optional: true, required: false
-  private _sessionTimeoutMinutes?: number; 
+  private _sessionTimeoutMinutes?: number;
   public get sessionTimeoutMinutes() {
     return this.getNumberAttribute('session_timeout_minutes');
   }
@@ -315,7 +315,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
   }
 
   // subject_key - computed: false, optional: true, required: false
-  private _subjectKey?: string; 
+  private _subjectKey?: string;
   public get subjectKey() {
     return this.getStringAttribute('subject_key');
   }
@@ -417,7 +417,7 @@ export class OpensearchDomainSamlOptionsTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -433,7 +433,7 @@ export class OpensearchDomainSamlOptionsTimeoutsOutputReference extends cdktf.Co
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -497,7 +497,7 @@ export class OpensearchDomainSamlOptions extends cdktf.TerraformResource {
   // ==========
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -510,7 +510,7 @@ export class OpensearchDomainSamlOptions extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

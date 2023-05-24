@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_extension_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class AppconfigExtensionAssociation extends cdktf.TerraformResource {
   }
 
   // extension_arn - computed: false, optional: false, required: true
-  private _extensionArn?: string; 
+  private _extensionArn?: string;
   public get extensionArn() {
     return this.getStringAttribute('extension_arn');
   }
@@ -99,7 +99,7 @@ export class AppconfigExtensionAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class AppconfigExtensionAssociation extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -131,7 +131,7 @@ export class AppconfigExtensionAssociation extends cdktf.TerraformResource {
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/d/plugin
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface DataDockerPluginConfig extends cdktf.TerraformMetaArguments {
   /**
   * The alias of the Docker plugin. If the tag is omitted, `:latest` is complemented to the attribute value.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/plugin#alias DataDockerPlugin#alias}
   */
   readonly alias?: string;
   /**
   * The ID of the plugin, which has precedence over the `alias` of both are given
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/plugin#id DataDockerPlugin#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
@@ -70,7 +70,7 @@ export class DataDockerPlugin extends cdktf.TerraformDataSource {
   // ==========
 
   // alias - computed: false, optional: true, required: false
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this.getStringAttribute('alias');
   }
@@ -101,7 +101,7 @@ export class DataDockerPlugin extends cdktf.TerraformDataSource {
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface EmrcontainersVirtualClusterConfig extends cdktf.TerraformMetaAr
   readonly tagsAll?: { [key: string]: string };
   /**
   * container_provider block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#container_provider EmrcontainersVirtualCluster#container_provider}
   */
   readonly containerProvider: EmrcontainersVirtualClusterContainerProvider;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#timeouts EmrcontainersVirtualCluster#timeouts}
   */
   readonly timeouts?: EmrcontainersVirtualClusterTimeouts;
@@ -89,7 +89,7 @@ export class EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputRefere
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -107,7 +107,7 @@ export class EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputRefere
 export interface EmrcontainersVirtualClusterContainerProviderInfo {
   /**
   * eks_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#eks_info EmrcontainersVirtualCluster#eks_info}
   */
   readonly eksInfo: EmrcontainersVirtualClusterContainerProviderInfoEksInfo;
@@ -182,7 +182,7 @@ export interface EmrcontainersVirtualClusterContainerProvider {
   readonly type: string;
   /**
   * info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#info EmrcontainersVirtualCluster#info}
   */
   readonly info: EmrcontainersVirtualClusterContainerProviderInfo;
@@ -245,7 +245,7 @@ export class EmrcontainersVirtualClusterContainerProviderOutputReference extends
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -258,7 +258,7 @@ export class EmrcontainersVirtualClusterContainerProviderOutputReference extends
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -343,7 +343,7 @@ export class EmrcontainersVirtualClusterTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -414,7 +414,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -430,7 +430,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -443,7 +443,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -459,7 +459,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fms_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -60,19 +60,19 @@ export interface FmsPolicyConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * exclude_map block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fms_policy#exclude_map FmsPolicy#exclude_map}
   */
   readonly excludeMap?: FmsPolicyExcludeMap;
   /**
   * include_map block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fms_policy#include_map FmsPolicy#include_map}
   */
   readonly includeMap?: FmsPolicyIncludeMap;
   /**
   * security_service_policy_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fms_policy#security_service_policy_data FmsPolicy#security_service_policy_data}
   */
   readonly securityServicePolicyData: FmsPolicySecurityServicePolicyData;
@@ -138,7 +138,7 @@ export class FmsPolicyExcludeMapOutputReference extends cdktf.ComplexObject {
   }
 
   // account - computed: false, optional: true, required: false
-  private _account?: string[]; 
+  private _account?: string[];
   public get account() {
     return cdktf.Fn.tolist(this.getListAttribute('account'));
   }
@@ -154,7 +154,7 @@ export class FmsPolicyExcludeMapOutputReference extends cdktf.ComplexObject {
   }
 
   // orgunit - computed: false, optional: true, required: false
-  private _orgunit?: string[]; 
+  private _orgunit?: string[];
   public get orgunit() {
     return cdktf.Fn.tolist(this.getListAttribute('orgunit'));
   }
@@ -230,7 +230,7 @@ export class FmsPolicyIncludeMapOutputReference extends cdktf.ComplexObject {
   }
 
   // account - computed: false, optional: true, required: false
-  private _account?: string[]; 
+  private _account?: string[];
   public get account() {
     return cdktf.Fn.tolist(this.getListAttribute('account'));
   }
@@ -246,7 +246,7 @@ export class FmsPolicyIncludeMapOutputReference extends cdktf.ComplexObject {
   }
 
   // orgunit - computed: false, optional: true, required: false
-  private _orgunit?: string[]; 
+  private _orgunit?: string[];
   public get orgunit() {
     return cdktf.Fn.tolist(this.getListAttribute('orgunit'));
   }
@@ -322,7 +322,7 @@ export class FmsPolicySecurityServicePolicyDataOutputReference extends cdktf.Com
   }
 
   // managed_service_data - computed: false, optional: true, required: false
-  private _managedServiceData?: string; 
+  private _managedServiceData?: string;
   public get managedServiceData() {
     return this.getStringAttribute('managed_service_data');
   }
@@ -338,7 +338,7 @@ export class FmsPolicySecurityServicePolicyDataOutputReference extends cdktf.Com
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -415,7 +415,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // delete_all_policy_resources - computed: false, optional: true, required: false
-  private _deleteAllPolicyResources?: boolean | cdktf.IResolvable; 
+  private _deleteAllPolicyResources?: boolean | cdktf.IResolvable;
   public get deleteAllPolicyResources() {
     return this.getBooleanAttribute('delete_all_policy_resources');
   }
@@ -431,7 +431,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // delete_unused_fm_managed_resources - computed: false, optional: true, required: false
-  private _deleteUnusedFmManagedResources?: boolean | cdktf.IResolvable; 
+  private _deleteUnusedFmManagedResources?: boolean | cdktf.IResolvable;
   public get deleteUnusedFmManagedResources() {
     return this.getBooleanAttribute('delete_unused_fm_managed_resources');
   }
@@ -447,7 +447,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -463,7 +463,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // exclude_resource_tags - computed: false, optional: false, required: true
-  private _excludeResourceTags?: boolean | cdktf.IResolvable; 
+  private _excludeResourceTags?: boolean | cdktf.IResolvable;
   public get excludeResourceTags() {
     return this.getBooleanAttribute('exclude_resource_tags');
   }
@@ -476,7 +476,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -492,7 +492,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -510,7 +510,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // remediation_enabled - computed: false, optional: true, required: false
-  private _remediationEnabled?: boolean | cdktf.IResolvable; 
+  private _remediationEnabled?: boolean | cdktf.IResolvable;
   public get remediationEnabled() {
     return this.getBooleanAttribute('remediation_enabled');
   }
@@ -526,7 +526,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // resource_tags - computed: false, optional: true, required: false
-  private _resourceTags?: { [key: string]: string }; 
+  private _resourceTags?: { [key: string]: string };
   public get resourceTags() {
     return this.getStringMapAttribute('resource_tags');
   }
@@ -542,7 +542,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // resource_type - computed: true, optional: true, required: false
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -558,7 +558,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // resource_type_list - computed: true, optional: true, required: false
-  private _resourceTypeList?: string[]; 
+  private _resourceTypeList?: string[];
   public get resourceTypeList() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_type_list'));
   }
@@ -574,7 +574,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -590,7 +590,7 @@ export class FmsPolicy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

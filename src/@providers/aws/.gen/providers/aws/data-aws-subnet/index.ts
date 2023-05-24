@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/subnet
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface DataAwsSubnetConfig extends cdktf.TerraformMetaArguments {
   readonly vpcId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/subnet#filter DataAwsSubnet#filter}
   */
   readonly filter?: DataAwsSubnetFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/subnet#timeouts DataAwsSubnet#timeouts}
   */
   readonly timeouts?: DataAwsSubnetTimeouts;
@@ -132,7 +132,7 @@ export class DataAwsSubnetFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -145,7 +145,7 @@ export class DataAwsSubnetFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -237,7 +237,7 @@ export class DataAwsSubnetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -318,7 +318,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -334,7 +334,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // availability_zone_id - computed: true, optional: true, required: false
-  private _availabilityZoneId?: string; 
+  private _availabilityZoneId?: string;
   public get availabilityZoneId() {
     return this.getStringAttribute('availability_zone_id');
   }
@@ -355,7 +355,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // cidr_block - computed: true, optional: true, required: false
-  private _cidrBlock?: string; 
+  private _cidrBlock?: string;
   public get cidrBlock() {
     return this.getStringAttribute('cidr_block');
   }
@@ -376,7 +376,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // default_for_az - computed: true, optional: true, required: false
-  private _defaultForAz?: boolean | cdktf.IResolvable; 
+  private _defaultForAz?: boolean | cdktf.IResolvable;
   public get defaultForAz() {
     return this.getBooleanAttribute('default_for_az');
   }
@@ -407,7 +407,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -423,7 +423,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // ipv6_cidr_block - computed: true, optional: true, required: false
-  private _ipv6CidrBlock?: string; 
+  private _ipv6CidrBlock?: string;
   public get ipv6CidrBlock() {
     return this.getStringAttribute('ipv6_cidr_block');
   }
@@ -474,7 +474,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -490,7 +490,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -506,7 +506,7 @@ export class DataAwsSubnet extends cdktf.TerraformDataSource {
   }
 
   // vpc_id - computed: true, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

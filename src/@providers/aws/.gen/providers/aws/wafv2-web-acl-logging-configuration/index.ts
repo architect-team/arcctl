@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,25 +16,25 @@ export interface Wafv2WebAclLoggingConfigurationConfig extends cdktf.TerraformMe
   readonly id?: string;
   /**
   * AWS Kinesis Firehose Delivery Stream ARNs
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#log_destination_configs Wafv2WebAclLoggingConfiguration#log_destination_configs}
   */
   readonly logDestinationConfigs: string[];
   /**
   * AWS WebACL ARN
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#resource_arn Wafv2WebAclLoggingConfiguration#resource_arn}
   */
   readonly resourceArn: string;
   /**
   * logging_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#logging_filter Wafv2WebAclLoggingConfiguration#logging_filter}
   */
   readonly loggingFilter?: Wafv2WebAclLoggingConfigurationLoggingFilter;
   /**
   * redacted_fields block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#redacted_fields Wafv2WebAclLoggingConfiguration#redacted_fields}
   */
   readonly redactedFields?: Wafv2WebAclLoggingConfigurationRedactedFields[] | cdktf.IResolvable;
@@ -89,7 +89,7 @@ export class Wafv2WebAclLoggingConfigurationLoggingFilterFilterConditionActionCo
   }
 
   // action - computed: false, optional: false, required: true
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -151,7 +151,7 @@ export class Wafv2WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNam
   }
 
   // label_name - computed: false, optional: false, required: true
-  private _labelName?: string; 
+  private _labelName?: string;
   public get labelName() {
     return this.getStringAttribute('label_name');
   }
@@ -166,13 +166,13 @@ export class Wafv2WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNam
 export interface Wafv2WebAclLoggingConfigurationLoggingFilterFilterCondition {
   /**
   * action_condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#action_condition Wafv2WebAclLoggingConfiguration#action_condition}
   */
   readonly actionCondition?: Wafv2WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition;
   /**
   * label_name_condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#label_name_condition Wafv2WebAclLoggingConfiguration#label_name_condition}
   */
   readonly labelNameCondition?: Wafv2WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition;
@@ -302,7 +302,7 @@ export interface Wafv2WebAclLoggingConfigurationLoggingFilterFilter {
   readonly requirement: string;
   /**
   * condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#condition Wafv2WebAclLoggingConfiguration#condition}
   */
   readonly condition: Wafv2WebAclLoggingConfigurationLoggingFilterFilterCondition[] | cdktf.IResolvable;
@@ -377,7 +377,7 @@ export class Wafv2WebAclLoggingConfigurationLoggingFilterFilterOutputReference e
   }
 
   // behavior - computed: false, optional: false, required: true
-  private _behavior?: string; 
+  private _behavior?: string;
   public get behavior() {
     return this.getStringAttribute('behavior');
   }
@@ -390,7 +390,7 @@ export class Wafv2WebAclLoggingConfigurationLoggingFilterFilterOutputReference e
   }
 
   // requirement - computed: false, optional: false, required: true
-  private _requirement?: string; 
+  private _requirement?: string;
   public get requirement() {
     return this.getStringAttribute('requirement');
   }
@@ -442,7 +442,7 @@ export interface Wafv2WebAclLoggingConfigurationLoggingFilter {
   readonly defaultBehavior: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#filter Wafv2WebAclLoggingConfiguration#filter}
   */
   readonly filter: Wafv2WebAclLoggingConfigurationLoggingFilterFilter[] | cdktf.IResolvable;
@@ -498,7 +498,7 @@ export class Wafv2WebAclLoggingConfigurationLoggingFilterOutputReference extends
   }
 
   // default_behavior - computed: false, optional: false, required: true
-  private _defaultBehavior?: string; 
+  private _defaultBehavior?: string;
   public get defaultBehavior() {
     return this.getStringAttribute('default_behavior');
   }
@@ -725,7 +725,7 @@ export class Wafv2WebAclLoggingConfigurationRedactedFieldsSingleHeaderOutputRefe
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -787,7 +787,7 @@ export class Wafv2WebAclLoggingConfigurationRedactedFieldsSingleQueryArgumentOut
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -840,43 +840,43 @@ export class Wafv2WebAclLoggingConfigurationRedactedFieldsUriPathOutputReference
 export interface Wafv2WebAclLoggingConfigurationRedactedFields {
   /**
   * all_query_arguments block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#all_query_arguments Wafv2WebAclLoggingConfiguration#all_query_arguments}
   */
   readonly allQueryArguments?: Wafv2WebAclLoggingConfigurationRedactedFieldsAllQueryArguments;
   /**
   * body block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#body Wafv2WebAclLoggingConfiguration#body}
   */
   readonly body?: Wafv2WebAclLoggingConfigurationRedactedFieldsBody;
   /**
   * method block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#method Wafv2WebAclLoggingConfiguration#method}
   */
   readonly method?: Wafv2WebAclLoggingConfigurationRedactedFieldsMethod;
   /**
   * query_string block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#query_string Wafv2WebAclLoggingConfiguration#query_string}
   */
   readonly queryString?: Wafv2WebAclLoggingConfigurationRedactedFieldsQueryString;
   /**
   * single_header block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#single_header Wafv2WebAclLoggingConfiguration#single_header}
   */
   readonly singleHeader?: Wafv2WebAclLoggingConfigurationRedactedFieldsSingleHeader;
   /**
   * single_query_argument block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#single_query_argument Wafv2WebAclLoggingConfiguration#single_query_argument}
   */
   readonly singleQueryArgument?: Wafv2WebAclLoggingConfigurationRedactedFieldsSingleQueryArgument;
   /**
   * uri_path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration#uri_path Wafv2WebAclLoggingConfiguration#uri_path}
   */
   readonly uriPath?: Wafv2WebAclLoggingConfigurationRedactedFieldsUriPath;
@@ -1160,7 +1160,7 @@ export class Wafv2WebAclLoggingConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1176,7 +1176,7 @@ export class Wafv2WebAclLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // log_destination_configs - computed: false, optional: false, required: true
-  private _logDestinationConfigs?: string[]; 
+  private _logDestinationConfigs?: string[];
   public get logDestinationConfigs() {
     return cdktf.Fn.tolist(this.getListAttribute('log_destination_configs'));
   }
@@ -1189,7 +1189,7 @@ export class Wafv2WebAclLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }

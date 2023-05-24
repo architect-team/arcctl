@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class IamPolicyAttachment extends cdktf.TerraformResource {
   // ==========
 
   // groups - computed: false, optional: true, required: false
-  private _groups?: string[]; 
+  private _groups?: string[];
   public get groups() {
     return cdktf.Fn.tolist(this.getListAttribute('groups'));
   }
@@ -102,7 +102,7 @@ export class IamPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class IamPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -131,7 +131,7 @@ export class IamPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // policy_arn - computed: false, optional: false, required: true
-  private _policyArn?: string; 
+  private _policyArn?: string;
   public get policyArn() {
     return this.getStringAttribute('policy_arn');
   }
@@ -144,7 +144,7 @@ export class IamPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // roles - computed: false, optional: true, required: false
-  private _roles?: string[]; 
+  private _roles?: string[];
   public get roles() {
     return cdktf.Fn.tolist(this.getListAttribute('roles'));
   }
@@ -160,7 +160,7 @@ export class IamPolicyAttachment extends cdktf.TerraformResource {
   }
 
   // users - computed: false, optional: true, required: false
-  private _users?: string[]; 
+  private _users?: string[];
   public get users() {
     return cdktf.Fn.tolist(this.getListAttribute('users'));
   }

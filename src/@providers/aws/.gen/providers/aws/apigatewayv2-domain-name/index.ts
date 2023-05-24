@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,19 +28,19 @@ export interface Apigatewayv2DomainNameConfig extends cdktf.TerraformMetaArgumen
   readonly tagsAll?: { [key: string]: string };
   /**
   * domain_name_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name#domain_name_configuration Apigatewayv2DomainName#domain_name_configuration}
   */
   readonly domainNameConfiguration: Apigatewayv2DomainNameDomainNameConfiguration;
   /**
   * mutual_tls_authentication block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name#mutual_tls_authentication Apigatewayv2DomainName#mutual_tls_authentication}
   */
   readonly mutualTlsAuthentication?: Apigatewayv2DomainNameMutualTlsAuthentication;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name#timeouts Apigatewayv2DomainName#timeouts}
   */
   readonly timeouts?: Apigatewayv2DomainNameTimeouts;
@@ -128,7 +128,7 @@ export class Apigatewayv2DomainNameDomainNameConfigurationOutputReference extend
   }
 
   // certificate_arn - computed: false, optional: false, required: true
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -141,7 +141,7 @@ export class Apigatewayv2DomainNameDomainNameConfigurationOutputReference extend
   }
 
   // endpoint_type - computed: false, optional: false, required: true
-  private _endpointType?: string; 
+  private _endpointType?: string;
   public get endpointType() {
     return this.getStringAttribute('endpoint_type');
   }
@@ -159,7 +159,7 @@ export class Apigatewayv2DomainNameDomainNameConfigurationOutputReference extend
   }
 
   // ownership_verification_certificate_arn - computed: true, optional: true, required: false
-  private _ownershipVerificationCertificateArn?: string; 
+  private _ownershipVerificationCertificateArn?: string;
   public get ownershipVerificationCertificateArn() {
     return this.getStringAttribute('ownership_verification_certificate_arn');
   }
@@ -175,7 +175,7 @@ export class Apigatewayv2DomainNameDomainNameConfigurationOutputReference extend
   }
 
   // security_policy - computed: false, optional: false, required: true
-  private _securityPolicy?: string; 
+  private _securityPolicy?: string;
   public get securityPolicy() {
     return this.getStringAttribute('security_policy');
   }
@@ -253,7 +253,7 @@ export class Apigatewayv2DomainNameMutualTlsAuthenticationOutputReference extend
   }
 
   // truststore_uri - computed: false, optional: false, required: true
-  private _truststoreUri?: string; 
+  private _truststoreUri?: string;
   public get truststoreUri() {
     return this.getStringAttribute('truststore_uri');
   }
@@ -266,7 +266,7 @@ export class Apigatewayv2DomainNameMutualTlsAuthenticationOutputReference extend
   }
 
   // truststore_version - computed: false, optional: true, required: false
-  private _truststoreVersion?: string; 
+  private _truststoreVersion?: string;
   public get truststoreVersion() {
     return this.getStringAttribute('truststore_version');
   }
@@ -352,7 +352,7 @@ export class Apigatewayv2DomainNameTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -368,7 +368,7 @@ export class Apigatewayv2DomainNameTimeoutsOutputReference extends cdktf.Complex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -445,7 +445,7 @@ export class Apigatewayv2DomainName extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -458,7 +458,7 @@ export class Apigatewayv2DomainName extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -474,7 +474,7 @@ export class Apigatewayv2DomainName extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -490,7 +490,7 @@ export class Apigatewayv2DomainName extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

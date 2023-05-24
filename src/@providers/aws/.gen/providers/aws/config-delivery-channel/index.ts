@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/config_delivery_channel
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface ConfigDeliveryChannelConfig extends cdktf.TerraformMetaArgument
   readonly snsTopicArn?: string;
   /**
   * snapshot_delivery_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#snapshot_delivery_properties ConfigDeliveryChannel#snapshot_delivery_properties}
   */
   readonly snapshotDeliveryProperties?: ConfigDeliveryChannelSnapshotDeliveryProperties;
@@ -91,7 +91,7 @@ export class ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference exte
   }
 
   // delivery_frequency - computed: false, optional: true, required: false
-  private _deliveryFrequency?: string; 
+  private _deliveryFrequency?: string;
   public get deliveryFrequency() {
     return this.getStringAttribute('delivery_frequency');
   }
@@ -158,7 +158,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -174,7 +174,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -190,7 +190,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // s3_bucket_name - computed: false, optional: false, required: true
-  private _s3BucketName?: string; 
+  private _s3BucketName?: string;
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -203,7 +203,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // s3_key_prefix - computed: false, optional: true, required: false
-  private _s3KeyPrefix?: string; 
+  private _s3KeyPrefix?: string;
   public get s3KeyPrefix() {
     return this.getStringAttribute('s3_key_prefix');
   }
@@ -219,7 +219,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // s3_kms_key_arn - computed: false, optional: true, required: false
-  private _s3KmsKeyArn?: string; 
+  private _s3KmsKeyArn?: string;
   public get s3KmsKeyArn() {
     return this.getStringAttribute('s3_kms_key_arn');
   }
@@ -235,7 +235,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // sns_topic_arn - computed: false, optional: true, required: false
-  private _snsTopicArn?: string; 
+  private _snsTopicArn?: string;
   public get snsTopicArn() {
     return this.getStringAttribute('sns_topic_arn');
   }

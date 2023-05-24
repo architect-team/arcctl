@@ -1,12 +1,12 @@
-import CloudCtlConfig from '../utils/config.js';
+import CloudCtlConfig from '../utils/config.ts';
 import {
   deleteProvider,
   getProviders,
   saveFile,
   saveProvider,
-} from '../utils/providers.js';
-import KubernetesProvider from './kubernetes/provider.js';
-import { SupportedProviders } from './supported-providers.js';
+} from '../utils/providers.ts';
+import KubernetesProvider from './kubernetes/provider.ts';
+import { SupportedProviders } from './supported-providers.ts';
 import chalk from 'chalk';
 import fs from 'fs';
 import yaml from 'js-yaml';

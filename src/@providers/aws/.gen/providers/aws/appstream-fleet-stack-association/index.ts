@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appstream_fleet_stack_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class AppstreamFleetStackAssociation extends cdktf.TerraformResource {
   // ==========
 
   // fleet_name - computed: false, optional: false, required: true
-  private _fleetName?: string; 
+  private _fleetName?: string;
   public get fleetName() {
     return this.getStringAttribute('fleet_name');
   }
@@ -84,7 +84,7 @@ export class AppstreamFleetStackAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class AppstreamFleetStackAssociation extends cdktf.TerraformResource {
   }
 
   // stack_name - computed: false, optional: false, required: true
-  private _stackName?: string; 
+  private _stackName?: string;
   public get stackName() {
     return this.getStringAttribute('stack_name');
   }

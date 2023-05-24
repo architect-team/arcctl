@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_location_s3
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface DatasyncLocationS3Config extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * s3_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#s3_config DatasyncLocationS3#s3_config}
   */
   readonly s3Config: DatasyncLocationS3S3Config;
@@ -95,7 +95,7 @@ export class DatasyncLocationS3S3ConfigOutputReference extends cdktf.ComplexObje
   }
 
   // bucket_access_role_arn - computed: false, optional: false, required: true
-  private _bucketAccessRoleArn?: string; 
+  private _bucketAccessRoleArn?: string;
   public get bucketAccessRoleArn() {
     return this.getStringAttribute('bucket_access_role_arn');
   }
@@ -160,7 +160,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   // ==========
 
   // agent_arns - computed: false, optional: true, required: false
-  private _agentArns?: string[]; 
+  private _agentArns?: string[];
   public get agentArns() {
     return cdktf.Fn.tolist(this.getListAttribute('agent_arns'));
   }
@@ -181,7 +181,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -197,7 +197,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // s3_bucket_arn - computed: false, optional: false, required: true
-  private _s3BucketArn?: string; 
+  private _s3BucketArn?: string;
   public get s3BucketArn() {
     return this.getStringAttribute('s3_bucket_arn');
   }
@@ -210,7 +210,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // s3_storage_class - computed: true, optional: true, required: false
-  private _s3StorageClass?: string; 
+  private _s3StorageClass?: string;
   public get s3StorageClass() {
     return this.getStringAttribute('s3_storage_class');
   }
@@ -226,7 +226,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // subdirectory - computed: false, optional: false, required: true
-  private _subdirectory?: string; 
+  private _subdirectory?: string;
   public get subdirectory() {
     return this.getStringAttribute('subdirectory');
   }
@@ -239,7 +239,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -255,7 +255,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

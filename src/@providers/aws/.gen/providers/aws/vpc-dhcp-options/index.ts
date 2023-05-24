@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: true, required: false
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -117,7 +117,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // domain_name_servers - computed: false, optional: true, required: false
-  private _domainNameServers?: string[]; 
+  private _domainNameServers?: string[];
   public get domainNameServers() {
     return this.getListAttribute('domain_name_servers');
   }
@@ -133,7 +133,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -149,7 +149,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // netbios_name_servers - computed: false, optional: true, required: false
-  private _netbiosNameServers?: string[]; 
+  private _netbiosNameServers?: string[];
   public get netbiosNameServers() {
     return this.getListAttribute('netbios_name_servers');
   }
@@ -165,7 +165,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // netbios_node_type - computed: false, optional: true, required: false
-  private _netbiosNodeType?: string; 
+  private _netbiosNodeType?: string;
   public get netbiosNodeType() {
     return this.getStringAttribute('netbios_node_type');
   }
@@ -181,7 +181,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // ntp_servers - computed: false, optional: true, required: false
-  private _ntpServers?: string[]; 
+  private _ntpServers?: string[];
   public get ntpServers() {
     return this.getListAttribute('ntp_servers');
   }
@@ -202,7 +202,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -218,7 +218,7 @@ export class VpcDhcpOptions extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

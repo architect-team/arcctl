@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface ApiGatewayDocumentationPartConfig extends cdktf.TerraformMetaAr
   readonly restApiId: string;
   /**
   * location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#location ApiGatewayDocumentationPart#location}
   */
   readonly location: ApiGatewayDocumentationPartLocation;
@@ -123,7 +123,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // method - computed: false, optional: true, required: false
-  private _method?: string; 
+  private _method?: string;
   public get method() {
     return this.getStringAttribute('method');
   }
@@ -139,7 +139,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -155,7 +155,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -171,7 +171,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // status_code - computed: false, optional: true, required: false
-  private _statusCode?: string; 
+  private _statusCode?: string;
   public get statusCode() {
     return this.getStringAttribute('status_code');
   }
@@ -187,7 +187,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -248,7 +248,7 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -264,7 +264,7 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
   }
 
   // properties - computed: false, optional: false, required: true
-  private _properties?: string; 
+  private _properties?: string;
   public get properties() {
     return this.getStringAttribute('properties');
   }
@@ -277,7 +277,7 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }

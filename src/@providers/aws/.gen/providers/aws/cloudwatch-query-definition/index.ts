@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   }
 
   // log_group_names - computed: false, optional: true, required: false
-  private _logGroupNames?: string[]; 
+  private _logGroupNames?: string[];
   public get logGroupNames() {
     return this.getListAttribute('log_group_names');
   }
@@ -108,7 +108,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -126,7 +126,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   }
 
   // query_string - computed: false, optional: false, required: true
-  private _queryString?: string; 
+  private _queryString?: string;
   public get queryString() {
     return this.getStringAttribute('query_string');
   }

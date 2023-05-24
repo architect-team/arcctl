@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudtrail_event_data_store
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface CloudtrailEventDataStoreConfig extends cdktf.TerraformMetaArgum
   readonly terminationProtectionEnabled?: boolean | cdktf.IResolvable;
   /**
   * advanced_event_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudtrail_event_data_store#advanced_event_selector CloudtrailEventDataStore#advanced_event_selector}
   */
   readonly advancedEventSelector?: CloudtrailEventDataStoreAdvancedEventSelector[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudtrail_event_data_store#timeouts CloudtrailEventDataStore#timeouts}
   */
   readonly timeouts?: CloudtrailEventDataStoreTimeouts;
@@ -187,7 +187,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorFieldSelectorOutputRef
   }
 
   // ends_with - computed: true, optional: true, required: false
-  private _endsWith?: string[]; 
+  private _endsWith?: string[];
   public get endsWith() {
     return this.getListAttribute('ends_with');
   }
@@ -203,7 +203,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorFieldSelectorOutputRef
   }
 
   // equals - computed: true, optional: true, required: false
-  private _equals?: string[]; 
+  private _equals?: string[];
   public get equalTo() {
     return this.getListAttribute('equals');
   }
@@ -219,7 +219,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorFieldSelectorOutputRef
   }
 
   // field - computed: true, optional: true, required: false
-  private _field?: string; 
+  private _field?: string;
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -235,7 +235,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorFieldSelectorOutputRef
   }
 
   // not_ends_with - computed: true, optional: true, required: false
-  private _notEndsWith?: string[]; 
+  private _notEndsWith?: string[];
   public get notEndsWith() {
     return this.getListAttribute('not_ends_with');
   }
@@ -251,7 +251,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorFieldSelectorOutputRef
   }
 
   // not_equals - computed: true, optional: true, required: false
-  private _notEquals?: string[]; 
+  private _notEquals?: string[];
   public get notEquals() {
     return this.getListAttribute('not_equals');
   }
@@ -267,7 +267,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorFieldSelectorOutputRef
   }
 
   // not_starts_with - computed: true, optional: true, required: false
-  private _notStartsWith?: string[]; 
+  private _notStartsWith?: string[];
   public get notStartsWith() {
     return this.getListAttribute('not_starts_with');
   }
@@ -283,7 +283,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorFieldSelectorOutputRef
   }
 
   // starts_with - computed: true, optional: true, required: false
-  private _startsWith?: string[]; 
+  private _startsWith?: string[];
   public get startsWith() {
     return this.getListAttribute('starts_with');
   }
@@ -325,7 +325,7 @@ export interface CloudtrailEventDataStoreAdvancedEventSelector {
   readonly name?: string;
   /**
   * field_selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudtrail_event_data_store#field_selector CloudtrailEventDataStore#field_selector}
   */
   readonly fieldSelector?: CloudtrailEventDataStoreAdvancedEventSelectorFieldSelector[] | cdktf.IResolvable;
@@ -393,7 +393,7 @@ export class CloudtrailEventDataStoreAdvancedEventSelectorOutputReference extend
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -526,7 +526,7 @@ export class CloudtrailEventDataStoreTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -542,7 +542,7 @@ export class CloudtrailEventDataStoreTimeoutsOutputReference extends cdktf.Compl
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -558,7 +558,7 @@ export class CloudtrailEventDataStoreTimeoutsOutputReference extends cdktf.Compl
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -634,7 +634,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -650,7 +650,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -666,7 +666,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // multi_region_enabled - computed: false, optional: true, required: false
-  private _multiRegionEnabled?: boolean | cdktf.IResolvable; 
+  private _multiRegionEnabled?: boolean | cdktf.IResolvable;
   public get multiRegionEnabled() {
     return this.getBooleanAttribute('multi_region_enabled');
   }
@@ -682,7 +682,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -695,7 +695,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // organization_enabled - computed: false, optional: true, required: false
-  private _organizationEnabled?: boolean | cdktf.IResolvable; 
+  private _organizationEnabled?: boolean | cdktf.IResolvable;
   public get organizationEnabled() {
     return this.getBooleanAttribute('organization_enabled');
   }
@@ -711,7 +711,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // retention_period - computed: false, optional: true, required: false
-  private _retentionPeriod?: number; 
+  private _retentionPeriod?: number;
   public get retentionPeriod() {
     return this.getNumberAttribute('retention_period');
   }
@@ -727,7 +727,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -743,7 +743,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -759,7 +759,7 @@ export class CloudtrailEventDataStore extends cdktf.TerraformResource {
   }
 
   // termination_protection_enabled - computed: false, optional: true, required: false
-  private _terminationProtectionEnabled?: boolean | cdktf.IResolvable; 
+  private _terminationProtectionEnabled?: boolean | cdktf.IResolvable;
   public get terminationProtectionEnabled() {
     return this.getBooleanAttribute('termination_protection_enabled');
   }

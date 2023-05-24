@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,19 +44,19 @@ export interface VpcPeeringConnectionConfig extends cdktf.TerraformMetaArguments
   readonly vpcId: string;
   /**
   * accepter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection#accepter VpcPeeringConnection#accepter}
   */
   readonly accepter?: VpcPeeringConnectionAccepter;
   /**
   * requester block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection#requester VpcPeeringConnection#requester}
   */
   readonly requester?: VpcPeeringConnectionRequester;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection#timeouts VpcPeeringConnection#timeouts}
   */
   readonly timeouts?: VpcPeeringConnectionTimeouts;
@@ -133,7 +133,7 @@ export class VpcPeeringConnectionAccepterOutputReference extends cdktf.ComplexOb
   }
 
   // allow_classic_link_to_remote_vpc - computed: false, optional: true, required: false
-  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable; 
+  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable;
   public get allowClassicLinkToRemoteVpc() {
     return this.getBooleanAttribute('allow_classic_link_to_remote_vpc');
   }
@@ -149,7 +149,7 @@ export class VpcPeeringConnectionAccepterOutputReference extends cdktf.ComplexOb
   }
 
   // allow_remote_vpc_dns_resolution - computed: false, optional: true, required: false
-  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable; 
+  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable;
   public get allowRemoteVpcDnsResolution() {
     return this.getBooleanAttribute('allow_remote_vpc_dns_resolution');
   }
@@ -165,7 +165,7 @@ export class VpcPeeringConnectionAccepterOutputReference extends cdktf.ComplexOb
   }
 
   // allow_vpc_to_remote_classic_link - computed: false, optional: true, required: false
-  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable; 
+  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable;
   public get allowVpcToRemoteClassicLink() {
     return this.getBooleanAttribute('allow_vpc_to_remote_classic_link');
   }
@@ -252,7 +252,7 @@ export class VpcPeeringConnectionRequesterOutputReference extends cdktf.ComplexO
   }
 
   // allow_classic_link_to_remote_vpc - computed: false, optional: true, required: false
-  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable; 
+  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable;
   public get allowClassicLinkToRemoteVpc() {
     return this.getBooleanAttribute('allow_classic_link_to_remote_vpc');
   }
@@ -268,7 +268,7 @@ export class VpcPeeringConnectionRequesterOutputReference extends cdktf.ComplexO
   }
 
   // allow_remote_vpc_dns_resolution - computed: false, optional: true, required: false
-  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable; 
+  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable;
   public get allowRemoteVpcDnsResolution() {
     return this.getBooleanAttribute('allow_remote_vpc_dns_resolution');
   }
@@ -284,7 +284,7 @@ export class VpcPeeringConnectionRequesterOutputReference extends cdktf.ComplexO
   }
 
   // allow_vpc_to_remote_classic_link - computed: false, optional: true, required: false
-  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable; 
+  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable;
   public get allowVpcToRemoteClassicLink() {
     return this.getBooleanAttribute('allow_vpc_to_remote_classic_link');
   }
@@ -381,7 +381,7 @@ export class VpcPeeringConnectionTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -397,7 +397,7 @@ export class VpcPeeringConnectionTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -413,7 +413,7 @@ export class VpcPeeringConnectionTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -489,7 +489,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // auto_accept - computed: false, optional: true, required: false
-  private _autoAccept?: boolean | cdktf.IResolvable; 
+  private _autoAccept?: boolean | cdktf.IResolvable;
   public get autoAccept() {
     return this.getBooleanAttribute('auto_accept');
   }
@@ -505,7 +505,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -521,7 +521,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // peer_owner_id - computed: true, optional: true, required: false
-  private _peerOwnerId?: string; 
+  private _peerOwnerId?: string;
   public get peerOwnerId() {
     return this.getStringAttribute('peer_owner_id');
   }
@@ -537,7 +537,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // peer_region - computed: true, optional: true, required: false
-  private _peerRegion?: string; 
+  private _peerRegion?: string;
   public get peerRegion() {
     return this.getStringAttribute('peer_region');
   }
@@ -553,7 +553,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // peer_vpc_id - computed: false, optional: false, required: true
-  private _peerVpcId?: string; 
+  private _peerVpcId?: string;
   public get peerVpcId() {
     return this.getStringAttribute('peer_vpc_id');
   }
@@ -566,7 +566,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -582,7 +582,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -598,7 +598,7 @@ export class VpcPeeringConnection extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

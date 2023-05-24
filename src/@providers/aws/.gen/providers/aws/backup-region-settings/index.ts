@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_region_settings
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class BackupRegionSettings extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class BackupRegionSettings extends cdktf.TerraformResource {
   }
 
   // resource_type_management_preference - computed: true, optional: true, required: false
-  private _resourceTypeManagementPreference?: { [key: string]: (boolean | cdktf.IResolvable) }; 
+  private _resourceTypeManagementPreference?: { [key: string]: (boolean | cdktf.IResolvable) };
   public get resourceTypeManagementPreference() {
     return this.getBooleanMapAttribute('resource_type_management_preference');
   }
@@ -103,7 +103,7 @@ export class BackupRegionSettings extends cdktf.TerraformResource {
   }
 
   // resource_type_opt_in_preference - computed: false, optional: false, required: true
-  private _resourceTypeOptInPreference?: { [key: string]: (boolean | cdktf.IResolvable) }; 
+  private _resourceTypeOptInPreference?: { [key: string]: (boolean | cdktf.IResolvable) };
   public get resourceTypeOptInPreference() {
     return this.getBooleanMapAttribute('resource_type_opt_in_preference');
   }

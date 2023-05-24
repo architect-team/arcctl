@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface ConfigConfig extends cdktf.TerraformMetaArguments {
   /**
   * Base64-url-safe-encoded config data
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/config#data Config#data}
   */
   readonly data: string;
@@ -22,7 +22,7 @@ export interface ConfigConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * User-defined name of the config
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/config#name Config#name}
   */
   readonly name: string;
@@ -75,7 +75,7 @@ export class Config extends cdktf.TerraformResource {
   // ==========
 
   // data - computed: false, optional: false, required: true
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -88,7 +88,7 @@ export class Config extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -104,7 +104,7 @@ export class Config extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

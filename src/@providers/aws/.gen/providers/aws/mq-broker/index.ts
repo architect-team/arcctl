@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/mq_broker
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,43 +72,43 @@ export interface MqBrokerConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_broker#configuration MqBroker#configuration}
   */
   readonly configuration?: MqBrokerConfiguration;
   /**
   * encryption_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_broker#encryption_options MqBroker#encryption_options}
   */
   readonly encryptionOptions?: MqBrokerEncryptionOptions;
   /**
   * ldap_server_metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_broker#ldap_server_metadata MqBroker#ldap_server_metadata}
   */
   readonly ldapServerMetadata?: MqBrokerLdapServerMetadata;
   /**
   * logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_broker#logs MqBroker#logs}
   */
   readonly logs?: MqBrokerLogs;
   /**
   * maintenance_window_start_time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_broker#maintenance_window_start_time MqBroker#maintenance_window_start_time}
   */
   readonly maintenanceWindowStartTime?: MqBrokerMaintenanceWindowStartTime;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_broker#timeouts MqBroker#timeouts}
   */
   readonly timeouts?: MqBrokerTimeouts;
   /**
   * user block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_broker#user MqBroker#user}
   */
   readonly user: MqBrokerUser[] | cdktf.IResolvable;
@@ -251,7 +251,7 @@ export class MqBrokerConfigurationOutputReference extends cdktf.ComplexObject {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -267,7 +267,7 @@ export class MqBrokerConfigurationOutputReference extends cdktf.ComplexObject {
   }
 
   // revision - computed: true, optional: true, required: false
-  private _revision?: number; 
+  private _revision?: number;
   public get revision() {
     return this.getNumberAttribute('revision');
   }
@@ -343,7 +343,7 @@ export class MqBrokerEncryptionOptionsOutputReference extends cdktf.ComplexObjec
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -359,7 +359,7 @@ export class MqBrokerEncryptionOptionsOutputReference extends cdktf.ComplexObjec
   }
 
   // use_aws_owned_key - computed: false, optional: true, required: false
-  private _useAwsOwnedKey?: boolean | cdktf.IResolvable; 
+  private _useAwsOwnedKey?: boolean | cdktf.IResolvable;
   public get useAwsOwnedKey() {
     return this.getBooleanAttribute('use_aws_owned_key');
   }
@@ -534,7 +534,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // hosts - computed: false, optional: true, required: false
-  private _hosts?: string[]; 
+  private _hosts?: string[];
   public get hosts() {
     return this.getListAttribute('hosts');
   }
@@ -550,7 +550,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // role_base - computed: false, optional: true, required: false
-  private _roleBase?: string; 
+  private _roleBase?: string;
   public get roleBase() {
     return this.getStringAttribute('role_base');
   }
@@ -566,7 +566,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // role_name - computed: false, optional: true, required: false
-  private _roleName?: string; 
+  private _roleName?: string;
   public get roleName() {
     return this.getStringAttribute('role_name');
   }
@@ -582,7 +582,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // role_search_matching - computed: false, optional: true, required: false
-  private _roleSearchMatching?: string; 
+  private _roleSearchMatching?: string;
   public get roleSearchMatching() {
     return this.getStringAttribute('role_search_matching');
   }
@@ -598,7 +598,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // role_search_subtree - computed: false, optional: true, required: false
-  private _roleSearchSubtree?: boolean | cdktf.IResolvable; 
+  private _roleSearchSubtree?: boolean | cdktf.IResolvable;
   public get roleSearchSubtree() {
     return this.getBooleanAttribute('role_search_subtree');
   }
@@ -614,7 +614,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // service_account_password - computed: false, optional: true, required: false
-  private _serviceAccountPassword?: string; 
+  private _serviceAccountPassword?: string;
   public get serviceAccountPassword() {
     return this.getStringAttribute('service_account_password');
   }
@@ -630,7 +630,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // service_account_username - computed: false, optional: true, required: false
-  private _serviceAccountUsername?: string; 
+  private _serviceAccountUsername?: string;
   public get serviceAccountUsername() {
     return this.getStringAttribute('service_account_username');
   }
@@ -646,7 +646,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // user_base - computed: false, optional: true, required: false
-  private _userBase?: string; 
+  private _userBase?: string;
   public get userBase() {
     return this.getStringAttribute('user_base');
   }
@@ -662,7 +662,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // user_role_name - computed: false, optional: true, required: false
-  private _userRoleName?: string; 
+  private _userRoleName?: string;
   public get userRoleName() {
     return this.getStringAttribute('user_role_name');
   }
@@ -678,7 +678,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // user_search_matching - computed: false, optional: true, required: false
-  private _userSearchMatching?: string; 
+  private _userSearchMatching?: string;
   public get userSearchMatching() {
     return this.getStringAttribute('user_search_matching');
   }
@@ -694,7 +694,7 @@ export class MqBrokerLdapServerMetadataOutputReference extends cdktf.ComplexObje
   }
 
   // user_search_subtree - computed: false, optional: true, required: false
-  private _userSearchSubtree?: boolean | cdktf.IResolvable; 
+  private _userSearchSubtree?: boolean | cdktf.IResolvable;
   public get userSearchSubtree() {
     return this.getBooleanAttribute('user_search_subtree');
   }
@@ -770,7 +770,7 @@ export class MqBrokerLogsOutputReference extends cdktf.ComplexObject {
   }
 
   // audit - computed: false, optional: true, required: false
-  private _audit?: string; 
+  private _audit?: string;
   public get audit() {
     return this.getStringAttribute('audit');
   }
@@ -786,7 +786,7 @@ export class MqBrokerLogsOutputReference extends cdktf.ComplexObject {
   }
 
   // general - computed: false, optional: true, required: false
-  private _general?: boolean | cdktf.IResolvable; 
+  private _general?: boolean | cdktf.IResolvable;
   public get general() {
     return this.getBooleanAttribute('general');
   }
@@ -873,7 +873,7 @@ export class MqBrokerMaintenanceWindowStartTimeOutputReference extends cdktf.Com
   }
 
   // day_of_week - computed: false, optional: false, required: true
-  private _dayOfWeek?: string; 
+  private _dayOfWeek?: string;
   public get dayOfWeek() {
     return this.getStringAttribute('day_of_week');
   }
@@ -886,7 +886,7 @@ export class MqBrokerMaintenanceWindowStartTimeOutputReference extends cdktf.Com
   }
 
   // time_of_day - computed: false, optional: false, required: true
-  private _timeOfDay?: string; 
+  private _timeOfDay?: string;
   public get timeOfDay() {
     return this.getStringAttribute('time_of_day');
   }
@@ -899,7 +899,7 @@ export class MqBrokerMaintenanceWindowStartTimeOutputReference extends cdktf.Com
   }
 
   // time_zone - computed: false, optional: false, required: true
-  private _timeZone?: string; 
+  private _timeZone?: string;
   public get timeZone() {
     return this.getStringAttribute('time_zone');
   }
@@ -993,7 +993,7 @@ export class MqBrokerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1009,7 +1009,7 @@ export class MqBrokerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1025,7 +1025,7 @@ export class MqBrokerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1135,7 +1135,7 @@ export class MqBrokerUserOutputReference extends cdktf.ComplexObject {
   }
 
   // console_access - computed: false, optional: true, required: false
-  private _consoleAccess?: boolean | cdktf.IResolvable; 
+  private _consoleAccess?: boolean | cdktf.IResolvable;
   public get consoleAccess() {
     return this.getBooleanAttribute('console_access');
   }
@@ -1151,7 +1151,7 @@ export class MqBrokerUserOutputReference extends cdktf.ComplexObject {
   }
 
   // groups - computed: false, optional: true, required: false
-  private _groups?: string[]; 
+  private _groups?: string[];
   public get groups() {
     return cdktf.Fn.tolist(this.getListAttribute('groups'));
   }
@@ -1167,7 +1167,7 @@ export class MqBrokerUserOutputReference extends cdktf.ComplexObject {
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -1180,7 +1180,7 @@ export class MqBrokerUserOutputReference extends cdktf.ComplexObject {
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -1279,7 +1279,7 @@ export class MqBroker extends cdktf.TerraformResource {
   // ==========
 
   // apply_immediately - computed: false, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -1300,7 +1300,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // authentication_strategy - computed: true, optional: true, required: false
-  private _authenticationStrategy?: string; 
+  private _authenticationStrategy?: string;
   public get authenticationStrategy() {
     return this.getStringAttribute('authentication_strategy');
   }
@@ -1316,7 +1316,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // auto_minor_version_upgrade - computed: false, optional: true, required: false
-  private _autoMinorVersionUpgrade?: boolean | cdktf.IResolvable; 
+  private _autoMinorVersionUpgrade?: boolean | cdktf.IResolvable;
   public get autoMinorVersionUpgrade() {
     return this.getBooleanAttribute('auto_minor_version_upgrade');
   }
@@ -1332,7 +1332,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // broker_name - computed: false, optional: false, required: true
-  private _brokerName?: string; 
+  private _brokerName?: string;
   public get brokerName() {
     return this.getStringAttribute('broker_name');
   }
@@ -1345,7 +1345,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // deployment_mode - computed: false, optional: true, required: false
-  private _deploymentMode?: string; 
+  private _deploymentMode?: string;
   public get deploymentMode() {
     return this.getStringAttribute('deployment_mode');
   }
@@ -1361,7 +1361,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // engine_type - computed: false, optional: false, required: true
-  private _engineType?: string; 
+  private _engineType?: string;
   public get engineType() {
     return this.getStringAttribute('engine_type');
   }
@@ -1374,7 +1374,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: false, optional: false, required: true
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -1387,7 +1387,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // host_instance_type - computed: false, optional: false, required: true
-  private _hostInstanceType?: string; 
+  private _hostInstanceType?: string;
   public get hostInstanceType() {
     return this.getStringAttribute('host_instance_type');
   }
@@ -1400,7 +1400,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1422,7 +1422,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // publicly_accessible - computed: false, optional: true, required: false
-  private _publiclyAccessible?: boolean | cdktf.IResolvable; 
+  private _publiclyAccessible?: boolean | cdktf.IResolvable;
   public get publiclyAccessible() {
     return this.getBooleanAttribute('publicly_accessible');
   }
@@ -1438,7 +1438,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -1454,7 +1454,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // storage_type - computed: true, optional: true, required: false
-  private _storageType?: string; 
+  private _storageType?: string;
   public get storageType() {
     return this.getStringAttribute('storage_type');
   }
@@ -1470,7 +1470,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: true, optional: true, required: false
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -1486,7 +1486,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1502,7 +1502,7 @@ export class MqBroker extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

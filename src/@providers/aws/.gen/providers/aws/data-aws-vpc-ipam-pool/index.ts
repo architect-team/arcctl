@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface DataAwsVpcIpamPoolConfig extends cdktf.TerraformMetaArguments {
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool#filter DataAwsVpcIpamPool#filter}
   */
   readonly filter?: DataAwsVpcIpamPoolFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool#timeouts DataAwsVpcIpamPool#timeouts}
   */
   readonly timeouts?: DataAwsVpcIpamPoolTimeouts;
@@ -112,7 +112,7 @@ export class DataAwsVpcIpamPoolFilterOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -125,7 +125,7 @@ export class DataAwsVpcIpamPoolFilterOutputReference extends cdktf.ComplexObject
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -217,7 +217,7 @@ export class DataAwsVpcIpamPoolTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -303,7 +303,7 @@ export class DataAwsVpcIpamPool extends cdktf.TerraformDataSource {
   }
 
   // allocation_resource_tags - computed: true, optional: true, required: false
-  private _allocationResourceTags?: { [key: string]: string }; 
+  private _allocationResourceTags?: { [key: string]: string };
   public get allocationResourceTags() {
     return this.getStringMapAttribute('allocation_resource_tags');
   }
@@ -339,7 +339,7 @@ export class DataAwsVpcIpamPool extends cdktf.TerraformDataSource {
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -355,7 +355,7 @@ export class DataAwsVpcIpamPool extends cdktf.TerraformDataSource {
   }
 
   // ipam_pool_id - computed: false, optional: true, required: false
-  private _ipamPoolId?: string; 
+  private _ipamPoolId?: string;
   public get ipamPoolId() {
     return this.getStringAttribute('ipam_pool_id');
   }
@@ -406,7 +406,7 @@ export class DataAwsVpcIpamPool extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

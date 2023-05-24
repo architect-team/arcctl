@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/labels
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,19 +9,19 @@ import * as cdktf from 'cdktf';
 export interface LabelsConfig extends cdktf.TerraformMetaArguments {
   /**
   * The apiVersion of the resource to label.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#api_version Labels#api_version}
   */
   readonly apiVersion: string;
   /**
   * Set the name of the field manager for the specified labels.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#field_manager Labels#field_manager}
   */
   readonly fieldManager?: string;
   /**
   * Force overwriting labels that were created or edited outside of Terraform.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#force Labels#force}
   */
   readonly force?: boolean | cdktf.IResolvable;
@@ -34,19 +34,19 @@ export interface LabelsConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * The kind of the resource to label.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#kind Labels#kind}
   */
   readonly kind: string;
   /**
   * A map of labels to apply to the resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#labels Labels#labels}
   */
   readonly labels: { [key: string]: string };
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#metadata Labels#metadata}
   */
   readonly metadata: LabelsMetadata;
@@ -54,13 +54,13 @@ export interface LabelsConfig extends cdktf.TerraformMetaArguments {
 export interface LabelsMetadata {
   /**
   * The name of the resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#name Labels#name}
   */
   readonly name: string;
   /**
   * The namespace of the resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#namespace Labels#namespace}
   */
   readonly namespace?: string;
@@ -116,7 +116,7 @@ export class LabelsMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -129,7 +129,7 @@ export class LabelsMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -196,7 +196,7 @@ export class Labels extends cdktf.TerraformResource {
   // ==========
 
   // api_version - computed: false, optional: false, required: true
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -209,7 +209,7 @@ export class Labels extends cdktf.TerraformResource {
   }
 
   // field_manager - computed: false, optional: true, required: false
-  private _fieldManager?: string; 
+  private _fieldManager?: string;
   public get fieldManager() {
     return this.getStringAttribute('field_manager');
   }
@@ -225,7 +225,7 @@ export class Labels extends cdktf.TerraformResource {
   }
 
   // force - computed: false, optional: true, required: false
-  private _force?: boolean | cdktf.IResolvable; 
+  private _force?: boolean | cdktf.IResolvable;
   public get force() {
     return this.getBooleanAttribute('force');
   }
@@ -241,7 +241,7 @@ export class Labels extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -257,7 +257,7 @@ export class Labels extends cdktf.TerraformResource {
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -270,7 +270,7 @@ export class Labels extends cdktf.TerraformResource {
   }
 
   // labels - computed: false, optional: false, required: true
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }

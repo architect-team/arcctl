@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/db_event_categories
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsDbEventCategories extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DataAwsDbEventCategories extends cdktf.TerraformDataSource {
   }
 
   // source_type - computed: false, optional: true, required: false
-  private _sourceType?: string; 
+  private _sourceType?: string;
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }

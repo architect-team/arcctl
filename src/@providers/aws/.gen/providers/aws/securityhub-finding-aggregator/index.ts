@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
   }
 
   // linking_mode - computed: false, optional: false, required: true
-  private _linkingMode?: string; 
+  private _linkingMode?: string;
   public get linkingMode() {
     return this.getStringAttribute('linking_mode');
   }
@@ -100,7 +100,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
   }
 
   // specified_regions - computed: false, optional: true, required: false
-  private _specifiedRegions?: string[]; 
+  private _specifiedRegions?: string[];
   public get specifiedRegions() {
     return cdktf.Fn.tolist(this.getListAttribute('specified_regions'));
   }

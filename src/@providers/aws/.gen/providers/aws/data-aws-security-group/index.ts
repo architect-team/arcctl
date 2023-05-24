@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/security_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface DataAwsSecurityGroupConfig extends cdktf.TerraformMetaArguments
   readonly vpcId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/security_group#filter DataAwsSecurityGroup#filter}
   */
   readonly filter?: DataAwsSecurityGroupFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/security_group#timeouts DataAwsSecurityGroup#timeouts}
   */
   readonly timeouts?: DataAwsSecurityGroupTimeouts;
@@ -112,7 +112,7 @@ export class DataAwsSecurityGroupFilterOutputReference extends cdktf.ComplexObje
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -125,7 +125,7 @@ export class DataAwsSecurityGroupFilterOutputReference extends cdktf.ComplexObje
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -217,7 +217,7 @@ export class DataAwsSecurityGroupTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -293,7 +293,7 @@ export class DataAwsSecurityGroup extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -309,7 +309,7 @@ export class DataAwsSecurityGroup extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -325,7 +325,7 @@ export class DataAwsSecurityGroup extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -341,7 +341,7 @@ export class DataAwsSecurityGroup extends cdktf.TerraformDataSource {
   }
 
   // vpc_id - computed: true, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

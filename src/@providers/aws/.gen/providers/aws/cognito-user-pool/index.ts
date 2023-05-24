@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_user_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -64,79 +64,79 @@ export interface CognitoUserPoolConfig extends cdktf.TerraformMetaArguments {
   readonly usernameAttributes?: string[];
   /**
   * account_recovery_setting block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#account_recovery_setting CognitoUserPool#account_recovery_setting}
   */
   readonly accountRecoverySetting?: CognitoUserPoolAccountRecoverySetting;
   /**
   * admin_create_user_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#admin_create_user_config CognitoUserPool#admin_create_user_config}
   */
   readonly adminCreateUserConfig?: CognitoUserPoolAdminCreateUserConfig;
   /**
   * device_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#device_configuration CognitoUserPool#device_configuration}
   */
   readonly deviceConfiguration?: CognitoUserPoolDeviceConfiguration;
   /**
   * email_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#email_configuration CognitoUserPool#email_configuration}
   */
   readonly emailConfiguration?: CognitoUserPoolEmailConfiguration;
   /**
   * lambda_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#lambda_config CognitoUserPool#lambda_config}
   */
   readonly lambdaConfig?: CognitoUserPoolLambdaConfig;
   /**
   * password_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#password_policy CognitoUserPool#password_policy}
   */
   readonly passwordPolicy?: CognitoUserPoolPasswordPolicy;
   /**
   * schema block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#schema CognitoUserPool#schema}
   */
   readonly schema?: CognitoUserPoolSchema[] | cdktf.IResolvable;
   /**
   * sms_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#sms_configuration CognitoUserPool#sms_configuration}
   */
   readonly smsConfiguration?: CognitoUserPoolSmsConfiguration;
   /**
   * software_token_mfa_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#software_token_mfa_configuration CognitoUserPool#software_token_mfa_configuration}
   */
   readonly softwareTokenMfaConfiguration?: CognitoUserPoolSoftwareTokenMfaConfiguration;
   /**
   * user_attribute_update_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#user_attribute_update_settings CognitoUserPool#user_attribute_update_settings}
   */
   readonly userAttributeUpdateSettings?: CognitoUserPoolUserAttributeUpdateSettings;
   /**
   * user_pool_add_ons block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#user_pool_add_ons CognitoUserPool#user_pool_add_ons}
   */
   readonly userPoolAddOns?: CognitoUserPoolUserPoolAddOns;
   /**
   * username_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#username_configuration CognitoUserPool#username_configuration}
   */
   readonly usernameConfiguration?: CognitoUserPoolUsernameConfiguration;
   /**
   * verification_message_template block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#verification_message_template CognitoUserPool#verification_message_template}
   */
   readonly verificationMessageTemplate?: CognitoUserPoolVerificationMessageTemplate;
@@ -214,7 +214,7 @@ export class CognitoUserPoolAccountRecoverySettingRecoveryMechanismOutputReferen
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -227,7 +227,7 @@ export class CognitoUserPoolAccountRecoverySettingRecoveryMechanismOutputReferen
   }
 
   // priority - computed: false, optional: false, required: true
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -262,7 +262,7 @@ export class CognitoUserPoolAccountRecoverySettingRecoveryMechanismList extends 
 export interface CognitoUserPoolAccountRecoverySetting {
   /**
   * recovery_mechanism block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#recovery_mechanism CognitoUserPool#recovery_mechanism}
   */
   readonly recoveryMechanism?: CognitoUserPoolAccountRecoverySettingRecoveryMechanism[] | cdktf.IResolvable;
@@ -398,7 +398,7 @@ export class CognitoUserPoolAdminCreateUserConfigInviteMessageTemplateOutputRefe
   }
 
   // email_message - computed: false, optional: true, required: false
-  private _emailMessage?: string; 
+  private _emailMessage?: string;
   public get emailMessage() {
     return this.getStringAttribute('email_message');
   }
@@ -414,7 +414,7 @@ export class CognitoUserPoolAdminCreateUserConfigInviteMessageTemplateOutputRefe
   }
 
   // email_subject - computed: false, optional: true, required: false
-  private _emailSubject?: string; 
+  private _emailSubject?: string;
   public get emailSubject() {
     return this.getStringAttribute('email_subject');
   }
@@ -430,7 +430,7 @@ export class CognitoUserPoolAdminCreateUserConfigInviteMessageTemplateOutputRefe
   }
 
   // sms_message - computed: false, optional: true, required: false
-  private _smsMessage?: string; 
+  private _smsMessage?: string;
   public get smsMessage() {
     return this.getStringAttribute('sms_message');
   }
@@ -452,7 +452,7 @@ export interface CognitoUserPoolAdminCreateUserConfig {
   readonly allowAdminCreateUserOnly?: boolean | cdktf.IResolvable;
   /**
   * invite_message_template block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#invite_message_template CognitoUserPool#invite_message_template}
   */
   readonly inviteMessageTemplate?: CognitoUserPoolAdminCreateUserConfigInviteMessageTemplate;
@@ -508,7 +508,7 @@ export class CognitoUserPoolAdminCreateUserConfigOutputReference extends cdktf.C
   }
 
   // allow_admin_create_user_only - computed: false, optional: true, required: false
-  private _allowAdminCreateUserOnly?: boolean | cdktf.IResolvable; 
+  private _allowAdminCreateUserOnly?: boolean | cdktf.IResolvable;
   public get allowAdminCreateUserOnly() {
     return this.getBooleanAttribute('allow_admin_create_user_only');
   }
@@ -600,7 +600,7 @@ export class CognitoUserPoolDeviceConfigurationOutputReference extends cdktf.Com
   }
 
   // challenge_required_on_new_device - computed: false, optional: true, required: false
-  private _challengeRequiredOnNewDevice?: boolean | cdktf.IResolvable; 
+  private _challengeRequiredOnNewDevice?: boolean | cdktf.IResolvable;
   public get challengeRequiredOnNewDevice() {
     return this.getBooleanAttribute('challenge_required_on_new_device');
   }
@@ -616,7 +616,7 @@ export class CognitoUserPoolDeviceConfigurationOutputReference extends cdktf.Com
   }
 
   // device_only_remembered_on_user_prompt - computed: false, optional: true, required: false
-  private _deviceOnlyRememberedOnUserPrompt?: boolean | cdktf.IResolvable; 
+  private _deviceOnlyRememberedOnUserPrompt?: boolean | cdktf.IResolvable;
   public get deviceOnlyRememberedOnUserPrompt() {
     return this.getBooleanAttribute('device_only_remembered_on_user_prompt');
   }
@@ -725,7 +725,7 @@ export class CognitoUserPoolEmailConfigurationOutputReference extends cdktf.Comp
   }
 
   // configuration_set - computed: false, optional: true, required: false
-  private _configurationSet?: string; 
+  private _configurationSet?: string;
   public get configurationSet() {
     return this.getStringAttribute('configuration_set');
   }
@@ -741,7 +741,7 @@ export class CognitoUserPoolEmailConfigurationOutputReference extends cdktf.Comp
   }
 
   // email_sending_account - computed: false, optional: true, required: false
-  private _emailSendingAccount?: string; 
+  private _emailSendingAccount?: string;
   public get emailSendingAccount() {
     return this.getStringAttribute('email_sending_account');
   }
@@ -757,7 +757,7 @@ export class CognitoUserPoolEmailConfigurationOutputReference extends cdktf.Comp
   }
 
   // from_email_address - computed: false, optional: true, required: false
-  private _fromEmailAddress?: string; 
+  private _fromEmailAddress?: string;
   public get fromEmailAddress() {
     return this.getStringAttribute('from_email_address');
   }
@@ -773,7 +773,7 @@ export class CognitoUserPoolEmailConfigurationOutputReference extends cdktf.Comp
   }
 
   // reply_to_email_address - computed: false, optional: true, required: false
-  private _replyToEmailAddress?: string; 
+  private _replyToEmailAddress?: string;
   public get replyToEmailAddress() {
     return this.getStringAttribute('reply_to_email_address');
   }
@@ -789,7 +789,7 @@ export class CognitoUserPoolEmailConfigurationOutputReference extends cdktf.Comp
   }
 
   // source_arn - computed: false, optional: true, required: false
-  private _sourceArn?: string; 
+  private _sourceArn?: string;
   public get sourceArn() {
     return this.getStringAttribute('source_arn');
   }
@@ -865,7 +865,7 @@ export class CognitoUserPoolLambdaConfigCustomEmailSenderOutputReference extends
   }
 
   // lambda_arn - computed: false, optional: false, required: true
-  private _lambdaArn?: string; 
+  private _lambdaArn?: string;
   public get lambdaArn() {
     return this.getStringAttribute('lambda_arn');
   }
@@ -878,7 +878,7 @@ export class CognitoUserPoolLambdaConfigCustomEmailSenderOutputReference extends
   }
 
   // lambda_version - computed: false, optional: false, required: true
-  private _lambdaVersion?: string; 
+  private _lambdaVersion?: string;
   public get lambdaVersion() {
     return this.getStringAttribute('lambda_version');
   }
@@ -951,7 +951,7 @@ export class CognitoUserPoolLambdaConfigCustomSmsSenderOutputReference extends c
   }
 
   // lambda_arn - computed: false, optional: false, required: true
-  private _lambdaArn?: string; 
+  private _lambdaArn?: string;
   public get lambdaArn() {
     return this.getStringAttribute('lambda_arn');
   }
@@ -964,7 +964,7 @@ export class CognitoUserPoolLambdaConfigCustomSmsSenderOutputReference extends c
   }
 
   // lambda_version - computed: false, optional: false, required: true
-  private _lambdaVersion?: string; 
+  private _lambdaVersion?: string;
   public get lambdaVersion() {
     return this.getStringAttribute('lambda_version');
   }
@@ -1023,13 +1023,13 @@ export interface CognitoUserPoolLambdaConfig {
   readonly verifyAuthChallengeResponse?: string;
   /**
   * custom_email_sender block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#custom_email_sender CognitoUserPool#custom_email_sender}
   */
   readonly customEmailSender?: CognitoUserPoolLambdaConfigCustomEmailSender;
   /**
   * custom_sms_sender block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#custom_sms_sender CognitoUserPool#custom_sms_sender}
   */
   readonly customSmsSender?: CognitoUserPoolLambdaConfigCustomSmsSender;
@@ -1162,7 +1162,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // create_auth_challenge - computed: false, optional: true, required: false
-  private _createAuthChallenge?: string; 
+  private _createAuthChallenge?: string;
   public get createAuthChallenge() {
     return this.getStringAttribute('create_auth_challenge');
   }
@@ -1178,7 +1178,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // custom_message - computed: false, optional: true, required: false
-  private _customMessage?: string; 
+  private _customMessage?: string;
   public get customMessage() {
     return this.getStringAttribute('custom_message');
   }
@@ -1194,7 +1194,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // define_auth_challenge - computed: false, optional: true, required: false
-  private _defineAuthChallenge?: string; 
+  private _defineAuthChallenge?: string;
   public get defineAuthChallenge() {
     return this.getStringAttribute('define_auth_challenge');
   }
@@ -1210,7 +1210,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -1226,7 +1226,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // post_authentication - computed: false, optional: true, required: false
-  private _postAuthentication?: string; 
+  private _postAuthentication?: string;
   public get postAuthentication() {
     return this.getStringAttribute('post_authentication');
   }
@@ -1242,7 +1242,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // post_confirmation - computed: false, optional: true, required: false
-  private _postConfirmation?: string; 
+  private _postConfirmation?: string;
   public get postConfirmation() {
     return this.getStringAttribute('post_confirmation');
   }
@@ -1258,7 +1258,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // pre_authentication - computed: false, optional: true, required: false
-  private _preAuthentication?: string; 
+  private _preAuthentication?: string;
   public get preAuthentication() {
     return this.getStringAttribute('pre_authentication');
   }
@@ -1274,7 +1274,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // pre_sign_up - computed: false, optional: true, required: false
-  private _preSignUp?: string; 
+  private _preSignUp?: string;
   public get preSignUp() {
     return this.getStringAttribute('pre_sign_up');
   }
@@ -1290,7 +1290,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // pre_token_generation - computed: false, optional: true, required: false
-  private _preTokenGeneration?: string; 
+  private _preTokenGeneration?: string;
   public get preTokenGeneration() {
     return this.getStringAttribute('pre_token_generation');
   }
@@ -1306,7 +1306,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // user_migration - computed: false, optional: true, required: false
-  private _userMigration?: string; 
+  private _userMigration?: string;
   public get userMigration() {
     return this.getStringAttribute('user_migration');
   }
@@ -1322,7 +1322,7 @@ export class CognitoUserPoolLambdaConfigOutputReference extends cdktf.ComplexObj
   }
 
   // verify_auth_challenge_response - computed: false, optional: true, required: false
-  private _verifyAuthChallengeResponse?: string; 
+  private _verifyAuthChallengeResponse?: string;
   public get verifyAuthChallengeResponse() {
     return this.getStringAttribute('verify_auth_challenge_response');
   }
@@ -1474,7 +1474,7 @@ export class CognitoUserPoolPasswordPolicyOutputReference extends cdktf.ComplexO
   }
 
   // minimum_length - computed: false, optional: true, required: false
-  private _minimumLength?: number; 
+  private _minimumLength?: number;
   public get minimumLength() {
     return this.getNumberAttribute('minimum_length');
   }
@@ -1490,7 +1490,7 @@ export class CognitoUserPoolPasswordPolicyOutputReference extends cdktf.ComplexO
   }
 
   // require_lowercase - computed: false, optional: true, required: false
-  private _requireLowercase?: boolean | cdktf.IResolvable; 
+  private _requireLowercase?: boolean | cdktf.IResolvable;
   public get requireLowercase() {
     return this.getBooleanAttribute('require_lowercase');
   }
@@ -1506,7 +1506,7 @@ export class CognitoUserPoolPasswordPolicyOutputReference extends cdktf.ComplexO
   }
 
   // require_numbers - computed: false, optional: true, required: false
-  private _requireNumbers?: boolean | cdktf.IResolvable; 
+  private _requireNumbers?: boolean | cdktf.IResolvable;
   public get requireNumbers() {
     return this.getBooleanAttribute('require_numbers');
   }
@@ -1522,7 +1522,7 @@ export class CognitoUserPoolPasswordPolicyOutputReference extends cdktf.ComplexO
   }
 
   // require_symbols - computed: false, optional: true, required: false
-  private _requireSymbols?: boolean | cdktf.IResolvable; 
+  private _requireSymbols?: boolean | cdktf.IResolvable;
   public get requireSymbols() {
     return this.getBooleanAttribute('require_symbols');
   }
@@ -1538,7 +1538,7 @@ export class CognitoUserPoolPasswordPolicyOutputReference extends cdktf.ComplexO
   }
 
   // require_uppercase - computed: false, optional: true, required: false
-  private _requireUppercase?: boolean | cdktf.IResolvable; 
+  private _requireUppercase?: boolean | cdktf.IResolvable;
   public get requireUppercase() {
     return this.getBooleanAttribute('require_uppercase');
   }
@@ -1554,7 +1554,7 @@ export class CognitoUserPoolPasswordPolicyOutputReference extends cdktf.ComplexO
   }
 
   // temporary_password_validity_days - computed: false, optional: true, required: false
-  private _temporaryPasswordValidityDays?: number; 
+  private _temporaryPasswordValidityDays?: number;
   public get temporaryPasswordValidityDays() {
     return this.getNumberAttribute('temporary_password_validity_days');
   }
@@ -1630,7 +1630,7 @@ export class CognitoUserPoolSchemaNumberAttributeConstraintsOutputReference exte
   }
 
   // max_value - computed: false, optional: true, required: false
-  private _maxValue?: string; 
+  private _maxValue?: string;
   public get maxValue() {
     return this.getStringAttribute('max_value');
   }
@@ -1646,7 +1646,7 @@ export class CognitoUserPoolSchemaNumberAttributeConstraintsOutputReference exte
   }
 
   // min_value - computed: false, optional: true, required: false
-  private _minValue?: string; 
+  private _minValue?: string;
   public get minValue() {
     return this.getStringAttribute('min_value');
   }
@@ -1722,7 +1722,7 @@ export class CognitoUserPoolSchemaStringAttributeConstraintsOutputReference exte
   }
 
   // max_length - computed: false, optional: true, required: false
-  private _maxLength?: string; 
+  private _maxLength?: string;
   public get maxLength() {
     return this.getStringAttribute('max_length');
   }
@@ -1738,7 +1738,7 @@ export class CognitoUserPoolSchemaStringAttributeConstraintsOutputReference exte
   }
 
   // min_length - computed: false, optional: true, required: false
-  private _minLength?: string; 
+  private _minLength?: string;
   public get minLength() {
     return this.getStringAttribute('min_length');
   }
@@ -1776,13 +1776,13 @@ export interface CognitoUserPoolSchema {
   readonly required?: boolean | cdktf.IResolvable;
   /**
   * number_attribute_constraints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#number_attribute_constraints CognitoUserPool#number_attribute_constraints}
   */
   readonly numberAttributeConstraints?: CognitoUserPoolSchemaNumberAttributeConstraints;
   /**
   * string_attribute_constraints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool#string_attribute_constraints CognitoUserPool#string_attribute_constraints}
   */
   readonly stringAttributeConstraints?: CognitoUserPoolSchemaStringAttributeConstraints;
@@ -1885,7 +1885,7 @@ export class CognitoUserPoolSchemaOutputReference extends cdktf.ComplexObject {
   }
 
   // attribute_data_type - computed: false, optional: false, required: true
-  private _attributeDataType?: string; 
+  private _attributeDataType?: string;
   public get attributeDataType() {
     return this.getStringAttribute('attribute_data_type');
   }
@@ -1898,7 +1898,7 @@ export class CognitoUserPoolSchemaOutputReference extends cdktf.ComplexObject {
   }
 
   // developer_only_attribute - computed: false, optional: true, required: false
-  private _developerOnlyAttribute?: boolean | cdktf.IResolvable; 
+  private _developerOnlyAttribute?: boolean | cdktf.IResolvable;
   public get developerOnlyAttribute() {
     return this.getBooleanAttribute('developer_only_attribute');
   }
@@ -1914,7 +1914,7 @@ export class CognitoUserPoolSchemaOutputReference extends cdktf.ComplexObject {
   }
 
   // mutable - computed: false, optional: true, required: false
-  private _mutable?: boolean | cdktf.IResolvable; 
+  private _mutable?: boolean | cdktf.IResolvable;
   public get mutable() {
     return this.getBooleanAttribute('mutable');
   }
@@ -1930,7 +1930,7 @@ export class CognitoUserPoolSchemaOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1943,7 +1943,7 @@ export class CognitoUserPoolSchemaOutputReference extends cdktf.ComplexObject {
   }
 
   // required - computed: false, optional: true, required: false
-  private _required?: boolean | cdktf.IResolvable; 
+  private _required?: boolean | cdktf.IResolvable;
   public get required() {
     return this.getBooleanAttribute('required');
   }
@@ -2082,7 +2082,7 @@ export class CognitoUserPoolSmsConfigurationOutputReference extends cdktf.Comple
   }
 
   // external_id - computed: false, optional: false, required: true
-  private _externalId?: string; 
+  private _externalId?: string;
   public get externalId() {
     return this.getStringAttribute('external_id');
   }
@@ -2095,7 +2095,7 @@ export class CognitoUserPoolSmsConfigurationOutputReference extends cdktf.Comple
   }
 
   // sns_caller_arn - computed: false, optional: false, required: true
-  private _snsCallerArn?: string; 
+  private _snsCallerArn?: string;
   public get snsCallerArn() {
     return this.getStringAttribute('sns_caller_arn');
   }
@@ -2108,7 +2108,7 @@ export class CognitoUserPoolSmsConfigurationOutputReference extends cdktf.Comple
   }
 
   // sns_region - computed: true, optional: true, required: false
-  private _snsRegion?: string; 
+  private _snsRegion?: string;
   public get snsRegion() {
     return this.getStringAttribute('sns_region');
   }
@@ -2173,7 +2173,7 @@ export class CognitoUserPoolSoftwareTokenMfaConfigurationOutputReference extends
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -2235,7 +2235,7 @@ export class CognitoUserPoolUserAttributeUpdateSettingsOutputReference extends c
   }
 
   // attributes_require_verification_before_update - computed: false, optional: false, required: true
-  private _attributesRequireVerificationBeforeUpdate?: string[]; 
+  private _attributesRequireVerificationBeforeUpdate?: string[];
   public get attributesRequireVerificationBeforeUpdate() {
     return cdktf.Fn.tolist(this.getListAttribute('attributes_require_verification_before_update'));
   }
@@ -2297,7 +2297,7 @@ export class CognitoUserPoolUserPoolAddOnsOutputReference extends cdktf.ComplexO
   }
 
   // advanced_security_mode - computed: false, optional: false, required: true
-  private _advancedSecurityMode?: string; 
+  private _advancedSecurityMode?: string;
   public get advancedSecurityMode() {
     return this.getStringAttribute('advanced_security_mode');
   }
@@ -2359,7 +2359,7 @@ export class CognitoUserPoolUsernameConfigurationOutputReference extends cdktf.C
   }
 
   // case_sensitive - computed: false, optional: false, required: true
-  private _caseSensitive?: boolean | cdktf.IResolvable; 
+  private _caseSensitive?: boolean | cdktf.IResolvable;
   public get caseSensitive() {
     return this.getBooleanAttribute('case_sensitive');
   }
@@ -2476,7 +2476,7 @@ export class CognitoUserPoolVerificationMessageTemplateOutputReference extends c
   }
 
   // default_email_option - computed: false, optional: true, required: false
-  private _defaultEmailOption?: string; 
+  private _defaultEmailOption?: string;
   public get defaultEmailOption() {
     return this.getStringAttribute('default_email_option');
   }
@@ -2492,7 +2492,7 @@ export class CognitoUserPoolVerificationMessageTemplateOutputReference extends c
   }
 
   // email_message - computed: true, optional: true, required: false
-  private _emailMessage?: string; 
+  private _emailMessage?: string;
   public get emailMessage() {
     return this.getStringAttribute('email_message');
   }
@@ -2508,7 +2508,7 @@ export class CognitoUserPoolVerificationMessageTemplateOutputReference extends c
   }
 
   // email_message_by_link - computed: true, optional: true, required: false
-  private _emailMessageByLink?: string; 
+  private _emailMessageByLink?: string;
   public get emailMessageByLink() {
     return this.getStringAttribute('email_message_by_link');
   }
@@ -2524,7 +2524,7 @@ export class CognitoUserPoolVerificationMessageTemplateOutputReference extends c
   }
 
   // email_subject - computed: true, optional: true, required: false
-  private _emailSubject?: string; 
+  private _emailSubject?: string;
   public get emailSubject() {
     return this.getStringAttribute('email_subject');
   }
@@ -2540,7 +2540,7 @@ export class CognitoUserPoolVerificationMessageTemplateOutputReference extends c
   }
 
   // email_subject_by_link - computed: true, optional: true, required: false
-  private _emailSubjectByLink?: string; 
+  private _emailSubjectByLink?: string;
   public get emailSubjectByLink() {
     return this.getStringAttribute('email_subject_by_link');
   }
@@ -2556,7 +2556,7 @@ export class CognitoUserPoolVerificationMessageTemplateOutputReference extends c
   }
 
   // sms_message - computed: true, optional: true, required: false
-  private _smsMessage?: string; 
+  private _smsMessage?: string;
   public get smsMessage() {
     return this.getStringAttribute('sms_message');
   }
@@ -2642,7 +2642,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   // ==========
 
   // alias_attributes - computed: false, optional: true, required: false
-  private _aliasAttributes?: string[]; 
+  private _aliasAttributes?: string[];
   public get aliasAttributes() {
     return cdktf.Fn.tolist(this.getListAttribute('alias_attributes'));
   }
@@ -2663,7 +2663,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // auto_verified_attributes - computed: false, optional: true, required: false
-  private _autoVerifiedAttributes?: string[]; 
+  private _autoVerifiedAttributes?: string[];
   public get autoVerifiedAttributes() {
     return cdktf.Fn.tolist(this.getListAttribute('auto_verified_attributes'));
   }
@@ -2689,7 +2689,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // deletion_protection - computed: false, optional: true, required: false
-  private _deletionProtection?: string; 
+  private _deletionProtection?: string;
   public get deletionProtection() {
     return this.getStringAttribute('deletion_protection');
   }
@@ -2710,7 +2710,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // email_verification_message - computed: true, optional: true, required: false
-  private _emailVerificationMessage?: string; 
+  private _emailVerificationMessage?: string;
   public get emailVerificationMessage() {
     return this.getStringAttribute('email_verification_message');
   }
@@ -2726,7 +2726,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // email_verification_subject - computed: true, optional: true, required: false
-  private _emailVerificationSubject?: string; 
+  private _emailVerificationSubject?: string;
   public get emailVerificationSubject() {
     return this.getStringAttribute('email_verification_subject');
   }
@@ -2752,7 +2752,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2773,7 +2773,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // mfa_configuration - computed: false, optional: true, required: false
-  private _mfaConfiguration?: string; 
+  private _mfaConfiguration?: string;
   public get mfaConfiguration() {
     return this.getStringAttribute('mfa_configuration');
   }
@@ -2789,7 +2789,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2802,7 +2802,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // sms_authentication_message - computed: false, optional: true, required: false
-  private _smsAuthenticationMessage?: string; 
+  private _smsAuthenticationMessage?: string;
   public get smsAuthenticationMessage() {
     return this.getStringAttribute('sms_authentication_message');
   }
@@ -2818,7 +2818,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // sms_verification_message - computed: true, optional: true, required: false
-  private _smsVerificationMessage?: string; 
+  private _smsVerificationMessage?: string;
   public get smsVerificationMessage() {
     return this.getStringAttribute('sms_verification_message');
   }
@@ -2834,7 +2834,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2850,7 +2850,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -2866,7 +2866,7 @@ export class CognitoUserPool extends cdktf.TerraformResource {
   }
 
   // username_attributes - computed: false, optional: true, required: false
-  private _usernameAttributes?: string[]; 
+  private _usernameAttributes?: string[];
   public get usernameAttributes() {
     return cdktf.Fn.tolist(this.getListAttribute('username_attributes'));
   }

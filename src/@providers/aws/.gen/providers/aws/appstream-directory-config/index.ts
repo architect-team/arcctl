@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appstream_directory_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface AppstreamDirectoryConfigConfig extends cdktf.TerraformMetaArgum
   readonly organizationalUnitDistinguishedNames: string[];
   /**
   * service_account_credentials block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_directory_config#service_account_credentials AppstreamDirectoryConfig#service_account_credentials}
   */
   readonly serviceAccountCredentials: AppstreamDirectoryConfigServiceAccountCredentials;
@@ -90,7 +90,7 @@ export class AppstreamDirectoryConfigServiceAccountCredentialsOutputReference ex
   }
 
   // account_name - computed: false, optional: false, required: true
-  private _accountName?: string; 
+  private _accountName?: string;
   public get accountName() {
     return this.getStringAttribute('account_name');
   }
@@ -103,7 +103,7 @@ export class AppstreamDirectoryConfigServiceAccountCredentialsOutputReference ex
   }
 
   // account_password - computed: false, optional: false, required: true
-  private _accountPassword?: string; 
+  private _accountPassword?: string;
   public get accountPassword() {
     return this.getStringAttribute('account_password');
   }
@@ -169,7 +169,7 @@ export class AppstreamDirectoryConfig extends cdktf.TerraformResource {
   }
 
   // directory_name - computed: false, optional: false, required: true
-  private _directoryName?: string; 
+  private _directoryName?: string;
   public get directoryName() {
     return this.getStringAttribute('directory_name');
   }
@@ -182,7 +182,7 @@ export class AppstreamDirectoryConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -198,7 +198,7 @@ export class AppstreamDirectoryConfig extends cdktf.TerraformResource {
   }
 
   // organizational_unit_distinguished_names - computed: false, optional: false, required: true
-  private _organizationalUnitDistinguishedNames?: string[]; 
+  private _organizationalUnitDistinguishedNames?: string[];
   public get organizationalUnitDistinguishedNames() {
     return cdktf.Fn.tolist(this.getListAttribute('organizational_unit_distinguished_names'));
   }

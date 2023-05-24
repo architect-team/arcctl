@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/scheduler_schedule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,13 +56,13 @@ export interface SchedulerScheduleConfig extends cdktf.TerraformMetaArguments {
   readonly state?: string;
   /**
   * flexible_time_window block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#flexible_time_window SchedulerSchedule#flexible_time_window}
   */
   readonly flexibleTimeWindow: SchedulerScheduleFlexibleTimeWindow;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#target SchedulerSchedule#target}
   */
   readonly target: SchedulerScheduleTarget;
@@ -128,7 +128,7 @@ export class SchedulerScheduleFlexibleTimeWindowOutputReference extends cdktf.Co
   }
 
   // maximum_window_in_minutes - computed: false, optional: true, required: false
-  private _maximumWindowInMinutes?: number; 
+  private _maximumWindowInMinutes?: number;
   public get maximumWindowInMinutes() {
     return this.getNumberAttribute('maximum_window_in_minutes');
   }
@@ -144,7 +144,7 @@ export class SchedulerScheduleFlexibleTimeWindowOutputReference extends cdktf.Co
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -206,7 +206,7 @@ export class SchedulerScheduleTargetDeadLetterConfigOutputReference extends cdkt
   }
 
   // arn - computed: false, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -305,7 +305,7 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
   }
 
   // base - computed: false, optional: true, required: false
-  private _base?: number; 
+  private _base?: number;
   public get base() {
     return this.getNumberAttribute('base');
   }
@@ -321,7 +321,7 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
   }
 
   // capacity_provider - computed: false, optional: false, required: true
-  private _capacityProvider?: string; 
+  private _capacityProvider?: string;
   public get capacityProvider() {
     return this.getStringAttribute('capacity_provider');
   }
@@ -334,7 +334,7 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -441,7 +441,7 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
   }
 
   // assign_public_ip - computed: false, optional: true, required: false
-  private _assignPublicIp?: boolean | cdktf.IResolvable; 
+  private _assignPublicIp?: boolean | cdktf.IResolvable;
   public get assignPublicIp() {
     return this.getBooleanAttribute('assign_public_ip');
   }
@@ -457,7 +457,7 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -473,7 +473,7 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -558,7 +558,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputRefer
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -574,7 +574,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputRefer
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -679,7 +679,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReferenc
   }
 
   // field - computed: false, optional: true, required: false
-  private _field?: string; 
+  private _field?: string;
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -695,7 +695,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReferenc
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -770,25 +770,25 @@ export interface SchedulerScheduleTargetEcsParameters {
   readonly taskDefinitionArn: string;
   /**
   * capacity_provider_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#capacity_provider_strategy SchedulerSchedule#capacity_provider_strategy}
   */
   readonly capacityProviderStrategy?: SchedulerScheduleTargetEcsParametersCapacityProviderStrategy[] | cdktf.IResolvable;
   /**
   * network_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#network_configuration SchedulerSchedule#network_configuration}
   */
   readonly networkConfiguration?: SchedulerScheduleTargetEcsParametersNetworkConfiguration;
   /**
   * placement_constraints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#placement_constraints SchedulerSchedule#placement_constraints}
   */
   readonly placementConstraints?: SchedulerScheduleTargetEcsParametersPlacementConstraints[] | cdktf.IResolvable;
   /**
   * placement_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#placement_strategy SchedulerSchedule#placement_strategy}
   */
   readonly placementStrategy?: SchedulerScheduleTargetEcsParametersPlacementStrategy[] | cdktf.IResolvable;
@@ -928,7 +928,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // enable_ecs_managed_tags - computed: false, optional: true, required: false
-  private _enableEcsManagedTags?: boolean | cdktf.IResolvable; 
+  private _enableEcsManagedTags?: boolean | cdktf.IResolvable;
   public get enableEcsManagedTags() {
     return this.getBooleanAttribute('enable_ecs_managed_tags');
   }
@@ -944,7 +944,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // enable_execute_command - computed: false, optional: true, required: false
-  private _enableExecuteCommand?: boolean | cdktf.IResolvable; 
+  private _enableExecuteCommand?: boolean | cdktf.IResolvable;
   public get enableExecuteCommand() {
     return this.getBooleanAttribute('enable_execute_command');
   }
@@ -960,7 +960,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -976,7 +976,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // launch_type - computed: false, optional: true, required: false
-  private _launchType?: string; 
+  private _launchType?: string;
   public get launchType() {
     return this.getStringAttribute('launch_type');
   }
@@ -992,7 +992,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // platform_version - computed: false, optional: true, required: false
-  private _platformVersion?: string; 
+  private _platformVersion?: string;
   public get platformVersion() {
     return this.getStringAttribute('platform_version');
   }
@@ -1008,7 +1008,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // propagate_tags - computed: false, optional: true, required: false
-  private _propagateTags?: string; 
+  private _propagateTags?: string;
   public get propagateTags() {
     return this.getStringAttribute('propagate_tags');
   }
@@ -1024,7 +1024,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // reference_id - computed: false, optional: true, required: false
-  private _referenceId?: string; 
+  private _referenceId?: string;
   public get referenceId() {
     return this.getStringAttribute('reference_id');
   }
@@ -1040,7 +1040,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1056,7 +1056,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // task_count - computed: false, optional: true, required: false
-  private _taskCount?: number; 
+  private _taskCount?: number;
   public get taskCount() {
     return this.getNumberAttribute('task_count');
   }
@@ -1072,7 +1072,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // task_definition_arn - computed: false, optional: false, required: true
-  private _taskDefinitionArn?: string; 
+  private _taskDefinitionArn?: string;
   public get taskDefinitionArn() {
     return this.getStringAttribute('task_definition_arn');
   }
@@ -1209,7 +1209,7 @@ export class SchedulerScheduleTargetEventbridgeParametersOutputReference extends
   }
 
   // detail_type - computed: false, optional: false, required: true
-  private _detailType?: string; 
+  private _detailType?: string;
   public get detailType() {
     return this.getStringAttribute('detail_type');
   }
@@ -1222,7 +1222,7 @@ export class SchedulerScheduleTargetEventbridgeParametersOutputReference extends
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -1284,7 +1284,7 @@ export class SchedulerScheduleTargetKinesisParametersOutputReference extends cdk
   }
 
   // partition_key - computed: false, optional: false, required: true
-  private _partitionKey?: string; 
+  private _partitionKey?: string;
   public get partitionKey() {
     return this.getStringAttribute('partition_key');
   }
@@ -1357,7 +1357,7 @@ export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.Com
   }
 
   // maximum_event_age_in_seconds - computed: false, optional: true, required: false
-  private _maximumEventAgeInSeconds?: number; 
+  private _maximumEventAgeInSeconds?: number;
   public get maximumEventAgeInSeconds() {
     return this.getNumberAttribute('maximum_event_age_in_seconds');
   }
@@ -1373,7 +1373,7 @@ export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.Com
   }
 
   // maximum_retry_attempts - computed: false, optional: true, required: false
-  private _maximumRetryAttempts?: number; 
+  private _maximumRetryAttempts?: number;
   public get maximumRetryAttempts() {
     return this.getNumberAttribute('maximum_retry_attempts');
   }
@@ -1461,7 +1461,7 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1474,7 +1474,7 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1509,7 +1509,7 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
 export interface SchedulerScheduleTargetSagemakerPipelineParameters {
   /**
   * pipeline_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#pipeline_parameter SchedulerSchedule#pipeline_parameter}
   */
   readonly pipelineParameter?: SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter[] | cdktf.IResolvable;
@@ -1623,7 +1623,7 @@ export class SchedulerScheduleTargetSqsParametersOutputReference extends cdktf.C
   }
 
   // message_group_id - computed: false, optional: true, required: false
-  private _messageGroupId?: string; 
+  private _messageGroupId?: string;
   public get messageGroupId() {
     return this.getStringAttribute('message_group_id');
   }
@@ -1653,43 +1653,43 @@ export interface SchedulerScheduleTarget {
   readonly roleArn: string;
   /**
   * dead_letter_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#dead_letter_config SchedulerSchedule#dead_letter_config}
   */
   readonly deadLetterConfig?: SchedulerScheduleTargetDeadLetterConfig;
   /**
   * ecs_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#ecs_parameters SchedulerSchedule#ecs_parameters}
   */
   readonly ecsParameters?: SchedulerScheduleTargetEcsParameters;
   /**
   * eventbridge_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#eventbridge_parameters SchedulerSchedule#eventbridge_parameters}
   */
   readonly eventbridgeParameters?: SchedulerScheduleTargetEventbridgeParameters;
   /**
   * kinesis_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#kinesis_parameters SchedulerSchedule#kinesis_parameters}
   */
   readonly kinesisParameters?: SchedulerScheduleTargetKinesisParameters;
   /**
   * retry_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#retry_policy SchedulerSchedule#retry_policy}
   */
   readonly retryPolicy?: SchedulerScheduleTargetRetryPolicy;
   /**
   * sagemaker_pipeline_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#sagemaker_pipeline_parameters SchedulerSchedule#sagemaker_pipeline_parameters}
   */
   readonly sagemakerPipelineParameters?: SchedulerScheduleTargetSagemakerPipelineParameters;
   /**
   * sqs_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#sqs_parameters SchedulerSchedule#sqs_parameters}
   */
   readonly sqsParameters?: SchedulerScheduleTargetSqsParameters;
@@ -1801,7 +1801,7 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1814,7 +1814,7 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // input - computed: false, optional: true, required: false
-  private _input?: string; 
+  private _input?: string;
   public get input() {
     return this.getStringAttribute('input');
   }
@@ -1830,7 +1830,7 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -2017,7 +2017,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -2033,7 +2033,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // end_date - computed: false, optional: true, required: false
-  private _endDate?: string; 
+  private _endDate?: string;
   public get endDate() {
     return this.getStringAttribute('end_date');
   }
@@ -2049,7 +2049,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // group_name - computed: true, optional: true, required: false
-  private _groupName?: string; 
+  private _groupName?: string;
   public get groupName() {
     return this.getStringAttribute('group_name');
   }
@@ -2065,7 +2065,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2081,7 +2081,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -2097,7 +2097,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2113,7 +2113,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -2129,7 +2129,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // schedule_expression - computed: false, optional: false, required: true
-  private _scheduleExpression?: string; 
+  private _scheduleExpression?: string;
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -2142,7 +2142,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // schedule_expression_timezone - computed: false, optional: true, required: false
-  private _scheduleExpressionTimezone?: string; 
+  private _scheduleExpressionTimezone?: string;
   public get scheduleExpressionTimezone() {
     return this.getStringAttribute('schedule_expression_timezone');
   }
@@ -2158,7 +2158,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // start_date - computed: false, optional: true, required: false
-  private _startDate?: string; 
+  private _startDate?: string;
   public get startDate() {
     return this.getStringAttribute('start_date');
   }
@@ -2174,7 +2174,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // state - computed: false, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }

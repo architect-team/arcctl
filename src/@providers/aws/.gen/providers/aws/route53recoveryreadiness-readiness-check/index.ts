@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_readiness_check
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface Route53RecoveryreadinessReadinessCheckConfig extends cdktf.Terr
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_readiness_check#timeouts Route53RecoveryreadinessReadinessCheck#timeouts}
   */
   readonly timeouts?: Route53RecoveryreadinessReadinessCheckTimeouts;
@@ -97,7 +97,7 @@ export class Route53RecoveryreadinessReadinessCheckTimeoutsOutputReference exten
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -168,7 +168,7 @@ export class Route53RecoveryreadinessReadinessCheck extends cdktf.TerraformResou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -184,7 +184,7 @@ export class Route53RecoveryreadinessReadinessCheck extends cdktf.TerraformResou
   }
 
   // readiness_check_name - computed: false, optional: false, required: true
-  private _readinessCheckName?: string; 
+  private _readinessCheckName?: string;
   public get readinessCheckName() {
     return this.getStringAttribute('readiness_check_name');
   }
@@ -197,7 +197,7 @@ export class Route53RecoveryreadinessReadinessCheck extends cdktf.TerraformResou
   }
 
   // resource_set_name - computed: false, optional: false, required: true
-  private _resourceSetName?: string; 
+  private _resourceSetName?: string;
   public get resourceSetName() {
     return this.getStringAttribute('resource_set_name');
   }
@@ -210,7 +210,7 @@ export class Route53RecoveryreadinessReadinessCheck extends cdktf.TerraformResou
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -226,7 +226,7 @@ export class Route53RecoveryreadinessReadinessCheck extends cdktf.TerraformResou
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

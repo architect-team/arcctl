@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/d/registry_image
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataDockerRegistryImageConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#insecure_skip_verify DataDockerRegistryImage#insecure_skip_verify}
   */
   readonly insecureSkipVerify?: boolean | cdktf.IResolvable;
   /**
   * The name of the Docker image, including any tags. e.g. `alpine:latest`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#name DataDockerRegistryImage#name}
   */
   readonly name: string;
@@ -75,7 +75,7 @@ export class DataDockerRegistryImage extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -91,7 +91,7 @@ export class DataDockerRegistryImage extends cdktf.TerraformDataSource {
   }
 
   // insecure_skip_verify - computed: false, optional: true, required: false
-  private _insecureSkipVerify?: boolean | cdktf.IResolvable; 
+  private _insecureSkipVerify?: boolean | cdktf.IResolvable;
   public get insecureSkipVerify() {
     return this.getBooleanAttribute('insecure_skip_verify');
   }
@@ -107,7 +107,7 @@ export class DataDockerRegistryImage extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

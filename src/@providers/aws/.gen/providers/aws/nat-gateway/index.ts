@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/nat_gateway
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class NatGateway extends cdktf.TerraformResource {
   // ==========
 
   // allocation_id - computed: false, optional: true, required: false
-  private _allocationId?: string; 
+  private _allocationId?: string;
   public get allocationId() {
     return this.getStringAttribute('allocation_id');
   }
@@ -107,7 +107,7 @@ export class NatGateway extends cdktf.TerraformResource {
   }
 
   // connectivity_type - computed: false, optional: true, required: false
-  private _connectivityType?: string; 
+  private _connectivityType?: string;
   public get connectivityType() {
     return this.getStringAttribute('connectivity_type');
   }
@@ -123,7 +123,7 @@ export class NatGateway extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -144,7 +144,7 @@ export class NatGateway extends cdktf.TerraformResource {
   }
 
   // private_ip - computed: true, optional: true, required: false
-  private _privateIp?: string; 
+  private _privateIp?: string;
   public get privateIp() {
     return this.getStringAttribute('private_ip');
   }
@@ -165,7 +165,7 @@ export class NatGateway extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -178,7 +178,7 @@ export class NatGateway extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -194,7 +194,7 @@ export class NatGateway extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

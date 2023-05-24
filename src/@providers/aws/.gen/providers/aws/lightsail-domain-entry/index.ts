@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_domain_entry
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class LightsailDomainEntry extends cdktf.TerraformResource {
   // ==========
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -99,7 +99,7 @@ export class LightsailDomainEntry extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class LightsailDomainEntry extends cdktf.TerraformResource {
   }
 
   // is_alias - computed: false, optional: true, required: false
-  private _isAlias?: boolean | cdktf.IResolvable; 
+  private _isAlias?: boolean | cdktf.IResolvable;
   public get isAlias() {
     return this.getBooleanAttribute('is_alias');
   }
@@ -131,7 +131,7 @@ export class LightsailDomainEntry extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -144,7 +144,7 @@ export class LightsailDomainEntry extends cdktf.TerraformResource {
   }
 
   // target - computed: false, optional: false, required: true
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -157,7 +157,7 @@ export class LightsailDomainEntry extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

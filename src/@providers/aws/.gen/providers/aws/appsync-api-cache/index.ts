@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_api_cache
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class AppsyncApiCache extends cdktf.TerraformResource {
   // ==========
 
   // api_caching_behavior - computed: false, optional: false, required: true
-  private _apiCachingBehavior?: string; 
+  private _apiCachingBehavior?: string;
   public get apiCachingBehavior() {
     return this.getStringAttribute('api_caching_behavior');
   }
@@ -104,7 +104,7 @@ export class AppsyncApiCache extends cdktf.TerraformResource {
   }
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -117,7 +117,7 @@ export class AppsyncApiCache extends cdktf.TerraformResource {
   }
 
   // at_rest_encryption_enabled - computed: false, optional: true, required: false
-  private _atRestEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _atRestEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get atRestEncryptionEnabled() {
     return this.getBooleanAttribute('at_rest_encryption_enabled');
   }
@@ -133,7 +133,7 @@ export class AppsyncApiCache extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -149,7 +149,7 @@ export class AppsyncApiCache extends cdktf.TerraformResource {
   }
 
   // transit_encryption_enabled - computed: false, optional: true, required: false
-  private _transitEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _transitEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get transitEncryptionEnabled() {
     return this.getBooleanAttribute('transit_encryption_enabled');
   }
@@ -165,7 +165,7 @@ export class AppsyncApiCache extends cdktf.TerraformResource {
   }
 
   // ttl - computed: false, optional: false, required: true
-  private _ttl?: number; 
+  private _ttl?: number;
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }
@@ -178,7 +178,7 @@ export class AppsyncApiCache extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

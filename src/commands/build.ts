@@ -1,5 +1,5 @@
-import { BaseCommand } from '../base-command.js';
-import { Component, parseComponent } from '../components/index.js';
+import { BaseCommand } from '../base-command.ts';
+import { Component, parseComponent } from '../components/index.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
 import { Flags } from '@oclif/core';
 import { execa } from 'execa';

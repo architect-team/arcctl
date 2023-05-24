@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/spot_instance_request
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -184,73 +184,73 @@ export interface SpotInstanceRequestConfig extends cdktf.TerraformMetaArguments 
   readonly waitForFulfillment?: boolean | cdktf.IResolvable;
   /**
   * capacity_reservation_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#capacity_reservation_specification SpotInstanceRequest#capacity_reservation_specification}
   */
   readonly capacityReservationSpecification?: SpotInstanceRequestCapacityReservationSpecification;
   /**
   * credit_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#credit_specification SpotInstanceRequest#credit_specification}
   */
   readonly creditSpecification?: SpotInstanceRequestCreditSpecification;
   /**
   * ebs_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#ebs_block_device SpotInstanceRequest#ebs_block_device}
   */
   readonly ebsBlockDevice?: SpotInstanceRequestEbsBlockDevice[] | cdktf.IResolvable;
   /**
   * enclave_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#enclave_options SpotInstanceRequest#enclave_options}
   */
   readonly enclaveOptions?: SpotInstanceRequestEnclaveOptions;
   /**
   * ephemeral_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#ephemeral_block_device SpotInstanceRequest#ephemeral_block_device}
   */
   readonly ephemeralBlockDevice?: SpotInstanceRequestEphemeralBlockDevice[] | cdktf.IResolvable;
   /**
   * launch_template block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#launch_template SpotInstanceRequest#launch_template}
   */
   readonly launchTemplate?: SpotInstanceRequestLaunchTemplate;
   /**
   * maintenance_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#maintenance_options SpotInstanceRequest#maintenance_options}
   */
   readonly maintenanceOptions?: SpotInstanceRequestMaintenanceOptions;
   /**
   * metadata_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#metadata_options SpotInstanceRequest#metadata_options}
   */
   readonly metadataOptions?: SpotInstanceRequestMetadataOptions;
   /**
   * network_interface block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#network_interface SpotInstanceRequest#network_interface}
   */
   readonly networkInterface?: SpotInstanceRequestNetworkInterface[] | cdktf.IResolvable;
   /**
   * private_dns_name_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#private_dns_name_options SpotInstanceRequest#private_dns_name_options}
   */
   readonly privateDnsNameOptions?: SpotInstanceRequestPrivateDnsNameOptions;
   /**
   * root_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#root_block_device SpotInstanceRequest#root_block_device}
   */
   readonly rootBlockDevice?: SpotInstanceRequestRootBlockDevice;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#timeouts SpotInstanceRequest#timeouts}
   */
   readonly timeouts?: SpotInstanceRequestTimeouts;
@@ -316,7 +316,7 @@ export class SpotInstanceRequestCapacityReservationSpecificationCapacityReservat
   }
 
   // capacity_reservation_id - computed: false, optional: true, required: false
-  private _capacityReservationId?: string; 
+  private _capacityReservationId?: string;
   public get capacityReservationId() {
     return this.getStringAttribute('capacity_reservation_id');
   }
@@ -332,7 +332,7 @@ export class SpotInstanceRequestCapacityReservationSpecificationCapacityReservat
   }
 
   // capacity_reservation_resource_group_arn - computed: false, optional: true, required: false
-  private _capacityReservationResourceGroupArn?: string; 
+  private _capacityReservationResourceGroupArn?: string;
   public get capacityReservationResourceGroupArn() {
     return this.getStringAttribute('capacity_reservation_resource_group_arn');
   }
@@ -354,7 +354,7 @@ export interface SpotInstanceRequestCapacityReservationSpecification {
   readonly capacityReservationPreference?: string;
   /**
   * capacity_reservation_target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_instance_request#capacity_reservation_target SpotInstanceRequest#capacity_reservation_target}
   */
   readonly capacityReservationTarget?: SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget;
@@ -410,7 +410,7 @@ export class SpotInstanceRequestCapacityReservationSpecificationOutputReference 
   }
 
   // capacity_reservation_preference - computed: false, optional: true, required: false
-  private _capacityReservationPreference?: string; 
+  private _capacityReservationPreference?: string;
   public get capacityReservationPreference() {
     return this.getStringAttribute('capacity_reservation_preference');
   }
@@ -491,7 +491,7 @@ export class SpotInstanceRequestCreditSpecificationOutputReference extends cdktf
   }
 
   // cpu_credits - computed: false, optional: true, required: false
-  private _cpuCredits?: string; 
+  private _cpuCredits?: string;
   public get cpuCredits() {
     return this.getStringAttribute('cpu_credits');
   }
@@ -667,7 +667,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
+  private _deleteOnTermination?: boolean | cdktf.IResolvable;
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -683,7 +683,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -696,7 +696,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -712,7 +712,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -728,7 +728,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -744,7 +744,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // snapshot_id - computed: true, optional: true, required: false
-  private _snapshotId?: string; 
+  private _snapshotId?: string;
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -760,7 +760,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -776,7 +776,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number; 
+  private _throughput?: number;
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -797,7 +797,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -813,7 +813,7 @@ export class SpotInstanceRequestEbsBlockDeviceOutputReference extends cdktf.Comp
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -898,7 +898,7 @@ export class SpotInstanceRequestEnclaveOptionsOutputReference extends cdktf.Comp
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -997,7 +997,7 @@ export class SpotInstanceRequestEphemeralBlockDeviceOutputReference extends cdkt
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -1010,7 +1010,7 @@ export class SpotInstanceRequestEphemeralBlockDeviceOutputReference extends cdkt
   }
 
   // no_device - computed: false, optional: true, required: false
-  private _noDevice?: boolean | cdktf.IResolvable; 
+  private _noDevice?: boolean | cdktf.IResolvable;
   public get noDevice() {
     return this.getBooleanAttribute('no_device');
   }
@@ -1026,7 +1026,7 @@ export class SpotInstanceRequestEphemeralBlockDeviceOutputReference extends cdkt
   }
 
   // virtual_name - computed: false, optional: true, required: false
-  private _virtualName?: string; 
+  private _virtualName?: string;
   public get virtualName() {
     return this.getStringAttribute('virtual_name');
   }
@@ -1136,7 +1136,7 @@ export class SpotInstanceRequestLaunchTemplateOutputReference extends cdktf.Comp
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1152,7 +1152,7 @@ export class SpotInstanceRequestLaunchTemplateOutputReference extends cdktf.Comp
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1168,7 +1168,7 @@ export class SpotInstanceRequestLaunchTemplateOutputReference extends cdktf.Comp
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -1233,7 +1233,7 @@ export class SpotInstanceRequestMaintenanceOptionsOutputReference extends cdktf.
   }
 
   // auto_recovery - computed: true, optional: true, required: false
-  private _autoRecovery?: string; 
+  private _autoRecovery?: string;
   public get autoRecovery() {
     return this.getStringAttribute('auto_recovery');
   }
@@ -1331,7 +1331,7 @@ export class SpotInstanceRequestMetadataOptionsOutputReference extends cdktf.Com
   }
 
   // http_endpoint - computed: true, optional: true, required: false
-  private _httpEndpoint?: string; 
+  private _httpEndpoint?: string;
   public get httpEndpoint() {
     return this.getStringAttribute('http_endpoint');
   }
@@ -1347,7 +1347,7 @@ export class SpotInstanceRequestMetadataOptionsOutputReference extends cdktf.Com
   }
 
   // http_put_response_hop_limit - computed: true, optional: true, required: false
-  private _httpPutResponseHopLimit?: number; 
+  private _httpPutResponseHopLimit?: number;
   public get httpPutResponseHopLimit() {
     return this.getNumberAttribute('http_put_response_hop_limit');
   }
@@ -1363,7 +1363,7 @@ export class SpotInstanceRequestMetadataOptionsOutputReference extends cdktf.Com
   }
 
   // http_tokens - computed: true, optional: true, required: false
-  private _httpTokens?: string; 
+  private _httpTokens?: string;
   public get httpTokens() {
     return this.getStringAttribute('http_tokens');
   }
@@ -1379,7 +1379,7 @@ export class SpotInstanceRequestMetadataOptionsOutputReference extends cdktf.Com
   }
 
   // instance_metadata_tags - computed: true, optional: true, required: false
-  private _instanceMetadataTags?: string; 
+  private _instanceMetadataTags?: string;
   public get instanceMetadataTags() {
     return this.getStringAttribute('instance_metadata_tags');
   }
@@ -1489,7 +1489,7 @@ export class SpotInstanceRequestNetworkInterfaceOutputReference extends cdktf.Co
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
+  private _deleteOnTermination?: boolean | cdktf.IResolvable;
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -1505,7 +1505,7 @@ export class SpotInstanceRequestNetworkInterfaceOutputReference extends cdktf.Co
   }
 
   // device_index - computed: false, optional: false, required: true
-  private _deviceIndex?: number; 
+  private _deviceIndex?: number;
   public get deviceIndex() {
     return this.getNumberAttribute('device_index');
   }
@@ -1518,7 +1518,7 @@ export class SpotInstanceRequestNetworkInterfaceOutputReference extends cdktf.Co
   }
 
   // network_card_index - computed: false, optional: true, required: false
-  private _networkCardIndex?: number; 
+  private _networkCardIndex?: number;
   public get networkCardIndex() {
     return this.getNumberAttribute('network_card_index');
   }
@@ -1534,7 +1534,7 @@ export class SpotInstanceRequestNetworkInterfaceOutputReference extends cdktf.Co
   }
 
   // network_interface_id - computed: false, optional: false, required: true
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -1638,7 +1638,7 @@ export class SpotInstanceRequestPrivateDnsNameOptionsOutputReference extends cdk
   }
 
   // enable_resource_name_dns_a_record - computed: true, optional: true, required: false
-  private _enableResourceNameDnsARecord?: boolean | cdktf.IResolvable; 
+  private _enableResourceNameDnsARecord?: boolean | cdktf.IResolvable;
   public get enableResourceNameDnsARecord() {
     return this.getBooleanAttribute('enable_resource_name_dns_a_record');
   }
@@ -1654,7 +1654,7 @@ export class SpotInstanceRequestPrivateDnsNameOptionsOutputReference extends cdk
   }
 
   // enable_resource_name_dns_aaaa_record - computed: true, optional: true, required: false
-  private _enableResourceNameDnsAaaaRecord?: boolean | cdktf.IResolvable; 
+  private _enableResourceNameDnsAaaaRecord?: boolean | cdktf.IResolvable;
   public get enableResourceNameDnsAaaaRecord() {
     return this.getBooleanAttribute('enable_resource_name_dns_aaaa_record');
   }
@@ -1670,7 +1670,7 @@ export class SpotInstanceRequestPrivateDnsNameOptionsOutputReference extends cdk
   }
 
   // hostname_type - computed: true, optional: true, required: false
-  private _hostnameType?: string; 
+  private _hostnameType?: string;
   public get hostnameType() {
     return this.getStringAttribute('hostname_type');
   }
@@ -1812,7 +1812,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
+  private _deleteOnTermination?: boolean | cdktf.IResolvable;
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -1833,7 +1833,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -1849,7 +1849,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -1865,7 +1865,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -1881,7 +1881,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1897,7 +1897,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number; 
+  private _throughput?: number;
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -1918,7 +1918,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -1934,7 +1934,7 @@ export class SpotInstanceRequestRootBlockDeviceOutputReference extends cdktf.Com
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -2020,7 +2020,7 @@ export class SpotInstanceRequestTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -2036,7 +2036,7 @@ export class SpotInstanceRequestTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -2151,7 +2151,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   // ==========
 
   // ami - computed: true, optional: true, required: false
-  private _ami?: string; 
+  private _ami?: string;
   public get ami() {
     return this.getStringAttribute('ami');
   }
@@ -2172,7 +2172,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // associate_public_ip_address - computed: true, optional: true, required: false
-  private _associatePublicIpAddress?: boolean | cdktf.IResolvable; 
+  private _associatePublicIpAddress?: boolean | cdktf.IResolvable;
   public get associatePublicIpAddress() {
     return this.getBooleanAttribute('associate_public_ip_address');
   }
@@ -2188,7 +2188,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -2204,7 +2204,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // block_duration_minutes - computed: false, optional: true, required: false
-  private _blockDurationMinutes?: number; 
+  private _blockDurationMinutes?: number;
   public get blockDurationMinutes() {
     return this.getNumberAttribute('block_duration_minutes');
   }
@@ -2220,7 +2220,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // cpu_core_count - computed: true, optional: true, required: false
-  private _cpuCoreCount?: number; 
+  private _cpuCoreCount?: number;
   public get cpuCoreCount() {
     return this.getNumberAttribute('cpu_core_count');
   }
@@ -2236,7 +2236,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // cpu_threads_per_core - computed: true, optional: true, required: false
-  private _cpuThreadsPerCore?: number; 
+  private _cpuThreadsPerCore?: number;
   public get cpuThreadsPerCore() {
     return this.getNumberAttribute('cpu_threads_per_core');
   }
@@ -2252,7 +2252,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // disable_api_stop - computed: true, optional: true, required: false
-  private _disableApiStop?: boolean | cdktf.IResolvable; 
+  private _disableApiStop?: boolean | cdktf.IResolvable;
   public get disableApiStop() {
     return this.getBooleanAttribute('disable_api_stop');
   }
@@ -2268,7 +2268,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // disable_api_termination - computed: true, optional: true, required: false
-  private _disableApiTermination?: boolean | cdktf.IResolvable; 
+  private _disableApiTermination?: boolean | cdktf.IResolvable;
   public get disableApiTermination() {
     return this.getBooleanAttribute('disable_api_termination');
   }
@@ -2284,7 +2284,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // ebs_optimized - computed: true, optional: true, required: false
-  private _ebsOptimized?: boolean | cdktf.IResolvable; 
+  private _ebsOptimized?: boolean | cdktf.IResolvable;
   public get ebsOptimized() {
     return this.getBooleanAttribute('ebs_optimized');
   }
@@ -2300,7 +2300,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // get_password_data - computed: false, optional: true, required: false
-  private _getPasswordData?: boolean | cdktf.IResolvable; 
+  private _getPasswordData?: boolean | cdktf.IResolvable;
   public get fetchPasswordData() {
     return this.getBooleanAttribute('get_password_data');
   }
@@ -2316,7 +2316,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // hibernation - computed: false, optional: true, required: false
-  private _hibernation?: boolean | cdktf.IResolvable; 
+  private _hibernation?: boolean | cdktf.IResolvable;
   public get hibernation() {
     return this.getBooleanAttribute('hibernation');
   }
@@ -2332,7 +2332,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // host_id - computed: true, optional: true, required: false
-  private _hostId?: string; 
+  private _hostId?: string;
   public get hostId() {
     return this.getStringAttribute('host_id');
   }
@@ -2348,7 +2348,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // host_resource_group_arn - computed: true, optional: true, required: false
-  private _hostResourceGroupArn?: string; 
+  private _hostResourceGroupArn?: string;
   public get hostResourceGroupArn() {
     return this.getStringAttribute('host_resource_group_arn');
   }
@@ -2364,7 +2364,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // iam_instance_profile - computed: true, optional: true, required: false
-  private _iamInstanceProfile?: string; 
+  private _iamInstanceProfile?: string;
   public get iamInstanceProfile() {
     return this.getStringAttribute('iam_instance_profile');
   }
@@ -2380,7 +2380,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2396,7 +2396,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // instance_initiated_shutdown_behavior - computed: true, optional: true, required: false
-  private _instanceInitiatedShutdownBehavior?: string; 
+  private _instanceInitiatedShutdownBehavior?: string;
   public get instanceInitiatedShutdownBehavior() {
     return this.getStringAttribute('instance_initiated_shutdown_behavior');
   }
@@ -2412,7 +2412,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // instance_interruption_behavior - computed: false, optional: true, required: false
-  private _instanceInterruptionBehavior?: string; 
+  private _instanceInterruptionBehavior?: string;
   public get instanceInterruptionBehavior() {
     return this.getStringAttribute('instance_interruption_behavior');
   }
@@ -2433,7 +2433,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // instance_type - computed: true, optional: true, required: false
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -2449,7 +2449,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // ipv6_address_count - computed: true, optional: true, required: false
-  private _ipv6AddressCount?: number; 
+  private _ipv6AddressCount?: number;
   public get ipv6AddressCount() {
     return this.getNumberAttribute('ipv6_address_count');
   }
@@ -2465,7 +2465,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // ipv6_addresses - computed: true, optional: true, required: false
-  private _ipv6Addresses?: string[]; 
+  private _ipv6Addresses?: string[];
   public get ipv6Addresses() {
     return this.getListAttribute('ipv6_addresses');
   }
@@ -2481,7 +2481,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // key_name - computed: true, optional: true, required: false
-  private _keyName?: string; 
+  private _keyName?: string;
   public get keyName() {
     return this.getStringAttribute('key_name');
   }
@@ -2497,7 +2497,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // launch_group - computed: false, optional: true, required: false
-  private _launchGroup?: string; 
+  private _launchGroup?: string;
   public get launchGroup() {
     return this.getStringAttribute('launch_group');
   }
@@ -2513,7 +2513,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // monitoring - computed: true, optional: true, required: false
-  private _monitoring?: boolean | cdktf.IResolvable; 
+  private _monitoring?: boolean | cdktf.IResolvable;
   public get monitoring() {
     return this.getBooleanAttribute('monitoring');
   }
@@ -2539,7 +2539,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // placement_group - computed: true, optional: true, required: false
-  private _placementGroup?: string; 
+  private _placementGroup?: string;
   public get placementGroup() {
     return this.getStringAttribute('placement_group');
   }
@@ -2555,7 +2555,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // placement_partition_number - computed: true, optional: true, required: false
-  private _placementPartitionNumber?: number; 
+  private _placementPartitionNumber?: number;
   public get placementPartitionNumber() {
     return this.getNumberAttribute('placement_partition_number');
   }
@@ -2581,7 +2581,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // private_ip - computed: true, optional: true, required: false
-  private _privateIp?: string; 
+  private _privateIp?: string;
   public get privateIp() {
     return this.getStringAttribute('private_ip');
   }
@@ -2607,7 +2607,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // secondary_private_ips - computed: true, optional: true, required: false
-  private _secondaryPrivateIps?: string[]; 
+  private _secondaryPrivateIps?: string[];
   public get secondaryPrivateIps() {
     return cdktf.Fn.tolist(this.getListAttribute('secondary_private_ips'));
   }
@@ -2623,7 +2623,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // security_groups - computed: true, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -2639,7 +2639,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // source_dest_check - computed: false, optional: true, required: false
-  private _sourceDestCheck?: boolean | cdktf.IResolvable; 
+  private _sourceDestCheck?: boolean | cdktf.IResolvable;
   public get sourceDestCheck() {
     return this.getBooleanAttribute('source_dest_check');
   }
@@ -2665,7 +2665,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // spot_price - computed: true, optional: true, required: false
-  private _spotPrice?: string; 
+  private _spotPrice?: string;
   public get spotPrice() {
     return this.getStringAttribute('spot_price');
   }
@@ -2686,7 +2686,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // spot_type - computed: false, optional: true, required: false
-  private _spotType?: string; 
+  private _spotType?: string;
   public get spotType() {
     return this.getStringAttribute('spot_type');
   }
@@ -2702,7 +2702,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: true, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -2718,7 +2718,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2734,7 +2734,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -2750,7 +2750,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // tenancy - computed: true, optional: true, required: false
-  private _tenancy?: string; 
+  private _tenancy?: string;
   public get tenancy() {
     return this.getStringAttribute('tenancy');
   }
@@ -2766,7 +2766,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // user_data - computed: true, optional: true, required: false
-  private _userData?: string; 
+  private _userData?: string;
   public get userData() {
     return this.getStringAttribute('user_data');
   }
@@ -2782,7 +2782,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // user_data_base64 - computed: true, optional: true, required: false
-  private _userDataBase64?: string; 
+  private _userDataBase64?: string;
   public get userDataBase64() {
     return this.getStringAttribute('user_data_base64');
   }
@@ -2798,7 +2798,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // user_data_replace_on_change - computed: false, optional: true, required: false
-  private _userDataReplaceOnChange?: boolean | cdktf.IResolvable; 
+  private _userDataReplaceOnChange?: boolean | cdktf.IResolvable;
   public get userDataReplaceOnChange() {
     return this.getBooleanAttribute('user_data_replace_on_change');
   }
@@ -2814,7 +2814,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // valid_from - computed: true, optional: true, required: false
-  private _validFrom?: string; 
+  private _validFrom?: string;
   public get validFrom() {
     return this.getStringAttribute('valid_from');
   }
@@ -2830,7 +2830,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // valid_until - computed: true, optional: true, required: false
-  private _validUntil?: string; 
+  private _validUntil?: string;
   public get validUntil() {
     return this.getStringAttribute('valid_until');
   }
@@ -2846,7 +2846,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // volume_tags - computed: false, optional: true, required: false
-  private _volumeTags?: { [key: string]: string }; 
+  private _volumeTags?: { [key: string]: string };
   public get volumeTags() {
     return this.getStringMapAttribute('volume_tags');
   }
@@ -2862,7 +2862,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[]; 
+  private _vpcSecurityGroupIds?: string[];
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }
@@ -2878,7 +2878,7 @@ export class SpotInstanceRequest extends cdktf.TerraformResource {
   }
 
   // wait_for_fulfillment - computed: false, optional: true, required: false
-  private _waitForFulfillment?: boolean | cdktf.IResolvable; 
+  private _waitForFulfillment?: boolean | cdktf.IResolvable;
   public get waitForFulfillment() {
     return this.getBooleanAttribute('wait_for_fulfillment');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/imagebuilder_components
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DataAwsImagebuilderComponentsConfig extends cdktf.TerraformMeta
   readonly owner?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/imagebuilder_components#filter DataAwsImagebuilderComponents#filter}
   */
   readonly filter?: DataAwsImagebuilderComponentsFilter[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class DataAwsImagebuilderComponentsFilterOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -111,7 +111,7 @@ export class DataAwsImagebuilderComponentsFilterOutputReference extends cdktf.Co
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -196,7 +196,7 @@ export class DataAwsImagebuilderComponents extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -217,7 +217,7 @@ export class DataAwsImagebuilderComponents extends cdktf.TerraformDataSource {
   }
 
   // owner - computed: false, optional: true, required: false
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_bot_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface ConnectBotAssociationConfig extends cdktf.TerraformMetaArgument
   readonly instanceId: string;
   /**
   * lex_bot block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_bot_association#lex_bot ConnectBotAssociation#lex_bot}
   */
   readonly lexBot: ConnectBotAssociationLexBot;
@@ -86,7 +86,7 @@ export class ConnectBotAssociationLexBotOutputReference extends cdktf.ComplexObj
   }
 
   // lex_region - computed: true, optional: true, required: false
-  private _lexRegion?: string; 
+  private _lexRegion?: string;
   public get lexRegion() {
     return this.getStringAttribute('lex_region');
   }
@@ -102,7 +102,7 @@ export class ConnectBotAssociationLexBotOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -162,7 +162,7 @@ export class ConnectBotAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -178,7 +178,7 @@ export class ConnectBotAssociation extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }

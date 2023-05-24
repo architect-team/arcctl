@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apprunner_auto_scaling_configuration_version
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class ApprunnerAutoScalingConfigurationVersion extends cdktf.TerraformRes
   }
 
   // auto_scaling_configuration_name - computed: false, optional: false, required: true
-  private _autoScalingConfigurationName?: string; 
+  private _autoScalingConfigurationName?: string;
   public get autoScalingConfigurationName() {
     return this.getStringAttribute('auto_scaling_configuration_name');
   }
@@ -114,7 +114,7 @@ export class ApprunnerAutoScalingConfigurationVersion extends cdktf.TerraformRes
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -135,7 +135,7 @@ export class ApprunnerAutoScalingConfigurationVersion extends cdktf.TerraformRes
   }
 
   // max_concurrency - computed: false, optional: true, required: false
-  private _maxConcurrency?: number; 
+  private _maxConcurrency?: number;
   public get maxConcurrency() {
     return this.getNumberAttribute('max_concurrency');
   }
@@ -151,7 +151,7 @@ export class ApprunnerAutoScalingConfigurationVersion extends cdktf.TerraformRes
   }
 
   // max_size - computed: false, optional: true, required: false
-  private _maxSize?: number; 
+  private _maxSize?: number;
   public get maxSize() {
     return this.getNumberAttribute('max_size');
   }
@@ -167,7 +167,7 @@ export class ApprunnerAutoScalingConfigurationVersion extends cdktf.TerraformRes
   }
 
   // min_size - computed: false, optional: true, required: false
-  private _minSize?: number; 
+  private _minSize?: number;
   public get minSize() {
     return this.getNumberAttribute('min_size');
   }
@@ -188,7 +188,7 @@ export class ApprunnerAutoScalingConfigurationVersion extends cdktf.TerraformRes
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -204,7 +204,7 @@ export class ApprunnerAutoScalingConfigurationVersion extends cdktf.TerraformRes
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

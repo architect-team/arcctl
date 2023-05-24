@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_capacity_reservation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -136,7 +136,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: false, optional: false, required: true
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -149,7 +149,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // ebs_optimized - computed: false, optional: true, required: false
-  private _ebsOptimized?: boolean | cdktf.IResolvable; 
+  private _ebsOptimized?: boolean | cdktf.IResolvable;
   public get ebsOptimized() {
     return this.getBooleanAttribute('ebs_optimized');
   }
@@ -165,7 +165,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // end_date - computed: false, optional: true, required: false
-  private _endDate?: string; 
+  private _endDate?: string;
   public get endDate() {
     return this.getStringAttribute('end_date');
   }
@@ -181,7 +181,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // end_date_type - computed: false, optional: true, required: false
-  private _endDateType?: string; 
+  private _endDateType?: string;
   public get endDateType() {
     return this.getStringAttribute('end_date_type');
   }
@@ -197,7 +197,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // ephemeral_storage - computed: false, optional: true, required: false
-  private _ephemeralStorage?: boolean | cdktf.IResolvable; 
+  private _ephemeralStorage?: boolean | cdktf.IResolvable;
   public get ephemeralStorage() {
     return this.getBooleanAttribute('ephemeral_storage');
   }
@@ -213,7 +213,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -229,7 +229,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // instance_count - computed: false, optional: false, required: true
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -242,7 +242,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // instance_match_criteria - computed: false, optional: true, required: false
-  private _instanceMatchCriteria?: string; 
+  private _instanceMatchCriteria?: string;
   public get instanceMatchCriteria() {
     return this.getStringAttribute('instance_match_criteria');
   }
@@ -258,7 +258,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // instance_platform - computed: false, optional: false, required: true
-  private _instancePlatform?: string; 
+  private _instancePlatform?: string;
   public get instancePlatform() {
     return this.getStringAttribute('instance_platform');
   }
@@ -271,7 +271,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -284,7 +284,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // outpost_arn - computed: false, optional: true, required: false
-  private _outpostArn?: string; 
+  private _outpostArn?: string;
   public get outpostArn() {
     return this.getStringAttribute('outpost_arn');
   }
@@ -305,7 +305,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // placement_group_arn - computed: false, optional: true, required: false
-  private _placementGroupArn?: string; 
+  private _placementGroupArn?: string;
   public get placementGroupArn() {
     return this.getStringAttribute('placement_group_arn');
   }
@@ -321,7 +321,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -337,7 +337,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -353,7 +353,7 @@ export class Ec2CapacityReservation extends cdktf.TerraformResource {
   }
 
   // tenancy - computed: false, optional: true, required: false
-  private _tenancy?: string; 
+  private _tenancy?: string;
   public get tenancy() {
     return this.getStringAttribute('tenancy');
   }

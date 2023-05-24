@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codestarnotifications_notification_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface CodestarnotificationsNotificationRuleConfig extends cdktf.Terra
   readonly tagsAll?: { [key: string]: string };
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarnotifications_notification_rule#target CodestarnotificationsNotificationRule#target}
   */
   readonly target?: CodestarnotificationsNotificationRuleTarget[] | cdktf.IResolvable;
@@ -122,7 +122,7 @@ export class CodestarnotificationsNotificationRuleTargetOutputReference extends 
   }
 
   // address - computed: false, optional: false, required: true
-  private _address?: string; 
+  private _address?: string;
   public get address() {
     return this.getStringAttribute('address');
   }
@@ -140,7 +140,7 @@ export class CodestarnotificationsNotificationRuleTargetOutputReference extends 
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -234,7 +234,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // detail_type - computed: false, optional: false, required: true
-  private _detailType?: string; 
+  private _detailType?: string;
   public get detailType() {
     return this.getStringAttribute('detail_type');
   }
@@ -247,7 +247,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // event_type_ids - computed: false, optional: false, required: true
-  private _eventTypeIds?: string[]; 
+  private _eventTypeIds?: string[];
   public get eventTypeIds() {
     return cdktf.Fn.tolist(this.getListAttribute('event_type_ids'));
   }
@@ -260,7 +260,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -276,7 +276,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -289,7 +289,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -302,7 +302,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -318,7 +318,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -334,7 +334,7 @@ export class CodestarnotificationsNotificationRule extends cdktf.TerraformResour
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

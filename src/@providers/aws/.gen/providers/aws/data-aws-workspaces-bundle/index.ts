@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/workspaces_bundle
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -268,7 +268,7 @@ export class DataAwsWorkspacesBundle extends cdktf.TerraformDataSource {
   // ==========
 
   // bundle_id - computed: false, optional: true, required: false
-  private _bundleId?: string; 
+  private _bundleId?: string;
   public get bundleId() {
     return this.getStringAttribute('bundle_id');
   }
@@ -295,7 +295,7 @@ export class DataAwsWorkspacesBundle extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -311,7 +311,7 @@ export class DataAwsWorkspacesBundle extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -327,7 +327,7 @@ export class DataAwsWorkspacesBundle extends cdktf.TerraformDataSource {
   }
 
   // owner - computed: false, optional: true, required: false
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }

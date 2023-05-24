@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_vault_lock_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class BackupVaultLockConfiguration extends cdktf.TerraformResource {
   }
 
   // backup_vault_name - computed: false, optional: false, required: true
-  private _backupVaultName?: string; 
+  private _backupVaultName?: string;
   public get backupVaultName() {
     return this.getStringAttribute('backup_vault_name');
   }
@@ -99,7 +99,7 @@ export class BackupVaultLockConfiguration extends cdktf.TerraformResource {
   }
 
   // changeable_for_days - computed: false, optional: true, required: false
-  private _changeableForDays?: number; 
+  private _changeableForDays?: number;
   public get changeableForDays() {
     return this.getNumberAttribute('changeable_for_days');
   }
@@ -115,7 +115,7 @@ export class BackupVaultLockConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -131,7 +131,7 @@ export class BackupVaultLockConfiguration extends cdktf.TerraformResource {
   }
 
   // max_retention_days - computed: false, optional: true, required: false
-  private _maxRetentionDays?: number; 
+  private _maxRetentionDays?: number;
   public get maxRetentionDays() {
     return this.getNumberAttribute('max_retention_days');
   }
@@ -147,7 +147,7 @@ export class BackupVaultLockConfiguration extends cdktf.TerraformResource {
   }
 
   // min_retention_days - computed: false, optional: true, required: false
-  private _minRetentionDays?: number; 
+  private _minRetentionDays?: number;
   public get minRetentionDays() {
     return this.getNumberAttribute('min_retention_days');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -64,49 +64,49 @@ export interface CloudfrontDistributionConfig extends cdktf.TerraformMetaArgumen
   readonly webAclId?: string;
   /**
   * custom_error_response block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_error_response CloudfrontDistribution#custom_error_response}
   */
   readonly customErrorResponse?: CloudfrontDistributionCustomErrorResponse[] | cdktf.IResolvable;
   /**
   * default_cache_behavior block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_cache_behavior CloudfrontDistribution#default_cache_behavior}
   */
   readonly defaultCacheBehavior: CloudfrontDistributionDefaultCacheBehavior;
   /**
   * logging_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#logging_config CloudfrontDistribution#logging_config}
   */
   readonly loggingConfig?: CloudfrontDistributionLoggingConfig;
   /**
   * ordered_cache_behavior block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#ordered_cache_behavior CloudfrontDistribution#ordered_cache_behavior}
   */
   readonly orderedCacheBehavior?: CloudfrontDistributionOrderedCacheBehavior[] | cdktf.IResolvable;
   /**
   * origin block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin CloudfrontDistribution#origin}
   */
   readonly origin: CloudfrontDistributionOrigin[] | cdktf.IResolvable;
   /**
   * origin_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_group CloudfrontDistribution#origin_group}
   */
   readonly originGroup?: CloudfrontDistributionOriginGroup[] | cdktf.IResolvable;
   /**
   * restrictions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#restrictions CloudfrontDistribution#restrictions}
   */
   readonly restrictions: CloudfrontDistributionRestrictions;
   /**
   * viewer_certificate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#viewer_certificate CloudfrontDistribution#viewer_certificate}
   */
   readonly viewerCertificate: CloudfrontDistributionViewerCertificate;
@@ -484,7 +484,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // error_caching_min_ttl - computed: false, optional: true, required: false
-  private _errorCachingMinTtl?: number; 
+  private _errorCachingMinTtl?: number;
   public get errorCachingMinTtl() {
     return this.getNumberAttribute('error_caching_min_ttl');
   }
@@ -500,7 +500,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // error_code - computed: false, optional: false, required: true
-  private _errorCode?: number; 
+  private _errorCode?: number;
   public get errorCode() {
     return this.getNumberAttribute('error_code');
   }
@@ -513,7 +513,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // response_code - computed: false, optional: true, required: false
-  private _responseCode?: number; 
+  private _responseCode?: number;
   public get responseCode() {
     return this.getNumberAttribute('response_code');
   }
@@ -529,7 +529,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // response_page_path - computed: false, optional: true, required: false
-  private _responsePagePath?: string; 
+  private _responsePagePath?: string;
   public get responsePagePath() {
     return this.getStringAttribute('response_page_path');
   }
@@ -625,7 +625,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOut
   }
 
   // forward - computed: false, optional: false, required: true
-  private _forward?: string; 
+  private _forward?: string;
   public get forward() {
     return this.getStringAttribute('forward');
   }
@@ -638,7 +638,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOut
   }
 
   // whitelisted_names - computed: true, optional: true, required: false
-  private _whitelistedNames?: string[]; 
+  private _whitelistedNames?: string[];
   public get whitelistedNames() {
     return cdktf.Fn.tolist(this.getListAttribute('whitelisted_names'));
   }
@@ -668,7 +668,7 @@ export interface CloudfrontDistributionDefaultCacheBehaviorForwardedValues {
   readonly queryStringCacheKeys?: string[];
   /**
   * cookies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cookies CloudfrontDistribution#cookies}
   */
   readonly cookies: CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies;
@@ -738,7 +738,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
   }
 
   // headers - computed: true, optional: true, required: false
-  private _headers?: string[]; 
+  private _headers?: string[];
   public get headers() {
     return cdktf.Fn.tolist(this.getListAttribute('headers'));
   }
@@ -754,7 +754,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string - computed: false, optional: false, required: true
-  private _queryString?: boolean | cdktf.IResolvable; 
+  private _queryString?: boolean | cdktf.IResolvable;
   public get queryString() {
     return this.getBooleanAttribute('query_string');
   }
@@ -767,7 +767,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string_cache_keys - computed: true, optional: true, required: false
-  private _queryStringCacheKeys?: string[]; 
+  private _queryStringCacheKeys?: string[];
   public get queryStringCacheKeys() {
     return this.getListAttribute('query_string_cache_keys');
   }
@@ -868,7 +868,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutput
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string; 
+  private _eventType?: string;
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -881,7 +881,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutput
   }
 
   // function_arn - computed: false, optional: false, required: true
-  private _functionArn?: string; 
+  private _functionArn?: string;
   public get functionArn() {
     return this.getStringAttribute('function_arn');
   }
@@ -997,7 +997,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string; 
+  private _eventType?: string;
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -1010,7 +1010,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
   }
 
   // include_body - computed: false, optional: true, required: false
-  private _includeBody?: boolean | cdktf.IResolvable; 
+  private _includeBody?: boolean | cdktf.IResolvable;
   public get includeBody() {
     return this.getBooleanAttribute('include_body');
   }
@@ -1026,7 +1026,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
   }
 
   // lambda_arn - computed: false, optional: false, required: true
-  private _lambdaArn?: string; 
+  private _lambdaArn?: string;
   public get lambdaArn() {
     return this.getStringAttribute('lambda_arn');
   }
@@ -1125,19 +1125,19 @@ export interface CloudfrontDistributionDefaultCacheBehavior {
   readonly viewerProtocolPolicy: string;
   /**
   * forwarded_values block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forwarded_values CloudfrontDistribution#forwarded_values}
   */
   readonly forwardedValues?: CloudfrontDistributionDefaultCacheBehaviorForwardedValues;
   /**
   * function_association block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_association CloudfrontDistribution#function_association}
   */
   readonly functionAssociation?: CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation[] | cdktf.IResolvable;
   /**
   * lambda_function_association block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_function_association CloudfrontDistribution#lambda_function_association}
   */
   readonly lambdaFunctionAssociation?: CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable;
@@ -1312,7 +1312,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[]; 
+  private _allowedMethods?: string[];
   public get allowedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_methods'));
   }
@@ -1325,7 +1325,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // cache_policy_id - computed: false, optional: true, required: false
-  private _cachePolicyId?: string; 
+  private _cachePolicyId?: string;
   public get cachePolicyId() {
     return this.getStringAttribute('cache_policy_id');
   }
@@ -1341,7 +1341,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // cached_methods - computed: false, optional: false, required: true
-  private _cachedMethods?: string[]; 
+  private _cachedMethods?: string[];
   public get cachedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('cached_methods'));
   }
@@ -1354,7 +1354,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // compress - computed: false, optional: true, required: false
-  private _compress?: boolean | cdktf.IResolvable; 
+  private _compress?: boolean | cdktf.IResolvable;
   public get compress() {
     return this.getBooleanAttribute('compress');
   }
@@ -1370,7 +1370,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // default_ttl - computed: true, optional: true, required: false
-  private _defaultTtl?: number; 
+  private _defaultTtl?: number;
   public get defaultTtl() {
     return this.getNumberAttribute('default_ttl');
   }
@@ -1386,7 +1386,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // field_level_encryption_id - computed: false, optional: true, required: false
-  private _fieldLevelEncryptionId?: string; 
+  private _fieldLevelEncryptionId?: string;
   public get fieldLevelEncryptionId() {
     return this.getStringAttribute('field_level_encryption_id');
   }
@@ -1402,7 +1402,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // max_ttl - computed: true, optional: true, required: false
-  private _maxTtl?: number; 
+  private _maxTtl?: number;
   public get maxTtl() {
     return this.getNumberAttribute('max_ttl');
   }
@@ -1418,7 +1418,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // min_ttl - computed: false, optional: true, required: false
-  private _minTtl?: number; 
+  private _minTtl?: number;
   public get minTtl() {
     return this.getNumberAttribute('min_ttl');
   }
@@ -1434,7 +1434,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // origin_request_policy_id - computed: false, optional: true, required: false
-  private _originRequestPolicyId?: string; 
+  private _originRequestPolicyId?: string;
   public get originRequestPolicyId() {
     return this.getStringAttribute('origin_request_policy_id');
   }
@@ -1450,7 +1450,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // realtime_log_config_arn - computed: false, optional: true, required: false
-  private _realtimeLogConfigArn?: string; 
+  private _realtimeLogConfigArn?: string;
   public get realtimeLogConfigArn() {
     return this.getStringAttribute('realtime_log_config_arn');
   }
@@ -1466,7 +1466,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // response_headers_policy_id - computed: false, optional: true, required: false
-  private _responseHeadersPolicyId?: string; 
+  private _responseHeadersPolicyId?: string;
   public get responseHeadersPolicyId() {
     return this.getStringAttribute('response_headers_policy_id');
   }
@@ -1482,7 +1482,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // smooth_streaming - computed: false, optional: true, required: false
-  private _smoothStreaming?: boolean | cdktf.IResolvable; 
+  private _smoothStreaming?: boolean | cdktf.IResolvable;
   public get smoothStreaming() {
     return this.getBooleanAttribute('smooth_streaming');
   }
@@ -1498,7 +1498,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // target_origin_id - computed: false, optional: false, required: true
-  private _targetOriginId?: string; 
+  private _targetOriginId?: string;
   public get targetOriginId() {
     return this.getStringAttribute('target_origin_id');
   }
@@ -1511,7 +1511,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // trusted_key_groups - computed: true, optional: true, required: false
-  private _trustedKeyGroups?: string[]; 
+  private _trustedKeyGroups?: string[];
   public get trustedKeyGroups() {
     return this.getListAttribute('trusted_key_groups');
   }
@@ -1527,7 +1527,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // trusted_signers - computed: true, optional: true, required: false
-  private _trustedSigners?: string[]; 
+  private _trustedSigners?: string[];
   public get trustedSigners() {
     return this.getListAttribute('trusted_signers');
   }
@@ -1543,7 +1543,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // viewer_protocol_policy - computed: false, optional: false, required: true
-  private _viewerProtocolPolicy?: string; 
+  private _viewerProtocolPolicy?: string;
   public get viewerProtocolPolicy() {
     return this.getStringAttribute('viewer_protocol_policy');
   }
@@ -1675,7 +1675,7 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1688,7 +1688,7 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
   }
 
   // include_cookies - computed: false, optional: true, required: false
-  private _includeCookies?: boolean | cdktf.IResolvable; 
+  private _includeCookies?: boolean | cdktf.IResolvable;
   public get includeCookies() {
     return this.getBooleanAttribute('include_cookies');
   }
@@ -1704,7 +1704,7 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1780,7 +1780,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOut
   }
 
   // forward - computed: false, optional: false, required: true
-  private _forward?: string; 
+  private _forward?: string;
   public get forward() {
     return this.getStringAttribute('forward');
   }
@@ -1793,7 +1793,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOut
   }
 
   // whitelisted_names - computed: false, optional: true, required: false
-  private _whitelistedNames?: string[]; 
+  private _whitelistedNames?: string[];
   public get whitelistedNames() {
     return cdktf.Fn.tolist(this.getListAttribute('whitelisted_names'));
   }
@@ -1823,7 +1823,7 @@ export interface CloudfrontDistributionOrderedCacheBehaviorForwardedValues {
   readonly queryStringCacheKeys?: string[];
   /**
   * cookies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cookies CloudfrontDistribution#cookies}
   */
   readonly cookies: CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies;
@@ -1893,7 +1893,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
   }
 
   // headers - computed: true, optional: true, required: false
-  private _headers?: string[]; 
+  private _headers?: string[];
   public get headers() {
     return cdktf.Fn.tolist(this.getListAttribute('headers'));
   }
@@ -1909,7 +1909,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string - computed: false, optional: false, required: true
-  private _queryString?: boolean | cdktf.IResolvable; 
+  private _queryString?: boolean | cdktf.IResolvable;
   public get queryString() {
     return this.getBooleanAttribute('query_string');
   }
@@ -1922,7 +1922,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string_cache_keys - computed: true, optional: true, required: false
-  private _queryStringCacheKeys?: string[]; 
+  private _queryStringCacheKeys?: string[];
   public get queryStringCacheKeys() {
     return this.getListAttribute('query_string_cache_keys');
   }
@@ -2023,7 +2023,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutput
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string; 
+  private _eventType?: string;
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -2036,7 +2036,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutput
   }
 
   // function_arn - computed: false, optional: false, required: true
-  private _functionArn?: string; 
+  private _functionArn?: string;
   public get functionArn() {
     return this.getStringAttribute('function_arn');
   }
@@ -2152,7 +2152,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string; 
+  private _eventType?: string;
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -2165,7 +2165,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
   }
 
   // include_body - computed: false, optional: true, required: false
-  private _includeBody?: boolean | cdktf.IResolvable; 
+  private _includeBody?: boolean | cdktf.IResolvable;
   public get includeBody() {
     return this.getBooleanAttribute('include_body');
   }
@@ -2181,7 +2181,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
   }
 
   // lambda_arn - computed: false, optional: false, required: true
-  private _lambdaArn?: string; 
+  private _lambdaArn?: string;
   public get lambdaArn() {
     return this.getStringAttribute('lambda_arn');
   }
@@ -2284,19 +2284,19 @@ export interface CloudfrontDistributionOrderedCacheBehavior {
   readonly viewerProtocolPolicy: string;
   /**
   * forwarded_values block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forwarded_values CloudfrontDistribution#forwarded_values}
   */
   readonly forwardedValues?: CloudfrontDistributionOrderedCacheBehaviorForwardedValues;
   /**
   * function_association block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_association CloudfrontDistribution#function_association}
   */
   readonly functionAssociation?: CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation[] | cdktf.IResolvable;
   /**
   * lambda_function_association block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_function_association CloudfrontDistribution#lambda_function_association}
   */
   readonly lambdaFunctionAssociation?: CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable;
@@ -2490,7 +2490,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[]; 
+  private _allowedMethods?: string[];
   public get allowedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_methods'));
   }
@@ -2503,7 +2503,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // cache_policy_id - computed: false, optional: true, required: false
-  private _cachePolicyId?: string; 
+  private _cachePolicyId?: string;
   public get cachePolicyId() {
     return this.getStringAttribute('cache_policy_id');
   }
@@ -2519,7 +2519,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // cached_methods - computed: false, optional: false, required: true
-  private _cachedMethods?: string[]; 
+  private _cachedMethods?: string[];
   public get cachedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('cached_methods'));
   }
@@ -2532,7 +2532,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // compress - computed: false, optional: true, required: false
-  private _compress?: boolean | cdktf.IResolvable; 
+  private _compress?: boolean | cdktf.IResolvable;
   public get compress() {
     return this.getBooleanAttribute('compress');
   }
@@ -2548,7 +2548,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // default_ttl - computed: true, optional: true, required: false
-  private _defaultTtl?: number; 
+  private _defaultTtl?: number;
   public get defaultTtl() {
     return this.getNumberAttribute('default_ttl');
   }
@@ -2564,7 +2564,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // field_level_encryption_id - computed: false, optional: true, required: false
-  private _fieldLevelEncryptionId?: string; 
+  private _fieldLevelEncryptionId?: string;
   public get fieldLevelEncryptionId() {
     return this.getStringAttribute('field_level_encryption_id');
   }
@@ -2580,7 +2580,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // max_ttl - computed: true, optional: true, required: false
-  private _maxTtl?: number; 
+  private _maxTtl?: number;
   public get maxTtl() {
     return this.getNumberAttribute('max_ttl');
   }
@@ -2596,7 +2596,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // min_ttl - computed: false, optional: true, required: false
-  private _minTtl?: number; 
+  private _minTtl?: number;
   public get minTtl() {
     return this.getNumberAttribute('min_ttl');
   }
@@ -2612,7 +2612,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // origin_request_policy_id - computed: false, optional: true, required: false
-  private _originRequestPolicyId?: string; 
+  private _originRequestPolicyId?: string;
   public get originRequestPolicyId() {
     return this.getStringAttribute('origin_request_policy_id');
   }
@@ -2628,7 +2628,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // path_pattern - computed: false, optional: false, required: true
-  private _pathPattern?: string; 
+  private _pathPattern?: string;
   public get pathPattern() {
     return this.getStringAttribute('path_pattern');
   }
@@ -2641,7 +2641,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // realtime_log_config_arn - computed: false, optional: true, required: false
-  private _realtimeLogConfigArn?: string; 
+  private _realtimeLogConfigArn?: string;
   public get realtimeLogConfigArn() {
     return this.getStringAttribute('realtime_log_config_arn');
   }
@@ -2657,7 +2657,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // response_headers_policy_id - computed: false, optional: true, required: false
-  private _responseHeadersPolicyId?: string; 
+  private _responseHeadersPolicyId?: string;
   public get responseHeadersPolicyId() {
     return this.getStringAttribute('response_headers_policy_id');
   }
@@ -2673,7 +2673,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // smooth_streaming - computed: false, optional: true, required: false
-  private _smoothStreaming?: boolean | cdktf.IResolvable; 
+  private _smoothStreaming?: boolean | cdktf.IResolvable;
   public get smoothStreaming() {
     return this.getBooleanAttribute('smooth_streaming');
   }
@@ -2689,7 +2689,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // target_origin_id - computed: false, optional: false, required: true
-  private _targetOriginId?: string; 
+  private _targetOriginId?: string;
   public get targetOriginId() {
     return this.getStringAttribute('target_origin_id');
   }
@@ -2702,7 +2702,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // trusted_key_groups - computed: false, optional: true, required: false
-  private _trustedKeyGroups?: string[]; 
+  private _trustedKeyGroups?: string[];
   public get trustedKeyGroups() {
     return this.getListAttribute('trusted_key_groups');
   }
@@ -2718,7 +2718,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // trusted_signers - computed: false, optional: true, required: false
-  private _trustedSigners?: string[]; 
+  private _trustedSigners?: string[];
   public get trustedSigners() {
     return this.getListAttribute('trusted_signers');
   }
@@ -2734,7 +2734,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // viewer_protocol_policy - computed: false, optional: false, required: true
-  private _viewerProtocolPolicy?: string; 
+  private _viewerProtocolPolicy?: string;
   public get viewerProtocolPolicy() {
     return this.getStringAttribute('viewer_protocol_policy');
   }
@@ -2887,7 +2887,7 @@ export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdk
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2900,7 +2900,7 @@ export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdk
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3037,7 +3037,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // http_port - computed: false, optional: false, required: true
-  private _httpPort?: number; 
+  private _httpPort?: number;
   public get httpPort() {
     return this.getNumberAttribute('http_port');
   }
@@ -3050,7 +3050,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // https_port - computed: false, optional: false, required: true
-  private _httpsPort?: number; 
+  private _httpsPort?: number;
   public get httpsPort() {
     return this.getNumberAttribute('https_port');
   }
@@ -3063,7 +3063,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_keepalive_timeout - computed: false, optional: true, required: false
-  private _originKeepaliveTimeout?: number; 
+  private _originKeepaliveTimeout?: number;
   public get originKeepaliveTimeout() {
     return this.getNumberAttribute('origin_keepalive_timeout');
   }
@@ -3079,7 +3079,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_protocol_policy - computed: false, optional: false, required: true
-  private _originProtocolPolicy?: string; 
+  private _originProtocolPolicy?: string;
   public get originProtocolPolicy() {
     return this.getStringAttribute('origin_protocol_policy');
   }
@@ -3092,7 +3092,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_read_timeout - computed: false, optional: true, required: false
-  private _originReadTimeout?: number; 
+  private _originReadTimeout?: number;
   public get originReadTimeout() {
     return this.getNumberAttribute('origin_read_timeout');
   }
@@ -3108,7 +3108,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_ssl_protocols - computed: false, optional: false, required: true
-  private _originSslProtocols?: string[]; 
+  private _originSslProtocols?: string[];
   public get originSslProtocols() {
     return cdktf.Fn.tolist(this.getListAttribute('origin_ssl_protocols'));
   }
@@ -3181,7 +3181,7 @@ export class CloudfrontDistributionOriginOriginShieldOutputReference extends cdk
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3194,7 +3194,7 @@ export class CloudfrontDistributionOriginOriginShieldOutputReference extends cdk
   }
 
   // origin_shield_region - computed: false, optional: false, required: true
-  private _originShieldRegion?: string; 
+  private _originShieldRegion?: string;
   public get originShieldRegion() {
     return this.getStringAttribute('origin_shield_region');
   }
@@ -3256,7 +3256,7 @@ export class CloudfrontDistributionOriginS3OriginConfigOutputReference extends c
   }
 
   // origin_access_identity - computed: false, optional: false, required: true
-  private _originAccessIdentity?: string; 
+  private _originAccessIdentity?: string;
   public get originAccessIdentity() {
     return this.getStringAttribute('origin_access_identity');
   }
@@ -3295,25 +3295,25 @@ export interface CloudfrontDistributionOrigin {
   readonly originPath?: string;
   /**
   * custom_header block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_header CloudfrontDistribution#custom_header}
   */
   readonly customHeader?: CloudfrontDistributionOriginCustomHeader[] | cdktf.IResolvable;
   /**
   * custom_origin_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_origin_config CloudfrontDistribution#custom_origin_config}
   */
   readonly customOriginConfig?: CloudfrontDistributionOriginCustomOriginConfig;
   /**
   * origin_shield block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_shield CloudfrontDistribution#origin_shield}
   */
   readonly originShield?: CloudfrontDistributionOriginOriginShield;
   /**
   * s3_origin_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#s3_origin_config CloudfrontDistribution#s3_origin_config}
   */
   readonly s3OriginConfig?: CloudfrontDistributionOriginS3OriginConfig;
@@ -3437,7 +3437,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // connection_attempts - computed: false, optional: true, required: false
-  private _connectionAttempts?: number; 
+  private _connectionAttempts?: number;
   public get connectionAttempts() {
     return this.getNumberAttribute('connection_attempts');
   }
@@ -3453,7 +3453,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // connection_timeout - computed: false, optional: true, required: false
-  private _connectionTimeout?: number; 
+  private _connectionTimeout?: number;
   public get connectionTimeout() {
     return this.getNumberAttribute('connection_timeout');
   }
@@ -3469,7 +3469,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -3482,7 +3482,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // origin_access_control_id - computed: false, optional: true, required: false
-  private _originAccessControlId?: string; 
+  private _originAccessControlId?: string;
   public get originAccessControlId() {
     return this.getStringAttribute('origin_access_control_id');
   }
@@ -3498,7 +3498,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // origin_id - computed: false, optional: false, required: true
-  private _originId?: string; 
+  private _originId?: string;
   public get originId() {
     return this.getStringAttribute('origin_id');
   }
@@ -3511,7 +3511,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // origin_path - computed: false, optional: true, required: false
-  private _originPath?: string; 
+  private _originPath?: string;
   public get originPath() {
     return this.getStringAttribute('origin_path');
   }
@@ -3660,7 +3660,7 @@ export class CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference ex
   }
 
   // status_codes - computed: false, optional: false, required: true
-  private _statusCodes?: number[]; 
+  private _statusCodes?: number[];
   public get statusCodes() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('status_codes')));
   }
@@ -3734,7 +3734,7 @@ export class CloudfrontDistributionOriginGroupMemberOutputReference extends cdkt
   }
 
   // origin_id - computed: false, optional: false, required: true
-  private _originId?: string; 
+  private _originId?: string;
   public get originId() {
     return this.getStringAttribute('origin_id');
   }
@@ -3773,13 +3773,13 @@ export interface CloudfrontDistributionOriginGroup {
   readonly originId: string;
   /**
   * failover_criteria block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#failover_criteria CloudfrontDistribution#failover_criteria}
   */
   readonly failoverCriteria: CloudfrontDistributionOriginGroupFailoverCriteria;
   /**
   * member block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#member CloudfrontDistribution#member}
   */
   readonly member: CloudfrontDistributionOriginGroupMember[] | cdktf.IResolvable;
@@ -3854,7 +3854,7 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
   }
 
   // origin_id - computed: false, optional: false, required: true
-  private _originId?: string; 
+  private _originId?: string;
   public get originId() {
     return this.getStringAttribute('origin_id');
   }
@@ -3973,7 +3973,7 @@ export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference ext
   }
 
   // locations - computed: true, optional: true, required: false
-  private _locations?: string[]; 
+  private _locations?: string[];
   public get locations() {
     return cdktf.Fn.tolist(this.getListAttribute('locations'));
   }
@@ -3989,7 +3989,7 @@ export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference ext
   }
 
   // restriction_type - computed: false, optional: false, required: true
-  private _restrictionType?: string; 
+  private _restrictionType?: string;
   public get restrictionType() {
     return this.getStringAttribute('restriction_type');
   }
@@ -4004,7 +4004,7 @@ export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference ext
 export interface CloudfrontDistributionRestrictions {
   /**
   * geo_restriction block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#geo_restriction CloudfrontDistribution#geo_restriction}
   */
   readonly geoRestriction: CloudfrontDistributionRestrictionsGeoRestriction;
@@ -4159,7 +4159,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // acm_certificate_arn - computed: false, optional: true, required: false
-  private _acmCertificateArn?: string; 
+  private _acmCertificateArn?: string;
   public get acmCertificateArn() {
     return this.getStringAttribute('acm_certificate_arn');
   }
@@ -4175,7 +4175,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // cloudfront_default_certificate - computed: false, optional: true, required: false
-  private _cloudfrontDefaultCertificate?: boolean | cdktf.IResolvable; 
+  private _cloudfrontDefaultCertificate?: boolean | cdktf.IResolvable;
   public get cloudfrontDefaultCertificate() {
     return this.getBooleanAttribute('cloudfront_default_certificate');
   }
@@ -4191,7 +4191,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // iam_certificate_id - computed: false, optional: true, required: false
-  private _iamCertificateId?: string; 
+  private _iamCertificateId?: string;
   public get iamCertificateId() {
     return this.getStringAttribute('iam_certificate_id');
   }
@@ -4207,7 +4207,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // minimum_protocol_version - computed: false, optional: true, required: false
-  private _minimumProtocolVersion?: string; 
+  private _minimumProtocolVersion?: string;
   public get minimumProtocolVersion() {
     return this.getStringAttribute('minimum_protocol_version');
   }
@@ -4223,7 +4223,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // ssl_support_method - computed: false, optional: true, required: false
-  private _sslSupportMethod?: string; 
+  private _sslSupportMethod?: string;
   public get sslSupportMethod() {
     return this.getStringAttribute('ssl_support_method');
   }
@@ -4304,7 +4304,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   // ==========
 
   // aliases - computed: false, optional: true, required: false
-  private _aliases?: string[]; 
+  private _aliases?: string[];
   public get aliases() {
     return cdktf.Fn.tolist(this.getListAttribute('aliases'));
   }
@@ -4330,7 +4330,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -4346,7 +4346,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // default_root_object - computed: false, optional: true, required: false
-  private _defaultRootObject?: string; 
+  private _defaultRootObject?: string;
   public get defaultRootObject() {
     return this.getStringAttribute('default_root_object');
   }
@@ -4367,7 +4367,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -4390,7 +4390,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // http_version - computed: false, optional: true, required: false
-  private _httpVersion?: string; 
+  private _httpVersion?: string;
   public get httpVersion() {
     return this.getStringAttribute('http_version');
   }
@@ -4406,7 +4406,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -4427,7 +4427,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // is_ipv6_enabled - computed: false, optional: true, required: false
-  private _isIpv6Enabled?: boolean | cdktf.IResolvable; 
+  private _isIpv6Enabled?: boolean | cdktf.IResolvable;
   public get isIpv6Enabled() {
     return this.getBooleanAttribute('is_ipv6_enabled');
   }
@@ -4448,7 +4448,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // price_class - computed: false, optional: true, required: false
-  private _priceClass?: string; 
+  private _priceClass?: string;
   public get priceClass() {
     return this.getStringAttribute('price_class');
   }
@@ -4464,7 +4464,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // retain_on_delete - computed: false, optional: true, required: false
-  private _retainOnDelete?: boolean | cdktf.IResolvable; 
+  private _retainOnDelete?: boolean | cdktf.IResolvable;
   public get retainOnDelete() {
     return this.getBooleanAttribute('retain_on_delete');
   }
@@ -4485,7 +4485,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -4501,7 +4501,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -4529,7 +4529,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // wait_for_deployment - computed: false, optional: true, required: false
-  private _waitForDeployment?: boolean | cdktf.IResolvable; 
+  private _waitForDeployment?: boolean | cdktf.IResolvable;
   public get waitForDeployment() {
     return this.getBooleanAttribute('wait_for_deployment');
   }
@@ -4545,7 +4545,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // web_acl_id - computed: false, optional: true, required: false
-  private _webAclId?: string; 
+  private _webAclId?: string;
   public get webAclId() {
     return this.getStringAttribute('web_acl_id');
   }

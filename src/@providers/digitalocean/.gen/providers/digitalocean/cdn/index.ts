@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/cdn
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface CdnConfig extends cdktf.TerraformMetaArguments {
   /**
   * ID of a DigitalOcean managed TLS certificate for use with custom domains
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#certificate_id Cdn#certificate_id}
   */
   readonly certificateId?: string;
@@ -19,7 +19,7 @@ export interface CdnConfig extends cdktf.TerraformMetaArguments {
   readonly certificateName?: string;
   /**
   * fully qualified domain name (FQDN) for custom subdomain, (requires certificate_id)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#custom_domain Cdn#custom_domain}
   */
   readonly customDomain?: string;
@@ -32,13 +32,13 @@ export interface CdnConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * fully qualified domain name (FQDN) for the origin server
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#origin Cdn#origin}
   */
   readonly origin: string;
   /**
   * The amount of time the content is cached in the CDN
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#ttl Cdn#ttl}
   */
   readonly ttl?: number;
@@ -94,7 +94,7 @@ export class Cdn extends cdktf.TerraformResource {
   // ==========
 
   // certificate_id - computed: true, optional: true, required: false
-  private _certificateId?: string; 
+  private _certificateId?: string;
   public get certificateId() {
     return this.getStringAttribute('certificate_id');
   }
@@ -110,7 +110,7 @@ export class Cdn extends cdktf.TerraformResource {
   }
 
   // certificate_name - computed: true, optional: true, required: false
-  private _certificateName?: string; 
+  private _certificateName?: string;
   public get certificateName() {
     return this.getStringAttribute('certificate_name');
   }
@@ -131,7 +131,7 @@ export class Cdn extends cdktf.TerraformResource {
   }
 
   // custom_domain - computed: false, optional: true, required: false
-  private _customDomain?: string; 
+  private _customDomain?: string;
   public get customDomain() {
     return this.getStringAttribute('custom_domain');
   }
@@ -152,7 +152,7 @@ export class Cdn extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -168,7 +168,7 @@ export class Cdn extends cdktf.TerraformResource {
   }
 
   // origin - computed: false, optional: false, required: true
-  private _origin?: string; 
+  private _origin?: string;
   public get origin() {
     return this.getStringAttribute('origin');
   }
@@ -181,7 +181,7 @@ export class Cdn extends cdktf.TerraformResource {
   }
 
   // ttl - computed: true, optional: true, required: false
-  private _ttl?: number; 
+  private _ttl?: number;
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }

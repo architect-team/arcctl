@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/globalaccelerator_accelerator
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface GlobalacceleratorAcceleratorConfig extends cdktf.TerraformMetaA
   readonly tagsAll?: { [key: string]: string };
   /**
   * attributes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_accelerator#attributes GlobalacceleratorAccelerator#attributes}
   */
   readonly attributes?: GlobalacceleratorAcceleratorAttributes;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_accelerator#timeouts GlobalacceleratorAccelerator#timeouts}
   */
   readonly timeouts?: GlobalacceleratorAcceleratorTimeouts;
@@ -192,7 +192,7 @@ export class GlobalacceleratorAcceleratorAttributesOutputReference extends cdktf
   }
 
   // flow_logs_enabled - computed: false, optional: true, required: false
-  private _flowLogsEnabled?: boolean | cdktf.IResolvable; 
+  private _flowLogsEnabled?: boolean | cdktf.IResolvable;
   public get flowLogsEnabled() {
     return this.getBooleanAttribute('flow_logs_enabled');
   }
@@ -208,7 +208,7 @@ export class GlobalacceleratorAcceleratorAttributesOutputReference extends cdktf
   }
 
   // flow_logs_s3_bucket - computed: false, optional: true, required: false
-  private _flowLogsS3Bucket?: string; 
+  private _flowLogsS3Bucket?: string;
   public get flowLogsS3Bucket() {
     return this.getStringAttribute('flow_logs_s3_bucket');
   }
@@ -224,7 +224,7 @@ export class GlobalacceleratorAcceleratorAttributesOutputReference extends cdktf
   }
 
   // flow_logs_s3_prefix - computed: false, optional: true, required: false
-  private _flowLogsS3Prefix?: string; 
+  private _flowLogsS3Prefix?: string;
   public get flowLogsS3Prefix() {
     return this.getStringAttribute('flow_logs_s3_prefix');
   }
@@ -310,7 +310,7 @@ export class GlobalacceleratorAcceleratorTimeoutsOutputReference extends cdktf.C
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -326,7 +326,7 @@ export class GlobalacceleratorAcceleratorTimeoutsOutputReference extends cdktf.C
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -405,7 +405,7 @@ export class GlobalacceleratorAccelerator extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -426,7 +426,7 @@ export class GlobalacceleratorAccelerator extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -442,7 +442,7 @@ export class GlobalacceleratorAccelerator extends cdktf.TerraformResource {
   }
 
   // ip_address_type - computed: false, optional: true, required: false
-  private _ipAddressType?: string; 
+  private _ipAddressType?: string;
   public get ipAddressType() {
     return this.getStringAttribute('ip_address_type');
   }
@@ -458,7 +458,7 @@ export class GlobalacceleratorAccelerator extends cdktf.TerraformResource {
   }
 
   // ip_addresses - computed: false, optional: true, required: false
-  private _ipAddresses?: string[]; 
+  private _ipAddresses?: string[];
   public get ipAddresses() {
     return this.getListAttribute('ip_addresses');
   }
@@ -480,7 +480,7 @@ export class GlobalacceleratorAccelerator extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -493,7 +493,7 @@ export class GlobalacceleratorAccelerator extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -509,7 +509,7 @@ export class GlobalacceleratorAccelerator extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

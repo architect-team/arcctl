@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/transfer_access
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface TransferAccessConfig extends cdktf.TerraformMetaArguments {
   readonly serverId: string;
   /**
   * home_directory_mappings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_access#home_directory_mappings TransferAccess#home_directory_mappings}
   */
   readonly homeDirectoryMappings?: TransferAccessHomeDirectoryMappings[] | cdktf.IResolvable;
   /**
   * posix_profile block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_access#posix_profile TransferAccess#posix_profile}
   */
   readonly posixProfile?: TransferAccessPosixProfile;
@@ -124,7 +124,7 @@ export class TransferAccessHomeDirectoryMappingsOutputReference extends cdktf.Co
   }
 
   // entry - computed: false, optional: false, required: true
-  private _entry?: string; 
+  private _entry?: string;
   public get entry() {
     return this.getStringAttribute('entry');
   }
@@ -137,7 +137,7 @@ export class TransferAccessHomeDirectoryMappingsOutputReference extends cdktf.Co
   }
 
   // target - computed: false, optional: false, required: true
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -241,7 +241,7 @@ export class TransferAccessPosixProfileOutputReference extends cdktf.ComplexObje
   }
 
   // gid - computed: false, optional: false, required: true
-  private _gid?: number; 
+  private _gid?: number;
   public get gid() {
     return this.getNumberAttribute('gid');
   }
@@ -254,7 +254,7 @@ export class TransferAccessPosixProfileOutputReference extends cdktf.ComplexObje
   }
 
   // secondary_gids - computed: false, optional: true, required: false
-  private _secondaryGids?: number[]; 
+  private _secondaryGids?: number[];
   public get secondaryGids() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('secondary_gids')));
   }
@@ -270,7 +270,7 @@ export class TransferAccessPosixProfileOutputReference extends cdktf.ComplexObje
   }
 
   // uid - computed: false, optional: false, required: true
-  private _uid?: number; 
+  private _uid?: number;
   public get uid() {
     return this.getNumberAttribute('uid');
   }
@@ -336,7 +336,7 @@ export class TransferAccess extends cdktf.TerraformResource {
   // ==========
 
   // external_id - computed: false, optional: false, required: true
-  private _externalId?: string; 
+  private _externalId?: string;
   public get externalId() {
     return this.getStringAttribute('external_id');
   }
@@ -349,7 +349,7 @@ export class TransferAccess extends cdktf.TerraformResource {
   }
 
   // home_directory - computed: false, optional: true, required: false
-  private _homeDirectory?: string; 
+  private _homeDirectory?: string;
   public get homeDirectory() {
     return this.getStringAttribute('home_directory');
   }
@@ -365,7 +365,7 @@ export class TransferAccess extends cdktf.TerraformResource {
   }
 
   // home_directory_type - computed: false, optional: true, required: false
-  private _homeDirectoryType?: string; 
+  private _homeDirectoryType?: string;
   public get homeDirectoryType() {
     return this.getStringAttribute('home_directory_type');
   }
@@ -381,7 +381,7 @@ export class TransferAccess extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -397,7 +397,7 @@ export class TransferAccess extends cdktf.TerraformResource {
   }
 
   // policy - computed: false, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -413,7 +413,7 @@ export class TransferAccess extends cdktf.TerraformResource {
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -429,7 +429,7 @@ export class TransferAccess extends cdktf.TerraformResource {
   }
 
   // server_id - computed: false, optional: false, required: true
-  private _serverId?: string; 
+  private _serverId?: string;
   public get serverId() {
     return this.getStringAttribute('server_id');
   }

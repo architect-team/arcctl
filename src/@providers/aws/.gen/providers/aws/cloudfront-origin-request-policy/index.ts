@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_request_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,19 +24,19 @@ export interface CloudfrontOriginRequestPolicyConfig extends cdktf.TerraformMeta
   readonly name: string;
   /**
   * cookies_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_request_policy#cookies_config CloudfrontOriginRequestPolicy#cookies_config}
   */
   readonly cookiesConfig: CloudfrontOriginRequestPolicyCookiesConfig;
   /**
   * headers_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_request_policy#headers_config CloudfrontOriginRequestPolicy#headers_config}
   */
   readonly headersConfig: CloudfrontOriginRequestPolicyHeadersConfig;
   /**
   * query_strings_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_request_policy#query_strings_config CloudfrontOriginRequestPolicy#query_strings_config}
   */
   readonly queryStringsConfig: CloudfrontOriginRequestPolicyQueryStringsConfig;
@@ -91,7 +91,7 @@ export class CloudfrontOriginRequestPolicyCookiesConfigCookiesOutputReference ex
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -113,7 +113,7 @@ export interface CloudfrontOriginRequestPolicyCookiesConfig {
   readonly cookieBehavior: string;
   /**
   * cookies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_request_policy#cookies CloudfrontOriginRequestPolicy#cookies}
   */
   readonly cookies?: CloudfrontOriginRequestPolicyCookiesConfigCookies;
@@ -169,7 +169,7 @@ export class CloudfrontOriginRequestPolicyCookiesConfigOutputReference extends c
   }
 
   // cookie_behavior - computed: false, optional: false, required: true
-  private _cookieBehavior?: string; 
+  private _cookieBehavior?: string;
   public get cookieBehavior() {
     return this.getStringAttribute('cookie_behavior');
   }
@@ -247,7 +247,7 @@ export class CloudfrontOriginRequestPolicyHeadersConfigHeadersOutputReference ex
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -269,7 +269,7 @@ export interface CloudfrontOriginRequestPolicyHeadersConfig {
   readonly headerBehavior?: string;
   /**
   * headers block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_request_policy#headers CloudfrontOriginRequestPolicy#headers}
   */
   readonly headers?: CloudfrontOriginRequestPolicyHeadersConfigHeaders;
@@ -325,7 +325,7 @@ export class CloudfrontOriginRequestPolicyHeadersConfigOutputReference extends c
   }
 
   // header_behavior - computed: false, optional: true, required: false
-  private _headerBehavior?: string; 
+  private _headerBehavior?: string;
   public get headerBehavior() {
     return this.getStringAttribute('header_behavior');
   }
@@ -406,7 +406,7 @@ export class CloudfrontOriginRequestPolicyQueryStringsConfigQueryStringsOutputRe
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -428,7 +428,7 @@ export interface CloudfrontOriginRequestPolicyQueryStringsConfig {
   readonly queryStringBehavior: string;
   /**
   * query_strings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_request_policy#query_strings CloudfrontOriginRequestPolicy#query_strings}
   */
   readonly queryStrings?: CloudfrontOriginRequestPolicyQueryStringsConfigQueryStrings;
@@ -484,7 +484,7 @@ export class CloudfrontOriginRequestPolicyQueryStringsConfigOutputReference exte
   }
 
   // query_string_behavior - computed: false, optional: false, required: true
-  private _queryStringBehavior?: string; 
+  private _queryStringBehavior?: string;
   public get queryStringBehavior() {
     return this.getStringAttribute('query_string_behavior');
   }
@@ -563,7 +563,7 @@ export class CloudfrontOriginRequestPolicy extends cdktf.TerraformResource {
   // ==========
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -584,7 +584,7 @@ export class CloudfrontOriginRequestPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -600,7 +600,7 @@ export class CloudfrontOriginRequestPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

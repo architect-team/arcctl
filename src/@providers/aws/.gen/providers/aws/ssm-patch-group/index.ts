@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_patch_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SsmPatchGroup extends cdktf.TerraformResource {
   // ==========
 
   // baseline_id - computed: false, optional: false, required: true
-  private _baselineId?: string; 
+  private _baselineId?: string;
   public get baselineId() {
     return this.getStringAttribute('baseline_id');
   }
@@ -84,7 +84,7 @@ export class SsmPatchGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class SsmPatchGroup extends cdktf.TerraformResource {
   }
 
   // patch_group - computed: false, optional: false, required: true
-  private _patchGroup?: string; 
+  private _patchGroup?: string;
   public get patchGroup() {
     return this.getStringAttribute('patch_group');
   }

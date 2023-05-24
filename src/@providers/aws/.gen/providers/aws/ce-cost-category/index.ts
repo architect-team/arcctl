@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ce_cost_category
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface CeCostCategoryConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#rule CeCostCategory#rule}
   */
   readonly rule: CeCostCategoryRule[] | cdktf.IResolvable;
   /**
   * split_charge_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#split_charge_rule CeCostCategory#split_charge_rule}
   */
   readonly splitChargeRule?: CeCostCategorySplitChargeRule[] | cdktf.IResolvable;
@@ -112,7 +112,7 @@ export class CeCostCategoryRuleInheritedValueOutputReference extends cdktf.Compl
   }
 
   // dimension_key - computed: false, optional: true, required: false
-  private _dimensionKey?: string; 
+  private _dimensionKey?: string;
   public get dimensionKey() {
     return this.getStringAttribute('dimension_key');
   }
@@ -128,7 +128,7 @@ export class CeCostCategoryRuleInheritedValueOutputReference extends cdktf.Compl
   }
 
   // dimension_name - computed: false, optional: true, required: false
-  private _dimensionName?: string; 
+  private _dimensionName?: string;
   public get dimensionName() {
     return this.getStringAttribute('dimension_name');
   }
@@ -215,7 +215,7 @@ export class CeCostCategoryRuleRuleAndCostCategoryOutputReference extends cdktf.
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -231,7 +231,7 @@ export class CeCostCategoryRuleRuleAndCostCategoryOutputReference extends cdktf.
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -247,7 +247,7 @@ export class CeCostCategoryRuleRuleAndCostCategoryOutputReference extends cdktf.
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -334,7 +334,7 @@ export class CeCostCategoryRuleRuleAndDimensionOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -350,7 +350,7 @@ export class CeCostCategoryRuleRuleAndDimensionOutputReference extends cdktf.Com
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -366,7 +366,7 @@ export class CeCostCategoryRuleRuleAndDimensionOutputReference extends cdktf.Com
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -453,7 +453,7 @@ export class CeCostCategoryRuleRuleAndTagsOutputReference extends cdktf.ComplexO
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -469,7 +469,7 @@ export class CeCostCategoryRuleRuleAndTagsOutputReference extends cdktf.ComplexO
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -485,7 +485,7 @@ export class CeCostCategoryRuleRuleAndTagsOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -503,19 +503,19 @@ export class CeCostCategoryRuleRuleAndTagsOutputReference extends cdktf.ComplexO
 export interface CeCostCategoryRuleRuleAnd {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#cost_category CeCostCategory#cost_category}
   */
   readonly costCategory?: CeCostCategoryRuleRuleAndCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#dimension CeCostCategory#dimension}
   */
   readonly dimension?: CeCostCategoryRuleRuleAndDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#tags CeCostCategory#tags}
   */
   readonly tags?: CeCostCategoryRuleRuleAndTags;
@@ -729,7 +729,7 @@ export class CeCostCategoryRuleRuleCostCategoryOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -745,7 +745,7 @@ export class CeCostCategoryRuleRuleCostCategoryOutputReference extends cdktf.Com
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -761,7 +761,7 @@ export class CeCostCategoryRuleRuleCostCategoryOutputReference extends cdktf.Com
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -848,7 +848,7 @@ export class CeCostCategoryRuleRuleDimensionOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -864,7 +864,7 @@ export class CeCostCategoryRuleRuleDimensionOutputReference extends cdktf.Comple
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -880,7 +880,7 @@ export class CeCostCategoryRuleRuleDimensionOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -967,7 +967,7 @@ export class CeCostCategoryRuleRuleNotCostCategoryOutputReference extends cdktf.
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -983,7 +983,7 @@ export class CeCostCategoryRuleRuleNotCostCategoryOutputReference extends cdktf.
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -999,7 +999,7 @@ export class CeCostCategoryRuleRuleNotCostCategoryOutputReference extends cdktf.
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1086,7 +1086,7 @@ export class CeCostCategoryRuleRuleNotDimensionOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1102,7 +1102,7 @@ export class CeCostCategoryRuleRuleNotDimensionOutputReference extends cdktf.Com
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1118,7 +1118,7 @@ export class CeCostCategoryRuleRuleNotDimensionOutputReference extends cdktf.Com
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1205,7 +1205,7 @@ export class CeCostCategoryRuleRuleNotTagsOutputReference extends cdktf.ComplexO
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1221,7 +1221,7 @@ export class CeCostCategoryRuleRuleNotTagsOutputReference extends cdktf.ComplexO
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1237,7 +1237,7 @@ export class CeCostCategoryRuleRuleNotTagsOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1255,19 +1255,19 @@ export class CeCostCategoryRuleRuleNotTagsOutputReference extends cdktf.ComplexO
 export interface CeCostCategoryRuleRuleNot {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#cost_category CeCostCategory#cost_category}
   */
   readonly costCategory?: CeCostCategoryRuleRuleNotCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#dimension CeCostCategory#dimension}
   */
   readonly dimension?: CeCostCategoryRuleRuleNotDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#tags CeCostCategory#tags}
   */
   readonly tags?: CeCostCategoryRuleRuleNotTags;
@@ -1449,7 +1449,7 @@ export class CeCostCategoryRuleRuleOrCostCategoryOutputReference extends cdktf.C
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1465,7 +1465,7 @@ export class CeCostCategoryRuleRuleOrCostCategoryOutputReference extends cdktf.C
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1481,7 +1481,7 @@ export class CeCostCategoryRuleRuleOrCostCategoryOutputReference extends cdktf.C
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1568,7 +1568,7 @@ export class CeCostCategoryRuleRuleOrDimensionOutputReference extends cdktf.Comp
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1584,7 +1584,7 @@ export class CeCostCategoryRuleRuleOrDimensionOutputReference extends cdktf.Comp
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1600,7 +1600,7 @@ export class CeCostCategoryRuleRuleOrDimensionOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1687,7 +1687,7 @@ export class CeCostCategoryRuleRuleOrTagsOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1703,7 +1703,7 @@ export class CeCostCategoryRuleRuleOrTagsOutputReference extends cdktf.ComplexOb
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1719,7 +1719,7 @@ export class CeCostCategoryRuleRuleOrTagsOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1737,19 +1737,19 @@ export class CeCostCategoryRuleRuleOrTagsOutputReference extends cdktf.ComplexOb
 export interface CeCostCategoryRuleRuleOr {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#cost_category CeCostCategory#cost_category}
   */
   readonly costCategory?: CeCostCategoryRuleRuleOrCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#dimension CeCostCategory#dimension}
   */
   readonly dimension?: CeCostCategoryRuleRuleOrDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#tags CeCostCategory#tags}
   */
   readonly tags?: CeCostCategoryRuleRuleOrTags;
@@ -1963,7 +1963,7 @@ export class CeCostCategoryRuleRuleTagsOutputReference extends cdktf.ComplexObje
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1979,7 +1979,7 @@ export class CeCostCategoryRuleRuleTagsOutputReference extends cdktf.ComplexObje
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1995,7 +1995,7 @@ export class CeCostCategoryRuleRuleTagsOutputReference extends cdktf.ComplexObje
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2013,37 +2013,37 @@ export class CeCostCategoryRuleRuleTagsOutputReference extends cdktf.ComplexObje
 export interface CeCostCategoryRuleRule {
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#and CeCostCategory#and}
   */
   readonly and?: CeCostCategoryRuleRuleAnd[] | cdktf.IResolvable;
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#cost_category CeCostCategory#cost_category}
   */
   readonly costCategory?: CeCostCategoryRuleRuleCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#dimension CeCostCategory#dimension}
   */
   readonly dimension?: CeCostCategoryRuleRuleDimension;
   /**
   * not block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#not CeCostCategory#not}
   */
   readonly not?: CeCostCategoryRuleRuleNot;
   /**
   * or block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#or CeCostCategory#or}
   */
   readonly or?: CeCostCategoryRuleRuleOr[] | cdktf.IResolvable;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#tags CeCostCategory#tags}
   */
   readonly tags?: CeCostCategoryRuleRuleTags;
@@ -2233,13 +2233,13 @@ export interface CeCostCategoryRule {
   readonly value?: string;
   /**
   * inherited_value block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#inherited_value CeCostCategory#inherited_value}
   */
   readonly inheritedValue?: CeCostCategoryRuleInheritedValue;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#rule CeCostCategory#rule}
   */
   readonly rule?: CeCostCategoryRuleRule;
@@ -2321,7 +2321,7 @@ export class CeCostCategoryRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2337,7 +2337,7 @@ export class CeCostCategoryRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2477,7 +2477,7 @@ export class CeCostCategorySplitChargeRuleParameterOutputReference extends cdktf
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2493,7 +2493,7 @@ export class CeCostCategorySplitChargeRuleParameterOutputReference extends cdktf
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -2543,7 +2543,7 @@ export interface CeCostCategorySplitChargeRule {
   readonly targets: string[];
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_cost_category#parameter CeCostCategory#parameter}
   */
   readonly parameter?: CeCostCategorySplitChargeRuleParameter[] | cdktf.IResolvable;
@@ -2625,7 +2625,7 @@ export class CeCostCategorySplitChargeRuleOutputReference extends cdktf.ComplexO
   }
 
   // method - computed: false, optional: false, required: true
-  private _method?: string; 
+  private _method?: string;
   public get method() {
     return this.getStringAttribute('method');
   }
@@ -2638,7 +2638,7 @@ export class CeCostCategorySplitChargeRuleOutputReference extends cdktf.ComplexO
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -2651,7 +2651,7 @@ export class CeCostCategorySplitChargeRuleOutputReference extends cdktf.ComplexO
   }
 
   // targets - computed: false, optional: false, required: true
-  private _targets?: string[]; 
+  private _targets?: string[];
   public get targets() {
     return cdktf.Fn.tolist(this.getListAttribute('targets'));
   }
@@ -2758,7 +2758,7 @@ export class CeCostCategory extends cdktf.TerraformResource {
   }
 
   // default_value - computed: false, optional: true, required: false
-  private _defaultValue?: string; 
+  private _defaultValue?: string;
   public get defaultValue() {
     return this.getStringAttribute('default_value');
   }
@@ -2779,7 +2779,7 @@ export class CeCostCategory extends cdktf.TerraformResource {
   }
 
   // effective_start - computed: true, optional: true, required: false
-  private _effectiveStart?: string; 
+  private _effectiveStart?: string;
   public get effectiveStart() {
     return this.getStringAttribute('effective_start');
   }
@@ -2795,7 +2795,7 @@ export class CeCostCategory extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2811,7 +2811,7 @@ export class CeCostCategory extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2824,7 +2824,7 @@ export class CeCostCategory extends cdktf.TerraformResource {
   }
 
   // rule_version - computed: false, optional: false, required: true
-  private _ruleVersion?: string; 
+  private _ruleVersion?: string;
   public get ruleVersion() {
     return this.getStringAttribute('rule_version');
   }
@@ -2837,7 +2837,7 @@ export class CeCostCategory extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2853,7 +2853,7 @@ export class CeCostCategory extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

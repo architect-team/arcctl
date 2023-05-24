@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/config_conformance_pack
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface ConfigConformancePackConfig extends cdktf.TerraformMetaArgument
   readonly templateS3Uri?: string;
   /**
   * input_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#input_parameter ConfigConformancePack#input_parameter}
   */
   readonly inputParameter?: ConfigConformancePackInputParameter[] | cdktf.IResolvable;
@@ -114,7 +114,7 @@ export class ConfigConformancePackInputParameterOutputReference extends cdktf.Co
   }
 
   // parameter_name - computed: false, optional: false, required: true
-  private _parameterName?: string; 
+  private _parameterName?: string;
   public get parameterName() {
     return this.getStringAttribute('parameter_name');
   }
@@ -127,7 +127,7 @@ export class ConfigConformancePackInputParameterOutputReference extends cdktf.Co
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string; 
+  private _parameterValue?: string;
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -216,7 +216,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // delivery_s3_bucket - computed: false, optional: true, required: false
-  private _deliveryS3Bucket?: string; 
+  private _deliveryS3Bucket?: string;
   public get deliveryS3Bucket() {
     return this.getStringAttribute('delivery_s3_bucket');
   }
@@ -232,7 +232,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // delivery_s3_key_prefix - computed: false, optional: true, required: false
-  private _deliveryS3KeyPrefix?: string; 
+  private _deliveryS3KeyPrefix?: string;
   public get deliveryS3KeyPrefix() {
     return this.getStringAttribute('delivery_s3_key_prefix');
   }
@@ -248,7 +248,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -264,7 +264,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -277,7 +277,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // template_body - computed: false, optional: true, required: false
-  private _templateBody?: string; 
+  private _templateBody?: string;
   public get templateBody() {
     return this.getStringAttribute('template_body');
   }
@@ -293,7 +293,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // template_s3_uri - computed: false, optional: true, required: false
-  private _templateS3Uri?: string; 
+  private _templateS3Uri?: string;
   public get templateS3Uri() {
     return this.getStringAttribute('template_s3_uri');
   }

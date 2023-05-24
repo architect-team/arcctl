@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/droplet
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -80,7 +80,7 @@ export interface DropletConfig extends cdktf.TerraformMetaArguments {
   readonly vpcUuid?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#timeouts Droplet#timeouts}
   */
   readonly timeouts?: DropletTimeouts;
@@ -167,7 +167,7 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -183,7 +183,7 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -199,7 +199,7 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -277,7 +277,7 @@ export class Droplet extends cdktf.TerraformResource {
   // ==========
 
   // backups - computed: false, optional: true, required: false
-  private _backups?: boolean | cdktf.IResolvable; 
+  private _backups?: boolean | cdktf.IResolvable;
   public get backups() {
     return this.getBooleanAttribute('backups');
   }
@@ -303,7 +303,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // droplet_agent - computed: false, optional: true, required: false
-  private _dropletAgent?: boolean | cdktf.IResolvable; 
+  private _dropletAgent?: boolean | cdktf.IResolvable;
   public get dropletAgent() {
     return this.getBooleanAttribute('droplet_agent');
   }
@@ -319,7 +319,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // graceful_shutdown - computed: false, optional: true, required: false
-  private _gracefulShutdown?: boolean | cdktf.IResolvable; 
+  private _gracefulShutdown?: boolean | cdktf.IResolvable;
   public get gracefulShutdown() {
     return this.getBooleanAttribute('graceful_shutdown');
   }
@@ -335,7 +335,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -351,7 +351,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -374,7 +374,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // ipv6 - computed: false, optional: true, required: false
-  private _ipv6?: boolean | cdktf.IResolvable; 
+  private _ipv6?: boolean | cdktf.IResolvable;
   public get ipv6() {
     return this.getBooleanAttribute('ipv6');
   }
@@ -405,7 +405,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // monitoring - computed: false, optional: true, required: false
-  private _monitoring?: boolean | cdktf.IResolvable; 
+  private _monitoring?: boolean | cdktf.IResolvable;
   public get monitoring() {
     return this.getBooleanAttribute('monitoring');
   }
@@ -421,7 +421,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -444,7 +444,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // private_networking - computed: true, optional: true, required: false
-  private _privateNetworking?: boolean | cdktf.IResolvable; 
+  private _privateNetworking?: boolean | cdktf.IResolvable;
   public get privateNetworking() {
     return this.getBooleanAttribute('private_networking');
   }
@@ -460,7 +460,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -476,7 +476,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // resize_disk - computed: false, optional: true, required: false
-  private _resizeDisk?: boolean | cdktf.IResolvable; 
+  private _resizeDisk?: boolean | cdktf.IResolvable;
   public get resizeDisk() {
     return this.getBooleanAttribute('resize_disk');
   }
@@ -492,7 +492,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: string; 
+  private _size?: string;
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -505,7 +505,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // ssh_keys - computed: false, optional: true, required: false
-  private _sshKeys?: string[]; 
+  private _sshKeys?: string[];
   public get sshKeys() {
     return cdktf.Fn.tolist(this.getListAttribute('ssh_keys'));
   }
@@ -526,7 +526,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -547,7 +547,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // user_data - computed: false, optional: true, required: false
-  private _userData?: string; 
+  private _userData?: string;
   public get userData() {
     return this.getStringAttribute('user_data');
   }
@@ -568,7 +568,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // volume_ids - computed: true, optional: true, required: false
-  private _volumeIds?: string[]; 
+  private _volumeIds?: string[];
   public get volumeIds() {
     return cdktf.Fn.tolist(this.getListAttribute('volume_ids'));
   }
@@ -584,7 +584,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // vpc_uuid - computed: true, optional: true, required: false
-  private _vpcUuid?: string; 
+  private _vpcUuid?: string;
   public get vpcUuid() {
     return this.getStringAttribute('vpc_uuid');
   }

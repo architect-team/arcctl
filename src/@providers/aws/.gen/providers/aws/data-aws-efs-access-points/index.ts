@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/efs_access_points
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsEfsAccessPoints extends cdktf.TerraformDataSource {
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -84,7 +84,7 @@ export class DataAwsEfsAccessPoints extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,19 +48,19 @@ export interface KubernetesClusterConfig extends cdktf.TerraformMetaArguments {
   readonly vpcUuid?: string;
   /**
   * maintenance_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_cluster#maintenance_policy KubernetesCluster#maintenance_policy}
   */
   readonly maintenancePolicy?: KubernetesClusterMaintenancePolicy;
   /**
   * node_pool block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_cluster#node_pool KubernetesCluster#node_pool}
   */
   readonly nodePool: KubernetesClusterNodePool;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_cluster#timeouts KubernetesCluster#timeouts}
   */
   readonly timeouts?: KubernetesClusterTimeouts;
@@ -220,7 +220,7 @@ export class KubernetesClusterMaintenancePolicyOutputReference extends cdktf.Com
   }
 
   // day - computed: true, optional: true, required: false
-  private _day?: string; 
+  private _day?: string;
   public get day() {
     return this.getStringAttribute('day');
   }
@@ -241,7 +241,7 @@ export class KubernetesClusterMaintenancePolicyOutputReference extends cdktf.Com
   }
 
   // start_time - computed: true, optional: true, required: false
-  private _startTime?: string; 
+  private _startTime?: string;
   public get startTime() {
     return this.getStringAttribute('start_time');
   }
@@ -429,7 +429,7 @@ export class KubernetesClusterNodePoolTaintOutputReference extends cdktf.Complex
   }
 
   // effect - computed: false, optional: false, required: true
-  private _effect?: string; 
+  private _effect?: string;
   public get effect() {
     return this.getStringAttribute('effect');
   }
@@ -442,7 +442,7 @@ export class KubernetesClusterNodePoolTaintOutputReference extends cdktf.Complex
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -455,7 +455,7 @@ export class KubernetesClusterNodePoolTaintOutputReference extends cdktf.Complex
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -522,7 +522,7 @@ export interface KubernetesClusterNodePool {
   readonly tags?: string[];
   /**
   * taint block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_cluster#taint KubernetesCluster#taint}
   */
   readonly taint?: KubernetesClusterNodePoolTaint[] | cdktf.IResolvable;
@@ -632,7 +632,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // auto_scale - computed: false, optional: true, required: false
-  private _autoScale?: boolean | cdktf.IResolvable; 
+  private _autoScale?: boolean | cdktf.IResolvable;
   public get autoScale() {
     return this.getBooleanAttribute('auto_scale');
   }
@@ -653,7 +653,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -669,7 +669,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // max_nodes - computed: false, optional: true, required: false
-  private _maxNodes?: number; 
+  private _maxNodes?: number;
   public get maxNodes() {
     return this.getNumberAttribute('max_nodes');
   }
@@ -685,7 +685,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // min_nodes - computed: false, optional: true, required: false
-  private _minNodes?: number; 
+  private _minNodes?: number;
   public get minNodes() {
     return this.getNumberAttribute('min_nodes');
   }
@@ -701,7 +701,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -714,7 +714,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // node_count - computed: false, optional: true, required: false
-  private _nodeCount?: number; 
+  private _nodeCount?: number;
   public get nodeCount() {
     return this.getNumberAttribute('node_count');
   }
@@ -736,7 +736,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: string; 
+  private _size?: string;
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -749,7 +749,7 @@ export class KubernetesClusterNodePoolOutputReference extends cdktf.ComplexObjec
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -840,7 +840,7 @@ export class KubernetesClusterTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -912,7 +912,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   // ==========
 
   // auto_upgrade - computed: false, optional: true, required: false
-  private _autoUpgrade?: boolean | cdktf.IResolvable; 
+  private _autoUpgrade?: boolean | cdktf.IResolvable;
   public get autoUpgrade() {
     return this.getBooleanAttribute('auto_upgrade');
   }
@@ -943,7 +943,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // ha - computed: false, optional: true, required: false
-  private _ha?: boolean | cdktf.IResolvable; 
+  private _ha?: boolean | cdktf.IResolvable;
   public get ha() {
     return this.getBooleanAttribute('ha');
   }
@@ -959,7 +959,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -986,7 +986,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -999,7 +999,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -1022,7 +1022,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // surge_upgrade - computed: false, optional: true, required: false
-  private _surgeUpgrade?: boolean | cdktf.IResolvable; 
+  private _surgeUpgrade?: boolean | cdktf.IResolvable;
   public get surgeUpgrade() {
     return this.getBooleanAttribute('surge_upgrade');
   }
@@ -1038,7 +1038,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -1064,7 +1064,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -1077,7 +1077,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   }
 
   // vpc_uuid - computed: true, optional: true, required: false
-  private _vpcUuid?: string; 
+  private _vpcUuid?: string;
   public get vpcUuid() {
     return this.getStringAttribute('vpc_uuid');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/amplify_domain_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface AmplifyDomainAssociationConfig extends cdktf.TerraformMetaArgum
   readonly waitForVerification?: boolean | cdktf.IResolvable;
   /**
   * sub_domain block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/amplify_domain_association#sub_domain AmplifyDomainAssociation#sub_domain}
   */
   readonly subDomain: AmplifyDomainAssociationSubDomain[] | cdktf.IResolvable;
@@ -110,7 +110,7 @@ export class AmplifyDomainAssociationSubDomainOutputReference extends cdktf.Comp
   }
 
   // branch_name - computed: false, optional: false, required: true
-  private _branchName?: string; 
+  private _branchName?: string;
   public get branchName() {
     return this.getStringAttribute('branch_name');
   }
@@ -128,7 +128,7 @@ export class AmplifyDomainAssociationSubDomainOutputReference extends cdktf.Comp
   }
 
   // prefix - computed: false, optional: false, required: true
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -216,7 +216,7 @@ export class AmplifyDomainAssociation extends cdktf.TerraformResource {
   // ==========
 
   // app_id - computed: false, optional: false, required: true
-  private _appId?: string; 
+  private _appId?: string;
   public get appId() {
     return this.getStringAttribute('app_id');
   }
@@ -239,7 +239,7 @@ export class AmplifyDomainAssociation extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -252,7 +252,7 @@ export class AmplifyDomainAssociation extends cdktf.TerraformResource {
   }
 
   // enable_auto_sub_domain - computed: false, optional: true, required: false
-  private _enableAutoSubDomain?: boolean | cdktf.IResolvable; 
+  private _enableAutoSubDomain?: boolean | cdktf.IResolvable;
   public get enableAutoSubDomain() {
     return this.getBooleanAttribute('enable_auto_sub_domain');
   }
@@ -268,7 +268,7 @@ export class AmplifyDomainAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -284,7 +284,7 @@ export class AmplifyDomainAssociation extends cdktf.TerraformResource {
   }
 
   // wait_for_verification - computed: false, optional: true, required: false
-  private _waitForVerification?: boolean | cdktf.IResolvable; 
+  private _waitForVerification?: boolean | cdktf.IResolvable;
   public get waitForVerification() {
     return this.getBooleanAttribute('wait_for_verification');
   }

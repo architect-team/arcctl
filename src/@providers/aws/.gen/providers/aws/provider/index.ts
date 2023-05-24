@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -10,7 +10,7 @@ export interface AwsProviderConfig {
   /**
   * The access key for API operations. You can retrieve this
 from the 'Security & Credentials' section of the AWS console.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#access_key AwsProvider#access_key}
   */
   readonly accessKey?: string;
@@ -20,19 +20,19 @@ from the 'Security & Credentials' section of the AWS console.
   readonly allowedAccountIds?: string[];
   /**
   * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#custom_ca_bundle AwsProvider#custom_ca_bundle}
   */
   readonly customCaBundle?: string;
   /**
   * Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ec2_metadata_service_endpoint AwsProvider#ec2_metadata_service_endpoint}
   */
   readonly ec2MetadataServiceEndpoint?: string;
   /**
   * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ec2_metadata_service_endpoint_mode AwsProvider#ec2_metadata_service_endpoint_mode}
   */
   readonly ec2MetadataServiceEndpointMode?: string;
@@ -42,13 +42,13 @@ from the 'Security & Credentials' section of the AWS console.
   readonly forbiddenAccountIds?: string[];
   /**
   * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or `HTTPS_PROXY` environment variables.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#http_proxy AwsProvider#http_proxy}
   */
   readonly httpProxy?: string;
   /**
   * Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#insecure AwsProvider#insecure}
   */
   readonly insecure?: boolean | cdktf.IResolvable;
@@ -56,21 +56,21 @@ from the 'Security & Credentials' section of the AWS console.
   * The maximum number of times an AWS API request is
 being executed. If the API request still fails, an error is
 thrown.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#max_retries AwsProvider#max_retries}
   */
   readonly maxRetries?: number;
   /**
   * The profile for API operations. If not set, the default profile
 created with `aws configure` will be used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#profile AwsProvider#profile}
   */
   readonly profile?: string;
   /**
   * The region where AWS operations will take place. Examples
 are us-east-1, us-west-2, etc.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#region AwsProvider#region}
   */
   readonly region?: string;
@@ -79,7 +79,7 @@ are us-east-1, us-west-2, etc.
 i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
 use virtual hosted bucket addressing when possible
 (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#s3_force_path_style AwsProvider#s3_force_path_style}
   */
   readonly s3ForcePathStyle?: boolean | cdktf.IResolvable;
@@ -88,124 +88,124 @@ use virtual hosted bucket addressing when possible
 i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
 use virtual hosted bucket addressing when possible
 (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#s3_use_path_style AwsProvider#s3_use_path_style}
   */
   readonly s3UsePathStyle?: boolean | cdktf.IResolvable;
   /**
   * The secret key for API operations. You can retrieve this
 from the 'Security & Credentials' section of the AWS console.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#secret_key AwsProvider#secret_key}
   */
   readonly secretKey?: string;
   /**
   * List of paths to shared config files. If not set, defaults to [~/.aws/config].
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#shared_config_files AwsProvider#shared_config_files}
   */
   readonly sharedConfigFiles?: string[];
   /**
   * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#shared_credentials_file AwsProvider#shared_credentials_file}
   */
   readonly sharedCredentialsFile?: string;
   /**
   * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#shared_credentials_files AwsProvider#shared_credentials_files}
   */
   readonly sharedCredentialsFiles?: string[];
   /**
   * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#skip_credentials_validation AwsProvider#skip_credentials_validation}
   */
   readonly skipCredentialsValidation?: boolean | cdktf.IResolvable;
   /**
   * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#skip_get_ec2_platforms AwsProvider#skip_get_ec2_platforms}
   */
   readonly skipGetEc2Platforms?: boolean | cdktf.IResolvable;
   /**
   * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#skip_metadata_api_check AwsProvider#skip_metadata_api_check}
   */
   readonly skipMetadataApiCheck?: string;
   /**
   * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#skip_region_validation AwsProvider#skip_region_validation}
   */
   readonly skipRegionValidation?: boolean | cdktf.IResolvable;
   /**
   * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#skip_requesting_account_id AwsProvider#skip_requesting_account_id}
   */
   readonly skipRequestingAccountId?: boolean | cdktf.IResolvable;
   /**
   * The region where AWS STS operations will take place. Examples
 are us-east-1 and us-west-2.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sts_region AwsProvider#sts_region}
   */
   readonly stsRegion?: string;
   /**
   * session token. A session token is only required if you are
 using temporary security credentials.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#token AwsProvider#token}
   */
   readonly token?: string;
   /**
   * Resolve an endpoint with DualStack capability
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#use_dualstack_endpoint AwsProvider#use_dualstack_endpoint}
   */
   readonly useDualstackEndpoint?: boolean | cdktf.IResolvable;
   /**
   * Resolve an endpoint with FIPS capability
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#use_fips_endpoint AwsProvider#use_fips_endpoint}
   */
   readonly useFipsEndpoint?: boolean | cdktf.IResolvable;
   /**
   * Alias name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#alias AwsProvider#alias}
   */
   readonly alias?: string;
   /**
   * assume_role block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#assume_role AwsProvider#assume_role}
   */
   readonly assumeRole?: AwsProviderAssumeRole[] | cdktf.IResolvable;
   /**
   * assume_role_with_web_identity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#assume_role_with_web_identity AwsProvider#assume_role_with_web_identity}
   */
   readonly assumeRoleWithWebIdentity?: AwsProviderAssumeRoleWithWebIdentity[] | cdktf.IResolvable;
   /**
   * default_tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#default_tags AwsProvider#default_tags}
   */
   readonly defaultTags?: AwsProviderDefaultTags[] | cdktf.IResolvable;
   /**
   * endpoints block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#endpoints AwsProvider#endpoints}
   */
   readonly endpoints?: AwsProviderEndpoints[] | cdktf.IResolvable;
   /**
   * ignore_tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ignore_tags AwsProvider#ignore_tags}
   */
   readonly ignoreTags?: AwsProviderIgnoreTags[] | cdktf.IResolvable;
@@ -213,61 +213,61 @@ using temporary security credentials.
 export interface AwsProviderAssumeRole {
   /**
   * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#duration AwsProvider#duration}
   */
   readonly duration?: string;
   /**
   * The duration, in seconds, of the role session.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#duration_seconds AwsProvider#duration_seconds}
   */
   readonly durationSeconds?: number;
   /**
   * A unique identifier that might be required when you assume a role in another account.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#external_id AwsProvider#external_id}
   */
   readonly externalId?: string;
   /**
   * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#policy AwsProvider#policy}
   */
   readonly policy?: string;
   /**
   * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#policy_arns AwsProvider#policy_arns}
   */
   readonly policyArns?: string[];
   /**
   * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#role_arn AwsProvider#role_arn}
   */
   readonly roleArn?: string;
   /**
   * An identifier for the assumed role session.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#session_name AwsProvider#session_name}
   */
   readonly sessionName?: string;
   /**
   * Source identity specified by the principal assuming the role.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#source_identity AwsProvider#source_identity}
   */
   readonly sourceIdentity?: string;
   /**
   * Assume role session tags.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#tags AwsProvider#tags}
   */
   readonly tags?: { [key: string]: string };
   /**
   * Assume role session tag keys to pass to any subsequent sessions.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#transitive_tag_keys AwsProvider#transitive_tag_keys}
   */
   readonly transitiveTagKeys?: string[];
@@ -295,31 +295,31 @@ export function awsProviderAssumeRoleToTerraform(struct?: AwsProviderAssumeRole 
 export interface AwsProviderAssumeRoleWithWebIdentity {
   /**
   * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#duration AwsProvider#duration}
   */
   readonly duration?: string;
   /**
   * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#policy AwsProvider#policy}
   */
   readonly policy?: string;
   /**
   * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#policy_arns AwsProvider#policy_arns}
   */
   readonly policyArns?: string[];
   /**
   * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#role_arn AwsProvider#role_arn}
   */
   readonly roleArn?: string;
   /**
   * An identifier for the assumed role session.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#session_name AwsProvider#session_name}
   */
   readonly sessionName?: string;
@@ -352,7 +352,7 @@ export function awsProviderAssumeRoleWithWebIdentityToTerraform(struct?: AwsProv
 export interface AwsProviderDefaultTags {
   /**
   * Resource tags to default across all resources
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#tags AwsProvider#tags}
   */
   readonly tags?: { [key: string]: string };
@@ -371,2263 +371,2263 @@ export function awsProviderDefaultTagsToTerraform(struct?: AwsProviderDefaultTag
 export interface AwsProviderEndpoints {
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#accessanalyzer AwsProvider#accessanalyzer}
   */
   readonly accessanalyzer?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#account AwsProvider#account}
   */
   readonly account?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#acm AwsProvider#acm}
   */
   readonly acm?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#acmpca AwsProvider#acmpca}
   */
   readonly acmpca?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#alexaforbusiness AwsProvider#alexaforbusiness}
   */
   readonly alexaforbusiness?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#amg AwsProvider#amg}
   */
   readonly amg?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#amp AwsProvider#amp}
   */
   readonly amp?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#amplify AwsProvider#amplify}
   */
   readonly amplify?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#amplifybackend AwsProvider#amplifybackend}
   */
   readonly amplifybackend?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#amplifyuibuilder AwsProvider#amplifyuibuilder}
   */
   readonly amplifyuibuilder?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#apigateway AwsProvider#apigateway}
   */
   readonly apigateway?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#apigatewaymanagementapi AwsProvider#apigatewaymanagementapi}
   */
   readonly apigatewaymanagementapi?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#apigatewayv2 AwsProvider#apigatewayv2}
   */
   readonly apigatewayv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appautoscaling AwsProvider#appautoscaling}
   */
   readonly appautoscaling?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appconfig AwsProvider#appconfig}
   */
   readonly appconfig?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appconfigdata AwsProvider#appconfigdata}
   */
   readonly appconfigdata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appflow AwsProvider#appflow}
   */
   readonly appflow?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appintegrations AwsProvider#appintegrations}
   */
   readonly appintegrations?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appintegrationsservice AwsProvider#appintegrationsservice}
   */
   readonly appintegrationsservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#applicationautoscaling AwsProvider#applicationautoscaling}
   */
   readonly applicationautoscaling?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#applicationcostprofiler AwsProvider#applicationcostprofiler}
   */
   readonly applicationcostprofiler?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#applicationdiscovery AwsProvider#applicationdiscovery}
   */
   readonly applicationdiscovery?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#applicationdiscoveryservice AwsProvider#applicationdiscoveryservice}
   */
   readonly applicationdiscoveryservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#applicationinsights AwsProvider#applicationinsights}
   */
   readonly applicationinsights?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appmesh AwsProvider#appmesh}
   */
   readonly appmesh?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appregistry AwsProvider#appregistry}
   */
   readonly appregistry?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#apprunner AwsProvider#apprunner}
   */
   readonly apprunner?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appstream AwsProvider#appstream}
   */
   readonly appstream?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#appsync AwsProvider#appsync}
   */
   readonly appsync?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#athena AwsProvider#athena}
   */
   readonly athena?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#auditmanager AwsProvider#auditmanager}
   */
   readonly auditmanager?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#augmentedairuntime AwsProvider#augmentedairuntime}
   */
   readonly augmentedairuntime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#autoscaling AwsProvider#autoscaling}
   */
   readonly autoscaling?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#autoscalingplans AwsProvider#autoscalingplans}
   */
   readonly autoscalingplans?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#backup AwsProvider#backup}
   */
   readonly backup?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#backupgateway AwsProvider#backupgateway}
   */
   readonly backupgateway?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#batch AwsProvider#batch}
   */
   readonly batch?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#beanstalk AwsProvider#beanstalk}
   */
   readonly beanstalk?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#billingconductor AwsProvider#billingconductor}
   */
   readonly billingconductor?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#braket AwsProvider#braket}
   */
   readonly braket?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#budgets AwsProvider#budgets}
   */
   readonly budgets?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ce AwsProvider#ce}
   */
   readonly ce?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#chime AwsProvider#chime}
   */
   readonly chime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#chimesdkidentity AwsProvider#chimesdkidentity}
   */
   readonly chimesdkidentity?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#chimesdkmeetings AwsProvider#chimesdkmeetings}
   */
   readonly chimesdkmeetings?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#chimesdkmessaging AwsProvider#chimesdkmessaging}
   */
   readonly chimesdkmessaging?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloud9 AwsProvider#cloud9}
   */
   readonly cloud9?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudcontrol AwsProvider#cloudcontrol}
   */
   readonly cloudcontrol?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudcontrolapi AwsProvider#cloudcontrolapi}
   */
   readonly cloudcontrolapi?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#clouddirectory AwsProvider#clouddirectory}
   */
   readonly clouddirectory?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudformation AwsProvider#cloudformation}
   */
   readonly cloudformation?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudfront AwsProvider#cloudfront}
   */
   readonly cloudfront?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudhsm AwsProvider#cloudhsm}
   */
   readonly cloudhsm?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudhsmv2 AwsProvider#cloudhsmv2}
   */
   readonly cloudhsmv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudsearch AwsProvider#cloudsearch}
   */
   readonly cloudsearch?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudsearchdomain AwsProvider#cloudsearchdomain}
   */
   readonly cloudsearchdomain?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudtrail AwsProvider#cloudtrail}
   */
   readonly cloudtrail?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudwatch AwsProvider#cloudwatch}
   */
   readonly cloudwatch?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudwatchevents AwsProvider#cloudwatchevents}
   */
   readonly cloudwatchevents?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudwatchevidently AwsProvider#cloudwatchevidently}
   */
   readonly cloudwatchevidently?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudwatchlog AwsProvider#cloudwatchlog}
   */
   readonly cloudwatchlog?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudwatchlogs AwsProvider#cloudwatchlogs}
   */
   readonly cloudwatchlogs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudwatchobservabilityaccessmanager AwsProvider#cloudwatchobservabilityaccessmanager}
   */
   readonly cloudwatchobservabilityaccessmanager?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cloudwatchrum AwsProvider#cloudwatchrum}
   */
   readonly cloudwatchrum?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codeartifact AwsProvider#codeartifact}
   */
   readonly codeartifact?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codebuild AwsProvider#codebuild}
   */
   readonly codebuild?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codecommit AwsProvider#codecommit}
   */
   readonly codecommit?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codedeploy AwsProvider#codedeploy}
   */
   readonly codedeploy?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codeguruprofiler AwsProvider#codeguruprofiler}
   */
   readonly codeguruprofiler?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codegurureviewer AwsProvider#codegurureviewer}
   */
   readonly codegurureviewer?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codepipeline AwsProvider#codepipeline}
   */
   readonly codepipeline?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codestar AwsProvider#codestar}
   */
   readonly codestar?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codestarconnections AwsProvider#codestarconnections}
   */
   readonly codestarconnections?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#codestarnotifications AwsProvider#codestarnotifications}
   */
   readonly codestarnotifications?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cognitoidentity AwsProvider#cognitoidentity}
   */
   readonly cognitoidentity?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cognitoidentityprovider AwsProvider#cognitoidentityprovider}
   */
   readonly cognitoidentityprovider?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cognitoidp AwsProvider#cognitoidp}
   */
   readonly cognitoidp?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cognitosync AwsProvider#cognitosync}
   */
   readonly cognitosync?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#comprehend AwsProvider#comprehend}
   */
   readonly comprehend?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#comprehendmedical AwsProvider#comprehendmedical}
   */
   readonly comprehendmedical?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#computeoptimizer AwsProvider#computeoptimizer}
   */
   readonly computeoptimizer?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#config AwsProvider#config}
   */
   readonly config?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#configservice AwsProvider#configservice}
   */
   readonly configservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#connect AwsProvider#connect}
   */
   readonly connect?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#connectcontactlens AwsProvider#connectcontactlens}
   */
   readonly connectcontactlens?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#connectparticipant AwsProvider#connectparticipant}
   */
   readonly connectparticipant?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#connectwisdomservice AwsProvider#connectwisdomservice}
   */
   readonly connectwisdomservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#controltower AwsProvider#controltower}
   */
   readonly controltower?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#costandusagereportservice AwsProvider#costandusagereportservice}
   */
   readonly costandusagereportservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#costexplorer AwsProvider#costexplorer}
   */
   readonly costexplorer?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#cur AwsProvider#cur}
   */
   readonly cur?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#customerprofiles AwsProvider#customerprofiles}
   */
   readonly customerprofiles?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#databasemigration AwsProvider#databasemigration}
   */
   readonly databasemigration?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#databasemigrationservice AwsProvider#databasemigrationservice}
   */
   readonly databasemigrationservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#databrew AwsProvider#databrew}
   */
   readonly databrew?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#dataexchange AwsProvider#dataexchange}
   */
   readonly dataexchange?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#datapipeline AwsProvider#datapipeline}
   */
   readonly datapipeline?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#datasync AwsProvider#datasync}
   */
   readonly datasync?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#dax AwsProvider#dax}
   */
   readonly dax?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#deploy AwsProvider#deploy}
   */
   readonly deploy?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#detective AwsProvider#detective}
   */
   readonly detective?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#devicefarm AwsProvider#devicefarm}
   */
   readonly devicefarm?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#devopsguru AwsProvider#devopsguru}
   */
   readonly devopsguru?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#directconnect AwsProvider#directconnect}
   */
   readonly directconnect?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#directoryservice AwsProvider#directoryservice}
   */
   readonly directoryservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#discovery AwsProvider#discovery}
   */
   readonly discovery?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#dlm AwsProvider#dlm}
   */
   readonly dlm?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#dms AwsProvider#dms}
   */
   readonly dms?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#docdb AwsProvider#docdb}
   */
   readonly docdb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#drs AwsProvider#drs}
   */
   readonly drs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ds AwsProvider#ds}
   */
   readonly ds?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#dynamodb AwsProvider#dynamodb}
   */
   readonly dynamodb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#dynamodbstreams AwsProvider#dynamodbstreams}
   */
   readonly dynamodbstreams?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ebs AwsProvider#ebs}
   */
   readonly ebs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ec2 AwsProvider#ec2}
   */
   readonly ec2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ec2instanceconnect AwsProvider#ec2instanceconnect}
   */
   readonly ec2Instanceconnect?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ecr AwsProvider#ecr}
   */
   readonly ecr?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ecrpublic AwsProvider#ecrpublic}
   */
   readonly ecrpublic?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ecs AwsProvider#ecs}
   */
   readonly ecs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#efs AwsProvider#efs}
   */
   readonly efs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#eks AwsProvider#eks}
   */
   readonly eks?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elasticache AwsProvider#elasticache}
   */
   readonly elasticache?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elasticbeanstalk AwsProvider#elasticbeanstalk}
   */
   readonly elasticbeanstalk?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elasticinference AwsProvider#elasticinference}
   */
   readonly elasticinference?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elasticloadbalancing AwsProvider#elasticloadbalancing}
   */
   readonly elasticloadbalancing?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elasticloadbalancingv2 AwsProvider#elasticloadbalancingv2}
   */
   readonly elasticloadbalancingv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elasticsearch AwsProvider#elasticsearch}
   */
   readonly elasticsearch?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elasticsearchservice AwsProvider#elasticsearchservice}
   */
   readonly elasticsearchservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elastictranscoder AwsProvider#elastictranscoder}
   */
   readonly elastictranscoder?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elb AwsProvider#elb}
   */
   readonly elb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#elbv2 AwsProvider#elbv2}
   */
   readonly elbv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#emr AwsProvider#emr}
   */
   readonly emr?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#emrcontainers AwsProvider#emrcontainers}
   */
   readonly emrcontainers?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#emrserverless AwsProvider#emrserverless}
   */
   readonly emrserverless?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#es AwsProvider#es}
   */
   readonly es?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#eventbridge AwsProvider#eventbridge}
   */
   readonly eventbridge?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#events AwsProvider#events}
   */
   readonly events?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#evidently AwsProvider#evidently}
   */
   readonly evidently?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#finspace AwsProvider#finspace}
   */
   readonly finspace?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#finspacedata AwsProvider#finspacedata}
   */
   readonly finspacedata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#firehose AwsProvider#firehose}
   */
   readonly firehose?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#fis AwsProvider#fis}
   */
   readonly fis?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#fms AwsProvider#fms}
   */
   readonly fms?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#forecast AwsProvider#forecast}
   */
   readonly forecast?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#forecastquery AwsProvider#forecastquery}
   */
   readonly forecastquery?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#forecastqueryservice AwsProvider#forecastqueryservice}
   */
   readonly forecastqueryservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#forecastservice AwsProvider#forecastservice}
   */
   readonly forecastservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#frauddetector AwsProvider#frauddetector}
   */
   readonly frauddetector?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#fsx AwsProvider#fsx}
   */
   readonly fsx?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#gamelift AwsProvider#gamelift}
   */
   readonly gamelift?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#glacier AwsProvider#glacier}
   */
   readonly glacier?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#globalaccelerator AwsProvider#globalaccelerator}
   */
   readonly globalaccelerator?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#glue AwsProvider#glue}
   */
   readonly glue?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#gluedatabrew AwsProvider#gluedatabrew}
   */
   readonly gluedatabrew?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#grafana AwsProvider#grafana}
   */
   readonly grafana?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#greengrass AwsProvider#greengrass}
   */
   readonly greengrass?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#greengrassv2 AwsProvider#greengrassv2}
   */
   readonly greengrassv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#groundstation AwsProvider#groundstation}
   */
   readonly groundstation?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#guardduty AwsProvider#guardduty}
   */
   readonly guardduty?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#health AwsProvider#health}
   */
   readonly health?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#healthlake AwsProvider#healthlake}
   */
   readonly healthlake?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#honeycode AwsProvider#honeycode}
   */
   readonly honeycode?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iam AwsProvider#iam}
   */
   readonly iam?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#identitystore AwsProvider#identitystore}
   */
   readonly identitystore?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#imagebuilder AwsProvider#imagebuilder}
   */
   readonly imagebuilder?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#inspector AwsProvider#inspector}
   */
   readonly inspector?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#inspector2 AwsProvider#inspector2}
   */
   readonly inspector2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#inspectorv2 AwsProvider#inspectorv2}
   */
   readonly inspectorv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iot AwsProvider#iot}
   */
   readonly iot?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iot1clickdevices AwsProvider#iot1clickdevices}
   */
   readonly iot1Clickdevices?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iot1clickdevicesservice AwsProvider#iot1clickdevicesservice}
   */
   readonly iot1Clickdevicesservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iot1clickprojects AwsProvider#iot1clickprojects}
   */
   readonly iot1Clickprojects?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotanalytics AwsProvider#iotanalytics}
   */
   readonly iotanalytics?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotdata AwsProvider#iotdata}
   */
   readonly iotdata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotdataplane AwsProvider#iotdataplane}
   */
   readonly iotdataplane?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotdeviceadvisor AwsProvider#iotdeviceadvisor}
   */
   readonly iotdeviceadvisor?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotevents AwsProvider#iotevents}
   */
   readonly iotevents?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ioteventsdata AwsProvider#ioteventsdata}
   */
   readonly ioteventsdata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotfleethub AwsProvider#iotfleethub}
   */
   readonly iotfleethub?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotjobsdata AwsProvider#iotjobsdata}
   */
   readonly iotjobsdata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotjobsdataplane AwsProvider#iotjobsdataplane}
   */
   readonly iotjobsdataplane?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotsecuretunneling AwsProvider#iotsecuretunneling}
   */
   readonly iotsecuretunneling?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotsitewise AwsProvider#iotsitewise}
   */
   readonly iotsitewise?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotthingsgraph AwsProvider#iotthingsgraph}
   */
   readonly iotthingsgraph?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iottwinmaker AwsProvider#iottwinmaker}
   */
   readonly iottwinmaker?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#iotwireless AwsProvider#iotwireless}
   */
   readonly iotwireless?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ivs AwsProvider#ivs}
   */
   readonly ivs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ivschat AwsProvider#ivschat}
   */
   readonly ivschat?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kafka AwsProvider#kafka}
   */
   readonly kafka?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kafkaconnect AwsProvider#kafkaconnect}
   */
   readonly kafkaconnect?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kendra AwsProvider#kendra}
   */
   readonly kendra?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#keyspaces AwsProvider#keyspaces}
   */
   readonly keyspaces?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesis AwsProvider#kinesis}
   */
   readonly kinesis?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesisanalytics AwsProvider#kinesisanalytics}
   */
   readonly kinesisanalytics?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesisanalyticsv2 AwsProvider#kinesisanalyticsv2}
   */
   readonly kinesisanalyticsv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesisvideo AwsProvider#kinesisvideo}
   */
   readonly kinesisvideo?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesisvideoarchivedmedia AwsProvider#kinesisvideoarchivedmedia}
   */
   readonly kinesisvideoarchivedmedia?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesisvideomedia AwsProvider#kinesisvideomedia}
   */
   readonly kinesisvideomedia?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesisvideosignaling AwsProvider#kinesisvideosignaling}
   */
   readonly kinesisvideosignaling?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kinesisvideosignalingchannels AwsProvider#kinesisvideosignalingchannels}
   */
   readonly kinesisvideosignalingchannels?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#kms AwsProvider#kms}
   */
   readonly kms?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lakeformation AwsProvider#lakeformation}
   */
   readonly lakeformation?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lambda AwsProvider#lambda}
   */
   readonly lambda?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lex AwsProvider#lex}
   */
   readonly lex?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexmodelbuilding AwsProvider#lexmodelbuilding}
   */
   readonly lexmodelbuilding?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexmodelbuildingservice AwsProvider#lexmodelbuildingservice}
   */
   readonly lexmodelbuildingservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexmodels AwsProvider#lexmodels}
   */
   readonly lexmodels?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexmodelsv2 AwsProvider#lexmodelsv2}
   */
   readonly lexmodelsv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexruntime AwsProvider#lexruntime}
   */
   readonly lexruntime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexruntimeservice AwsProvider#lexruntimeservice}
   */
   readonly lexruntimeservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexruntimev2 AwsProvider#lexruntimev2}
   */
   readonly lexruntimev2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexv2models AwsProvider#lexv2models}
   */
   readonly lexv2Models?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lexv2runtime AwsProvider#lexv2runtime}
   */
   readonly lexv2Runtime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#licensemanager AwsProvider#licensemanager}
   */
   readonly licensemanager?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lightsail AwsProvider#lightsail}
   */
   readonly lightsail?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#location AwsProvider#location}
   */
   readonly location?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#locationservice AwsProvider#locationservice}
   */
   readonly locationservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#logs AwsProvider#logs}
   */
   readonly logs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lookoutequipment AwsProvider#lookoutequipment}
   */
   readonly lookoutequipment?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lookoutforvision AwsProvider#lookoutforvision}
   */
   readonly lookoutforvision?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lookoutmetrics AwsProvider#lookoutmetrics}
   */
   readonly lookoutmetrics?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#lookoutvision AwsProvider#lookoutvision}
   */
   readonly lookoutvision?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#machinelearning AwsProvider#machinelearning}
   */
   readonly machinelearning?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#macie AwsProvider#macie}
   */
   readonly macie?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#macie2 AwsProvider#macie2}
   */
   readonly macie2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#managedblockchain AwsProvider#managedblockchain}
   */
   readonly managedblockchain?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#managedgrafana AwsProvider#managedgrafana}
   */
   readonly managedgrafana?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#marketplacecatalog AwsProvider#marketplacecatalog}
   */
   readonly marketplacecatalog?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#marketplacecommerceanalytics AwsProvider#marketplacecommerceanalytics}
   */
   readonly marketplacecommerceanalytics?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#marketplaceentitlement AwsProvider#marketplaceentitlement}
   */
   readonly marketplaceentitlement?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#marketplaceentitlementservice AwsProvider#marketplaceentitlementservice}
   */
   readonly marketplaceentitlementservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#marketplacemetering AwsProvider#marketplacemetering}
   */
   readonly marketplacemetering?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mediaconnect AwsProvider#mediaconnect}
   */
   readonly mediaconnect?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mediaconvert AwsProvider#mediaconvert}
   */
   readonly mediaconvert?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#medialive AwsProvider#medialive}
   */
   readonly medialive?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mediapackage AwsProvider#mediapackage}
   */
   readonly mediapackage?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mediapackagevod AwsProvider#mediapackagevod}
   */
   readonly mediapackagevod?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mediastore AwsProvider#mediastore}
   */
   readonly mediastore?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mediastoredata AwsProvider#mediastoredata}
   */
   readonly mediastoredata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mediatailor AwsProvider#mediatailor}
   */
   readonly mediatailor?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#memorydb AwsProvider#memorydb}
   */
   readonly memorydb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#meteringmarketplace AwsProvider#meteringmarketplace}
   */
   readonly meteringmarketplace?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mgh AwsProvider#mgh}
   */
   readonly mgh?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mgn AwsProvider#mgn}
   */
   readonly mgn?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#migrationhub AwsProvider#migrationhub}
   */
   readonly migrationhub?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#migrationhubconfig AwsProvider#migrationhubconfig}
   */
   readonly migrationhubconfig?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#migrationhubrefactorspaces AwsProvider#migrationhubrefactorspaces}
   */
   readonly migrationhubrefactorspaces?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#migrationhubstrategy AwsProvider#migrationhubstrategy}
   */
   readonly migrationhubstrategy?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#migrationhubstrategyrecommendations AwsProvider#migrationhubstrategyrecommendations}
   */
   readonly migrationhubstrategyrecommendations?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mobile AwsProvider#mobile}
   */
   readonly mobile?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mq AwsProvider#mq}
   */
   readonly mq?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#msk AwsProvider#msk}
   */
   readonly msk?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mturk AwsProvider#mturk}
   */
   readonly mturk?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#mwaa AwsProvider#mwaa}
   */
   readonly mwaa?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#neptune AwsProvider#neptune}
   */
   readonly neptune?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#networkfirewall AwsProvider#networkfirewall}
   */
   readonly networkfirewall?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#networkmanager AwsProvider#networkmanager}
   */
   readonly networkmanager?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#nimble AwsProvider#nimble}
   */
   readonly nimble?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#nimblestudio AwsProvider#nimblestudio}
   */
   readonly nimblestudio?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#oam AwsProvider#oam}
   */
   readonly oam?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#opensearch AwsProvider#opensearch}
   */
   readonly opensearch?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#opensearchserverless AwsProvider#opensearchserverless}
   */
   readonly opensearchserverless?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#opensearchservice AwsProvider#opensearchservice}
   */
   readonly opensearchservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#opsworks AwsProvider#opsworks}
   */
   readonly opsworks?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#opsworkscm AwsProvider#opsworkscm}
   */
   readonly opsworkscm?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#organizations AwsProvider#organizations}
   */
   readonly organizations?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#outposts AwsProvider#outposts}
   */
   readonly outposts?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#panorama AwsProvider#panorama}
   */
   readonly panorama?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#personalize AwsProvider#personalize}
   */
   readonly personalize?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#personalizeevents AwsProvider#personalizeevents}
   */
   readonly personalizeevents?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#personalizeruntime AwsProvider#personalizeruntime}
   */
   readonly personalizeruntime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#pi AwsProvider#pi}
   */
   readonly pi?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#pinpoint AwsProvider#pinpoint}
   */
   readonly pinpoint?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#pinpointemail AwsProvider#pinpointemail}
   */
   readonly pinpointemail?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#pinpointsmsvoice AwsProvider#pinpointsmsvoice}
   */
   readonly pinpointsmsvoice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#pipes AwsProvider#pipes}
   */
   readonly pipes?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#polly AwsProvider#polly}
   */
   readonly polly?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#pricing AwsProvider#pricing}
   */
   readonly pricing?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#prometheus AwsProvider#prometheus}
   */
   readonly prometheus?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#prometheusservice AwsProvider#prometheusservice}
   */
   readonly prometheusservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#proton AwsProvider#proton}
   */
   readonly proton?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#qldb AwsProvider#qldb}
   */
   readonly qldb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#qldbsession AwsProvider#qldbsession}
   */
   readonly qldbsession?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#quicksight AwsProvider#quicksight}
   */
   readonly quicksight?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ram AwsProvider#ram}
   */
   readonly ram?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#rbin AwsProvider#rbin}
   */
   readonly rbin?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#rds AwsProvider#rds}
   */
   readonly rds?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#rdsdata AwsProvider#rdsdata}
   */
   readonly rdsdata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#rdsdataservice AwsProvider#rdsdataservice}
   */
   readonly rdsdataservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#recyclebin AwsProvider#recyclebin}
   */
   readonly recyclebin?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#redshift AwsProvider#redshift}
   */
   readonly redshift?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#redshiftdata AwsProvider#redshiftdata}
   */
   readonly redshiftdata?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#redshiftdataapiservice AwsProvider#redshiftdataapiservice}
   */
   readonly redshiftdataapiservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#redshiftserverless AwsProvider#redshiftserverless}
   */
   readonly redshiftserverless?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#rekognition AwsProvider#rekognition}
   */
   readonly rekognition?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#resiliencehub AwsProvider#resiliencehub}
   */
   readonly resiliencehub?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#resourceexplorer2 AwsProvider#resourceexplorer2}
   */
   readonly resourceexplorer2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#resourcegroups AwsProvider#resourcegroups}
   */
   readonly resourcegroups?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#resourcegroupstagging AwsProvider#resourcegroupstagging}
   */
   readonly resourcegroupstagging?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#resourcegroupstaggingapi AwsProvider#resourcegroupstaggingapi}
   */
   readonly resourcegroupstaggingapi?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#robomaker AwsProvider#robomaker}
   */
   readonly robomaker?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#rolesanywhere AwsProvider#rolesanywhere}
   */
   readonly rolesanywhere?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#route53 AwsProvider#route53}
   */
   readonly route53?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#route53domains AwsProvider#route53domains}
   */
   readonly route53Domains?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#route53recoverycluster AwsProvider#route53recoverycluster}
   */
   readonly route53Recoverycluster?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#route53recoverycontrolconfig AwsProvider#route53recoverycontrolconfig}
   */
   readonly route53Recoverycontrolconfig?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#route53recoveryreadiness AwsProvider#route53recoveryreadiness}
   */
   readonly route53Recoveryreadiness?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#route53resolver AwsProvider#route53resolver}
   */
   readonly route53Resolver?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#rum AwsProvider#rum}
   */
   readonly rum?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#s3 AwsProvider#s3}
   */
   readonly s3?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#s3api AwsProvider#s3api}
   */
   readonly s3Api?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#s3control AwsProvider#s3control}
   */
   readonly s3Control?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#s3outposts AwsProvider#s3outposts}
   */
   readonly s3Outposts?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sagemaker AwsProvider#sagemaker}
   */
   readonly sagemaker?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sagemakera2iruntime AwsProvider#sagemakera2iruntime}
   */
   readonly sagemakera2Iruntime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sagemakeredge AwsProvider#sagemakeredge}
   */
   readonly sagemakeredge?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sagemakeredgemanager AwsProvider#sagemakeredgemanager}
   */
   readonly sagemakeredgemanager?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sagemakerfeaturestoreruntime AwsProvider#sagemakerfeaturestoreruntime}
   */
   readonly sagemakerfeaturestoreruntime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sagemakerruntime AwsProvider#sagemakerruntime}
   */
   readonly sagemakerruntime?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#savingsplans AwsProvider#savingsplans}
   */
   readonly savingsplans?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#scheduler AwsProvider#scheduler}
   */
   readonly scheduler?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#schemas AwsProvider#schemas}
   */
   readonly schemas?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sdb AwsProvider#sdb}
   */
   readonly sdb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#secretsmanager AwsProvider#secretsmanager}
   */
   readonly secretsmanager?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#securityhub AwsProvider#securityhub}
   */
   readonly securityhub?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#serverlessapplicationrepository AwsProvider#serverlessapplicationrepository}
   */
   readonly serverlessapplicationrepository?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#serverlessapprepo AwsProvider#serverlessapprepo}
   */
   readonly serverlessapprepo?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#serverlessrepo AwsProvider#serverlessrepo}
   */
   readonly serverlessrepo?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#servicecatalog AwsProvider#servicecatalog}
   */
   readonly servicecatalog?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#servicecatalogappregistry AwsProvider#servicecatalogappregistry}
   */
   readonly servicecatalogappregistry?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#servicediscovery AwsProvider#servicediscovery}
   */
   readonly servicediscovery?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#servicequotas AwsProvider#servicequotas}
   */
   readonly servicequotas?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ses AwsProvider#ses}
   */
   readonly ses?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sesv2 AwsProvider#sesv2}
   */
   readonly sesv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sfn AwsProvider#sfn}
   */
   readonly sfn?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#shield AwsProvider#shield}
   */
   readonly shield?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#signer AwsProvider#signer}
   */
   readonly signer?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#simpledb AwsProvider#simpledb}
   */
   readonly simpledb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sms AwsProvider#sms}
   */
   readonly sms?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#snowball AwsProvider#snowball}
   */
   readonly snowball?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#snowdevicemanagement AwsProvider#snowdevicemanagement}
   */
   readonly snowdevicemanagement?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sns AwsProvider#sns}
   */
   readonly sns?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sqs AwsProvider#sqs}
   */
   readonly sqs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ssm AwsProvider#ssm}
   */
   readonly ssm?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ssmcontacts AwsProvider#ssmcontacts}
   */
   readonly ssmcontacts?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ssmincidents AwsProvider#ssmincidents}
   */
   readonly ssmincidents?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sso AwsProvider#sso}
   */
   readonly sso?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ssoadmin AwsProvider#ssoadmin}
   */
   readonly ssoadmin?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#ssooidc AwsProvider#ssooidc}
   */
   readonly ssooidc?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#stepfunctions AwsProvider#stepfunctions}
   */
   readonly stepfunctions?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#storagegateway AwsProvider#storagegateway}
   */
   readonly storagegateway?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#sts AwsProvider#sts}
   */
   readonly sts?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#support AwsProvider#support}
   */
   readonly support?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#swf AwsProvider#swf}
   */
   readonly swf?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#synthetics AwsProvider#synthetics}
   */
   readonly synthetics?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#textract AwsProvider#textract}
   */
   readonly textract?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#timestreamquery AwsProvider#timestreamquery}
   */
   readonly timestreamquery?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#timestreamwrite AwsProvider#timestreamwrite}
   */
   readonly timestreamwrite?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#transcribe AwsProvider#transcribe}
   */
   readonly transcribe?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#transcribeservice AwsProvider#transcribeservice}
   */
   readonly transcribeservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#transcribestreaming AwsProvider#transcribestreaming}
   */
   readonly transcribestreaming?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#transcribestreamingservice AwsProvider#transcribestreamingservice}
   */
   readonly transcribestreamingservice?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#transfer AwsProvider#transfer}
   */
   readonly transfer?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#translate AwsProvider#translate}
   */
   readonly translate?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#voiceid AwsProvider#voiceid}
   */
   readonly voiceid?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#waf AwsProvider#waf}
   */
   readonly waf?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#wafregional AwsProvider#wafregional}
   */
   readonly wafregional?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#wafv2 AwsProvider#wafv2}
   */
   readonly wafv2?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#wellarchitected AwsProvider#wellarchitected}
   */
   readonly wellarchitected?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#wisdom AwsProvider#wisdom}
   */
   readonly wisdom?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#workdocs AwsProvider#workdocs}
   */
   readonly workdocs?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#worklink AwsProvider#worklink}
   */
   readonly worklink?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#workmail AwsProvider#workmail}
   */
   readonly workmail?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#workmailmessageflow AwsProvider#workmailmessageflow}
   */
   readonly workmailmessageflow?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#workspaces AwsProvider#workspaces}
   */
   readonly workspaces?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#workspacesweb AwsProvider#workspacesweb}
   */
   readonly workspacesweb?: string;
   /**
   * Use this to override the default service endpoint URL
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#xray AwsProvider#xray}
   */
   readonly xray?: string;
@@ -3022,13 +3022,13 @@ export function awsProviderEndpointsToTerraform(struct?: AwsProviderEndpoints | 
 export interface AwsProviderIgnoreTags {
   /**
   * Resource tag key prefixes to ignore across all resources.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#key_prefixes AwsProvider#key_prefixes}
   */
   readonly keyPrefixes?: string[];
   /**
   * Resource tag keys to ignore across all resources.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws#keys AwsProvider#keys}
   */
   readonly keys?: string[];
@@ -3116,7 +3116,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   // ==========
 
   // access_key - computed: false, optional: true, required: false
-  private _accessKey?: string; 
+  private _accessKey?: string;
   public get accessKey() {
     return this._accessKey;
   }
@@ -3132,7 +3132,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // allowed_account_ids - computed: false, optional: true, required: false
-  private _allowedAccountIds?: string[]; 
+  private _allowedAccountIds?: string[];
   public get allowedAccountIds() {
     return this._allowedAccountIds;
   }
@@ -3148,7 +3148,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // custom_ca_bundle - computed: false, optional: true, required: false
-  private _customCaBundle?: string; 
+  private _customCaBundle?: string;
   public get customCaBundle() {
     return this._customCaBundle;
   }
@@ -3164,7 +3164,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // ec2_metadata_service_endpoint - computed: false, optional: true, required: false
-  private _ec2MetadataServiceEndpoint?: string; 
+  private _ec2MetadataServiceEndpoint?: string;
   public get ec2MetadataServiceEndpoint() {
     return this._ec2MetadataServiceEndpoint;
   }
@@ -3180,7 +3180,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // ec2_metadata_service_endpoint_mode - computed: false, optional: true, required: false
-  private _ec2MetadataServiceEndpointMode?: string; 
+  private _ec2MetadataServiceEndpointMode?: string;
   public get ec2MetadataServiceEndpointMode() {
     return this._ec2MetadataServiceEndpointMode;
   }
@@ -3196,7 +3196,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // forbidden_account_ids - computed: false, optional: true, required: false
-  private _forbiddenAccountIds?: string[]; 
+  private _forbiddenAccountIds?: string[];
   public get forbiddenAccountIds() {
     return this._forbiddenAccountIds;
   }
@@ -3212,7 +3212,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // http_proxy - computed: false, optional: true, required: false
-  private _httpProxy?: string; 
+  private _httpProxy?: string;
   public get httpProxy() {
     return this._httpProxy;
   }
@@ -3228,7 +3228,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // insecure - computed: false, optional: true, required: false
-  private _insecure?: boolean | cdktf.IResolvable; 
+  private _insecure?: boolean | cdktf.IResolvable;
   public get insecure() {
     return this._insecure;
   }
@@ -3244,7 +3244,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // max_retries - computed: false, optional: true, required: false
-  private _maxRetries?: number; 
+  private _maxRetries?: number;
   public get maxRetries() {
     return this._maxRetries;
   }
@@ -3260,7 +3260,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // profile - computed: false, optional: true, required: false
-  private _profile?: string; 
+  private _profile?: string;
   public get profile() {
     return this._profile;
   }
@@ -3276,7 +3276,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this._region;
   }
@@ -3292,7 +3292,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // s3_force_path_style - computed: false, optional: true, required: false
-  private _s3ForcePathStyle?: boolean | cdktf.IResolvable; 
+  private _s3ForcePathStyle?: boolean | cdktf.IResolvable;
   public get s3ForcePathStyle() {
     return this._s3ForcePathStyle;
   }
@@ -3308,7 +3308,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // s3_use_path_style - computed: false, optional: true, required: false
-  private _s3UsePathStyle?: boolean | cdktf.IResolvable; 
+  private _s3UsePathStyle?: boolean | cdktf.IResolvable;
   public get s3UsePathStyle() {
     return this._s3UsePathStyle;
   }
@@ -3324,7 +3324,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // secret_key - computed: false, optional: true, required: false
-  private _secretKey?: string; 
+  private _secretKey?: string;
   public get secretKey() {
     return this._secretKey;
   }
@@ -3340,7 +3340,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // shared_config_files - computed: false, optional: true, required: false
-  private _sharedConfigFiles?: string[]; 
+  private _sharedConfigFiles?: string[];
   public get sharedConfigFiles() {
     return this._sharedConfigFiles;
   }
@@ -3356,7 +3356,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // shared_credentials_file - computed: false, optional: true, required: false
-  private _sharedCredentialsFile?: string; 
+  private _sharedCredentialsFile?: string;
   public get sharedCredentialsFile() {
     return this._sharedCredentialsFile;
   }
@@ -3372,7 +3372,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // shared_credentials_files - computed: false, optional: true, required: false
-  private _sharedCredentialsFiles?: string[]; 
+  private _sharedCredentialsFiles?: string[];
   public get sharedCredentialsFiles() {
     return this._sharedCredentialsFiles;
   }
@@ -3388,7 +3388,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // skip_credentials_validation - computed: false, optional: true, required: false
-  private _skipCredentialsValidation?: boolean | cdktf.IResolvable; 
+  private _skipCredentialsValidation?: boolean | cdktf.IResolvable;
   public get skipCredentialsValidation() {
     return this._skipCredentialsValidation;
   }
@@ -3404,7 +3404,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // skip_get_ec2_platforms - computed: false, optional: true, required: false
-  private _skipGetEc2Platforms?: boolean | cdktf.IResolvable; 
+  private _skipGetEc2Platforms?: boolean | cdktf.IResolvable;
   public get skipGetEc2Platforms() {
     return this._skipGetEc2Platforms;
   }
@@ -3420,7 +3420,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // skip_metadata_api_check - computed: false, optional: true, required: false
-  private _skipMetadataApiCheck?: string; 
+  private _skipMetadataApiCheck?: string;
   public get skipMetadataApiCheck() {
     return this._skipMetadataApiCheck;
   }
@@ -3436,7 +3436,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // skip_region_validation - computed: false, optional: true, required: false
-  private _skipRegionValidation?: boolean | cdktf.IResolvable; 
+  private _skipRegionValidation?: boolean | cdktf.IResolvable;
   public get skipRegionValidation() {
     return this._skipRegionValidation;
   }
@@ -3452,7 +3452,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // skip_requesting_account_id - computed: false, optional: true, required: false
-  private _skipRequestingAccountId?: boolean | cdktf.IResolvable; 
+  private _skipRequestingAccountId?: boolean | cdktf.IResolvable;
   public get skipRequestingAccountId() {
     return this._skipRequestingAccountId;
   }
@@ -3468,7 +3468,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // sts_region - computed: false, optional: true, required: false
-  private _stsRegion?: string; 
+  private _stsRegion?: string;
   public get stsRegion() {
     return this._stsRegion;
   }
@@ -3484,7 +3484,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // token - computed: false, optional: true, required: false
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this._token;
   }
@@ -3500,7 +3500,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // use_dualstack_endpoint - computed: false, optional: true, required: false
-  private _useDualstackEndpoint?: boolean | cdktf.IResolvable; 
+  private _useDualstackEndpoint?: boolean | cdktf.IResolvable;
   public get useDualstackEndpoint() {
     return this._useDualstackEndpoint;
   }
@@ -3516,7 +3516,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // use_fips_endpoint - computed: false, optional: true, required: false
-  private _useFipsEndpoint?: boolean | cdktf.IResolvable; 
+  private _useFipsEndpoint?: boolean | cdktf.IResolvable;
   public get useFipsEndpoint() {
     return this._useFipsEndpoint;
   }
@@ -3532,7 +3532,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // alias - computed: false, optional: true, required: false
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this._alias;
   }
@@ -3548,7 +3548,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // assume_role - computed: false, optional: true, required: false
-  private _assumeRole?: AwsProviderAssumeRole[] | cdktf.IResolvable; 
+  private _assumeRole?: AwsProviderAssumeRole[] | cdktf.IResolvable;
   public get assumeRole() {
     return this._assumeRole;
   }
@@ -3564,7 +3564,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // assume_role_with_web_identity - computed: false, optional: true, required: false
-  private _assumeRoleWithWebIdentity?: AwsProviderAssumeRoleWithWebIdentity[] | cdktf.IResolvable; 
+  private _assumeRoleWithWebIdentity?: AwsProviderAssumeRoleWithWebIdentity[] | cdktf.IResolvable;
   public get assumeRoleWithWebIdentity() {
     return this._assumeRoleWithWebIdentity;
   }
@@ -3580,7 +3580,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // default_tags - computed: false, optional: true, required: false
-  private _defaultTags?: AwsProviderDefaultTags[] | cdktf.IResolvable; 
+  private _defaultTags?: AwsProviderDefaultTags[] | cdktf.IResolvable;
   public get defaultTags() {
     return this._defaultTags;
   }
@@ -3596,7 +3596,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // endpoints - computed: false, optional: true, required: false
-  private _endpoints?: AwsProviderEndpoints[] | cdktf.IResolvable; 
+  private _endpoints?: AwsProviderEndpoints[] | cdktf.IResolvable;
   public get endpoints() {
     return this._endpoints;
   }
@@ -3612,7 +3612,7 @@ export class AwsProvider extends cdktf.TerraformProvider {
   }
 
   // ignore_tags - computed: false, optional: true, required: false
-  private _ignoreTags?: AwsProviderIgnoreTags[] | cdktf.IResolvable; 
+  private _ignoreTags?: AwsProviderIgnoreTags[] | cdktf.IResolvable;
   public get ignoreTags() {
     return this._ignoreTags;
   }

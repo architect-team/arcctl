@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,13 +44,13 @@ export interface CeAnomalySubscriptionConfig extends cdktf.TerraformMetaArgument
   readonly threshold?: number;
   /**
   * subscriber block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#subscriber CeAnomalySubscription#subscriber}
   */
   readonly subscriber: CeAnomalySubscriptionSubscriber[] | cdktf.IResolvable;
   /**
   * threshold_expression block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#threshold_expression CeAnomalySubscription#threshold_expression}
   */
   readonly thresholdExpression?: CeAnomalySubscriptionThresholdExpression;
@@ -128,7 +128,7 @@ export class CeAnomalySubscriptionSubscriberOutputReference extends cdktf.Comple
   }
 
   // address - computed: false, optional: false, required: true
-  private _address?: string; 
+  private _address?: string;
   public get address() {
     return this.getStringAttribute('address');
   }
@@ -141,7 +141,7 @@ export class CeAnomalySubscriptionSubscriberOutputReference extends cdktf.Comple
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -245,7 +245,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndCostCategoryOutputRefere
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -261,7 +261,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndCostCategoryOutputRefere
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -277,7 +277,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndCostCategoryOutputRefere
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -364,7 +364,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndDimensionOutputReference
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -380,7 +380,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndDimensionOutputReference
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -396,7 +396,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndDimensionOutputReference
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -483,7 +483,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndTagsOutputReference exte
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -499,7 +499,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndTagsOutputReference exte
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -515,7 +515,7 @@ export class CeAnomalySubscriptionThresholdExpressionAndTagsOutputReference exte
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -533,19 +533,19 @@ export class CeAnomalySubscriptionThresholdExpressionAndTagsOutputReference exte
 export interface CeAnomalySubscriptionThresholdExpressionAnd {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#cost_category CeAnomalySubscription#cost_category}
   */
   readonly costCategory?: CeAnomalySubscriptionThresholdExpressionAndCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#dimension CeAnomalySubscription#dimension}
   */
   readonly dimension?: CeAnomalySubscriptionThresholdExpressionAndDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#tags CeAnomalySubscription#tags}
   */
   readonly tags?: CeAnomalySubscriptionThresholdExpressionAndTags;
@@ -759,7 +759,7 @@ export class CeAnomalySubscriptionThresholdExpressionCostCategoryOutputReference
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -775,7 +775,7 @@ export class CeAnomalySubscriptionThresholdExpressionCostCategoryOutputReference
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -791,7 +791,7 @@ export class CeAnomalySubscriptionThresholdExpressionCostCategoryOutputReference
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -878,7 +878,7 @@ export class CeAnomalySubscriptionThresholdExpressionDimensionOutputReference ex
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -894,7 +894,7 @@ export class CeAnomalySubscriptionThresholdExpressionDimensionOutputReference ex
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -910,7 +910,7 @@ export class CeAnomalySubscriptionThresholdExpressionDimensionOutputReference ex
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -997,7 +997,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotCostCategoryOutputRefere
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1013,7 +1013,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotCostCategoryOutputRefere
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1029,7 +1029,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotCostCategoryOutputRefere
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1116,7 +1116,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotDimensionOutputReference
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1132,7 +1132,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotDimensionOutputReference
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1148,7 +1148,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotDimensionOutputReference
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1235,7 +1235,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotTagsOutputReference exte
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1251,7 +1251,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotTagsOutputReference exte
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1267,7 +1267,7 @@ export class CeAnomalySubscriptionThresholdExpressionNotTagsOutputReference exte
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1285,19 +1285,19 @@ export class CeAnomalySubscriptionThresholdExpressionNotTagsOutputReference exte
 export interface CeAnomalySubscriptionThresholdExpressionNot {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#cost_category CeAnomalySubscription#cost_category}
   */
   readonly costCategory?: CeAnomalySubscriptionThresholdExpressionNotCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#dimension CeAnomalySubscription#dimension}
   */
   readonly dimension?: CeAnomalySubscriptionThresholdExpressionNotDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#tags CeAnomalySubscription#tags}
   */
   readonly tags?: CeAnomalySubscriptionThresholdExpressionNotTags;
@@ -1479,7 +1479,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrCostCategoryOutputReferen
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1495,7 +1495,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrCostCategoryOutputReferen
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1511,7 +1511,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrCostCategoryOutputReferen
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1598,7 +1598,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrDimensionOutputReference 
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1614,7 +1614,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrDimensionOutputReference 
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1630,7 +1630,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrDimensionOutputReference 
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1717,7 +1717,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrTagsOutputReference exten
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1733,7 +1733,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrTagsOutputReference exten
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1749,7 +1749,7 @@ export class CeAnomalySubscriptionThresholdExpressionOrTagsOutputReference exten
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1767,19 +1767,19 @@ export class CeAnomalySubscriptionThresholdExpressionOrTagsOutputReference exten
 export interface CeAnomalySubscriptionThresholdExpressionOr {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#cost_category CeAnomalySubscription#cost_category}
   */
   readonly costCategory?: CeAnomalySubscriptionThresholdExpressionOrCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#dimension CeAnomalySubscription#dimension}
   */
   readonly dimension?: CeAnomalySubscriptionThresholdExpressionOrDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#tags CeAnomalySubscription#tags}
   */
   readonly tags?: CeAnomalySubscriptionThresholdExpressionOrTags;
@@ -1993,7 +1993,7 @@ export class CeAnomalySubscriptionThresholdExpressionTagsOutputReference extends
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2009,7 +2009,7 @@ export class CeAnomalySubscriptionThresholdExpressionTagsOutputReference extends
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -2025,7 +2025,7 @@ export class CeAnomalySubscriptionThresholdExpressionTagsOutputReference extends
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2043,37 +2043,37 @@ export class CeAnomalySubscriptionThresholdExpressionTagsOutputReference extends
 export interface CeAnomalySubscriptionThresholdExpression {
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#and CeAnomalySubscription#and}
   */
   readonly and?: CeAnomalySubscriptionThresholdExpressionAnd[] | cdktf.IResolvable;
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#cost_category CeAnomalySubscription#cost_category}
   */
   readonly costCategory?: CeAnomalySubscriptionThresholdExpressionCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#dimension CeAnomalySubscription#dimension}
   */
   readonly dimension?: CeAnomalySubscriptionThresholdExpressionDimension;
   /**
   * not block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#not CeAnomalySubscription#not}
   */
   readonly not?: CeAnomalySubscriptionThresholdExpressionNot;
   /**
   * or block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#or CeAnomalySubscription#or}
   */
   readonly or?: CeAnomalySubscriptionThresholdExpressionOr[] | cdktf.IResolvable;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ce_anomaly_subscription#tags CeAnomalySubscription#tags}
   */
   readonly tags?: CeAnomalySubscriptionThresholdExpressionTags;
@@ -2307,7 +2307,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -2328,7 +2328,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   }
 
   // frequency - computed: false, optional: false, required: true
-  private _frequency?: string; 
+  private _frequency?: string;
   public get frequency() {
     return this.getStringAttribute('frequency');
   }
@@ -2341,7 +2341,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2357,7 +2357,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   }
 
   // monitor_arn_list - computed: false, optional: false, required: true
-  private _monitorArnList?: string[]; 
+  private _monitorArnList?: string[];
   public get monitorArnList() {
     return this.getListAttribute('monitor_arn_list');
   }
@@ -2370,7 +2370,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2383,7 +2383,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2399,7 +2399,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -2415,7 +2415,7 @@ export class CeAnomalySubscription extends cdktf.TerraformResource {
   }
 
   // threshold - computed: true, optional: true, required: false
-  private _threshold?: number; 
+  private _threshold?: number;
   public get threshold() {
     return this.getNumberAttribute('threshold');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/detective_member
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -104,7 +104,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // disable_email_notification - computed: false, optional: true, required: false
-  private _disableEmailNotification?: boolean | cdktf.IResolvable; 
+  private _disableEmailNotification?: boolean | cdktf.IResolvable;
   public get disableEmailNotification() {
     return this.getBooleanAttribute('disable_email_notification');
   }
@@ -125,7 +125,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // email_address - computed: false, optional: false, required: true
-  private _emailAddress?: string; 
+  private _emailAddress?: string;
   public get emailAddress() {
     return this.getStringAttribute('email_address');
   }
@@ -138,7 +138,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // graph_arn - computed: false, optional: false, required: true
-  private _graphArn?: string; 
+  private _graphArn?: string;
   public get graphArn() {
     return this.getStringAttribute('graph_arn');
   }
@@ -151,7 +151,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -172,7 +172,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // message - computed: false, optional: true, required: false
-  private _message?: string; 
+  private _message?: string;
   public get message() {
     return this.getStringAttribute('message');
   }

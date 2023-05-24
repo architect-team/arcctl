@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_thing_principal_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class IotThingPrincipalAttachment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class IotThingPrincipalAttachment extends cdktf.TerraformResource {
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -100,7 +100,7 @@ export class IotThingPrincipalAttachment extends cdktf.TerraformResource {
   }
 
   // thing - computed: false, optional: false, required: true
-  private _thing?: string; 
+  private _thing?: string;
   public get thing() {
     return this.getStringAttribute('thing');
   }

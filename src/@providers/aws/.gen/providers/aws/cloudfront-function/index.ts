@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_function
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class CloudfrontFunction extends cdktf.TerraformResource {
   }
 
   // code - computed: false, optional: false, required: true
-  private _code?: string; 
+  private _code?: string;
   public get code() {
     return this.getStringAttribute('code');
   }
@@ -104,7 +104,7 @@ export class CloudfrontFunction extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -125,7 +125,7 @@ export class CloudfrontFunction extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -146,7 +146,7 @@ export class CloudfrontFunction extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -159,7 +159,7 @@ export class CloudfrontFunction extends cdktf.TerraformResource {
   }
 
   // publish - computed: false, optional: true, required: false
-  private _publish?: boolean | cdktf.IResolvable; 
+  private _publish?: boolean | cdktf.IResolvable;
   public get publish() {
     return this.getBooleanAttribute('publish');
   }
@@ -175,7 +175,7 @@ export class CloudfrontFunction extends cdktf.TerraformResource {
   }
 
   // runtime - computed: false, optional: false, required: true
-  private _runtime?: string; 
+  private _runtime?: string;
   public get runtime() {
     return this.getStringAttribute('runtime');
   }

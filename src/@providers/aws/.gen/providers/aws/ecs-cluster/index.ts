@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecs_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,25 +32,25 @@ export interface EcsClusterConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_cluster#configuration EcsCluster#configuration}
   */
   readonly configuration?: EcsClusterConfiguration;
   /**
   * default_capacity_provider_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_cluster#default_capacity_provider_strategy EcsCluster#default_capacity_provider_strategy}
   */
   readonly defaultCapacityProviderStrategy?: EcsClusterDefaultCapacityProviderStrategy[] | cdktf.IResolvable;
   /**
   * service_connect_defaults block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_cluster#service_connect_defaults EcsCluster#service_connect_defaults}
   */
   readonly serviceConnectDefaults?: EcsClusterServiceConnectDefaults;
   /**
   * setting block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_cluster#setting EcsCluster#setting}
   */
   readonly setting?: EcsClusterSetting[] | cdktf.IResolvable;
@@ -149,7 +149,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationLogConfigurationO
   }
 
   // cloud_watch_encryption_enabled - computed: false, optional: true, required: false
-  private _cloudWatchEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _cloudWatchEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get cloudWatchEncryptionEnabled() {
     return this.getBooleanAttribute('cloud_watch_encryption_enabled');
   }
@@ -165,7 +165,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationLogConfigurationO
   }
 
   // cloud_watch_log_group_name - computed: false, optional: true, required: false
-  private _cloudWatchLogGroupName?: string; 
+  private _cloudWatchLogGroupName?: string;
   public get cloudWatchLogGroupName() {
     return this.getStringAttribute('cloud_watch_log_group_name');
   }
@@ -181,7 +181,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationLogConfigurationO
   }
 
   // s3_bucket_encryption_enabled - computed: false, optional: true, required: false
-  private _s3BucketEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _s3BucketEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get s3BucketEncryptionEnabled() {
     return this.getBooleanAttribute('s3_bucket_encryption_enabled');
   }
@@ -197,7 +197,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationLogConfigurationO
   }
 
   // s3_bucket_name - computed: false, optional: true, required: false
-  private _s3BucketName?: string; 
+  private _s3BucketName?: string;
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -213,7 +213,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationLogConfigurationO
   }
 
   // s3_key_prefix - computed: false, optional: true, required: false
-  private _s3KeyPrefix?: string; 
+  private _s3KeyPrefix?: string;
   public get s3KeyPrefix() {
     return this.getStringAttribute('s3_key_prefix');
   }
@@ -239,7 +239,7 @@ export interface EcsClusterConfigurationExecuteCommandConfiguration {
   readonly logging?: string;
   /**
   * log_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_cluster#log_configuration EcsCluster#log_configuration}
   */
   readonly logConfiguration?: EcsClusterConfigurationExecuteCommandConfigurationLogConfiguration;
@@ -302,7 +302,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationOutputReference e
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -318,7 +318,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationOutputReference e
   }
 
   // logging - computed: false, optional: true, required: false
-  private _logging?: string; 
+  private _logging?: string;
   public get logging() {
     return this.getStringAttribute('logging');
   }
@@ -352,7 +352,7 @@ export class EcsClusterConfigurationExecuteCommandConfigurationOutputReference e
 export interface EcsClusterConfiguration {
   /**
   * execute_command_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_cluster#execute_command_configuration EcsCluster#execute_command_configuration}
   */
   readonly executeCommandConfiguration?: EcsClusterConfigurationExecuteCommandConfiguration;
@@ -500,7 +500,7 @@ export class EcsClusterDefaultCapacityProviderStrategyOutputReference extends cd
   }
 
   // base - computed: false, optional: true, required: false
-  private _base?: number; 
+  private _base?: number;
   public get base() {
     return this.getNumberAttribute('base');
   }
@@ -516,7 +516,7 @@ export class EcsClusterDefaultCapacityProviderStrategyOutputReference extends cd
   }
 
   // capacity_provider - computed: false, optional: false, required: true
-  private _capacityProvider?: string; 
+  private _capacityProvider?: string;
   public get capacityProvider() {
     return this.getStringAttribute('capacity_provider');
   }
@@ -529,7 +529,7 @@ export class EcsClusterDefaultCapacityProviderStrategyOutputReference extends cd
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -614,7 +614,7 @@ export class EcsClusterServiceConnectDefaultsOutputReference extends cdktf.Compl
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -699,7 +699,7 @@ export class EcsClusterSettingOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -712,7 +712,7 @@ export class EcsClusterSettingOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -803,7 +803,7 @@ export class EcsCluster extends cdktf.TerraformResource {
   }
 
   // capacity_providers - computed: true, optional: true, required: false
-  private _capacityProviders?: string[]; 
+  private _capacityProviders?: string[];
   public get capacityProviders() {
     return cdktf.Fn.tolist(this.getListAttribute('capacity_providers'));
   }
@@ -819,7 +819,7 @@ export class EcsCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -835,7 +835,7 @@ export class EcsCluster extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -848,7 +848,7 @@ export class EcsCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -864,7 +864,7 @@ export class EcsCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

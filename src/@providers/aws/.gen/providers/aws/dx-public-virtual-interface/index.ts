@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_public_virtual_interface
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -60,7 +60,7 @@ export interface DxPublicVirtualInterfaceConfig extends cdktf.TerraformMetaArgum
   readonly vlan: number;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_public_virtual_interface#timeouts DxPublicVirtualInterface#timeouts}
   */
   readonly timeouts?: DxPublicVirtualInterfaceTimeouts;
@@ -136,7 +136,7 @@ export class DxPublicVirtualInterfaceTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -152,7 +152,7 @@ export class DxPublicVirtualInterfaceTimeoutsOutputReference extends cdktf.Compl
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -225,7 +225,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   // ==========
 
   // address_family - computed: false, optional: false, required: true
-  private _addressFamily?: string; 
+  private _addressFamily?: string;
   public get addressFamily() {
     return this.getStringAttribute('address_family');
   }
@@ -238,7 +238,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // amazon_address - computed: true, optional: true, required: false
-  private _amazonAddress?: string; 
+  private _amazonAddress?: string;
   public get amazonAddress() {
     return this.getStringAttribute('amazon_address');
   }
@@ -269,7 +269,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // bgp_asn - computed: false, optional: false, required: true
-  private _bgpAsn?: number; 
+  private _bgpAsn?: number;
   public get bgpAsn() {
     return this.getNumberAttribute('bgp_asn');
   }
@@ -282,7 +282,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // bgp_auth_key - computed: true, optional: true, required: false
-  private _bgpAuthKey?: string; 
+  private _bgpAuthKey?: string;
   public get bgpAuthKey() {
     return this.getStringAttribute('bgp_auth_key');
   }
@@ -298,7 +298,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // connection_id - computed: false, optional: false, required: true
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -311,7 +311,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // customer_address - computed: true, optional: true, required: false
-  private _customerAddress?: string; 
+  private _customerAddress?: string;
   public get customerAddress() {
     return this.getStringAttribute('customer_address');
   }
@@ -327,7 +327,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -343,7 +343,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -356,7 +356,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // route_filter_prefixes - computed: false, optional: false, required: true
-  private _routeFilterPrefixes?: string[]; 
+  private _routeFilterPrefixes?: string[];
   public get routeFilterPrefixes() {
     return cdktf.Fn.tolist(this.getListAttribute('route_filter_prefixes'));
   }
@@ -369,7 +369,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -385,7 +385,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -401,7 +401,7 @@ export class DxPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // vlan - computed: false, optional: false, required: true
-  private _vlan?: number; 
+  private _vlan?: number;
   public get vlan() {
     return this.getNumberAttribute('vlan');
   }

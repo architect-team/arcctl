@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,19 +20,19 @@ export interface OpensearchOutboundConnectionConfig extends cdktf.TerraformMetaA
   readonly id?: string;
   /**
   * local_domain_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#local_domain_info OpensearchOutboundConnection#local_domain_info}
   */
   readonly localDomainInfo: OpensearchOutboundConnectionLocalDomainInfo;
   /**
   * remote_domain_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#remote_domain_info OpensearchOutboundConnection#remote_domain_info}
   */
   readonly remoteDomainInfo: OpensearchOutboundConnectionRemoteDomainInfo;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#timeouts OpensearchOutboundConnection#timeouts}
   */
   readonly timeouts?: OpensearchOutboundConnectionTimeouts;
@@ -109,7 +109,7 @@ export class OpensearchOutboundConnectionLocalDomainInfoOutputReference extends 
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -122,7 +122,7 @@ export class OpensearchOutboundConnectionLocalDomainInfoOutputReference extends 
   }
 
   // owner_id - computed: false, optional: false, required: true
-  private _ownerId?: string; 
+  private _ownerId?: string;
   public get ownerId() {
     return this.getStringAttribute('owner_id');
   }
@@ -135,7 +135,7 @@ export class OpensearchOutboundConnectionLocalDomainInfoOutputReference extends 
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -219,7 +219,7 @@ export class OpensearchOutboundConnectionRemoteDomainInfoOutputReference extends
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -232,7 +232,7 @@ export class OpensearchOutboundConnectionRemoteDomainInfoOutputReference extends
   }
 
   // owner_id - computed: false, optional: false, required: true
-  private _ownerId?: string; 
+  private _ownerId?: string;
   public get ownerId() {
     return this.getStringAttribute('owner_id');
   }
@@ -245,7 +245,7 @@ export class OpensearchOutboundConnectionRemoteDomainInfoOutputReference extends
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -328,7 +328,7 @@ export class OpensearchOutboundConnectionTimeoutsOutputReference extends cdktf.C
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -344,7 +344,7 @@ export class OpensearchOutboundConnectionTimeoutsOutputReference extends cdktf.C
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -409,7 +409,7 @@ export class OpensearchOutboundConnection extends cdktf.TerraformResource {
   // ==========
 
   // connection_alias - computed: false, optional: false, required: true
-  private _connectionAlias?: string; 
+  private _connectionAlias?: string;
   public get connectionAlias() {
     return this.getStringAttribute('connection_alias');
   }
@@ -427,7 +427,7 @@ export class OpensearchOutboundConnection extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

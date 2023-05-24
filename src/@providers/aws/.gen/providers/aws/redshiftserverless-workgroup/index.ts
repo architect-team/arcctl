@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshiftserverless_workgroup
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,7 +52,7 @@ export interface RedshiftserverlessWorkgroupConfig extends cdktf.TerraformMetaAr
   readonly workgroupName: string;
   /**
   * config_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_workgroup#config_parameter RedshiftserverlessWorkgroup#config_parameter}
   */
   readonly configParameter?: RedshiftserverlessWorkgroupConfigParameter[] | cdktf.IResolvable;
@@ -359,7 +359,7 @@ export class RedshiftserverlessWorkgroupConfigParameterOutputReference extends c
   }
 
   // parameter_key - computed: false, optional: false, required: true
-  private _parameterKey?: string; 
+  private _parameterKey?: string;
   public get parameterKey() {
     return this.getStringAttribute('parameter_key');
   }
@@ -372,7 +372,7 @@ export class RedshiftserverlessWorkgroupConfigParameterOutputReference extends c
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string; 
+  private _parameterValue?: string;
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -465,7 +465,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // base_capacity - computed: true, optional: true, required: false
-  private _baseCapacity?: number; 
+  private _baseCapacity?: number;
   public get baseCapacity() {
     return this.getNumberAttribute('base_capacity');
   }
@@ -487,7 +487,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // enhanced_vpc_routing - computed: false, optional: true, required: false
-  private _enhancedVpcRouting?: boolean | cdktf.IResolvable; 
+  private _enhancedVpcRouting?: boolean | cdktf.IResolvable;
   public get enhancedVpcRouting() {
     return this.getBooleanAttribute('enhanced_vpc_routing');
   }
@@ -503,7 +503,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -519,7 +519,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // namespace_name - computed: false, optional: false, required: true
-  private _namespaceName?: string; 
+  private _namespaceName?: string;
   public get namespaceName() {
     return this.getStringAttribute('namespace_name');
   }
@@ -532,7 +532,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // publicly_accessible - computed: false, optional: true, required: false
-  private _publiclyAccessible?: boolean | cdktf.IResolvable; 
+  private _publiclyAccessible?: boolean | cdktf.IResolvable;
   public get publiclyAccessible() {
     return this.getBooleanAttribute('publicly_accessible');
   }
@@ -548,7 +548,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -564,7 +564,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: true, optional: true, required: false
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -580,7 +580,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -596,7 +596,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -617,7 +617,7 @@ export class RedshiftserverlessWorkgroup extends cdktf.TerraformResource {
   }
 
   // workgroup_name - computed: false, optional: false, required: true
-  private _workgroupName?: string; 
+  private _workgroupName?: string;
   public get workgroupName() {
     return this.getStringAttribute('workgroup_name');
   }

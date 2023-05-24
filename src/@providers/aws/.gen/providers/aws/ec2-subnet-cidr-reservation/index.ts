@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_subnet_cidr_reservation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class Ec2SubnetCidrReservation extends cdktf.TerraformResource {
   // ==========
 
   // cidr_block - computed: false, optional: false, required: true
-  private _cidrBlock?: string; 
+  private _cidrBlock?: string;
   public get cidrBlock() {
     return this.getStringAttribute('cidr_block');
   }
@@ -94,7 +94,7 @@ export class Ec2SubnetCidrReservation extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -110,7 +110,7 @@ export class Ec2SubnetCidrReservation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -131,7 +131,7 @@ export class Ec2SubnetCidrReservation extends cdktf.TerraformResource {
   }
 
   // reservation_type - computed: false, optional: false, required: true
-  private _reservationType?: string; 
+  private _reservationType?: string;
   public get reservationType() {
     return this.getStringAttribute('reservation_type');
   }
@@ -144,7 +144,7 @@ export class Ec2SubnetCidrReservation extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/identitystore_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsIdentitystoreUserConfig extends cdktf.TerraformMetaArgum
   readonly userId?: string;
   /**
   * alternate_identifier block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#alternate_identifier DataAwsIdentitystoreUser#alternate_identifier}
   */
   readonly alternateIdentifier?: DataAwsIdentitystoreUserAlternateIdentifier;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#filter DataAwsIdentitystoreUser#filter}
   */
   readonly filter?: DataAwsIdentitystoreUserFilter;
@@ -504,7 +504,7 @@ export class DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReferenc
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -517,7 +517,7 @@ export class DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReferenc
   }
 
   // issuer - computed: false, optional: false, required: true
-  private _issuer?: string; 
+  private _issuer?: string;
   public get issuer() {
     return this.getStringAttribute('issuer');
   }
@@ -590,7 +590,7 @@ export class DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputRef
   }
 
   // attribute_path - computed: false, optional: false, required: true
-  private _attributePath?: string; 
+  private _attributePath?: string;
   public get attributePath() {
     return this.getStringAttribute('attribute_path');
   }
@@ -603,7 +603,7 @@ export class DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputRef
   }
 
   // attribute_value - computed: false, optional: false, required: true
-  private _attributeValue?: string; 
+  private _attributeValue?: string;
   public get attributeValue() {
     return this.getStringAttribute('attribute_value');
   }
@@ -618,13 +618,13 @@ export class DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputRef
 export interface DataAwsIdentitystoreUserAlternateIdentifier {
   /**
   * external_id block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#external_id DataAwsIdentitystoreUser#external_id}
   */
   readonly externalId?: DataAwsIdentitystoreUserAlternateIdentifierExternalId;
   /**
   * unique_attribute block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#unique_attribute DataAwsIdentitystoreUser#unique_attribute}
   */
   readonly uniqueAttribute?: DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute;
@@ -772,7 +772,7 @@ export class DataAwsIdentitystoreUserFilterOutputReference extends cdktf.Complex
   }
 
   // attribute_path - computed: false, optional: false, required: true
-  private _attributePath?: string; 
+  private _attributePath?: string;
   public get attributePath() {
     return this.getStringAttribute('attribute_path');
   }
@@ -785,7 +785,7 @@ export class DataAwsIdentitystoreUserFilterOutputReference extends cdktf.Complex
   }
 
   // attribute_value - computed: false, optional: false, required: true
-  private _attributeValue?: string; 
+  private _attributeValue?: string;
   public get attributeValue() {
     return this.getStringAttribute('attribute_value');
   }
@@ -870,7 +870,7 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -886,7 +886,7 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // identity_store_id - computed: false, optional: false, required: true
-  private _identityStoreId?: string; 
+  private _identityStoreId?: string;
   public get identityStoreId() {
     return this.getStringAttribute('identity_store_id');
   }
@@ -941,7 +941,7 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // user_id - computed: true, optional: true, required: false
-  private _userId?: string; 
+  private _userId?: string;
   public get userId() {
     return this.getStringAttribute('user_id');
   }

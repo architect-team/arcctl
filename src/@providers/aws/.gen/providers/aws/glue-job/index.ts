@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_job
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -80,19 +80,19 @@ export interface GlueJobConfig extends cdktf.TerraformMetaArguments {
   readonly workerType?: string;
   /**
   * command block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_job#command GlueJob#command}
   */
   readonly command: GlueJobCommand;
   /**
   * execution_property block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_job#execution_property GlueJob#execution_property}
   */
   readonly executionProperty?: GlueJobExecutionProperty;
   /**
   * notification_property block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_job#notification_property GlueJob#notification_property}
   */
   readonly notificationProperty?: GlueJobNotificationProperty;
@@ -169,7 +169,7 @@ export class GlueJobCommandOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -185,7 +185,7 @@ export class GlueJobCommandOutputReference extends cdktf.ComplexObject {
   }
 
   // python_version - computed: true, optional: true, required: false
-  private _pythonVersion?: string; 
+  private _pythonVersion?: string;
   public get pythonVersion() {
     return this.getStringAttribute('python_version');
   }
@@ -201,7 +201,7 @@ export class GlueJobCommandOutputReference extends cdktf.ComplexObject {
   }
 
   // script_location - computed: false, optional: false, required: true
-  private _scriptLocation?: string; 
+  private _scriptLocation?: string;
   public get scriptLocation() {
     return this.getStringAttribute('script_location');
   }
@@ -263,7 +263,7 @@ export class GlueJobExecutionPropertyOutputReference extends cdktf.ComplexObject
   }
 
   // max_concurrent_runs - computed: false, optional: true, required: false
-  private _maxConcurrentRuns?: number; 
+  private _maxConcurrentRuns?: number;
   public get maxConcurrentRuns() {
     return this.getNumberAttribute('max_concurrent_runs');
   }
@@ -328,7 +328,7 @@ export class GlueJobNotificationPropertyOutputReference extends cdktf.ComplexObj
   }
 
   // notify_delay_after - computed: false, optional: true, required: false
-  private _notifyDelayAfter?: number; 
+  private _notifyDelayAfter?: number;
   public get notifyDelayAfter() {
     return this.getNumberAttribute('notify_delay_after');
   }
@@ -413,7 +413,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // connections - computed: false, optional: true, required: false
-  private _connections?: string[]; 
+  private _connections?: string[];
   public get connections() {
     return this.getListAttribute('connections');
   }
@@ -429,7 +429,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // default_arguments - computed: false, optional: true, required: false
-  private _defaultArguments?: { [key: string]: string }; 
+  private _defaultArguments?: { [key: string]: string };
   public get defaultArguments() {
     return this.getStringMapAttribute('default_arguments');
   }
@@ -445,7 +445,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -461,7 +461,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // execution_class - computed: false, optional: true, required: false
-  private _executionClass?: string; 
+  private _executionClass?: string;
   public get executionClass() {
     return this.getStringAttribute('execution_class');
   }
@@ -477,7 +477,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // glue_version - computed: true, optional: true, required: false
-  private _glueVersion?: string; 
+  private _glueVersion?: string;
   public get glueVersion() {
     return this.getStringAttribute('glue_version');
   }
@@ -493,7 +493,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -509,7 +509,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // max_capacity - computed: true, optional: true, required: false
-  private _maxCapacity?: number; 
+  private _maxCapacity?: number;
   public get maxCapacity() {
     return this.getNumberAttribute('max_capacity');
   }
@@ -525,7 +525,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // max_retries - computed: false, optional: true, required: false
-  private _maxRetries?: number; 
+  private _maxRetries?: number;
   public get maxRetries() {
     return this.getNumberAttribute('max_retries');
   }
@@ -541,7 +541,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -554,7 +554,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // non_overridable_arguments - computed: false, optional: true, required: false
-  private _nonOverridableArguments?: { [key: string]: string }; 
+  private _nonOverridableArguments?: { [key: string]: string };
   public get nonOverridableArguments() {
     return this.getStringMapAttribute('non_overridable_arguments');
   }
@@ -570,7 +570,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // number_of_workers - computed: false, optional: true, required: false
-  private _numberOfWorkers?: number; 
+  private _numberOfWorkers?: number;
   public get numberOfWorkers() {
     return this.getNumberAttribute('number_of_workers');
   }
@@ -586,7 +586,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -599,7 +599,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // security_configuration - computed: false, optional: true, required: false
-  private _securityConfiguration?: string; 
+  private _securityConfiguration?: string;
   public get securityConfiguration() {
     return this.getStringAttribute('security_configuration');
   }
@@ -615,7 +615,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -631,7 +631,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -647,7 +647,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // timeout - computed: true, optional: true, required: false
-  private _timeout?: number; 
+  private _timeout?: number;
   public get timeout() {
     return this.getNumberAttribute('timeout');
   }
@@ -663,7 +663,7 @@ export class GlueJob extends cdktf.TerraformResource {
   }
 
   // worker_type - computed: false, optional: true, required: false
-  private _workerType?: string; 
+  private _workerType?: string;
   public get workerType() {
     return this.getStringAttribute('worker_type');
   }

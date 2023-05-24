@@ -1,4 +1,4 @@
-import { ResourceInputs, ResourceType } from '../@resources/types.js';
+import { ResourceInputs, ResourceType } from '../@resources/types.ts';
 
 export type CloudNodeOptions<T extends ResourceType> = {
   name: string;

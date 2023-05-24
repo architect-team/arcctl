@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/app
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface AppConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#spec App#spec}
   */
   readonly spec?: AppSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#timeouts App#timeouts}
   */
   readonly timeouts?: AppTimeouts;
@@ -100,7 +100,7 @@ export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable; 
+  private _disabled?: boolean | cdktf.IResolvable;
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -116,7 +116,7 @@ export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -151,43 +151,43 @@ export class AppSpecAlertList extends cdktf.ComplexList {
 export interface AppSpecDatabase {
   /**
   * The name of the underlying DigitalOcean DBaaS cluster. This is required for production databases. For dev databases, if cluster_name is not set, a new cluster will be provisioned.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cluster_name App#cluster_name}
   */
   readonly clusterName?: string;
   /**
   * The name of the MySQL or PostgreSQL database to configure.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#db_name App#db_name}
   */
   readonly dbName?: string;
   /**
   * The name of the MySQL or PostgreSQL user to configure.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#db_user App#db_user}
   */
   readonly dbUser?: string;
   /**
   * The database engine to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#engine App#engine}
   */
   readonly engine?: string;
   /**
   * The name of the component
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name?: string;
   /**
   * Whether this is a production or dev database.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#production App#production}
   */
   readonly production?: boolean | cdktf.IResolvable;
   /**
   * The version of the database engine.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#version App#version}
   */
   readonly version?: string;
@@ -290,7 +290,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // cluster_name - computed: false, optional: true, required: false
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -306,7 +306,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // db_name - computed: false, optional: true, required: false
-  private _dbName?: string; 
+  private _dbName?: string;
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -322,7 +322,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // db_user - computed: false, optional: true, required: false
-  private _dbUser?: string; 
+  private _dbUser?: string;
   public get dbUser() {
     return this.getStringAttribute('db_user');
   }
@@ -338,7 +338,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // engine - computed: false, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -354,7 +354,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -370,7 +370,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // production - computed: false, optional: true, required: false
-  private _production?: boolean | cdktf.IResolvable; 
+  private _production?: boolean | cdktf.IResolvable;
   public get production() {
     return this.getBooleanAttribute('production');
   }
@@ -386,7 +386,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -424,25 +424,25 @@ export class AppSpecDatabaseList extends cdktf.ComplexList {
 export interface AppSpecDomain {
   /**
   * The hostname for the domain.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * The type of the domain.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
   */
   readonly type?: string;
   /**
   * Indicates whether the domain includes all sub-domains, in addition to the given domain.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#wildcard App#wildcard}
   */
   readonly wildcard?: boolean | cdktf.IResolvable;
   /**
   * If the domain uses DigitalOcean DNS and you would like App Platform to automatically manage it for you, set this to the name of the domain on your account.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#zone App#zone}
   */
   readonly zone?: string;
@@ -524,7 +524,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -537,7 +537,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -553,7 +553,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // wildcard - computed: true, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -569,7 +569,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // zone - computed: false, optional: true, required: false
-  private _zone?: string; 
+  private _zone?: string;
   public get zone() {
     return this.getStringAttribute('zone');
   }
@@ -607,25 +607,25 @@ export class AppSpecDomainList extends cdktf.ComplexList {
 export interface AppSpecEnv {
   /**
   * The name of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
   */
   readonly key?: string;
   /**
   * The visibility scope of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
   */
   readonly scope?: string;
   /**
   * The type of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
   */
   readonly type?: string;
   /**
   * The value of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
   */
   readonly value?: string;
@@ -707,7 +707,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -723,7 +723,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -739,7 +739,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -755,7 +755,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -896,7 +896,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable; 
+  private _disabled?: boolean | cdktf.IResolvable;
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -912,7 +912,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -925,7 +925,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -938,7 +938,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -951,7 +951,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string; 
+  private _window?: string;
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -986,19 +986,19 @@ export class AppSpecFunctionAlertList extends cdktf.ComplexList {
 export interface AppSpecFunctionCorsAllowOrigins {
   /**
   * Exact string match.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
   */
   readonly exact?: string;
   /**
-  * Prefix-based match. 
-  * 
+  * Prefix-based match.
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
   */
   readonly prefix?: string;
   /**
   * RE2 style regex-based match.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
   */
   readonly regex?: string;
@@ -1061,7 +1061,7 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -1077,7 +1077,7 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1093,7 +1093,7 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -1111,37 +1111,37 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
 export interface AppSpecFunctionCors {
   /**
   * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
   */
   readonly allowCredentials?: boolean | cdktf.IResolvable;
   /**
   * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
   */
   readonly allowHeaders?: string[];
   /**
   * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
   */
   readonly allowMethods?: string[];
   /**
   * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
   */
   readonly exposeHeaders?: string[];
   /**
   * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
   */
   readonly maxAge?: string;
   /**
   * allow_origins block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
   */
   readonly allowOrigins?: AppSpecFunctionCorsAllowOrigins;
@@ -1225,7 +1225,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_credentials - computed: false, optional: true, required: false
-  private _allowCredentials?: boolean | cdktf.IResolvable; 
+  private _allowCredentials?: boolean | cdktf.IResolvable;
   public get allowCredentials() {
     return this.getBooleanAttribute('allow_credentials');
   }
@@ -1241,7 +1241,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_headers - computed: false, optional: true, required: false
-  private _allowHeaders?: string[]; 
+  private _allowHeaders?: string[];
   public get allowHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_headers'));
   }
@@ -1257,7 +1257,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_methods - computed: false, optional: true, required: false
-  private _allowMethods?: string[]; 
+  private _allowMethods?: string[];
   public get allowMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_methods'));
   }
@@ -1273,7 +1273,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[]; 
+  private _exposeHeaders?: string[];
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -1289,7 +1289,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age - computed: false, optional: true, required: false
-  private _maxAge?: string; 
+  private _maxAge?: string;
   public get maxAge() {
     return this.getStringAttribute('max_age');
   }
@@ -1323,25 +1323,25 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
 export interface AppSpecFunctionEnv {
   /**
   * The name of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
   */
   readonly key?: string;
   /**
   * The visibility scope of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
   */
   readonly scope?: string;
   /**
   * The type of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
   */
   readonly type?: string;
   /**
   * The value of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
   */
   readonly value?: string;
@@ -1423,7 +1423,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1439,7 +1439,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -1455,7 +1455,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1471,7 +1471,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1509,13 +1509,13 @@ export class AppSpecFunctionEnvList extends cdktf.ComplexList {
 export interface AppSpecFunctionGit {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * The clone URL of the repo.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
   */
   readonly repoCloneUrl?: string;
@@ -1571,7 +1571,7 @@ export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -1587,7 +1587,7 @@ export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string; 
+  private _repoCloneUrl?: string;
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -1605,19 +1605,19 @@ export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
 export interface AppSpecFunctionGithub {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -1680,7 +1680,7 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -1696,7 +1696,7 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -1712,7 +1712,7 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -1730,19 +1730,19 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
 export interface AppSpecFunctionGitlab {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -1805,7 +1805,7 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -1821,7 +1821,7 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -1837,7 +1837,7 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -1855,13 +1855,13 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
 export interface AppSpecFunctionLogDestinationDatadog {
   /**
   * Datadog API key.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
   */
   readonly apiKey: string;
   /**
   * Datadog HTTP log intake endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint?: string;
@@ -1917,7 +1917,7 @@ export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.C
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -1930,7 +1930,7 @@ export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.C
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -1948,7 +1948,7 @@ export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.C
 export interface AppSpecFunctionLogDestinationLogtail {
   /**
   * Logtail token.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
   */
   readonly token: string;
@@ -1997,7 +1997,7 @@ export class AppSpecFunctionLogDestinationLogtailOutputReference extends cdktf.C
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -2012,7 +2012,7 @@ export class AppSpecFunctionLogDestinationLogtailOutputReference extends cdktf.C
 export interface AppSpecFunctionLogDestinationPapertrail {
   /**
   * Papertrail syslog endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint: string;
@@ -2061,7 +2061,7 @@ export class AppSpecFunctionLogDestinationPapertrailOutputReference extends cdkt
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -2076,25 +2076,25 @@ export class AppSpecFunctionLogDestinationPapertrailOutputReference extends cdkt
 export interface AppSpecFunctionLogDestination {
   /**
   * Name of the log destination
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * datadog block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
   */
   readonly datadog?: AppSpecFunctionLogDestinationDatadog;
   /**
   * logtail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
   */
   readonly logtail?: AppSpecFunctionLogDestinationLogtail;
   /**
   * papertrail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
   */
   readonly papertrail?: AppSpecFunctionLogDestinationPapertrail;
@@ -2176,7 +2176,7 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2259,13 +2259,13 @@ export class AppSpecFunctionLogDestinationList extends cdktf.ComplexList {
 export interface AppSpecFunctionRoutes {
   /**
   * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
   */
   readonly path?: string;
   /**
   *  An optional flag to preserve the path that is forwarded to the backend service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
   */
   readonly preservePathPrefix?: boolean | cdktf.IResolvable;
@@ -2333,7 +2333,7 @@ export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -2349,7 +2349,7 @@ export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // preserve_path_prefix - computed: false, optional: true, required: false
-  private _preservePathPrefix?: boolean | cdktf.IResolvable; 
+  private _preservePathPrefix?: boolean | cdktf.IResolvable;
   public get preservePathPrefix() {
     return this.getBooleanAttribute('preserve_path_prefix');
   }
@@ -2387,61 +2387,61 @@ export class AppSpecFunctionRoutesList extends cdktf.ComplexList {
 export interface AppSpecFunction {
   /**
   * The name of the component
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * An optional path to the working directory to use for the build.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
   */
   readonly sourceDir?: string;
   /**
   * alert block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
   */
   readonly alert?: AppSpecFunctionAlert[] | cdktf.IResolvable;
   /**
   * cors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
   */
   readonly cors?: AppSpecFunctionCors;
   /**
   * env block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
   */
   readonly env?: AppSpecFunctionEnv[] | cdktf.IResolvable;
   /**
   * git block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
   */
   readonly git?: AppSpecFunctionGit;
   /**
   * github block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
   */
   readonly github?: AppSpecFunctionGithub;
   /**
   * gitlab block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
   */
   readonly gitlab?: AppSpecFunctionGitlab;
   /**
   * log_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
   */
   readonly logDestination?: AppSpecFunctionLogDestination[] | cdktf.IResolvable;
   /**
   * routes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
   */
   readonly routes?: AppSpecFunctionRoutes[] | cdktf.IResolvable;
@@ -2565,7 +2565,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2578,7 +2578,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string; 
+  private _sourceDir?: string;
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -2847,7 +2847,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable; 
+  private _disabled?: boolean | cdktf.IResolvable;
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -2863,7 +2863,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2876,7 +2876,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -2889,7 +2889,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -2902,7 +2902,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string; 
+  private _window?: string;
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -2937,25 +2937,25 @@ export class AppSpecJobAlertList extends cdktf.ComplexList {
 export interface AppSpecJobEnv {
   /**
   * The name of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
   */
   readonly key?: string;
   /**
   * The visibility scope of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
   */
   readonly scope?: string;
   /**
   * The type of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
   */
   readonly type?: string;
   /**
   * The value of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
   */
   readonly value?: string;
@@ -3037,7 +3037,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3053,7 +3053,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -3069,7 +3069,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3085,7 +3085,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3123,13 +3123,13 @@ export class AppSpecJobEnvList extends cdktf.ComplexList {
 export interface AppSpecJobGit {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * The clone URL of the repo.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
   */
   readonly repoCloneUrl?: string;
@@ -3185,7 +3185,7 @@ export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -3201,7 +3201,7 @@ export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string; 
+  private _repoCloneUrl?: string;
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -3219,19 +3219,19 @@ export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
 export interface AppSpecJobGithub {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -3294,7 +3294,7 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -3310,7 +3310,7 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -3326,7 +3326,7 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -3344,19 +3344,19 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
 export interface AppSpecJobGitlab {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -3419,7 +3419,7 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -3435,7 +3435,7 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -3451,7 +3451,7 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -3469,7 +3469,7 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
 export interface AppSpecJobImageDeployOnPush {
   /**
   * Whether to automatically deploy images pushed to DOCR.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
@@ -3530,7 +3530,7 @@ export class AppSpecJobImageDeployOnPushOutputReference extends cdktf.ComplexObj
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3568,31 +3568,31 @@ export class AppSpecJobImageDeployOnPushList extends cdktf.ComplexList {
 export interface AppSpecJobImage {
   /**
   * The registry name. Must be left empty for the DOCR registry type.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
   */
   readonly registry?: string;
   /**
   * The registry type.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
   */
   readonly registryType: string;
   /**
   * The repository name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
   */
   readonly repository: string;
   /**
   * The repository tag. Defaults to latest if not provided.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
   */
   readonly tag?: string;
   /**
   * deploy_on_push block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: AppSpecJobImageDeployOnPush[] | cdktf.IResolvable;
@@ -3669,7 +3669,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -3685,7 +3685,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry_type - computed: false, optional: false, required: true
-  private _registryType?: string; 
+  private _registryType?: string;
   public get registryType() {
     return this.getStringAttribute('registry_type');
   }
@@ -3698,7 +3698,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -3711,7 +3711,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string; 
+  private _tag?: string;
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -3745,13 +3745,13 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
 export interface AppSpecJobLogDestinationDatadog {
   /**
   * Datadog API key.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
   */
   readonly apiKey: string;
   /**
   * Datadog HTTP log intake endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint?: string;
@@ -3807,7 +3807,7 @@ export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.Comple
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -3820,7 +3820,7 @@ export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.Comple
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -3838,7 +3838,7 @@ export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.Comple
 export interface AppSpecJobLogDestinationLogtail {
   /**
   * Logtail token.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
   */
   readonly token: string;
@@ -3887,7 +3887,7 @@ export class AppSpecJobLogDestinationLogtailOutputReference extends cdktf.Comple
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -3902,7 +3902,7 @@ export class AppSpecJobLogDestinationLogtailOutputReference extends cdktf.Comple
 export interface AppSpecJobLogDestinationPapertrail {
   /**
   * Papertrail syslog endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint: string;
@@ -3951,7 +3951,7 @@ export class AppSpecJobLogDestinationPapertrailOutputReference extends cdktf.Com
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -3966,25 +3966,25 @@ export class AppSpecJobLogDestinationPapertrailOutputReference extends cdktf.Com
 export interface AppSpecJobLogDestination {
   /**
   * Name of the log destination
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * datadog block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
   */
   readonly datadog?: AppSpecJobLogDestinationDatadog;
   /**
   * logtail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
   */
   readonly logtail?: AppSpecJobLogDestinationLogtail;
   /**
   * papertrail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
   */
   readonly papertrail?: AppSpecJobLogDestinationPapertrail;
@@ -4066,7 +4066,7 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4149,97 +4149,97 @@ export class AppSpecJobLogDestinationList extends cdktf.ComplexList {
 export interface AppSpecJob {
   /**
   * An optional build command to run while building this component from source.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
   */
   readonly buildCommand?: string;
   /**
   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
   */
   readonly dockerfilePath?: string;
   /**
   * An environment slug describing the type of this app.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
   */
   readonly environmentSlug?: string;
   /**
   * The amount of instances that this component should be scaled to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
   */
   readonly instanceCount?: number;
   /**
   * The instance size to use for this component.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
   */
   readonly instanceSizeSlug?: string;
   /**
   * The type of job and when it will be run during the deployment process.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#kind App#kind}
   */
   readonly kind?: string;
   /**
   * The name of the component
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * An optional run command to override the component's default.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
   */
   readonly runCommand?: string;
   /**
   * An optional path to the working directory to use for the build.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
   */
   readonly sourceDir?: string;
   /**
   * alert block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
   */
   readonly alert?: AppSpecJobAlert[] | cdktf.IResolvable;
   /**
   * env block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
   */
   readonly env?: AppSpecJobEnv[] | cdktf.IResolvable;
   /**
   * git block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
   */
   readonly git?: AppSpecJobGit;
   /**
   * github block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
   */
   readonly github?: AppSpecJobGithub;
   /**
   * gitlab block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
   */
   readonly gitlab?: AppSpecJobGitlab;
   /**
   * image block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
   */
   readonly image?: AppSpecJobImage;
   /**
   * log_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
   */
   readonly logDestination?: AppSpecJobLogDestination[] | cdktf.IResolvable;
@@ -4405,7 +4405,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string; 
+  private _buildCommand?: string;
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -4421,7 +4421,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string; 
+  private _dockerfilePath?: string;
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -4437,7 +4437,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string; 
+  private _environmentSlug?: string;
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -4453,7 +4453,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -4469,7 +4469,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_size_slug - computed: false, optional: true, required: false
-  private _instanceSizeSlug?: string; 
+  private _instanceSizeSlug?: string;
   public get instanceSizeSlug() {
     return this.getStringAttribute('instance_size_slug');
   }
@@ -4485,7 +4485,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // kind - computed: false, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -4501,7 +4501,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4514,7 +4514,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // run_command - computed: false, optional: true, required: false
-  private _runCommand?: string; 
+  private _runCommand?: string;
   public get runCommand() {
     return this.getStringAttribute('run_command');
   }
@@ -4530,7 +4530,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string; 
+  private _sourceDir?: string;
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -4783,7 +4783,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable; 
+  private _disabled?: boolean | cdktf.IResolvable;
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -4799,7 +4799,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -4812,7 +4812,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -4825,7 +4825,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -4838,7 +4838,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string; 
+  private _window?: string;
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -4873,19 +4873,19 @@ export class AppSpecServiceAlertList extends cdktf.ComplexList {
 export interface AppSpecServiceCorsAllowOrigins {
   /**
   * Exact string match.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
   */
   readonly exact?: string;
   /**
-  * Prefix-based match. 
-  * 
+  * Prefix-based match.
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
   */
   readonly prefix?: string;
   /**
   * RE2 style regex-based match.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
   */
   readonly regex?: string;
@@ -4948,7 +4948,7 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -4964,7 +4964,7 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -4980,7 +4980,7 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -4998,37 +4998,37 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
 export interface AppSpecServiceCors {
   /**
   * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
   */
   readonly allowCredentials?: boolean | cdktf.IResolvable;
   /**
   * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
   */
   readonly allowHeaders?: string[];
   /**
   * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
   */
   readonly allowMethods?: string[];
   /**
   * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
   */
   readonly exposeHeaders?: string[];
   /**
   * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
   */
   readonly maxAge?: string;
   /**
   * allow_origins block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
   */
   readonly allowOrigins?: AppSpecServiceCorsAllowOrigins;
@@ -5112,7 +5112,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_credentials - computed: false, optional: true, required: false
-  private _allowCredentials?: boolean | cdktf.IResolvable; 
+  private _allowCredentials?: boolean | cdktf.IResolvable;
   public get allowCredentials() {
     return this.getBooleanAttribute('allow_credentials');
   }
@@ -5128,7 +5128,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_headers - computed: false, optional: true, required: false
-  private _allowHeaders?: string[]; 
+  private _allowHeaders?: string[];
   public get allowHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_headers'));
   }
@@ -5144,7 +5144,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_methods - computed: false, optional: true, required: false
-  private _allowMethods?: string[]; 
+  private _allowMethods?: string[];
   public get allowMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_methods'));
   }
@@ -5160,7 +5160,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[]; 
+  private _exposeHeaders?: string[];
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -5176,7 +5176,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age - computed: false, optional: true, required: false
-  private _maxAge?: string; 
+  private _maxAge?: string;
   public get maxAge() {
     return this.getStringAttribute('max_age');
   }
@@ -5210,25 +5210,25 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
 export interface AppSpecServiceEnv {
   /**
   * The name of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
   */
   readonly key?: string;
   /**
   * The visibility scope of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
   */
   readonly scope?: string;
   /**
   * The type of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
   */
   readonly type?: string;
   /**
   * The value of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
   */
   readonly value?: string;
@@ -5310,7 +5310,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -5326,7 +5326,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -5342,7 +5342,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -5358,7 +5358,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -5396,13 +5396,13 @@ export class AppSpecServiceEnvList extends cdktf.ComplexList {
 export interface AppSpecServiceGit {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * The clone URL of the repo.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
   */
   readonly repoCloneUrl?: string;
@@ -5458,7 +5458,7 @@ export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -5474,7 +5474,7 @@ export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string; 
+  private _repoCloneUrl?: string;
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -5492,19 +5492,19 @@ export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
 export interface AppSpecServiceGithub {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -5567,7 +5567,7 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -5583,7 +5583,7 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -5599,7 +5599,7 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -5617,19 +5617,19 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
 export interface AppSpecServiceGitlab {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -5692,7 +5692,7 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -5708,7 +5708,7 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -5724,7 +5724,7 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -5742,37 +5742,37 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
 export interface AppSpecServiceHealthCheck {
   /**
   * The number of failed health checks before considered unhealthy.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#failure_threshold App#failure_threshold}
   */
   readonly failureThreshold?: number;
   /**
   * The route path used for the HTTP health check ping.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#http_path App#http_path}
   */
   readonly httpPath?: string;
   /**
   * The number of seconds to wait before beginning health checks.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#initial_delay_seconds App#initial_delay_seconds}
   */
   readonly initialDelaySeconds?: number;
   /**
   * The number of seconds to wait between health checks.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#period_seconds App#period_seconds}
   */
   readonly periodSeconds?: number;
   /**
   * The number of successful health checks before considered healthy.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#success_threshold App#success_threshold}
   */
   readonly successThreshold?: number;
   /**
   * The number of seconds after which the check times out.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#timeout_seconds App#timeout_seconds}
   */
   readonly timeoutSeconds?: number;
@@ -5856,7 +5856,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -5872,7 +5872,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // http_path - computed: false, optional: true, required: false
-  private _httpPath?: string; 
+  private _httpPath?: string;
   public get httpPath() {
     return this.getStringAttribute('http_path');
   }
@@ -5888,7 +5888,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -5904,7 +5904,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -5920,7 +5920,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -5936,7 +5936,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -5954,7 +5954,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
 export interface AppSpecServiceImageDeployOnPush {
   /**
   * Whether to automatically deploy images pushed to DOCR.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
@@ -6015,7 +6015,7 @@ export class AppSpecServiceImageDeployOnPushOutputReference extends cdktf.Comple
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -6053,31 +6053,31 @@ export class AppSpecServiceImageDeployOnPushList extends cdktf.ComplexList {
 export interface AppSpecServiceImage {
   /**
   * The registry name. Must be left empty for the DOCR registry type.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
   */
   readonly registry?: string;
   /**
   * The registry type.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
   */
   readonly registryType: string;
   /**
   * The repository name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
   */
   readonly repository: string;
   /**
   * The repository tag. Defaults to latest if not provided.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
   */
   readonly tag?: string;
   /**
   * deploy_on_push block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: AppSpecServiceImageDeployOnPush[] | cdktf.IResolvable;
@@ -6154,7 +6154,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -6170,7 +6170,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry_type - computed: false, optional: false, required: true
-  private _registryType?: string; 
+  private _registryType?: string;
   public get registryType() {
     return this.getStringAttribute('registry_type');
   }
@@ -6183,7 +6183,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -6196,7 +6196,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string; 
+  private _tag?: string;
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -6230,13 +6230,13 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
 export interface AppSpecServiceLogDestinationDatadog {
   /**
   * Datadog API key.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
   */
   readonly apiKey: string;
   /**
   * Datadog HTTP log intake endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint?: string;
@@ -6292,7 +6292,7 @@ export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.Co
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -6305,7 +6305,7 @@ export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.Co
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -6323,7 +6323,7 @@ export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.Co
 export interface AppSpecServiceLogDestinationLogtail {
   /**
   * Logtail token.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
   */
   readonly token: string;
@@ -6372,7 +6372,7 @@ export class AppSpecServiceLogDestinationLogtailOutputReference extends cdktf.Co
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -6387,7 +6387,7 @@ export class AppSpecServiceLogDestinationLogtailOutputReference extends cdktf.Co
 export interface AppSpecServiceLogDestinationPapertrail {
   /**
   * Papertrail syslog endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint: string;
@@ -6436,7 +6436,7 @@ export class AppSpecServiceLogDestinationPapertrailOutputReference extends cdktf
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -6451,25 +6451,25 @@ export class AppSpecServiceLogDestinationPapertrailOutputReference extends cdktf
 export interface AppSpecServiceLogDestination {
   /**
   * Name of the log destination
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * datadog block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
   */
   readonly datadog?: AppSpecServiceLogDestinationDatadog;
   /**
   * logtail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
   */
   readonly logtail?: AppSpecServiceLogDestinationLogtail;
   /**
   * papertrail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
   */
   readonly papertrail?: AppSpecServiceLogDestinationPapertrail;
@@ -6551,7 +6551,7 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -6634,13 +6634,13 @@ export class AppSpecServiceLogDestinationList extends cdktf.ComplexList {
 export interface AppSpecServiceRoutes {
   /**
   * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
   */
   readonly path?: string;
   /**
   *  An optional flag to preserve the path that is forwarded to the backend service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
   */
   readonly preservePathPrefix?: boolean | cdktf.IResolvable;
@@ -6708,7 +6708,7 @@ export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6724,7 +6724,7 @@ export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // preserve_path_prefix - computed: false, optional: true, required: false
-  private _preservePathPrefix?: boolean | cdktf.IResolvable; 
+  private _preservePathPrefix?: boolean | cdktf.IResolvable;
   public get preservePathPrefix() {
     return this.getBooleanAttribute('preserve_path_prefix');
   }
@@ -6762,37 +6762,37 @@ export class AppSpecServiceRoutesList extends cdktf.ComplexList {
 export interface AppSpecService {
   /**
   * An optional build command to run while building this component from source.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
   */
   readonly buildCommand?: string;
   /**
   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
   */
   readonly dockerfilePath?: string;
   /**
   * An environment slug describing the type of this app.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
   */
   readonly environmentSlug?: string;
   /**
   * The internal port on which this service's run command will listen.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#http_port App#http_port}
   */
   readonly httpPort?: number;
   /**
   * The amount of instances that this component should be scaled to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
   */
   readonly instanceCount?: number;
   /**
   * The instance size to use for this component.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
   */
   readonly instanceSizeSlug?: string;
@@ -6802,79 +6802,79 @@ export interface AppSpecService {
   readonly internalPorts?: number[];
   /**
   * The name of the component
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * An optional run command to override the component's default.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
   */
   readonly runCommand?: string;
   /**
   * An optional path to the working directory to use for the build.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
   */
   readonly sourceDir?: string;
   /**
   * alert block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
   */
   readonly alert?: AppSpecServiceAlert[] | cdktf.IResolvable;
   /**
   * cors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
   */
   readonly cors?: AppSpecServiceCors;
   /**
   * env block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
   */
   readonly env?: AppSpecServiceEnv[] | cdktf.IResolvable;
   /**
   * git block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
   */
   readonly git?: AppSpecServiceGit;
   /**
   * github block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
   */
   readonly github?: AppSpecServiceGithub;
   /**
   * gitlab block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
   */
   readonly gitlab?: AppSpecServiceGitlab;
   /**
   * health_check block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#health_check App#health_check}
   */
   readonly healthCheck?: AppSpecServiceHealthCheck;
   /**
   * image block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
   */
   readonly image?: AppSpecServiceImage;
   /**
   * log_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
   */
   readonly logDestination?: AppSpecServiceLogDestination[] | cdktf.IResolvable;
   /**
   * routes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
   */
   readonly routes?: AppSpecServiceRoutes[] | cdktf.IResolvable;
@@ -7068,7 +7068,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string; 
+  private _buildCommand?: string;
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -7084,7 +7084,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string; 
+  private _dockerfilePath?: string;
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -7100,7 +7100,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string; 
+  private _environmentSlug?: string;
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -7116,7 +7116,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // http_port - computed: true, optional: true, required: false
-  private _httpPort?: number; 
+  private _httpPort?: number;
   public get httpPort() {
     return this.getNumberAttribute('http_port');
   }
@@ -7132,7 +7132,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -7148,7 +7148,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_size_slug - computed: false, optional: true, required: false
-  private _instanceSizeSlug?: string; 
+  private _instanceSizeSlug?: string;
   public get instanceSizeSlug() {
     return this.getStringAttribute('instance_size_slug');
   }
@@ -7164,7 +7164,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // internal_ports - computed: false, optional: true, required: false
-  private _internalPorts?: number[]; 
+  private _internalPorts?: number[];
   public get internalPorts() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('internal_ports')));
   }
@@ -7180,7 +7180,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7193,7 +7193,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // run_command - computed: true, optional: true, required: false
-  private _runCommand?: string; 
+  private _runCommand?: string;
   public get runCommand() {
     return this.getStringAttribute('run_command');
   }
@@ -7209,7 +7209,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string; 
+  private _sourceDir?: string;
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -7407,19 +7407,19 @@ export class AppSpecServiceList extends cdktf.ComplexList {
 export interface AppSpecStaticSiteCorsAllowOrigins {
   /**
   * Exact string match.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
   */
   readonly exact?: string;
   /**
-  * Prefix-based match. 
-  * 
+  * Prefix-based match.
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
   */
   readonly prefix?: string;
   /**
   * RE2 style regex-based match.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
   */
   readonly regex?: string;
@@ -7482,7 +7482,7 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -7498,7 +7498,7 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -7514,7 +7514,7 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -7532,37 +7532,37 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
 export interface AppSpecStaticSiteCors {
   /**
   * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
   */
   readonly allowCredentials?: boolean | cdktf.IResolvable;
   /**
   * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
   */
   readonly allowHeaders?: string[];
   /**
   * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
   */
   readonly allowMethods?: string[];
   /**
   * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
   */
   readonly exposeHeaders?: string[];
   /**
   * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
   */
   readonly maxAge?: string;
   /**
   * allow_origins block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
   */
   readonly allowOrigins?: AppSpecStaticSiteCorsAllowOrigins;
@@ -7646,7 +7646,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_credentials - computed: false, optional: true, required: false
-  private _allowCredentials?: boolean | cdktf.IResolvable; 
+  private _allowCredentials?: boolean | cdktf.IResolvable;
   public get allowCredentials() {
     return this.getBooleanAttribute('allow_credentials');
   }
@@ -7662,7 +7662,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_headers - computed: false, optional: true, required: false
-  private _allowHeaders?: string[]; 
+  private _allowHeaders?: string[];
   public get allowHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_headers'));
   }
@@ -7678,7 +7678,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_methods - computed: false, optional: true, required: false
-  private _allowMethods?: string[]; 
+  private _allowMethods?: string[];
   public get allowMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_methods'));
   }
@@ -7694,7 +7694,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[]; 
+  private _exposeHeaders?: string[];
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -7710,7 +7710,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age - computed: false, optional: true, required: false
-  private _maxAge?: string; 
+  private _maxAge?: string;
   public get maxAge() {
     return this.getStringAttribute('max_age');
   }
@@ -7744,25 +7744,25 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
 export interface AppSpecStaticSiteEnv {
   /**
   * The name of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
   */
   readonly key?: string;
   /**
   * The visibility scope of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
   */
   readonly scope?: string;
   /**
   * The type of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
   */
   readonly type?: string;
   /**
   * The value of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
   */
   readonly value?: string;
@@ -7844,7 +7844,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -7860,7 +7860,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -7876,7 +7876,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -7892,7 +7892,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -7930,13 +7930,13 @@ export class AppSpecStaticSiteEnvList extends cdktf.ComplexList {
 export interface AppSpecStaticSiteGit {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * The clone URL of the repo.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
   */
   readonly repoCloneUrl?: string;
@@ -7992,7 +7992,7 @@ export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -8008,7 +8008,7 @@ export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string; 
+  private _repoCloneUrl?: string;
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -8026,19 +8026,19 @@ export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
 export interface AppSpecStaticSiteGithub {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -8101,7 +8101,7 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -8117,7 +8117,7 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -8133,7 +8133,7 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -8151,19 +8151,19 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
 export interface AppSpecStaticSiteGitlab {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -8226,7 +8226,7 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -8242,7 +8242,7 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -8258,7 +8258,7 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -8276,13 +8276,13 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
 export interface AppSpecStaticSiteRoutes {
   /**
   * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
   */
   readonly path?: string;
   /**
   *  An optional flag to preserve the path that is forwarded to the backend service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
   */
   readonly preservePathPrefix?: boolean | cdktf.IResolvable;
@@ -8350,7 +8350,7 @@ export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject 
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -8366,7 +8366,7 @@ export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject 
   }
 
   // preserve_path_prefix - computed: false, optional: true, required: false
-  private _preservePathPrefix?: boolean | cdktf.IResolvable; 
+  private _preservePathPrefix?: boolean | cdktf.IResolvable;
   public get preservePathPrefix() {
     return this.getBooleanAttribute('preserve_path_prefix');
   }
@@ -8404,91 +8404,91 @@ export class AppSpecStaticSiteRoutesList extends cdktf.ComplexList {
 export interface AppSpecStaticSite {
   /**
   * An optional build command to run while building this component from source.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
   */
   readonly buildCommand?: string;
   /**
   * The name of the document to use as the fallback for any requests to documents that are not found when serving this static site.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#catchall_document App#catchall_document}
   */
   readonly catchallDocument?: string;
   /**
   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
   */
   readonly dockerfilePath?: string;
   /**
   * An environment slug describing the type of this app.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
   */
   readonly environmentSlug?: string;
   /**
   * The name of the error document to use when serving this static site.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#error_document App#error_document}
   */
   readonly errorDocument?: string;
   /**
   * The name of the index document to use when serving this static site.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#index_document App#index_document}
   */
   readonly indexDocument?: string;
   /**
   * The name of the component
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#output_dir App#output_dir}
   */
   readonly outputDir?: string;
   /**
   * An optional path to the working directory to use for the build.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
   */
   readonly sourceDir?: string;
   /**
   * cors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
   */
   readonly cors?: AppSpecStaticSiteCors;
   /**
   * env block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
   */
   readonly env?: AppSpecStaticSiteEnv[] | cdktf.IResolvable;
   /**
   * git block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
   */
   readonly git?: AppSpecStaticSiteGit;
   /**
   * github block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
   */
   readonly github?: AppSpecStaticSiteGithub;
   /**
   * gitlab block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
   */
   readonly gitlab?: AppSpecStaticSiteGitlab;
   /**
   * routes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
   */
   readonly routes?: AppSpecStaticSiteRoutes[] | cdktf.IResolvable;
@@ -8647,7 +8647,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string; 
+  private _buildCommand?: string;
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -8663,7 +8663,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // catchall_document - computed: false, optional: true, required: false
-  private _catchallDocument?: string; 
+  private _catchallDocument?: string;
   public get catchallDocument() {
     return this.getStringAttribute('catchall_document');
   }
@@ -8679,7 +8679,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string; 
+  private _dockerfilePath?: string;
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -8695,7 +8695,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string; 
+  private _environmentSlug?: string;
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -8711,7 +8711,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // error_document - computed: false, optional: true, required: false
-  private _errorDocument?: string; 
+  private _errorDocument?: string;
   public get errorDocument() {
     return this.getStringAttribute('error_document');
   }
@@ -8727,7 +8727,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // index_document - computed: false, optional: true, required: false
-  private _indexDocument?: string; 
+  private _indexDocument?: string;
   public get indexDocument() {
     return this.getStringAttribute('index_document');
   }
@@ -8743,7 +8743,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -8756,7 +8756,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // output_dir - computed: false, optional: true, required: false
-  private _outputDir?: string; 
+  private _outputDir?: string;
   public get outputDir() {
     return this.getStringAttribute('output_dir');
   }
@@ -8772,7 +8772,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string; 
+  private _sourceDir?: string;
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -9009,7 +9009,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable; 
+  private _disabled?: boolean | cdktf.IResolvable;
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -9025,7 +9025,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -9038,7 +9038,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string; 
+  private _rule?: string;
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -9051,7 +9051,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -9064,7 +9064,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string; 
+  private _window?: string;
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -9099,25 +9099,25 @@ export class AppSpecWorkerAlertList extends cdktf.ComplexList {
 export interface AppSpecWorkerEnv {
   /**
   * The name of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
   */
   readonly key?: string;
   /**
   * The visibility scope of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
   */
   readonly scope?: string;
   /**
   * The type of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
   */
   readonly type?: string;
   /**
   * The value of the environment variable.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
   */
   readonly value?: string;
@@ -9199,7 +9199,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -9215,7 +9215,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -9231,7 +9231,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -9247,7 +9247,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -9285,13 +9285,13 @@ export class AppSpecWorkerEnvList extends cdktf.ComplexList {
 export interface AppSpecWorkerGit {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * The clone URL of the repo.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
   */
   readonly repoCloneUrl?: string;
@@ -9347,7 +9347,7 @@ export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -9363,7 +9363,7 @@ export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string; 
+  private _repoCloneUrl?: string;
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -9381,19 +9381,19 @@ export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
 export interface AppSpecWorkerGithub {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -9456,7 +9456,7 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -9472,7 +9472,7 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -9488,7 +9488,7 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -9506,19 +9506,19 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
 export interface AppSpecWorkerGitlab {
   /**
   * The name of the branch to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
   */
   readonly branch?: string;
   /**
   * Whether to automatically deploy new commits made to the repo
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
   * The name of the repo in the format `owner/repo`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
   */
   readonly repo?: string;
@@ -9581,7 +9581,7 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string; 
+  private _branch?: string;
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -9597,7 +9597,7 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable; 
+  private _deployOnPush?: boolean | cdktf.IResolvable;
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -9613,7 +9613,7 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string; 
+  private _repo?: string;
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -9631,7 +9631,7 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
 export interface AppSpecWorkerImageDeployOnPush {
   /**
   * Whether to automatically deploy images pushed to DOCR.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
@@ -9692,7 +9692,7 @@ export class AppSpecWorkerImageDeployOnPushOutputReference extends cdktf.Complex
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -9730,31 +9730,31 @@ export class AppSpecWorkerImageDeployOnPushList extends cdktf.ComplexList {
 export interface AppSpecWorkerImage {
   /**
   * The registry name. Must be left empty for the DOCR registry type.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
   */
   readonly registry?: string;
   /**
   * The registry type.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
   */
   readonly registryType: string;
   /**
   * The repository name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
   */
   readonly repository: string;
   /**
   * The repository tag. Defaults to latest if not provided.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
   */
   readonly tag?: string;
   /**
   * deploy_on_push block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
   */
   readonly deployOnPush?: AppSpecWorkerImageDeployOnPush[] | cdktf.IResolvable;
@@ -9831,7 +9831,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -9847,7 +9847,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry_type - computed: false, optional: false, required: true
-  private _registryType?: string; 
+  private _registryType?: string;
   public get registryType() {
     return this.getStringAttribute('registry_type');
   }
@@ -9860,7 +9860,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -9873,7 +9873,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string; 
+  private _tag?: string;
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -9907,13 +9907,13 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
 export interface AppSpecWorkerLogDestinationDatadog {
   /**
   * Datadog API key.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
   */
   readonly apiKey: string;
   /**
   * Datadog HTTP log intake endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint?: string;
@@ -9969,7 +9969,7 @@ export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.Com
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -9982,7 +9982,7 @@ export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.Com
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -10000,7 +10000,7 @@ export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.Com
 export interface AppSpecWorkerLogDestinationLogtail {
   /**
   * Logtail token.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
   */
   readonly token: string;
@@ -10049,7 +10049,7 @@ export class AppSpecWorkerLogDestinationLogtailOutputReference extends cdktf.Com
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -10064,7 +10064,7 @@ export class AppSpecWorkerLogDestinationLogtailOutputReference extends cdktf.Com
 export interface AppSpecWorkerLogDestinationPapertrail {
   /**
   * Papertrail syslog endpoint.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
   */
   readonly endpoint: string;
@@ -10113,7 +10113,7 @@ export class AppSpecWorkerLogDestinationPapertrailOutputReference extends cdktf.
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -10128,25 +10128,25 @@ export class AppSpecWorkerLogDestinationPapertrailOutputReference extends cdktf.
 export interface AppSpecWorkerLogDestination {
   /**
   * Name of the log destination
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * datadog block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
   */
   readonly datadog?: AppSpecWorkerLogDestinationDatadog;
   /**
   * logtail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
   */
   readonly logtail?: AppSpecWorkerLogDestinationLogtail;
   /**
   * papertrail block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
   */
   readonly papertrail?: AppSpecWorkerLogDestinationPapertrail;
@@ -10228,7 +10228,7 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -10311,91 +10311,91 @@ export class AppSpecWorkerLogDestinationList extends cdktf.ComplexList {
 export interface AppSpecWorker {
   /**
   * An optional build command to run while building this component from source.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
   */
   readonly buildCommand?: string;
   /**
   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
   */
   readonly dockerfilePath?: string;
   /**
   * An environment slug describing the type of this app.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
   */
   readonly environmentSlug?: string;
   /**
   * The amount of instances that this component should be scaled to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
   */
   readonly instanceCount?: number;
   /**
   * The instance size to use for this component.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
   */
   readonly instanceSizeSlug?: string;
   /**
   * The name of the component
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * An optional run command to override the component's default.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
   */
   readonly runCommand?: string;
   /**
   * An optional path to the working directory to use for the build.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
   */
   readonly sourceDir?: string;
   /**
   * alert block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
   */
   readonly alert?: AppSpecWorkerAlert[] | cdktf.IResolvable;
   /**
   * env block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
   */
   readonly env?: AppSpecWorkerEnv[] | cdktf.IResolvable;
   /**
   * git block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
   */
   readonly git?: AppSpecWorkerGit;
   /**
   * github block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
   */
   readonly github?: AppSpecWorkerGithub;
   /**
   * gitlab block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
   */
   readonly gitlab?: AppSpecWorkerGitlab;
   /**
   * image block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
   */
   readonly image?: AppSpecWorkerImage;
   /**
   * log_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
   */
   readonly logDestination?: AppSpecWorkerLogDestination[] | cdktf.IResolvable;
@@ -10554,7 +10554,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string; 
+  private _buildCommand?: string;
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -10570,7 +10570,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string; 
+  private _dockerfilePath?: string;
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -10586,7 +10586,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string; 
+  private _environmentSlug?: string;
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -10602,7 +10602,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -10618,7 +10618,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_size_slug - computed: false, optional: true, required: false
-  private _instanceSizeSlug?: string; 
+  private _instanceSizeSlug?: string;
   public get instanceSizeSlug() {
     return this.getStringAttribute('instance_size_slug');
   }
@@ -10634,7 +10634,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -10647,7 +10647,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // run_command - computed: false, optional: true, required: false
-  private _runCommand?: string; 
+  private _runCommand?: string;
   public get runCommand() {
     return this.getStringAttribute('run_command');
   }
@@ -10663,7 +10663,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string; 
+  private _sourceDir?: string;
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -10817,67 +10817,67 @@ export interface AppSpec {
   readonly domains?: string[];
   /**
   * The name of the app. Must be unique across all apps in the same account.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
   */
   readonly name: string;
   /**
   * The slug for the DigitalOcean data center region hosting the app
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#region App#region}
   */
   readonly region?: string;
   /**
   * alert block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
   */
   readonly alert?: AppSpecAlert[] | cdktf.IResolvable;
   /**
   * database block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#database App#database}
   */
   readonly database?: AppSpecDatabase[] | cdktf.IResolvable;
   /**
   * domain block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#domain App#domain}
   */
   readonly domain?: AppSpecDomain[] | cdktf.IResolvable;
   /**
   * env block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
   */
   readonly env?: AppSpecEnv[] | cdktf.IResolvable;
   /**
   * function block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#function App#function}
   */
   readonly function?: AppSpecFunction[] | cdktf.IResolvable;
   /**
   * job block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#job App#job}
   */
   readonly job?: AppSpecJob[] | cdktf.IResolvable;
   /**
   * service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#service App#service}
   */
   readonly service?: AppSpecService[] | cdktf.IResolvable;
   /**
   * static_site block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#static_site App#static_site}
   */
   readonly staticSite?: AppSpecStaticSite[] | cdktf.IResolvable;
   /**
   * worker block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#worker App#worker}
   */
   readonly worker?: AppSpecWorker[] | cdktf.IResolvable;
@@ -11003,7 +11003,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // domains - computed: true, optional: true, required: false
-  private _domains?: string[]; 
+  private _domains?: string[];
   public get domains() {
     return cdktf.Fn.tolist(this.getListAttribute('domains'));
   }
@@ -11019,7 +11019,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11032,7 +11032,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -11251,7 +11251,7 @@ export class AppTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -11329,7 +11329,7 @@ export class App extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

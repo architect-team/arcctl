@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,43 +76,43 @@ export interface LambdaEventSourceMappingConfig extends cdktf.TerraformMetaArgum
   readonly tumblingWindowInSeconds?: number;
   /**
   * amazon_managed_kafka_event_source_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#amazon_managed_kafka_event_source_config LambdaEventSourceMapping#amazon_managed_kafka_event_source_config}
   */
   readonly amazonManagedKafkaEventSourceConfig?: LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig;
   /**
   * destination_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#destination_config LambdaEventSourceMapping#destination_config}
   */
   readonly destinationConfig?: LambdaEventSourceMappingDestinationConfig;
   /**
   * filter_criteria block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#filter_criteria LambdaEventSourceMapping#filter_criteria}
   */
   readonly filterCriteria?: LambdaEventSourceMappingFilterCriteria;
   /**
   * scaling_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#scaling_config LambdaEventSourceMapping#scaling_config}
   */
   readonly scalingConfig?: LambdaEventSourceMappingScalingConfig;
   /**
   * self_managed_event_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#self_managed_event_source LambdaEventSourceMapping#self_managed_event_source}
   */
   readonly selfManagedEventSource?: LambdaEventSourceMappingSelfManagedEventSource;
   /**
   * self_managed_kafka_event_source_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#self_managed_kafka_event_source_config LambdaEventSourceMapping#self_managed_kafka_event_source_config}
   */
   readonly selfManagedKafkaEventSourceConfig?: LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig;
   /**
   * source_access_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#source_access_configuration LambdaEventSourceMapping#source_access_configuration}
   */
   readonly sourceAccessConfiguration?: LambdaEventSourceMappingSourceAccessConfiguration[] | cdktf.IResolvable;
@@ -167,7 +167,7 @@ export class LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputRe
   }
 
   // consumer_group_id - computed: true, optional: true, required: false
-  private _consumerGroupId?: string; 
+  private _consumerGroupId?: string;
   public get consumerGroupId() {
     return this.getStringAttribute('consumer_group_id');
   }
@@ -232,7 +232,7 @@ export class LambdaEventSourceMappingDestinationConfigOnFailureOutputReference e
   }
 
   // destination_arn - computed: false, optional: false, required: true
-  private _destinationArn?: string; 
+  private _destinationArn?: string;
   public get destinationArn() {
     return this.getStringAttribute('destination_arn');
   }
@@ -247,7 +247,7 @@ export class LambdaEventSourceMappingDestinationConfigOnFailureOutputReference e
 export interface LambdaEventSourceMappingDestinationConfig {
   /**
   * on_failure block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#on_failure LambdaEventSourceMapping#on_failure}
   */
   readonly onFailure?: LambdaEventSourceMappingDestinationConfigOnFailure;
@@ -373,7 +373,7 @@ export class LambdaEventSourceMappingFilterCriteriaFilterOutputReference extends
   }
 
   // pattern - computed: false, optional: true, required: false
-  private _pattern?: string; 
+  private _pattern?: string;
   public get pattern() {
     return this.getStringAttribute('pattern');
   }
@@ -411,7 +411,7 @@ export class LambdaEventSourceMappingFilterCriteriaFilterList extends cdktf.Comp
 export interface LambdaEventSourceMappingFilterCriteria {
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#filter LambdaEventSourceMapping#filter}
   */
   readonly filter?: LambdaEventSourceMappingFilterCriteriaFilter[] | cdktf.IResolvable;
@@ -525,7 +525,7 @@ export class LambdaEventSourceMappingScalingConfigOutputReference extends cdktf.
   }
 
   // maximum_concurrency - computed: false, optional: true, required: false
-  private _maximumConcurrency?: number; 
+  private _maximumConcurrency?: number;
   public get maximumConcurrency() {
     return this.getNumberAttribute('maximum_concurrency');
   }
@@ -590,7 +590,7 @@ export class LambdaEventSourceMappingSelfManagedEventSourceOutputReference exten
   }
 
   // endpoints - computed: false, optional: false, required: true
-  private _endpoints?: { [key: string]: string }; 
+  private _endpoints?: { [key: string]: string };
   public get endpoints() {
     return this.getStringMapAttribute('endpoints');
   }
@@ -652,7 +652,7 @@ export class LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputRefe
   }
 
   // consumer_group_id - computed: true, optional: true, required: false
-  private _consumerGroupId?: string; 
+  private _consumerGroupId?: string;
   public get consumerGroupId() {
     return this.getStringAttribute('consumer_group_id');
   }
@@ -740,7 +740,7 @@ export class LambdaEventSourceMappingSourceAccessConfigurationOutputReference ex
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -753,7 +753,7 @@ export class LambdaEventSourceMappingSourceAccessConfigurationOutputReference ex
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -853,7 +853,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   // ==========
 
   // batch_size - computed: false, optional: true, required: false
-  private _batchSize?: number; 
+  private _batchSize?: number;
   public get batchSize() {
     return this.getNumberAttribute('batch_size');
   }
@@ -869,7 +869,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // bisect_batch_on_function_error - computed: false, optional: true, required: false
-  private _bisectBatchOnFunctionError?: boolean | cdktf.IResolvable; 
+  private _bisectBatchOnFunctionError?: boolean | cdktf.IResolvable;
   public get bisectBatchOnFunctionError() {
     return this.getBooleanAttribute('bisect_batch_on_function_error');
   }
@@ -885,7 +885,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -901,7 +901,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // event_source_arn - computed: false, optional: true, required: false
-  private _eventSourceArn?: string; 
+  private _eventSourceArn?: string;
   public get eventSourceArn() {
     return this.getStringAttribute('event_source_arn');
   }
@@ -922,7 +922,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -935,7 +935,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // function_response_types - computed: false, optional: true, required: false
-  private _functionResponseTypes?: string[]; 
+  private _functionResponseTypes?: string[];
   public get functionResponseTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('function_response_types'));
   }
@@ -951,7 +951,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -977,7 +977,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // maximum_batching_window_in_seconds - computed: false, optional: true, required: false
-  private _maximumBatchingWindowInSeconds?: number; 
+  private _maximumBatchingWindowInSeconds?: number;
   public get maximumBatchingWindowInSeconds() {
     return this.getNumberAttribute('maximum_batching_window_in_seconds');
   }
@@ -993,7 +993,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // maximum_record_age_in_seconds - computed: true, optional: true, required: false
-  private _maximumRecordAgeInSeconds?: number; 
+  private _maximumRecordAgeInSeconds?: number;
   public get maximumRecordAgeInSeconds() {
     return this.getNumberAttribute('maximum_record_age_in_seconds');
   }
@@ -1009,7 +1009,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // maximum_retry_attempts - computed: true, optional: true, required: false
-  private _maximumRetryAttempts?: number; 
+  private _maximumRetryAttempts?: number;
   public get maximumRetryAttempts() {
     return this.getNumberAttribute('maximum_retry_attempts');
   }
@@ -1025,7 +1025,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // parallelization_factor - computed: true, optional: true, required: false
-  private _parallelizationFactor?: number; 
+  private _parallelizationFactor?: number;
   public get parallelizationFactor() {
     return this.getNumberAttribute('parallelization_factor');
   }
@@ -1041,7 +1041,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // queues - computed: false, optional: true, required: false
-  private _queues?: string[]; 
+  private _queues?: string[];
   public get queues() {
     return cdktf.Fn.tolist(this.getListAttribute('queues'));
   }
@@ -1057,7 +1057,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // starting_position - computed: false, optional: true, required: false
-  private _startingPosition?: string; 
+  private _startingPosition?: string;
   public get startingPosition() {
     return this.getStringAttribute('starting_position');
   }
@@ -1073,7 +1073,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // starting_position_timestamp - computed: false, optional: true, required: false
-  private _startingPositionTimestamp?: string; 
+  private _startingPositionTimestamp?: string;
   public get startingPositionTimestamp() {
     return this.getStringAttribute('starting_position_timestamp');
   }
@@ -1099,7 +1099,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // topics - computed: false, optional: true, required: false
-  private _topics?: string[]; 
+  private _topics?: string[];
   public get topics() {
     return cdktf.Fn.tolist(this.getListAttribute('topics'));
   }
@@ -1115,7 +1115,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // tumbling_window_in_seconds - computed: false, optional: true, required: false
-  private _tumblingWindowInSeconds?: number; 
+  private _tumblingWindowInSeconds?: number;
   public get tumblingWindowInSeconds() {
     return this.getNumberAttribute('tumbling_window_in_seconds');
   }

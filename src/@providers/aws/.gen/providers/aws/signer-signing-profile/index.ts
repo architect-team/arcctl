@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/signer_signing_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface SignerSigningProfileConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * signature_validity_period block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#signature_validity_period SignerSigningProfile#signature_validity_period}
   */
   readonly signatureValidityPeriod?: SignerSigningProfileSignatureValidityPeriod;
@@ -176,7 +176,7 @@ export class SignerSigningProfileSignatureValidityPeriodOutputReference extends 
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -189,7 +189,7 @@ export class SignerSigningProfileSignatureValidityPeriodOutputReference extends 
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -258,7 +258,7 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -274,7 +274,7 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -290,7 +290,7 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: false, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -311,7 +311,7 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // platform_id - computed: false, optional: false, required: true
-  private _platformId?: string; 
+  private _platformId?: string;
   public get platformId() {
     return this.getStringAttribute('platform_id');
   }
@@ -335,7 +335,7 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -351,7 +351,7 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

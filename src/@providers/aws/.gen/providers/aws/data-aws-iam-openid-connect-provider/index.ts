@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/iam_openid_connect_provider
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsIamOpenidConnectProvider extends cdktf.TerraformDataSource {
   // ==========
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -97,7 +97,7 @@ export class DataAwsIamOpenidConnectProvider extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class DataAwsIamOpenidConnectProvider extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -134,7 +134,7 @@ export class DataAwsIamOpenidConnectProvider extends cdktf.TerraformDataSource {
   }
 
   // url - computed: true, optional: true, required: false
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }

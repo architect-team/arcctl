@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_contact_flow_module
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // content - computed: true, optional: true, required: false
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -127,7 +127,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // content_hash - computed: false, optional: true, required: false
-  private _contentHash?: string; 
+  private _contentHash?: string;
   public get contentHash() {
     return this.getStringAttribute('content_hash');
   }
@@ -143,7 +143,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -159,7 +159,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // filename - computed: false, optional: true, required: false
-  private _filename?: string; 
+  private _filename?: string;
   public get filename() {
     return this.getStringAttribute('filename');
   }
@@ -175,7 +175,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -191,7 +191,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -204,7 +204,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -217,7 +217,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -233,7 +233,7 @@ export class ConnectContactFlowModule extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

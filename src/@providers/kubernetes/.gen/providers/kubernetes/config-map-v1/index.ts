@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface ConfigMapV1Config extends cdktf.TerraformMetaArguments {
   /**
   * BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet. This field only accepts base64-encoded payloads that will be decoded/encoded before being sent/received to/from the apiserver.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#binary_data ConfigMapV1#binary_data}
   */
   readonly binaryData?: { [key: string]: string };
   /**
   * Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#data ConfigMapV1#data}
   */
   readonly data?: { [key: string]: string };
@@ -28,13 +28,13 @@ export interface ConfigMapV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#immutable ConfigMapV1#immutable}
   */
   readonly immutable?: boolean | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#metadata ConfigMapV1#metadata}
   */
   readonly metadata: ConfigMapV1Metadata;
@@ -42,31 +42,31 @@ export interface ConfigMapV1Config extends cdktf.TerraformMetaArguments {
 export interface ConfigMapV1Metadata {
   /**
   * An unstructured key value map stored with the config map that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#annotations ConfigMapV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#generate_name ConfigMapV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the config map. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#labels ConfigMapV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the config map, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#name ConfigMapV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the config map must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/config_map_v1#namespace ConfigMapV1#namespace}
   */
   readonly namespace?: string;
@@ -143,7 +143,7 @@ export class ConfigMapV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -159,7 +159,7 @@ export class ConfigMapV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -180,7 +180,7 @@ export class ConfigMapV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -196,7 +196,7 @@ export class ConfigMapV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -212,7 +212,7 @@ export class ConfigMapV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -287,7 +287,7 @@ export class ConfigMapV1 extends cdktf.TerraformResource {
   // ==========
 
   // binary_data - computed: false, optional: true, required: false
-  private _binaryData?: { [key: string]: string }; 
+  private _binaryData?: { [key: string]: string };
   public get binaryData() {
     return this.getStringMapAttribute('binary_data');
   }
@@ -303,7 +303,7 @@ export class ConfigMapV1 extends cdktf.TerraformResource {
   }
 
   // data - computed: false, optional: true, required: false
-  private _data?: { [key: string]: string }; 
+  private _data?: { [key: string]: string };
   public get data() {
     return this.getStringMapAttribute('data');
   }
@@ -319,7 +319,7 @@ export class ConfigMapV1 extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -335,7 +335,7 @@ export class ConfigMapV1 extends cdktf.TerraformResource {
   }
 
   // immutable - computed: false, optional: true, required: false
-  private _immutable?: boolean | cdktf.IResolvable; 
+  private _immutable?: boolean | cdktf.IResolvable;
   public get immutable() {
     return this.getBooleanAttribute('immutable');
   }

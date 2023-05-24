@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/api_gateway_sdk
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class DataAwsApiGatewaySdk extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +112,7 @@ export class DataAwsApiGatewaySdk extends cdktf.TerraformDataSource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -128,7 +128,7 @@ export class DataAwsApiGatewaySdk extends cdktf.TerraformDataSource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -141,7 +141,7 @@ export class DataAwsApiGatewaySdk extends cdktf.TerraformDataSource {
   }
 
   // sdk_type - computed: false, optional: false, required: true
-  private _sdkType?: string; 
+  private _sdkType?: string;
   public get sdkType() {
     return this.getStringAttribute('sdk_type');
   }
@@ -154,7 +154,7 @@ export class DataAwsApiGatewaySdk extends cdktf.TerraformDataSource {
   }
 
   // stage_name - computed: false, optional: false, required: true
-  private _stageName?: string; 
+  private _stageName?: string;
   public get stageName() {
     return this.getStringAttribute('stage_name');
   }

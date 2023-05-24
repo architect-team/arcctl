@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/cloudhsm_v2_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -161,7 +161,7 @@ export class DataAwsCloudhsmV2Cluster extends cdktf.TerraformDataSource {
   }
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -174,7 +174,7 @@ export class DataAwsCloudhsmV2Cluster extends cdktf.TerraformDataSource {
   }
 
   // cluster_state - computed: true, optional: true, required: false
-  private _clusterState?: string; 
+  private _clusterState?: string;
   public get clusterState() {
     return this.getStringAttribute('cluster_state');
   }
@@ -190,7 +190,7 @@ export class DataAwsCloudhsmV2Cluster extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

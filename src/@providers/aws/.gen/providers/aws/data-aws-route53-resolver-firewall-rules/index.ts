@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -195,7 +195,7 @@ export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSour
   // ==========
 
   // action - computed: false, optional: true, required: false
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -211,7 +211,7 @@ export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSour
   }
 
   // firewall_rule_group_id - computed: false, optional: false, required: true
-  private _firewallRuleGroupId?: string; 
+  private _firewallRuleGroupId?: string;
   public get firewallRuleGroupId() {
     return this.getStringAttribute('firewall_rule_group_id');
   }
@@ -230,7 +230,7 @@ export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -246,7 +246,7 @@ export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSour
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }

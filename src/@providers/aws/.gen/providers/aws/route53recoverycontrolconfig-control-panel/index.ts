@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_control_panel
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Route53RecoverycontrolconfigControlPanel extends cdktf.TerraformRes
   }
 
   // cluster_arn - computed: false, optional: false, required: true
-  private _clusterArn?: string; 
+  private _clusterArn?: string;
   public get clusterArn() {
     return this.getStringAttribute('cluster_arn');
   }
@@ -94,7 +94,7 @@ export class Route53RecoverycontrolconfigControlPanel extends cdktf.TerraformRes
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class Route53RecoverycontrolconfigControlPanel extends cdktf.TerraformRes
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

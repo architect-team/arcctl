@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/rds_certificate
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsRdsCertificate extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class DataAwsRdsCertificate extends cdktf.TerraformDataSource {
   }
 
   // latest_valid_till - computed: false, optional: true, required: false
-  private _latestValidTill?: boolean | cdktf.IResolvable; 
+  private _latestValidTill?: boolean | cdktf.IResolvable;
   public get latestValidTill() {
     return this.getBooleanAttribute('latest_valid_till');
   }

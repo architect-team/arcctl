@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3outposts_endpoint
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -155,7 +155,7 @@ export class S3OutpostsEndpoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -177,7 +177,7 @@ export class S3OutpostsEndpoint extends cdktf.TerraformResource {
   }
 
   // outpost_id - computed: false, optional: false, required: true
-  private _outpostId?: string; 
+  private _outpostId?: string;
   public get outpostId() {
     return this.getStringAttribute('outpost_id');
   }
@@ -190,7 +190,7 @@ export class S3OutpostsEndpoint extends cdktf.TerraformResource {
   }
 
   // security_group_id - computed: false, optional: false, required: true
-  private _securityGroupId?: string; 
+  private _securityGroupId?: string;
   public get securityGroupId() {
     return this.getStringAttribute('security_group_id');
   }
@@ -203,7 +203,7 @@ export class S3OutpostsEndpoint extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }

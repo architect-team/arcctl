@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,19 +16,19 @@ export interface PersistentVolumeV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#metadata PersistentVolumeV1#metadata}
   */
   readonly metadata: PersistentVolumeV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#spec PersistentVolumeV1#spec}
   */
   readonly spec: PersistentVolumeV1Spec[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#timeouts PersistentVolumeV1#timeouts}
   */
   readonly timeouts?: PersistentVolumeV1Timeouts;
@@ -36,19 +36,19 @@ export interface PersistentVolumeV1Config extends cdktf.TerraformMetaArguments {
 export interface PersistentVolumeV1Metadata {
   /**
   * An unstructured key value map stored with the persistent volume that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#annotations PersistentVolumeV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the persistent volume. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#labels PersistentVolumeV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the persistent volume, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
@@ -111,7 +111,7 @@ export class PersistentVolumeV1MetadataOutputReference extends cdktf.ComplexObje
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -132,7 +132,7 @@ export class PersistentVolumeV1MetadataOutputReference extends cdktf.ComplexObje
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -148,7 +148,7 @@ export class PersistentVolumeV1MetadataOutputReference extends cdktf.ComplexObje
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -176,13 +176,13 @@ export class PersistentVolumeV1MetadataOutputReference extends cdktf.ComplexObje
 export interface PersistentVolumeV1SpecClaimRef {
   /**
   * The name of the PersistentVolumeClaim
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name: string;
   /**
   * The namespace of the PersistentVolumeClaim. Uses 'default' namespace if none is specified.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -238,7 +238,7 @@ export class PersistentVolumeV1SpecClaimRefOutputReference extends cdktf.Complex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -251,7 +251,7 @@ export class PersistentVolumeV1SpecClaimRefOutputReference extends cdktf.Complex
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -269,19 +269,19 @@ export class PersistentVolumeV1SpecClaimRefOutputReference extends cdktf.Complex
 export interface PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#key PersistentVolumeV1#key}
   */
   readonly key: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#operator PersistentVolumeV1#operator}
   */
   readonly operator: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#values PersistentVolumeV1#values}
   */
   readonly values?: string[];
@@ -356,7 +356,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchExpr
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -369,7 +369,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchExpr
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -382,7 +382,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchExpr
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -420,19 +420,19 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchExpr
 export interface PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchFields {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#key PersistentVolumeV1#key}
   */
   readonly key: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#operator PersistentVolumeV1#operator}
   */
   readonly operator: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#values PersistentVolumeV1#values}
   */
   readonly values?: string[];
@@ -507,7 +507,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchFiel
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -520,7 +520,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchFiel
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -533,7 +533,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchFiel
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -571,13 +571,13 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchFiel
 export interface PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTerm {
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#match_expressions PersistentVolumeV1#match_expressions}
   */
   readonly matchExpressions?: PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchExpressions[] | cdktf.IResolvable;
   /**
   * match_fields block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#match_fields PersistentVolumeV1#match_fields}
   */
   readonly matchFields?: PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermMatchFields[] | cdktf.IResolvable;
@@ -699,7 +699,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTermList exte
 export interface PersistentVolumeV1SpecNodeAffinityRequired {
   /**
   * node_selector_term block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#node_selector_term PersistentVolumeV1#node_selector_term}
   */
   readonly nodeSelectorTerm: PersistentVolumeV1SpecNodeAffinityRequiredNodeSelectorTerm[] | cdktf.IResolvable;
@@ -763,7 +763,7 @@ export class PersistentVolumeV1SpecNodeAffinityRequiredOutputReference extends c
 export interface PersistentVolumeV1SpecNodeAffinity {
   /**
   * required block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#required PersistentVolumeV1#required}
   */
   readonly required?: PersistentVolumeV1SpecNodeAffinityRequired;
@@ -830,25 +830,25 @@ export class PersistentVolumeV1SpecNodeAffinityOutputReference extends cdktf.Com
 export interface PersistentVolumeV1SpecPersistentVolumeSourceAwsElasticBlockStore {
   /**
   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#partition PersistentVolumeV1#partition}
   */
   readonly partition?: number;
   /**
   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#volume_id PersistentVolumeV1#volume_id}
   */
   readonly volumeId: string;
@@ -918,7 +918,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAwsElasticBlockStoreOut
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -934,7 +934,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAwsElasticBlockStoreOut
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -950,7 +950,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAwsElasticBlockStoreOut
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -966,7 +966,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAwsElasticBlockStoreOut
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -981,37 +981,37 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAwsElasticBlockStoreOut
 export interface PersistentVolumeV1SpecPersistentVolumeSourceAzureDisk {
   /**
   * Host Caching mode: None, Read Only, Read Write.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#caching_mode PersistentVolumeV1#caching_mode}
   */
   readonly cachingMode: string;
   /**
   * The URI the data disk in the blob storage
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#data_disk_uri PersistentVolumeV1#data_disk_uri}
   */
   readonly dataDiskUri: string;
   /**
   * The Name of the data disk in the blob storage
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#disk_name PersistentVolumeV1#disk_name}
   */
   readonly diskName: string;
   /**
   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#kind PersistentVolumeV1#kind}
   */
   readonly kind?: string;
   /**
   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
@@ -1095,7 +1095,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureDiskOutputReferenc
   }
 
   // caching_mode - computed: false, optional: false, required: true
-  private _cachingMode?: string; 
+  private _cachingMode?: string;
   public get cachingMode() {
     return this.getStringAttribute('caching_mode');
   }
@@ -1108,7 +1108,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureDiskOutputReferenc
   }
 
   // data_disk_uri - computed: false, optional: false, required: true
-  private _dataDiskUri?: string; 
+  private _dataDiskUri?: string;
   public get dataDiskUri() {
     return this.getStringAttribute('data_disk_uri');
   }
@@ -1121,7 +1121,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureDiskOutputReferenc
   }
 
   // disk_name - computed: false, optional: false, required: true
-  private _diskName?: string; 
+  private _diskName?: string;
   public get diskName() {
     return this.getStringAttribute('disk_name');
   }
@@ -1134,7 +1134,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureDiskOutputReferenc
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -1150,7 +1150,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureDiskOutputReferenc
   }
 
   // kind - computed: true, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -1166,7 +1166,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureDiskOutputReferenc
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1184,25 +1184,25 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureDiskOutputReferenc
 export interface PersistentVolumeV1SpecPersistentVolumeSourceAzureFile {
   /**
   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * The name of secret that contains Azure Storage Account Name and Key
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#secret_name PersistentVolumeV1#secret_name}
   */
   readonly secretName: string;
   /**
   * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#secret_namespace PersistentVolumeV1#secret_namespace}
   */
   readonly secretNamespace?: string;
   /**
   * Share Name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#share_name PersistentVolumeV1#share_name}
   */
   readonly shareName: string;
@@ -1272,7 +1272,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureFileOutputReferenc
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1288,7 +1288,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureFileOutputReferenc
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -1301,7 +1301,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureFileOutputReferenc
   }
 
   // secret_namespace - computed: false, optional: true, required: false
-  private _secretNamespace?: string; 
+  private _secretNamespace?: string;
   public get secretNamespace() {
     return this.getStringAttribute('secret_namespace');
   }
@@ -1317,7 +1317,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureFileOutputReferenc
   }
 
   // share_name - computed: false, optional: false, required: true
-  private _shareName?: string; 
+  private _shareName?: string;
   public get shareName() {
     return this.getStringAttribute('share_name');
   }
@@ -1332,13 +1332,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceAzureFileOutputReferenc
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCephFsSecretRef {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -1394,7 +1394,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsSecretRefOutputRe
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1410,7 +1410,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsSecretRefOutputRe
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1428,37 +1428,37 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsSecretRefOutputRe
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCephFs {
   /**
   * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#monitors PersistentVolumeV1#monitors}
   */
   readonly monitors: string[];
   /**
   * Used as the mounted root, rather than the full Ceph tree, default is /
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#path PersistentVolumeV1#path}
   */
   readonly path?: string;
   /**
   * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#secret_file PersistentVolumeV1#secret_file}
   */
   readonly secretFile?: string;
   /**
   * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#user PersistentVolumeV1#user}
   */
   readonly user?: string;
   /**
   * secret_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#secret_ref PersistentVolumeV1#secret_ref}
   */
   readonly secretRef?: PersistentVolumeV1SpecPersistentVolumeSourceCephFsSecretRef;
@@ -1542,7 +1542,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsOutputReference e
   }
 
   // monitors - computed: false, optional: false, required: true
-  private _monitors?: string[]; 
+  private _monitors?: string[];
   public get monitors() {
     return cdktf.Fn.tolist(this.getListAttribute('monitors'));
   }
@@ -1555,7 +1555,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsOutputReference e
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -1571,7 +1571,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsOutputReference e
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1587,7 +1587,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsOutputReference e
   }
 
   // secret_file - computed: false, optional: true, required: false
-  private _secretFile?: string; 
+  private _secretFile?: string;
   public get secretFile() {
     return this.getStringAttribute('secret_file');
   }
@@ -1603,7 +1603,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsOutputReference e
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -1637,19 +1637,19 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCephFsOutputReference e
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCinder {
   /**
   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#volume_id PersistentVolumeV1#volume_id}
   */
   readonly volumeId: string;
@@ -1712,7 +1712,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCinderOutputReference e
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -1728,7 +1728,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCinderOutputReference e
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1744,7 +1744,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCinderOutputReference e
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -1759,13 +1759,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCinderOutputReference e
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerExpandSecretRef {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -1821,7 +1821,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerExpandSecr
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1837,7 +1837,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerExpandSecr
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1855,13 +1855,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerExpandSecr
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerPublishSecretRef {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -1917,7 +1917,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerPublishSec
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1933,7 +1933,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerPublishSec
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1951,13 +1951,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerPublishSec
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCsiNodePublishSecretRef {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -2013,7 +2013,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiNodePublishSecretRef
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2029,7 +2029,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiNodePublishSecretRef
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -2047,13 +2047,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiNodePublishSecretRef
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCsiNodeStageSecretRef {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -2109,7 +2109,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiNodeStageSecretRefOu
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2125,7 +2125,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiNodeStageSecretRefOu
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -2143,55 +2143,55 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiNodeStageSecretRefOu
 export interface PersistentVolumeV1SpecPersistentVolumeSourceCsi {
   /**
   * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#driver PersistentVolumeV1#driver}
   */
   readonly driver: string;
   /**
   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Attributes of the volume to publish.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#volume_attributes PersistentVolumeV1#volume_attributes}
   */
   readonly volumeAttributes?: { [key: string]: string };
   /**
   * A string value that uniquely identifies the volume. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#volume_handle PersistentVolumeV1#volume_handle}
   */
   readonly volumeHandle: string;
   /**
   * controller_expand_secret_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#controller_expand_secret_ref PersistentVolumeV1#controller_expand_secret_ref}
   */
   readonly controllerExpandSecretRef?: PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerExpandSecretRef;
   /**
   * controller_publish_secret_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#controller_publish_secret_ref PersistentVolumeV1#controller_publish_secret_ref}
   */
   readonly controllerPublishSecretRef?: PersistentVolumeV1SpecPersistentVolumeSourceCsiControllerPublishSecretRef;
   /**
   * node_publish_secret_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#node_publish_secret_ref PersistentVolumeV1#node_publish_secret_ref}
   */
   readonly nodePublishSecretRef?: PersistentVolumeV1SpecPersistentVolumeSourceCsiNodePublishSecretRef;
   /**
   * node_stage_secret_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#node_stage_secret_ref PersistentVolumeV1#node_stage_secret_ref}
   */
   readonly nodeStageSecretRef?: PersistentVolumeV1SpecPersistentVolumeSourceCsiNodeStageSecretRef;
@@ -2296,7 +2296,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiOutputReference exte
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -2309,7 +2309,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiOutputReference exte
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -2325,7 +2325,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiOutputReference exte
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2341,7 +2341,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiOutputReference exte
   }
 
   // volume_attributes - computed: false, optional: true, required: false
-  private _volumeAttributes?: { [key: string]: string }; 
+  private _volumeAttributes?: { [key: string]: string };
   public get volumeAttributes() {
     return this.getStringMapAttribute('volume_attributes');
   }
@@ -2357,7 +2357,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiOutputReference exte
   }
 
   // volume_handle - computed: false, optional: false, required: true
-  private _volumeHandle?: string; 
+  private _volumeHandle?: string;
   public get volumeHandle() {
     return this.getStringAttribute('volume_handle');
   }
@@ -2436,25 +2436,25 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceCsiOutputReference exte
 export interface PersistentVolumeV1SpecPersistentVolumeSourceFc {
   /**
   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * FC target lun number
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#lun PersistentVolumeV1#lun}
   */
   readonly lun: number;
   /**
   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * FC target worldwide names (WWNs)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#target_ww_ns PersistentVolumeV1#target_ww_ns}
   */
   readonly targetWwNs: string[];
@@ -2524,7 +2524,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFcOutputReference exten
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -2540,7 +2540,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFcOutputReference exten
   }
 
   // lun - computed: false, optional: false, required: true
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -2553,7 +2553,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFcOutputReference exten
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2569,7 +2569,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFcOutputReference exten
   }
 
   // target_ww_ns - computed: false, optional: false, required: true
-  private _targetWwNs?: string[]; 
+  private _targetWwNs?: string[];
   public get targetWwNs() {
     return cdktf.Fn.tolist(this.getListAttribute('target_ww_ns'));
   }
@@ -2584,13 +2584,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFcOutputReference exten
 export interface PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeSecretRef {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -2646,7 +2646,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeSecretRefOutp
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2662,7 +2662,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeSecretRefOutp
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -2680,31 +2680,31 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeSecretRefOutp
 export interface PersistentVolumeV1SpecPersistentVolumeSourceFlexVolume {
   /**
   * Driver is the name of the driver to use for this volume.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#driver PersistentVolumeV1#driver}
   */
   readonly driver: string;
   /**
   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * Extra command options if any.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#options PersistentVolumeV1#options}
   */
   readonly options?: { [key: string]: string };
   /**
   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * secret_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#secret_ref PersistentVolumeV1#secret_ref}
   */
   readonly secretRef?: PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeSecretRef;
@@ -2781,7 +2781,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeOutputReferen
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -2794,7 +2794,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeOutputReferen
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -2810,7 +2810,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeOutputReferen
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }
@@ -2826,7 +2826,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeOutputReferen
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2860,13 +2860,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlexVolumeOutputReferen
 export interface PersistentVolumeV1SpecPersistentVolumeSourceFlocker {
   /**
   * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#dataset_name PersistentVolumeV1#dataset_name}
   */
   readonly datasetName?: string;
   /**
   * UUID of the dataset. This is unique identifier of a Flocker dataset
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#dataset_uuid PersistentVolumeV1#dataset_uuid}
   */
   readonly datasetUuid?: string;
@@ -2922,7 +2922,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlockerOutputReference 
   }
 
   // dataset_name - computed: false, optional: true, required: false
-  private _datasetName?: string; 
+  private _datasetName?: string;
   public get datasetName() {
     return this.getStringAttribute('dataset_name');
   }
@@ -2938,7 +2938,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlockerOutputReference 
   }
 
   // dataset_uuid - computed: false, optional: true, required: false
-  private _datasetUuid?: string; 
+  private _datasetUuid?: string;
   public get datasetUuid() {
     return this.getStringAttribute('dataset_uuid');
   }
@@ -2956,25 +2956,25 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceFlockerOutputReference 
 export interface PersistentVolumeV1SpecPersistentVolumeSourceGcePersistentDisk {
   /**
   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#partition PersistentVolumeV1#partition}
   */
   readonly partition?: number;
   /**
   * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#pd_name PersistentVolumeV1#pd_name}
   */
   readonly pdName: string;
   /**
   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
@@ -3044,7 +3044,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGcePersistentDiskOutput
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3060,7 +3060,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGcePersistentDiskOutput
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -3076,7 +3076,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGcePersistentDiskOutput
   }
 
   // pd_name - computed: false, optional: false, required: true
-  private _pdName?: string; 
+  private _pdName?: string;
   public get pdName() {
     return this.getStringAttribute('pd_name');
   }
@@ -3089,7 +3089,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGcePersistentDiskOutput
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3107,19 +3107,19 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGcePersistentDiskOutput
 export interface PersistentVolumeV1SpecPersistentVolumeSourceGlusterfs {
   /**
   * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#endpoints_name PersistentVolumeV1#endpoints_name}
   */
   readonly endpointsName: string;
   /**
   * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#path PersistentVolumeV1#path}
   */
   readonly path: string;
   /**
   * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
@@ -3182,7 +3182,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGlusterfsOutputReferenc
   }
 
   // endpoints_name - computed: false, optional: false, required: true
-  private _endpointsName?: string; 
+  private _endpointsName?: string;
   public get endpointsName() {
     return this.getStringAttribute('endpoints_name');
   }
@@ -3195,7 +3195,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGlusterfsOutputReferenc
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3208,7 +3208,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGlusterfsOutputReferenc
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3226,13 +3226,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceGlusterfsOutputReferenc
 export interface PersistentVolumeV1SpecPersistentVolumeSourceHostPath {
   /**
   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#path PersistentVolumeV1#path}
   */
   readonly path?: string;
   /**
   * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#type PersistentVolumeV1#type}
   */
   readonly type?: string;
@@ -3288,7 +3288,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceHostPathOutputReference
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3304,7 +3304,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceHostPathOutputReference
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3322,37 +3322,37 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceHostPathOutputReference
 export interface PersistentVolumeV1SpecPersistentVolumeSourceIscsi {
   /**
   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * Target iSCSI Qualified Name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#iqn PersistentVolumeV1#iqn}
   */
   readonly iqn: string;
   /**
   * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#iscsi_interface PersistentVolumeV1#iscsi_interface}
   */
   readonly iscsiInterface?: string;
   /**
   * iSCSI target lun number.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#lun PersistentVolumeV1#lun}
   */
   readonly lun?: number;
   /**
   * Whether to force the read-only setting in VolumeMounts. Defaults to false.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#target_portal PersistentVolumeV1#target_portal}
   */
   readonly targetPortal: string;
@@ -3436,7 +3436,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceIscsiOutputReference ex
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3452,7 +3452,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceIscsiOutputReference ex
   }
 
   // iqn - computed: false, optional: false, required: true
-  private _iqn?: string; 
+  private _iqn?: string;
   public get iqn() {
     return this.getStringAttribute('iqn');
   }
@@ -3465,7 +3465,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceIscsiOutputReference ex
   }
 
   // iscsi_interface - computed: false, optional: true, required: false
-  private _iscsiInterface?: string; 
+  private _iscsiInterface?: string;
   public get iscsiInterface() {
     return this.getStringAttribute('iscsi_interface');
   }
@@ -3481,7 +3481,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceIscsiOutputReference ex
   }
 
   // lun - computed: false, optional: true, required: false
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -3497,7 +3497,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceIscsiOutputReference ex
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3513,7 +3513,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceIscsiOutputReference ex
   }
 
   // target_portal - computed: false, optional: false, required: true
-  private _targetPortal?: string; 
+  private _targetPortal?: string;
   public get targetPortal() {
     return this.getStringAttribute('target_portal');
   }
@@ -3528,7 +3528,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceIscsiOutputReference ex
 export interface PersistentVolumeV1SpecPersistentVolumeSourceLocal {
   /**
   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#path PersistentVolumeV1#path}
   */
   readonly path?: string;
@@ -3577,7 +3577,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceLocalOutputReference ex
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3595,19 +3595,19 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceLocalOutputReference ex
 export interface PersistentVolumeV1SpecPersistentVolumeSourceNfs {
   /**
   * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#path PersistentVolumeV1#path}
   */
   readonly path: string;
   /**
   * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#server PersistentVolumeV1#server}
   */
   readonly server: string;
@@ -3670,7 +3670,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceNfsOutputReference exte
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3683,7 +3683,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceNfsOutputReference exte
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3699,7 +3699,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceNfsOutputReference exte
   }
 
   // server - computed: false, optional: false, required: true
-  private _server?: string; 
+  private _server?: string;
   public get server() {
     return this.getStringAttribute('server');
   }
@@ -3714,13 +3714,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceNfsOutputReference exte
 export interface PersistentVolumeV1SpecPersistentVolumeSourcePhotonPersistentDisk {
   /**
   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * ID that identifies Photon Controller persistent disk
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#pd_id PersistentVolumeV1#pd_id}
   */
   readonly pdId: string;
@@ -3776,7 +3776,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourcePhotonPersistentDiskOut
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3792,7 +3792,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourcePhotonPersistentDiskOut
   }
 
   // pd_id - computed: false, optional: false, required: true
-  private _pdId?: string; 
+  private _pdId?: string;
   public get pdId() {
     return this.getStringAttribute('pd_id');
   }
@@ -3807,31 +3807,31 @@ export class PersistentVolumeV1SpecPersistentVolumeSourcePhotonPersistentDiskOut
 export interface PersistentVolumeV1SpecPersistentVolumeSourceQuobyte {
   /**
   * Group to map volume access to Default is no group
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#group PersistentVolumeV1#group}
   */
   readonly group?: string;
   /**
   * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#registry PersistentVolumeV1#registry}
   */
   readonly registry: string;
   /**
   * User to map volume access to Defaults to serivceaccount user
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#user PersistentVolumeV1#user}
   */
   readonly user?: string;
   /**
   * Volume is a string that references an already created Quobyte volume by name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#volume PersistentVolumeV1#volume}
   */
   readonly volume: string;
@@ -3908,7 +3908,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceQuobyteOutputReference 
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -3924,7 +3924,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceQuobyteOutputReference 
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3940,7 +3940,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceQuobyteOutputReference 
   }
 
   // registry - computed: false, optional: false, required: true
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -3953,7 +3953,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceQuobyteOutputReference 
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -3969,7 +3969,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceQuobyteOutputReference 
   }
 
   // volume - computed: false, optional: false, required: true
-  private _volume?: string; 
+  private _volume?: string;
   public get volume() {
     return this.getStringAttribute('volume');
   }
@@ -3984,13 +3984,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceQuobyteOutputReference 
 export interface PersistentVolumeV1SpecPersistentVolumeSourceRbdSecretRef {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#name PersistentVolumeV1#name}
   */
   readonly name?: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#namespace PersistentVolumeV1#namespace}
   */
   readonly namespace?: string;
@@ -4046,7 +4046,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdSecretRefOutputRefer
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4062,7 +4062,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdSecretRefOutputRefer
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -4080,49 +4080,49 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdSecretRefOutputRefer
 export interface PersistentVolumeV1SpecPersistentVolumeSourceRbd {
   /**
   * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#ceph_monitors PersistentVolumeV1#ceph_monitors}
   */
   readonly cephMonitors: string[];
   /**
   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#keyring PersistentVolumeV1#keyring}
   */
   readonly keyring?: string;
   /**
   * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#rados_user PersistentVolumeV1#rados_user}
   */
   readonly radosUser?: string;
   /**
   * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#rbd_image PersistentVolumeV1#rbd_image}
   */
   readonly rbdImage: string;
   /**
   * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#rbd_pool PersistentVolumeV1#rbd_pool}
   */
   readonly rbdPool?: string;
   /**
   * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#read_only PersistentVolumeV1#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * secret_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#secret_ref PersistentVolumeV1#secret_ref}
   */
   readonly secretRef?: PersistentVolumeV1SpecPersistentVolumeSourceRbdSecretRef;
@@ -4220,7 +4220,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
   }
 
   // ceph_monitors - computed: false, optional: false, required: true
-  private _cephMonitors?: string[]; 
+  private _cephMonitors?: string[];
   public get cephMonitors() {
     return cdktf.Fn.tolist(this.getListAttribute('ceph_monitors'));
   }
@@ -4233,7 +4233,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4249,7 +4249,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
   }
 
   // keyring - computed: true, optional: true, required: false
-  private _keyring?: string; 
+  private _keyring?: string;
   public get keyring() {
     return this.getStringAttribute('keyring');
   }
@@ -4265,7 +4265,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
   }
 
   // rados_user - computed: false, optional: true, required: false
-  private _radosUser?: string; 
+  private _radosUser?: string;
   public get radosUser() {
     return this.getStringAttribute('rados_user');
   }
@@ -4281,7 +4281,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
   }
 
   // rbd_image - computed: false, optional: false, required: true
-  private _rbdImage?: string; 
+  private _rbdImage?: string;
   public get rbdImage() {
     return this.getStringAttribute('rbd_image');
   }
@@ -4294,7 +4294,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
   }
 
   // rbd_pool - computed: false, optional: true, required: false
-  private _rbdPool?: string; 
+  private _rbdPool?: string;
   public get rbdPool() {
     return this.getStringAttribute('rbd_pool');
   }
@@ -4310,7 +4310,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4344,13 +4344,13 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceRbdOutputReference exte
 export interface PersistentVolumeV1SpecPersistentVolumeSourceVsphereVolume {
   /**
   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fs_type PersistentVolumeV1#fs_type}
   */
   readonly fsType?: string;
   /**
   * Path that identifies vSphere volume vmdk
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#volume_path PersistentVolumeV1#volume_path}
   */
   readonly volumePath: string;
@@ -4406,7 +4406,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceVsphereVolumeOutputRefe
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4422,7 +4422,7 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceVsphereVolumeOutputRefe
   }
 
   // volume_path - computed: false, optional: false, required: true
-  private _volumePath?: string; 
+  private _volumePath?: string;
   public get volumePath() {
     return this.getStringAttribute('volume_path');
   }
@@ -4437,115 +4437,115 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceVsphereVolumeOutputRefe
 export interface PersistentVolumeV1SpecPersistentVolumeSource {
   /**
   * aws_elastic_block_store block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#aws_elastic_block_store PersistentVolumeV1#aws_elastic_block_store}
   */
   readonly awsElasticBlockStore?: PersistentVolumeV1SpecPersistentVolumeSourceAwsElasticBlockStore;
   /**
   * azure_disk block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#azure_disk PersistentVolumeV1#azure_disk}
   */
   readonly azureDisk?: PersistentVolumeV1SpecPersistentVolumeSourceAzureDisk;
   /**
   * azure_file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#azure_file PersistentVolumeV1#azure_file}
   */
   readonly azureFile?: PersistentVolumeV1SpecPersistentVolumeSourceAzureFile;
   /**
   * ceph_fs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#ceph_fs PersistentVolumeV1#ceph_fs}
   */
   readonly cephFs?: PersistentVolumeV1SpecPersistentVolumeSourceCephFs;
   /**
   * cinder block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#cinder PersistentVolumeV1#cinder}
   */
   readonly cinder?: PersistentVolumeV1SpecPersistentVolumeSourceCinder;
   /**
   * csi block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#csi PersistentVolumeV1#csi}
   */
   readonly csi?: PersistentVolumeV1SpecPersistentVolumeSourceCsi;
   /**
   * fc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#fc PersistentVolumeV1#fc}
   */
   readonly fc?: PersistentVolumeV1SpecPersistentVolumeSourceFc;
   /**
   * flex_volume block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#flex_volume PersistentVolumeV1#flex_volume}
   */
   readonly flexVolume?: PersistentVolumeV1SpecPersistentVolumeSourceFlexVolume;
   /**
   * flocker block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#flocker PersistentVolumeV1#flocker}
   */
   readonly flocker?: PersistentVolumeV1SpecPersistentVolumeSourceFlocker;
   /**
   * gce_persistent_disk block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#gce_persistent_disk PersistentVolumeV1#gce_persistent_disk}
   */
   readonly gcePersistentDisk?: PersistentVolumeV1SpecPersistentVolumeSourceGcePersistentDisk;
   /**
   * glusterfs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#glusterfs PersistentVolumeV1#glusterfs}
   */
   readonly glusterfs?: PersistentVolumeV1SpecPersistentVolumeSourceGlusterfs;
   /**
   * host_path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#host_path PersistentVolumeV1#host_path}
   */
   readonly hostPath?: PersistentVolumeV1SpecPersistentVolumeSourceHostPath;
   /**
   * iscsi block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#iscsi PersistentVolumeV1#iscsi}
   */
   readonly iscsi?: PersistentVolumeV1SpecPersistentVolumeSourceIscsi;
   /**
   * local block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#local PersistentVolumeV1#local}
   */
   readonly local?: PersistentVolumeV1SpecPersistentVolumeSourceLocal;
   /**
   * nfs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#nfs PersistentVolumeV1#nfs}
   */
   readonly nfs?: PersistentVolumeV1SpecPersistentVolumeSourceNfs;
   /**
   * photon_persistent_disk block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#photon_persistent_disk PersistentVolumeV1#photon_persistent_disk}
   */
   readonly photonPersistentDisk?: PersistentVolumeV1SpecPersistentVolumeSourcePhotonPersistentDisk;
   /**
   * quobyte block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#quobyte PersistentVolumeV1#quobyte}
   */
   readonly quobyte?: PersistentVolumeV1SpecPersistentVolumeSourceQuobyte;
   /**
   * rbd block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#rbd PersistentVolumeV1#rbd}
   */
   readonly rbd?: PersistentVolumeV1SpecPersistentVolumeSourceRbd;
   /**
   * vsphere_volume block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#vsphere_volume PersistentVolumeV1#vsphere_volume}
   */
   readonly vsphereVolume?: PersistentVolumeV1SpecPersistentVolumeSourceVsphereVolume;
@@ -5026,55 +5026,55 @@ export class PersistentVolumeV1SpecPersistentVolumeSourceOutputReference extends
 export interface PersistentVolumeV1Spec {
   /**
   * Contains all ways the volume can be mounted. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#access_modes PersistentVolumeV1#access_modes}
   */
   readonly accessModes: string[];
   /**
   * A description of the persistent volume's resources and capacity. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#capacity
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#capacity PersistentVolumeV1#capacity}
   */
   readonly capacity: { [key: string]: string };
   /**
   * A list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#mount_options PersistentVolumeV1#mount_options}
   */
   readonly mountOptions?: string[];
   /**
   * What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recycling must be supported by the volume plugin underlying this persistent volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#recycling-policy
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#persistent_volume_reclaim_policy PersistentVolumeV1#persistent_volume_reclaim_policy}
   */
   readonly persistentVolumeReclaimPolicy?: string;
   /**
   * A description of the persistent volume's class. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#storage_class_name PersistentVolumeV1#storage_class_name}
   */
   readonly storageClassName?: string;
   /**
   * Defines if a volume is intended to be used with a formatted filesystem. or to remain in raw block state.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#volume_mode PersistentVolumeV1#volume_mode}
   */
   readonly volumeMode?: string;
   /**
   * claim_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#claim_ref PersistentVolumeV1#claim_ref}
   */
   readonly claimRef?: PersistentVolumeV1SpecClaimRef;
   /**
   * node_affinity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#node_affinity PersistentVolumeV1#node_affinity}
   */
   readonly nodeAffinity?: PersistentVolumeV1SpecNodeAffinity;
   /**
   * persistent_volume_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume_v1#persistent_volume_source PersistentVolumeV1#persistent_volume_source}
   */
   readonly persistentVolumeSource: PersistentVolumeV1SpecPersistentVolumeSource;
@@ -5191,7 +5191,7 @@ export class PersistentVolumeV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // access_modes - computed: false, optional: false, required: true
-  private _accessModes?: string[]; 
+  private _accessModes?: string[];
   public get accessModes() {
     return cdktf.Fn.tolist(this.getListAttribute('access_modes'));
   }
@@ -5204,7 +5204,7 @@ export class PersistentVolumeV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // capacity - computed: false, optional: false, required: true
-  private _capacity?: { [key: string]: string }; 
+  private _capacity?: { [key: string]: string };
   public get capacity() {
     return this.getStringMapAttribute('capacity');
   }
@@ -5217,7 +5217,7 @@ export class PersistentVolumeV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // mount_options - computed: false, optional: true, required: false
-  private _mountOptions?: string[]; 
+  private _mountOptions?: string[];
   public get mountOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('mount_options'));
   }
@@ -5233,7 +5233,7 @@ export class PersistentVolumeV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // persistent_volume_reclaim_policy - computed: false, optional: true, required: false
-  private _persistentVolumeReclaimPolicy?: string; 
+  private _persistentVolumeReclaimPolicy?: string;
   public get persistentVolumeReclaimPolicy() {
     return this.getStringAttribute('persistent_volume_reclaim_policy');
   }
@@ -5249,7 +5249,7 @@ export class PersistentVolumeV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // storage_class_name - computed: false, optional: true, required: false
-  private _storageClassName?: string; 
+  private _storageClassName?: string;
   public get storageClassName() {
     return this.getStringAttribute('storage_class_name');
   }
@@ -5265,7 +5265,7 @@ export class PersistentVolumeV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // volume_mode - computed: false, optional: true, required: false
-  private _volumeMode?: string; 
+  private _volumeMode?: string;
   public get volumeMode() {
     return this.getStringAttribute('volume_mode');
   }
@@ -5405,7 +5405,7 @@ export class PersistentVolumeV1TimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -5469,7 +5469,7 @@ export class PersistentVolumeV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

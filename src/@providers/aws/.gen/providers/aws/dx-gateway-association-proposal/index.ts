@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   // ==========
 
   // allowed_prefixes - computed: true, optional: true, required: false
-  private _allowedPrefixes?: string[]; 
+  private _allowedPrefixes?: string[];
   public get allowedPrefixes() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_prefixes'));
   }
@@ -97,7 +97,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // associated_gateway_id - computed: false, optional: false, required: true
-  private _associatedGatewayId?: string; 
+  private _associatedGatewayId?: string;
   public get associatedGatewayId() {
     return this.getStringAttribute('associated_gateway_id');
   }
@@ -120,7 +120,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // dx_gateway_id - computed: false, optional: false, required: true
-  private _dxGatewayId?: string; 
+  private _dxGatewayId?: string;
   public get dxGatewayId() {
     return this.getStringAttribute('dx_gateway_id');
   }
@@ -133,7 +133,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // dx_gateway_owner_account_id - computed: false, optional: false, required: true
-  private _dxGatewayOwnerAccountId?: string; 
+  private _dxGatewayOwnerAccountId?: string;
   public get dxGatewayOwnerAccountId() {
     return this.getStringAttribute('dx_gateway_owner_account_id');
   }
@@ -146,7 +146,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kinesis_video_stream
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface KinesisVideoStreamConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_video_stream#timeouts KinesisVideoStream#timeouts}
   */
   readonly timeouts?: KinesisVideoStreamTimeouts;
@@ -131,7 +131,7 @@ export class KinesisVideoStreamTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -147,7 +147,7 @@ export class KinesisVideoStreamTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -163,7 +163,7 @@ export class KinesisVideoStreamTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -242,7 +242,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // data_retention_in_hours - computed: false, optional: true, required: false
-  private _dataRetentionInHours?: number; 
+  private _dataRetentionInHours?: number;
   public get dataRetentionInHours() {
     return this.getNumberAttribute('data_retention_in_hours');
   }
@@ -258,7 +258,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // device_name - computed: false, optional: true, required: false
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -274,7 +274,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -290,7 +290,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -306,7 +306,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // media_type - computed: false, optional: true, required: false
-  private _mediaType?: string; 
+  private _mediaType?: string;
   public get mediaType() {
     return this.getStringAttribute('media_type');
   }
@@ -322,7 +322,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -335,7 +335,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -351,7 +351,7 @@ export class KinesisVideoStream extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

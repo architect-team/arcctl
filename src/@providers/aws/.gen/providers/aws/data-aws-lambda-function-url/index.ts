@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/lambda_function_url
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -181,7 +181,7 @@ export class DataAwsLambdaFunctionUrl extends cdktf.TerraformDataSource {
   }
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -199,7 +199,7 @@ export class DataAwsLambdaFunctionUrl extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -220,7 +220,7 @@ export class DataAwsLambdaFunctionUrl extends cdktf.TerraformDataSource {
   }
 
   // qualifier - computed: false, optional: true, required: false
-  private _qualifier?: string; 
+  private _qualifier?: string;
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/time/r/offset
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class Offset extends cdktf.TerraformResource {
   // ==========
 
   // base_rfc3339 - computed: true, optional: true, required: false
-  private _baseRfc3339?: string; 
+  private _baseRfc3339?: string;
   public get baseRfc3339() {
     return this.getStringAttribute('base_rfc3339');
   }
@@ -127,7 +127,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -153,7 +153,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_days - computed: false, optional: true, required: false
-  private _offsetDays?: number; 
+  private _offsetDays?: number;
   public get offsetDays() {
     return this.getNumberAttribute('offset_days');
   }
@@ -169,7 +169,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_hours - computed: false, optional: true, required: false
-  private _offsetHours?: number; 
+  private _offsetHours?: number;
   public get offsetHours() {
     return this.getNumberAttribute('offset_hours');
   }
@@ -185,7 +185,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_minutes - computed: false, optional: true, required: false
-  private _offsetMinutes?: number; 
+  private _offsetMinutes?: number;
   public get offsetMinutes() {
     return this.getNumberAttribute('offset_minutes');
   }
@@ -201,7 +201,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_months - computed: false, optional: true, required: false
-  private _offsetMonths?: number; 
+  private _offsetMonths?: number;
   public get offsetMonths() {
     return this.getNumberAttribute('offset_months');
   }
@@ -217,7 +217,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_seconds - computed: false, optional: true, required: false
-  private _offsetSeconds?: number; 
+  private _offsetSeconds?: number;
   public get offsetSeconds() {
     return this.getNumberAttribute('offset_seconds');
   }
@@ -233,7 +233,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_years - computed: false, optional: true, required: false
-  private _offsetYears?: number; 
+  private _offsetYears?: number;
   public get offsetYears() {
     return this.getNumberAttribute('offset_years');
   }
@@ -259,7 +259,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

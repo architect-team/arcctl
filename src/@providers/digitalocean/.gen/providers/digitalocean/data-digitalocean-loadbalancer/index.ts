@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataDigitaloceanLoadbalancerConfig extends cdktf.TerraformMetaArguments {
   /**
   * id of the load balancer
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#id DataDigitaloceanLoadbalancer#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
@@ -18,7 +18,7 @@ export interface DataDigitaloceanLoadbalancerConfig extends cdktf.TerraformMetaA
   readonly id?: string;
   /**
   * name of the load balancer
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#name DataDigitaloceanLoadbalancer#name}
   */
   readonly name?: string;
@@ -454,7 +454,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -475,7 +475,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

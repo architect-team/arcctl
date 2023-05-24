@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class SecretsmanagerSecretVersion extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class SecretsmanagerSecretVersion extends cdktf.TerraformResource {
   }
 
   // secret_binary - computed: false, optional: true, required: false
-  private _secretBinary?: string; 
+  private _secretBinary?: string;
   public get secretBinary() {
     return this.getStringAttribute('secret_binary');
   }
@@ -118,7 +118,7 @@ export class SecretsmanagerSecretVersion extends cdktf.TerraformResource {
   }
 
   // secret_id - computed: false, optional: false, required: true
-  private _secretId?: string; 
+  private _secretId?: string;
   public get secretId() {
     return this.getStringAttribute('secret_id');
   }
@@ -131,7 +131,7 @@ export class SecretsmanagerSecretVersion extends cdktf.TerraformResource {
   }
 
   // secret_string - computed: false, optional: true, required: false
-  private _secretString?: string; 
+  private _secretString?: string;
   public get secretString() {
     return this.getStringAttribute('secret_string');
   }
@@ -152,7 +152,7 @@ export class SecretsmanagerSecretVersion extends cdktf.TerraformResource {
   }
 
   // version_stages - computed: true, optional: true, required: false
-  private _versionStages?: string[]; 
+  private _versionStages?: string[];
   public get versionStages() {
     return cdktf.Fn.tolist(this.getListAttribute('version_stages'));
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_firewall
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DatabaseFirewallConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_firewall#rule DatabaseFirewall#rule}
   */
   readonly rule: DatabaseFirewallRule[] | cdktf.IResolvable;
@@ -103,7 +103,7 @@ export class DatabaseFirewallRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -121,7 +121,7 @@ export class DatabaseFirewallRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -201,7 +201,7 @@ export class DatabaseFirewall extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -214,7 +214,7 @@ export class DatabaseFirewall extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

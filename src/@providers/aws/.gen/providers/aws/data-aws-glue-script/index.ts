@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/glue_script
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface DataAwsGlueScriptConfig extends cdktf.TerraformMetaArguments {
   readonly language?: string;
   /**
   * dag_edge block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_script#dag_edge DataAwsGlueScript#dag_edge}
   */
   readonly dagEdge: DataAwsGlueScriptDagEdge[] | cdktf.IResolvable;
   /**
   * dag_node block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_script#dag_node DataAwsGlueScript#dag_node}
   */
   readonly dagNode: DataAwsGlueScriptDagNode[] | cdktf.IResolvable;
@@ -115,7 +115,7 @@ export class DataAwsGlueScriptDagEdgeOutputReference extends cdktf.ComplexObject
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -128,7 +128,7 @@ export class DataAwsGlueScriptDagEdgeOutputReference extends cdktf.ComplexObject
   }
 
   // target - computed: false, optional: false, required: true
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -141,7 +141,7 @@ export class DataAwsGlueScriptDagEdgeOutputReference extends cdktf.ComplexObject
   }
 
   // target_parameter - computed: false, optional: true, required: false
-  private _targetParameter?: string; 
+  private _targetParameter?: string;
   public get targetParameter() {
     return this.getStringAttribute('target_parameter');
   }
@@ -260,7 +260,7 @@ export class DataAwsGlueScriptDagNodeArgsOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -273,7 +273,7 @@ export class DataAwsGlueScriptDagNodeArgsOutputReference extends cdktf.ComplexOb
   }
 
   // param - computed: false, optional: true, required: false
-  private _param?: boolean | cdktf.IResolvable; 
+  private _param?: boolean | cdktf.IResolvable;
   public get param() {
     return this.getBooleanAttribute('param');
   }
@@ -289,7 +289,7 @@ export class DataAwsGlueScriptDagNodeArgsOutputReference extends cdktf.ComplexOb
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -339,7 +339,7 @@ export interface DataAwsGlueScriptDagNode {
   readonly nodeType: string;
   /**
   * args block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_script#args DataAwsGlueScript#args}
   */
   readonly args: DataAwsGlueScriptDagNodeArgs[] | cdktf.IResolvable;
@@ -421,7 +421,7 @@ export class DataAwsGlueScriptDagNodeOutputReference extends cdktf.ComplexObject
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -434,7 +434,7 @@ export class DataAwsGlueScriptDagNodeOutputReference extends cdktf.ComplexObject
   }
 
   // line_number - computed: false, optional: true, required: false
-  private _lineNumber?: number; 
+  private _lineNumber?: number;
   public get lineNumber() {
     return this.getNumberAttribute('line_number');
   }
@@ -450,7 +450,7 @@ export class DataAwsGlueScriptDagNodeOutputReference extends cdktf.ComplexObject
   }
 
   // node_type - computed: false, optional: false, required: true
-  private _nodeType?: string; 
+  private _nodeType?: string;
   public get nodeType() {
     return this.getStringAttribute('node_type');
   }
@@ -544,7 +544,7 @@ export class DataAwsGlueScript extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -560,7 +560,7 @@ export class DataAwsGlueScript extends cdktf.TerraformDataSource {
   }
 
   // language - computed: false, optional: true, required: false
-  private _language?: string; 
+  private _language?: string;
   public get language() {
     return this.getStringAttribute('language');
   }

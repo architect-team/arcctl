@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_security_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface RedshiftSecurityGroupConfig extends cdktf.TerraformMetaArgument
   readonly name: string;
   /**
   * ingress block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_security_group#ingress RedshiftSecurityGroup#ingress}
   */
   readonly ingress: RedshiftSecurityGroupIngress[] | cdktf.IResolvable;
@@ -113,7 +113,7 @@ export class RedshiftSecurityGroupIngressOutputReference extends cdktf.ComplexOb
   }
 
   // cidr - computed: false, optional: true, required: false
-  private _cidr?: string; 
+  private _cidr?: string;
   public get cidr() {
     return this.getStringAttribute('cidr');
   }
@@ -129,7 +129,7 @@ export class RedshiftSecurityGroupIngressOutputReference extends cdktf.ComplexOb
   }
 
   // security_group_name - computed: true, optional: true, required: false
-  private _securityGroupName?: string; 
+  private _securityGroupName?: string;
   public get securityGroupName() {
     return this.getStringAttribute('security_group_name');
   }
@@ -145,7 +145,7 @@ export class RedshiftSecurityGroupIngressOutputReference extends cdktf.ComplexOb
   }
 
   // security_group_owner_id - computed: true, optional: true, required: false
-  private _securityGroupOwnerId?: string; 
+  private _securityGroupOwnerId?: string;
   public get securityGroupOwnerId() {
     return this.getStringAttribute('security_group_owner_id');
   }
@@ -229,7 +229,7 @@ export class RedshiftSecurityGroup extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -245,7 +245,7 @@ export class RedshiftSecurityGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -261,7 +261,7 @@ export class RedshiftSecurityGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

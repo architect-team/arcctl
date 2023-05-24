@@ -4,7 +4,7 @@ import { DataAwsRoute53Zone } from '../.gen/providers/aws/data-aws-route53-zone/
 import { Route53Record } from '../.gen/providers/aws/route53-record/index.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsDnsRecordService } from '../services/dns-record.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class AwsDnsRecordModule extends ResourceModule<
   'dnsRecord',

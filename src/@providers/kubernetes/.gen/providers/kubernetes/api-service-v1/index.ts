@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface ApiServiceV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#metadata ApiServiceV1#metadata}
   */
   readonly metadata: ApiServiceV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#spec ApiServiceV1#spec}
   */
   readonly spec: ApiServiceV1Spec;
@@ -30,25 +30,25 @@ export interface ApiServiceV1Config extends cdktf.TerraformMetaArguments {
 export interface ApiServiceV1Metadata {
   /**
   * An unstructured key value map stored with the api_service that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#annotations ApiServiceV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#generate_name ApiServiceV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the api_service. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#labels ApiServiceV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the api_service, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#name ApiServiceV1#name}
   */
   readonly name?: string;
@@ -118,7 +118,7 @@ export class ApiServiceV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -134,7 +134,7 @@ export class ApiServiceV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -155,7 +155,7 @@ export class ApiServiceV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -171,7 +171,7 @@ export class ApiServiceV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -199,19 +199,19 @@ export class ApiServiceV1MetadataOutputReference extends cdktf.ComplexObject {
 export interface ApiServiceV1SpecService {
   /**
   * Name is the name of the service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#name ApiServiceV1#name}
   */
   readonly name: string;
   /**
   * Namespace is the namespace of the service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#namespace ApiServiceV1#namespace}
   */
   readonly namespace: string;
   /**
   * If specified, the port on the service that is hosting the service. Defaults to 443 for backward compatibility. Should be a valid port number (1-65535, inclusive).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#port ApiServiceV1#port}
   */
   readonly port?: number;
@@ -274,7 +274,7 @@ export class ApiServiceV1SpecServiceOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -287,7 +287,7 @@ export class ApiServiceV1SpecServiceOutputReference extends cdktf.ComplexObject 
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -300,7 +300,7 @@ export class ApiServiceV1SpecServiceOutputReference extends cdktf.ComplexObject 
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -318,43 +318,43 @@ export class ApiServiceV1SpecServiceOutputReference extends cdktf.ComplexObject 
 export interface ApiServiceV1Spec {
   /**
   * CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate. If unspecified, system trust roots on the apiserver are used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#ca_bundle ApiServiceV1#ca_bundle}
   */
   readonly caBundle?: string;
   /**
   * Group is the API group name this server hosts.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#group ApiServiceV1#group}
   */
   readonly group: string;
   /**
   * GroupPriorityMinimum is the priority this group should have at least. Higher priority means that the group is preferred by clients over lower priority ones. Note that other versions of this group might specify even higher GroupPriorityMininum values such that the whole group gets a higher priority. The primary sort is based on GroupPriorityMinimum, ordered highest number to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object. (v1.bar before v1.foo) We'd recommend something like: *.k8s.io (except extensions) at 18000 and PaaSes (OpenShift, Deis) are recommended to be in the 2000s.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#group_priority_minimum ApiServiceV1#group_priority_minimum}
   */
   readonly groupPriorityMinimum: number;
   /**
   * InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server. This is strongly discouraged. You should use the CABundle instead.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#insecure_skip_tls_verify ApiServiceV1#insecure_skip_tls_verify}
   */
   readonly insecureSkipTlsVerify?: boolean | cdktf.IResolvable;
   /**
   * Version is the API version this server hosts. For example, `v1`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#version ApiServiceV1#version}
   */
   readonly version: string;
   /**
   * VersionPriority controls the ordering of this API version inside of its group. Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is `kube-like`, it will sort above non `kube-like` version strings, which are ordered lexicographically. `Kube-like` versions start with a `v`, then are followed by a number (the major version), then optionally the string `alpha` or `beta` and another number (the minor version). These are sorted first by GA > `beta` > `alpha` (where GA is a version with no suffix such as `beta` or `alpha`), and then by comparing major version, then minor version. An example sorted list of versions: `v10`, `v2`, `v1`, `v11beta2`, `v10beta3`, `v3beta1`, `v12alpha1`, `v11alpha2`, `foo1`, `foo10`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#version_priority ApiServiceV1#version_priority}
   */
   readonly versionPriority: number;
   /**
   * service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/api_service_v1#service ApiServiceV1#service}
   */
   readonly service?: ApiServiceV1SpecService;
@@ -445,7 +445,7 @@ export class ApiServiceV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // ca_bundle - computed: false, optional: true, required: false
-  private _caBundle?: string; 
+  private _caBundle?: string;
   public get caBundle() {
     return this.getStringAttribute('ca_bundle');
   }
@@ -461,7 +461,7 @@ export class ApiServiceV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // group - computed: false, optional: false, required: true
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -474,7 +474,7 @@ export class ApiServiceV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // group_priority_minimum - computed: false, optional: false, required: true
-  private _groupPriorityMinimum?: number; 
+  private _groupPriorityMinimum?: number;
   public get groupPriorityMinimum() {
     return this.getNumberAttribute('group_priority_minimum');
   }
@@ -487,7 +487,7 @@ export class ApiServiceV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // insecure_skip_tls_verify - computed: false, optional: true, required: false
-  private _insecureSkipTlsVerify?: boolean | cdktf.IResolvable; 
+  private _insecureSkipTlsVerify?: boolean | cdktf.IResolvable;
   public get insecureSkipTlsVerify() {
     return this.getBooleanAttribute('insecure_skip_tls_verify');
   }
@@ -503,7 +503,7 @@ export class ApiServiceV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -516,7 +516,7 @@ export class ApiServiceV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // version_priority - computed: false, optional: false, required: true
-  private _versionPriority?: number; 
+  private _versionPriority?: number;
   public get versionPriority() {
     return this.getNumberAttribute('version_priority');
   }
@@ -592,7 +592,7 @@ export class ApiServiceV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

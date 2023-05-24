@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -13,7 +13,7 @@ export interface DataAwsVpcSecurityGroupRuleConfig extends cdktf.TerraformMetaAr
   readonly securityGroupRuleId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#filter DataAwsVpcSecurityGroupRule#filter}
   */
   readonly filter?: DataAwsVpcSecurityGroupRuleFilter[] | cdktf.IResolvable;
@@ -91,7 +91,7 @@ export class DataAwsVpcSecurityGroupRuleFilterOutputReference extends cdktf.Comp
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -104,7 +104,7 @@ export class DataAwsVpcSecurityGroupRuleFilterOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -238,7 +238,7 @@ export class DataAwsVpcSecurityGroupRule extends cdktf.TerraformDataSource {
   }
 
   // security_group_rule_id - computed: true, optional: true, required: false
-  private _securityGroupRuleId?: string; 
+  private _securityGroupRuleId?: string;
   public get securityGroupRuleId() {
     return this.getStringAttribute('security_group_rule_id');
   }

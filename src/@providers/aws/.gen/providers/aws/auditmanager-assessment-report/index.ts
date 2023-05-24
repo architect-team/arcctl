@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -68,7 +68,7 @@ export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
   // ==========
 
   // assessment_id - computed: false, optional: false, required: true
-  private _assessmentId?: string; 
+  private _assessmentId?: string;
   public get assessmentId() {
     return this.getStringAttribute('assessment_id');
   }
@@ -86,7 +86,7 @@ export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -107,7 +107,7 @@ export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

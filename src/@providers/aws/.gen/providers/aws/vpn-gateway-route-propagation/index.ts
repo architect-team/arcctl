@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface VpnGatewayRoutePropagationConfig extends cdktf.TerraformMetaArg
   readonly vpnGatewayId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#timeouts VpnGatewayRoutePropagation#timeouts}
   */
   readonly timeouts?: VpnGatewayRoutePropagationTimeouts;
@@ -100,7 +100,7 @@ export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.Com
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.Com
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -196,7 +196,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string; 
+  private _routeTableId?: string;
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -209,7 +209,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
   }
 
   // vpn_gateway_id - computed: false, optional: false, required: true
-  private _vpnGatewayId?: string; 
+  private _vpnGatewayId?: string;
   public get vpnGatewayId() {
     return this.getStringAttribute('vpn_gateway_id');
   }

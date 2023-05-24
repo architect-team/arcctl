@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/backup_plan
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsBackupPlan extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class DataAwsBackupPlan extends cdktf.TerraformDataSource {
   }
 
   // plan_id - computed: false, optional: false, required: true
-  private _planId?: string; 
+  private _planId?: string;
   public get planId() {
     return this.getStringAttribute('plan_id');
   }
@@ -110,7 +110,7 @@ export class DataAwsBackupPlan extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

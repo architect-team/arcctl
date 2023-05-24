@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dynamodb_kinesis_streaming_destination
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DynamodbKinesisStreamingDestination extends cdktf.TerraformResource
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DynamodbKinesisStreamingDestination extends cdktf.TerraformResource
   }
 
   // stream_arn - computed: false, optional: false, required: true
-  private _streamArn?: string; 
+  private _streamArn?: string;
   public get streamArn() {
     return this.getStringAttribute('stream_arn');
   }
@@ -100,7 +100,7 @@ export class DynamodbKinesisStreamingDestination extends cdktf.TerraformResource
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }

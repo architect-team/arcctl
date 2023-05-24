@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_peering_attachment_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Ec2TransitGatewayPeeringAttachmentAccepter extends cdktf.TerraformR
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class Ec2TransitGatewayPeeringAttachmentAccepter extends cdktf.TerraformR
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -123,7 +123,7 @@ export class Ec2TransitGatewayPeeringAttachmentAccepter extends cdktf.TerraformR
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -139,7 +139,7 @@ export class Ec2TransitGatewayPeeringAttachmentAccepter extends cdktf.TerraformR
   }
 
   // transit_gateway_attachment_id - computed: false, optional: false, required: true
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }

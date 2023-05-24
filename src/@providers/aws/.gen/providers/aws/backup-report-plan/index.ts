@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_report_plan
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface BackupReportPlanConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * report_delivery_channel block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_report_plan#report_delivery_channel BackupReportPlan#report_delivery_channel}
   */
   readonly reportDeliveryChannel: BackupReportPlanReportDeliveryChannel;
   /**
   * report_setting block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_report_plan#report_setting BackupReportPlan#report_setting}
   */
   readonly reportSetting: BackupReportPlanReportSetting;
@@ -115,7 +115,7 @@ export class BackupReportPlanReportDeliveryChannelOutputReference extends cdktf.
   }
 
   // formats - computed: false, optional: true, required: false
-  private _formats?: string[]; 
+  private _formats?: string[];
   public get formats() {
     return cdktf.Fn.tolist(this.getListAttribute('formats'));
   }
@@ -131,7 +131,7 @@ export class BackupReportPlanReportDeliveryChannelOutputReference extends cdktf.
   }
 
   // s3_bucket_name - computed: false, optional: false, required: true
-  private _s3BucketName?: string; 
+  private _s3BucketName?: string;
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -144,7 +144,7 @@ export class BackupReportPlanReportDeliveryChannelOutputReference extends cdktf.
   }
 
   // s3_key_prefix - computed: false, optional: true, required: false
-  private _s3KeyPrefix?: string; 
+  private _s3KeyPrefix?: string;
   public get s3KeyPrefix() {
     return this.getStringAttribute('s3_key_prefix');
   }
@@ -231,7 +231,7 @@ export class BackupReportPlanReportSettingOutputReference extends cdktf.ComplexO
   }
 
   // framework_arns - computed: false, optional: true, required: false
-  private _frameworkArns?: string[]; 
+  private _frameworkArns?: string[];
   public get frameworkArns() {
     return cdktf.Fn.tolist(this.getListAttribute('framework_arns'));
   }
@@ -247,7 +247,7 @@ export class BackupReportPlanReportSettingOutputReference extends cdktf.ComplexO
   }
 
   // number_of_frameworks - computed: false, optional: true, required: false
-  private _numberOfFrameworks?: number; 
+  private _numberOfFrameworks?: number;
   public get numberOfFrameworks() {
     return this.getNumberAttribute('number_of_frameworks');
   }
@@ -263,7 +263,7 @@ export class BackupReportPlanReportSettingOutputReference extends cdktf.ComplexO
   }
 
   // report_template - computed: false, optional: false, required: true
-  private _reportTemplate?: string; 
+  private _reportTemplate?: string;
   public get reportTemplate() {
     return this.getStringAttribute('report_template');
   }
@@ -342,7 +342,7 @@ export class BackupReportPlan extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -358,7 +358,7 @@ export class BackupReportPlan extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -374,7 +374,7 @@ export class BackupReportPlan extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -387,7 +387,7 @@ export class BackupReportPlan extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -403,7 +403,7 @@ export class BackupReportPlan extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

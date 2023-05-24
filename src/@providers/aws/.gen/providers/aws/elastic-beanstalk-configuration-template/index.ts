@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/elastic_beanstalk_configuration_template
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface ElasticBeanstalkConfigurationTemplateConfig extends cdktf.Terra
   readonly solutionStackName?: string;
   /**
   * setting block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastic_beanstalk_configuration_template#setting ElasticBeanstalkConfigurationTemplate#setting}
   */
   readonly setting?: ElasticBeanstalkConfigurationTemplateSetting[] | cdktf.IResolvable;
@@ -136,7 +136,7 @@ export class ElasticBeanstalkConfigurationTemplateSettingOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -149,7 +149,7 @@ export class ElasticBeanstalkConfigurationTemplateSettingOutputReference extends
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -162,7 +162,7 @@ export class ElasticBeanstalkConfigurationTemplateSettingOutputReference extends
   }
 
   // resource - computed: false, optional: true, required: false
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -178,7 +178,7 @@ export class ElasticBeanstalkConfigurationTemplateSettingOutputReference extends
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -262,7 +262,7 @@ export class ElasticBeanstalkConfigurationTemplate extends cdktf.TerraformResour
   // ==========
 
   // application - computed: false, optional: false, required: true
-  private _application?: string; 
+  private _application?: string;
   public get application() {
     return this.getStringAttribute('application');
   }
@@ -275,7 +275,7 @@ export class ElasticBeanstalkConfigurationTemplate extends cdktf.TerraformResour
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -291,7 +291,7 @@ export class ElasticBeanstalkConfigurationTemplate extends cdktf.TerraformResour
   }
 
   // environment_id - computed: false, optional: true, required: false
-  private _environmentId?: string; 
+  private _environmentId?: string;
   public get environmentId() {
     return this.getStringAttribute('environment_id');
   }
@@ -307,7 +307,7 @@ export class ElasticBeanstalkConfigurationTemplate extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -323,7 +323,7 @@ export class ElasticBeanstalkConfigurationTemplate extends cdktf.TerraformResour
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -336,7 +336,7 @@ export class ElasticBeanstalkConfigurationTemplate extends cdktf.TerraformResour
   }
 
   // solution_stack_name - computed: false, optional: true, required: false
-  private _solutionStackName?: string; 
+  private _solutionStackName?: string;
   public get solutionStackName() {
     return this.getStringAttribute('solution_stack_name');
   }

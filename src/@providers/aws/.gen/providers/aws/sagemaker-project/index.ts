@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_project
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface SagemakerProjectConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * service_catalog_provisioning_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_project#service_catalog_provisioning_details SagemakerProject#service_catalog_provisioning_details}
   */
   readonly serviceCatalogProvisioningDetails: SagemakerProjectServiceCatalogProvisioningDetails;
@@ -110,7 +110,7 @@ export class SagemakerProjectServiceCatalogProvisioningDetailsProvisioningParame
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -123,7 +123,7 @@ export class SagemakerProjectServiceCatalogProvisioningDetailsProvisioningParame
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -173,7 +173,7 @@ export interface SagemakerProjectServiceCatalogProvisioningDetails {
   readonly provisioningArtifactId?: string;
   /**
   * provisioning_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_project#provisioning_parameter SagemakerProject#provisioning_parameter}
   */
   readonly provisioningParameter?: SagemakerProjectServiceCatalogProvisioningDetailsProvisioningParameter[] | cdktf.IResolvable;
@@ -243,7 +243,7 @@ export class SagemakerProjectServiceCatalogProvisioningDetailsOutputReference ex
   }
 
   // path_id - computed: false, optional: true, required: false
-  private _pathId?: string; 
+  private _pathId?: string;
   public get pathId() {
     return this.getStringAttribute('path_id');
   }
@@ -259,7 +259,7 @@ export class SagemakerProjectServiceCatalogProvisioningDetailsOutputReference ex
   }
 
   // product_id - computed: false, optional: false, required: true
-  private _productId?: string; 
+  private _productId?: string;
   public get productId() {
     return this.getStringAttribute('product_id');
   }
@@ -272,7 +272,7 @@ export class SagemakerProjectServiceCatalogProvisioningDetailsOutputReference ex
   }
 
   // provisioning_artifact_id - computed: true, optional: true, required: false
-  private _provisioningArtifactId?: string; 
+  private _provisioningArtifactId?: string;
   public get provisioningArtifactId() {
     return this.getStringAttribute('provisioning_artifact_id');
   }
@@ -359,7 +359,7 @@ export class SagemakerProject extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -375,7 +375,7 @@ export class SagemakerProject extends cdktf.TerraformResource {
   }
 
   // project_description - computed: false, optional: true, required: false
-  private _projectDescription?: string; 
+  private _projectDescription?: string;
   public get projectDescription() {
     return this.getStringAttribute('project_description');
   }
@@ -396,7 +396,7 @@ export class SagemakerProject extends cdktf.TerraformResource {
   }
 
   // project_name - computed: false, optional: false, required: true
-  private _projectName?: string; 
+  private _projectName?: string;
   public get projectName() {
     return this.getStringAttribute('project_name');
   }
@@ -409,7 +409,7 @@ export class SagemakerProject extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -425,7 +425,7 @@ export class SagemakerProject extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

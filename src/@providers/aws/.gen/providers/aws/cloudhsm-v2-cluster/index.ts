@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudhsm_v2_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface CloudhsmV2ClusterConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudhsm_v2_cluster#timeouts CloudhsmV2Cluster#timeouts}
   */
   readonly timeouts?: CloudhsmV2ClusterTimeouts;
@@ -207,7 +207,7 @@ export class CloudhsmV2ClusterTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -223,7 +223,7 @@ export class CloudhsmV2ClusterTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -239,7 +239,7 @@ export class CloudhsmV2ClusterTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -322,7 +322,7 @@ export class CloudhsmV2Cluster extends cdktf.TerraformResource {
   }
 
   // hsm_type - computed: false, optional: false, required: true
-  private _hsmType?: string; 
+  private _hsmType?: string;
   public get hsmType() {
     return this.getStringAttribute('hsm_type');
   }
@@ -335,7 +335,7 @@ export class CloudhsmV2Cluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -356,7 +356,7 @@ export class CloudhsmV2Cluster extends cdktf.TerraformResource {
   }
 
   // source_backup_identifier - computed: false, optional: true, required: false
-  private _sourceBackupIdentifier?: string; 
+  private _sourceBackupIdentifier?: string;
   public get sourceBackupIdentifier() {
     return this.getStringAttribute('source_backup_identifier');
   }
@@ -372,7 +372,7 @@ export class CloudhsmV2Cluster extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -385,7 +385,7 @@ export class CloudhsmV2Cluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -401,7 +401,7 @@ export class CloudhsmV2Cluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

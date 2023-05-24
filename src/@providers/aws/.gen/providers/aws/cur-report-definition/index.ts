@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cur_report_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -116,7 +116,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   // ==========
 
   // additional_artifacts - computed: false, optional: true, required: false
-  private _additionalArtifacts?: string[]; 
+  private _additionalArtifacts?: string[];
   public get additionalArtifacts() {
     return cdktf.Fn.tolist(this.getListAttribute('additional_artifacts'));
   }
@@ -132,7 +132,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // additional_schema_elements - computed: false, optional: false, required: true
-  private _additionalSchemaElements?: string[]; 
+  private _additionalSchemaElements?: string[];
   public get additionalSchemaElements() {
     return cdktf.Fn.tolist(this.getListAttribute('additional_schema_elements'));
   }
@@ -150,7 +150,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // compression - computed: false, optional: false, required: true
-  private _compression?: string; 
+  private _compression?: string;
   public get compression() {
     return this.getStringAttribute('compression');
   }
@@ -163,7 +163,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string; 
+  private _format?: string;
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -176,7 +176,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -192,7 +192,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // refresh_closed_reports - computed: false, optional: true, required: false
-  private _refreshClosedReports?: boolean | cdktf.IResolvable; 
+  private _refreshClosedReports?: boolean | cdktf.IResolvable;
   public get refreshClosedReports() {
     return this.getBooleanAttribute('refresh_closed_reports');
   }
@@ -208,7 +208,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // report_name - computed: false, optional: false, required: true
-  private _reportName?: string; 
+  private _reportName?: string;
   public get reportName() {
     return this.getStringAttribute('report_name');
   }
@@ -221,7 +221,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // report_versioning - computed: false, optional: true, required: false
-  private _reportVersioning?: string; 
+  private _reportVersioning?: string;
   public get reportVersioning() {
     return this.getStringAttribute('report_versioning');
   }
@@ -237,7 +237,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // s3_bucket - computed: false, optional: false, required: true
-  private _s3Bucket?: string; 
+  private _s3Bucket?: string;
   public get s3Bucket() {
     return this.getStringAttribute('s3_bucket');
   }
@@ -250,7 +250,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // s3_prefix - computed: false, optional: true, required: false
-  private _s3Prefix?: string; 
+  private _s3Prefix?: string;
   public get s3Prefix() {
     return this.getStringAttribute('s3_prefix');
   }
@@ -266,7 +266,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // s3_region - computed: false, optional: false, required: true
-  private _s3Region?: string; 
+  private _s3Region?: string;
   public get s3Region() {
     return this.getStringAttribute('s3_region');
   }
@@ -279,7 +279,7 @@ export class CurReportDefinition extends cdktf.TerraformResource {
   }
 
   // time_unit - computed: false, optional: false, required: true
-  private _timeUnit?: string; 
+  private _timeUnit?: string;
   public get timeUnit() {
     return this.getStringAttribute('time_unit');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fis_experiment_template
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,25 +32,25 @@ export interface FisExperimentTemplateConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#action FisExperimentTemplate#action}
   */
   readonly action: FisExperimentTemplateAction[] | cdktf.IResolvable;
   /**
   * stop_condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#stop_condition FisExperimentTemplate#stop_condition}
   */
   readonly stopCondition: FisExperimentTemplateStopCondition[] | cdktf.IResolvable;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#target FisExperimentTemplate#target}
   */
   readonly target?: FisExperimentTemplateTarget[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#timeouts FisExperimentTemplate#timeouts}
   */
   readonly timeouts?: FisExperimentTemplateTimeouts;
@@ -128,7 +128,7 @@ export class FisExperimentTemplateActionParameterOutputReference extends cdktf.C
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -141,7 +141,7 @@ export class FisExperimentTemplateActionParameterOutputReference extends cdktf.C
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -234,7 +234,7 @@ export class FisExperimentTemplateActionTargetOutputReference extends cdktf.Comp
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -247,7 +247,7 @@ export class FisExperimentTemplateActionTargetOutputReference extends cdktf.Comp
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -278,13 +278,13 @@ export interface FisExperimentTemplateAction {
   readonly startAfter?: string[];
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#parameter FisExperimentTemplate#parameter}
   */
   readonly parameter?: FisExperimentTemplateActionParameter[] | cdktf.IResolvable;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#target FisExperimentTemplate#target}
   */
   readonly target?: FisExperimentTemplateActionTarget;
@@ -380,7 +380,7 @@ export class FisExperimentTemplateActionOutputReference extends cdktf.ComplexObj
   }
 
   // action_id - computed: false, optional: false, required: true
-  private _actionId?: string; 
+  private _actionId?: string;
   public get actionId() {
     return this.getStringAttribute('action_id');
   }
@@ -393,7 +393,7 @@ export class FisExperimentTemplateActionOutputReference extends cdktf.ComplexObj
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -409,7 +409,7 @@ export class FisExperimentTemplateActionOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -422,7 +422,7 @@ export class FisExperimentTemplateActionOutputReference extends cdktf.ComplexObj
   }
 
   // start_after - computed: false, optional: true, required: false
-  private _startAfter?: string[]; 
+  private _startAfter?: string[];
   public get startAfter() {
     return cdktf.Fn.tolist(this.getListAttribute('start_after'));
   }
@@ -562,7 +562,7 @@ export class FisExperimentTemplateStopConditionOutputReference extends cdktf.Com
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -575,7 +575,7 @@ export class FisExperimentTemplateStopConditionOutputReference extends cdktf.Com
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -683,7 +683,7 @@ export class FisExperimentTemplateTargetFilterOutputReference extends cdktf.Comp
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -696,7 +696,7 @@ export class FisExperimentTemplateTargetFilterOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -801,7 +801,7 @@ export class FisExperimentTemplateTargetResourceTagOutputReference extends cdktf
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -814,7 +814,7 @@ export class FisExperimentTemplateTargetResourceTagOutputReference extends cdktf
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -865,13 +865,13 @@ export interface FisExperimentTemplateTarget {
   readonly selectionMode: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#filter FisExperimentTemplate#filter}
   */
   readonly filter?: FisExperimentTemplateTargetFilter[] | cdktf.IResolvable;
   /**
   * resource_tag block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fis_experiment_template#resource_tag FisExperimentTemplate#resource_tag}
   */
   readonly resourceTag?: FisExperimentTemplateTargetResourceTag[] | cdktf.IResolvable;
@@ -967,7 +967,7 @@ export class FisExperimentTemplateTargetOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -980,7 +980,7 @@ export class FisExperimentTemplateTargetOutputReference extends cdktf.ComplexObj
   }
 
   // resource_arns - computed: false, optional: true, required: false
-  private _resourceArns?: string[]; 
+  private _resourceArns?: string[];
   public get resourceArns() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_arns'));
   }
@@ -996,7 +996,7 @@ export class FisExperimentTemplateTargetOutputReference extends cdktf.ComplexObj
   }
 
   // resource_type - computed: false, optional: false, required: true
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -1009,7 +1009,7 @@ export class FisExperimentTemplateTargetOutputReference extends cdktf.ComplexObj
   }
 
   // selection_mode - computed: false, optional: false, required: true
-  private _selectionMode?: string; 
+  private _selectionMode?: string;
   public get selectionMode() {
     return this.getStringAttribute('selection_mode');
   }
@@ -1155,7 +1155,7 @@ export class FisExperimentTemplateTimeoutsOutputReference extends cdktf.ComplexO
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1171,7 +1171,7 @@ export class FisExperimentTemplateTimeoutsOutputReference extends cdktf.ComplexO
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1187,7 +1187,7 @@ export class FisExperimentTemplateTimeoutsOutputReference extends cdktf.ComplexO
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1256,7 +1256,7 @@ export class FisExperimentTemplate extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: false, required: true
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1269,7 +1269,7 @@ export class FisExperimentTemplate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1285,7 +1285,7 @@ export class FisExperimentTemplate extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1298,7 +1298,7 @@ export class FisExperimentTemplate extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1314,7 +1314,7 @@ export class FisExperimentTemplate extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

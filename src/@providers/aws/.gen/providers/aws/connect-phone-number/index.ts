@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_phone_number
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface ConnectPhoneNumberConfig extends cdktf.TerraformMetaArguments {
   readonly type: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_phone_number#timeouts ConnectPhoneNumber#timeouts}
   */
   readonly timeouts?: ConnectPhoneNumberTimeouts;
@@ -200,7 +200,7 @@ export class ConnectPhoneNumberTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -216,7 +216,7 @@ export class ConnectPhoneNumberTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -232,7 +232,7 @@ export class ConnectPhoneNumberTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -306,7 +306,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // country_code - computed: false, optional: false, required: true
-  private _countryCode?: string; 
+  private _countryCode?: string;
   public get countryCode() {
     return this.getStringAttribute('country_code');
   }
@@ -319,7 +319,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -335,7 +335,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -356,7 +356,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -378,7 +378,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -394,7 +394,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -410,7 +410,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // target_arn - computed: false, optional: false, required: true
-  private _targetArn?: string; 
+  private _targetArn?: string;
   public get targetArn() {
     return this.getStringAttribute('target_arn');
   }
@@ -423,7 +423,7 @@ export class ConnectPhoneNumber extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

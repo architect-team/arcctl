@@ -17,7 +17,7 @@ import { AwsRegionService } from './services/region.js';
 import { AwsVpcService } from './services/vpc.js';
 import { AwsDnsRecordTest } from './tests/dns-record.js';
 import AwsUtils from './utils.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export default class AwsProvider extends Provider<AwsCredentials> {
   readonly type = 'aws';

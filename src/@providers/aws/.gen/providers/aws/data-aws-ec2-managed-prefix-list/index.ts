@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsEc2ManagedPrefixListConfig extends cdktf.TerraformMetaAr
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list#filter DataAwsEc2ManagedPrefixList#filter}
   */
   readonly filter?: DataAwsEc2ManagedPrefixListFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list#timeouts DataAwsEc2ManagedPrefixList#timeouts}
   */
   readonly timeouts?: DataAwsEc2ManagedPrefixListTimeouts;
@@ -177,7 +177,7 @@ export class DataAwsEc2ManagedPrefixListFilterOutputReference extends cdktf.Comp
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -190,7 +190,7 @@ export class DataAwsEc2ManagedPrefixListFilterOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -282,7 +282,7 @@ export class DataAwsEc2ManagedPrefixListTimeoutsOutputReference extends cdktf.Co
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -363,7 +363,7 @@ export class DataAwsEc2ManagedPrefixList extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -384,7 +384,7 @@ export class DataAwsEc2ManagedPrefixList extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -405,7 +405,7 @@ export class DataAwsEc2ManagedPrefixList extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

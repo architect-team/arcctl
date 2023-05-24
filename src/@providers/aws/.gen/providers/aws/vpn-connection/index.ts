@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpn_connection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -220,13 +220,13 @@ export interface VpnConnectionConfig extends cdktf.TerraformMetaArguments {
   readonly vpnGatewayId?: string;
   /**
   * tunnel1_log_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_connection#tunnel1_log_options VpnConnection#tunnel1_log_options}
   */
   readonly tunnel1LogOptions?: VpnConnectionTunnel1LogOptions;
   /**
   * tunnel2_log_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_connection#tunnel2_log_options VpnConnection#tunnel2_log_options}
   */
   readonly tunnel2LogOptions?: VpnConnectionTunnel2LogOptions;
@@ -466,7 +466,7 @@ export class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputReference e
   }
 
   // log_enabled - computed: false, optional: true, required: false
-  private _logEnabled?: boolean | cdktf.IResolvable; 
+  private _logEnabled?: boolean | cdktf.IResolvable;
   public get logEnabled() {
     return this.getBooleanAttribute('log_enabled');
   }
@@ -482,7 +482,7 @@ export class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputReference e
   }
 
   // log_group_arn - computed: false, optional: true, required: false
-  private _logGroupArn?: string; 
+  private _logGroupArn?: string;
   public get logGroupArn() {
     return this.getStringAttribute('log_group_arn');
   }
@@ -498,7 +498,7 @@ export class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputReference e
   }
 
   // log_output_format - computed: false, optional: true, required: false
-  private _logOutputFormat?: string; 
+  private _logOutputFormat?: string;
   public get logOutputFormat() {
     return this.getStringAttribute('log_output_format');
   }
@@ -516,7 +516,7 @@ export class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputReference e
 export interface VpnConnectionTunnel1LogOptions {
   /**
   * cloudwatch_log_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_connection#cloudwatch_log_options VpnConnection#cloudwatch_log_options}
   */
   readonly cloudwatchLogOptions?: VpnConnectionTunnel1LogOptionsCloudwatchLogOptions;
@@ -652,7 +652,7 @@ export class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputReference e
   }
 
   // log_enabled - computed: false, optional: true, required: false
-  private _logEnabled?: boolean | cdktf.IResolvable; 
+  private _logEnabled?: boolean | cdktf.IResolvable;
   public get logEnabled() {
     return this.getBooleanAttribute('log_enabled');
   }
@@ -668,7 +668,7 @@ export class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputReference e
   }
 
   // log_group_arn - computed: false, optional: true, required: false
-  private _logGroupArn?: string; 
+  private _logGroupArn?: string;
   public get logGroupArn() {
     return this.getStringAttribute('log_group_arn');
   }
@@ -684,7 +684,7 @@ export class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputReference e
   }
 
   // log_output_format - computed: false, optional: true, required: false
-  private _logOutputFormat?: string; 
+  private _logOutputFormat?: string;
   public get logOutputFormat() {
     return this.getStringAttribute('log_output_format');
   }
@@ -702,7 +702,7 @@ export class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputReference e
 export interface VpnConnectionTunnel2LogOptions {
   /**
   * cloudwatch_log_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_connection#cloudwatch_log_options VpnConnection#cloudwatch_log_options}
   */
   readonly cloudwatchLogOptions?: VpnConnectionTunnel2LogOptionsCloudwatchLogOptions;
@@ -885,7 +885,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // customer_gateway_id - computed: false, optional: false, required: true
-  private _customerGatewayId?: string; 
+  private _customerGatewayId?: string;
   public get customerGatewayId() {
     return this.getStringAttribute('customer_gateway_id');
   }
@@ -898,7 +898,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // enable_acceleration - computed: true, optional: true, required: false
-  private _enableAcceleration?: boolean | cdktf.IResolvable; 
+  private _enableAcceleration?: boolean | cdktf.IResolvable;
   public get enableAcceleration() {
     return this.getBooleanAttribute('enable_acceleration');
   }
@@ -914,7 +914,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -930,7 +930,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // local_ipv4_network_cidr - computed: true, optional: true, required: false
-  private _localIpv4NetworkCidr?: string; 
+  private _localIpv4NetworkCidr?: string;
   public get localIpv4NetworkCidr() {
     return this.getStringAttribute('local_ipv4_network_cidr');
   }
@@ -946,7 +946,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // local_ipv6_network_cidr - computed: true, optional: true, required: false
-  private _localIpv6NetworkCidr?: string; 
+  private _localIpv6NetworkCidr?: string;
   public get localIpv6NetworkCidr() {
     return this.getStringAttribute('local_ipv6_network_cidr');
   }
@@ -962,7 +962,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // outside_ip_address_type - computed: true, optional: true, required: false
-  private _outsideIpAddressType?: string; 
+  private _outsideIpAddressType?: string;
   public get outsideIpAddressType() {
     return this.getStringAttribute('outside_ip_address_type');
   }
@@ -978,7 +978,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // remote_ipv4_network_cidr - computed: true, optional: true, required: false
-  private _remoteIpv4NetworkCidr?: string; 
+  private _remoteIpv4NetworkCidr?: string;
   public get remoteIpv4NetworkCidr() {
     return this.getStringAttribute('remote_ipv4_network_cidr');
   }
@@ -994,7 +994,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // remote_ipv6_network_cidr - computed: true, optional: true, required: false
-  private _remoteIpv6NetworkCidr?: string; 
+  private _remoteIpv6NetworkCidr?: string;
   public get remoteIpv6NetworkCidr() {
     return this.getStringAttribute('remote_ipv6_network_cidr');
   }
@@ -1016,7 +1016,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // static_routes_only - computed: true, optional: true, required: false
-  private _staticRoutesOnly?: boolean | cdktf.IResolvable; 
+  private _staticRoutesOnly?: boolean | cdktf.IResolvable;
   public get staticRoutesOnly() {
     return this.getBooleanAttribute('static_routes_only');
   }
@@ -1032,7 +1032,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1048,7 +1048,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1069,7 +1069,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // transit_gateway_id - computed: false, optional: true, required: false
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -1085,7 +1085,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // transport_transit_gateway_attachment_id - computed: false, optional: true, required: false
-  private _transportTransitGatewayAttachmentId?: string; 
+  private _transportTransitGatewayAttachmentId?: string;
   public get transportTransitGatewayAttachmentId() {
     return this.getStringAttribute('transport_transit_gateway_attachment_id');
   }
@@ -1121,7 +1121,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_dpd_timeout_action - computed: false, optional: true, required: false
-  private _tunnel1DpdTimeoutAction?: string; 
+  private _tunnel1DpdTimeoutAction?: string;
   public get tunnel1DpdTimeoutAction() {
     return this.getStringAttribute('tunnel1_dpd_timeout_action');
   }
@@ -1137,7 +1137,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_dpd_timeout_seconds - computed: false, optional: true, required: false
-  private _tunnel1DpdTimeoutSeconds?: number; 
+  private _tunnel1DpdTimeoutSeconds?: number;
   public get tunnel1DpdTimeoutSeconds() {
     return this.getNumberAttribute('tunnel1_dpd_timeout_seconds');
   }
@@ -1153,7 +1153,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_ike_versions - computed: false, optional: true, required: false
-  private _tunnel1IkeVersions?: string[]; 
+  private _tunnel1IkeVersions?: string[];
   public get tunnel1IkeVersions() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel1_ike_versions'));
   }
@@ -1169,7 +1169,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_inside_cidr - computed: true, optional: true, required: false
-  private _tunnel1InsideCidr?: string; 
+  private _tunnel1InsideCidr?: string;
   public get tunnel1InsideCidr() {
     return this.getStringAttribute('tunnel1_inside_cidr');
   }
@@ -1185,7 +1185,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_inside_ipv6_cidr - computed: true, optional: true, required: false
-  private _tunnel1InsideIpv6Cidr?: string; 
+  private _tunnel1InsideIpv6Cidr?: string;
   public get tunnel1InsideIpv6Cidr() {
     return this.getStringAttribute('tunnel1_inside_ipv6_cidr');
   }
@@ -1201,7 +1201,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase1_dh_group_numbers - computed: false, optional: true, required: false
-  private _tunnel1Phase1DhGroupNumbers?: number[]; 
+  private _tunnel1Phase1DhGroupNumbers?: number[];
   public get tunnel1Phase1DhGroupNumbers() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('tunnel1_phase1_dh_group_numbers')));
   }
@@ -1217,7 +1217,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase1_encryption_algorithms - computed: false, optional: true, required: false
-  private _tunnel1Phase1EncryptionAlgorithms?: string[]; 
+  private _tunnel1Phase1EncryptionAlgorithms?: string[];
   public get tunnel1Phase1EncryptionAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel1_phase1_encryption_algorithms'));
   }
@@ -1233,7 +1233,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase1_integrity_algorithms - computed: false, optional: true, required: false
-  private _tunnel1Phase1IntegrityAlgorithms?: string[]; 
+  private _tunnel1Phase1IntegrityAlgorithms?: string[];
   public get tunnel1Phase1IntegrityAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel1_phase1_integrity_algorithms'));
   }
@@ -1249,7 +1249,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase1_lifetime_seconds - computed: false, optional: true, required: false
-  private _tunnel1Phase1LifetimeSeconds?: number; 
+  private _tunnel1Phase1LifetimeSeconds?: number;
   public get tunnel1Phase1LifetimeSeconds() {
     return this.getNumberAttribute('tunnel1_phase1_lifetime_seconds');
   }
@@ -1265,7 +1265,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase2_dh_group_numbers - computed: false, optional: true, required: false
-  private _tunnel1Phase2DhGroupNumbers?: number[]; 
+  private _tunnel1Phase2DhGroupNumbers?: number[];
   public get tunnel1Phase2DhGroupNumbers() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('tunnel1_phase2_dh_group_numbers')));
   }
@@ -1281,7 +1281,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase2_encryption_algorithms - computed: false, optional: true, required: false
-  private _tunnel1Phase2EncryptionAlgorithms?: string[]; 
+  private _tunnel1Phase2EncryptionAlgorithms?: string[];
   public get tunnel1Phase2EncryptionAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel1_phase2_encryption_algorithms'));
   }
@@ -1297,7 +1297,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase2_integrity_algorithms - computed: false, optional: true, required: false
-  private _tunnel1Phase2IntegrityAlgorithms?: string[]; 
+  private _tunnel1Phase2IntegrityAlgorithms?: string[];
   public get tunnel1Phase2IntegrityAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel1_phase2_integrity_algorithms'));
   }
@@ -1313,7 +1313,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_phase2_lifetime_seconds - computed: false, optional: true, required: false
-  private _tunnel1Phase2LifetimeSeconds?: number; 
+  private _tunnel1Phase2LifetimeSeconds?: number;
   public get tunnel1Phase2LifetimeSeconds() {
     return this.getNumberAttribute('tunnel1_phase2_lifetime_seconds');
   }
@@ -1329,7 +1329,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_preshared_key - computed: true, optional: true, required: false
-  private _tunnel1PresharedKey?: string; 
+  private _tunnel1PresharedKey?: string;
   public get tunnel1PresharedKey() {
     return this.getStringAttribute('tunnel1_preshared_key');
   }
@@ -1345,7 +1345,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_rekey_fuzz_percentage - computed: false, optional: true, required: false
-  private _tunnel1RekeyFuzzPercentage?: number; 
+  private _tunnel1RekeyFuzzPercentage?: number;
   public get tunnel1RekeyFuzzPercentage() {
     return this.getNumberAttribute('tunnel1_rekey_fuzz_percentage');
   }
@@ -1361,7 +1361,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_rekey_margin_time_seconds - computed: false, optional: true, required: false
-  private _tunnel1RekeyMarginTimeSeconds?: number; 
+  private _tunnel1RekeyMarginTimeSeconds?: number;
   public get tunnel1RekeyMarginTimeSeconds() {
     return this.getNumberAttribute('tunnel1_rekey_margin_time_seconds');
   }
@@ -1377,7 +1377,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_replay_window_size - computed: false, optional: true, required: false
-  private _tunnel1ReplayWindowSize?: number; 
+  private _tunnel1ReplayWindowSize?: number;
   public get tunnel1ReplayWindowSize() {
     return this.getNumberAttribute('tunnel1_replay_window_size');
   }
@@ -1393,7 +1393,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel1_startup_action - computed: false, optional: true, required: false
-  private _tunnel1StartupAction?: string; 
+  private _tunnel1StartupAction?: string;
   public get tunnel1StartupAction() {
     return this.getStringAttribute('tunnel1_startup_action');
   }
@@ -1434,7 +1434,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_dpd_timeout_action - computed: false, optional: true, required: false
-  private _tunnel2DpdTimeoutAction?: string; 
+  private _tunnel2DpdTimeoutAction?: string;
   public get tunnel2DpdTimeoutAction() {
     return this.getStringAttribute('tunnel2_dpd_timeout_action');
   }
@@ -1450,7 +1450,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_dpd_timeout_seconds - computed: false, optional: true, required: false
-  private _tunnel2DpdTimeoutSeconds?: number; 
+  private _tunnel2DpdTimeoutSeconds?: number;
   public get tunnel2DpdTimeoutSeconds() {
     return this.getNumberAttribute('tunnel2_dpd_timeout_seconds');
   }
@@ -1466,7 +1466,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_ike_versions - computed: false, optional: true, required: false
-  private _tunnel2IkeVersions?: string[]; 
+  private _tunnel2IkeVersions?: string[];
   public get tunnel2IkeVersions() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel2_ike_versions'));
   }
@@ -1482,7 +1482,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_inside_cidr - computed: true, optional: true, required: false
-  private _tunnel2InsideCidr?: string; 
+  private _tunnel2InsideCidr?: string;
   public get tunnel2InsideCidr() {
     return this.getStringAttribute('tunnel2_inside_cidr');
   }
@@ -1498,7 +1498,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_inside_ipv6_cidr - computed: true, optional: true, required: false
-  private _tunnel2InsideIpv6Cidr?: string; 
+  private _tunnel2InsideIpv6Cidr?: string;
   public get tunnel2InsideIpv6Cidr() {
     return this.getStringAttribute('tunnel2_inside_ipv6_cidr');
   }
@@ -1514,7 +1514,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase1_dh_group_numbers - computed: false, optional: true, required: false
-  private _tunnel2Phase1DhGroupNumbers?: number[]; 
+  private _tunnel2Phase1DhGroupNumbers?: number[];
   public get tunnel2Phase1DhGroupNumbers() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('tunnel2_phase1_dh_group_numbers')));
   }
@@ -1530,7 +1530,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase1_encryption_algorithms - computed: false, optional: true, required: false
-  private _tunnel2Phase1EncryptionAlgorithms?: string[]; 
+  private _tunnel2Phase1EncryptionAlgorithms?: string[];
   public get tunnel2Phase1EncryptionAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel2_phase1_encryption_algorithms'));
   }
@@ -1546,7 +1546,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase1_integrity_algorithms - computed: false, optional: true, required: false
-  private _tunnel2Phase1IntegrityAlgorithms?: string[]; 
+  private _tunnel2Phase1IntegrityAlgorithms?: string[];
   public get tunnel2Phase1IntegrityAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel2_phase1_integrity_algorithms'));
   }
@@ -1562,7 +1562,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase1_lifetime_seconds - computed: false, optional: true, required: false
-  private _tunnel2Phase1LifetimeSeconds?: number; 
+  private _tunnel2Phase1LifetimeSeconds?: number;
   public get tunnel2Phase1LifetimeSeconds() {
     return this.getNumberAttribute('tunnel2_phase1_lifetime_seconds');
   }
@@ -1578,7 +1578,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase2_dh_group_numbers - computed: false, optional: true, required: false
-  private _tunnel2Phase2DhGroupNumbers?: number[]; 
+  private _tunnel2Phase2DhGroupNumbers?: number[];
   public get tunnel2Phase2DhGroupNumbers() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('tunnel2_phase2_dh_group_numbers')));
   }
@@ -1594,7 +1594,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase2_encryption_algorithms - computed: false, optional: true, required: false
-  private _tunnel2Phase2EncryptionAlgorithms?: string[]; 
+  private _tunnel2Phase2EncryptionAlgorithms?: string[];
   public get tunnel2Phase2EncryptionAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel2_phase2_encryption_algorithms'));
   }
@@ -1610,7 +1610,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase2_integrity_algorithms - computed: false, optional: true, required: false
-  private _tunnel2Phase2IntegrityAlgorithms?: string[]; 
+  private _tunnel2Phase2IntegrityAlgorithms?: string[];
   public get tunnel2Phase2IntegrityAlgorithms() {
     return cdktf.Fn.tolist(this.getListAttribute('tunnel2_phase2_integrity_algorithms'));
   }
@@ -1626,7 +1626,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_phase2_lifetime_seconds - computed: false, optional: true, required: false
-  private _tunnel2Phase2LifetimeSeconds?: number; 
+  private _tunnel2Phase2LifetimeSeconds?: number;
   public get tunnel2Phase2LifetimeSeconds() {
     return this.getNumberAttribute('tunnel2_phase2_lifetime_seconds');
   }
@@ -1642,7 +1642,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_preshared_key - computed: true, optional: true, required: false
-  private _tunnel2PresharedKey?: string; 
+  private _tunnel2PresharedKey?: string;
   public get tunnel2PresharedKey() {
     return this.getStringAttribute('tunnel2_preshared_key');
   }
@@ -1658,7 +1658,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_rekey_fuzz_percentage - computed: false, optional: true, required: false
-  private _tunnel2RekeyFuzzPercentage?: number; 
+  private _tunnel2RekeyFuzzPercentage?: number;
   public get tunnel2RekeyFuzzPercentage() {
     return this.getNumberAttribute('tunnel2_rekey_fuzz_percentage');
   }
@@ -1674,7 +1674,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_rekey_margin_time_seconds - computed: false, optional: true, required: false
-  private _tunnel2RekeyMarginTimeSeconds?: number; 
+  private _tunnel2RekeyMarginTimeSeconds?: number;
   public get tunnel2RekeyMarginTimeSeconds() {
     return this.getNumberAttribute('tunnel2_rekey_margin_time_seconds');
   }
@@ -1690,7 +1690,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_replay_window_size - computed: false, optional: true, required: false
-  private _tunnel2ReplayWindowSize?: number; 
+  private _tunnel2ReplayWindowSize?: number;
   public get tunnel2ReplayWindowSize() {
     return this.getNumberAttribute('tunnel2_replay_window_size');
   }
@@ -1706,7 +1706,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel2_startup_action - computed: false, optional: true, required: false
-  private _tunnel2StartupAction?: string; 
+  private _tunnel2StartupAction?: string;
   public get tunnel2StartupAction() {
     return this.getStringAttribute('tunnel2_startup_action');
   }
@@ -1727,7 +1727,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // tunnel_inside_ip_version - computed: true, optional: true, required: false
-  private _tunnelInsideIpVersion?: string; 
+  private _tunnelInsideIpVersion?: string;
   public get tunnelInsideIpVersion() {
     return this.getStringAttribute('tunnel_inside_ip_version');
   }
@@ -1743,7 +1743,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1762,7 +1762,7 @@ export class VpnConnection extends cdktf.TerraformResource {
   }
 
   // vpn_gateway_id - computed: false, optional: true, required: false
-  private _vpnGatewayId?: string; 
+  private _vpnGatewayId?: string;
   public get vpnGatewayId() {
     return this.getStringAttribute('vpn_gateway_id');
   }

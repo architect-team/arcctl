@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface MskconnectCustomPluginConfig extends cdktf.TerraformMetaArgumen
   readonly name: string;
   /**
   * location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#location MskconnectCustomPlugin#location}
   */
   readonly location: MskconnectCustomPluginLocation;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#timeouts MskconnectCustomPlugin#timeouts}
   */
   readonly timeouts?: MskconnectCustomPluginTimeouts;
@@ -111,7 +111,7 @@ export class MskconnectCustomPluginLocationS3OutputReference extends cdktf.Compl
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -124,7 +124,7 @@ export class MskconnectCustomPluginLocationS3OutputReference extends cdktf.Compl
   }
 
   // file_key - computed: false, optional: false, required: true
-  private _fileKey?: string; 
+  private _fileKey?: string;
   public get fileKey() {
     return this.getStringAttribute('file_key');
   }
@@ -137,7 +137,7 @@ export class MskconnectCustomPluginLocationS3OutputReference extends cdktf.Compl
   }
 
   // object_version - computed: false, optional: true, required: false
-  private _objectVersion?: string; 
+  private _objectVersion?: string;
   public get objectVersion() {
     return this.getStringAttribute('object_version');
   }
@@ -155,7 +155,7 @@ export class MskconnectCustomPluginLocationS3OutputReference extends cdktf.Compl
 export interface MskconnectCustomPluginLocation {
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#s3 MskconnectCustomPlugin#s3}
   */
   readonly s3: MskconnectCustomPluginLocationS3;
@@ -287,7 +287,7 @@ export class MskconnectCustomPluginTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -303,7 +303,7 @@ export class MskconnectCustomPluginTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -374,7 +374,7 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -387,7 +387,7 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -403,7 +403,7 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -424,7 +424,7 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

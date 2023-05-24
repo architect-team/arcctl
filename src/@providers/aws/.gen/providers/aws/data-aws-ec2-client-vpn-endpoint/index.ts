@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_client_vpn_endpoint
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsEc2ClientVpnEndpointConfig extends cdktf.TerraformMetaAr
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_client_vpn_endpoint#filter DataAwsEc2ClientVpnEndpoint#filter}
   */
   readonly filter?: DataAwsEc2ClientVpnEndpointFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_client_vpn_endpoint#timeouts DataAwsEc2ClientVpnEndpoint#timeouts}
   */
   readonly timeouts?: DataAwsEc2ClientVpnEndpointTimeouts;
@@ -404,7 +404,7 @@ export class DataAwsEc2ClientVpnEndpointFilterOutputReference extends cdktf.Comp
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -417,7 +417,7 @@ export class DataAwsEc2ClientVpnEndpointFilterOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -509,7 +509,7 @@ export class DataAwsEc2ClientVpnEndpointTimeoutsOutputReference extends cdktf.Co
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -602,7 +602,7 @@ export class DataAwsEc2ClientVpnEndpoint extends cdktf.TerraformDataSource {
   }
 
   // client_vpn_endpoint_id - computed: true, optional: true, required: false
-  private _clientVpnEndpointId?: string; 
+  private _clientVpnEndpointId?: string;
   public get clientVpnEndpointId() {
     return this.getStringAttribute('client_vpn_endpoint_id');
   }
@@ -639,7 +639,7 @@ export class DataAwsEc2ClientVpnEndpoint extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -680,7 +680,7 @@ export class DataAwsEc2ClientVpnEndpoint extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

@@ -11,7 +11,7 @@ import { KubernetesIngressRuleService } from './services/ingress-rule.js';
 import { KubernetesNamespaceService } from './services/namespace.js';
 import { KubernetesServiceService } from './services/service.js';
 import k8s from '@kubernetes/client-node';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export default class KubernetesProvider extends Provider<KubernetesCredentials> {
   readonly type = 'kubernetes';

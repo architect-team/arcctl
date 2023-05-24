@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/efs_file_system
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -160,7 +160,7 @@ export class DataAwsEfsFileSystem extends cdktf.TerraformDataSource {
   }
 
   // creation_token - computed: true, optional: true, required: false
-  private _creationToken?: string; 
+  private _creationToken?: string;
   public get creationToken() {
     return this.getStringAttribute('creation_token');
   }
@@ -186,7 +186,7 @@ export class DataAwsEfsFileSystem extends cdktf.TerraformDataSource {
   }
 
   // file_system_id - computed: true, optional: true, required: false
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -202,7 +202,7 @@ export class DataAwsEfsFileSystem extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -244,7 +244,7 @@ export class DataAwsEfsFileSystem extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

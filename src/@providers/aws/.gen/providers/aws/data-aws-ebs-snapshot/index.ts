@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ebs_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface DataAwsEbsSnapshotConfig extends cdktf.TerraformMetaArguments {
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ebs_snapshot#filter DataAwsEbsSnapshot#filter}
   */
   readonly filter?: DataAwsEbsSnapshotFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ebs_snapshot#timeouts DataAwsEbsSnapshot#timeouts}
   */
   readonly timeouts?: DataAwsEbsSnapshotTimeouts;
@@ -120,7 +120,7 @@ export class DataAwsEbsSnapshotFilterOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -133,7 +133,7 @@ export class DataAwsEbsSnapshotFilterOutputReference extends cdktf.ComplexObject
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -225,7 +225,7 @@ export class DataAwsEbsSnapshotTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -313,7 +313,7 @@ export class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -334,7 +334,7 @@ export class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable; 
+  private _mostRecent?: boolean | cdktf.IResolvable;
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }
@@ -365,7 +365,7 @@ export class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // owners - computed: false, optional: true, required: false
-  private _owners?: string[]; 
+  private _owners?: string[];
   public get owners() {
     return this.getListAttribute('owners');
   }
@@ -381,7 +381,7 @@ export class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // restorable_by_user_ids - computed: false, optional: true, required: false
-  private _restorableByUserIds?: string[]; 
+  private _restorableByUserIds?: string[];
   public get restorableByUserIds() {
     return this.getListAttribute('restorable_by_user_ids');
   }
@@ -402,7 +402,7 @@ export class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // snapshot_ids - computed: false, optional: true, required: false
-  private _snapshotIds?: string[]; 
+  private _snapshotIds?: string[];
   public get snapshotIds() {
     return this.getListAttribute('snapshot_ids');
   }
@@ -428,7 +428,7 @@ export class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

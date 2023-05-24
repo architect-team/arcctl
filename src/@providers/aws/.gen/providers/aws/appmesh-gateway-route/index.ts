@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface AppmeshGatewayRouteConfig extends cdktf.TerraformMetaArguments 
   readonly virtualGatewayName: string;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#spec AppmeshGatewayRoute#spec}
   */
   readonly spec: AppmeshGatewayRouteSpec;
@@ -95,7 +95,7 @@ export class AppmeshGatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutputRef
   }
 
   // virtual_service_name - computed: false, optional: false, required: true
-  private _virtualServiceName?: string; 
+  private _virtualServiceName?: string;
   public get virtualServiceName() {
     return this.getStringAttribute('virtual_service_name');
   }
@@ -114,7 +114,7 @@ export interface AppmeshGatewayRouteSpecGrpcRouteActionTarget {
   readonly port?: number;
   /**
   * virtual_service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#virtual_service AppmeshGatewayRoute#virtual_service}
   */
   readonly virtualService: AppmeshGatewayRouteSpecGrpcRouteActionTargetVirtualService;
@@ -170,7 +170,7 @@ export class AppmeshGatewayRouteSpecGrpcRouteActionTargetOutputReference extends
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -201,7 +201,7 @@ export class AppmeshGatewayRouteSpecGrpcRouteActionTargetOutputReference extends
 export interface AppmeshGatewayRouteSpecGrpcRouteAction {
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#target AppmeshGatewayRoute#target}
   */
   readonly target: AppmeshGatewayRouteSpecGrpcRouteActionTarget;
@@ -323,7 +323,7 @@ export class AppmeshGatewayRouteSpecGrpcRouteMatchOutputReference extends cdktf.
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -339,7 +339,7 @@ export class AppmeshGatewayRouteSpecGrpcRouteMatchOutputReference extends cdktf.
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -354,13 +354,13 @@ export class AppmeshGatewayRouteSpecGrpcRouteMatchOutputReference extends cdktf.
 export interface AppmeshGatewayRouteSpecGrpcRoute {
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#action AppmeshGatewayRoute#action}
   */
   readonly action: AppmeshGatewayRouteSpecGrpcRouteAction;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#match AppmeshGatewayRoute#match}
   */
   readonly match: AppmeshGatewayRouteSpecGrpcRouteMatch;
@@ -491,7 +491,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteActionRewriteHostnameOutputReferen
   }
 
   // default_target_hostname - computed: false, optional: false, required: true
-  private _defaultTargetHostname?: string; 
+  private _defaultTargetHostname?: string;
   public get defaultTargetHostname() {
     return this.getStringAttribute('default_target_hostname');
   }
@@ -564,7 +564,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteActionRewritePrefixOutputReference
   }
 
   // default_prefix - computed: false, optional: true, required: false
-  private _defaultPrefix?: string; 
+  private _defaultPrefix?: string;
   public get defaultPrefix() {
     return this.getStringAttribute('default_prefix');
   }
@@ -580,7 +580,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteActionRewritePrefixOutputReference
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -598,13 +598,13 @@ export class AppmeshGatewayRouteSpecHttp2RouteActionRewritePrefixOutputReference
 export interface AppmeshGatewayRouteSpecHttp2RouteActionRewrite {
   /**
   * hostname block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#hostname AppmeshGatewayRoute#hostname}
   */
   readonly hostname?: AppmeshGatewayRouteSpecHttp2RouteActionRewriteHostname;
   /**
   * prefix block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#prefix AppmeshGatewayRoute#prefix}
   */
   readonly prefix?: AppmeshGatewayRouteSpecHttp2RouteActionRewritePrefix;
@@ -741,7 +741,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutputRe
   }
 
   // virtual_service_name - computed: false, optional: false, required: true
-  private _virtualServiceName?: string; 
+  private _virtualServiceName?: string;
   public get virtualServiceName() {
     return this.getStringAttribute('virtual_service_name');
   }
@@ -760,7 +760,7 @@ export interface AppmeshGatewayRouteSpecHttp2RouteActionTarget {
   readonly port?: number;
   /**
   * virtual_service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#virtual_service AppmeshGatewayRoute#virtual_service}
   */
   readonly virtualService: AppmeshGatewayRouteSpecHttp2RouteActionTargetVirtualService;
@@ -816,7 +816,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteActionTargetOutputReference extend
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -847,13 +847,13 @@ export class AppmeshGatewayRouteSpecHttp2RouteActionTargetOutputReference extend
 export interface AppmeshGatewayRouteSpecHttp2RouteAction {
   /**
   * rewrite block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#rewrite AppmeshGatewayRoute#rewrite}
   */
   readonly rewrite?: AppmeshGatewayRouteSpecHttp2RouteActionRewrite;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#target AppmeshGatewayRoute#target}
   */
   readonly target: AppmeshGatewayRouteSpecHttp2RouteActionTarget;
@@ -998,7 +998,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutputReferen
   }
 
   // end - computed: false, optional: false, required: true
-  private _end?: number; 
+  private _end?: number;
   public get end() {
     return this.getNumberAttribute('end');
   }
@@ -1011,7 +1011,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutputReferen
   }
 
   // start - computed: false, optional: false, required: true
-  private _start?: number; 
+  private _start?: number;
   public get start() {
     return this.getNumberAttribute('start');
   }
@@ -1042,7 +1042,7 @@ export interface AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatch {
   readonly suffix?: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#range AppmeshGatewayRoute#range}
   */
   readonly range?: AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatchRange;
@@ -1119,7 +1119,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatchOutputReference ex
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -1135,7 +1135,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatchOutputReference ex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1151,7 +1151,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatchOutputReference ex
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -1167,7 +1167,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatchOutputReference ex
   }
 
   // suffix - computed: false, optional: true, required: false
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -1209,7 +1209,7 @@ export interface AppmeshGatewayRouteSpecHttp2RouteMatchHeader {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#match AppmeshGatewayRoute#match}
   */
   readonly match?: AppmeshGatewayRouteSpecHttp2RouteMatchHeaderMatch;
@@ -1284,7 +1284,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderOutputReference extends
   }
 
   // invert - computed: false, optional: true, required: false
-  private _invert?: boolean | cdktf.IResolvable; 
+  private _invert?: boolean | cdktf.IResolvable;
   public get invert() {
     return this.getBooleanAttribute('invert');
   }
@@ -1300,7 +1300,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHeaderOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1409,7 +1409,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHostnameOutputReference exten
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -1425,7 +1425,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchHostnameOutputReference exten
   }
 
   // suffix - computed: false, optional: true, required: false
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -1501,7 +1501,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchPathOutputReference extends c
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -1517,7 +1517,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchPathOutputReference extends c
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -1582,7 +1582,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutputRefe
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -1604,7 +1604,7 @@ export interface AppmeshGatewayRouteSpecHttp2RouteMatchQueryParameter {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#match AppmeshGatewayRoute#match}
   */
   readonly match?: AppmeshGatewayRouteSpecHttp2RouteMatchQueryParameterMatch;
@@ -1672,7 +1672,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchQueryParameterOutputReference
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1731,25 +1731,25 @@ export interface AppmeshGatewayRouteSpecHttp2RouteMatch {
   readonly prefix?: string;
   /**
   * header block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#header AppmeshGatewayRoute#header}
   */
   readonly header?: AppmeshGatewayRouteSpecHttp2RouteMatchHeader[] | cdktf.IResolvable;
   /**
   * hostname block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#hostname AppmeshGatewayRoute#hostname}
   */
   readonly hostname?: AppmeshGatewayRouteSpecHttp2RouteMatchHostname;
   /**
   * path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#path AppmeshGatewayRoute#path}
   */
   readonly path?: AppmeshGatewayRouteSpecHttp2RouteMatchPath;
   /**
   * query_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#query_parameter AppmeshGatewayRoute#query_parameter}
   */
   readonly queryParameter?: AppmeshGatewayRouteSpecHttp2RouteMatchQueryParameter[] | cdktf.IResolvable;
@@ -1833,7 +1833,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchOutputReference extends cdktf
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1849,7 +1849,7 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchOutputReference extends cdktf
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1931,13 +1931,13 @@ export class AppmeshGatewayRouteSpecHttp2RouteMatchOutputReference extends cdktf
 export interface AppmeshGatewayRouteSpecHttp2Route {
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#action AppmeshGatewayRoute#action}
   */
   readonly action: AppmeshGatewayRouteSpecHttp2RouteAction;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#match AppmeshGatewayRoute#match}
   */
   readonly match: AppmeshGatewayRouteSpecHttp2RouteMatch;
@@ -2068,7 +2068,7 @@ export class AppmeshGatewayRouteSpecHttpRouteActionRewriteHostnameOutputReferenc
   }
 
   // default_target_hostname - computed: false, optional: false, required: true
-  private _defaultTargetHostname?: string; 
+  private _defaultTargetHostname?: string;
   public get defaultTargetHostname() {
     return this.getStringAttribute('default_target_hostname');
   }
@@ -2141,7 +2141,7 @@ export class AppmeshGatewayRouteSpecHttpRouteActionRewritePrefixOutputReference 
   }
 
   // default_prefix - computed: false, optional: true, required: false
-  private _defaultPrefix?: string; 
+  private _defaultPrefix?: string;
   public get defaultPrefix() {
     return this.getStringAttribute('default_prefix');
   }
@@ -2157,7 +2157,7 @@ export class AppmeshGatewayRouteSpecHttpRouteActionRewritePrefixOutputReference 
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2175,13 +2175,13 @@ export class AppmeshGatewayRouteSpecHttpRouteActionRewritePrefixOutputReference 
 export interface AppmeshGatewayRouteSpecHttpRouteActionRewrite {
   /**
   * hostname block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#hostname AppmeshGatewayRoute#hostname}
   */
   readonly hostname?: AppmeshGatewayRouteSpecHttpRouteActionRewriteHostname;
   /**
   * prefix block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#prefix AppmeshGatewayRoute#prefix}
   */
   readonly prefix?: AppmeshGatewayRouteSpecHttpRouteActionRewritePrefix;
@@ -2318,7 +2318,7 @@ export class AppmeshGatewayRouteSpecHttpRouteActionTargetVirtualServiceOutputRef
   }
 
   // virtual_service_name - computed: false, optional: false, required: true
-  private _virtualServiceName?: string; 
+  private _virtualServiceName?: string;
   public get virtualServiceName() {
     return this.getStringAttribute('virtual_service_name');
   }
@@ -2337,7 +2337,7 @@ export interface AppmeshGatewayRouteSpecHttpRouteActionTarget {
   readonly port?: number;
   /**
   * virtual_service block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#virtual_service AppmeshGatewayRoute#virtual_service}
   */
   readonly virtualService: AppmeshGatewayRouteSpecHttpRouteActionTargetVirtualService;
@@ -2393,7 +2393,7 @@ export class AppmeshGatewayRouteSpecHttpRouteActionTargetOutputReference extends
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2424,13 +2424,13 @@ export class AppmeshGatewayRouteSpecHttpRouteActionTargetOutputReference extends
 export interface AppmeshGatewayRouteSpecHttpRouteAction {
   /**
   * rewrite block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#rewrite AppmeshGatewayRoute#rewrite}
   */
   readonly rewrite?: AppmeshGatewayRouteSpecHttpRouteActionRewrite;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#target AppmeshGatewayRoute#target}
   */
   readonly target: AppmeshGatewayRouteSpecHttpRouteActionTarget;
@@ -2575,7 +2575,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutputReferenc
   }
 
   // end - computed: false, optional: false, required: true
-  private _end?: number; 
+  private _end?: number;
   public get end() {
     return this.getNumberAttribute('end');
   }
@@ -2588,7 +2588,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutputReferenc
   }
 
   // start - computed: false, optional: false, required: true
-  private _start?: number; 
+  private _start?: number;
   public get start() {
     return this.getNumberAttribute('start');
   }
@@ -2619,7 +2619,7 @@ export interface AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatch {
   readonly suffix?: string;
   /**
   * range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#range AppmeshGatewayRoute#range}
   */
   readonly range?: AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatchRange;
@@ -2696,7 +2696,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatchOutputReference ext
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -2712,7 +2712,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatchOutputReference ext
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -2728,7 +2728,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatchOutputReference ext
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -2744,7 +2744,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatchOutputReference ext
   }
 
   // suffix - computed: false, optional: true, required: false
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -2786,7 +2786,7 @@ export interface AppmeshGatewayRouteSpecHttpRouteMatchHeader {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#match AppmeshGatewayRoute#match}
   */
   readonly match?: AppmeshGatewayRouteSpecHttpRouteMatchHeaderMatch;
@@ -2861,7 +2861,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderOutputReference extends 
   }
 
   // invert - computed: false, optional: true, required: false
-  private _invert?: boolean | cdktf.IResolvable; 
+  private _invert?: boolean | cdktf.IResolvable;
   public get invert() {
     return this.getBooleanAttribute('invert');
   }
@@ -2877,7 +2877,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHeaderOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2986,7 +2986,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHostnameOutputReference extend
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -3002,7 +3002,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchHostnameOutputReference extend
   }
 
   // suffix - computed: false, optional: true, required: false
-  private _suffix?: string; 
+  private _suffix?: string;
   public get suffix() {
     return this.getStringAttribute('suffix');
   }
@@ -3078,7 +3078,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchPathOutputReference extends cd
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -3094,7 +3094,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchPathOutputReference extends cd
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -3159,7 +3159,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchQueryParameterMatchOutputRefer
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string; 
+  private _exact?: string;
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -3181,7 +3181,7 @@ export interface AppmeshGatewayRouteSpecHttpRouteMatchQueryParameter {
   readonly name: string;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#match AppmeshGatewayRoute#match}
   */
   readonly match?: AppmeshGatewayRouteSpecHttpRouteMatchQueryParameterMatch;
@@ -3249,7 +3249,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchQueryParameterOutputReference 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3308,25 +3308,25 @@ export interface AppmeshGatewayRouteSpecHttpRouteMatch {
   readonly prefix?: string;
   /**
   * header block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#header AppmeshGatewayRoute#header}
   */
   readonly header?: AppmeshGatewayRouteSpecHttpRouteMatchHeader[] | cdktf.IResolvable;
   /**
   * hostname block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#hostname AppmeshGatewayRoute#hostname}
   */
   readonly hostname?: AppmeshGatewayRouteSpecHttpRouteMatchHostname;
   /**
   * path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#path AppmeshGatewayRoute#path}
   */
   readonly path?: AppmeshGatewayRouteSpecHttpRouteMatchPath;
   /**
   * query_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#query_parameter AppmeshGatewayRoute#query_parameter}
   */
   readonly queryParameter?: AppmeshGatewayRouteSpecHttpRouteMatchQueryParameter[] | cdktf.IResolvable;
@@ -3410,7 +3410,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchOutputReference extends cdktf.
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -3426,7 +3426,7 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchOutputReference extends cdktf.
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -3508,13 +3508,13 @@ export class AppmeshGatewayRouteSpecHttpRouteMatchOutputReference extends cdktf.
 export interface AppmeshGatewayRouteSpecHttpRoute {
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#action AppmeshGatewayRoute#action}
   */
   readonly action: AppmeshGatewayRouteSpecHttpRouteAction;
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#match AppmeshGatewayRoute#match}
   */
   readonly match: AppmeshGatewayRouteSpecHttpRouteMatch;
@@ -3602,19 +3602,19 @@ export interface AppmeshGatewayRouteSpec {
   readonly priority?: number;
   /**
   * grpc_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#grpc_route AppmeshGatewayRoute#grpc_route}
   */
   readonly grpcRoute?: AppmeshGatewayRouteSpecGrpcRoute;
   /**
   * http2_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#http2_route AppmeshGatewayRoute#http2_route}
   */
   readonly http2Route?: AppmeshGatewayRouteSpecHttp2Route;
   /**
   * http_route block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_gateway_route#http_route AppmeshGatewayRoute#http_route}
   */
   readonly httpRoute?: AppmeshGatewayRouteSpecHttpRoute;
@@ -3684,7 +3684,7 @@ export class AppmeshGatewayRouteSpecOutputReference extends cdktf.ComplexObject 
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -3810,7 +3810,7 @@ export class AppmeshGatewayRoute extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3831,7 +3831,7 @@ export class AppmeshGatewayRoute extends cdktf.TerraformResource {
   }
 
   // mesh_name - computed: false, optional: false, required: true
-  private _meshName?: string; 
+  private _meshName?: string;
   public get meshName() {
     return this.getStringAttribute('mesh_name');
   }
@@ -3844,7 +3844,7 @@ export class AppmeshGatewayRoute extends cdktf.TerraformResource {
   }
 
   // mesh_owner - computed: true, optional: true, required: false
-  private _meshOwner?: string; 
+  private _meshOwner?: string;
   public get meshOwner() {
     return this.getStringAttribute('mesh_owner');
   }
@@ -3860,7 +3860,7 @@ export class AppmeshGatewayRoute extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3878,7 +3878,7 @@ export class AppmeshGatewayRoute extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3894,7 +3894,7 @@ export class AppmeshGatewayRoute extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -3910,7 +3910,7 @@ export class AppmeshGatewayRoute extends cdktf.TerraformResource {
   }
 
   // virtual_gateway_name - computed: false, optional: false, required: true
-  private _virtualGatewayName?: string; 
+  private _virtualGatewayName?: string;
   public get virtualGatewayName() {
     return this.getStringAttribute('virtual_gateway_name');
   }

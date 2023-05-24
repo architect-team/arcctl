@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codeartifact_domain
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class CodeartifactDomain extends cdktf.TerraformResource {
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -109,7 +109,7 @@ export class CodeartifactDomain extends cdktf.TerraformResource {
   }
 
   // encryption_key - computed: true, optional: true, required: false
-  private _encryptionKey?: string; 
+  private _encryptionKey?: string;
   public get encryptionKey() {
     return this.getStringAttribute('encryption_key');
   }
@@ -125,7 +125,7 @@ export class CodeartifactDomain extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -151,7 +151,7 @@ export class CodeartifactDomain extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -167,7 +167,7 @@ export class CodeartifactDomain extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

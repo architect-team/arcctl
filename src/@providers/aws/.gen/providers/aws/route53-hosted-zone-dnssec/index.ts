@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
   // ==========
 
   // hosted_zone_id - computed: false, optional: false, required: true
-  private _hostedZoneId?: string; 
+  private _hostedZoneId?: string;
   public get hostedZoneId() {
     return this.getStringAttribute('hosted_zone_id');
   }
@@ -84,7 +84,7 @@ export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
   }
 
   // signing_status - computed: false, optional: true, required: false
-  private _signingStatus?: string; 
+  private _signingStatus?: string;
   public get signingStatus() {
     return this.getStringAttribute('signing_status');
   }

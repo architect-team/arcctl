@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lex_bot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -60,25 +60,25 @@ export interface LexBotConfig extends cdktf.TerraformMetaArguments {
   readonly voiceId?: string;
   /**
   * abort_statement block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_bot#abort_statement LexBot#abort_statement}
   */
   readonly abortStatement: LexBotAbortStatement;
   /**
   * clarification_prompt block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_bot#clarification_prompt LexBot#clarification_prompt}
   */
   readonly clarificationPrompt?: LexBotClarificationPrompt;
   /**
   * intent block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_bot#intent LexBot#intent}
   */
   readonly intent: LexBotIntent[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_bot#timeouts LexBot#timeouts}
   */
   readonly timeouts?: LexBotTimeouts;
@@ -167,7 +167,7 @@ export class LexBotAbortStatementMessageOutputReference extends cdktf.ComplexObj
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -180,7 +180,7 @@ export class LexBotAbortStatementMessageOutputReference extends cdktf.ComplexObj
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -193,7 +193,7 @@ export class LexBotAbortStatementMessageOutputReference extends cdktf.ComplexObj
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -235,7 +235,7 @@ export interface LexBotAbortStatement {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_bot#message LexBot#message}
   */
   readonly message: LexBotAbortStatementMessage[] | cdktf.IResolvable;
@@ -291,7 +291,7 @@ export class LexBotAbortStatementOutputReference extends cdktf.ComplexObject {
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -403,7 +403,7 @@ export class LexBotClarificationPromptMessageOutputReference extends cdktf.Compl
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -416,7 +416,7 @@ export class LexBotClarificationPromptMessageOutputReference extends cdktf.Compl
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -429,7 +429,7 @@ export class LexBotClarificationPromptMessageOutputReference extends cdktf.Compl
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -475,7 +475,7 @@ export interface LexBotClarificationPrompt {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_bot#message LexBot#message}
   */
   readonly message: LexBotClarificationPromptMessage[] | cdktf.IResolvable;
@@ -538,7 +538,7 @@ export class LexBotClarificationPromptOutputReference extends cdktf.ComplexObjec
   }
 
   // max_attempts - computed: false, optional: false, required: true
-  private _maxAttempts?: number; 
+  private _maxAttempts?: number;
   public get maxAttempts() {
     return this.getNumberAttribute('max_attempts');
   }
@@ -551,7 +551,7 @@ export class LexBotClarificationPromptOutputReference extends cdktf.ComplexObjec
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -652,7 +652,7 @@ export class LexBotIntentOutputReference extends cdktf.ComplexObject {
   }
 
   // intent_name - computed: false, optional: false, required: true
-  private _intentName?: string; 
+  private _intentName?: string;
   public get intentName() {
     return this.getStringAttribute('intent_name');
   }
@@ -665,7 +665,7 @@ export class LexBotIntentOutputReference extends cdktf.ComplexObject {
   }
 
   // intent_version - computed: false, optional: false, required: true
-  private _intentVersion?: string; 
+  private _intentVersion?: string;
   public get intentVersion() {
     return this.getStringAttribute('intent_version');
   }
@@ -779,7 +779,7 @@ export class LexBotTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -795,7 +795,7 @@ export class LexBotTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -811,7 +811,7 @@ export class LexBotTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -897,7 +897,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // child_directed - computed: false, optional: false, required: true
-  private _childDirected?: boolean | cdktf.IResolvable; 
+  private _childDirected?: boolean | cdktf.IResolvable;
   public get childDirected() {
     return this.getBooleanAttribute('child_directed');
   }
@@ -910,7 +910,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // create_version - computed: false, optional: true, required: false
-  private _createVersion?: boolean | cdktf.IResolvable; 
+  private _createVersion?: boolean | cdktf.IResolvable;
   public get createVersion() {
     return this.getBooleanAttribute('create_version');
   }
@@ -931,7 +931,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -947,7 +947,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // detect_sentiment - computed: false, optional: true, required: false
-  private _detectSentiment?: boolean | cdktf.IResolvable; 
+  private _detectSentiment?: boolean | cdktf.IResolvable;
   public get detectSentiment() {
     return this.getBooleanAttribute('detect_sentiment');
   }
@@ -963,7 +963,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // enable_model_improvements - computed: false, optional: true, required: false
-  private _enableModelImprovements?: boolean | cdktf.IResolvable; 
+  private _enableModelImprovements?: boolean | cdktf.IResolvable;
   public get enableModelImprovements() {
     return this.getBooleanAttribute('enable_model_improvements');
   }
@@ -984,7 +984,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1000,7 +1000,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // idle_session_ttl_in_seconds - computed: false, optional: true, required: false
-  private _idleSessionTtlInSeconds?: number; 
+  private _idleSessionTtlInSeconds?: number;
   public get idleSessionTtlInSeconds() {
     return this.getNumberAttribute('idle_session_ttl_in_seconds');
   }
@@ -1021,7 +1021,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // locale - computed: false, optional: true, required: false
-  private _locale?: string; 
+  private _locale?: string;
   public get locale() {
     return this.getStringAttribute('locale');
   }
@@ -1037,7 +1037,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1050,7 +1050,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // nlu_intent_confidence_threshold - computed: false, optional: true, required: false
-  private _nluIntentConfidenceThreshold?: number; 
+  private _nluIntentConfidenceThreshold?: number;
   public get nluIntentConfidenceThreshold() {
     return this.getNumberAttribute('nlu_intent_confidence_threshold');
   }
@@ -1066,7 +1066,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // process_behavior - computed: false, optional: true, required: false
-  private _processBehavior?: string; 
+  private _processBehavior?: string;
   public get processBehavior() {
     return this.getStringAttribute('process_behavior');
   }
@@ -1092,7 +1092,7 @@ export class LexBot extends cdktf.TerraformResource {
   }
 
   // voice_id - computed: true, optional: true, required: false
-  private _voiceId?: string; 
+  private _voiceId?: string;
   public get voiceId() {
     return this.getStringAttribute('voice_id');
   }

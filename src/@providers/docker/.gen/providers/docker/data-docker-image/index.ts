@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/d/image
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataDockerImageConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * The name of the Docker image, including any tags or SHA256 repo digests.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/image#name DataDockerImage#name}
   */
   readonly name: string;
@@ -68,7 +68,7 @@ export class DataDockerImage extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -84,7 +84,7 @@ export class DataDockerImage extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

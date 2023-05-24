@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/pinpoint_email_channel
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class PinpointEmailChannel extends cdktf.TerraformResource {
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -104,7 +104,7 @@ export class PinpointEmailChannel extends cdktf.TerraformResource {
   }
 
   // configuration_set - computed: false, optional: true, required: false
-  private _configurationSet?: string; 
+  private _configurationSet?: string;
   public get configurationSet() {
     return this.getStringAttribute('configuration_set');
   }
@@ -120,7 +120,7 @@ export class PinpointEmailChannel extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -136,7 +136,7 @@ export class PinpointEmailChannel extends cdktf.TerraformResource {
   }
 
   // from_address - computed: false, optional: false, required: true
-  private _fromAddress?: string; 
+  private _fromAddress?: string;
   public get fromAddress() {
     return this.getStringAttribute('from_address');
   }
@@ -149,7 +149,7 @@ export class PinpointEmailChannel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -165,7 +165,7 @@ export class PinpointEmailChannel extends cdktf.TerraformResource {
   }
 
   // identity - computed: false, optional: false, required: true
-  private _identity?: string; 
+  private _identity?: string;
   public get identity() {
     return this.getStringAttribute('identity');
   }
@@ -183,7 +183,7 @@ export class PinpointEmailChannel extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/cloudformation_type
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -150,7 +150,7 @@ export class DataAwsCloudformationType extends cdktf.TerraformDataSource {
   // ==========
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -191,7 +191,7 @@ export class DataAwsCloudformationType extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -233,7 +233,7 @@ export class DataAwsCloudformationType extends cdktf.TerraformDataSource {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -254,7 +254,7 @@ export class DataAwsCloudformationType extends cdktf.TerraformDataSource {
   }
 
   // type_name - computed: true, optional: true, required: false
-  private _typeName?: string; 
+  private _typeName?: string;
   public get typeName() {
     return this.getStringAttribute('type_name');
   }
@@ -270,7 +270,7 @@ export class DataAwsCloudformationType extends cdktf.TerraformDataSource {
   }
 
   // version_id - computed: false, optional: true, required: false
-  private _versionId?: string; 
+  private _versionId?: string;
   public get versionId() {
     return this.getStringAttribute('version_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_alias
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface LambdaAliasConfig extends cdktf.TerraformMetaArguments {
   readonly name: string;
   /**
   * routing_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#routing_config LambdaAlias#routing_config}
   */
   readonly routingConfig?: LambdaAliasRoutingConfig;
@@ -87,7 +87,7 @@ export class LambdaAliasRoutingConfigOutputReference extends cdktf.ComplexObject
   }
 
   // additional_version_weights - computed: false, optional: true, required: false
-  private _additionalVersionWeights?: { [key: string]: number }; 
+  private _additionalVersionWeights?: { [key: string]: number };
   public get additionalVersionWeights() {
     return this.getNumberMapAttribute('additional_version_weights');
   }
@@ -158,7 +158,7 @@ export class LambdaAlias extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -174,7 +174,7 @@ export class LambdaAlias extends cdktf.TerraformResource {
   }
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -187,7 +187,7 @@ export class LambdaAlias extends cdktf.TerraformResource {
   }
 
   // function_version - computed: false, optional: false, required: true
-  private _functionVersion?: string; 
+  private _functionVersion?: string;
   public get functionVersion() {
     return this.getStringAttribute('function_version');
   }
@@ -200,7 +200,7 @@ export class LambdaAlias extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -221,7 +221,7 @@ export class LambdaAlias extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

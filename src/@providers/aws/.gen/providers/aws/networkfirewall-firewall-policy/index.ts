@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface NetworkfirewallFirewallPolicyConfig extends cdktf.TerraformMeta
   readonly tagsAll?: { [key: string]: string };
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#encryption_configuration NetworkfirewallFirewallPolicy#encryption_configuration}
   */
   readonly encryptionConfiguration?: NetworkfirewallFirewallPolicyEncryptionConfiguration;
   /**
   * firewall_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#firewall_policy NetworkfirewallFirewallPolicy#firewall_policy}
   */
   readonly firewallPolicy: NetworkfirewallFirewallPolicyFirewallPolicy;
@@ -104,7 +104,7 @@ export class NetworkfirewallFirewallPolicyEncryptionConfigurationOutputReference
   }
 
   // key_id - computed: false, optional: true, required: false
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -120,7 +120,7 @@ export class NetworkfirewallFirewallPolicyEncryptionConfigurationOutputReference
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -182,7 +182,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatefulEngineOptionsOut
   }
 
   // rule_order - computed: false, optional: false, required: true
-  private _ruleOrder?: string; 
+  private _ruleOrder?: string;
   public get ruleOrder() {
     return this.getStringAttribute('rule_order');
   }
@@ -244,7 +244,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatefulRuleGroupReferen
   }
 
   // action - computed: false, optional: true, required: false
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -270,7 +270,7 @@ export interface NetworkfirewallFirewallPolicyFirewallPolicyStatefulRuleGroupRef
   readonly resourceArn: string;
   /**
   * override block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#override NetworkfirewallFirewallPolicy#override}
   */
   readonly override?: NetworkfirewallFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride;
@@ -345,7 +345,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatefulRuleGroupReferen
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -361,7 +361,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatefulRuleGroupReferen
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -471,7 +471,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionAct
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -506,7 +506,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionAct
 export interface NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#dimension NetworkfirewallFirewallPolicy#dimension}
   */
   readonly dimension: NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension[] | cdktf.IResolvable;
@@ -570,7 +570,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionAct
 export interface NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition {
   /**
   * publish_metric_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#publish_metric_action NetworkfirewallFirewallPolicy#publish_metric_action}
   */
   readonly publishMetricAction: NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction;
@@ -638,7 +638,7 @@ export interface NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActio
   readonly actionName: string;
   /**
   * action_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#action_definition NetworkfirewallFirewallPolicy#action_definition}
   */
   readonly actionDefinition: NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition;
@@ -706,7 +706,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomActionOut
   }
 
   // action_name - computed: false, optional: false, required: true
-  private _actionName?: string; 
+  private _actionName?: string;
   public get actionName() {
     return this.getStringAttribute('action_name');
   }
@@ -824,7 +824,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatelessRuleGroupRefere
   }
 
   // priority - computed: false, optional: false, required: true
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -837,7 +837,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyStatelessRuleGroupRefere
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -884,25 +884,25 @@ export interface NetworkfirewallFirewallPolicyFirewallPolicy {
   readonly statelessFragmentDefaultActions: string[];
   /**
   * stateful_engine_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#stateful_engine_options NetworkfirewallFirewallPolicy#stateful_engine_options}
   */
   readonly statefulEngineOptions?: NetworkfirewallFirewallPolicyFirewallPolicyStatefulEngineOptions;
   /**
   * stateful_rule_group_reference block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#stateful_rule_group_reference NetworkfirewallFirewallPolicy#stateful_rule_group_reference}
   */
   readonly statefulRuleGroupReference?: NetworkfirewallFirewallPolicyFirewallPolicyStatefulRuleGroupReference[] | cdktf.IResolvable;
   /**
   * stateless_custom_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#stateless_custom_action NetworkfirewallFirewallPolicy#stateless_custom_action}
   */
   readonly statelessCustomAction?: NetworkfirewallFirewallPolicyFirewallPolicyStatelessCustomAction[] | cdktf.IResolvable;
   /**
   * stateless_rule_group_reference block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall_policy#stateless_rule_group_reference NetworkfirewallFirewallPolicy#stateless_rule_group_reference}
   */
   readonly statelessRuleGroupReference?: NetworkfirewallFirewallPolicyFirewallPolicyStatelessRuleGroupReference[] | cdktf.IResolvable;
@@ -993,7 +993,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyOutputReference extends 
   }
 
   // stateful_default_actions - computed: false, optional: true, required: false
-  private _statefulDefaultActions?: string[]; 
+  private _statefulDefaultActions?: string[];
   public get statefulDefaultActions() {
     return cdktf.Fn.tolist(this.getListAttribute('stateful_default_actions'));
   }
@@ -1009,7 +1009,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyOutputReference extends 
   }
 
   // stateless_default_actions - computed: false, optional: false, required: true
-  private _statelessDefaultActions?: string[]; 
+  private _statelessDefaultActions?: string[];
   public get statelessDefaultActions() {
     return cdktf.Fn.tolist(this.getListAttribute('stateless_default_actions'));
   }
@@ -1022,7 +1022,7 @@ export class NetworkfirewallFirewallPolicyFirewallPolicyOutputReference extends 
   }
 
   // stateless_fragment_default_actions - computed: false, optional: false, required: true
-  private _statelessFragmentDefaultActions?: string[]; 
+  private _statelessFragmentDefaultActions?: string[];
   public get statelessFragmentDefaultActions() {
     return cdktf.Fn.tolist(this.getListAttribute('stateless_fragment_default_actions'));
   }
@@ -1155,7 +1155,7 @@ export class NetworkfirewallFirewallPolicy extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1171,7 +1171,7 @@ export class NetworkfirewallFirewallPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1187,7 +1187,7 @@ export class NetworkfirewallFirewallPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1200,7 +1200,7 @@ export class NetworkfirewallFirewallPolicy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1216,7 +1216,7 @@ export class NetworkfirewallFirewallPolicy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

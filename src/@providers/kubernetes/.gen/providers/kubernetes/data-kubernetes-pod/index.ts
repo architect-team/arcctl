@@ -1,11 +1,11 @@
 // generated from terraform resource schema
 
-import { DataKubernetesPodSpecList, 
-DataKubernetesPodMetadata, 
-dataKubernetesPodMetadataToTerraform, 
+import { DataKubernetesPodSpecList,
+DataKubernetesPodMetadata,
+dataKubernetesPodMetadataToTerraform,
 DataKubernetesPodMetadataOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface DataKubernetesPodConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -17,7 +17,7 @@ export interface DataKubernetesPodConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/pod#metadata DataKubernetesPod#metadata}
   */
   readonly metadata: DataKubernetesPodMetadata;
@@ -69,7 +69,7 @@ export class DataKubernetesPod extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

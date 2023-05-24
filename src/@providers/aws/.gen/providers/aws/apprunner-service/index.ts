@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apprunner_service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,37 +32,37 @@ export interface ApprunnerServiceConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#encryption_configuration ApprunnerService#encryption_configuration}
   */
   readonly encryptionConfiguration?: ApprunnerServiceEncryptionConfiguration;
   /**
   * health_check_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#health_check_configuration ApprunnerService#health_check_configuration}
   */
   readonly healthCheckConfiguration?: ApprunnerServiceHealthCheckConfiguration;
   /**
   * instance_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#instance_configuration ApprunnerService#instance_configuration}
   */
   readonly instanceConfiguration?: ApprunnerServiceInstanceConfiguration;
   /**
   * network_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#network_configuration ApprunnerService#network_configuration}
   */
   readonly networkConfiguration?: ApprunnerServiceNetworkConfiguration;
   /**
   * observability_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#observability_configuration ApprunnerService#observability_configuration}
   */
   readonly observabilityConfiguration?: ApprunnerServiceObservabilityConfiguration;
   /**
   * source_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#source_configuration ApprunnerService#source_configuration}
   */
   readonly sourceConfiguration: ApprunnerServiceSourceConfiguration;
@@ -117,7 +117,7 @@ export class ApprunnerServiceEncryptionConfigurationOutputReference extends cdkt
   }
 
   // kms_key - computed: false, optional: false, required: true
-  private _kmsKey?: string; 
+  private _kmsKey?: string;
   public get kmsKey() {
     return this.getStringAttribute('kms_key');
   }
@@ -234,7 +234,7 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
   }
 
   // healthy_threshold - computed: false, optional: true, required: false
-  private _healthyThreshold?: number; 
+  private _healthyThreshold?: number;
   public get healthyThreshold() {
     return this.getNumberAttribute('healthy_threshold');
   }
@@ -250,7 +250,7 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
   }
 
   // interval - computed: false, optional: true, required: false
-  private _interval?: number; 
+  private _interval?: number;
   public get interval() {
     return this.getNumberAttribute('interval');
   }
@@ -266,7 +266,7 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -282,7 +282,7 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -298,7 +298,7 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: number; 
+  private _timeout?: number;
   public get timeout() {
     return this.getNumberAttribute('timeout');
   }
@@ -314,7 +314,7 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
   }
 
   // unhealthy_threshold - computed: false, optional: true, required: false
-  private _unhealthyThreshold?: number; 
+  private _unhealthyThreshold?: number;
   public get unhealthyThreshold() {
     return this.getNumberAttribute('unhealthy_threshold');
   }
@@ -401,7 +401,7 @@ export class ApprunnerServiceInstanceConfigurationOutputReference extends cdktf.
   }
 
   // cpu - computed: false, optional: true, required: false
-  private _cpu?: string; 
+  private _cpu?: string;
   public get cpu() {
     return this.getStringAttribute('cpu');
   }
@@ -417,7 +417,7 @@ export class ApprunnerServiceInstanceConfigurationOutputReference extends cdktf.
   }
 
   // instance_role_arn - computed: false, optional: true, required: false
-  private _instanceRoleArn?: string; 
+  private _instanceRoleArn?: string;
   public get instanceRoleArn() {
     return this.getStringAttribute('instance_role_arn');
   }
@@ -433,7 +433,7 @@ export class ApprunnerServiceInstanceConfigurationOutputReference extends cdktf.
   }
 
   // memory - computed: false, optional: true, required: false
-  private _memory?: string; 
+  private _memory?: string;
   public get memory() {
     return this.getStringAttribute('memory');
   }
@@ -509,7 +509,7 @@ export class ApprunnerServiceNetworkConfigurationEgressConfigurationOutputRefere
   }
 
   // egress_type - computed: true, optional: true, required: false
-  private _egressType?: string; 
+  private _egressType?: string;
   public get egressType() {
     return this.getStringAttribute('egress_type');
   }
@@ -525,7 +525,7 @@ export class ApprunnerServiceNetworkConfigurationEgressConfigurationOutputRefere
   }
 
   // vpc_connector_arn - computed: false, optional: true, required: false
-  private _vpcConnectorArn?: string; 
+  private _vpcConnectorArn?: string;
   public get vpcConnectorArn() {
     return this.getStringAttribute('vpc_connector_arn');
   }
@@ -590,7 +590,7 @@ export class ApprunnerServiceNetworkConfigurationIngressConfigurationOutputRefer
   }
 
   // is_publicly_accessible - computed: false, optional: true, required: false
-  private _isPubliclyAccessible?: boolean | cdktf.IResolvable; 
+  private _isPubliclyAccessible?: boolean | cdktf.IResolvable;
   public get isPubliclyAccessible() {
     return this.getBooleanAttribute('is_publicly_accessible');
   }
@@ -608,13 +608,13 @@ export class ApprunnerServiceNetworkConfigurationIngressConfigurationOutputRefer
 export interface ApprunnerServiceNetworkConfiguration {
   /**
   * egress_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#egress_configuration ApprunnerService#egress_configuration}
   */
   readonly egressConfiguration?: ApprunnerServiceNetworkConfigurationEgressConfiguration;
   /**
   * ingress_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#ingress_configuration ApprunnerService#ingress_configuration}
   */
   readonly ingressConfiguration?: ApprunnerServiceNetworkConfigurationIngressConfiguration;
@@ -762,7 +762,7 @@ export class ApprunnerServiceObservabilityConfigurationOutputReference extends c
   }
 
   // observability_configuration_arn - computed: false, optional: true, required: false
-  private _observabilityConfigurationArn?: string; 
+  private _observabilityConfigurationArn?: string;
   public get observabilityConfigurationArn() {
     return this.getStringAttribute('observability_configuration_arn');
   }
@@ -778,7 +778,7 @@ export class ApprunnerServiceObservabilityConfigurationOutputReference extends c
   }
 
   // observability_enabled - computed: false, optional: false, required: true
-  private _observabilityEnabled?: boolean | cdktf.IResolvable; 
+  private _observabilityEnabled?: boolean | cdktf.IResolvable;
   public get observabilityEnabled() {
     return this.getBooleanAttribute('observability_enabled');
   }
@@ -851,7 +851,7 @@ export class ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutpu
   }
 
   // access_role_arn - computed: false, optional: true, required: false
-  private _accessRoleArn?: string; 
+  private _accessRoleArn?: string;
   public get accessRoleArn() {
     return this.getStringAttribute('access_role_arn');
   }
@@ -867,7 +867,7 @@ export class ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutpu
   }
 
   // connection_arn - computed: false, optional: true, required: false
-  private _connectionArn?: string; 
+  private _connectionArn?: string;
   public get connectionArn() {
     return this.getStringAttribute('connection_arn');
   }
@@ -987,7 +987,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string; 
+  private _buildCommand?: string;
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -1003,7 +1003,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -1019,7 +1019,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
   }
 
   // runtime - computed: false, optional: false, required: true
-  private _runtime?: string; 
+  private _runtime?: string;
   public get runtime() {
     return this.getStringAttribute('runtime');
   }
@@ -1032,7 +1032,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
   }
 
   // runtime_environment_secrets - computed: false, optional: true, required: false
-  private _runtimeEnvironmentSecrets?: { [key: string]: string }; 
+  private _runtimeEnvironmentSecrets?: { [key: string]: string };
   public get runtimeEnvironmentSecrets() {
     return this.getStringMapAttribute('runtime_environment_secrets');
   }
@@ -1048,7 +1048,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
   }
 
   // runtime_environment_variables - computed: false, optional: true, required: false
-  private _runtimeEnvironmentVariables?: { [key: string]: string }; 
+  private _runtimeEnvironmentVariables?: { [key: string]: string };
   public get runtimeEnvironmentVariables() {
     return this.getStringMapAttribute('runtime_environment_variables');
   }
@@ -1064,7 +1064,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
   }
 
   // start_command - computed: false, optional: true, required: false
-  private _startCommand?: string; 
+  private _startCommand?: string;
   public get startCommand() {
     return this.getStringAttribute('start_command');
   }
@@ -1086,7 +1086,7 @@ export interface ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurat
   readonly configurationSource: string;
   /**
   * code_configuration_values block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_configuration_values ApprunnerService#code_configuration_values}
   */
   readonly codeConfigurationValues?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues;
@@ -1142,7 +1142,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationO
   }
 
   // configuration_source - computed: false, optional: false, required: true
-  private _configurationSource?: string; 
+  private _configurationSource?: string;
   public get configurationSource() {
     return this.getStringAttribute('configuration_source');
   }
@@ -1231,7 +1231,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionO
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1244,7 +1244,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionO
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1263,13 +1263,13 @@ export interface ApprunnerServiceSourceConfigurationCodeRepository {
   readonly repositoryUrl: string;
   /**
   * code_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_configuration ApprunnerService#code_configuration}
   */
   readonly codeConfiguration?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration;
   /**
   * source_code_version block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#source_code_version ApprunnerService#source_code_version}
   */
   readonly sourceCodeVersion: ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion;
@@ -1332,7 +1332,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference ex
   }
 
   // repository_url - computed: false, optional: false, required: true
-  private _repositoryUrl?: string; 
+  private _repositoryUrl?: string;
   public get repositoryUrl() {
     return this.getStringAttribute('repository_url');
   }
@@ -1456,7 +1456,7 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguratio
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -1472,7 +1472,7 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguratio
   }
 
   // runtime_environment_secrets - computed: false, optional: true, required: false
-  private _runtimeEnvironmentSecrets?: { [key: string]: string }; 
+  private _runtimeEnvironmentSecrets?: { [key: string]: string };
   public get runtimeEnvironmentSecrets() {
     return this.getStringMapAttribute('runtime_environment_secrets');
   }
@@ -1488,7 +1488,7 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguratio
   }
 
   // runtime_environment_variables - computed: false, optional: true, required: false
-  private _runtimeEnvironmentVariables?: { [key: string]: string }; 
+  private _runtimeEnvironmentVariables?: { [key: string]: string };
   public get runtimeEnvironmentVariables() {
     return this.getStringMapAttribute('runtime_environment_variables');
   }
@@ -1504,7 +1504,7 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguratio
   }
 
   // start_command - computed: false, optional: true, required: false
-  private _startCommand?: string; 
+  private _startCommand?: string;
   public get startCommand() {
     return this.getStringAttribute('start_command');
   }
@@ -1530,7 +1530,7 @@ export interface ApprunnerServiceSourceConfigurationImageRepository {
   readonly imageRepositoryType: string;
   /**
   * image_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_configuration ApprunnerService#image_configuration}
   */
   readonly imageConfiguration?: ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration;
@@ -1593,7 +1593,7 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryOutputReference e
   }
 
   // image_identifier - computed: false, optional: false, required: true
-  private _imageIdentifier?: string; 
+  private _imageIdentifier?: string;
   public get imageIdentifier() {
     return this.getStringAttribute('image_identifier');
   }
@@ -1606,7 +1606,7 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryOutputReference e
   }
 
   // image_repository_type - computed: false, optional: false, required: true
-  private _imageRepositoryType?: string; 
+  private _imageRepositoryType?: string;
   public get imageRepositoryType() {
     return this.getStringAttribute('image_repository_type');
   }
@@ -1641,19 +1641,19 @@ export interface ApprunnerServiceSourceConfiguration {
   readonly autoDeploymentsEnabled?: boolean | cdktf.IResolvable;
   /**
   * authentication_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#authentication_configuration ApprunnerService#authentication_configuration}
   */
   readonly authenticationConfiguration?: ApprunnerServiceSourceConfigurationAuthenticationConfiguration;
   /**
   * code_repository block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_repository ApprunnerService#code_repository}
   */
   readonly codeRepository?: ApprunnerServiceSourceConfigurationCodeRepository;
   /**
   * image_repository block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_repository ApprunnerService#image_repository}
   */
   readonly imageRepository?: ApprunnerServiceSourceConfigurationImageRepository;
@@ -1723,7 +1723,7 @@ export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.Co
   }
 
   // auto_deployments_enabled - computed: false, optional: true, required: false
-  private _autoDeploymentsEnabled?: boolean | cdktf.IResolvable; 
+  private _autoDeploymentsEnabled?: boolean | cdktf.IResolvable;
   public get autoDeploymentsEnabled() {
     return this.getBooleanAttribute('auto_deployments_enabled');
   }
@@ -1847,7 +1847,7 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // auto_scaling_configuration_arn - computed: true, optional: true, required: false
-  private _autoScalingConfigurationArn?: string; 
+  private _autoScalingConfigurationArn?: string;
   public get autoScalingConfigurationArn() {
     return this.getStringAttribute('auto_scaling_configuration_arn');
   }
@@ -1863,7 +1863,7 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1884,7 +1884,7 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -1907,7 +1907,7 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1923,7 +1923,7 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

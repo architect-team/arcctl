@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,19 +24,19 @@ export interface CodegurureviewerRepositoryAssociationConfig extends cdktf.Terra
   readonly tagsAll?: { [key: string]: string };
   /**
   * kms_key_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#kms_key_details CodegurureviewerRepositoryAssociation#kms_key_details}
   */
   readonly kmsKeyDetails?: CodegurureviewerRepositoryAssociationKmsKeyDetails;
   /**
   * repository block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#repository CodegurureviewerRepositoryAssociation#repository}
   */
   readonly repository: CodegurureviewerRepositoryAssociationRepository;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#timeouts CodegurureviewerRepositoryAssociation#timeouts}
   */
   readonly timeouts?: CodegurureviewerRepositoryAssociationTimeouts;
@@ -241,7 +241,7 @@ export class CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference e
   }
 
   // encryption_option - computed: false, optional: true, required: false
-  private _encryptionOption?: string; 
+  private _encryptionOption?: string;
   public get encryptionOption() {
     return this.getStringAttribute('encryption_option');
   }
@@ -257,7 +257,7 @@ export class CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference e
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -344,7 +344,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
   }
 
   // connection_arn - computed: false, optional: false, required: true
-  private _connectionArn?: string; 
+  private _connectionArn?: string;
   public get connectionArn() {
     return this.getStringAttribute('connection_arn');
   }
@@ -357,7 +357,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -370,7 +370,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -432,7 +432,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputRefe
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -516,7 +516,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
   }
 
   // connection_arn - computed: false, optional: false, required: true
-  private _connectionArn?: string; 
+  private _connectionArn?: string;
   public get connectionArn() {
     return this.getStringAttribute('connection_arn');
   }
@@ -529,7 +529,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -542,7 +542,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -615,7 +615,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputRefere
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -628,7 +628,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputRefere
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -643,25 +643,25 @@ export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputRefere
 export interface CodegurureviewerRepositoryAssociationRepository {
   /**
   * bitbucket block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#bitbucket CodegurureviewerRepositoryAssociation#bitbucket}
   */
   readonly bitbucket?: CodegurureviewerRepositoryAssociationRepositoryBitbucket;
   /**
   * codecommit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#codecommit CodegurureviewerRepositoryAssociation#codecommit}
   */
   readonly codecommit?: CodegurureviewerRepositoryAssociationRepositoryCodecommit;
   /**
   * github_enterprise_server block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#github_enterprise_server CodegurureviewerRepositoryAssociation#github_enterprise_server}
   */
   readonly githubEnterpriseServer?: CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer;
   /**
   * s3_bucket block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#s3_bucket CodegurureviewerRepositoryAssociation#s3_bucket}
   */
   readonly s3Bucket?: CodegurureviewerRepositoryAssociationRepositoryS3Bucket;
@@ -876,7 +876,7 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -892,7 +892,7 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -908,7 +908,7 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -989,7 +989,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1036,7 +1036,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1052,7 +1052,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

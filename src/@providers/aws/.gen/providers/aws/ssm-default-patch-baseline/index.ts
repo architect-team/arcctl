@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_default_patch_baseline
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SsmDefaultPatchBaseline extends cdktf.TerraformResource {
   // ==========
 
   // baseline_id - computed: false, optional: false, required: true
-  private _baselineId?: string; 
+  private _baselineId?: string;
   public get baselineId() {
     return this.getStringAttribute('baseline_id');
   }
@@ -84,7 +84,7 @@ export class SsmDefaultPatchBaseline extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class SsmDefaultPatchBaseline extends cdktf.TerraformResource {
   }
 
   // operating_system - computed: false, optional: false, required: true
-  private _operatingSystem?: string; 
+  private _operatingSystem?: string;
   public get operatingSystem() {
     return this.getStringAttribute('operating_system');
   }

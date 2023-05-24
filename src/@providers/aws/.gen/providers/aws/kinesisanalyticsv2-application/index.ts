@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,19 +48,19 @@ export interface Kinesisanalyticsv2ApplicationConfig extends cdktf.TerraformMeta
   readonly tagsAll?: { [key: string]: string };
   /**
   * application_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#application_configuration Kinesisanalyticsv2Application#application_configuration}
   */
   readonly applicationConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfiguration;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#cloudwatch_logging_options Kinesisanalyticsv2Application#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: Kinesisanalyticsv2ApplicationCloudwatchLoggingOptions;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#timeouts Kinesisanalyticsv2Application#timeouts}
   */
   readonly timeouts?: Kinesisanalyticsv2ApplicationTimeouts;
@@ -137,7 +137,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCod
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -150,7 +150,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCod
   }
 
   // file_key - computed: false, optional: false, required: true
-  private _fileKey?: string; 
+  private _fileKey?: string;
   public get fileKey() {
     return this.getStringAttribute('file_key');
   }
@@ -163,7 +163,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCod
   }
 
   // object_version - computed: false, optional: true, required: false
-  private _objectVersion?: string; 
+  private _objectVersion?: string;
   public get objectVersion() {
     return this.getStringAttribute('object_version');
   }
@@ -185,7 +185,7 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationApplicatio
   readonly textContent?: string;
   /**
   * s3_content_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#s3_content_location Kinesisanalyticsv2Application#s3_content_location}
   */
   readonly s3ContentLocation?: Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation;
@@ -241,7 +241,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCod
   }
 
   // text_content - computed: false, optional: true, required: false
-  private _textContent?: string; 
+  private _textContent?: string;
   public get textContent() {
     return this.getStringAttribute('text_content');
   }
@@ -279,7 +279,7 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationApplicatio
   readonly codeContentType: string;
   /**
   * code_content block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#code_content Kinesisanalyticsv2Application#code_content}
   */
   readonly codeContent?: Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent;
@@ -335,7 +335,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCod
   }
 
   // code_content_type - computed: false, optional: false, required: true
-  private _codeContentType?: string; 
+  private _codeContentType?: string;
   public get codeContentType() {
     return this.getStringAttribute('code_content_type');
   }
@@ -413,7 +413,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationSna
   }
 
   // snapshots_enabled - computed: false, optional: false, required: true
-  private _snapshotsEnabled?: boolean | cdktf.IResolvable; 
+  private _snapshotsEnabled?: boolean | cdktf.IResolvable;
   public get snapshotsEnabled() {
     return this.getBooleanAttribute('snapshots_enabled');
   }
@@ -498,7 +498,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationEnvironmentPro
   }
 
   // property_group_id - computed: false, optional: false, required: true
-  private _propertyGroupId?: string; 
+  private _propertyGroupId?: string;
   public get propertyGroupId() {
     return this.getStringAttribute('property_group_id');
   }
@@ -511,7 +511,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationEnvironmentPro
   }
 
   // property_map - computed: false, optional: false, required: true
-  private _propertyMap?: { [key: string]: string }; 
+  private _propertyMap?: { [key: string]: string };
   public get propertyMap() {
     return this.getStringMapAttribute('property_map');
   }
@@ -546,7 +546,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationEnvironmentPro
 export interface Kinesisanalyticsv2ApplicationApplicationConfigurationEnvironmentProperties {
   /**
   * property_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#property_group Kinesisanalyticsv2Application#property_group}
   */
   readonly propertyGroup: Kinesisanalyticsv2ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup[] | cdktf.IResolvable;
@@ -690,7 +690,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // checkpoint_interval - computed: true, optional: true, required: false
-  private _checkpointInterval?: number; 
+  private _checkpointInterval?: number;
   public get checkpointInterval() {
     return this.getNumberAttribute('checkpoint_interval');
   }
@@ -706,7 +706,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // checkpointing_enabled - computed: true, optional: true, required: false
-  private _checkpointingEnabled?: boolean | cdktf.IResolvable; 
+  private _checkpointingEnabled?: boolean | cdktf.IResolvable;
   public get checkpointingEnabled() {
     return this.getBooleanAttribute('checkpointing_enabled');
   }
@@ -722,7 +722,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // configuration_type - computed: false, optional: false, required: true
-  private _configurationType?: string; 
+  private _configurationType?: string;
   public get configurationType() {
     return this.getStringAttribute('configuration_type');
   }
@@ -735,7 +735,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // min_pause_between_checkpoints - computed: true, optional: true, required: false
-  private _minPauseBetweenCheckpoints?: number; 
+  private _minPauseBetweenCheckpoints?: number;
   public get minPauseBetweenCheckpoints() {
     return this.getNumberAttribute('min_pause_between_checkpoints');
   }
@@ -822,7 +822,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // configuration_type - computed: false, optional: false, required: true
-  private _configurationType?: string; 
+  private _configurationType?: string;
   public get configurationType() {
     return this.getStringAttribute('configuration_type');
   }
@@ -835,7 +835,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // log_level - computed: true, optional: true, required: false
-  private _logLevel?: string; 
+  private _logLevel?: string;
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -851,7 +851,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // metrics_level - computed: true, optional: true, required: false
-  private _metricsLevel?: string; 
+  private _metricsLevel?: string;
   public get metricsLevel() {
     return this.getStringAttribute('metrics_level');
   }
@@ -949,7 +949,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // auto_scaling_enabled - computed: true, optional: true, required: false
-  private _autoScalingEnabled?: boolean | cdktf.IResolvable; 
+  private _autoScalingEnabled?: boolean | cdktf.IResolvable;
   public get autoScalingEnabled() {
     return this.getBooleanAttribute('auto_scaling_enabled');
   }
@@ -965,7 +965,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // configuration_type - computed: false, optional: false, required: true
-  private _configurationType?: string; 
+  private _configurationType?: string;
   public get configurationType() {
     return this.getStringAttribute('configuration_type');
   }
@@ -978,7 +978,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // parallelism - computed: true, optional: true, required: false
-  private _parallelism?: number; 
+  private _parallelism?: number;
   public get parallelism() {
     return this.getNumberAttribute('parallelism');
   }
@@ -994,7 +994,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
   }
 
   // parallelism_per_kpu - computed: true, optional: true, required: false
-  private _parallelismPerKpu?: number; 
+  private _parallelismPerKpu?: number;
   public get parallelismPerKpu() {
     return this.getNumberAttribute('parallelism_per_kpu');
   }
@@ -1012,19 +1012,19 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicati
 export interface Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicationConfiguration {
   /**
   * checkpoint_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#checkpoint_configuration Kinesisanalyticsv2Application#checkpoint_configuration}
   */
   readonly checkpointConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration;
   /**
   * monitoring_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#monitoring_configuration Kinesisanalyticsv2Application#monitoring_configuration}
   */
   readonly monitoringConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration;
   /**
   * parallelism_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#parallelism_configuration Kinesisanalyticsv2Application#parallelism_configuration}
   */
   readonly parallelismConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration;
@@ -1195,7 +1195,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfigurati
   }
 
   // application_restore_type - computed: true, optional: true, required: false
-  private _applicationRestoreType?: string; 
+  private _applicationRestoreType?: string;
   public get applicationRestoreType() {
     return this.getStringAttribute('application_restore_type');
   }
@@ -1211,7 +1211,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfigurati
   }
 
   // snapshot_name - computed: false, optional: true, required: false
-  private _snapshotName?: string; 
+  private _snapshotName?: string;
   public get snapshotName() {
     return this.getStringAttribute('snapshot_name');
   }
@@ -1276,7 +1276,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfigurati
   }
 
   // allow_non_restored_state - computed: true, optional: true, required: false
-  private _allowNonRestoredState?: boolean | cdktf.IResolvable; 
+  private _allowNonRestoredState?: boolean | cdktf.IResolvable;
   public get allowNonRestoredState() {
     return this.getBooleanAttribute('allow_non_restored_state');
   }
@@ -1294,13 +1294,13 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfigurati
 export interface Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfiguration {
   /**
   * application_restore_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#application_restore_configuration Kinesisanalyticsv2Application#application_restore_configuration}
   */
   readonly applicationRestoreConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration;
   /**
   * flink_run_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#flink_run_configuration Kinesisanalyticsv2Application#flink_run_configuration}
   */
   readonly flinkRunConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration;
@@ -1437,7 +1437,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // count - computed: true, optional: true, required: false
-  private _count?: number; 
+  private _count?: number;
   public get count() {
     return this.getNumberAttribute('count');
   }
@@ -1502,7 +1502,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -1517,7 +1517,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
 export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
   /**
   * input_lambda_processor block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#input_lambda_processor Kinesisanalyticsv2Application#input_lambda_processor}
   */
   readonly inputLambdaProcessor: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor;
@@ -1662,7 +1662,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // mapping - computed: false, optional: true, required: false
-  private _mapping?: string; 
+  private _mapping?: string;
   public get mapping() {
     return this.getStringAttribute('mapping');
   }
@@ -1678,7 +1678,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1691,7 +1691,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // sql_type - computed: false, optional: false, required: true
-  private _sqlType?: string; 
+  private _sqlType?: string;
   public get sqlType() {
     return this.getStringAttribute('sql_type');
   }
@@ -1784,7 +1784,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_column_delimiter - computed: false, optional: false, required: true
-  private _recordColumnDelimiter?: string; 
+  private _recordColumnDelimiter?: string;
   public get recordColumnDelimiter() {
     return this.getStringAttribute('record_column_delimiter');
   }
@@ -1797,7 +1797,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_row_delimiter - computed: false, optional: false, required: true
-  private _recordRowDelimiter?: string; 
+  private _recordRowDelimiter?: string;
   public get recordRowDelimiter() {
     return this.getStringAttribute('record_row_delimiter');
   }
@@ -1859,7 +1859,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_row_path - computed: false, optional: false, required: true
-  private _recordRowPath?: string; 
+  private _recordRowPath?: string;
   public get recordRowPath() {
     return this.getStringAttribute('record_row_path');
   }
@@ -1874,13 +1874,13 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
 export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
   /**
   * csv_mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#csv_mapping_parameters Kinesisanalyticsv2Application#csv_mapping_parameters}
   */
   readonly csvMappingParameters?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters;
   /**
   * json_mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#json_mapping_parameters Kinesisanalyticsv2Application#json_mapping_parameters}
   */
   readonly jsonMappingParameters?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters;
@@ -1974,7 +1974,7 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplica
   readonly recordFormatType: string;
   /**
   * mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#mapping_parameters Kinesisanalyticsv2Application#mapping_parameters}
   */
   readonly mappingParameters: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters;
@@ -2030,7 +2030,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_format_type - computed: false, optional: false, required: true
-  private _recordFormatType?: string; 
+  private _recordFormatType?: string;
   public get recordFormatType() {
     return this.getStringAttribute('record_format_type');
   }
@@ -2062,13 +2062,13 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplica
   readonly recordEncoding?: string;
   /**
   * record_column block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#record_column Kinesisanalyticsv2Application#record_column}
   */
   readonly recordColumn: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn[] | cdktf.IResolvable;
   /**
   * record_format block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#record_format Kinesisanalyticsv2Application#record_format}
   */
   readonly recordFormat: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat;
@@ -2131,7 +2131,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_encoding - computed: false, optional: true, required: false
-  private _recordEncoding?: string; 
+  private _recordEncoding?: string;
   public get recordEncoding() {
     return this.getStringAttribute('record_encoding');
   }
@@ -2234,7 +2234,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // input_starting_position - computed: true, optional: true, required: false
-  private _inputStartingPosition?: string; 
+  private _inputStartingPosition?: string;
   public get inputStartingPosition() {
     return this.getStringAttribute('input_starting_position');
   }
@@ -2319,7 +2319,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -2381,7 +2381,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -2400,37 +2400,37 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplica
   readonly namePrefix: string;
   /**
   * input_parallelism block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#input_parallelism Kinesisanalyticsv2Application#input_parallelism}
   */
   readonly inputParallelism?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism;
   /**
   * input_processing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#input_processing_configuration Kinesisanalyticsv2Application#input_processing_configuration}
   */
   readonly inputProcessingConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration;
   /**
   * input_schema block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#input_schema Kinesisanalyticsv2Application#input_schema}
   */
   readonly inputSchema: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema;
   /**
   * input_starting_position_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#input_starting_position_configuration Kinesisanalyticsv2Application#input_starting_position_configuration}
   */
   readonly inputStartingPositionConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration[] | cdktf.IResolvable;
   /**
   * kinesis_firehose_input block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#kinesis_firehose_input Kinesisanalyticsv2Application#kinesis_firehose_input}
   */
   readonly kinesisFirehoseInput?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput;
   /**
   * kinesis_streams_input block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#kinesis_streams_input Kinesisanalyticsv2Application#kinesis_streams_input}
   */
   readonly kinesisStreamsInput?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput;
@@ -2531,7 +2531,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // name_prefix - computed: false, optional: false, required: true
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -2686,7 +2686,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_format_type - computed: false, optional: false, required: true
-  private _recordFormatType?: string; 
+  private _recordFormatType?: string;
   public get recordFormatType() {
     return this.getStringAttribute('record_format_type');
   }
@@ -2748,7 +2748,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -2810,7 +2810,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -2872,7 +2872,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -2891,25 +2891,25 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplica
   readonly name: string;
   /**
   * destination_schema block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#destination_schema Kinesisanalyticsv2Application#destination_schema}
   */
   readonly destinationSchema: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema;
   /**
   * kinesis_firehose_output block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#kinesis_firehose_output Kinesisanalyticsv2Application#kinesis_firehose_output}
   */
   readonly kinesisFirehoseOutput?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput;
   /**
   * kinesis_streams_output block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#kinesis_streams_output Kinesisanalyticsv2Application#kinesis_streams_output}
   */
   readonly kinesisStreamsOutput?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput;
   /**
   * lambda_output block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#lambda_output Kinesisanalyticsv2Application#lambda_output}
   */
   readonly lambdaOutput?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput;
@@ -2998,7 +2998,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3180,7 +3180,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // mapping - computed: false, optional: true, required: false
-  private _mapping?: string; 
+  private _mapping?: string;
   public get mapping() {
     return this.getStringAttribute('mapping');
   }
@@ -3196,7 +3196,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3209,7 +3209,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // sql_type - computed: false, optional: false, required: true
-  private _sqlType?: string; 
+  private _sqlType?: string;
   public get sqlType() {
     return this.getStringAttribute('sql_type');
   }
@@ -3302,7 +3302,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_column_delimiter - computed: false, optional: false, required: true
-  private _recordColumnDelimiter?: string; 
+  private _recordColumnDelimiter?: string;
   public get recordColumnDelimiter() {
     return this.getStringAttribute('record_column_delimiter');
   }
@@ -3315,7 +3315,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_row_delimiter - computed: false, optional: false, required: true
-  private _recordRowDelimiter?: string; 
+  private _recordRowDelimiter?: string;
   public get recordRowDelimiter() {
     return this.getStringAttribute('record_row_delimiter');
   }
@@ -3377,7 +3377,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_row_path - computed: false, optional: false, required: true
-  private _recordRowPath?: string; 
+  private _recordRowPath?: string;
   public get recordRowPath() {
     return this.getStringAttribute('record_row_path');
   }
@@ -3392,13 +3392,13 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
 export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
   /**
   * csv_mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#csv_mapping_parameters Kinesisanalyticsv2Application#csv_mapping_parameters}
   */
   readonly csvMappingParameters?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters;
   /**
   * json_mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#json_mapping_parameters Kinesisanalyticsv2Application#json_mapping_parameters}
   */
   readonly jsonMappingParameters?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters;
@@ -3492,7 +3492,7 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplica
   readonly recordFormatType: string;
   /**
   * mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#mapping_parameters Kinesisanalyticsv2Application#mapping_parameters}
   */
   readonly mappingParameters: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters;
@@ -3548,7 +3548,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_format_type - computed: false, optional: false, required: true
-  private _recordFormatType?: string; 
+  private _recordFormatType?: string;
   public get recordFormatType() {
     return this.getStringAttribute('record_format_type');
   }
@@ -3580,13 +3580,13 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplica
   readonly recordEncoding?: string;
   /**
   * record_column block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#record_column Kinesisanalyticsv2Application#record_column}
   */
   readonly recordColumn: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn[] | cdktf.IResolvable;
   /**
   * record_format block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#record_format Kinesisanalyticsv2Application#record_format}
   */
   readonly recordFormat: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat;
@@ -3649,7 +3649,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // record_encoding - computed: false, optional: true, required: false
-  private _recordEncoding?: string; 
+  private _recordEncoding?: string;
   public get recordEncoding() {
     return this.getStringAttribute('record_encoding');
   }
@@ -3751,7 +3751,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -3764,7 +3764,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // file_key - computed: false, optional: false, required: true
-  private _fileKey?: string; 
+  private _fileKey?: string;
   public get fileKey() {
     return this.getStringAttribute('file_key');
   }
@@ -3783,13 +3783,13 @@ export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplica
   readonly tableName: string;
   /**
   * reference_schema block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#reference_schema Kinesisanalyticsv2Application#reference_schema}
   */
   readonly referenceSchema: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema;
   /**
   * s3_reference_data_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#s3_reference_data_source Kinesisanalyticsv2Application#s3_reference_data_source}
   */
   readonly s3ReferenceDataSource: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource;
@@ -3857,7 +3857,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -3898,19 +3898,19 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplication
 export interface Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfiguration {
   /**
   * input block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#input Kinesisanalyticsv2Application#input}
   */
   readonly input?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationInput;
   /**
   * output block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#output Kinesisanalyticsv2Application#output}
   */
   readonly output?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationOutput[] | cdktf.IResolvable;
   /**
   * reference_data_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#reference_data_source Kinesisanalyticsv2Application#reference_data_source}
   */
   readonly referenceDataSource?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource;
@@ -4081,7 +4081,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationVpcConfigurati
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -4094,7 +4094,7 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationVpcConfigurati
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -4119,43 +4119,43 @@ export class Kinesisanalyticsv2ApplicationApplicationConfigurationVpcConfigurati
 export interface Kinesisanalyticsv2ApplicationApplicationConfiguration {
   /**
   * application_code_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#application_code_configuration Kinesisanalyticsv2Application#application_code_configuration}
   */
   readonly applicationCodeConfiguration: Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationCodeConfiguration;
   /**
   * application_snapshot_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#application_snapshot_configuration Kinesisanalyticsv2Application#application_snapshot_configuration}
   */
   readonly applicationSnapshotConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationApplicationSnapshotConfiguration;
   /**
   * environment_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#environment_properties Kinesisanalyticsv2Application#environment_properties}
   */
   readonly environmentProperties?: Kinesisanalyticsv2ApplicationApplicationConfigurationEnvironmentProperties;
   /**
   * flink_application_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#flink_application_configuration Kinesisanalyticsv2Application#flink_application_configuration}
   */
   readonly flinkApplicationConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationFlinkApplicationConfiguration;
   /**
   * run_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#run_configuration Kinesisanalyticsv2Application#run_configuration}
   */
   readonly runConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationRunConfiguration;
   /**
   * sql_application_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#sql_application_configuration Kinesisanalyticsv2Application#sql_application_configuration}
   */
   readonly sqlApplicationConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationSqlApplicationConfiguration;
   /**
   * vpc_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application#vpc_configuration Kinesisanalyticsv2Application#vpc_configuration}
   */
   readonly vpcConfiguration?: Kinesisanalyticsv2ApplicationApplicationConfigurationVpcConfiguration;
@@ -4409,7 +4409,7 @@ export class Kinesisanalyticsv2ApplicationCloudwatchLoggingOptionsOutputReferenc
   }
 
   // log_stream_arn - computed: false, optional: false, required: true
-  private _logStreamArn?: string; 
+  private _logStreamArn?: string;
   public get logStreamArn() {
     return this.getStringAttribute('log_stream_arn');
   }
@@ -4503,7 +4503,7 @@ export class Kinesisanalyticsv2ApplicationTimeoutsOutputReference extends cdktf.
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -4519,7 +4519,7 @@ export class Kinesisanalyticsv2ApplicationTimeoutsOutputReference extends cdktf.
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -4535,7 +4535,7 @@ export class Kinesisanalyticsv2ApplicationTimeoutsOutputReference extends cdktf.
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -4617,7 +4617,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -4633,7 +4633,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // force_stop - computed: false, optional: true, required: false
-  private _forceStop?: boolean | cdktf.IResolvable; 
+  private _forceStop?: boolean | cdktf.IResolvable;
   public get forceStop() {
     return this.getBooleanAttribute('force_stop');
   }
@@ -4649,7 +4649,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -4670,7 +4670,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4683,7 +4683,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // runtime_environment - computed: false, optional: false, required: true
-  private _runtimeEnvironment?: string; 
+  private _runtimeEnvironment?: string;
   public get runtimeEnvironment() {
     return this.getStringAttribute('runtime_environment');
   }
@@ -4696,7 +4696,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // service_execution_role - computed: false, optional: false, required: true
-  private _serviceExecutionRole?: string; 
+  private _serviceExecutionRole?: string;
   public get serviceExecutionRole() {
     return this.getStringAttribute('service_execution_role');
   }
@@ -4709,7 +4709,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // start_application - computed: false, optional: true, required: false
-  private _startApplication?: boolean | cdktf.IResolvable; 
+  private _startApplication?: boolean | cdktf.IResolvable;
   public get startApplication() {
     return this.getBooleanAttribute('start_application');
   }
@@ -4730,7 +4730,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -4746,7 +4746,7 @@ export class Kinesisanalyticsv2Application extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

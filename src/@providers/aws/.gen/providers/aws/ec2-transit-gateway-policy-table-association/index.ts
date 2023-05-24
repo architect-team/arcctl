@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class Ec2TransitGatewayPolicyTableAssociation extends cdktf.TerraformReso
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class Ec2TransitGatewayPolicyTableAssociation extends cdktf.TerraformReso
   }
 
   // transit_gateway_attachment_id - computed: false, optional: false, required: true
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }
@@ -110,7 +110,7 @@ export class Ec2TransitGatewayPolicyTableAssociation extends cdktf.TerraformReso
   }
 
   // transit_gateway_policy_table_id - computed: false, optional: false, required: true
-  private _transitGatewayPolicyTableId?: string; 
+  private _transitGatewayPolicyTableId?: string;
   public get transitGatewayPolicyTableId() {
     return this.getStringAttribute('transit_gateway_policy_table_id');
   }

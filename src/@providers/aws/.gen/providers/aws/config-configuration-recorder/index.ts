@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface ConfigConfigurationRecorderConfig extends cdktf.TerraformMetaAr
   readonly roleArn: string;
   /**
   * recording_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder#recording_group ConfigConfigurationRecorder#recording_group}
   */
   readonly recordingGroup?: ConfigConfigurationRecorderRecordingGroup;
@@ -101,7 +101,7 @@ export class ConfigConfigurationRecorderRecordingGroupOutputReference extends cd
   }
 
   // all_supported - computed: false, optional: true, required: false
-  private _allSupported?: boolean | cdktf.IResolvable; 
+  private _allSupported?: boolean | cdktf.IResolvable;
   public get allSupported() {
     return this.getBooleanAttribute('all_supported');
   }
@@ -117,7 +117,7 @@ export class ConfigConfigurationRecorderRecordingGroupOutputReference extends cd
   }
 
   // include_global_resource_types - computed: false, optional: true, required: false
-  private _includeGlobalResourceTypes?: boolean | cdktf.IResolvable; 
+  private _includeGlobalResourceTypes?: boolean | cdktf.IResolvable;
   public get includeGlobalResourceTypes() {
     return this.getBooleanAttribute('include_global_resource_types');
   }
@@ -133,7 +133,7 @@ export class ConfigConfigurationRecorderRecordingGroupOutputReference extends cd
   }
 
   // resource_types - computed: false, optional: true, required: false
-  private _resourceTypes?: string[]; 
+  private _resourceTypes?: string[];
   public get resourceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_types'));
   }
@@ -197,7 +197,7 @@ export class ConfigConfigurationRecorder extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -213,7 +213,7 @@ export class ConfigConfigurationRecorder extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -229,7 +229,7 @@ export class ConfigConfigurationRecorder extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

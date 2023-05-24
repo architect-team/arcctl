@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_zone
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface Route53ZoneConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * vpc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_zone#vpc Route53Zone#vpc}
   */
   readonly vpc?: Route53ZoneVpc[] | cdktf.IResolvable;
@@ -118,7 +118,7 @@ export class Route53ZoneVpcOutputReference extends cdktf.ComplexObject {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -131,7 +131,7 @@ export class Route53ZoneVpcOutputReference extends cdktf.ComplexObject {
   }
 
   // vpc_region - computed: true, optional: true, required: false
-  private _vpcRegion?: string; 
+  private _vpcRegion?: string;
   public get vpcRegion() {
     return this.getStringAttribute('vpc_region');
   }
@@ -224,7 +224,7 @@ export class Route53Zone extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -240,7 +240,7 @@ export class Route53Zone extends cdktf.TerraformResource {
   }
 
   // delegation_set_id - computed: false, optional: true, required: false
-  private _delegationSetId?: string; 
+  private _delegationSetId?: string;
   public get delegationSetId() {
     return this.getStringAttribute('delegation_set_id');
   }
@@ -256,7 +256,7 @@ export class Route53Zone extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -272,7 +272,7 @@ export class Route53Zone extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -288,7 +288,7 @@ export class Route53Zone extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -311,7 +311,7 @@ export class Route53Zone extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -327,7 +327,7 @@ export class Route53Zone extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

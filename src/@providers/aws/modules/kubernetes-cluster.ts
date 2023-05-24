@@ -13,7 +13,7 @@ import { Sleep } from '../.gen/providers/time/sleep/index.js';
 import { AwsCredentials } from '../credentials.js';
 import AwsUtils from '../utils.js';
 import { TerraformOutput } from 'cdktf';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class AwsKubernetesClusterModule extends ResourceModule<
   'kubernetesCluster',

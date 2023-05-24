@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/outposts_asset
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsOutpostsAsset extends cdktf.TerraformDataSource {
   // ==========
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -84,7 +84,7 @@ export class DataAwsOutpostsAsset extends cdktf.TerraformDataSource {
   }
 
   // asset_id - computed: false, optional: false, required: true
-  private _assetId?: string; 
+  private _assetId?: string;
   public get assetId() {
     return this.getStringAttribute('asset_id');
   }
@@ -107,7 +107,7 @@ export class DataAwsOutpostsAsset extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

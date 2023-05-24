@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface FsxOpenzfsSnapshotConfig extends cdktf.TerraformMetaArguments {
   readonly volumeId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_openzfs_snapshot#timeouts FsxOpenzfsSnapshot#timeouts}
   */
   readonly timeouts?: FsxOpenzfsSnapshotTimeouts;
@@ -130,7 +130,7 @@ export class FsxOpenzfsSnapshotTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -146,7 +146,7 @@ export class FsxOpenzfsSnapshotTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -162,7 +162,7 @@ export class FsxOpenzfsSnapshotTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -178,7 +178,7 @@ export class FsxOpenzfsSnapshotTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -254,7 +254,7 @@ export class FsxOpenzfsSnapshot extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -270,7 +270,7 @@ export class FsxOpenzfsSnapshot extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -283,7 +283,7 @@ export class FsxOpenzfsSnapshot extends cdktf.TerraformResource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -299,7 +299,7 @@ export class FsxOpenzfsSnapshot extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -315,7 +315,7 @@ export class FsxOpenzfsSnapshot extends cdktf.TerraformResource {
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }

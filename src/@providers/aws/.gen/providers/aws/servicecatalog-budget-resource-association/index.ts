@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface ServicecatalogBudgetResourceAssociationConfig extends cdktf.Ter
   readonly resourceId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#timeouts ServicecatalogBudgetResourceAssociation#timeouts}
   */
   readonly timeouts?: ServicecatalogBudgetResourceAssociationTimeouts;
@@ -111,7 +111,7 @@ export class ServicecatalogBudgetResourceAssociationTimeoutsOutputReference exte
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -127,7 +127,7 @@ export class ServicecatalogBudgetResourceAssociationTimeoutsOutputReference exte
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -143,7 +143,7 @@ export class ServicecatalogBudgetResourceAssociationTimeoutsOutputReference exte
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -207,7 +207,7 @@ export class ServicecatalogBudgetResourceAssociation extends cdktf.TerraformReso
   // ==========
 
   // budget_name - computed: false, optional: false, required: true
-  private _budgetName?: string; 
+  private _budgetName?: string;
   public get budgetName() {
     return this.getStringAttribute('budget_name');
   }
@@ -220,7 +220,7 @@ export class ServicecatalogBudgetResourceAssociation extends cdktf.TerraformReso
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -236,7 +236,7 @@ export class ServicecatalogBudgetResourceAssociation extends cdktf.TerraformReso
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }

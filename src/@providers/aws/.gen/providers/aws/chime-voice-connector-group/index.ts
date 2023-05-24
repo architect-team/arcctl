@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface ChimeVoiceConnectorGroupConfig extends cdktf.TerraformMetaArgum
   readonly name: string;
   /**
   * connector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_group#connector ChimeVoiceConnectorGroup#connector}
   */
   readonly connector?: ChimeVoiceConnectorGroupConnector[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class ChimeVoiceConnectorGroupConnectorOutputReference extends cdktf.Comp
   }
 
   // priority - computed: false, optional: false, required: true
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -111,7 +111,7 @@ export class ChimeVoiceConnectorGroupConnectorOutputReference extends cdktf.Comp
   }
 
   // voice_connector_id - computed: false, optional: false, required: true
-  private _voiceConnectorId?: string; 
+  private _voiceConnectorId?: string;
   public get voiceConnectorId() {
     return this.getStringAttribute('voice_connector_id');
   }
@@ -191,7 +191,7 @@ export class ChimeVoiceConnectorGroup extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -207,7 +207,7 @@ export class ChimeVoiceConnectorGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

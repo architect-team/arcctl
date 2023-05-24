@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/resource
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,25 +9,25 @@ import * as cdktf from 'cdktf';
 export interface DataKubernetesResourceConfig extends cdktf.TerraformMetaArguments {
   /**
   * The resource apiVersion.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resource#api_version DataKubernetesResource#api_version}
   */
   readonly apiVersion: string;
   /**
   * The resource kind.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resource#kind DataKubernetesResource#kind}
   */
   readonly kind: string;
   /**
   * The response from the API server.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resource#object DataKubernetesResource#object}
   */
   readonly object?: { [key: string]: any };
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resource#metadata DataKubernetesResource#metadata}
   */
   readonly metadata: DataKubernetesResourceMetadata;
@@ -35,13 +35,13 @@ export interface DataKubernetesResourceConfig extends cdktf.TerraformMetaArgumen
 export interface DataKubernetesResourceMetadata {
   /**
   * The resource name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resource#name DataKubernetesResource#name}
   */
   readonly name: string;
   /**
   * The resource namespace.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resource#namespace DataKubernetesResource#namespace}
   */
   readonly namespace?: string;
@@ -97,7 +97,7 @@ export class DataKubernetesResourceMetadataOutputReference extends cdktf.Complex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -110,7 +110,7 @@ export class DataKubernetesResourceMetadataOutputReference extends cdktf.Complex
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -174,7 +174,7 @@ export class DataKubernetesResource extends cdktf.TerraformDataSource {
   // ==========
 
   // api_version - computed: false, optional: false, required: true
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -187,7 +187,7 @@ export class DataKubernetesResource extends cdktf.TerraformDataSource {
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -200,7 +200,7 @@ export class DataKubernetesResource extends cdktf.TerraformDataSource {
   }
 
   // object - computed: true, optional: true, required: false
-  private _object?: { [key: string]: any }; 
+  private _object?: { [key: string]: any };
   public get object() {
     return this.getAnyMapAttribute('object');
   }

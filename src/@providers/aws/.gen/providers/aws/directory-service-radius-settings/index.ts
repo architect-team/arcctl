@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/directory_service_radius_settings
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,7 +52,7 @@ export interface DirectoryServiceRadiusSettingsConfig extends cdktf.TerraformMet
   readonly useSameUsername?: boolean | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_radius_settings#timeouts DirectoryServiceRadiusSettings#timeouts}
   */
   readonly timeouts?: DirectoryServiceRadiusSettingsTimeouts;
@@ -128,7 +128,7 @@ export class DirectoryServiceRadiusSettingsTimeoutsOutputReference extends cdktf
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -144,7 +144,7 @@ export class DirectoryServiceRadiusSettingsTimeoutsOutputReference extends cdktf
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -215,7 +215,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   // ==========
 
   // authentication_protocol - computed: false, optional: false, required: true
-  private _authenticationProtocol?: string; 
+  private _authenticationProtocol?: string;
   public get authenticationProtocol() {
     return this.getStringAttribute('authentication_protocol');
   }
@@ -228,7 +228,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -241,7 +241,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // display_label - computed: false, optional: false, required: true
-  private _displayLabel?: string; 
+  private _displayLabel?: string;
   public get displayLabel() {
     return this.getStringAttribute('display_label');
   }
@@ -254,7 +254,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -270,7 +270,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // radius_port - computed: false, optional: false, required: true
-  private _radiusPort?: number; 
+  private _radiusPort?: number;
   public get radiusPort() {
     return this.getNumberAttribute('radius_port');
   }
@@ -283,7 +283,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // radius_retries - computed: false, optional: false, required: true
-  private _radiusRetries?: number; 
+  private _radiusRetries?: number;
   public get radiusRetries() {
     return this.getNumberAttribute('radius_retries');
   }
@@ -296,7 +296,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // radius_servers - computed: false, optional: false, required: true
-  private _radiusServers?: string[]; 
+  private _radiusServers?: string[];
   public get radiusServers() {
     return cdktf.Fn.tolist(this.getListAttribute('radius_servers'));
   }
@@ -309,7 +309,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // radius_timeout - computed: false, optional: false, required: true
-  private _radiusTimeout?: number; 
+  private _radiusTimeout?: number;
   public get radiusTimeout() {
     return this.getNumberAttribute('radius_timeout');
   }
@@ -322,7 +322,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // shared_secret - computed: false, optional: false, required: true
-  private _sharedSecret?: string; 
+  private _sharedSecret?: string;
   public get sharedSecret() {
     return this.getStringAttribute('shared_secret');
   }
@@ -335,7 +335,7 @@ export class DirectoryServiceRadiusSettings extends cdktf.TerraformResource {
   }
 
   // use_same_username - computed: false, optional: true, required: false
-  private _useSameUsername?: boolean | cdktf.IResolvable; 
+  private _useSameUsername?: boolean | cdktf.IResolvable;
   public get useSameUsername() {
     return this.getBooleanAttribute('use_same_username');
   }

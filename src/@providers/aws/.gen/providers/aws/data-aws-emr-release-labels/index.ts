@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/emr_release_labels
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataAwsEmrReleaseLabelsConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * filters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#filters DataAwsEmrReleaseLabels#filters}
   */
   readonly filters?: DataAwsEmrReleaseLabelsFilters;
@@ -82,7 +82,7 @@ export class DataAwsEmrReleaseLabelsFiltersOutputReference extends cdktf.Complex
   }
 
   // application - computed: false, optional: true, required: false
-  private _application?: string; 
+  private _application?: string;
   public get application() {
     return this.getStringAttribute('application');
   }
@@ -98,7 +98,7 @@ export class DataAwsEmrReleaseLabelsFiltersOutputReference extends cdktf.Complex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -160,7 +160,7 @@ export class DataAwsEmrReleaseLabels extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

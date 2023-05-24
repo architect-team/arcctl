@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/organizations_organization
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -404,7 +404,7 @@ export class OrganizationsOrganization extends cdktf.TerraformResource {
   }
 
   // aws_service_access_principals - computed: false, optional: true, required: false
-  private _awsServiceAccessPrincipals?: string[]; 
+  private _awsServiceAccessPrincipals?: string[];
   public get awsServiceAccessPrincipals() {
     return cdktf.Fn.tolist(this.getListAttribute('aws_service_access_principals'));
   }
@@ -420,7 +420,7 @@ export class OrganizationsOrganization extends cdktf.TerraformResource {
   }
 
   // enabled_policy_types - computed: false, optional: true, required: false
-  private _enabledPolicyTypes?: string[]; 
+  private _enabledPolicyTypes?: string[];
   public get enabledPolicyTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('enabled_policy_types'));
   }
@@ -436,7 +436,7 @@ export class OrganizationsOrganization extends cdktf.TerraformResource {
   }
 
   // feature_set - computed: false, optional: true, required: false
-  private _featureSet?: string; 
+  private _featureSet?: string;
   public get featureSet() {
     return this.getStringAttribute('feature_set');
   }
@@ -452,7 +452,7 @@ export class OrganizationsOrganization extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

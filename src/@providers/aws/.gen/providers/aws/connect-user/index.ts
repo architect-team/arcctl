@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,13 +52,13 @@ export interface ConnectUserConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * identity_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#identity_info ConnectUser#identity_info}
   */
   readonly identityInfo?: ConnectUserIdentityInfo;
   /**
   * phone_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#phone_config ConnectUser#phone_config}
   */
   readonly phoneConfig: ConnectUserPhoneConfig;
@@ -135,7 +135,7 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
   }
 
   // email - computed: false, optional: true, required: false
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -151,7 +151,7 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
   }
 
   // first_name - computed: false, optional: true, required: false
-  private _firstName?: string; 
+  private _firstName?: string;
   public get firstName() {
     return this.getStringAttribute('first_name');
   }
@@ -167,7 +167,7 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
   }
 
   // last_name - computed: false, optional: true, required: false
-  private _lastName?: string; 
+  private _lastName?: string;
   public get lastName() {
     return this.getStringAttribute('last_name');
   }
@@ -265,7 +265,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // after_contact_work_time_limit - computed: false, optional: true, required: false
-  private _afterContactWorkTimeLimit?: number; 
+  private _afterContactWorkTimeLimit?: number;
   public get afterContactWorkTimeLimit() {
     return this.getNumberAttribute('after_contact_work_time_limit');
   }
@@ -281,7 +281,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // auto_accept - computed: false, optional: true, required: false
-  private _autoAccept?: boolean | cdktf.IResolvable; 
+  private _autoAccept?: boolean | cdktf.IResolvable;
   public get autoAccept() {
     return this.getBooleanAttribute('auto_accept');
   }
@@ -297,7 +297,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // desk_phone_number - computed: false, optional: true, required: false
-  private _deskPhoneNumber?: string; 
+  private _deskPhoneNumber?: string;
   public get deskPhoneNumber() {
     return this.getStringAttribute('desk_phone_number');
   }
@@ -313,7 +313,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // phone_type - computed: false, optional: false, required: true
-  private _phoneType?: string; 
+  private _phoneType?: string;
   public get phoneType() {
     return this.getStringAttribute('phone_type');
   }
@@ -387,7 +387,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // directory_user_id - computed: true, optional: true, required: false
-  private _directoryUserId?: string; 
+  private _directoryUserId?: string;
   public get directoryUserId() {
     return this.getStringAttribute('directory_user_id');
   }
@@ -403,7 +403,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // hierarchy_group_id - computed: false, optional: true, required: false
-  private _hierarchyGroupId?: string; 
+  private _hierarchyGroupId?: string;
   public get hierarchyGroupId() {
     return this.getStringAttribute('hierarchy_group_id');
   }
@@ -419,7 +419,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -435,7 +435,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -448,7 +448,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -461,7 +461,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -477,7 +477,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // routing_profile_id - computed: false, optional: false, required: true
-  private _routingProfileId?: string; 
+  private _routingProfileId?: string;
   public get routingProfileId() {
     return this.getStringAttribute('routing_profile_id');
   }
@@ -490,7 +490,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // security_profile_ids - computed: false, optional: false, required: true
-  private _securityProfileIds?: string[]; 
+  private _securityProfileIds?: string[];
   public get securityProfileIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_profile_ids'));
   }
@@ -503,7 +503,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -519,7 +519,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

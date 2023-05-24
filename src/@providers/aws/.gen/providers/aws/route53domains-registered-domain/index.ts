@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53domains_registered_domain
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,31 +48,31 @@ export interface Route53DomainsRegisteredDomainConfig extends cdktf.TerraformMet
   readonly transferLock?: boolean | cdktf.IResolvable;
   /**
   * admin_contact block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53domains_registered_domain#admin_contact Route53DomainsRegisteredDomain#admin_contact}
   */
   readonly adminContact?: Route53DomainsRegisteredDomainAdminContact;
   /**
   * name_server block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53domains_registered_domain#name_server Route53DomainsRegisteredDomain#name_server}
   */
   readonly nameServer?: Route53DomainsRegisteredDomainNameServer[] | cdktf.IResolvable;
   /**
   * registrant_contact block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53domains_registered_domain#registrant_contact Route53DomainsRegisteredDomain#registrant_contact}
   */
   readonly registrantContact?: Route53DomainsRegisteredDomainRegistrantContact;
   /**
   * tech_contact block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53domains_registered_domain#tech_contact Route53DomainsRegisteredDomain#tech_contact}
   */
   readonly techContact?: Route53DomainsRegisteredDomainTechContact;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53domains_registered_domain#timeouts Route53DomainsRegisteredDomain#timeouts}
   */
   readonly timeouts?: Route53DomainsRegisteredDomainTimeouts;
@@ -270,7 +270,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // address_line_1 - computed: true, optional: true, required: false
-  private _addressLine1?: string; 
+  private _addressLine1?: string;
   public get addressLine1() {
     return this.getStringAttribute('address_line_1');
   }
@@ -286,7 +286,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // address_line_2 - computed: true, optional: true, required: false
-  private _addressLine2?: string; 
+  private _addressLine2?: string;
   public get addressLine2() {
     return this.getStringAttribute('address_line_2');
   }
@@ -302,7 +302,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // city - computed: true, optional: true, required: false
-  private _city?: string; 
+  private _city?: string;
   public get city() {
     return this.getStringAttribute('city');
   }
@@ -318,7 +318,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // contact_type - computed: true, optional: true, required: false
-  private _contactType?: string; 
+  private _contactType?: string;
   public get contactType() {
     return this.getStringAttribute('contact_type');
   }
@@ -334,7 +334,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // country_code - computed: true, optional: true, required: false
-  private _countryCode?: string; 
+  private _countryCode?: string;
   public get countryCode() {
     return this.getStringAttribute('country_code');
   }
@@ -350,7 +350,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // email - computed: true, optional: true, required: false
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -366,7 +366,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // extra_params - computed: true, optional: true, required: false
-  private _extraParams?: { [key: string]: string }; 
+  private _extraParams?: { [key: string]: string };
   public get extraParams() {
     return this.getStringMapAttribute('extra_params');
   }
@@ -382,7 +382,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // fax - computed: true, optional: true, required: false
-  private _fax?: string; 
+  private _fax?: string;
   public get fax() {
     return this.getStringAttribute('fax');
   }
@@ -398,7 +398,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // first_name - computed: true, optional: true, required: false
-  private _firstName?: string; 
+  private _firstName?: string;
   public get firstName() {
     return this.getStringAttribute('first_name');
   }
@@ -414,7 +414,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // last_name - computed: true, optional: true, required: false
-  private _lastName?: string; 
+  private _lastName?: string;
   public get lastName() {
     return this.getStringAttribute('last_name');
   }
@@ -430,7 +430,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // organization_name - computed: true, optional: true, required: false
-  private _organizationName?: string; 
+  private _organizationName?: string;
   public get organizationName() {
     return this.getStringAttribute('organization_name');
   }
@@ -446,7 +446,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // phone_number - computed: true, optional: true, required: false
-  private _phoneNumber?: string; 
+  private _phoneNumber?: string;
   public get phoneNumber() {
     return this.getStringAttribute('phone_number');
   }
@@ -462,7 +462,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -478,7 +478,7 @@ export class Route53DomainsRegisteredDomainAdminContactOutputReference extends c
   }
 
   // zip_code - computed: true, optional: true, required: false
-  private _zipCode?: string; 
+  private _zipCode?: string;
   public get zipCode() {
     return this.getStringAttribute('zip_code');
   }
@@ -566,7 +566,7 @@ export class Route53DomainsRegisteredDomainNameServerOutputReference extends cdk
   }
 
   // glue_ips - computed: false, optional: true, required: false
-  private _glueIps?: string[]; 
+  private _glueIps?: string[];
   public get glueIps() {
     return cdktf.Fn.tolist(this.getListAttribute('glue_ips'));
   }
@@ -582,7 +582,7 @@ export class Route53DomainsRegisteredDomainNameServerOutputReference extends cdk
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -807,7 +807,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // address_line_1 - computed: true, optional: true, required: false
-  private _addressLine1?: string; 
+  private _addressLine1?: string;
   public get addressLine1() {
     return this.getStringAttribute('address_line_1');
   }
@@ -823,7 +823,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // address_line_2 - computed: true, optional: true, required: false
-  private _addressLine2?: string; 
+  private _addressLine2?: string;
   public get addressLine2() {
     return this.getStringAttribute('address_line_2');
   }
@@ -839,7 +839,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // city - computed: true, optional: true, required: false
-  private _city?: string; 
+  private _city?: string;
   public get city() {
     return this.getStringAttribute('city');
   }
@@ -855,7 +855,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // contact_type - computed: true, optional: true, required: false
-  private _contactType?: string; 
+  private _contactType?: string;
   public get contactType() {
     return this.getStringAttribute('contact_type');
   }
@@ -871,7 +871,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // country_code - computed: true, optional: true, required: false
-  private _countryCode?: string; 
+  private _countryCode?: string;
   public get countryCode() {
     return this.getStringAttribute('country_code');
   }
@@ -887,7 +887,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // email - computed: true, optional: true, required: false
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -903,7 +903,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // extra_params - computed: true, optional: true, required: false
-  private _extraParams?: { [key: string]: string }; 
+  private _extraParams?: { [key: string]: string };
   public get extraParams() {
     return this.getStringMapAttribute('extra_params');
   }
@@ -919,7 +919,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // fax - computed: true, optional: true, required: false
-  private _fax?: string; 
+  private _fax?: string;
   public get fax() {
     return this.getStringAttribute('fax');
   }
@@ -935,7 +935,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // first_name - computed: true, optional: true, required: false
-  private _firstName?: string; 
+  private _firstName?: string;
   public get firstName() {
     return this.getStringAttribute('first_name');
   }
@@ -951,7 +951,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // last_name - computed: true, optional: true, required: false
-  private _lastName?: string; 
+  private _lastName?: string;
   public get lastName() {
     return this.getStringAttribute('last_name');
   }
@@ -967,7 +967,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // organization_name - computed: true, optional: true, required: false
-  private _organizationName?: string; 
+  private _organizationName?: string;
   public get organizationName() {
     return this.getStringAttribute('organization_name');
   }
@@ -983,7 +983,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // phone_number - computed: true, optional: true, required: false
-  private _phoneNumber?: string; 
+  private _phoneNumber?: string;
   public get phoneNumber() {
     return this.getStringAttribute('phone_number');
   }
@@ -999,7 +999,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -1015,7 +1015,7 @@ export class Route53DomainsRegisteredDomainRegistrantContactOutputReference exte
   }
 
   // zip_code - computed: true, optional: true, required: false
-  private _zipCode?: string; 
+  private _zipCode?: string;
   public get zipCode() {
     return this.getStringAttribute('zip_code');
   }
@@ -1223,7 +1223,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // address_line_1 - computed: true, optional: true, required: false
-  private _addressLine1?: string; 
+  private _addressLine1?: string;
   public get addressLine1() {
     return this.getStringAttribute('address_line_1');
   }
@@ -1239,7 +1239,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // address_line_2 - computed: true, optional: true, required: false
-  private _addressLine2?: string; 
+  private _addressLine2?: string;
   public get addressLine2() {
     return this.getStringAttribute('address_line_2');
   }
@@ -1255,7 +1255,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // city - computed: true, optional: true, required: false
-  private _city?: string; 
+  private _city?: string;
   public get city() {
     return this.getStringAttribute('city');
   }
@@ -1271,7 +1271,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // contact_type - computed: true, optional: true, required: false
-  private _contactType?: string; 
+  private _contactType?: string;
   public get contactType() {
     return this.getStringAttribute('contact_type');
   }
@@ -1287,7 +1287,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // country_code - computed: true, optional: true, required: false
-  private _countryCode?: string; 
+  private _countryCode?: string;
   public get countryCode() {
     return this.getStringAttribute('country_code');
   }
@@ -1303,7 +1303,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // email - computed: true, optional: true, required: false
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -1319,7 +1319,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // extra_params - computed: true, optional: true, required: false
-  private _extraParams?: { [key: string]: string }; 
+  private _extraParams?: { [key: string]: string };
   public get extraParams() {
     return this.getStringMapAttribute('extra_params');
   }
@@ -1335,7 +1335,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // fax - computed: true, optional: true, required: false
-  private _fax?: string; 
+  private _fax?: string;
   public get fax() {
     return this.getStringAttribute('fax');
   }
@@ -1351,7 +1351,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // first_name - computed: true, optional: true, required: false
-  private _firstName?: string; 
+  private _firstName?: string;
   public get firstName() {
     return this.getStringAttribute('first_name');
   }
@@ -1367,7 +1367,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // last_name - computed: true, optional: true, required: false
-  private _lastName?: string; 
+  private _lastName?: string;
   public get lastName() {
     return this.getStringAttribute('last_name');
   }
@@ -1383,7 +1383,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // organization_name - computed: true, optional: true, required: false
-  private _organizationName?: string; 
+  private _organizationName?: string;
   public get organizationName() {
     return this.getStringAttribute('organization_name');
   }
@@ -1399,7 +1399,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // phone_number - computed: true, optional: true, required: false
-  private _phoneNumber?: string; 
+  private _phoneNumber?: string;
   public get phoneNumber() {
     return this.getStringAttribute('phone_number');
   }
@@ -1415,7 +1415,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -1431,7 +1431,7 @@ export class Route53DomainsRegisteredDomainTechContactOutputReference extends cd
   }
 
   // zip_code - computed: true, optional: true, required: false
-  private _zipCode?: string; 
+  private _zipCode?: string;
   public get zipCode() {
     return this.getStringAttribute('zip_code');
   }
@@ -1517,7 +1517,7 @@ export class Route53DomainsRegisteredDomainTimeoutsOutputReference extends cdktf
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1533,7 +1533,7 @@ export class Route53DomainsRegisteredDomainTimeoutsOutputReference extends cdktf
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1617,7 +1617,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // admin_privacy - computed: false, optional: true, required: false
-  private _adminPrivacy?: boolean | cdktf.IResolvable; 
+  private _adminPrivacy?: boolean | cdktf.IResolvable;
   public get adminPrivacy() {
     return this.getBooleanAttribute('admin_privacy');
   }
@@ -1633,7 +1633,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // auto_renew - computed: false, optional: true, required: false
-  private _autoRenew?: boolean | cdktf.IResolvable; 
+  private _autoRenew?: boolean | cdktf.IResolvable;
   public get autoRenew() {
     return this.getBooleanAttribute('auto_renew');
   }
@@ -1654,7 +1654,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -1672,7 +1672,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1688,7 +1688,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // registrant_privacy - computed: false, optional: true, required: false
-  private _registrantPrivacy?: boolean | cdktf.IResolvable; 
+  private _registrantPrivacy?: boolean | cdktf.IResolvable;
   public get registrantPrivacy() {
     return this.getBooleanAttribute('registrant_privacy');
   }
@@ -1724,7 +1724,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1740,7 +1740,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1756,7 +1756,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // tech_privacy - computed: false, optional: true, required: false
-  private _techPrivacy?: boolean | cdktf.IResolvable; 
+  private _techPrivacy?: boolean | cdktf.IResolvable;
   public get techPrivacy() {
     return this.getBooleanAttribute('tech_privacy');
   }
@@ -1772,7 +1772,7 @@ export class Route53DomainsRegisteredDomain extends cdktf.TerraformResource {
   }
 
   // transfer_lock - computed: false, optional: true, required: false
-  private _transferLock?: boolean | cdktf.IResolvable; 
+  private _transferLock?: boolean | cdktf.IResolvable;
   public get transferLock() {
     return this.getBooleanAttribute('transfer_lock');
   }

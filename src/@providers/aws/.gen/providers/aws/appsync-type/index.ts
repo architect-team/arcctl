@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_type
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -94,7 +94,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   }
 
   // definition - computed: false, optional: false, required: true
-  private _definition?: string; 
+  private _definition?: string;
   public get definition() {
     return this.getStringAttribute('definition');
   }
@@ -112,7 +112,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string; 
+  private _format?: string;
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -125,7 +125,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

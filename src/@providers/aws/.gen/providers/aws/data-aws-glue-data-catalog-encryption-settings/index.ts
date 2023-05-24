@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/glue_data_catalog_encryption_settings
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -275,7 +275,7 @@ export class DataAwsGlueDataCatalogEncryptionSettings extends cdktf.TerraformDat
   // ==========
 
   // catalog_id - computed: false, optional: false, required: true
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -294,7 +294,7 @@ export class DataAwsGlueDataCatalogEncryptionSettings extends cdktf.TerraformDat
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

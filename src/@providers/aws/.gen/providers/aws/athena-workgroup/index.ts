@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/athena_workgroup
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface AthenaWorkgroupConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_workgroup#configuration AthenaWorkgroup#configuration}
   */
   readonly configuration?: AthenaWorkgroupConfiguration;
@@ -100,7 +100,7 @@ export class AthenaWorkgroupConfigurationEngineVersionOutputReference extends cd
   }
 
   // selected_engine_version - computed: false, optional: true, required: false
-  private _selectedEngineVersion?: string; 
+  private _selectedEngineVersion?: string;
   public get selectedEngineVersion() {
     return this.getStringAttribute('selected_engine_version');
   }
@@ -165,7 +165,7 @@ export class AthenaWorkgroupConfigurationResultConfigurationAclConfigurationOutp
   }
 
   // s3_acl_option - computed: false, optional: false, required: true
-  private _s3AclOption?: string; 
+  private _s3AclOption?: string;
   public get s3AclOption() {
     return this.getStringAttribute('s3_acl_option');
   }
@@ -238,7 +238,7 @@ export class AthenaWorkgroupConfigurationResultConfigurationEncryptionConfigurat
   }
 
   // encryption_option - computed: false, optional: true, required: false
-  private _encryptionOption?: string; 
+  private _encryptionOption?: string;
   public get encryptionOption() {
     return this.getStringAttribute('encryption_option');
   }
@@ -254,7 +254,7 @@ export class AthenaWorkgroupConfigurationResultConfigurationEncryptionConfigurat
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -280,13 +280,13 @@ export interface AthenaWorkgroupConfigurationResultConfiguration {
   readonly outputLocation?: string;
   /**
   * acl_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_workgroup#acl_configuration AthenaWorkgroup#acl_configuration}
   */
   readonly aclConfiguration?: AthenaWorkgroupConfigurationResultConfigurationAclConfiguration;
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_workgroup#encryption_configuration AthenaWorkgroup#encryption_configuration}
   */
   readonly encryptionConfiguration?: AthenaWorkgroupConfigurationResultConfigurationEncryptionConfiguration;
@@ -356,7 +356,7 @@ export class AthenaWorkgroupConfigurationResultConfigurationOutputReference exte
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -372,7 +372,7 @@ export class AthenaWorkgroupConfigurationResultConfigurationOutputReference exte
   }
 
   // output_location - computed: false, optional: true, required: false
-  private _outputLocation?: string; 
+  private _outputLocation?: string;
   public get outputLocation() {
     return this.getStringAttribute('output_location');
   }
@@ -442,13 +442,13 @@ export interface AthenaWorkgroupConfiguration {
   readonly requesterPaysEnabled?: boolean | cdktf.IResolvable;
   /**
   * engine_version block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_workgroup#engine_version AthenaWorkgroup#engine_version}
   */
   readonly engineVersion?: AthenaWorkgroupConfigurationEngineVersion;
   /**
   * result_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_workgroup#result_configuration AthenaWorkgroup#result_configuration}
   */
   readonly resultConfiguration?: AthenaWorkgroupConfigurationResultConfiguration;
@@ -539,7 +539,7 @@ export class AthenaWorkgroupConfigurationOutputReference extends cdktf.ComplexOb
   }
 
   // bytes_scanned_cutoff_per_query - computed: false, optional: true, required: false
-  private _bytesScannedCutoffPerQuery?: number; 
+  private _bytesScannedCutoffPerQuery?: number;
   public get bytesScannedCutoffPerQuery() {
     return this.getNumberAttribute('bytes_scanned_cutoff_per_query');
   }
@@ -555,7 +555,7 @@ export class AthenaWorkgroupConfigurationOutputReference extends cdktf.ComplexOb
   }
 
   // enforce_workgroup_configuration - computed: false, optional: true, required: false
-  private _enforceWorkgroupConfiguration?: boolean | cdktf.IResolvable; 
+  private _enforceWorkgroupConfiguration?: boolean | cdktf.IResolvable;
   public get enforceWorkgroupConfiguration() {
     return this.getBooleanAttribute('enforce_workgroup_configuration');
   }
@@ -571,7 +571,7 @@ export class AthenaWorkgroupConfigurationOutputReference extends cdktf.ComplexOb
   }
 
   // execution_role - computed: false, optional: true, required: false
-  private _executionRole?: string; 
+  private _executionRole?: string;
   public get executionRole() {
     return this.getStringAttribute('execution_role');
   }
@@ -587,7 +587,7 @@ export class AthenaWorkgroupConfigurationOutputReference extends cdktf.ComplexOb
   }
 
   // publish_cloudwatch_metrics_enabled - computed: false, optional: true, required: false
-  private _publishCloudwatchMetricsEnabled?: boolean | cdktf.IResolvable; 
+  private _publishCloudwatchMetricsEnabled?: boolean | cdktf.IResolvable;
   public get publishCloudwatchMetricsEnabled() {
     return this.getBooleanAttribute('publish_cloudwatch_metrics_enabled');
   }
@@ -603,7 +603,7 @@ export class AthenaWorkgroupConfigurationOutputReference extends cdktf.ComplexOb
   }
 
   // requester_pays_enabled - computed: false, optional: true, required: false
-  private _requesterPaysEnabled?: boolean | cdktf.IResolvable; 
+  private _requesterPaysEnabled?: boolean | cdktf.IResolvable;
   public get requesterPaysEnabled() {
     return this.getBooleanAttribute('requester_pays_enabled');
   }
@@ -708,7 +708,7 @@ export class AthenaWorkgroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -724,7 +724,7 @@ export class AthenaWorkgroup extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -740,7 +740,7 @@ export class AthenaWorkgroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -756,7 +756,7 @@ export class AthenaWorkgroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -769,7 +769,7 @@ export class AthenaWorkgroup extends cdktf.TerraformResource {
   }
 
   // state - computed: false, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -785,7 +785,7 @@ export class AthenaWorkgroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -801,7 +801,7 @@ export class AthenaWorkgroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

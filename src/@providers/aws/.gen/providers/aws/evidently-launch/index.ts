@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/evidently_launch
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,25 +40,25 @@ export interface EvidentlyLaunchConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * groups block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_launch#groups EvidentlyLaunch#groups}
   */
   readonly groups: EvidentlyLaunchGroups[] | cdktf.IResolvable;
   /**
   * metric_monitors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_launch#metric_monitors EvidentlyLaunch#metric_monitors}
   */
   readonly metricMonitors?: EvidentlyLaunchMetricMonitors[] | cdktf.IResolvable;
   /**
   * scheduled_splits_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_launch#scheduled_splits_config EvidentlyLaunch#scheduled_splits_config}
   */
   readonly scheduledSplitsConfig?: EvidentlyLaunchScheduledSplitsConfig;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_launch#timeouts EvidentlyLaunch#timeouts}
   */
   readonly timeouts?: EvidentlyLaunchTimeouts;
@@ -227,7 +227,7 @@ export class EvidentlyLaunchGroupsOutputReference extends cdktf.ComplexObject {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -243,7 +243,7 @@ export class EvidentlyLaunchGroupsOutputReference extends cdktf.ComplexObject {
   }
 
   // feature - computed: false, optional: false, required: true
-  private _feature?: string; 
+  private _feature?: string;
   public get feature() {
     return this.getStringAttribute('feature');
   }
@@ -256,7 +256,7 @@ export class EvidentlyLaunchGroupsOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -269,7 +269,7 @@ export class EvidentlyLaunchGroupsOutputReference extends cdktf.ComplexObject {
   }
 
   // variation - computed: false, optional: false, required: true
-  private _variation?: string; 
+  private _variation?: string;
   public get variation() {
     return this.getStringAttribute('variation');
   }
@@ -395,7 +395,7 @@ export class EvidentlyLaunchMetricMonitorsMetricDefinitionOutputReference extend
   }
 
   // entity_id_key - computed: false, optional: false, required: true
-  private _entityIdKey?: string; 
+  private _entityIdKey?: string;
   public get entityIdKey() {
     return this.getStringAttribute('entity_id_key');
   }
@@ -408,7 +408,7 @@ export class EvidentlyLaunchMetricMonitorsMetricDefinitionOutputReference extend
   }
 
   // event_pattern - computed: false, optional: true, required: false
-  private _eventPattern?: string; 
+  private _eventPattern?: string;
   public get eventPattern() {
     return this.getStringAttribute('event_pattern');
   }
@@ -424,7 +424,7 @@ export class EvidentlyLaunchMetricMonitorsMetricDefinitionOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -437,7 +437,7 @@ export class EvidentlyLaunchMetricMonitorsMetricDefinitionOutputReference extend
   }
 
   // unit_label - computed: false, optional: true, required: false
-  private _unitLabel?: string; 
+  private _unitLabel?: string;
   public get unitLabel() {
     return this.getStringAttribute('unit_label');
   }
@@ -453,7 +453,7 @@ export class EvidentlyLaunchMetricMonitorsMetricDefinitionOutputReference extend
   }
 
   // value_key - computed: false, optional: false, required: true
-  private _valueKey?: string; 
+  private _valueKey?: string;
   public get valueKey() {
     return this.getStringAttribute('value_key');
   }
@@ -468,7 +468,7 @@ export class EvidentlyLaunchMetricMonitorsMetricDefinitionOutputReference extend
 export interface EvidentlyLaunchMetricMonitors {
   /**
   * metric_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_launch#metric_definition EvidentlyLaunch#metric_definition}
   */
   readonly metricDefinition: EvidentlyLaunchMetricMonitorsMetricDefinition;
@@ -645,7 +645,7 @@ export class EvidentlyLaunchScheduledSplitsConfigStepsSegmentOverridesOutputRefe
   }
 
   // evaluation_order - computed: false, optional: false, required: true
-  private _evaluationOrder?: number; 
+  private _evaluationOrder?: number;
   public get evaluationOrder() {
     return this.getNumberAttribute('evaluation_order');
   }
@@ -658,7 +658,7 @@ export class EvidentlyLaunchScheduledSplitsConfigStepsSegmentOverridesOutputRefe
   }
 
   // segment - computed: false, optional: false, required: true
-  private _segment?: string; 
+  private _segment?: string;
   public get segment() {
     return this.getStringAttribute('segment');
   }
@@ -671,7 +671,7 @@ export class EvidentlyLaunchScheduledSplitsConfigStepsSegmentOverridesOutputRefe
   }
 
   // weights - computed: false, optional: false, required: true
-  private _weights?: { [key: string]: number }; 
+  private _weights?: { [key: string]: number };
   public get weights() {
     return this.getNumberMapAttribute('weights');
   }
@@ -714,7 +714,7 @@ export interface EvidentlyLaunchScheduledSplitsConfigSteps {
   readonly startTime: string;
   /**
   * segment_overrides block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_launch#segment_overrides EvidentlyLaunch#segment_overrides}
   */
   readonly segmentOverrides?: EvidentlyLaunchScheduledSplitsConfigStepsSegmentOverrides[] | cdktf.IResolvable;
@@ -789,7 +789,7 @@ export class EvidentlyLaunchScheduledSplitsConfigStepsOutputReference extends cd
   }
 
   // group_weights - computed: false, optional: false, required: true
-  private _groupWeights?: { [key: string]: number }; 
+  private _groupWeights?: { [key: string]: number };
   public get groupWeights() {
     return this.getNumberMapAttribute('group_weights');
   }
@@ -802,7 +802,7 @@ export class EvidentlyLaunchScheduledSplitsConfigStepsOutputReference extends cd
   }
 
   // start_time - computed: false, optional: false, required: true
-  private _startTime?: string; 
+  private _startTime?: string;
   public get startTime() {
     return this.getStringAttribute('start_time');
   }
@@ -853,7 +853,7 @@ export class EvidentlyLaunchScheduledSplitsConfigStepsList extends cdktf.Complex
 export interface EvidentlyLaunchScheduledSplitsConfig {
   /**
   * steps block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_launch#steps EvidentlyLaunch#steps}
   */
   readonly steps: EvidentlyLaunchScheduledSplitsConfigSteps[] | cdktf.IResolvable;
@@ -996,7 +996,7 @@ export class EvidentlyLaunchTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1012,7 +1012,7 @@ export class EvidentlyLaunchTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1028,7 +1028,7 @@ export class EvidentlyLaunchTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1109,7 +1109,7 @@ export class EvidentlyLaunch extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1131,7 +1131,7 @@ export class EvidentlyLaunch extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1152,7 +1152,7 @@ export class EvidentlyLaunch extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1165,7 +1165,7 @@ export class EvidentlyLaunch extends cdktf.TerraformResource {
   }
 
   // project - computed: false, optional: false, required: true
-  private _project?: string; 
+  private _project?: string;
   public get project() {
     return this.getStringAttribute('project');
   }
@@ -1178,7 +1178,7 @@ export class EvidentlyLaunch extends cdktf.TerraformResource {
   }
 
   // randomization_salt - computed: false, optional: true, required: false
-  private _randomizationSalt?: string; 
+  private _randomizationSalt?: string;
   public get randomizationSalt() {
     return this.getStringAttribute('randomization_salt');
   }
@@ -1204,7 +1204,7 @@ export class EvidentlyLaunch extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1220,7 +1220,7 @@ export class EvidentlyLaunch extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/container_registry
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -115,7 +115,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -141,7 +141,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // subscription_tier_slug - computed: false, optional: false, required: true
-  private _subscriptionTierSlug?: string; 
+  private _subscriptionTierSlug?: string;
   public get subscriptionTierSlug() {
     return this.getStringAttribute('subscription_tier_slug');
   }

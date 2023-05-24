@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_deployment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -119,7 +119,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // configuration_profile_id - computed: false, optional: false, required: true
-  private _configurationProfileId?: string; 
+  private _configurationProfileId?: string;
   public get configurationProfileId() {
     return this.getStringAttribute('configuration_profile_id');
   }
@@ -132,7 +132,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // configuration_version - computed: false, optional: false, required: true
-  private _configurationVersion?: string; 
+  private _configurationVersion?: string;
   public get configurationVersion() {
     return this.getStringAttribute('configuration_version');
   }
@@ -150,7 +150,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // deployment_strategy_id - computed: false, optional: false, required: true
-  private _deploymentStrategyId?: string; 
+  private _deploymentStrategyId?: string;
   public get deploymentStrategyId() {
     return this.getStringAttribute('deployment_strategy_id');
   }
@@ -163,7 +163,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -179,7 +179,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // environment_id - computed: false, optional: false, required: true
-  private _environmentId?: string; 
+  private _environmentId?: string;
   public get environmentId() {
     return this.getStringAttribute('environment_id');
   }
@@ -192,7 +192,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -213,7 +213,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -229,7 +229,7 @@ export class AppconfigDeployment extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ce_tags
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,19 +24,19 @@ export interface DataAwsCeTagsConfig extends cdktf.TerraformMetaArguments {
   readonly tagKey?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#filter DataAwsCeTags#filter}
   */
   readonly filter?: DataAwsCeTagsFilter;
   /**
   * sort_by block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#sort_by DataAwsCeTags#sort_by}
   */
   readonly sortBy?: DataAwsCeTagsSortBy[] | cdktf.IResolvable;
   /**
   * time_period block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#time_period DataAwsCeTags#time_period}
   */
   readonly timePeriod: DataAwsCeTagsTimePeriod;
@@ -113,7 +113,7 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -129,7 +129,7 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -145,7 +145,7 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -232,7 +232,7 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -248,7 +248,7 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -264,7 +264,7 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -351,7 +351,7 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -367,7 +367,7 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -383,7 +383,7 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -401,19 +401,19 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
 export interface DataAwsCeTagsFilterAnd {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
   */
   readonly costCategory?: DataAwsCeTagsFilterAndCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
   */
   readonly dimension?: DataAwsCeTagsFilterAndDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
   */
   readonly tags?: DataAwsCeTagsFilterAndTags;
@@ -627,7 +627,7 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -643,7 +643,7 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -659,7 +659,7 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -746,7 +746,7 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -762,7 +762,7 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -778,7 +778,7 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -865,7 +865,7 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -881,7 +881,7 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -897,7 +897,7 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -984,7 +984,7 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1000,7 +1000,7 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1016,7 +1016,7 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1103,7 +1103,7 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1119,7 +1119,7 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1135,7 +1135,7 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1153,19 +1153,19 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
 export interface DataAwsCeTagsFilterNot {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
   */
   readonly costCategory?: DataAwsCeTagsFilterNotCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
   */
   readonly dimension?: DataAwsCeTagsFilterNotDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
   */
   readonly tags?: DataAwsCeTagsFilterNotTags;
@@ -1347,7 +1347,7 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1363,7 +1363,7 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1379,7 +1379,7 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1466,7 +1466,7 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1482,7 +1482,7 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1498,7 +1498,7 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1585,7 +1585,7 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1601,7 +1601,7 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1617,7 +1617,7 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1635,19 +1635,19 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
 export interface DataAwsCeTagsFilterOr {
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
   */
   readonly costCategory?: DataAwsCeTagsFilterOrCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
   */
   readonly dimension?: DataAwsCeTagsFilterOrDimension;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
   */
   readonly tags?: DataAwsCeTagsFilterOrTags;
@@ -1861,7 +1861,7 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1877,7 +1877,7 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[]; 
+  private _matchOptions?: string[];
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1893,7 +1893,7 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1911,37 +1911,37 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
 export interface DataAwsCeTagsFilter {
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#and DataAwsCeTags#and}
   */
   readonly and?: DataAwsCeTagsFilterAnd[] | cdktf.IResolvable;
   /**
   * cost_category block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
   */
   readonly costCategory?: DataAwsCeTagsFilterCostCategory;
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
   */
   readonly dimension?: DataAwsCeTagsFilterDimension;
   /**
   * not block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#not DataAwsCeTags#not}
   */
   readonly not?: DataAwsCeTagsFilterNot;
   /**
   * or block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#or DataAwsCeTags#or}
   */
   readonly or?: DataAwsCeTagsFilterOr[] | cdktf.IResolvable;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
   */
   readonly tags?: DataAwsCeTagsFilterTags;
@@ -2193,7 +2193,7 @@ export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2209,7 +2209,7 @@ export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
   }
 
   // sort_order - computed: false, optional: true, required: false
-  private _sortOrder?: string; 
+  private _sortOrder?: string;
   public get sortOrder() {
     return this.getStringAttribute('sort_order');
   }
@@ -2305,7 +2305,7 @@ export class DataAwsCeTagsTimePeriodOutputReference extends cdktf.ComplexObject 
   }
 
   // end - computed: false, optional: false, required: true
-  private _end?: string; 
+  private _end?: string;
   public get end() {
     return this.getStringAttribute('end');
   }
@@ -2318,7 +2318,7 @@ export class DataAwsCeTagsTimePeriodOutputReference extends cdktf.ComplexObject 
   }
 
   // start - computed: false, optional: false, required: true
-  private _start?: string; 
+  private _start?: string;
   public get start() {
     return this.getStringAttribute('start');
   }
@@ -2381,7 +2381,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2397,7 +2397,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   }
 
   // search_string - computed: false, optional: true, required: false
-  private _searchString?: string; 
+  private _searchString?: string;
   public get searchString() {
     return this.getStringAttribute('search_string');
   }
@@ -2413,7 +2413,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   }
 
   // tag_key - computed: false, optional: true, required: false
-  private _tagKey?: string; 
+  private _tagKey?: string;
   public get tagKey() {
     return this.getStringAttribute('tag_key');
   }

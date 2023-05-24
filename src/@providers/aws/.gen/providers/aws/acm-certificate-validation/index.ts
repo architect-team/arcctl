@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface AcmCertificateValidationConfig extends cdktf.TerraformMetaArgum
   readonly validationRecordFqdns?: string[];
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation#timeouts AcmCertificateValidation#timeouts}
   */
   readonly timeouts?: AcmCertificateValidationTimeouts;
@@ -89,7 +89,7 @@ export class AcmCertificateValidationTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -153,7 +153,7 @@ export class AcmCertificateValidation extends cdktf.TerraformResource {
   // ==========
 
   // certificate_arn - computed: false, optional: false, required: true
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -166,7 +166,7 @@ export class AcmCertificateValidation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -182,7 +182,7 @@ export class AcmCertificateValidation extends cdktf.TerraformResource {
   }
 
   // validation_record_fqdns - computed: false, optional: true, required: false
-  private _validationRecordFqdns?: string[]; 
+  private _validationRecordFqdns?: string[];
   public get validationRecordFqdns() {
     return cdktf.Fn.tolist(this.getListAttribute('validation_record_fqdns'));
   }

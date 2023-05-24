@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_notification
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class VpcEndpointConnectionNotification extends cdktf.TerraformResource {
   // ==========
 
   // connection_events - computed: false, optional: false, required: true
-  private _connectionEvents?: string[]; 
+  private _connectionEvents?: string[];
   public get connectionEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('connection_events'));
   }
@@ -94,7 +94,7 @@ export class VpcEndpointConnectionNotification extends cdktf.TerraformResource {
   }
 
   // connection_notification_arn - computed: false, optional: false, required: true
-  private _connectionNotificationArn?: string; 
+  private _connectionNotificationArn?: string;
   public get connectionNotificationArn() {
     return this.getStringAttribute('connection_notification_arn');
   }
@@ -107,7 +107,7 @@ export class VpcEndpointConnectionNotification extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -133,7 +133,7 @@ export class VpcEndpointConnectionNotification extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_id - computed: false, optional: true, required: false
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }
@@ -149,7 +149,7 @@ export class VpcEndpointConnectionNotification extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_service_id - computed: false, optional: true, required: false
-  private _vpcEndpointServiceId?: string; 
+  private _vpcEndpointServiceId?: string;
   public get vpcEndpointServiceId() {
     return this.getStringAttribute('vpc_endpoint_service_id');
   }

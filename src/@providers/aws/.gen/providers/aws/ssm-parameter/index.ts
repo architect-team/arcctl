@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_parameter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -126,7 +126,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   // ==========
 
   // allowed_pattern - computed: false, optional: true, required: false
-  private _allowedPattern?: string; 
+  private _allowedPattern?: string;
   public get allowedPattern() {
     return this.getStringAttribute('allowed_pattern');
   }
@@ -142,7 +142,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -158,7 +158,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // data_type - computed: true, optional: true, required: false
-  private _dataType?: string; 
+  private _dataType?: string;
   public get dataType() {
     return this.getStringAttribute('data_type');
   }
@@ -174,7 +174,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -190,7 +190,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -206,7 +206,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // insecure_value - computed: true, optional: true, required: false
-  private _insecureValue?: string; 
+  private _insecureValue?: string;
   public get insecureValue() {
     return this.getStringAttribute('insecure_value');
   }
@@ -222,7 +222,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // key_id - computed: true, optional: true, required: false
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -238,7 +238,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -251,7 +251,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // overwrite - computed: false, optional: true, required: false
-  private _overwrite?: boolean | cdktf.IResolvable; 
+  private _overwrite?: boolean | cdktf.IResolvable;
   public get overwrite() {
     return this.getBooleanAttribute('overwrite');
   }
@@ -267,7 +267,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -283,7 +283,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -299,7 +299,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // tier - computed: true, optional: true, required: false
-  private _tier?: string; 
+  private _tier?: string;
   public get tier() {
     return this.getStringAttribute('tier');
   }
@@ -315,7 +315,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -328,7 +328,7 @@ export class SsmParameter extends cdktf.TerraformResource {
   }
 
   // value - computed: true, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }

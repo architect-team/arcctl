@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,25 +72,25 @@ export interface LoadbalancerConfig extends cdktf.TerraformMetaArguments {
   readonly vpcUuid?: string;
   /**
   * firewall block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#firewall Loadbalancer#firewall}
   */
   readonly firewall?: LoadbalancerFirewall;
   /**
   * forwarding_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#forwarding_rule Loadbalancer#forwarding_rule}
   */
   readonly forwardingRule: LoadbalancerForwardingRule[] | cdktf.IResolvable;
   /**
   * healthcheck block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#healthcheck Loadbalancer#healthcheck}
   */
   readonly healthcheck?: LoadbalancerHealthcheck;
   /**
   * sticky_sessions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#sticky_sessions Loadbalancer#sticky_sessions}
   */
   readonly stickySessions?: LoadbalancerStickySessions;
@@ -98,13 +98,13 @@ export interface LoadbalancerConfig extends cdktf.TerraformMetaArguments {
 export interface LoadbalancerFirewall {
   /**
   * the rules for ALLOWING traffic to the LB (strings in the form: 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#allow Loadbalancer#allow}
   */
   readonly allow?: string[];
   /**
   * the rules for DENYING traffic to the LB (strings in the form: 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#deny Loadbalancer#deny}
   */
   readonly deny?: string[];
@@ -160,7 +160,7 @@ export class LoadbalancerFirewallOutputReference extends cdktf.ComplexObject {
   }
 
   // allow - computed: false, optional: true, required: false
-  private _allow?: string[]; 
+  private _allow?: string[];
   public get allow() {
     return this.getListAttribute('allow');
   }
@@ -176,7 +176,7 @@ export class LoadbalancerFirewallOutputReference extends cdktf.ComplexObject {
   }
 
   // deny - computed: false, optional: true, required: false
-  private _deny?: string[]; 
+  private _deny?: string[];
   public get deny() {
     return this.getListAttribute('deny');
   }
@@ -319,7 +319,7 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   }
 
   // certificate_id - computed: true, optional: true, required: false
-  private _certificateId?: string; 
+  private _certificateId?: string;
   public get certificateId() {
     return this.getStringAttribute('certificate_id');
   }
@@ -335,7 +335,7 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   }
 
   // certificate_name - computed: true, optional: true, required: false
-  private _certificateName?: string; 
+  private _certificateName?: string;
   public get certificateName() {
     return this.getStringAttribute('certificate_name');
   }
@@ -351,7 +351,7 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   }
 
   // entry_port - computed: false, optional: false, required: true
-  private _entryPort?: number; 
+  private _entryPort?: number;
   public get entryPort() {
     return this.getNumberAttribute('entry_port');
   }
@@ -364,7 +364,7 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   }
 
   // entry_protocol - computed: false, optional: false, required: true
-  private _entryProtocol?: string; 
+  private _entryProtocol?: string;
   public get entryProtocol() {
     return this.getStringAttribute('entry_protocol');
   }
@@ -377,7 +377,7 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   }
 
   // target_port - computed: false, optional: false, required: true
-  private _targetPort?: number; 
+  private _targetPort?: number;
   public get targetPort() {
     return this.getNumberAttribute('target_port');
   }
@@ -390,7 +390,7 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   }
 
   // target_protocol - computed: false, optional: false, required: true
-  private _targetProtocol?: string; 
+  private _targetProtocol?: string;
   public get targetProtocol() {
     return this.getStringAttribute('target_protocol');
   }
@@ -403,7 +403,7 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   }
 
   // tls_passthrough - computed: false, optional: true, required: false
-  private _tlsPassthrough?: boolean | cdktf.IResolvable; 
+  private _tlsPassthrough?: boolean | cdktf.IResolvable;
   public get tlsPassthrough() {
     return this.getBooleanAttribute('tls_passthrough');
   }
@@ -554,7 +554,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
   }
 
   // check_interval_seconds - computed: false, optional: true, required: false
-  private _checkIntervalSeconds?: number; 
+  private _checkIntervalSeconds?: number;
   public get checkIntervalSeconds() {
     return this.getNumberAttribute('check_interval_seconds');
   }
@@ -570,7 +570,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
   }
 
   // healthy_threshold - computed: false, optional: true, required: false
-  private _healthyThreshold?: number; 
+  private _healthyThreshold?: number;
   public get healthyThreshold() {
     return this.getNumberAttribute('healthy_threshold');
   }
@@ -586,7 +586,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -602,7 +602,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -615,7 +615,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -628,7 +628,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
   }
 
   // response_timeout_seconds - computed: false, optional: true, required: false
-  private _responseTimeoutSeconds?: number; 
+  private _responseTimeoutSeconds?: number;
   public get responseTimeoutSeconds() {
     return this.getNumberAttribute('response_timeout_seconds');
   }
@@ -644,7 +644,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
   }
 
   // unhealthy_threshold - computed: false, optional: true, required: false
-  private _unhealthyThreshold?: number; 
+  private _unhealthyThreshold?: number;
   public get unhealthyThreshold() {
     return this.getNumberAttribute('unhealthy_threshold');
   }
@@ -731,7 +731,7 @@ export class LoadbalancerStickySessionsOutputReference extends cdktf.ComplexObje
   }
 
   // cookie_name - computed: false, optional: true, required: false
-  private _cookieName?: string; 
+  private _cookieName?: string;
   public get cookieName() {
     return this.getStringAttribute('cookie_name');
   }
@@ -747,7 +747,7 @@ export class LoadbalancerStickySessionsOutputReference extends cdktf.ComplexObje
   }
 
   // cookie_ttl_seconds - computed: false, optional: true, required: false
-  private _cookieTtlSeconds?: number; 
+  private _cookieTtlSeconds?: number;
   public get cookieTtlSeconds() {
     return this.getNumberAttribute('cookie_ttl_seconds');
   }
@@ -763,7 +763,7 @@ export class LoadbalancerStickySessionsOutputReference extends cdktf.ComplexObje
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -842,7 +842,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   // ==========
 
   // algorithm - computed: false, optional: true, required: false
-  private _algorithm?: string; 
+  private _algorithm?: string;
   public get algorithm() {
     return this.getStringAttribute('algorithm');
   }
@@ -858,7 +858,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // disable_lets_encrypt_dns_records - computed: false, optional: true, required: false
-  private _disableLetsEncryptDnsRecords?: boolean | cdktf.IResolvable; 
+  private _disableLetsEncryptDnsRecords?: boolean | cdktf.IResolvable;
   public get disableLetsEncryptDnsRecords() {
     return this.getBooleanAttribute('disable_lets_encrypt_dns_records');
   }
@@ -874,7 +874,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // droplet_ids - computed: true, optional: true, required: false
-  private _dropletIds?: number[]; 
+  private _dropletIds?: number[];
   public get dropletIds() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')));
   }
@@ -890,7 +890,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // droplet_tag - computed: false, optional: true, required: false
-  private _dropletTag?: string; 
+  private _dropletTag?: string;
   public get dropletTag() {
     return this.getStringAttribute('droplet_tag');
   }
@@ -906,7 +906,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // enable_backend_keepalive - computed: false, optional: true, required: false
-  private _enableBackendKeepalive?: boolean | cdktf.IResolvable; 
+  private _enableBackendKeepalive?: boolean | cdktf.IResolvable;
   public get enableBackendKeepalive() {
     return this.getBooleanAttribute('enable_backend_keepalive');
   }
@@ -922,7 +922,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // enable_proxy_protocol - computed: false, optional: true, required: false
-  private _enableProxyProtocol?: boolean | cdktf.IResolvable; 
+  private _enableProxyProtocol?: boolean | cdktf.IResolvable;
   public get enableProxyProtocol() {
     return this.getBooleanAttribute('enable_proxy_protocol');
   }
@@ -938,7 +938,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // http_idle_timeout_seconds - computed: true, optional: true, required: false
-  private _httpIdleTimeoutSeconds?: number; 
+  private _httpIdleTimeoutSeconds?: number;
   public get httpIdleTimeoutSeconds() {
     return this.getNumberAttribute('http_idle_timeout_seconds');
   }
@@ -954,7 +954,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -975,7 +975,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -988,7 +988,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // project_id - computed: true, optional: true, required: false
-  private _projectId?: string; 
+  private _projectId?: string;
   public get projectId() {
     return this.getStringAttribute('project_id');
   }
@@ -1004,7 +1004,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // redirect_http_to_https - computed: false, optional: true, required: false
-  private _redirectHttpToHttps?: boolean | cdktf.IResolvable; 
+  private _redirectHttpToHttps?: boolean | cdktf.IResolvable;
   public get redirectHttpToHttps() {
     return this.getBooleanAttribute('redirect_http_to_https');
   }
@@ -1020,7 +1020,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -1033,7 +1033,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: true, required: false
-  private _size?: string; 
+  private _size?: string;
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -1049,7 +1049,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // size_unit - computed: true, optional: true, required: false
-  private _sizeUnit?: number; 
+  private _sizeUnit?: number;
   public get sizeUnit() {
     return this.getNumberAttribute('size_unit');
   }
@@ -1075,7 +1075,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // vpc_uuid - computed: true, optional: true, required: false
-  private _vpcUuid?: string; 
+  private _vpcUuid?: string;
   public get vpcUuid() {
     return this.getStringAttribute('vpc_uuid');
   }

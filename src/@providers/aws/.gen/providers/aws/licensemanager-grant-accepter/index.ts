@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/licensemanager_grant_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface LicensemanagerGrantAccepterConfig extends cdktf.TerraformMetaArguments {
   /**
   * Amazon Resource Name (ARN) of the grant.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/licensemanager_grant_accepter#grant_arn LicensemanagerGrantAccepter#grant_arn}
   */
   readonly grantArn: string;
@@ -73,7 +73,7 @@ export class LicensemanagerGrantAccepter extends cdktf.TerraformResource {
   }
 
   // grant_arn - computed: false, optional: false, required: true
-  private _grantArn?: string; 
+  private _grantArn?: string;
   public get grantArn() {
     return this.getStringAttribute('grant_arn');
   }
@@ -91,7 +91,7 @@ export class LicensemanagerGrantAccepter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

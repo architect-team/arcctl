@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export interface VpcIpamPoolConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool#timeouts VpcIpamPool#timeouts}
   */
   readonly timeouts?: VpcIpamPoolTimeouts;
@@ -163,7 +163,7 @@ export class VpcIpamPoolTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -179,7 +179,7 @@ export class VpcIpamPoolTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -195,7 +195,7 @@ export class VpcIpamPoolTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -272,7 +272,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   // ==========
 
   // address_family - computed: false, optional: false, required: true
-  private _addressFamily?: string; 
+  private _addressFamily?: string;
   public get addressFamily() {
     return this.getStringAttribute('address_family');
   }
@@ -285,7 +285,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // allocation_default_netmask_length - computed: false, optional: true, required: false
-  private _allocationDefaultNetmaskLength?: number; 
+  private _allocationDefaultNetmaskLength?: number;
   public get allocationDefaultNetmaskLength() {
     return this.getNumberAttribute('allocation_default_netmask_length');
   }
@@ -301,7 +301,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // allocation_max_netmask_length - computed: false, optional: true, required: false
-  private _allocationMaxNetmaskLength?: number; 
+  private _allocationMaxNetmaskLength?: number;
   public get allocationMaxNetmaskLength() {
     return this.getNumberAttribute('allocation_max_netmask_length');
   }
@@ -317,7 +317,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // allocation_min_netmask_length - computed: false, optional: true, required: false
-  private _allocationMinNetmaskLength?: number; 
+  private _allocationMinNetmaskLength?: number;
   public get allocationMinNetmaskLength() {
     return this.getNumberAttribute('allocation_min_netmask_length');
   }
@@ -333,7 +333,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // allocation_resource_tags - computed: false, optional: true, required: false
-  private _allocationResourceTags?: { [key: string]: string }; 
+  private _allocationResourceTags?: { [key: string]: string };
   public get allocationResourceTags() {
     return this.getStringMapAttribute('allocation_resource_tags');
   }
@@ -354,7 +354,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // auto_import - computed: false, optional: true, required: false
-  private _autoImport?: boolean | cdktf.IResolvable; 
+  private _autoImport?: boolean | cdktf.IResolvable;
   public get autoImport() {
     return this.getBooleanAttribute('auto_import');
   }
@@ -370,7 +370,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // aws_service - computed: false, optional: true, required: false
-  private _awsService?: string; 
+  private _awsService?: string;
   public get awsService() {
     return this.getStringAttribute('aws_service');
   }
@@ -386,7 +386,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -402,7 +402,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -418,7 +418,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // ipam_scope_id - computed: false, optional: false, required: true
-  private _ipamScopeId?: string; 
+  private _ipamScopeId?: string;
   public get ipamScopeId() {
     return this.getStringAttribute('ipam_scope_id');
   }
@@ -436,7 +436,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // locale - computed: false, optional: true, required: false
-  private _locale?: string; 
+  private _locale?: string;
   public get locale() {
     return this.getStringAttribute('locale');
   }
@@ -457,7 +457,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // public_ip_source - computed: false, optional: true, required: false
-  private _publicIpSource?: string; 
+  private _publicIpSource?: string;
   public get publicIpSource() {
     return this.getStringAttribute('public_ip_source');
   }
@@ -473,7 +473,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // publicly_advertisable - computed: false, optional: true, required: false
-  private _publiclyAdvertisable?: boolean | cdktf.IResolvable; 
+  private _publiclyAdvertisable?: boolean | cdktf.IResolvable;
   public get publiclyAdvertisable() {
     return this.getBooleanAttribute('publicly_advertisable');
   }
@@ -489,7 +489,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // source_ipam_pool_id - computed: false, optional: true, required: false
-  private _sourceIpamPoolId?: string; 
+  private _sourceIpamPoolId?: string;
   public get sourceIpamPoolId() {
     return this.getStringAttribute('source_ipam_pool_id');
   }
@@ -510,7 +510,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -526,7 +526,7 @@ export class VpcIpamPool extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

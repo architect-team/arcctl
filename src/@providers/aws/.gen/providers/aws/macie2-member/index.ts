@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/macie2_member
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,7 +48,7 @@ export interface Macie2MemberConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_member#timeouts Macie2Member#timeouts}
   */
   readonly timeouts?: Macie2MemberTimeouts;
@@ -124,7 +124,7 @@ export class Macie2MemberTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -140,7 +140,7 @@ export class Macie2MemberTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -210,7 +210,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -233,7 +233,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // email - computed: false, optional: false, required: true
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -246,7 +246,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -262,7 +262,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // invitation_disable_email_notification - computed: false, optional: true, required: false
-  private _invitationDisableEmailNotification?: boolean | cdktf.IResolvable; 
+  private _invitationDisableEmailNotification?: boolean | cdktf.IResolvable;
   public get invitationDisableEmailNotification() {
     return this.getBooleanAttribute('invitation_disable_email_notification');
   }
@@ -278,7 +278,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // invitation_message - computed: false, optional: true, required: false
-  private _invitationMessage?: string; 
+  private _invitationMessage?: string;
   public get invitationMessage() {
     return this.getStringAttribute('invitation_message');
   }
@@ -294,7 +294,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // invite - computed: true, optional: true, required: false
-  private _invite?: boolean | cdktf.IResolvable; 
+  private _invite?: boolean | cdktf.IResolvable;
   public get invite() {
     return this.getBooleanAttribute('invite');
   }
@@ -325,7 +325,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // status - computed: true, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -341,7 +341,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -357,7 +357,7 @@ export class Macie2Member extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

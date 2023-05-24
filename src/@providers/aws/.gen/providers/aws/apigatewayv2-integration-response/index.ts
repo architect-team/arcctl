@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -104,7 +104,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // content_handling_strategy - computed: false, optional: true, required: false
-  private _contentHandlingStrategy?: string; 
+  private _contentHandlingStrategy?: string;
   public get contentHandlingStrategy() {
     return this.getStringAttribute('content_handling_strategy');
   }
@@ -120,7 +120,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -136,7 +136,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // integration_id - computed: false, optional: false, required: true
-  private _integrationId?: string; 
+  private _integrationId?: string;
   public get integrationId() {
     return this.getStringAttribute('integration_id');
   }
@@ -149,7 +149,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // integration_response_key - computed: false, optional: false, required: true
-  private _integrationResponseKey?: string; 
+  private _integrationResponseKey?: string;
   public get integrationResponseKey() {
     return this.getStringAttribute('integration_response_key');
   }
@@ -162,7 +162,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // response_templates - computed: false, optional: true, required: false
-  private _responseTemplates?: { [key: string]: string }; 
+  private _responseTemplates?: { [key: string]: string };
   public get responseTemplates() {
     return this.getStringMapAttribute('response_templates');
   }
@@ -178,7 +178,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // template_selection_expression - computed: false, optional: true, required: false
-  private _templateSelectionExpression?: string; 
+  private _templateSelectionExpression?: string;
   public get templateSelectionExpression() {
     return this.getStringAttribute('template_selection_expression');
   }

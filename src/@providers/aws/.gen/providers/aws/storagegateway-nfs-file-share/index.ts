@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/storagegateway_nfs_file_share
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -92,19 +92,19 @@ export interface StoragegatewayNfsFileShareConfig extends cdktf.TerraformMetaArg
   readonly vpcEndpointDnsName?: string;
   /**
   * cache_attributes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_nfs_file_share#cache_attributes StoragegatewayNfsFileShare#cache_attributes}
   */
   readonly cacheAttributes?: StoragegatewayNfsFileShareCacheAttributes;
   /**
   * nfs_file_share_defaults block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_nfs_file_share#nfs_file_share_defaults StoragegatewayNfsFileShare#nfs_file_share_defaults}
   */
   readonly nfsFileShareDefaults?: StoragegatewayNfsFileShareNfsFileShareDefaults;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_nfs_file_share#timeouts StoragegatewayNfsFileShare#timeouts}
   */
   readonly timeouts?: StoragegatewayNfsFileShareTimeouts;
@@ -159,7 +159,7 @@ export class StoragegatewayNfsFileShareCacheAttributesOutputReference extends cd
   }
 
   // cache_stale_timeout_in_seconds - computed: false, optional: true, required: false
-  private _cacheStaleTimeoutInSeconds?: number; 
+  private _cacheStaleTimeoutInSeconds?: number;
   public get cacheStaleTimeoutInSeconds() {
     return this.getNumberAttribute('cache_stale_timeout_in_seconds');
   }
@@ -257,7 +257,7 @@ export class StoragegatewayNfsFileShareNfsFileShareDefaultsOutputReference exten
   }
 
   // directory_mode - computed: false, optional: true, required: false
-  private _directoryMode?: string; 
+  private _directoryMode?: string;
   public get directoryMode() {
     return this.getStringAttribute('directory_mode');
   }
@@ -273,7 +273,7 @@ export class StoragegatewayNfsFileShareNfsFileShareDefaultsOutputReference exten
   }
 
   // file_mode - computed: false, optional: true, required: false
-  private _fileMode?: string; 
+  private _fileMode?: string;
   public get fileMode() {
     return this.getStringAttribute('file_mode');
   }
@@ -289,7 +289,7 @@ export class StoragegatewayNfsFileShareNfsFileShareDefaultsOutputReference exten
   }
 
   // group_id - computed: false, optional: true, required: false
-  private _groupId?: string; 
+  private _groupId?: string;
   public get groupId() {
     return this.getStringAttribute('group_id');
   }
@@ -305,7 +305,7 @@ export class StoragegatewayNfsFileShareNfsFileShareDefaultsOutputReference exten
   }
 
   // owner_id - computed: false, optional: true, required: false
-  private _ownerId?: string; 
+  private _ownerId?: string;
   public get ownerId() {
     return this.getStringAttribute('owner_id');
   }
@@ -402,7 +402,7 @@ export class StoragegatewayNfsFileShareTimeoutsOutputReference extends cdktf.Com
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -418,7 +418,7 @@ export class StoragegatewayNfsFileShareTimeoutsOutputReference extends cdktf.Com
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -434,7 +434,7 @@ export class StoragegatewayNfsFileShareTimeoutsOutputReference extends cdktf.Com
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -522,7 +522,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // audit_destination_arn - computed: false, optional: true, required: false
-  private _auditDestinationArn?: string; 
+  private _auditDestinationArn?: string;
   public get auditDestinationArn() {
     return this.getStringAttribute('audit_destination_arn');
   }
@@ -538,7 +538,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // bucket_region - computed: false, optional: true, required: false
-  private _bucketRegion?: string; 
+  private _bucketRegion?: string;
   public get bucketRegion() {
     return this.getStringAttribute('bucket_region');
   }
@@ -554,7 +554,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // client_list - computed: false, optional: false, required: true
-  private _clientList?: string[]; 
+  private _clientList?: string[];
   public get clientList() {
     return cdktf.Fn.tolist(this.getListAttribute('client_list'));
   }
@@ -567,7 +567,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // default_storage_class - computed: false, optional: true, required: false
-  private _defaultStorageClass?: string; 
+  private _defaultStorageClass?: string;
   public get defaultStorageClass() {
     return this.getStringAttribute('default_storage_class');
   }
@@ -583,7 +583,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // file_share_name - computed: true, optional: true, required: false
-  private _fileShareName?: string; 
+  private _fileShareName?: string;
   public get fileShareName() {
     return this.getStringAttribute('file_share_name');
   }
@@ -604,7 +604,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // gateway_arn - computed: false, optional: false, required: true
-  private _gatewayArn?: string; 
+  private _gatewayArn?: string;
   public get gatewayArn() {
     return this.getStringAttribute('gateway_arn');
   }
@@ -617,7 +617,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // guess_mime_type_enabled - computed: false, optional: true, required: false
-  private _guessMimeTypeEnabled?: boolean | cdktf.IResolvable; 
+  private _guessMimeTypeEnabled?: boolean | cdktf.IResolvable;
   public get guessMimeTypeEnabled() {
     return this.getBooleanAttribute('guess_mime_type_enabled');
   }
@@ -633,7 +633,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -649,7 +649,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // kms_encrypted - computed: false, optional: true, required: false
-  private _kmsEncrypted?: boolean | cdktf.IResolvable; 
+  private _kmsEncrypted?: boolean | cdktf.IResolvable;
   public get kmsEncrypted() {
     return this.getBooleanAttribute('kms_encrypted');
   }
@@ -665,7 +665,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -681,7 +681,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // location_arn - computed: false, optional: false, required: true
-  private _locationArn?: string; 
+  private _locationArn?: string;
   public get locationArn() {
     return this.getStringAttribute('location_arn');
   }
@@ -694,7 +694,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // notification_policy - computed: false, optional: true, required: false
-  private _notificationPolicy?: string; 
+  private _notificationPolicy?: string;
   public get notificationPolicy() {
     return this.getStringAttribute('notification_policy');
   }
@@ -710,7 +710,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // object_acl - computed: false, optional: true, required: false
-  private _objectAcl?: string; 
+  private _objectAcl?: string;
   public get objectAcl() {
     return this.getStringAttribute('object_acl');
   }
@@ -731,7 +731,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -747,7 +747,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // requester_pays - computed: false, optional: true, required: false
-  private _requesterPays?: boolean | cdktf.IResolvable; 
+  private _requesterPays?: boolean | cdktf.IResolvable;
   public get requesterPays() {
     return this.getBooleanAttribute('requester_pays');
   }
@@ -763,7 +763,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -776,7 +776,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // squash - computed: false, optional: true, required: false
-  private _squash?: string; 
+  private _squash?: string;
   public get squash() {
     return this.getStringAttribute('squash');
   }
@@ -792,7 +792,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -808,7 +808,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -824,7 +824,7 @@ export class StoragegatewayNfsFileShare extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_dns_name - computed: false, optional: true, required: false
-  private _vpcEndpointDnsName?: string; 
+  private _vpcEndpointDnsName?: string;
   public get vpcEndpointDnsName() {
     return this.getStringAttribute('vpc_endpoint_dns_name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/regions
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataDigitaloceanRegionsConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/regions#filter DataDigitaloceanRegions#filter}
   */
   readonly filter?: DataDigitaloceanRegionsFilter[] | cdktf.IResolvable;
   /**
   * sort block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/regions#sort DataDigitaloceanRegions#sort}
   */
   readonly sort?: DataDigitaloceanRegionsSort[] | cdktf.IResolvable;
@@ -206,7 +206,7 @@ export class DataDigitaloceanRegionsFilterOutputReference extends cdktf.ComplexO
   }
 
   // all - computed: false, optional: true, required: false
-  private _all?: boolean | cdktf.IResolvable; 
+  private _all?: boolean | cdktf.IResolvable;
   public get all() {
     return this.getBooleanAttribute('all');
   }
@@ -222,7 +222,7 @@ export class DataDigitaloceanRegionsFilterOutputReference extends cdktf.ComplexO
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -235,7 +235,7 @@ export class DataDigitaloceanRegionsFilterOutputReference extends cdktf.ComplexO
   }
 
   // match_by - computed: false, optional: true, required: false
-  private _matchBy?: string; 
+  private _matchBy?: string;
   public get matchBy() {
     return this.getStringAttribute('match_by');
   }
@@ -251,7 +251,7 @@ export class DataDigitaloceanRegionsFilterOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -356,7 +356,7 @@ export class DataDigitaloceanRegionsSortOutputReference extends cdktf.ComplexObj
   }
 
   // direction - computed: false, optional: true, required: false
-  private _direction?: string; 
+  private _direction?: string;
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -372,7 +372,7 @@ export class DataDigitaloceanRegionsSortOutputReference extends cdktf.ComplexObj
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -452,7 +452,7 @@ export class DataDigitaloceanRegions extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

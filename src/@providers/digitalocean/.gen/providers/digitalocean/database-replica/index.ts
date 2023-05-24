@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_replica
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DatabaseReplica extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -114,7 +114,7 @@ export class DatabaseReplica extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -130,7 +130,7 @@ export class DatabaseReplica extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -158,7 +158,7 @@ export class DatabaseReplica extends cdktf.TerraformResource {
   }
 
   // private_network_uuid - computed: true, optional: true, required: false
-  private _privateNetworkUuid?: string; 
+  private _privateNetworkUuid?: string;
   public get privateNetworkUuid() {
     return this.getStringAttribute('private_network_uuid');
   }
@@ -179,7 +179,7 @@ export class DatabaseReplica extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -195,7 +195,7 @@ export class DatabaseReplica extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: true, required: false
-  private _size?: string; 
+  private _size?: string;
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -211,7 +211,7 @@ export class DatabaseReplica extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appstream_user_stack_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class AppstreamUserStackAssociation extends cdktf.TerraformResource {
   // ==========
 
   // authentication_type - computed: false, optional: false, required: true
-  private _authenticationType?: string; 
+  private _authenticationType?: string;
   public get authenticationType() {
     return this.getStringAttribute('authentication_type');
   }
@@ -94,7 +94,7 @@ export class AppstreamUserStackAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class AppstreamUserStackAssociation extends cdktf.TerraformResource {
   }
 
   // send_email_notification - computed: false, optional: true, required: false
-  private _sendEmailNotification?: boolean | cdktf.IResolvable; 
+  private _sendEmailNotification?: boolean | cdktf.IResolvable;
   public get sendEmailNotification() {
     return this.getBooleanAttribute('send_email_notification');
   }
@@ -126,7 +126,7 @@ export class AppstreamUserStackAssociation extends cdktf.TerraformResource {
   }
 
   // stack_name - computed: false, optional: false, required: true
-  private _stackName?: string; 
+  private _stackName?: string;
   public get stackName() {
     return this.getStringAttribute('stack_name');
   }
@@ -139,7 +139,7 @@ export class AppstreamUserStackAssociation extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }

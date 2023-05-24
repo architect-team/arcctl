@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_rotation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -130,7 +130,7 @@ export class DataAwsSecretsmanagerSecretRotation extends cdktf.TerraformDataSour
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +162,7 @@ export class DataAwsSecretsmanagerSecretRotation extends cdktf.TerraformDataSour
   }
 
   // secret_id - computed: false, optional: false, required: true
-  private _secretId?: string; 
+  private _secretId?: string;
   public get secretId() {
     return this.getStringAttribute('secret_id');
   }

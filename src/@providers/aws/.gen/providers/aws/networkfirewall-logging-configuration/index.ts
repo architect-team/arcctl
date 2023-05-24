@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface NetworkfirewallLoggingConfigurationConfig extends cdktf.Terrafo
   readonly id?: string;
   /**
   * logging_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#logging_configuration NetworkfirewallLoggingConfiguration#logging_configuration}
   */
   readonly loggingConfiguration: NetworkfirewallLoggingConfigurationLoggingConfiguration;
@@ -109,7 +109,7 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
   }
 
   // log_destination - computed: false, optional: false, required: true
-  private _logDestination?: { [key: string]: string }; 
+  private _logDestination?: { [key: string]: string };
   public get logDestination() {
     return this.getStringMapAttribute('log_destination');
   }
@@ -122,7 +122,7 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
   }
 
   // log_destination_type - computed: false, optional: false, required: true
-  private _logDestinationType?: string; 
+  private _logDestinationType?: string;
   public get logDestinationType() {
     return this.getStringAttribute('log_destination_type');
   }
@@ -135,7 +135,7 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
   }
 
   // log_type - computed: false, optional: false, required: true
-  private _logType?: string; 
+  private _logType?: string;
   public get logType() {
     return this.getStringAttribute('log_type');
   }
@@ -170,7 +170,7 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
 export interface NetworkfirewallLoggingConfigurationLoggingConfiguration {
   /**
   * log_destination_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_destination_config NetworkfirewallLoggingConfiguration#log_destination_config}
   */
   readonly logDestinationConfig: NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig[] | cdktf.IResolvable;
@@ -279,7 +279,7 @@ export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource
   // ==========
 
   // firewall_arn - computed: false, optional: false, required: true
-  private _firewallArn?: string; 
+  private _firewallArn?: string;
   public get firewallArn() {
     return this.getStringAttribute('firewall_arn');
   }
@@ -292,7 +292,7 @@ export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

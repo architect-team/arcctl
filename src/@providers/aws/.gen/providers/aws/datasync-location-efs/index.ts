@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_location_efs
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface DatasyncLocationEfsConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * ec2_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#ec2_config DatasyncLocationEfs#ec2_config}
   */
   readonly ec2Config: DatasyncLocationEfsEc2Config;
@@ -110,7 +110,7 @@ export class DatasyncLocationEfsEc2ConfigOutputReference extends cdktf.ComplexOb
   }
 
   // security_group_arns - computed: false, optional: false, required: true
-  private _securityGroupArns?: string[]; 
+  private _securityGroupArns?: string[];
   public get securityGroupArns() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_arns'));
   }
@@ -123,7 +123,7 @@ export class DatasyncLocationEfsEc2ConfigOutputReference extends cdktf.ComplexOb
   }
 
   // subnet_arn - computed: false, optional: false, required: true
-  private _subnetArn?: string; 
+  private _subnetArn?: string;
   public get subnetArn() {
     return this.getStringAttribute('subnet_arn');
   }
@@ -189,7 +189,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   // ==========
 
   // access_point_arn - computed: false, optional: true, required: false
-  private _accessPointArn?: string; 
+  private _accessPointArn?: string;
   public get accessPointArn() {
     return this.getStringAttribute('access_point_arn');
   }
@@ -210,7 +210,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // efs_file_system_arn - computed: false, optional: false, required: true
-  private _efsFileSystemArn?: string; 
+  private _efsFileSystemArn?: string;
   public get efsFileSystemArn() {
     return this.getStringAttribute('efs_file_system_arn');
   }
@@ -223,7 +223,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // file_system_access_role_arn - computed: false, optional: true, required: false
-  private _fileSystemAccessRoleArn?: string; 
+  private _fileSystemAccessRoleArn?: string;
   public get fileSystemAccessRoleArn() {
     return this.getStringAttribute('file_system_access_role_arn');
   }
@@ -239,7 +239,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -255,7 +255,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // in_transit_encryption - computed: false, optional: true, required: false
-  private _inTransitEncryption?: string; 
+  private _inTransitEncryption?: string;
   public get inTransitEncryption() {
     return this.getStringAttribute('in_transit_encryption');
   }
@@ -271,7 +271,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // subdirectory - computed: false, optional: true, required: false
-  private _subdirectory?: string; 
+  private _subdirectory?: string;
   public get subdirectory() {
     return this.getStringAttribute('subdirectory');
   }
@@ -287,7 +287,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -303,7 +303,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

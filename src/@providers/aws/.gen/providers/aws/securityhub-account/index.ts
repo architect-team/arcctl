@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_account
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -66,7 +66,7 @@ export class SecurityhubAccount extends cdktf.TerraformResource {
   // ==========
 
   // enable_default_standards - computed: false, optional: true, required: false
-  private _enableDefaultStandards?: boolean | cdktf.IResolvable; 
+  private _enableDefaultStandards?: boolean | cdktf.IResolvable;
   public get enableDefaultStandards() {
     return this.getBooleanAttribute('enable_default_standards');
   }
@@ -82,7 +82,7 @@ export class SecurityhubAccount extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

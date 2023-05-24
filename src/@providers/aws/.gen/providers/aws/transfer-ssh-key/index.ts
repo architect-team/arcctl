@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class TransferSshKey extends cdktf.TerraformResource {
   // ==========
 
   // body - computed: false, optional: false, required: true
-  private _body?: string; 
+  private _body?: string;
   public get body() {
     return this.getStringAttribute('body');
   }
@@ -89,7 +89,7 @@ export class TransferSshKey extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class TransferSshKey extends cdktf.TerraformResource {
   }
 
   // server_id - computed: false, optional: false, required: true
-  private _serverId?: string; 
+  private _serverId?: string;
   public get serverId() {
     return this.getStringAttribute('server_id');
   }
@@ -118,7 +118,7 @@ export class TransferSshKey extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }

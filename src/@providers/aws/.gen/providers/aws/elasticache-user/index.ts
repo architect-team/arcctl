@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/elasticache_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,7 +48,7 @@ export interface ElasticacheUserConfig extends cdktf.TerraformMetaArguments {
   readonly userName: string;
   /**
   * authentication_mode block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#authentication_mode ElasticacheUser#authentication_mode}
   */
   readonly authenticationMode?: ElasticacheUserAuthenticationMode;
@@ -119,7 +119,7 @@ export class ElasticacheUserAuthenticationModeOutputReference extends cdktf.Comp
   }
 
   // passwords - computed: false, optional: true, required: false
-  private _passwords?: string[]; 
+  private _passwords?: string[];
   public get passwords() {
     return cdktf.Fn.tolist(this.getListAttribute('passwords'));
   }
@@ -135,7 +135,7 @@ export class ElasticacheUserAuthenticationModeOutputReference extends cdktf.Comp
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -202,7 +202,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   // ==========
 
   // access_string - computed: false, optional: false, required: true
-  private _accessString?: string; 
+  private _accessString?: string;
   public get accessString() {
     return this.getStringAttribute('access_string');
   }
@@ -220,7 +220,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // engine - computed: false, optional: false, required: true
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -233,7 +233,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -249,7 +249,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // no_password_required - computed: false, optional: true, required: false
-  private _noPasswordRequired?: boolean | cdktf.IResolvable; 
+  private _noPasswordRequired?: boolean | cdktf.IResolvable;
   public get noPasswordRequired() {
     return this.getBooleanAttribute('no_password_required');
   }
@@ -265,7 +265,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // passwords - computed: false, optional: true, required: false
-  private _passwords?: string[]; 
+  private _passwords?: string[];
   public get passwords() {
     return cdktf.Fn.tolist(this.getListAttribute('passwords'));
   }
@@ -281,7 +281,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -297,7 +297,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -313,7 +313,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // user_id - computed: false, optional: false, required: true
-  private _userId?: string; 
+  private _userId?: string;
   public get userId() {
     return this.getStringAttribute('user_id');
   }
@@ -326,7 +326,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }

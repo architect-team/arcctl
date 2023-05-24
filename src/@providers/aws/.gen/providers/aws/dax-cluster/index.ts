@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dax_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,13 +72,13 @@ export interface DaxClusterConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * server_side_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dax_cluster#server_side_encryption DaxCluster#server_side_encryption}
   */
   readonly serverSideEncryption?: DaxClusterServerSideEncryption;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dax_cluster#timeouts DaxCluster#timeouts}
   */
   readonly timeouts?: DaxClusterTimeouts;
@@ -212,7 +212,7 @@ export class DaxClusterServerSideEncryptionOutputReference extends cdktf.Complex
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -309,7 +309,7 @@ export class DaxClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -325,7 +325,7 @@ export class DaxClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -341,7 +341,7 @@ export class DaxClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -423,7 +423,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // availability_zones - computed: false, optional: true, required: false
-  private _availabilityZones?: string[]; 
+  private _availabilityZones?: string[];
   public get availabilityZones() {
     return cdktf.Fn.tolist(this.getListAttribute('availability_zones'));
   }
@@ -444,7 +444,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // cluster_endpoint_encryption_type - computed: false, optional: true, required: false
-  private _clusterEndpointEncryptionType?: string; 
+  private _clusterEndpointEncryptionType?: string;
   public get clusterEndpointEncryptionType() {
     return this.getStringAttribute('cluster_endpoint_encryption_type');
   }
@@ -460,7 +460,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -478,7 +478,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -494,7 +494,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // iam_role_arn - computed: false, optional: false, required: true
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -507,7 +507,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -523,7 +523,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // maintenance_window - computed: true, optional: true, required: false
-  private _maintenanceWindow?: string; 
+  private _maintenanceWindow?: string;
   public get maintenanceWindow() {
     return this.getStringAttribute('maintenance_window');
   }
@@ -539,7 +539,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // node_type - computed: false, optional: false, required: true
-  private _nodeType?: string; 
+  private _nodeType?: string;
   public get nodeType() {
     return this.getStringAttribute('node_type');
   }
@@ -558,7 +558,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // notification_topic_arn - computed: false, optional: true, required: false
-  private _notificationTopicArn?: string; 
+  private _notificationTopicArn?: string;
   public get notificationTopicArn() {
     return this.getStringAttribute('notification_topic_arn');
   }
@@ -574,7 +574,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // parameter_group_name - computed: true, optional: true, required: false
-  private _parameterGroupName?: string; 
+  private _parameterGroupName?: string;
   public get parameterGroupName() {
     return this.getStringAttribute('parameter_group_name');
   }
@@ -595,7 +595,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // replication_factor - computed: false, optional: false, required: true
-  private _replicationFactor?: number; 
+  private _replicationFactor?: number;
   public get replicationFactor() {
     return this.getNumberAttribute('replication_factor');
   }
@@ -608,7 +608,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -624,7 +624,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // subnet_group_name - computed: true, optional: true, required: false
-  private _subnetGroupName?: string; 
+  private _subnetGroupName?: string;
   public get subnetGroupName() {
     return this.getStringAttribute('subnet_group_name');
   }
@@ -640,7 +640,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -656,7 +656,7 @@ export class DaxCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

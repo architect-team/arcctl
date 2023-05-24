@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_version
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class ApiGatewayDocumentationVersion extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -92,7 +92,7 @@ export class ApiGatewayDocumentationVersion extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -108,7 +108,7 @@ export class ApiGatewayDocumentationVersion extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -121,7 +121,7 @@ export class ApiGatewayDocumentationVersion extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

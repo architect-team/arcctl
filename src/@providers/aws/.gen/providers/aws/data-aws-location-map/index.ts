@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/location_map
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -151,7 +151,7 @@ export class DataAwsLocationMap extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -172,7 +172,7 @@ export class DataAwsLocationMap extends cdktf.TerraformDataSource {
   }
 
   // map_name - computed: false, optional: false, required: true
-  private _mapName?: string; 
+  private _mapName?: string;
   public get mapName() {
     return this.getStringAttribute('map_name');
   }
@@ -185,7 +185,7 @@ export class DataAwsLocationMap extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

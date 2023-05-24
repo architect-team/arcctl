@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/d/logs
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -13,7 +13,7 @@ export interface DataDockerLogsConfig extends cdktf.TerraformMetaArguments {
   readonly details?: boolean | cdktf.IResolvable;
   /**
   * Discard headers that docker appends to each log entry
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/logs#discard_headers DataDockerLogs#discard_headers}
   */
   readonly discardHeaders?: boolean | cdktf.IResolvable;
@@ -30,13 +30,13 @@ export interface DataDockerLogsConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * If true populate computed value `logs_list_string`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/logs#logs_list_string_enabled DataDockerLogs#logs_list_string_enabled}
   */
   readonly logsListStringEnabled?: boolean | cdktf.IResolvable;
   /**
   * The name of the Docker Container
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/logs#name DataDockerLogs#name}
   */
   readonly name: string;
@@ -122,7 +122,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   // ==========
 
   // details - computed: false, optional: true, required: false
-  private _details?: boolean | cdktf.IResolvable; 
+  private _details?: boolean | cdktf.IResolvable;
   public get details() {
     return this.getBooleanAttribute('details');
   }
@@ -138,7 +138,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // discard_headers - computed: false, optional: true, required: false
-  private _discardHeaders?: boolean | cdktf.IResolvable; 
+  private _discardHeaders?: boolean | cdktf.IResolvable;
   public get discardHeaders() {
     return this.getBooleanAttribute('discard_headers');
   }
@@ -154,7 +154,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // follow - computed: false, optional: true, required: false
-  private _follow?: boolean | cdktf.IResolvable; 
+  private _follow?: boolean | cdktf.IResolvable;
   public get follow() {
     return this.getBooleanAttribute('follow');
   }
@@ -170,7 +170,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -191,7 +191,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // logs_list_string_enabled - computed: false, optional: true, required: false
-  private _logsListStringEnabled?: boolean | cdktf.IResolvable; 
+  private _logsListStringEnabled?: boolean | cdktf.IResolvable;
   public get logsListStringEnabled() {
     return this.getBooleanAttribute('logs_list_string_enabled');
   }
@@ -207,7 +207,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -220,7 +220,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // show_stderr - computed: false, optional: true, required: false
-  private _showStderr?: boolean | cdktf.IResolvable; 
+  private _showStderr?: boolean | cdktf.IResolvable;
   public get showStderr() {
     return this.getBooleanAttribute('show_stderr');
   }
@@ -236,7 +236,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // show_stdout - computed: false, optional: true, required: false
-  private _showStdout?: boolean | cdktf.IResolvable; 
+  private _showStdout?: boolean | cdktf.IResolvable;
   public get showStdout() {
     return this.getBooleanAttribute('show_stdout');
   }
@@ -252,7 +252,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // since - computed: false, optional: true, required: false
-  private _since?: string; 
+  private _since?: string;
   public get since() {
     return this.getStringAttribute('since');
   }
@@ -268,7 +268,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // tail - computed: false, optional: true, required: false
-  private _tail?: string; 
+  private _tail?: string;
   public get tail() {
     return this.getStringAttribute('tail');
   }
@@ -284,7 +284,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // timestamps - computed: false, optional: true, required: false
-  private _timestamps?: boolean | cdktf.IResolvable; 
+  private _timestamps?: boolean | cdktf.IResolvable;
   public get timestamps() {
     return this.getBooleanAttribute('timestamps');
   }
@@ -300,7 +300,7 @@ export class DataDockerLogs extends cdktf.TerraformDataSource {
   }
 
   // until - computed: false, optional: true, required: false
-  private _until?: string; 
+  private _until?: string;
   public get until() {
     return this.getStringAttribute('until');
   }

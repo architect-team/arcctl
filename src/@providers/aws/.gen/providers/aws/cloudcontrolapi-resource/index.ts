@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface CloudcontrolapiResourceConfig extends cdktf.TerraformMetaArgume
   readonly typeVersionId?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#timeouts CloudcontrolapiResource#timeouts}
   */
   readonly timeouts?: CloudcontrolapiResourceTimeouts;
@@ -123,7 +123,7 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -139,7 +139,7 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -155,7 +155,7 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -222,7 +222,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   // ==========
 
   // desired_state - computed: false, optional: false, required: true
-  private _desiredState?: string; 
+  private _desiredState?: string;
   public get desiredState() {
     return this.getStringAttribute('desired_state');
   }
@@ -235,7 +235,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -256,7 +256,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -272,7 +272,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // schema - computed: true, optional: true, required: false
-  private _schema?: string; 
+  private _schema?: string;
   public get schema() {
     return this.getStringAttribute('schema');
   }
@@ -288,7 +288,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // type_name - computed: false, optional: false, required: true
-  private _typeName?: string; 
+  private _typeName?: string;
   public get typeName() {
     return this.getStringAttribute('type_name');
   }
@@ -301,7 +301,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // type_version_id - computed: false, optional: true, required: false
-  private _typeVersionId?: string; 
+  private _typeVersionId?: string;
   public get typeVersionId() {
     return this.getStringAttribute('type_version_id');
   }

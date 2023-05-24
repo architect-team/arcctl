@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_snapshot_schedule_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class RedshiftSnapshotScheduleAssociation extends cdktf.TerraformResource
   // ==========
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -84,7 +84,7 @@ export class RedshiftSnapshotScheduleAssociation extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class RedshiftSnapshotScheduleAssociation extends cdktf.TerraformResource
   }
 
   // schedule_identifier - computed: false, optional: false, required: true
-  private _scheduleIdentifier?: string; 
+  private _scheduleIdentifier?: string;
   public get scheduleIdentifier() {
     return this.getStringAttribute('schedule_identifier');
   }

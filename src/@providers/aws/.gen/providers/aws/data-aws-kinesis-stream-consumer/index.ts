@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/kinesis_stream_consumer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsKinesisStreamConsumer extends cdktf.TerraformDataSource {
   // ==========
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -97,7 +97,7 @@ export class DataAwsKinesisStreamConsumer extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class DataAwsKinesisStreamConsumer extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -134,7 +134,7 @@ export class DataAwsKinesisStreamConsumer extends cdktf.TerraformDataSource {
   }
 
   // stream_arn - computed: false, optional: false, required: true
-  private _streamArn?: string; 
+  private _streamArn?: string;
   public get streamArn() {
     return this.getStringAttribute('stream_arn');
   }

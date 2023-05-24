@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/directory_service_directory
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -349,7 +349,7 @@ export class DataAwsDirectoryServiceDirectory extends cdktf.TerraformDataSource 
   }
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -377,7 +377,7 @@ export class DataAwsDirectoryServiceDirectory extends cdktf.TerraformDataSource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -419,7 +419,7 @@ export class DataAwsDirectoryServiceDirectory extends cdktf.TerraformDataSource 
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_bucket
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class S3ControlBucket extends cdktf.TerraformResource {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -104,7 +104,7 @@ export class S3ControlBucket extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -120,7 +120,7 @@ export class S3ControlBucket extends cdktf.TerraformResource {
   }
 
   // outpost_id - computed: false, optional: false, required: true
-  private _outpostId?: string; 
+  private _outpostId?: string;
   public get outpostId() {
     return this.getStringAttribute('outpost_id');
   }
@@ -138,7 +138,7 @@ export class S3ControlBucket extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -154,7 +154,7 @@ export class S3ControlBucket extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

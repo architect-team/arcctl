@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshiftserverless_usage_limit
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class RedshiftserverlessUsageLimit extends cdktf.TerraformResource {
   // ==========
 
   // amount - computed: false, optional: false, required: true
-  private _amount?: number; 
+  private _amount?: number;
   public get amount() {
     return this.getNumberAttribute('amount');
   }
@@ -104,7 +104,7 @@ export class RedshiftserverlessUsageLimit extends cdktf.TerraformResource {
   }
 
   // breach_action - computed: false, optional: true, required: false
-  private _breachAction?: string; 
+  private _breachAction?: string;
   public get breachAction() {
     return this.getStringAttribute('breach_action');
   }
@@ -120,7 +120,7 @@ export class RedshiftserverlessUsageLimit extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -136,7 +136,7 @@ export class RedshiftserverlessUsageLimit extends cdktf.TerraformResource {
   }
 
   // period - computed: false, optional: true, required: false
-  private _period?: string; 
+  private _period?: string;
   public get period() {
     return this.getStringAttribute('period');
   }
@@ -152,7 +152,7 @@ export class RedshiftserverlessUsageLimit extends cdktf.TerraformResource {
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -165,7 +165,7 @@ export class RedshiftserverlessUsageLimit extends cdktf.TerraformResource {
   }
 
   // usage_type - computed: false, optional: false, required: true
-  private _usageType?: string; 
+  private _usageType?: string;
   public get usageType() {
     return this.getStringAttribute('usage_type');
   }

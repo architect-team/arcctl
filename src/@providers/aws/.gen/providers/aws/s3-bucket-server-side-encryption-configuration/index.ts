@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_server_side_encryption_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface S3BucketServerSideEncryptionConfigurationAConfig extends cdktf.
   readonly id?: string;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_server_side_encryption_configuration#rule S3BucketServerSideEncryptionConfigurationA#rule}
   */
   readonly rule: S3BucketServerSideEncryptionConfigurationRuleA[] | cdktf.IResolvable;
@@ -90,7 +90,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
   }
 
   // kms_master_key_id - computed: false, optional: true, required: false
-  private _kmsMasterKeyId?: string; 
+  private _kmsMasterKeyId?: string;
   public get kmsMasterKeyId() {
     return this.getStringAttribute('kms_master_key_id');
   }
@@ -106,7 +106,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
   }
 
   // sse_algorithm - computed: false, optional: false, required: true
-  private _sseAlgorithm?: string; 
+  private _sseAlgorithm?: string;
   public get sseAlgorithm() {
     return this.getStringAttribute('sse_algorithm');
   }
@@ -125,7 +125,7 @@ export interface S3BucketServerSideEncryptionConfigurationRuleA {
   readonly bucketKeyEnabled?: boolean | cdktf.IResolvable;
   /**
   * apply_server_side_encryption_by_default block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_server_side_encryption_configuration#apply_server_side_encryption_by_default S3BucketServerSideEncryptionConfigurationA#apply_server_side_encryption_by_default}
   */
   readonly applyServerSideEncryptionByDefault?: S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultA;
@@ -193,7 +193,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleAOutputReference exten
   }
 
   // bucket_key_enabled - computed: false, optional: true, required: false
-  private _bucketKeyEnabled?: boolean | cdktf.IResolvable; 
+  private _bucketKeyEnabled?: boolean | cdktf.IResolvable;
   public get bucketKeyEnabled() {
     return this.getBooleanAttribute('bucket_key_enabled');
   }
@@ -293,7 +293,7 @@ export class S3BucketServerSideEncryptionConfigurationA extends cdktf.TerraformR
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -306,7 +306,7 @@ export class S3BucketServerSideEncryptionConfigurationA extends cdktf.TerraformR
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -322,7 +322,7 @@ export class S3BucketServerSideEncryptionConfigurationA extends cdktf.TerraformR
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

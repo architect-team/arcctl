@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface RolesanywhereTrustAnchorConfig extends cdktf.TerraformMetaArgum
   readonly tagsAll?: { [key: string]: string };
   /**
   * source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source RolesanywhereTrustAnchor#source}
   */
   readonly source: RolesanywhereTrustAnchorSource;
@@ -98,7 +98,7 @@ export class RolesanywhereTrustAnchorSourceSourceDataOutputReference extends cdk
   }
 
   // acm_pca_arn - computed: false, optional: true, required: false
-  private _acmPcaArn?: string; 
+  private _acmPcaArn?: string;
   public get acmPcaArn() {
     return this.getStringAttribute('acm_pca_arn');
   }
@@ -114,7 +114,7 @@ export class RolesanywhereTrustAnchorSourceSourceDataOutputReference extends cdk
   }
 
   // x509_certificate_data - computed: false, optional: true, required: false
-  private _x509CertificateData?: string; 
+  private _x509CertificateData?: string;
   public get x509CertificateData() {
     return this.getStringAttribute('x509_certificate_data');
   }
@@ -136,7 +136,7 @@ export interface RolesanywhereTrustAnchorSource {
   readonly sourceType: string;
   /**
   * source_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source_data RolesanywhereTrustAnchor#source_data}
   */
   readonly sourceData: RolesanywhereTrustAnchorSourceSourceData;
@@ -192,7 +192,7 @@ export class RolesanywhereTrustAnchorSourceOutputReference extends cdktf.Complex
   }
 
   // source_type - computed: false, optional: false, required: true
-  private _sourceType?: string; 
+  private _sourceType?: string;
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }
@@ -273,7 +273,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -289,7 +289,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -305,7 +305,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -318,7 +318,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -334,7 +334,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

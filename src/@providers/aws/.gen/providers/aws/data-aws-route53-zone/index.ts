@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_zone
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class DataAwsRoute53Zone extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -132,7 +132,7 @@ export class DataAwsRoute53Zone extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -158,7 +158,7 @@ export class DataAwsRoute53Zone extends cdktf.TerraformDataSource {
   }
 
   // private_zone - computed: false, optional: true, required: false
-  private _privateZone?: boolean | cdktf.IResolvable; 
+  private _privateZone?: boolean | cdktf.IResolvable;
   public get privateZone() {
     return this.getBooleanAttribute('private_zone');
   }
@@ -174,7 +174,7 @@ export class DataAwsRoute53Zone extends cdktf.TerraformDataSource {
   }
 
   // resource_record_set_count - computed: true, optional: true, required: false
-  private _resourceRecordSetCount?: number; 
+  private _resourceRecordSetCount?: number;
   public get resourceRecordSetCount() {
     return this.getNumberAttribute('resource_record_set_count');
   }
@@ -190,7 +190,7 @@ export class DataAwsRoute53Zone extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -206,7 +206,7 @@ export class DataAwsRoute53Zone extends cdktf.TerraformDataSource {
   }
 
   // vpc_id - computed: true, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -222,7 +222,7 @@ export class DataAwsRoute53Zone extends cdktf.TerraformDataSource {
   }
 
   // zone_id - computed: true, optional: true, required: false
-  private _zoneId?: string; 
+  private _zoneId?: string;
   public get zoneId() {
     return this.getStringAttribute('zone_id');
   }

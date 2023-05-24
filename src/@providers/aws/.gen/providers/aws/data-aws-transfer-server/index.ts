@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/transfer_server
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DataAwsTransferServer extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -132,7 +132,7 @@ export class DataAwsTransferServer extends cdktf.TerraformDataSource {
   }
 
   // server_id - computed: false, optional: false, required: true
-  private _serverId?: string; 
+  private _serverId?: string;
   public get serverId() {
     return this.getStringAttribute('server_id');
   }

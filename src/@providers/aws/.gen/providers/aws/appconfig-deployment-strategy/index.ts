@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // deployment_duration_in_minutes - computed: false, optional: false, required: true
-  private _deploymentDurationInMinutes?: number; 
+  private _deploymentDurationInMinutes?: number;
   public get deploymentDurationInMinutes() {
     return this.getNumberAttribute('deployment_duration_in_minutes');
   }
@@ -124,7 +124,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -140,7 +140,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // final_bake_time_in_minutes - computed: false, optional: true, required: false
-  private _finalBakeTimeInMinutes?: number; 
+  private _finalBakeTimeInMinutes?: number;
   public get finalBakeTimeInMinutes() {
     return this.getNumberAttribute('final_bake_time_in_minutes');
   }
@@ -156,7 +156,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // growth_factor - computed: false, optional: false, required: true
-  private _growthFactor?: number; 
+  private _growthFactor?: number;
   public get growthFactor() {
     return this.getNumberAttribute('growth_factor');
   }
@@ -169,7 +169,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // growth_type - computed: false, optional: true, required: false
-  private _growthType?: string; 
+  private _growthType?: string;
   public get growthType() {
     return this.getStringAttribute('growth_type');
   }
@@ -185,7 +185,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -201,7 +201,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -214,7 +214,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // replicate_to - computed: false, optional: false, required: true
-  private _replicateTo?: string; 
+  private _replicateTo?: string;
   public get replicateTo() {
     return this.getStringAttribute('replicate_to');
   }
@@ -227,7 +227,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -243,7 +243,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

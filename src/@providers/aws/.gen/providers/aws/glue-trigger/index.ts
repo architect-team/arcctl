@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_trigger
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,25 +52,25 @@ export interface GlueTriggerConfig extends cdktf.TerraformMetaArguments {
   readonly workflowName?: string;
   /**
   * actions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_trigger#actions GlueTrigger#actions}
   */
   readonly actions: GlueTriggerActions[] | cdktf.IResolvable;
   /**
   * event_batching_condition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_trigger#event_batching_condition GlueTrigger#event_batching_condition}
   */
   readonly eventBatchingCondition?: GlueTriggerEventBatchingCondition[] | cdktf.IResolvable;
   /**
   * predicate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_trigger#predicate GlueTrigger#predicate}
   */
   readonly predicate?: GlueTriggerPredicate;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_trigger#timeouts GlueTrigger#timeouts}
   */
   readonly timeouts?: GlueTriggerTimeouts;
@@ -125,7 +125,7 @@ export class GlueTriggerActionsNotificationPropertyOutputReference extends cdktf
   }
 
   // notify_delay_after - computed: false, optional: true, required: false
-  private _notifyDelayAfter?: number; 
+  private _notifyDelayAfter?: number;
   public get notifyDelayAfter() {
     return this.getNumberAttribute('notify_delay_after');
   }
@@ -163,7 +163,7 @@ export interface GlueTriggerActions {
   readonly timeout?: number;
   /**
   * notification_property block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_trigger#notification_property GlueTrigger#notification_property}
   */
   readonly notificationProperty?: GlueTriggerActionsNotificationProperty;
@@ -259,7 +259,7 @@ export class GlueTriggerActionsOutputReference extends cdktf.ComplexObject {
   }
 
   // arguments - computed: false, optional: true, required: false
-  private _arguments?: { [key: string]: string }; 
+  private _arguments?: { [key: string]: string };
   public get arguments() {
     return this.getStringMapAttribute('arguments');
   }
@@ -275,7 +275,7 @@ export class GlueTriggerActionsOutputReference extends cdktf.ComplexObject {
   }
 
   // crawler_name - computed: false, optional: true, required: false
-  private _crawlerName?: string; 
+  private _crawlerName?: string;
   public get crawlerName() {
     return this.getStringAttribute('crawler_name');
   }
@@ -291,7 +291,7 @@ export class GlueTriggerActionsOutputReference extends cdktf.ComplexObject {
   }
 
   // job_name - computed: false, optional: true, required: false
-  private _jobName?: string; 
+  private _jobName?: string;
   public get jobName() {
     return this.getStringAttribute('job_name');
   }
@@ -307,7 +307,7 @@ export class GlueTriggerActionsOutputReference extends cdktf.ComplexObject {
   }
 
   // security_configuration - computed: false, optional: true, required: false
-  private _securityConfiguration?: string; 
+  private _securityConfiguration?: string;
   public get securityConfiguration() {
     return this.getStringAttribute('security_configuration');
   }
@@ -323,7 +323,7 @@ export class GlueTriggerActionsOutputReference extends cdktf.ComplexObject {
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: number; 
+  private _timeout?: number;
   public get timeout() {
     return this.getNumberAttribute('timeout');
   }
@@ -447,7 +447,7 @@ export class GlueTriggerEventBatchingConditionOutputReference extends cdktf.Comp
   }
 
   // batch_size - computed: false, optional: false, required: true
-  private _batchSize?: number; 
+  private _batchSize?: number;
   public get batchSize() {
     return this.getNumberAttribute('batch_size');
   }
@@ -460,7 +460,7 @@ export class GlueTriggerEventBatchingConditionOutputReference extends cdktf.Comp
   }
 
   // batch_window - computed: false, optional: true, required: false
-  private _batchWindow?: number; 
+  private _batchWindow?: number;
   public get batchWindow() {
     return this.getNumberAttribute('batch_window');
   }
@@ -601,7 +601,7 @@ export class GlueTriggerPredicateConditionsOutputReference extends cdktf.Complex
   }
 
   // crawl_state - computed: false, optional: true, required: false
-  private _crawlState?: string; 
+  private _crawlState?: string;
   public get crawlState() {
     return this.getStringAttribute('crawl_state');
   }
@@ -617,7 +617,7 @@ export class GlueTriggerPredicateConditionsOutputReference extends cdktf.Complex
   }
 
   // crawler_name - computed: false, optional: true, required: false
-  private _crawlerName?: string; 
+  private _crawlerName?: string;
   public get crawlerName() {
     return this.getStringAttribute('crawler_name');
   }
@@ -633,7 +633,7 @@ export class GlueTriggerPredicateConditionsOutputReference extends cdktf.Complex
   }
 
   // job_name - computed: false, optional: true, required: false
-  private _jobName?: string; 
+  private _jobName?: string;
   public get jobName() {
     return this.getStringAttribute('job_name');
   }
@@ -649,7 +649,7 @@ export class GlueTriggerPredicateConditionsOutputReference extends cdktf.Complex
   }
 
   // logical_operator - computed: false, optional: true, required: false
-  private _logicalOperator?: string; 
+  private _logicalOperator?: string;
   public get logicalOperator() {
     return this.getStringAttribute('logical_operator');
   }
@@ -665,7 +665,7 @@ export class GlueTriggerPredicateConditionsOutputReference extends cdktf.Complex
   }
 
   // state - computed: false, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -707,7 +707,7 @@ export interface GlueTriggerPredicate {
   readonly logical?: string;
   /**
   * conditions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_trigger#conditions GlueTrigger#conditions}
   */
   readonly conditions: GlueTriggerPredicateConditions[] | cdktf.IResolvable;
@@ -763,7 +763,7 @@ export class GlueTriggerPredicateOutputReference extends cdktf.ComplexObject {
   }
 
   // logical - computed: false, optional: true, required: false
-  private _logical?: string; 
+  private _logical?: string;
   public get logical() {
     return this.getStringAttribute('logical');
   }
@@ -862,7 +862,7 @@ export class GlueTriggerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -878,7 +878,7 @@ export class GlueTriggerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -957,7 +957,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -973,7 +973,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -989,7 +989,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1005,7 +1005,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1018,7 +1018,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // schedule - computed: false, optional: true, required: false
-  private _schedule?: string; 
+  private _schedule?: string;
   public get schedule() {
     return this.getStringAttribute('schedule');
   }
@@ -1034,7 +1034,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // start_on_creation - computed: false, optional: true, required: false
-  private _startOnCreation?: boolean | cdktf.IResolvable; 
+  private _startOnCreation?: boolean | cdktf.IResolvable;
   public get startOnCreation() {
     return this.getBooleanAttribute('start_on_creation');
   }
@@ -1055,7 +1055,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1071,7 +1071,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1087,7 +1087,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1100,7 +1100,7 @@ export class GlueTrigger extends cdktf.TerraformResource {
   }
 
   // workflow_name - computed: false, optional: true, required: false
-  private _workflowName?: string; 
+  private _workflowName?: string;
   public get workflowName() {
     return this.getStringAttribute('workflow_name');
   }

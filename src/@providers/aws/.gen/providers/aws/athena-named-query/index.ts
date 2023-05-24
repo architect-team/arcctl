@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/athena_named_query
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class AthenaNamedQuery extends cdktf.TerraformResource {
   // ==========
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -99,7 +99,7 @@ export class AthenaNamedQuery extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -115,7 +115,7 @@ export class AthenaNamedQuery extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -131,7 +131,7 @@ export class AthenaNamedQuery extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -144,7 +144,7 @@ export class AthenaNamedQuery extends cdktf.TerraformResource {
   }
 
   // query - computed: false, optional: false, required: true
-  private _query?: string; 
+  private _query?: string;
   public get query() {
     return this.getStringAttribute('query');
   }
@@ -157,7 +157,7 @@ export class AthenaNamedQuery extends cdktf.TerraformResource {
   }
 
   // workgroup - computed: false, optional: true, required: false
-  private _workgroup?: string; 
+  private _workgroup?: string;
   public get workgroup() {
     return this.getStringAttribute('workgroup');
   }

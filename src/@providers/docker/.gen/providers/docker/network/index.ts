@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/network
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,19 +9,19 @@ import * as cdktf from 'cdktf';
 export interface NetworkConfig extends cdktf.TerraformMetaArguments {
   /**
   * Enable manual container attachment to the network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#attachable Network#attachable}
   */
   readonly attachable?: boolean | cdktf.IResolvable;
   /**
   * Requests daemon to check for networks with same name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#check_duplicate Network#check_duplicate}
   */
   readonly checkDuplicate?: boolean | cdktf.IResolvable;
   /**
   * The driver of the Docker network. Possible values are `bridge`, `host`, `overlay`, `macvlan`. See [network docs](https://docs.docker.com/network/#network-drivers) for more details.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#driver Network#driver}
   */
   readonly driver?: string;
@@ -34,55 +34,55 @@ export interface NetworkConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Create swarm routing-mesh network. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ingress Network#ingress}
   */
   readonly ingress?: boolean | cdktf.IResolvable;
   /**
   * Whether the network is internal.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#internal Network#internal}
   */
   readonly internal?: boolean | cdktf.IResolvable;
   /**
   * Driver used by the custom IP scheme of the network. Defaults to `default`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_driver Network#ipam_driver}
   */
   readonly ipamDriver?: string;
   /**
   * Provide explicit options to the IPAM driver. Valid options vary with `ipam_driver` and refer to that driver's documentation for more details.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_options Network#ipam_options}
   */
   readonly ipamOptions?: { [key: string]: string };
   /**
   * Enable IPv6 networking. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipv6 Network#ipv6}
   */
   readonly ipv6?: boolean | cdktf.IResolvable;
   /**
   * The name of the Docker network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#name Network#name}
   */
   readonly name: string;
   /**
   * Only available with bridge networks. See [bridge options docs](https://docs.docker.com/engine/reference/commandline/network_create/#bridge-driver-options) for more details.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#options Network#options}
   */
   readonly options?: { [key: string]: string };
   /**
   * ipam_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_config Network#ipam_config}
   */
   readonly ipamConfig?: NetworkIpamConfig[] | cdktf.IResolvable;
   /**
   * labels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#labels Network#labels}
   */
   readonly labels?: NetworkLabels[] | cdktf.IResolvable;
@@ -90,25 +90,25 @@ export interface NetworkConfig extends cdktf.TerraformMetaArguments {
 export interface NetworkIpamConfig {
   /**
   * Auxiliary IPv4 or IPv6 addresses used by Network driver
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#aux_address Network#aux_address}
   */
   readonly auxAddress?: { [key: string]: string };
   /**
   * The IP address of the gateway
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#gateway Network#gateway}
   */
   readonly gateway?: string;
   /**
   * The ip range in CIDR form
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ip_range Network#ip_range}
   */
   readonly ipRange?: string;
   /**
   * The subnet in CIDR form
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#subnet Network#subnet}
   */
   readonly subnet?: string;
@@ -190,7 +190,7 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // aux_address - computed: false, optional: true, required: false
-  private _auxAddress?: { [key: string]: string }; 
+  private _auxAddress?: { [key: string]: string };
   public get auxAddress() {
     return this.getStringMapAttribute('aux_address');
   }
@@ -206,7 +206,7 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // gateway - computed: false, optional: true, required: false
-  private _gateway?: string; 
+  private _gateway?: string;
   public get gateway() {
     return this.getStringAttribute('gateway');
   }
@@ -222,7 +222,7 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // ip_range - computed: false, optional: true, required: false
-  private _ipRange?: string; 
+  private _ipRange?: string;
   public get ipRange() {
     return this.getStringAttribute('ip_range');
   }
@@ -238,7 +238,7 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // subnet - computed: false, optional: true, required: false
-  private _subnet?: string; 
+  private _subnet?: string;
   public get subnet() {
     return this.getStringAttribute('subnet');
   }
@@ -276,13 +276,13 @@ export class NetworkIpamConfigList extends cdktf.ComplexList {
 export interface NetworkLabels {
   /**
   * Name of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#label Network#label}
   */
   readonly label: string;
   /**
   * Value of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#value Network#value}
   */
   readonly value: string;
@@ -350,7 +350,7 @@ export class NetworkLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -363,7 +363,7 @@ export class NetworkLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -453,7 +453,7 @@ export class Network extends cdktf.TerraformResource {
   // ==========
 
   // attachable - computed: false, optional: true, required: false
-  private _attachable?: boolean | cdktf.IResolvable; 
+  private _attachable?: boolean | cdktf.IResolvable;
   public get attachable() {
     return this.getBooleanAttribute('attachable');
   }
@@ -469,7 +469,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // check_duplicate - computed: false, optional: true, required: false
-  private _checkDuplicate?: boolean | cdktf.IResolvable; 
+  private _checkDuplicate?: boolean | cdktf.IResolvable;
   public get checkDuplicate() {
     return this.getBooleanAttribute('check_duplicate');
   }
@@ -485,7 +485,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // driver - computed: true, optional: true, required: false
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -501,7 +501,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -517,7 +517,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // ingress - computed: false, optional: true, required: false
-  private _ingress?: boolean | cdktf.IResolvable; 
+  private _ingress?: boolean | cdktf.IResolvable;
   public get ingress() {
     return this.getBooleanAttribute('ingress');
   }
@@ -533,7 +533,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // internal - computed: true, optional: true, required: false
-  private _internal?: boolean | cdktf.IResolvable; 
+  private _internal?: boolean | cdktf.IResolvable;
   public get internal() {
     return this.getBooleanAttribute('internal');
   }
@@ -549,7 +549,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // ipam_driver - computed: false, optional: true, required: false
-  private _ipamDriver?: string; 
+  private _ipamDriver?: string;
   public get ipamDriver() {
     return this.getStringAttribute('ipam_driver');
   }
@@ -565,7 +565,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // ipam_options - computed: false, optional: true, required: false
-  private _ipamOptions?: { [key: string]: string }; 
+  private _ipamOptions?: { [key: string]: string };
   public get ipamOptions() {
     return this.getStringMapAttribute('ipam_options');
   }
@@ -581,7 +581,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // ipv6 - computed: false, optional: true, required: false
-  private _ipv6?: boolean | cdktf.IResolvable; 
+  private _ipv6?: boolean | cdktf.IResolvable;
   public get ipv6() {
     return this.getBooleanAttribute('ipv6');
   }
@@ -597,7 +597,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -610,7 +610,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // options - computed: true, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }

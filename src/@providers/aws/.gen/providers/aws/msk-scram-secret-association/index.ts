@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/msk_scram_secret_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class MskScramSecretAssociation extends cdktf.TerraformResource {
   // ==========
 
   // cluster_arn - computed: false, optional: false, required: true
-  private _clusterArn?: string; 
+  private _clusterArn?: string;
   public get clusterArn() {
     return this.getStringAttribute('cluster_arn');
   }
@@ -84,7 +84,7 @@ export class MskScramSecretAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class MskScramSecretAssociation extends cdktf.TerraformResource {
   }
 
   // secret_arn_list - computed: false, optional: false, required: true
-  private _secretArnList?: string[]; 
+  private _secretArnList?: string[];
   public get secretArnList() {
     return cdktf.Fn.tolist(this.getListAttribute('secret_arn_list'));
   }

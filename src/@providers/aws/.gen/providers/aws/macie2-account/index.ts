@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/macie2_account
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Macie2Account extends cdktf.TerraformResource {
   }
 
   // finding_publishing_frequency - computed: true, optional: true, required: false
-  private _findingPublishingFrequency?: string; 
+  private _findingPublishingFrequency?: string;
   public get findingPublishingFrequency() {
     return this.getStringAttribute('finding_publishing_frequency');
   }
@@ -92,7 +92,7 @@ export class Macie2Account extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class Macie2Account extends cdktf.TerraformResource {
   }
 
   // status - computed: true, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_data_repository_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface FsxDataRepositoryAssociationConfig extends cdktf.TerraformMetaA
   readonly tagsAll?: { [key: string]: string };
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_data_repository_association#s3 FsxDataRepositoryAssociation#s3}
   */
   readonly s3?: FsxDataRepositoryAssociationS3;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_data_repository_association#timeouts FsxDataRepositoryAssociation#timeouts}
   */
   readonly timeouts?: FsxDataRepositoryAssociationTimeouts;
@@ -109,7 +109,7 @@ export class FsxDataRepositoryAssociationS3AutoExportPolicyOutputReference exten
   }
 
   // events - computed: true, optional: true, required: false
-  private _events?: string[]; 
+  private _events?: string[];
   public get events() {
     return this.getListAttribute('events');
   }
@@ -174,7 +174,7 @@ export class FsxDataRepositoryAssociationS3AutoImportPolicyOutputReference exten
   }
 
   // events - computed: true, optional: true, required: false
-  private _events?: string[]; 
+  private _events?: string[];
   public get events() {
     return this.getListAttribute('events');
   }
@@ -192,13 +192,13 @@ export class FsxDataRepositoryAssociationS3AutoImportPolicyOutputReference exten
 export interface FsxDataRepositoryAssociationS3 {
   /**
   * auto_export_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_data_repository_association#auto_export_policy FsxDataRepositoryAssociation#auto_export_policy}
   */
   readonly autoExportPolicy?: FsxDataRepositoryAssociationS3AutoExportPolicy;
   /**
   * auto_import_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_data_repository_association#auto_import_policy FsxDataRepositoryAssociation#auto_import_policy}
   */
   readonly autoImportPolicy?: FsxDataRepositoryAssociationS3AutoImportPolicy;
@@ -367,7 +367,7 @@ export class FsxDataRepositoryAssociationTimeoutsOutputReference extends cdktf.C
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -383,7 +383,7 @@ export class FsxDataRepositoryAssociationTimeoutsOutputReference extends cdktf.C
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -399,7 +399,7 @@ export class FsxDataRepositoryAssociationTimeoutsOutputReference extends cdktf.C
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -480,7 +480,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // batch_import_meta_data_on_create - computed: false, optional: true, required: false
-  private _batchImportMetaDataOnCreate?: boolean | cdktf.IResolvable; 
+  private _batchImportMetaDataOnCreate?: boolean | cdktf.IResolvable;
   public get batchImportMetaDataOnCreate() {
     return this.getBooleanAttribute('batch_import_meta_data_on_create');
   }
@@ -496,7 +496,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // data_repository_path - computed: false, optional: false, required: true
-  private _dataRepositoryPath?: string; 
+  private _dataRepositoryPath?: string;
   public get dataRepositoryPath() {
     return this.getStringAttribute('data_repository_path');
   }
@@ -509,7 +509,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // delete_data_in_filesystem - computed: false, optional: true, required: false
-  private _deleteDataInFilesystem?: boolean | cdktf.IResolvable; 
+  private _deleteDataInFilesystem?: boolean | cdktf.IResolvable;
   public get deleteDataInFilesystem() {
     return this.getBooleanAttribute('delete_data_in_filesystem');
   }
@@ -525,7 +525,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -538,7 +538,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // file_system_path - computed: false, optional: false, required: true
-  private _fileSystemPath?: string; 
+  private _fileSystemPath?: string;
   public get fileSystemPath() {
     return this.getStringAttribute('file_system_path');
   }
@@ -551,7 +551,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -567,7 +567,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // imported_file_chunk_size - computed: true, optional: true, required: false
-  private _importedFileChunkSize?: number; 
+  private _importedFileChunkSize?: number;
   public get importedFileChunkSize() {
     return this.getNumberAttribute('imported_file_chunk_size');
   }
@@ -583,7 +583,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -599,7 +599,7 @@ export class FsxDataRepositoryAssociation extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

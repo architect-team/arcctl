@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface FsxOntapStorageVirtualMachineConfig extends cdktf.TerraformMeta
   readonly tagsAll?: { [key: string]: string };
   /**
   * active_directory_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#active_directory_configuration FsxOntapStorageVirtualMachine#active_directory_configuration}
   */
   readonly activeDirectoryConfiguration?: FsxOntapStorageVirtualMachineActiveDirectoryConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#timeouts FsxOntapStorageVirtualMachine#timeouts}
   */
   readonly timeouts?: FsxOntapStorageVirtualMachineTimeouts;
@@ -515,7 +515,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // dns_ips - computed: false, optional: false, required: true
-  private _dnsIps?: string[]; 
+  private _dnsIps?: string[];
   public get dnsIps() {
     return cdktf.Fn.tolist(this.getListAttribute('dns_ips'));
   }
@@ -528,7 +528,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -541,7 +541,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // file_system_administrators_group - computed: false, optional: true, required: false
-  private _fileSystemAdministratorsGroup?: string; 
+  private _fileSystemAdministratorsGroup?: string;
   public get fileSystemAdministratorsGroup() {
     return this.getStringAttribute('file_system_administrators_group');
   }
@@ -557,7 +557,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // organizational_unit_distinguished_name - computed: false, optional: true, required: false
-  private _organizationalUnitDistinguishedName?: string; 
+  private _organizationalUnitDistinguishedName?: string;
   public get organizationalUnitDistinguishedName() {
     return this.getStringAttribute('organizational_unit_distinguished_name');
   }
@@ -573,7 +573,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -586,7 +586,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -605,7 +605,7 @@ export interface FsxOntapStorageVirtualMachineActiveDirectoryConfiguration {
   readonly netbiosName?: string;
   /**
   * self_managed_active_directory_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#self_managed_active_directory_configuration FsxOntapStorageVirtualMachine#self_managed_active_directory_configuration}
   */
   readonly selfManagedActiveDirectoryConfiguration?: FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration;
@@ -661,7 +661,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputRefe
   }
 
   // netbios_name - computed: false, optional: true, required: false
-  private _netbiosName?: string; 
+  private _netbiosName?: string;
   public get netbiosName() {
     return this.getStringAttribute('netbios_name');
   }
@@ -774,7 +774,7 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -790,7 +790,7 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -806,7 +806,7 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -886,7 +886,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -899,7 +899,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -915,7 +915,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -928,7 +928,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // root_volume_security_style - computed: false, optional: true, required: false
-  private _rootVolumeSecurityStyle?: string; 
+  private _rootVolumeSecurityStyle?: string;
   public get rootVolumeSecurityStyle() {
     return this.getStringAttribute('root_volume_security_style');
   }
@@ -949,7 +949,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // svm_admin_password - computed: false, optional: true, required: false
-  private _svmAdminPassword?: string; 
+  private _svmAdminPassword?: string;
   public get svmAdminPassword() {
     return this.getStringAttribute('svm_admin_password');
   }
@@ -965,7 +965,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -981,7 +981,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_topic_rule_destination
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface IotTopicRuleDestinationConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_topic_rule_destination#timeouts IotTopicRuleDestination#timeouts}
   */
   readonly timeouts?: IotTopicRuleDestinationTimeouts;
   /**
   * vpc_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_topic_rule_destination#vpc_configuration IotTopicRuleDestination#vpc_configuration}
   */
   readonly vpcConfiguration: IotTopicRuleDestinationVpcConfiguration;
@@ -113,7 +113,7 @@ export class IotTopicRuleDestinationTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -129,7 +129,7 @@ export class IotTopicRuleDestinationTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -145,7 +145,7 @@ export class IotTopicRuleDestinationTimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -243,7 +243,7 @@ export class IotTopicRuleDestinationVpcConfigurationOutputReference extends cdkt
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -256,7 +256,7 @@ export class IotTopicRuleDestinationVpcConfigurationOutputReference extends cdkt
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -272,7 +272,7 @@ export class IotTopicRuleDestinationVpcConfigurationOutputReference extends cdkt
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -285,7 +285,7 @@ export class IotTopicRuleDestinationVpcConfigurationOutputReference extends cdkt
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -351,7 +351,7 @@ export class IotTopicRuleDestination extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -367,7 +367,7 @@ export class IotTopicRuleDestination extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

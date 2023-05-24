@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // identity_pool_id - computed: false, optional: false, required: true
-  private _identityPoolId?: string; 
+  private _identityPoolId?: string;
   public get identityPoolId() {
     return this.getStringAttribute('identity_pool_id');
   }
@@ -110,7 +110,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // identity_provider_name - computed: false, optional: false, required: true
-  private _identityProviderName?: string; 
+  private _identityProviderName?: string;
   public get identityProviderName() {
     return this.getStringAttribute('identity_provider_name');
   }
@@ -123,7 +123,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // principal_tags - computed: false, optional: true, required: false
-  private _principalTags?: { [key: string]: string }; 
+  private _principalTags?: { [key: string]: string };
   public get principalTags() {
     return this.getStringMapAttribute('principal_tags');
   }
@@ -139,7 +139,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // use_defaults - computed: false, optional: true, required: false
-  private _useDefaults?: boolean | cdktf.IResolvable; 
+  private _useDefaults?: boolean | cdktf.IResolvable;
   public get useDefaults() {
     return this.getBooleanAttribute('use_defaults');
   }

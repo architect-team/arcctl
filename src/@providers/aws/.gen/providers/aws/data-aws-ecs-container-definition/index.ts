@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ecs_container_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
   // ==========
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -106,7 +106,7 @@ export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -142,7 +142,7 @@ export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
   }
 
   // task_definition - computed: false, optional: false, required: true
-  private _taskDefinition?: string; 
+  private _taskDefinition?: string;
   public get taskDefinition() {
     return this.getStringAttribute('task_definition');
   }

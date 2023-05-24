@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appautoscaling_target
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class AppautoscalingTarget extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class AppautoscalingTarget extends cdktf.TerraformResource {
   }
 
   // max_capacity - computed: false, optional: false, required: true
-  private _maxCapacity?: number; 
+  private _maxCapacity?: number;
   public get maxCapacity() {
     return this.getNumberAttribute('max_capacity');
   }
@@ -120,7 +120,7 @@ export class AppautoscalingTarget extends cdktf.TerraformResource {
   }
 
   // min_capacity - computed: false, optional: false, required: true
-  private _minCapacity?: number; 
+  private _minCapacity?: number;
   public get minCapacity() {
     return this.getNumberAttribute('min_capacity');
   }
@@ -133,7 +133,7 @@ export class AppautoscalingTarget extends cdktf.TerraformResource {
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }
@@ -146,7 +146,7 @@ export class AppautoscalingTarget extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: true, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -162,7 +162,7 @@ export class AppautoscalingTarget extends cdktf.TerraformResource {
   }
 
   // scalable_dimension - computed: false, optional: false, required: true
-  private _scalableDimension?: string; 
+  private _scalableDimension?: string;
   public get scalableDimension() {
     return this.getStringAttribute('scalable_dimension');
   }
@@ -175,7 +175,7 @@ export class AppautoscalingTarget extends cdktf.TerraformResource {
   }
 
   // service_namespace - computed: false, optional: false, required: true
-  private _serviceNamespace?: string; 
+  private _serviceNamespace?: string;
   public get serviceNamespace() {
     return this.getStringAttribute('service_namespace');
   }

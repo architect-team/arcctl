@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_instance_state
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface Ec2InstanceStateConfig extends cdktf.TerraformMetaArguments {
   readonly state: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_instance_state#timeouts Ec2InstanceState#timeouts}
   */
   readonly timeouts?: Ec2InstanceStateTimeouts;
@@ -115,7 +115,7 @@ export class Ec2InstanceStateTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -131,7 +131,7 @@ export class Ec2InstanceStateTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -147,7 +147,7 @@ export class Ec2InstanceStateTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -212,7 +212,7 @@ export class Ec2InstanceState extends cdktf.TerraformResource {
   // ==========
 
   // force - computed: false, optional: true, required: false
-  private _force?: boolean | cdktf.IResolvable; 
+  private _force?: boolean | cdktf.IResolvable;
   public get force() {
     return this.getBooleanAttribute('force');
   }
@@ -228,7 +228,7 @@ export class Ec2InstanceState extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -244,7 +244,7 @@ export class Ec2InstanceState extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -257,7 +257,7 @@ export class Ec2InstanceState extends cdktf.TerraformResource {
   }
 
   // state - computed: false, optional: false, required: true
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface AutoscalingGroupTagAConfig extends cdktf.TerraformMetaArguments
   readonly id?: string;
   /**
   * tag block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#tag AutoscalingGroupTagA#tag}
   */
   readonly tag: AutoscalingGroupTagTag;
@@ -97,7 +97,7 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -110,7 +110,7 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
   }
 
   // propagate_at_launch - computed: false, optional: false, required: true
-  private _propagateAtLaunch?: boolean | cdktf.IResolvable; 
+  private _propagateAtLaunch?: boolean | cdktf.IResolvable;
   public get propagateAtLaunch() {
     return this.getBooleanAttribute('propagate_at_launch');
   }
@@ -123,7 +123,7 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -183,7 +183,7 @@ export class AutoscalingGroupTagA extends cdktf.TerraformResource {
   // ==========
 
   // autoscaling_group_name - computed: false, optional: false, required: true
-  private _autoscalingGroupName?: string; 
+  private _autoscalingGroupName?: string;
   public get autoscalingGroupName() {
     return this.getStringAttribute('autoscaling_group_name');
   }
@@ -196,7 +196,7 @@ export class AutoscalingGroupTagA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

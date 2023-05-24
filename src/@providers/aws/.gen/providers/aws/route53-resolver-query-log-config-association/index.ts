@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_resolver_query_log_config_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class Route53ResolverQueryLogConfigAssociation extends cdktf.TerraformRes
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class Route53ResolverQueryLogConfigAssociation extends cdktf.TerraformRes
   }
 
   // resolver_query_log_config_id - computed: false, optional: false, required: true
-  private _resolverQueryLogConfigId?: string; 
+  private _resolverQueryLogConfigId?: string;
   public get resolverQueryLogConfigId() {
     return this.getStringAttribute('resolver_query_log_config_id');
   }
@@ -100,7 +100,7 @@ export class Route53ResolverQueryLogConfigAssociation extends cdktf.TerraformRes
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }

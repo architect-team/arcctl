@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/record
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class Record extends cdktf.TerraformResource {
   // ==========
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -124,7 +124,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // flags - computed: false, optional: true, required: false
-  private _flags?: number; 
+  private _flags?: number;
   public get flags() {
     return this.getNumberAttribute('flags');
   }
@@ -145,7 +145,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -161,7 +161,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -174,7 +174,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -190,7 +190,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -206,7 +206,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string; 
+  private _tag?: string;
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -222,7 +222,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // ttl - computed: true, optional: true, required: false
-  private _ttl?: number; 
+  private _ttl?: number;
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }
@@ -238,7 +238,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -251,7 +251,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -264,7 +264,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }

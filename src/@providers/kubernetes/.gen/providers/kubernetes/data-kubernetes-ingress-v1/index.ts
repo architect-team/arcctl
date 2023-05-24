@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/ingress_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataKubernetesIngressV1Config extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/ingress_v1#metadata DataKubernetesIngressV1#metadata}
   */
   readonly metadata: DataKubernetesIngressV1Metadata;
@@ -1152,25 +1152,25 @@ export class DataKubernetesIngressV1StatusList extends cdktf.ComplexList {
 export interface DataKubernetesIngressV1Metadata {
   /**
   * An unstructured key value map stored with the ingress that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/ingress_v1#annotations DataKubernetesIngressV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the ingress. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/ingress_v1#labels DataKubernetesIngressV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the ingress, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/ingress_v1#name DataKubernetesIngressV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the ingress must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/ingress_v1#namespace DataKubernetesIngressV1#namespace}
   */
   readonly namespace?: string;
@@ -1240,7 +1240,7 @@ export class DataKubernetesIngressV1MetadataOutputReference extends cdktf.Comple
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -1261,7 +1261,7 @@ export class DataKubernetesIngressV1MetadataOutputReference extends cdktf.Comple
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -1277,7 +1277,7 @@ export class DataKubernetesIngressV1MetadataOutputReference extends cdktf.Comple
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1293,7 +1293,7 @@ export class DataKubernetesIngressV1MetadataOutputReference extends cdktf.Comple
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1365,7 +1365,7 @@ export class DataKubernetesIngressV1 extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

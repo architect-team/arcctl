@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_private_virtual_interface
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,7 +72,7 @@ export interface DxPrivateVirtualInterfaceConfig extends cdktf.TerraformMetaArgu
   readonly vpnGatewayId?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_private_virtual_interface#timeouts DxPrivateVirtualInterface#timeouts}
   */
   readonly timeouts?: DxPrivateVirtualInterfaceTimeouts;
@@ -159,7 +159,7 @@ export class DxPrivateVirtualInterfaceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -175,7 +175,7 @@ export class DxPrivateVirtualInterfaceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -191,7 +191,7 @@ export class DxPrivateVirtualInterfaceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -267,7 +267,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   // ==========
 
   // address_family - computed: false, optional: false, required: true
-  private _addressFamily?: string; 
+  private _addressFamily?: string;
   public get addressFamily() {
     return this.getStringAttribute('address_family');
   }
@@ -280,7 +280,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // amazon_address - computed: true, optional: true, required: false
-  private _amazonAddress?: string; 
+  private _amazonAddress?: string;
   public get amazonAddress() {
     return this.getStringAttribute('amazon_address');
   }
@@ -311,7 +311,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // bgp_asn - computed: false, optional: false, required: true
-  private _bgpAsn?: number; 
+  private _bgpAsn?: number;
   public get bgpAsn() {
     return this.getNumberAttribute('bgp_asn');
   }
@@ -324,7 +324,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // bgp_auth_key - computed: true, optional: true, required: false
-  private _bgpAuthKey?: string; 
+  private _bgpAuthKey?: string;
   public get bgpAuthKey() {
     return this.getStringAttribute('bgp_auth_key');
   }
@@ -340,7 +340,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // connection_id - computed: false, optional: false, required: true
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -353,7 +353,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // customer_address - computed: true, optional: true, required: false
-  private _customerAddress?: string; 
+  private _customerAddress?: string;
   public get customerAddress() {
     return this.getStringAttribute('customer_address');
   }
@@ -369,7 +369,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // dx_gateway_id - computed: false, optional: true, required: false
-  private _dxGatewayId?: string; 
+  private _dxGatewayId?: string;
   public get dxGatewayId() {
     return this.getStringAttribute('dx_gateway_id');
   }
@@ -385,7 +385,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -406,7 +406,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // mtu - computed: false, optional: true, required: false
-  private _mtu?: number; 
+  private _mtu?: number;
   public get mtu() {
     return this.getNumberAttribute('mtu');
   }
@@ -422,7 +422,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -435,7 +435,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // sitelink_enabled - computed: false, optional: true, required: false
-  private _sitelinkEnabled?: boolean | cdktf.IResolvable; 
+  private _sitelinkEnabled?: boolean | cdktf.IResolvable;
   public get sitelinkEnabled() {
     return this.getBooleanAttribute('sitelink_enabled');
   }
@@ -451,7 +451,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -467,7 +467,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -483,7 +483,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // vlan - computed: false, optional: false, required: true
-  private _vlan?: number; 
+  private _vlan?: number;
   public get vlan() {
     return this.getNumberAttribute('vlan');
   }
@@ -496,7 +496,7 @@ export class DxPrivateVirtualInterface extends cdktf.TerraformResource {
   }
 
   // vpn_gateway_id - computed: false, optional: true, required: false
-  private _vpnGatewayId?: string; 
+  private _vpnGatewayId?: string;
   public get vpnGatewayId() {
     return this.getStringAttribute('vpn_gateway_id');
   }

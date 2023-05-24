@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/eks_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,31 +40,31 @@ export interface EksClusterConfig extends cdktf.TerraformMetaArguments {
   readonly version?: string;
   /**
   * encryption_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_cluster#encryption_config EksCluster#encryption_config}
   */
   readonly encryptionConfig?: EksClusterEncryptionConfig;
   /**
   * kubernetes_network_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_cluster#kubernetes_network_config EksCluster#kubernetes_network_config}
   */
   readonly kubernetesNetworkConfig?: EksClusterKubernetesNetworkConfig;
   /**
   * outpost_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_cluster#outpost_config EksCluster#outpost_config}
   */
   readonly outpostConfig?: EksClusterOutpostConfig;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_cluster#timeouts EksCluster#timeouts}
   */
   readonly timeouts?: EksClusterTimeouts;
   /**
   * vpc_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_cluster#vpc_config EksCluster#vpc_config}
   */
   readonly vpcConfig: EksClusterVpcConfig;
@@ -312,7 +312,7 @@ export class EksClusterEncryptionConfigProviderOutputReference extends cdktf.Com
   }
 
   // key_arn - computed: false, optional: false, required: true
-  private _keyArn?: string; 
+  private _keyArn?: string;
   public get keyArn() {
     return this.getStringAttribute('key_arn');
   }
@@ -331,7 +331,7 @@ export interface EksClusterEncryptionConfig {
   readonly resources: string[];
   /**
   * provider block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_cluster#provider EksCluster#provider}
   */
   readonly provider: EksClusterEncryptionConfigProvider;
@@ -387,7 +387,7 @@ export class EksClusterEncryptionConfigOutputReference extends cdktf.ComplexObje
   }
 
   // resources - computed: false, optional: false, required: true
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return cdktf.Fn.tolist(this.getListAttribute('resources'));
   }
@@ -473,7 +473,7 @@ export class EksClusterKubernetesNetworkConfigOutputReference extends cdktf.Comp
   }
 
   // ip_family - computed: true, optional: true, required: false
-  private _ipFamily?: string; 
+  private _ipFamily?: string;
   public get ipFamily() {
     return this.getStringAttribute('ip_family');
   }
@@ -489,7 +489,7 @@ export class EksClusterKubernetesNetworkConfigOutputReference extends cdktf.Comp
   }
 
   // service_ipv4_cidr - computed: true, optional: true, required: false
-  private _serviceIpv4Cidr?: string; 
+  private _serviceIpv4Cidr?: string;
   public get serviceIpv4Cidr() {
     return this.getStringAttribute('service_ipv4_cidr');
   }
@@ -559,7 +559,7 @@ export class EksClusterOutpostConfigControlPlanePlacementOutputReference extends
   }
 
   // group_name - computed: false, optional: false, required: true
-  private _groupName?: string; 
+  private _groupName?: string;
   public get groupName() {
     return this.getStringAttribute('group_name');
   }
@@ -582,7 +582,7 @@ export interface EksClusterOutpostConfig {
   readonly outpostArns: string[];
   /**
   * control_plane_placement block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_cluster#control_plane_placement EksCluster#control_plane_placement}
   */
   readonly controlPlanePlacement?: EksClusterOutpostConfigControlPlanePlacement;
@@ -645,7 +645,7 @@ export class EksClusterOutpostConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // control_plane_instance_type - computed: false, optional: false, required: true
-  private _controlPlaneInstanceType?: string; 
+  private _controlPlaneInstanceType?: string;
   public get controlPlaneInstanceType() {
     return this.getStringAttribute('control_plane_instance_type');
   }
@@ -658,7 +658,7 @@ export class EksClusterOutpostConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // outpost_arns - computed: false, optional: false, required: true
-  private _outpostArns?: string[]; 
+  private _outpostArns?: string[];
   public get outpostArns() {
     return cdktf.Fn.tolist(this.getListAttribute('outpost_arns'));
   }
@@ -768,7 +768,7 @@ export class EksClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -784,7 +784,7 @@ export class EksClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -800,7 +800,7 @@ export class EksClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -914,7 +914,7 @@ export class EksClusterVpcConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // endpoint_private_access - computed: false, optional: true, required: false
-  private _endpointPrivateAccess?: boolean | cdktf.IResolvable; 
+  private _endpointPrivateAccess?: boolean | cdktf.IResolvable;
   public get endpointPrivateAccess() {
     return this.getBooleanAttribute('endpoint_private_access');
   }
@@ -930,7 +930,7 @@ export class EksClusterVpcConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // endpoint_public_access - computed: false, optional: true, required: false
-  private _endpointPublicAccess?: boolean | cdktf.IResolvable; 
+  private _endpointPublicAccess?: boolean | cdktf.IResolvable;
   public get endpointPublicAccess() {
     return this.getBooleanAttribute('endpoint_public_access');
   }
@@ -946,7 +946,7 @@ export class EksClusterVpcConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // public_access_cidrs - computed: true, optional: true, required: false
-  private _publicAccessCidrs?: string[]; 
+  private _publicAccessCidrs?: string[];
   public get publicAccessCidrs() {
     return cdktf.Fn.tolist(this.getListAttribute('public_access_cidrs'));
   }
@@ -962,7 +962,7 @@ export class EksClusterVpcConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -978,7 +978,7 @@ export class EksClusterVpcConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -1073,7 +1073,7 @@ export class EksCluster extends cdktf.TerraformResource {
   }
 
   // enabled_cluster_log_types - computed: false, optional: true, required: false
-  private _enabledClusterLogTypes?: string[]; 
+  private _enabledClusterLogTypes?: string[];
   public get enabledClusterLogTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('enabled_cluster_log_types'));
   }
@@ -1094,7 +1094,7 @@ export class EksCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1116,7 +1116,7 @@ export class EksCluster extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1134,7 +1134,7 @@ export class EksCluster extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1152,7 +1152,7 @@ export class EksCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1168,7 +1168,7 @@ export class EksCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1184,7 +1184,7 @@ export class EksCluster extends cdktf.TerraformResource {
   }
 
   // version - computed: true, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

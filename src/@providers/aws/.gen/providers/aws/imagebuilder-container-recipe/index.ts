@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/imagebuilder_container_recipe
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -60,19 +60,19 @@ export interface ImagebuilderContainerRecipeConfig extends cdktf.TerraformMetaAr
   readonly workingDirectory?: string;
   /**
   * component block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_container_recipe#component ImagebuilderContainerRecipe#component}
   */
   readonly component: ImagebuilderContainerRecipeComponent[] | cdktf.IResolvable;
   /**
   * instance_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_container_recipe#instance_configuration ImagebuilderContainerRecipe#instance_configuration}
   */
   readonly instanceConfiguration?: ImagebuilderContainerRecipeInstanceConfiguration;
   /**
   * target_repository block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_container_recipe#target_repository ImagebuilderContainerRecipe#target_repository}
   */
   readonly targetRepository: ImagebuilderContainerRecipeTargetRepository;
@@ -150,7 +150,7 @@ export class ImagebuilderContainerRecipeComponentParameterOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -163,7 +163,7 @@ export class ImagebuilderContainerRecipeComponentParameterOutputReference extend
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -202,7 +202,7 @@ export interface ImagebuilderContainerRecipeComponent {
   readonly componentArn: string;
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_container_recipe#parameter ImagebuilderContainerRecipe#parameter}
   */
   readonly parameter?: ImagebuilderContainerRecipeComponentParameter[] | cdktf.IResolvable;
@@ -270,7 +270,7 @@ export class ImagebuilderContainerRecipeComponentOutputReference extends cdktf.C
   }
 
   // component_arn - computed: false, optional: false, required: true
-  private _componentArn?: string; 
+  private _componentArn?: string;
   public get componentArn() {
     return this.getStringAttribute('component_arn');
   }
@@ -445,7 +445,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: string; 
+  private _deleteOnTermination?: string;
   public get deleteOnTermination() {
     return this.getStringAttribute('delete_on_termination');
   }
@@ -461,7 +461,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // encrypted - computed: false, optional: true, required: false
-  private _encrypted?: string; 
+  private _encrypted?: string;
   public get encrypted() {
     return this.getStringAttribute('encrypted');
   }
@@ -477,7 +477,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // iops - computed: false, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -493,7 +493,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -509,7 +509,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // snapshot_id - computed: false, optional: true, required: false
-  private _snapshotId?: string; 
+  private _snapshotId?: string;
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -525,7 +525,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // throughput - computed: false, optional: true, required: false
-  private _throughput?: number; 
+  private _throughput?: number;
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -541,7 +541,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // volume_size - computed: false, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -557,7 +557,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingE
   }
 
   // volume_type - computed: false, optional: true, required: false
-  private _volumeType?: string; 
+  private _volumeType?: string;
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -587,7 +587,7 @@ export interface ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMapp
   readonly virtualName?: string;
   /**
   * ebs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_container_recipe#ebs ImagebuilderContainerRecipe#ebs}
   */
   readonly ebs?: ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingEbs;
@@ -669,7 +669,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingO
   }
 
   // device_name - computed: false, optional: true, required: false
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -685,7 +685,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingO
   }
 
   // no_device - computed: false, optional: true, required: false
-  private _noDevice?: boolean | cdktf.IResolvable; 
+  private _noDevice?: boolean | cdktf.IResolvable;
   public get noDevice() {
     return this.getBooleanAttribute('no_device');
   }
@@ -701,7 +701,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMappingO
   }
 
   // virtual_name - computed: false, optional: true, required: false
-  private _virtualName?: string; 
+  private _virtualName?: string;
   public get virtualName() {
     return this.getStringAttribute('virtual_name');
   }
@@ -759,7 +759,7 @@ export interface ImagebuilderContainerRecipeInstanceConfiguration {
   readonly image?: string;
   /**
   * block_device_mapping block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_container_recipe#block_device_mapping ImagebuilderContainerRecipe#block_device_mapping}
   */
   readonly blockDeviceMapping?: ImagebuilderContainerRecipeInstanceConfigurationBlockDeviceMapping[] | cdktf.IResolvable;
@@ -815,7 +815,7 @@ export class ImagebuilderContainerRecipeInstanceConfigurationOutputReference ext
   }
 
   // image - computed: false, optional: true, required: false
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -907,7 +907,7 @@ export class ImagebuilderContainerRecipeTargetRepositoryOutputReference extends 
   }
 
   // repository_name - computed: false, optional: false, required: true
-  private _repositoryName?: string; 
+  private _repositoryName?: string;
   public get repositoryName() {
     return this.getStringAttribute('repository_name');
   }
@@ -920,7 +920,7 @@ export class ImagebuilderContainerRecipeTargetRepositoryOutputReference extends 
   }
 
   // service - computed: false, optional: false, required: true
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -997,7 +997,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // container_type - computed: false, optional: false, required: true
-  private _containerType?: string; 
+  private _containerType?: string;
   public get containerType() {
     return this.getStringAttribute('container_type');
   }
@@ -1015,7 +1015,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1031,7 +1031,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // dockerfile_template_data - computed: true, optional: true, required: false
-  private _dockerfileTemplateData?: string; 
+  private _dockerfileTemplateData?: string;
   public get dockerfileTemplateData() {
     return this.getStringAttribute('dockerfile_template_data');
   }
@@ -1047,7 +1047,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // dockerfile_template_uri - computed: false, optional: true, required: false
-  private _dockerfileTemplateUri?: string; 
+  private _dockerfileTemplateUri?: string;
   public get dockerfileTemplateUri() {
     return this.getStringAttribute('dockerfile_template_uri');
   }
@@ -1068,7 +1068,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1084,7 +1084,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -1100,7 +1100,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1118,7 +1118,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // parent_image - computed: false, optional: false, required: true
-  private _parentImage?: string; 
+  private _parentImage?: string;
   public get parentImage() {
     return this.getStringAttribute('parent_image');
   }
@@ -1136,7 +1136,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1152,7 +1152,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1168,7 +1168,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -1181,7 +1181,7 @@ export class ImagebuilderContainerRecipe extends cdktf.TerraformResource {
   }
 
   // working_directory - computed: false, optional: true, required: false
-  private _workingDirectory?: string; 
+  private _workingDirectory?: string;
   public get workingDirectory() {
     return this.getStringAttribute('working_directory');
   }

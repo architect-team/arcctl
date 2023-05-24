@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/networkmanager_links
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsNetworkmanagerLinks extends cdktf.TerraformDataSource {
   // ==========
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -99,7 +99,7 @@ export class DataAwsNetworkmanagerLinks extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -120,7 +120,7 @@ export class DataAwsNetworkmanagerLinks extends cdktf.TerraformDataSource {
   }
 
   // provider_name - computed: false, optional: true, required: false
-  private _providerName?: string; 
+  private _providerName?: string;
   public get providerName() {
     return this.getStringAttribute('provider_name');
   }
@@ -136,7 +136,7 @@ export class DataAwsNetworkmanagerLinks extends cdktf.TerraformDataSource {
   }
 
   // site_id - computed: false, optional: true, required: false
-  private _siteId?: string; 
+  private _siteId?: string;
   public get siteId() {
     return this.getStringAttribute('site_id');
   }
@@ -152,7 +152,7 @@ export class DataAwsNetworkmanagerLinks extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -168,7 +168,7 @@ export class DataAwsNetworkmanagerLinks extends cdktf.TerraformDataSource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

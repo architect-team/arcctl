@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_datasource
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,37 +36,37 @@ export interface AppsyncDatasourceConfig extends cdktf.TerraformMetaArguments {
   readonly type: string;
   /**
   * dynamodb_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#dynamodb_config AppsyncDatasource#dynamodb_config}
   */
   readonly dynamodbConfig?: AppsyncDatasourceDynamodbConfig;
   /**
   * elasticsearch_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#elasticsearch_config AppsyncDatasource#elasticsearch_config}
   */
   readonly elasticsearchConfig?: AppsyncDatasourceElasticsearchConfig;
   /**
   * event_bridge_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#event_bridge_config AppsyncDatasource#event_bridge_config}
   */
   readonly eventBridgeConfig?: AppsyncDatasourceEventBridgeConfig;
   /**
   * http_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#http_config AppsyncDatasource#http_config}
   */
   readonly httpConfig?: AppsyncDatasourceHttpConfig;
   /**
   * lambda_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#lambda_config AppsyncDatasource#lambda_config}
   */
   readonly lambdaConfig?: AppsyncDatasourceLambdaConfig;
   /**
   * relational_database_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#relational_database_config AppsyncDatasource#relational_database_config}
   */
   readonly relationalDatabaseConfig?: AppsyncDatasourceRelationalDatabaseConfig;
@@ -143,7 +143,7 @@ export class AppsyncDatasourceDynamodbConfigDeltaSyncConfigOutputReference exten
   }
 
   // base_table_ttl - computed: false, optional: true, required: false
-  private _baseTableTtl?: number; 
+  private _baseTableTtl?: number;
   public get baseTableTtl() {
     return this.getNumberAttribute('base_table_ttl');
   }
@@ -159,7 +159,7 @@ export class AppsyncDatasourceDynamodbConfigDeltaSyncConfigOutputReference exten
   }
 
   // delta_sync_table_name - computed: false, optional: false, required: true
-  private _deltaSyncTableName?: string; 
+  private _deltaSyncTableName?: string;
   public get deltaSyncTableName() {
     return this.getStringAttribute('delta_sync_table_name');
   }
@@ -172,7 +172,7 @@ export class AppsyncDatasourceDynamodbConfigDeltaSyncConfigOutputReference exten
   }
 
   // delta_sync_table_ttl - computed: false, optional: true, required: false
-  private _deltaSyncTableTtl?: number; 
+  private _deltaSyncTableTtl?: number;
   public get deltaSyncTableTtl() {
     return this.getNumberAttribute('delta_sync_table_ttl');
   }
@@ -206,7 +206,7 @@ export interface AppsyncDatasourceDynamodbConfig {
   readonly versioned?: boolean | cdktf.IResolvable;
   /**
   * delta_sync_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#delta_sync_config AppsyncDatasource#delta_sync_config}
   */
   readonly deltaSyncConfig?: AppsyncDatasourceDynamodbConfigDeltaSyncConfig;
@@ -283,7 +283,7 @@ export class AppsyncDatasourceDynamodbConfigOutputReference extends cdktf.Comple
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -299,7 +299,7 @@ export class AppsyncDatasourceDynamodbConfigOutputReference extends cdktf.Comple
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -312,7 +312,7 @@ export class AppsyncDatasourceDynamodbConfigOutputReference extends cdktf.Comple
   }
 
   // use_caller_credentials - computed: false, optional: true, required: false
-  private _useCallerCredentials?: boolean | cdktf.IResolvable; 
+  private _useCallerCredentials?: boolean | cdktf.IResolvable;
   public get useCallerCredentials() {
     return this.getBooleanAttribute('use_caller_credentials');
   }
@@ -328,7 +328,7 @@ export class AppsyncDatasourceDynamodbConfigOutputReference extends cdktf.Comple
   }
 
   // versioned - computed: false, optional: true, required: false
-  private _versioned?: boolean | cdktf.IResolvable; 
+  private _versioned?: boolean | cdktf.IResolvable;
   public get versioned() {
     return this.getBooleanAttribute('versioned');
   }
@@ -420,7 +420,7 @@ export class AppsyncDatasourceElasticsearchConfigOutputReference extends cdktf.C
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -433,7 +433,7 @@ export class AppsyncDatasourceElasticsearchConfigOutputReference extends cdktf.C
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -498,7 +498,7 @@ export class AppsyncDatasourceEventBridgeConfigOutputReference extends cdktf.Com
   }
 
   // event_bus_arn - computed: false, optional: false, required: true
-  private _eventBusArn?: string; 
+  private _eventBusArn?: string;
   public get eventBusArn() {
     return this.getStringAttribute('event_bus_arn');
   }
@@ -571,7 +571,7 @@ export class AppsyncDatasourceHttpConfigAuthorizationConfigAwsIamConfigOutputRef
   }
 
   // signing_region - computed: false, optional: true, required: false
-  private _signingRegion?: string; 
+  private _signingRegion?: string;
   public get signingRegion() {
     return this.getStringAttribute('signing_region');
   }
@@ -587,7 +587,7 @@ export class AppsyncDatasourceHttpConfigAuthorizationConfigAwsIamConfigOutputRef
   }
 
   // signing_service_name - computed: false, optional: true, required: false
-  private _signingServiceName?: string; 
+  private _signingServiceName?: string;
   public get signingServiceName() {
     return this.getStringAttribute('signing_service_name');
   }
@@ -609,7 +609,7 @@ export interface AppsyncDatasourceHttpConfigAuthorizationConfig {
   readonly authorizationType?: string;
   /**
   * aws_iam_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#aws_iam_config AppsyncDatasource#aws_iam_config}
   */
   readonly awsIamConfig?: AppsyncDatasourceHttpConfigAuthorizationConfigAwsIamConfig;
@@ -665,7 +665,7 @@ export class AppsyncDatasourceHttpConfigAuthorizationConfigOutputReference exten
   }
 
   // authorization_type - computed: false, optional: true, required: false
-  private _authorizationType?: string; 
+  private _authorizationType?: string;
   public get authorizationType() {
     return this.getStringAttribute('authorization_type');
   }
@@ -703,7 +703,7 @@ export interface AppsyncDatasourceHttpConfig {
   readonly endpoint: string;
   /**
   * authorization_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#authorization_config AppsyncDatasource#authorization_config}
   */
   readonly authorizationConfig?: AppsyncDatasourceHttpConfigAuthorizationConfig;
@@ -759,7 +759,7 @@ export class AppsyncDatasourceHttpConfigOutputReference extends cdktf.ComplexObj
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string; 
+  private _endpoint?: string;
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -837,7 +837,7 @@ export class AppsyncDatasourceLambdaConfigOutputReference extends cdktf.ComplexO
   }
 
   // function_arn - computed: false, optional: false, required: true
-  private _functionArn?: string; 
+  private _functionArn?: string;
   public get functionArn() {
     return this.getStringAttribute('function_arn');
   }
@@ -943,7 +943,7 @@ export class AppsyncDatasourceRelationalDatabaseConfigHttpEndpointConfigOutputRe
   }
 
   // aws_secret_store_arn - computed: false, optional: false, required: true
-  private _awsSecretStoreArn?: string; 
+  private _awsSecretStoreArn?: string;
   public get awsSecretStoreArn() {
     return this.getStringAttribute('aws_secret_store_arn');
   }
@@ -956,7 +956,7 @@ export class AppsyncDatasourceRelationalDatabaseConfigHttpEndpointConfigOutputRe
   }
 
   // database_name - computed: false, optional: true, required: false
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -972,7 +972,7 @@ export class AppsyncDatasourceRelationalDatabaseConfigHttpEndpointConfigOutputRe
   }
 
   // db_cluster_identifier - computed: false, optional: false, required: true
-  private _dbClusterIdentifier?: string; 
+  private _dbClusterIdentifier?: string;
   public get dbClusterIdentifier() {
     return this.getStringAttribute('db_cluster_identifier');
   }
@@ -985,7 +985,7 @@ export class AppsyncDatasourceRelationalDatabaseConfigHttpEndpointConfigOutputRe
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -1001,7 +1001,7 @@ export class AppsyncDatasourceRelationalDatabaseConfigHttpEndpointConfigOutputRe
   }
 
   // schema - computed: false, optional: true, required: false
-  private _schema?: string; 
+  private _schema?: string;
   public get schema() {
     return this.getStringAttribute('schema');
   }
@@ -1023,7 +1023,7 @@ export interface AppsyncDatasourceRelationalDatabaseConfig {
   readonly sourceType?: string;
   /**
   * http_endpoint_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_datasource#http_endpoint_config AppsyncDatasource#http_endpoint_config}
   */
   readonly httpEndpointConfig?: AppsyncDatasourceRelationalDatabaseConfigHttpEndpointConfig;
@@ -1079,7 +1079,7 @@ export class AppsyncDatasourceRelationalDatabaseConfigOutputReference extends cd
   }
 
   // source_type - computed: false, optional: true, required: false
-  private _sourceType?: string; 
+  private _sourceType?: string;
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }
@@ -1167,7 +1167,7 @@ export class AppsyncDatasource extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -1185,7 +1185,7 @@ export class AppsyncDatasource extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1201,7 +1201,7 @@ export class AppsyncDatasource extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1217,7 +1217,7 @@ export class AppsyncDatasource extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1230,7 +1230,7 @@ export class AppsyncDatasource extends cdktf.TerraformResource {
   }
 
   // service_role_arn - computed: false, optional: true, required: false
-  private _serviceRoleArn?: string; 
+  private _serviceRoleArn?: string;
   public get serviceRoleArn() {
     return this.getStringAttribute('service_role_arn');
   }
@@ -1246,7 +1246,7 @@ export class AppsyncDatasource extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

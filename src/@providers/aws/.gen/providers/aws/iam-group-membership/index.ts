@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_group_membership
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   // ==========
 
   // group - computed: false, optional: false, required: true
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -89,7 +89,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -118,7 +118,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   }
 
   // users - computed: false, optional: false, required: true
-  private _users?: string[]; 
+  private _users?: string[];
   public get users() {
     return cdktf.Fn.tolist(this.getListAttribute('users'));
   }

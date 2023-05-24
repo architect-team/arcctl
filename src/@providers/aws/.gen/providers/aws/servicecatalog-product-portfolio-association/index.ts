@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_product_portfolio_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface ServicecatalogProductPortfolioAssociationConfig extends cdktf.T
   readonly sourcePortfolioId?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_product_portfolio_association#timeouts ServicecatalogProductPortfolioAssociation#timeouts}
   */
   readonly timeouts?: ServicecatalogProductPortfolioAssociationTimeouts;
@@ -119,7 +119,7 @@ export class ServicecatalogProductPortfolioAssociationTimeoutsOutputReference ex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -135,7 +135,7 @@ export class ServicecatalogProductPortfolioAssociationTimeoutsOutputReference ex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -151,7 +151,7 @@ export class ServicecatalogProductPortfolioAssociationTimeoutsOutputReference ex
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -217,7 +217,7 @@ export class ServicecatalogProductPortfolioAssociation extends cdktf.TerraformRe
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string; 
+  private _acceptLanguage?: string;
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -233,7 +233,7 @@ export class ServicecatalogProductPortfolioAssociation extends cdktf.TerraformRe
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -249,7 +249,7 @@ export class ServicecatalogProductPortfolioAssociation extends cdktf.TerraformRe
   }
 
   // portfolio_id - computed: false, optional: false, required: true
-  private _portfolioId?: string; 
+  private _portfolioId?: string;
   public get portfolioId() {
     return this.getStringAttribute('portfolio_id');
   }
@@ -262,7 +262,7 @@ export class ServicecatalogProductPortfolioAssociation extends cdktf.TerraformRe
   }
 
   // product_id - computed: false, optional: false, required: true
-  private _productId?: string; 
+  private _productId?: string;
   public get productId() {
     return this.getStringAttribute('product_id');
   }
@@ -275,7 +275,7 @@ export class ServicecatalogProductPortfolioAssociation extends cdktf.TerraformRe
   }
 
   // source_portfolio_id - computed: false, optional: true, required: false
-  private _sourcePortfolioId?: string; 
+  private _sourcePortfolioId?: string;
   public get sourcePortfolioId() {
     return this.getStringAttribute('source_portfolio_id');
   }

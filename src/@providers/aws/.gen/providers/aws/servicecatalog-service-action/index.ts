@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_service_action
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface ServicecatalogServiceActionConfig extends cdktf.TerraformMetaAr
   readonly name: string;
   /**
   * definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_service_action#definition ServicecatalogServiceAction#definition}
   */
   readonly definition: ServicecatalogServiceActionDefinition;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_service_action#timeouts ServicecatalogServiceAction#timeouts}
   */
   readonly timeouts?: ServicecatalogServiceActionTimeouts;
@@ -133,7 +133,7 @@ export class ServicecatalogServiceActionDefinitionOutputReference extends cdktf.
   }
 
   // assume_role - computed: false, optional: true, required: false
-  private _assumeRole?: string; 
+  private _assumeRole?: string;
   public get assumeRole() {
     return this.getStringAttribute('assume_role');
   }
@@ -149,7 +149,7 @@ export class ServicecatalogServiceActionDefinitionOutputReference extends cdktf.
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -162,7 +162,7 @@ export class ServicecatalogServiceActionDefinitionOutputReference extends cdktf.
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: string; 
+  private _parameters?: string;
   public get parameters() {
     return this.getStringAttribute('parameters');
   }
@@ -178,7 +178,7 @@ export class ServicecatalogServiceActionDefinitionOutputReference extends cdktf.
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -194,7 +194,7 @@ export class ServicecatalogServiceActionDefinitionOutputReference extends cdktf.
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -299,7 +299,7 @@ export class ServicecatalogServiceActionTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -315,7 +315,7 @@ export class ServicecatalogServiceActionTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -331,7 +331,7 @@ export class ServicecatalogServiceActionTimeoutsOutputReference extends cdktf.Co
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -347,7 +347,7 @@ export class ServicecatalogServiceActionTimeoutsOutputReference extends cdktf.Co
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -413,7 +413,7 @@ export class ServicecatalogServiceAction extends cdktf.TerraformResource {
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string; 
+  private _acceptLanguage?: string;
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -429,7 +429,7 @@ export class ServicecatalogServiceAction extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -445,7 +445,7 @@ export class ServicecatalogServiceAction extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -461,7 +461,7 @@ export class ServicecatalogServiceAction extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ecr_authorization_token
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsEcrAuthorizationToken extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class DataAwsEcrAuthorizationToken extends cdktf.TerraformDataSource {
   }
 
   // registry_id - computed: false, optional: true, required: false
-  private _registryId?: string; 
+  private _registryId?: string;
   public get registryId() {
     return this.getStringAttribute('registry_id');
   }

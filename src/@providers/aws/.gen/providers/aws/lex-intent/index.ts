@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lex_intent
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,49 +36,49 @@ export interface LexIntentConfig extends cdktf.TerraformMetaArguments {
   readonly sampleUtterances?: string[];
   /**
   * conclusion_statement block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#conclusion_statement LexIntent#conclusion_statement}
   */
   readonly conclusionStatement?: LexIntentConclusionStatement;
   /**
   * confirmation_prompt block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#confirmation_prompt LexIntent#confirmation_prompt}
   */
   readonly confirmationPrompt?: LexIntentConfirmationPrompt;
   /**
   * dialog_code_hook block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#dialog_code_hook LexIntent#dialog_code_hook}
   */
   readonly dialogCodeHook?: LexIntentDialogCodeHook;
   /**
   * follow_up_prompt block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#follow_up_prompt LexIntent#follow_up_prompt}
   */
   readonly followUpPrompt?: LexIntentFollowUpPrompt;
   /**
   * fulfillment_activity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#fulfillment_activity LexIntent#fulfillment_activity}
   */
   readonly fulfillmentActivity: LexIntentFulfillmentActivity;
   /**
   * rejection_statement block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#rejection_statement LexIntent#rejection_statement}
   */
   readonly rejectionStatement?: LexIntentRejectionStatement;
   /**
   * slot block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#slot LexIntent#slot}
   */
   readonly slot?: LexIntentSlot[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#timeouts LexIntent#timeouts}
   */
   readonly timeouts?: LexIntentTimeouts;
@@ -167,7 +167,7 @@ export class LexIntentConclusionStatementMessageOutputReference extends cdktf.Co
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -180,7 +180,7 @@ export class LexIntentConclusionStatementMessageOutputReference extends cdktf.Co
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -193,7 +193,7 @@ export class LexIntentConclusionStatementMessageOutputReference extends cdktf.Co
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -235,7 +235,7 @@ export interface LexIntentConclusionStatement {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#message LexIntent#message}
   */
   readonly message: LexIntentConclusionStatementMessage[] | cdktf.IResolvable;
@@ -291,7 +291,7 @@ export class LexIntentConclusionStatementOutputReference extends cdktf.ComplexOb
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -403,7 +403,7 @@ export class LexIntentConfirmationPromptMessageOutputReference extends cdktf.Com
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -416,7 +416,7 @@ export class LexIntentConfirmationPromptMessageOutputReference extends cdktf.Com
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -429,7 +429,7 @@ export class LexIntentConfirmationPromptMessageOutputReference extends cdktf.Com
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -475,7 +475,7 @@ export interface LexIntentConfirmationPrompt {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#message LexIntent#message}
   */
   readonly message: LexIntentConfirmationPromptMessage[] | cdktf.IResolvable;
@@ -538,7 +538,7 @@ export class LexIntentConfirmationPromptOutputReference extends cdktf.ComplexObj
   }
 
   // max_attempts - computed: false, optional: false, required: true
-  private _maxAttempts?: number; 
+  private _maxAttempts?: number;
   public get maxAttempts() {
     return this.getNumberAttribute('max_attempts');
   }
@@ -551,7 +551,7 @@ export class LexIntentConfirmationPromptOutputReference extends cdktf.ComplexObj
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -640,7 +640,7 @@ export class LexIntentDialogCodeHookOutputReference extends cdktf.ComplexObject 
   }
 
   // message_version - computed: false, optional: false, required: true
-  private _messageVersion?: string; 
+  private _messageVersion?: string;
   public get messageVersion() {
     return this.getStringAttribute('message_version');
   }
@@ -653,7 +653,7 @@ export class LexIntentDialogCodeHookOutputReference extends cdktf.ComplexObject 
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -749,7 +749,7 @@ export class LexIntentFollowUpPromptPromptMessageOutputReference extends cdktf.C
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -762,7 +762,7 @@ export class LexIntentFollowUpPromptPromptMessageOutputReference extends cdktf.C
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -775,7 +775,7 @@ export class LexIntentFollowUpPromptPromptMessageOutputReference extends cdktf.C
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -821,7 +821,7 @@ export interface LexIntentFollowUpPromptPrompt {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#message LexIntent#message}
   */
   readonly message: LexIntentFollowUpPromptPromptMessage[] | cdktf.IResolvable;
@@ -884,7 +884,7 @@ export class LexIntentFollowUpPromptPromptOutputReference extends cdktf.ComplexO
   }
 
   // max_attempts - computed: false, optional: false, required: true
-  private _maxAttempts?: number; 
+  private _maxAttempts?: number;
   public get maxAttempts() {
     return this.getNumberAttribute('max_attempts');
   }
@@ -897,7 +897,7 @@ export class LexIntentFollowUpPromptPromptOutputReference extends cdktf.ComplexO
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -1009,7 +1009,7 @@ export class LexIntentFollowUpPromptRejectionStatementMessageOutputReference ext
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -1022,7 +1022,7 @@ export class LexIntentFollowUpPromptRejectionStatementMessageOutputReference ext
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -1035,7 +1035,7 @@ export class LexIntentFollowUpPromptRejectionStatementMessageOutputReference ext
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -1077,7 +1077,7 @@ export interface LexIntentFollowUpPromptRejectionStatement {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#message LexIntent#message}
   */
   readonly message: LexIntentFollowUpPromptRejectionStatementMessage[] | cdktf.IResolvable;
@@ -1133,7 +1133,7 @@ export class LexIntentFollowUpPromptRejectionStatementOutputReference extends cd
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -1164,13 +1164,13 @@ export class LexIntentFollowUpPromptRejectionStatementOutputReference extends cd
 export interface LexIntentFollowUpPrompt {
   /**
   * prompt block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#prompt LexIntent#prompt}
   */
   readonly prompt: LexIntentFollowUpPromptPrompt;
   /**
   * rejection_statement block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#rejection_statement LexIntent#rejection_statement}
   */
   readonly rejectionStatement: LexIntentFollowUpPromptRejectionStatement;
@@ -1312,7 +1312,7 @@ export class LexIntentFulfillmentActivityCodeHookOutputReference extends cdktf.C
   }
 
   // message_version - computed: false, optional: false, required: true
-  private _messageVersion?: string; 
+  private _messageVersion?: string;
   public get messageVersion() {
     return this.getStringAttribute('message_version');
   }
@@ -1325,7 +1325,7 @@ export class LexIntentFulfillmentActivityCodeHookOutputReference extends cdktf.C
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -1344,7 +1344,7 @@ export interface LexIntentFulfillmentActivity {
   readonly type: string;
   /**
   * code_hook block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#code_hook LexIntent#code_hook}
   */
   readonly codeHook?: LexIntentFulfillmentActivityCodeHook;
@@ -1400,7 +1400,7 @@ export class LexIntentFulfillmentActivityOutputReference extends cdktf.ComplexOb
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1512,7 +1512,7 @@ export class LexIntentRejectionStatementMessageOutputReference extends cdktf.Com
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -1525,7 +1525,7 @@ export class LexIntentRejectionStatementMessageOutputReference extends cdktf.Com
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -1538,7 +1538,7 @@ export class LexIntentRejectionStatementMessageOutputReference extends cdktf.Com
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -1580,7 +1580,7 @@ export interface LexIntentRejectionStatement {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#message LexIntent#message}
   */
   readonly message: LexIntentRejectionStatementMessage[] | cdktf.IResolvable;
@@ -1636,7 +1636,7 @@ export class LexIntentRejectionStatementOutputReference extends cdktf.ComplexObj
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -1748,7 +1748,7 @@ export class LexIntentSlotValueElicitationPromptMessageOutputReference extends c
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -1761,7 +1761,7 @@ export class LexIntentSlotValueElicitationPromptMessageOutputReference extends c
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -1774,7 +1774,7 @@ export class LexIntentSlotValueElicitationPromptMessageOutputReference extends c
   }
 
   // group_number - computed: false, optional: true, required: false
-  private _groupNumber?: number; 
+  private _groupNumber?: number;
   public get groupNumber() {
     return this.getNumberAttribute('group_number');
   }
@@ -1820,7 +1820,7 @@ export interface LexIntentSlotValueElicitationPrompt {
   readonly responseCard?: string;
   /**
   * message block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#message LexIntent#message}
   */
   readonly message: LexIntentSlotValueElicitationPromptMessage[] | cdktf.IResolvable;
@@ -1883,7 +1883,7 @@ export class LexIntentSlotValueElicitationPromptOutputReference extends cdktf.Co
   }
 
   // max_attempts - computed: false, optional: false, required: true
-  private _maxAttempts?: number; 
+  private _maxAttempts?: number;
   public get maxAttempts() {
     return this.getNumberAttribute('max_attempts');
   }
@@ -1896,7 +1896,7 @@ export class LexIntentSlotValueElicitationPromptOutputReference extends cdktf.Co
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -1959,7 +1959,7 @@ export interface LexIntentSlot {
   readonly slotTypeVersion?: string;
   /**
   * value_elicitation_prompt block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_intent#value_elicitation_prompt LexIntent#value_elicitation_prompt}
   */
   readonly valueElicitationPrompt?: LexIntentSlotValueElicitationPrompt;
@@ -2076,7 +2076,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -2092,7 +2092,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2105,7 +2105,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -2121,7 +2121,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // response_card - computed: false, optional: true, required: false
-  private _responseCard?: string; 
+  private _responseCard?: string;
   public get responseCard() {
     return this.getStringAttribute('response_card');
   }
@@ -2137,7 +2137,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // sample_utterances - computed: false, optional: true, required: false
-  private _sampleUtterances?: string[]; 
+  private _sampleUtterances?: string[];
   public get sampleUtterances() {
     return this.getListAttribute('sample_utterances');
   }
@@ -2153,7 +2153,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // slot_constraint - computed: false, optional: false, required: true
-  private _slotConstraint?: string; 
+  private _slotConstraint?: string;
   public get slotConstraint() {
     return this.getStringAttribute('slot_constraint');
   }
@@ -2166,7 +2166,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // slot_type - computed: false, optional: false, required: true
-  private _slotType?: string; 
+  private _slotType?: string;
   public get slotType() {
     return this.getStringAttribute('slot_type');
   }
@@ -2179,7 +2179,7 @@ export class LexIntentSlotOutputReference extends cdktf.ComplexObject {
   }
 
   // slot_type_version - computed: false, optional: true, required: false
-  private _slotTypeVersion?: string; 
+  private _slotTypeVersion?: string;
   public get slotTypeVersion() {
     return this.getStringAttribute('slot_type_version');
   }
@@ -2312,7 +2312,7 @@ export class LexIntentTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -2328,7 +2328,7 @@ export class LexIntentTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -2344,7 +2344,7 @@ export class LexIntentTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -2428,7 +2428,7 @@ export class LexIntent extends cdktf.TerraformResource {
   }
 
   // create_version - computed: false, optional: true, required: false
-  private _createVersion?: boolean | cdktf.IResolvable; 
+  private _createVersion?: boolean | cdktf.IResolvable;
   public get createVersion() {
     return this.getBooleanAttribute('create_version');
   }
@@ -2449,7 +2449,7 @@ export class LexIntent extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -2465,7 +2465,7 @@ export class LexIntent extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2486,7 +2486,7 @@ export class LexIntent extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2499,7 +2499,7 @@ export class LexIntent extends cdktf.TerraformResource {
   }
 
   // parent_intent_signature - computed: false, optional: true, required: false
-  private _parentIntentSignature?: string; 
+  private _parentIntentSignature?: string;
   public get parentIntentSignature() {
     return this.getStringAttribute('parent_intent_signature');
   }
@@ -2515,7 +2515,7 @@ export class LexIntent extends cdktf.TerraformResource {
   }
 
   // sample_utterances - computed: false, optional: true, required: false
-  private _sampleUtterances?: string[]; 
+  private _sampleUtterances?: string[];
   public get sampleUtterances() {
     return cdktf.Fn.tolist(this.getListAttribute('sample_utterances'));
   }

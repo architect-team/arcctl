@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,19 +52,19 @@ export interface ComprehendEntityRecognizerConfig extends cdktf.TerraformMetaArg
   readonly volumeKmsKeyId?: string;
   /**
   * input_data_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#input_data_config ComprehendEntityRecognizer#input_data_config}
   */
   readonly inputDataConfig: ComprehendEntityRecognizerInputDataConfig;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#timeouts ComprehendEntityRecognizer#timeouts}
   */
   readonly timeouts?: ComprehendEntityRecognizerTimeouts;
   /**
   * vpc_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#vpc_config ComprehendEntityRecognizer#vpc_config}
   */
   readonly vpcConfig?: ComprehendEntityRecognizerVpcConfig;
@@ -130,7 +130,7 @@ export class ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -143,7 +143,7 @@ export class ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference
   }
 
   // test_s3_uri - computed: false, optional: true, required: false
-  private _testS3Uri?: string; 
+  private _testS3Uri?: string;
   public get testS3Uri() {
     return this.getStringAttribute('test_s3_uri');
   }
@@ -275,7 +275,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // annotation_data_s3_uri - computed: false, optional: true, required: false
-  private _annotationDataS3Uri?: string; 
+  private _annotationDataS3Uri?: string;
   public get annotationDataS3Uri() {
     return this.getStringAttribute('annotation_data_s3_uri');
   }
@@ -291,7 +291,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // attribute_names - computed: false, optional: false, required: true
-  private _attributeNames?: string[]; 
+  private _attributeNames?: string[];
   public get attributeNames() {
     return this.getListAttribute('attribute_names');
   }
@@ -304,7 +304,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // document_type - computed: false, optional: true, required: false
-  private _documentType?: string; 
+  private _documentType?: string;
   public get documentType() {
     return this.getStringAttribute('document_type');
   }
@@ -320,7 +320,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -333,7 +333,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // source_documents_s3_uri - computed: false, optional: true, required: false
-  private _sourceDocumentsS3Uri?: string; 
+  private _sourceDocumentsS3Uri?: string;
   public get sourceDocumentsS3Uri() {
     return this.getStringAttribute('source_documents_s3_uri');
   }
@@ -349,7 +349,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // split - computed: false, optional: true, required: false
-  private _split?: string; 
+  private _split?: string;
   public get split() {
     return this.getStringAttribute('split');
   }
@@ -456,7 +456,7 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
   }
 
   // input_format - computed: false, optional: true, required: false
-  private _inputFormat?: string; 
+  private _inputFormat?: string;
   public get inputFormat() {
     return this.getStringAttribute('input_format');
   }
@@ -472,7 +472,7 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -485,7 +485,7 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
   }
 
   // test_s3_uri - computed: false, optional: true, required: false
-  private _testS3Uri?: string; 
+  private _testS3Uri?: string;
   public get testS3Uri() {
     return this.getStringAttribute('test_s3_uri');
   }
@@ -550,7 +550,7 @@ export class ComprehendEntityRecognizerInputDataConfigEntityListOutputReference 
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -624,7 +624,7 @@ export class ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -663,31 +663,31 @@ export interface ComprehendEntityRecognizerInputDataConfig {
   readonly dataFormat?: string;
   /**
   * annotations block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#annotations ComprehendEntityRecognizer#annotations}
   */
   readonly annotations?: ComprehendEntityRecognizerInputDataConfigAnnotations;
   /**
   * augmented_manifests block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#augmented_manifests ComprehendEntityRecognizer#augmented_manifests}
   */
   readonly augmentedManifests?: ComprehendEntityRecognizerInputDataConfigAugmentedManifests[] | cdktf.IResolvable;
   /**
   * documents block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#documents ComprehendEntityRecognizer#documents}
   */
   readonly documents?: ComprehendEntityRecognizerInputDataConfigDocuments;
   /**
   * entity_list block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#entity_list ComprehendEntityRecognizer#entity_list}
   */
   readonly entityList?: ComprehendEntityRecognizerInputDataConfigEntityList;
   /**
   * entity_types block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#entity_types ComprehendEntityRecognizer#entity_types}
   */
   readonly entityTypes: ComprehendEntityRecognizerInputDataConfigEntityTypes[] | cdktf.IResolvable;
@@ -771,7 +771,7 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
   }
 
   // data_format - computed: false, optional: true, required: false
-  private _dataFormat?: string; 
+  private _dataFormat?: string;
   public get dataFormat() {
     return this.getStringAttribute('data_format');
   }
@@ -945,7 +945,7 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -961,7 +961,7 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -977,7 +977,7 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1053,7 +1053,7 @@ export class ComprehendEntityRecognizerVpcConfigOutputReference extends cdktf.Co
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -1066,7 +1066,7 @@ export class ComprehendEntityRecognizerVpcConfigOutputReference extends cdktf.Co
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -1141,7 +1141,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // data_access_role_arn - computed: false, optional: false, required: true
-  private _dataAccessRoleArn?: string; 
+  private _dataAccessRoleArn?: string;
   public get dataAccessRoleArn() {
     return this.getStringAttribute('data_access_role_arn');
   }
@@ -1154,7 +1154,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1170,7 +1170,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // language_code - computed: false, optional: false, required: true
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -1183,7 +1183,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // model_kms_key_id - computed: false, optional: true, required: false
-  private _modelKmsKeyId?: string; 
+  private _modelKmsKeyId?: string;
   public get modelKmsKeyId() {
     return this.getStringAttribute('model_kms_key_id');
   }
@@ -1199,7 +1199,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1212,7 +1212,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1228,7 +1228,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1244,7 +1244,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // version_name - computed: true, optional: true, required: false
-  private _versionName?: string; 
+  private _versionName?: string;
   public get versionName() {
     return this.getStringAttribute('version_name');
   }
@@ -1260,7 +1260,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // version_name_prefix - computed: true, optional: true, required: false
-  private _versionNamePrefix?: string; 
+  private _versionNamePrefix?: string;
   public get versionNamePrefix() {
     return this.getStringAttribute('version_name_prefix');
   }
@@ -1276,7 +1276,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // volume_kms_key_id - computed: false, optional: true, required: false
-  private _volumeKmsKeyId?: string; 
+  private _volumeKmsKeyId?: string;
   public get volumeKmsKeyId() {
     return this.getStringAttribute('volume_kms_key_id');
   }

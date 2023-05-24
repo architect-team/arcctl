@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +112,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // pool_name - computed: false, optional: false, required: true
-  private _poolName?: string; 
+  private _poolName?: string;
   public get poolName() {
     return this.getStringAttribute('pool_name');
   }
@@ -125,7 +125,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // retention_lock_time_in_days - computed: false, optional: true, required: false
-  private _retentionLockTimeInDays?: number; 
+  private _retentionLockTimeInDays?: number;
   public get retentionLockTimeInDays() {
     return this.getNumberAttribute('retention_lock_time_in_days');
   }
@@ -141,7 +141,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // retention_lock_type - computed: false, optional: true, required: false
-  private _retentionLockType?: string; 
+  private _retentionLockType?: string;
   public get retentionLockType() {
     return this.getStringAttribute('retention_lock_type');
   }
@@ -157,7 +157,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // storage_class - computed: false, optional: false, required: true
-  private _storageClass?: string; 
+  private _storageClass?: string;
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -170,7 +170,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -186,7 +186,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

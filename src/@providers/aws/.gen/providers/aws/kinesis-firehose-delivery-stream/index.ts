@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,55 +44,55 @@ export interface KinesisFirehoseDeliveryStreamConfig extends cdktf.TerraformMeta
   readonly versionId?: string;
   /**
   * elasticsearch_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#elasticsearch_configuration KinesisFirehoseDeliveryStream#elasticsearch_configuration}
   */
   readonly elasticsearchConfiguration?: KinesisFirehoseDeliveryStreamElasticsearchConfiguration;
   /**
   * extended_s3_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#extended_s3_configuration KinesisFirehoseDeliveryStream#extended_s3_configuration}
   */
   readonly extendedS3Configuration?: KinesisFirehoseDeliveryStreamExtendedS3Configuration;
   /**
   * http_endpoint_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#http_endpoint_configuration KinesisFirehoseDeliveryStream#http_endpoint_configuration}
   */
   readonly httpEndpointConfiguration?: KinesisFirehoseDeliveryStreamHttpEndpointConfiguration;
   /**
   * kinesis_source_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#kinesis_source_configuration KinesisFirehoseDeliveryStream#kinesis_source_configuration}
   */
   readonly kinesisSourceConfiguration?: KinesisFirehoseDeliveryStreamKinesisSourceConfiguration;
   /**
   * redshift_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#redshift_configuration KinesisFirehoseDeliveryStream#redshift_configuration}
   */
   readonly redshiftConfiguration?: KinesisFirehoseDeliveryStreamRedshiftConfiguration;
   /**
   * s3_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#s3_configuration KinesisFirehoseDeliveryStream#s3_configuration}
   */
   readonly s3Configuration?: KinesisFirehoseDeliveryStreamS3Configuration;
   /**
   * server_side_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#server_side_encryption KinesisFirehoseDeliveryStream#server_side_encryption}
   */
   readonly serverSideEncryption?: KinesisFirehoseDeliveryStreamServerSideEncryption;
   /**
   * splunk_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#splunk_configuration KinesisFirehoseDeliveryStream#splunk_configuration}
   */
   readonly splunkConfiguration?: KinesisFirehoseDeliveryStreamSplunkConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#timeouts KinesisFirehoseDeliveryStream#timeouts}
   */
   readonly timeouts?: KinesisFirehoseDeliveryStreamTimeouts;
@@ -169,7 +169,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLo
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -185,7 +185,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLo
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -201,7 +201,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLo
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -289,7 +289,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessingCo
   }
 
   // parameter_name - computed: false, optional: false, required: true
-  private _parameterName?: string; 
+  private _parameterName?: string;
   public get parameterName() {
     return this.getStringAttribute('parameter_name');
   }
@@ -302,7 +302,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessingCo
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string; 
+  private _parameterValue?: string;
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -341,7 +341,7 @@ export interface KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessi
   readonly type: string;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#parameters KinesisFirehoseDeliveryStream#parameters}
   */
   readonly parameters?: KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorsParameters[] | cdktf.IResolvable;
@@ -409,7 +409,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessingCo
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -464,7 +464,7 @@ export interface KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessi
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * processors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processors KinesisFirehoseDeliveryStream#processors}
   */
   readonly processors?: KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessors[] | cdktf.IResolvable;
@@ -520,7 +520,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessingCo
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -623,7 +623,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOut
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -636,7 +636,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOut
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -649,7 +649,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOut
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -709,19 +709,19 @@ export interface KinesisFirehoseDeliveryStreamElasticsearchConfiguration {
   readonly typeName?: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
   /**
   * processing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processing_configuration KinesisFirehoseDeliveryStream#processing_configuration}
   */
   readonly processingConfiguration?: KinesisFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration;
   /**
   * vpc_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#vpc_config KinesisFirehoseDeliveryStream#vpc_config}
   */
   readonly vpcConfig?: KinesisFirehoseDeliveryStreamElasticsearchConfigurationVpcConfig;
@@ -854,7 +854,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // buffering_interval - computed: false, optional: true, required: false
-  private _bufferingInterval?: number; 
+  private _bufferingInterval?: number;
   public get bufferingInterval() {
     return this.getNumberAttribute('buffering_interval');
   }
@@ -870,7 +870,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // buffering_size - computed: false, optional: true, required: false
-  private _bufferingSize?: number; 
+  private _bufferingSize?: number;
   public get bufferingSize() {
     return this.getNumberAttribute('buffering_size');
   }
@@ -886,7 +886,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // cluster_endpoint - computed: false, optional: true, required: false
-  private _clusterEndpoint?: string; 
+  private _clusterEndpoint?: string;
   public get clusterEndpoint() {
     return this.getStringAttribute('cluster_endpoint');
   }
@@ -902,7 +902,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // domain_arn - computed: false, optional: true, required: false
-  private _domainArn?: string; 
+  private _domainArn?: string;
   public get domainArn() {
     return this.getStringAttribute('domain_arn');
   }
@@ -918,7 +918,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // index_name - computed: false, optional: false, required: true
-  private _indexName?: string; 
+  private _indexName?: string;
   public get indexName() {
     return this.getStringAttribute('index_name');
   }
@@ -931,7 +931,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // index_rotation_period - computed: false, optional: true, required: false
-  private _indexRotationPeriod?: string; 
+  private _indexRotationPeriod?: string;
   public get indexRotationPeriod() {
     return this.getStringAttribute('index_rotation_period');
   }
@@ -947,7 +947,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // retry_duration - computed: false, optional: true, required: false
-  private _retryDuration?: number; 
+  private _retryDuration?: number;
   public get retryDuration() {
     return this.getNumberAttribute('retry_duration');
   }
@@ -963,7 +963,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -976,7 +976,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // s3_backup_mode - computed: false, optional: true, required: false
-  private _s3BackupMode?: string; 
+  private _s3BackupMode?: string;
   public get s3BackupMode() {
     return this.getStringAttribute('s3_backup_mode');
   }
@@ -992,7 +992,7 @@ export class KinesisFirehoseDeliveryStreamElasticsearchConfigurationOutputRefere
   }
 
   // type_name - computed: false, optional: true, required: false
-  private _typeName?: string; 
+  private _typeName?: string;
   public get typeName() {
     return this.getStringAttribute('type_name');
   }
@@ -1127,7 +1127,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggi
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1143,7 +1143,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggi
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -1159,7 +1159,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggi
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -1224,7 +1224,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // timestamp_formats - computed: false, optional: true, required: false
-  private _timestampFormats?: string[]; 
+  private _timestampFormats?: string[];
   public get timestampFormats() {
     return this.getListAttribute('timestamp_formats');
   }
@@ -1311,7 +1311,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // case_insensitive - computed: false, optional: true, required: false
-  private _caseInsensitive?: boolean | cdktf.IResolvable; 
+  private _caseInsensitive?: boolean | cdktf.IResolvable;
   public get caseInsensitive() {
     return this.getBooleanAttribute('case_insensitive');
   }
@@ -1327,7 +1327,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // column_to_json_key_mappings - computed: false, optional: true, required: false
-  private _columnToJsonKeyMappings?: { [key: string]: string }; 
+  private _columnToJsonKeyMappings?: { [key: string]: string };
   public get columnToJsonKeyMappings() {
     return this.getStringMapAttribute('column_to_json_key_mappings');
   }
@@ -1343,7 +1343,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // convert_dots_in_json_keys_to_underscores - computed: false, optional: true, required: false
-  private _convertDotsInJsonKeysToUnderscores?: boolean | cdktf.IResolvable; 
+  private _convertDotsInJsonKeysToUnderscores?: boolean | cdktf.IResolvable;
   public get convertDotsInJsonKeysToUnderscores() {
     return this.getBooleanAttribute('convert_dots_in_json_keys_to_underscores');
   }
@@ -1361,13 +1361,13 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
 export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
   /**
   * hive_json_ser_de block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#hive_json_ser_de KinesisFirehoseDeliveryStream#hive_json_ser_de}
   */
   readonly hiveJsonSerDe?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe;
   /**
   * open_x_json_ser_de block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#open_x_json_ser_de KinesisFirehoseDeliveryStream#open_x_json_ser_de}
   */
   readonly openXJsonSerDe?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe;
@@ -1457,7 +1457,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
 export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
   /**
   * deserializer block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#deserializer KinesisFirehoseDeliveryStream#deserializer}
   */
   readonly deserializer: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer;
@@ -1667,7 +1667,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // block_size_bytes - computed: false, optional: true, required: false
-  private _blockSizeBytes?: number; 
+  private _blockSizeBytes?: number;
   public get blockSizeBytes() {
     return this.getNumberAttribute('block_size_bytes');
   }
@@ -1683,7 +1683,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // bloom_filter_columns - computed: false, optional: true, required: false
-  private _bloomFilterColumns?: string[]; 
+  private _bloomFilterColumns?: string[];
   public get bloomFilterColumns() {
     return this.getListAttribute('bloom_filter_columns');
   }
@@ -1699,7 +1699,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // bloom_filter_false_positive_probability - computed: false, optional: true, required: false
-  private _bloomFilterFalsePositiveProbability?: number; 
+  private _bloomFilterFalsePositiveProbability?: number;
   public get bloomFilterFalsePositiveProbability() {
     return this.getNumberAttribute('bloom_filter_false_positive_probability');
   }
@@ -1715,7 +1715,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // compression - computed: false, optional: true, required: false
-  private _compression?: string; 
+  private _compression?: string;
   public get compression() {
     return this.getStringAttribute('compression');
   }
@@ -1731,7 +1731,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // dictionary_key_threshold - computed: false, optional: true, required: false
-  private _dictionaryKeyThreshold?: number; 
+  private _dictionaryKeyThreshold?: number;
   public get dictionaryKeyThreshold() {
     return this.getNumberAttribute('dictionary_key_threshold');
   }
@@ -1747,7 +1747,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // enable_padding - computed: false, optional: true, required: false
-  private _enablePadding?: boolean | cdktf.IResolvable; 
+  private _enablePadding?: boolean | cdktf.IResolvable;
   public get enablePadding() {
     return this.getBooleanAttribute('enable_padding');
   }
@@ -1763,7 +1763,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // format_version - computed: false, optional: true, required: false
-  private _formatVersion?: string; 
+  private _formatVersion?: string;
   public get formatVersion() {
     return this.getStringAttribute('format_version');
   }
@@ -1779,7 +1779,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // padding_tolerance - computed: false, optional: true, required: false
-  private _paddingTolerance?: number; 
+  private _paddingTolerance?: number;
   public get paddingTolerance() {
     return this.getNumberAttribute('padding_tolerance');
   }
@@ -1795,7 +1795,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // row_index_stride - computed: false, optional: true, required: false
-  private _rowIndexStride?: number; 
+  private _rowIndexStride?: number;
   public get rowIndexStride() {
     return this.getNumberAttribute('row_index_stride');
   }
@@ -1811,7 +1811,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // stripe_size_bytes - computed: false, optional: true, required: false
-  private _stripeSizeBytes?: number; 
+  private _stripeSizeBytes?: number;
   public get stripeSizeBytes() {
     return this.getNumberAttribute('stripe_size_bytes');
   }
@@ -1931,7 +1931,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // block_size_bytes - computed: false, optional: true, required: false
-  private _blockSizeBytes?: number; 
+  private _blockSizeBytes?: number;
   public get blockSizeBytes() {
     return this.getNumberAttribute('block_size_bytes');
   }
@@ -1947,7 +1947,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // compression - computed: false, optional: true, required: false
-  private _compression?: string; 
+  private _compression?: string;
   public get compression() {
     return this.getStringAttribute('compression');
   }
@@ -1963,7 +1963,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // enable_dictionary_compression - computed: false, optional: true, required: false
-  private _enableDictionaryCompression?: boolean | cdktf.IResolvable; 
+  private _enableDictionaryCompression?: boolean | cdktf.IResolvable;
   public get enableDictionaryCompression() {
     return this.getBooleanAttribute('enable_dictionary_compression');
   }
@@ -1979,7 +1979,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // max_padding_bytes - computed: false, optional: true, required: false
-  private _maxPaddingBytes?: number; 
+  private _maxPaddingBytes?: number;
   public get maxPaddingBytes() {
     return this.getNumberAttribute('max_padding_bytes');
   }
@@ -1995,7 +1995,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // page_size_bytes - computed: false, optional: true, required: false
-  private _pageSizeBytes?: number; 
+  private _pageSizeBytes?: number;
   public get pageSizeBytes() {
     return this.getNumberAttribute('page_size_bytes');
   }
@@ -2011,7 +2011,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // writer_version - computed: false, optional: true, required: false
-  private _writerVersion?: string; 
+  private _writerVersion?: string;
   public get writerVersion() {
     return this.getStringAttribute('writer_version');
   }
@@ -2029,13 +2029,13 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
 export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
   /**
   * orc_ser_de block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#orc_ser_de KinesisFirehoseDeliveryStream#orc_ser_de}
   */
   readonly orcSerDe?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe;
   /**
   * parquet_ser_de block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#parquet_ser_de KinesisFirehoseDeliveryStream#parquet_ser_de}
   */
   readonly parquetSerDe?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe;
@@ -2125,7 +2125,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
 export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
   /**
   * serializer block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#serializer KinesisFirehoseDeliveryStream#serializer}
   */
   readonly serializer: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer;
@@ -2291,7 +2291,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -2307,7 +2307,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -2320,7 +2320,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -2336,7 +2336,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -2349,7 +2349,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -2362,7 +2362,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // version_id - computed: false, optional: true, required: false
-  private _versionId?: string; 
+  private _versionId?: string;
   public get versionId() {
     return this.getStringAttribute('version_id');
   }
@@ -2384,19 +2384,19 @@ export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatC
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * input_format_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#input_format_configuration KinesisFirehoseDeliveryStream#input_format_configuration}
   */
   readonly inputFormatConfiguration: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration;
   /**
   * output_format_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#output_format_configuration KinesisFirehoseDeliveryStream#output_format_configuration}
   */
   readonly outputFormatConfiguration: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration;
   /**
   * schema_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#schema_configuration KinesisFirehoseDeliveryStream#schema_configuration}
   */
   readonly schemaConfiguration: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration;
@@ -2466,7 +2466,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConve
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -2581,7 +2581,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitio
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -2597,7 +2597,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitio
   }
 
   // retry_duration - computed: false, optional: true, required: false
-  private _retryDuration?: number; 
+  private _retryDuration?: number;
   public get retryDuration() {
     return this.getNumberAttribute('retry_duration');
   }
@@ -2685,7 +2685,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfi
   }
 
   // parameter_name - computed: false, optional: false, required: true
-  private _parameterName?: string; 
+  private _parameterName?: string;
   public get parameterName() {
     return this.getStringAttribute('parameter_name');
   }
@@ -2698,7 +2698,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfi
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string; 
+  private _parameterValue?: string;
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -2737,7 +2737,7 @@ export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingC
   readonly type: string;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#parameters KinesisFirehoseDeliveryStream#parameters}
   */
   readonly parameters?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorsParameters[] | cdktf.IResolvable;
@@ -2805,7 +2805,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfi
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2860,7 +2860,7 @@ export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingC
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * processors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processors KinesisFirehoseDeliveryStream#processors}
   */
   readonly processors?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessors[] | cdktf.IResolvable;
@@ -2916,7 +2916,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfi
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3019,7 +3019,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3035,7 +3035,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -3051,7 +3051,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -3101,7 +3101,7 @@ export interface KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupCon
   readonly roleArn: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
@@ -3206,7 +3206,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -3219,7 +3219,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // buffer_interval - computed: false, optional: true, required: false
-  private _bufferInterval?: number; 
+  private _bufferInterval?: number;
   public get bufferInterval() {
     return this.getNumberAttribute('buffer_interval');
   }
@@ -3235,7 +3235,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // buffer_size - computed: false, optional: true, required: false
-  private _bufferSize?: number; 
+  private _bufferSize?: number;
   public get bufferSize() {
     return this.getNumberAttribute('buffer_size');
   }
@@ -3251,7 +3251,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // compression_format - computed: false, optional: true, required: false
-  private _compressionFormat?: string; 
+  private _compressionFormat?: string;
   public get compressionFormat() {
     return this.getStringAttribute('compression_format');
   }
@@ -3267,7 +3267,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // error_output_prefix - computed: false, optional: true, required: false
-  private _errorOutputPrefix?: string; 
+  private _errorOutputPrefix?: string;
   public get errorOutputPrefix() {
     return this.getStringAttribute('error_output_prefix');
   }
@@ -3283,7 +3283,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -3299,7 +3299,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -3315,7 +3315,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigu
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -3382,31 +3382,31 @@ export interface KinesisFirehoseDeliveryStreamExtendedS3Configuration {
   readonly s3BackupMode?: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions;
   /**
   * data_format_conversion_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#data_format_conversion_configuration KinesisFirehoseDeliveryStream#data_format_conversion_configuration}
   */
   readonly dataFormatConversionConfiguration?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration;
   /**
   * dynamic_partitioning_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#dynamic_partitioning_configuration KinesisFirehoseDeliveryStream#dynamic_partitioning_configuration}
   */
   readonly dynamicPartitioningConfiguration?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration;
   /**
   * processing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processing_configuration KinesisFirehoseDeliveryStream#processing_configuration}
   */
   readonly processingConfiguration?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration;
   /**
   * s3_backup_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#s3_backup_configuration KinesisFirehoseDeliveryStream#s3_backup_configuration}
   */
   readonly s3BackupConfiguration?: KinesisFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration;
@@ -3546,7 +3546,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -3559,7 +3559,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // buffer_interval - computed: false, optional: true, required: false
-  private _bufferInterval?: number; 
+  private _bufferInterval?: number;
   public get bufferInterval() {
     return this.getNumberAttribute('buffer_interval');
   }
@@ -3575,7 +3575,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // buffer_size - computed: false, optional: true, required: false
-  private _bufferSize?: number; 
+  private _bufferSize?: number;
   public get bufferSize() {
     return this.getNumberAttribute('buffer_size');
   }
@@ -3591,7 +3591,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // compression_format - computed: false, optional: true, required: false
-  private _compressionFormat?: string; 
+  private _compressionFormat?: string;
   public get compressionFormat() {
     return this.getStringAttribute('compression_format');
   }
@@ -3607,7 +3607,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // error_output_prefix - computed: false, optional: true, required: false
-  private _errorOutputPrefix?: string; 
+  private _errorOutputPrefix?: string;
   public get errorOutputPrefix() {
     return this.getStringAttribute('error_output_prefix');
   }
@@ -3623,7 +3623,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -3639,7 +3639,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -3655,7 +3655,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -3668,7 +3668,7 @@ export class KinesisFirehoseDeliveryStreamExtendedS3ConfigurationOutputReference
   }
 
   // s3_backup_mode - computed: false, optional: true, required: false
-  private _s3BackupMode?: string; 
+  private _s3BackupMode?: string;
   public get s3BackupMode() {
     return this.getStringAttribute('s3_backup_mode');
   }
@@ -3835,7 +3835,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLog
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3851,7 +3851,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLog
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -3867,7 +3867,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLog
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -3955,7 +3955,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessingCon
   }
 
   // parameter_name - computed: false, optional: false, required: true
-  private _parameterName?: string; 
+  private _parameterName?: string;
   public get parameterName() {
     return this.getStringAttribute('parameter_name');
   }
@@ -3968,7 +3968,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessingCon
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string; 
+  private _parameterValue?: string;
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -4007,7 +4007,7 @@ export interface KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessin
   readonly type: string;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#parameters KinesisFirehoseDeliveryStream#parameters}
   */
   readonly parameters?: KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorsParameters[] | cdktf.IResolvable;
@@ -4075,7 +4075,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessingCon
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -4130,7 +4130,7 @@ export interface KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessin
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * processors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processors KinesisFirehoseDeliveryStream#processors}
   */
   readonly processors?: KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessors[] | cdktf.IResolvable;
@@ -4186,7 +4186,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessingCon
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -4290,7 +4290,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfig
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4303,7 +4303,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfig
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -4342,7 +4342,7 @@ export interface KinesisFirehoseDeliveryStreamHttpEndpointConfigurationRequestCo
   readonly contentEncoding?: string;
   /**
   * common_attributes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#common_attributes KinesisFirehoseDeliveryStream#common_attributes}
   */
   readonly commonAttributes?: KinesisFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributes[] | cdktf.IResolvable;
@@ -4398,7 +4398,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfig
   }
 
   // content_encoding - computed: false, optional: true, required: false
-  private _contentEncoding?: string; 
+  private _contentEncoding?: string;
   public get contentEncoding() {
     return this.getStringAttribute('content_encoding');
   }
@@ -4464,19 +4464,19 @@ export interface KinesisFirehoseDeliveryStreamHttpEndpointConfiguration {
   readonly url: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions;
   /**
   * processing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processing_configuration KinesisFirehoseDeliveryStream#processing_configuration}
   */
   readonly processingConfiguration?: KinesisFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration;
   /**
   * request_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#request_configuration KinesisFirehoseDeliveryStream#request_configuration}
   */
   readonly requestConfiguration?: KinesisFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
@@ -4595,7 +4595,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // access_key - computed: false, optional: true, required: false
-  private _accessKey?: string; 
+  private _accessKey?: string;
   public get accessKey() {
     return this.getStringAttribute('access_key');
   }
@@ -4611,7 +4611,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // buffering_interval - computed: false, optional: true, required: false
-  private _bufferingInterval?: number; 
+  private _bufferingInterval?: number;
   public get bufferingInterval() {
     return this.getNumberAttribute('buffering_interval');
   }
@@ -4627,7 +4627,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // buffering_size - computed: false, optional: true, required: false
-  private _bufferingSize?: number; 
+  private _bufferingSize?: number;
   public get bufferingSize() {
     return this.getNumberAttribute('buffering_size');
   }
@@ -4643,7 +4643,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4659,7 +4659,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // retry_duration - computed: false, optional: true, required: false
-  private _retryDuration?: number; 
+  private _retryDuration?: number;
   public get retryDuration() {
     return this.getNumberAttribute('retry_duration');
   }
@@ -4675,7 +4675,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -4691,7 +4691,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // s3_backup_mode - computed: false, optional: true, required: false
-  private _s3BackupMode?: string; 
+  private _s3BackupMode?: string;
   public get s3BackupMode() {
     return this.getStringAttribute('s3_backup_mode');
   }
@@ -4707,7 +4707,7 @@ export class KinesisFirehoseDeliveryStreamHttpEndpointConfigurationOutputReferen
   }
 
   // url - computed: false, optional: false, required: true
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -4828,7 +4828,7 @@ export class KinesisFirehoseDeliveryStreamKinesisSourceConfigurationOutputRefere
   }
 
   // kinesis_stream_arn - computed: false, optional: false, required: true
-  private _kinesisStreamArn?: string; 
+  private _kinesisStreamArn?: string;
   public get kinesisStreamArn() {
     return this.getStringAttribute('kinesis_stream_arn');
   }
@@ -4841,7 +4841,7 @@ export class KinesisFirehoseDeliveryStreamKinesisSourceConfigurationOutputRefere
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -4925,7 +4925,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLogging
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -4941,7 +4941,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLogging
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -4957,7 +4957,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLogging
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -5045,7 +5045,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigu
   }
 
   // parameter_name - computed: false, optional: false, required: true
-  private _parameterName?: string; 
+  private _parameterName?: string;
   public get parameterName() {
     return this.getStringAttribute('parameter_name');
   }
@@ -5058,7 +5058,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigu
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string; 
+  private _parameterValue?: string;
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -5097,7 +5097,7 @@ export interface KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingCon
   readonly type: string;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#parameters KinesisFirehoseDeliveryStream#parameters}
   */
   readonly parameters?: KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorsParameters[] | cdktf.IResolvable;
@@ -5165,7 +5165,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigu
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -5220,7 +5220,7 @@ export interface KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingCon
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * processors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processors KinesisFirehoseDeliveryStream#processors}
   */
   readonly processors?: KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessors[] | cdktf.IResolvable;
@@ -5276,7 +5276,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigu
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -5379,7 +5379,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -5395,7 +5395,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -5411,7 +5411,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -5461,7 +5461,7 @@ export interface KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfi
   readonly roleArn: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
@@ -5566,7 +5566,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -5579,7 +5579,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // buffer_interval - computed: false, optional: true, required: false
-  private _bufferInterval?: number; 
+  private _bufferInterval?: number;
   public get bufferInterval() {
     return this.getNumberAttribute('buffer_interval');
   }
@@ -5595,7 +5595,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // buffer_size - computed: false, optional: true, required: false
-  private _bufferSize?: number; 
+  private _bufferSize?: number;
   public get bufferSize() {
     return this.getNumberAttribute('buffer_size');
   }
@@ -5611,7 +5611,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // compression_format - computed: false, optional: true, required: false
-  private _compressionFormat?: string; 
+  private _compressionFormat?: string;
   public get compressionFormat() {
     return this.getStringAttribute('compression_format');
   }
@@ -5627,7 +5627,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // error_output_prefix - computed: false, optional: true, required: false
-  private _errorOutputPrefix?: string; 
+  private _errorOutputPrefix?: string;
   public get errorOutputPrefix() {
     return this.getStringAttribute('error_output_prefix');
   }
@@ -5643,7 +5643,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -5659,7 +5659,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -5675,7 +5675,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigura
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -5742,19 +5742,19 @@ export interface KinesisFirehoseDeliveryStreamRedshiftConfiguration {
   readonly username: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions;
   /**
   * processing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processing_configuration KinesisFirehoseDeliveryStream#processing_configuration}
   */
   readonly processingConfiguration?: KinesisFirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
   /**
   * s3_backup_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#s3_backup_configuration KinesisFirehoseDeliveryStream#s3_backup_configuration}
   */
   readonly s3BackupConfiguration?: KinesisFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
@@ -5880,7 +5880,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // cluster_jdbcurl - computed: false, optional: false, required: true
-  private _clusterJdbcurl?: string; 
+  private _clusterJdbcurl?: string;
   public get clusterJdbcurl() {
     return this.getStringAttribute('cluster_jdbcurl');
   }
@@ -5893,7 +5893,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // copy_options - computed: false, optional: true, required: false
-  private _copyOptions?: string; 
+  private _copyOptions?: string;
   public get copyOptions() {
     return this.getStringAttribute('copy_options');
   }
@@ -5909,7 +5909,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // data_table_columns - computed: false, optional: true, required: false
-  private _dataTableColumns?: string; 
+  private _dataTableColumns?: string;
   public get dataTableColumns() {
     return this.getStringAttribute('data_table_columns');
   }
@@ -5925,7 +5925,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // data_table_name - computed: false, optional: false, required: true
-  private _dataTableName?: string; 
+  private _dataTableName?: string;
   public get dataTableName() {
     return this.getStringAttribute('data_table_name');
   }
@@ -5938,7 +5938,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -5951,7 +5951,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // retry_duration - computed: false, optional: true, required: false
-  private _retryDuration?: number; 
+  private _retryDuration?: number;
   public get retryDuration() {
     return this.getNumberAttribute('retry_duration');
   }
@@ -5967,7 +5967,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -5980,7 +5980,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // s3_backup_mode - computed: false, optional: true, required: false
-  private _s3BackupMode?: string; 
+  private _s3BackupMode?: string;
   public get s3BackupMode() {
     return this.getStringAttribute('s3_backup_mode');
   }
@@ -5996,7 +5996,7 @@ export class KinesisFirehoseDeliveryStreamRedshiftConfigurationOutputReference e
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -6128,7 +6128,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOption
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -6144,7 +6144,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOption
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -6160,7 +6160,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOption
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -6210,7 +6210,7 @@ export interface KinesisFirehoseDeliveryStreamS3Configuration {
   readonly roleArn: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions;
@@ -6315,7 +6315,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -6328,7 +6328,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // buffer_interval - computed: false, optional: true, required: false
-  private _bufferInterval?: number; 
+  private _bufferInterval?: number;
   public get bufferInterval() {
     return this.getNumberAttribute('buffer_interval');
   }
@@ -6344,7 +6344,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // buffer_size - computed: false, optional: true, required: false
-  private _bufferSize?: number; 
+  private _bufferSize?: number;
   public get bufferSize() {
     return this.getNumberAttribute('buffer_size');
   }
@@ -6360,7 +6360,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // compression_format - computed: false, optional: true, required: false
-  private _compressionFormat?: string; 
+  private _compressionFormat?: string;
   public get compressionFormat() {
     return this.getStringAttribute('compression_format');
   }
@@ -6376,7 +6376,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // error_output_prefix - computed: false, optional: true, required: false
-  private _errorOutputPrefix?: string; 
+  private _errorOutputPrefix?: string;
   public get errorOutputPrefix() {
     return this.getStringAttribute('error_output_prefix');
   }
@@ -6392,7 +6392,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -6408,7 +6408,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -6424,7 +6424,7 @@ export class KinesisFirehoseDeliveryStreamS3ConfigurationOutputReference extends
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -6524,7 +6524,7 @@ export class KinesisFirehoseDeliveryStreamServerSideEncryptionOutputReference ex
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -6540,7 +6540,7 @@ export class KinesisFirehoseDeliveryStreamServerSideEncryptionOutputReference ex
   }
 
   // key_arn - computed: false, optional: true, required: false
-  private _keyArn?: string; 
+  private _keyArn?: string;
   public get keyArn() {
     return this.getStringAttribute('key_arn');
   }
@@ -6556,7 +6556,7 @@ export class KinesisFirehoseDeliveryStreamServerSideEncryptionOutputReference ex
   }
 
   // key_type - computed: false, optional: true, required: false
-  private _keyType?: string; 
+  private _keyType?: string;
   public get keyType() {
     return this.getStringAttribute('key_type');
   }
@@ -6643,7 +6643,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOp
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -6659,7 +6659,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOp
   }
 
   // log_group_name - computed: false, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -6675,7 +6675,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOp
   }
 
   // log_stream_name - computed: false, optional: true, required: false
-  private _logStreamName?: string; 
+  private _logStreamName?: string;
   public get logStreamName() {
     return this.getStringAttribute('log_stream_name');
   }
@@ -6763,7 +6763,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfigura
   }
 
   // parameter_name - computed: false, optional: false, required: true
-  private _parameterName?: string; 
+  private _parameterName?: string;
   public get parameterName() {
     return this.getStringAttribute('parameter_name');
   }
@@ -6776,7 +6776,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfigura
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string; 
+  private _parameterValue?: string;
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -6815,7 +6815,7 @@ export interface KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfi
   readonly type: string;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#parameters KinesisFirehoseDeliveryStream#parameters}
   */
   readonly parameters?: KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorsParameters[] | cdktf.IResolvable;
@@ -6883,7 +6883,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfigura
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -6938,7 +6938,7 @@ export interface KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfi
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * processors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processors KinesisFirehoseDeliveryStream#processors}
   */
   readonly processors?: KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessors[] | cdktf.IResolvable;
@@ -6994,7 +6994,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfigura
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -7052,13 +7052,13 @@ export interface KinesisFirehoseDeliveryStreamSplunkConfiguration {
   readonly s3BackupMode?: string;
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#cloudwatch_logging_options KinesisFirehoseDeliveryStream#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
   /**
   * processing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream#processing_configuration KinesisFirehoseDeliveryStream#processing_configuration}
   */
   readonly processingConfiguration?: KinesisFirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
@@ -7156,7 +7156,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationOutputReference ext
   }
 
   // hec_acknowledgment_timeout - computed: false, optional: true, required: false
-  private _hecAcknowledgmentTimeout?: number; 
+  private _hecAcknowledgmentTimeout?: number;
   public get hecAcknowledgmentTimeout() {
     return this.getNumberAttribute('hec_acknowledgment_timeout');
   }
@@ -7172,7 +7172,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationOutputReference ext
   }
 
   // hec_endpoint - computed: false, optional: false, required: true
-  private _hecEndpoint?: string; 
+  private _hecEndpoint?: string;
   public get hecEndpoint() {
     return this.getStringAttribute('hec_endpoint');
   }
@@ -7185,7 +7185,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationOutputReference ext
   }
 
   // hec_endpoint_type - computed: false, optional: true, required: false
-  private _hecEndpointType?: string; 
+  private _hecEndpointType?: string;
   public get hecEndpointType() {
     return this.getStringAttribute('hec_endpoint_type');
   }
@@ -7201,7 +7201,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationOutputReference ext
   }
 
   // hec_token - computed: false, optional: false, required: true
-  private _hecToken?: string; 
+  private _hecToken?: string;
   public get hecToken() {
     return this.getStringAttribute('hec_token');
   }
@@ -7214,7 +7214,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationOutputReference ext
   }
 
   // retry_duration - computed: false, optional: true, required: false
-  private _retryDuration?: number; 
+  private _retryDuration?: number;
   public get retryDuration() {
     return this.getNumberAttribute('retry_duration');
   }
@@ -7230,7 +7230,7 @@ export class KinesisFirehoseDeliveryStreamSplunkConfigurationOutputReference ext
   }
 
   // s3_backup_mode - computed: false, optional: true, required: false
-  private _s3BackupMode?: string; 
+  private _s3BackupMode?: string;
   public get s3BackupMode() {
     return this.getStringAttribute('s3_backup_mode');
   }
@@ -7359,7 +7359,7 @@ export class KinesisFirehoseDeliveryStreamTimeoutsOutputReference extends cdktf.
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -7375,7 +7375,7 @@ export class KinesisFirehoseDeliveryStreamTimeoutsOutputReference extends cdktf.
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -7391,7 +7391,7 @@ export class KinesisFirehoseDeliveryStreamTimeoutsOutputReference extends cdktf.
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -7468,7 +7468,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   // ==========
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -7484,7 +7484,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -7497,7 +7497,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   }
 
   // destination_id - computed: true, optional: true, required: false
-  private _destinationId?: string; 
+  private _destinationId?: string;
   public get destinationId() {
     return this.getStringAttribute('destination_id');
   }
@@ -7513,7 +7513,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -7529,7 +7529,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7542,7 +7542,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -7558,7 +7558,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -7574,7 +7574,7 @@ export class KinesisFirehoseDeliveryStream extends cdktf.TerraformResource {
   }
 
   // version_id - computed: true, optional: true, required: false
-  private _versionId?: string; 
+  private _versionId?: string;
   public get versionId() {
     return this.getStringAttribute('version_id');
   }

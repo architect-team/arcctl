@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/key_pair
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface DataAwsKeyPairConfig extends cdktf.TerraformMetaArguments {
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/key_pair#filter DataAwsKeyPair#filter}
   */
   readonly filter?: DataAwsKeyPairFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/key_pair#timeouts DataAwsKeyPair#timeouts}
   */
   readonly timeouts?: DataAwsKeyPairTimeouts;
@@ -116,7 +116,7 @@ export class DataAwsKeyPairFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -129,7 +129,7 @@ export class DataAwsKeyPairFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -221,7 +221,7 @@ export class DataAwsKeyPairTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -303,7 +303,7 @@ export class DataAwsKeyPair extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -319,7 +319,7 @@ export class DataAwsKeyPair extends cdktf.TerraformDataSource {
   }
 
   // include_public_key - computed: false, optional: true, required: false
-  private _includePublicKey?: boolean | cdktf.IResolvable; 
+  private _includePublicKey?: boolean | cdktf.IResolvable;
   public get includePublicKey() {
     return this.getBooleanAttribute('include_public_key');
   }
@@ -335,7 +335,7 @@ export class DataAwsKeyPair extends cdktf.TerraformDataSource {
   }
 
   // key_name - computed: false, optional: true, required: false
-  private _keyName?: string; 
+  private _keyName?: string;
   public get keyName() {
     return this.getStringAttribute('key_name');
   }
@@ -351,7 +351,7 @@ export class DataAwsKeyPair extends cdktf.TerraformDataSource {
   }
 
   // key_pair_id - computed: false, optional: true, required: false
-  private _keyPairId?: string; 
+  private _keyPairId?: string;
   public get keyPairId() {
     return this.getStringAttribute('key_pair_id');
   }
@@ -377,7 +377,7 @@ export class DataAwsKeyPair extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssoadmin_instance_access_control_attributes
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface SsoadminInstanceAccessControlAttributesConfig extends cdktf.Ter
   readonly instanceArn: string;
   /**
   * attribute block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_instance_access_control_attributes#attribute SsoadminInstanceAccessControlAttributes#attribute}
   */
   readonly attribute: SsoadminInstanceAccessControlAttributesAttribute[] | cdktf.IResolvable;
@@ -87,7 +87,7 @@ export class SsoadminInstanceAccessControlAttributesAttributeValueOutputReferenc
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string[]; 
+  private _source?: string[];
   public get source() {
     return cdktf.Fn.tolist(this.getListAttribute('source'));
   }
@@ -126,7 +126,7 @@ export interface SsoadminInstanceAccessControlAttributesAttribute {
   readonly key: string;
   /**
   * value block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_instance_access_control_attributes#value SsoadminInstanceAccessControlAttributes#value}
   */
   readonly value: SsoadminInstanceAccessControlAttributesAttributeValue[] | cdktf.IResolvable;
@@ -194,7 +194,7 @@ export class SsoadminInstanceAccessControlAttributesAttributeOutputReference ext
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -287,7 +287,7 @@ export class SsoadminInstanceAccessControlAttributes extends cdktf.TerraformReso
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -303,7 +303,7 @@ export class SsoadminInstanceAccessControlAttributes extends cdktf.TerraformReso
   }
 
   // instance_arn - computed: false, optional: false, required: true
-  private _instanceArn?: string; 
+  private _instanceArn?: string;
   public get instanceArn() {
     return this.getStringAttribute('instance_arn');
   }

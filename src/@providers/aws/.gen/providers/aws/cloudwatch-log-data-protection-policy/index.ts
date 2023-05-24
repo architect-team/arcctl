@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_data_protection_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class CloudwatchLogDataProtectionPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class CloudwatchLogDataProtectionPolicy extends cdktf.TerraformResource {
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -100,7 +100,7 @@ export class CloudwatchLogDataProtectionPolicy extends cdktf.TerraformResource {
   }
 
   // policy_document - computed: false, optional: false, required: true
-  private _policyDocument?: string; 
+  private _policyDocument?: string;
   public get policyDocument() {
     return this.getStringAttribute('policy_document');
   }

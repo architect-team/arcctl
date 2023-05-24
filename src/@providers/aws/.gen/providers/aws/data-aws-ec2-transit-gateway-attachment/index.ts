@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface DataAwsEc2TransitGatewayAttachmentConfig extends cdktf.Terrafor
   readonly transitGatewayAttachmentId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_attachment#filter DataAwsEc2TransitGatewayAttachment#filter}
   */
   readonly filter?: DataAwsEc2TransitGatewayAttachmentFilter[] | cdktf.IResolvable;
@@ -102,7 +102,7 @@ export class DataAwsEc2TransitGatewayAttachmentFilterOutputReference extends cdk
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -115,7 +115,7 @@ export class DataAwsEc2TransitGatewayAttachmentFilterOutputReference extends cdk
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -211,7 +211,7 @@ export class DataAwsEc2TransitGatewayAttachment extends cdktf.TerraformDataSourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -247,7 +247,7 @@ export class DataAwsEc2TransitGatewayAttachment extends cdktf.TerraformDataSourc
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -263,7 +263,7 @@ export class DataAwsEc2TransitGatewayAttachment extends cdktf.TerraformDataSourc
   }
 
   // transit_gateway_attachment_id - computed: true, optional: true, required: false
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }

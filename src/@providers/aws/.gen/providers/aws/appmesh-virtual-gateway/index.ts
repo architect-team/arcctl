@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface AppmeshVirtualGatewayConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#spec AppmeshVirtualGateway#spec}
   */
   readonly spec: AppmeshVirtualGatewaySpec;
@@ -102,7 +102,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateF
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -115,7 +115,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateF
   }
 
   // private_key - computed: false, optional: false, required: true
-  private _privateKey?: string; 
+  private _privateKey?: string;
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -177,7 +177,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateS
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -192,13 +192,13 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateS
 export interface AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#file AppmeshVirtualGateway#file}
   */
   readonly file?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#sds AppmeshVirtualGateway#sds}
   */
   readonly sds?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds;
@@ -335,7 +335,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSu
   }
 
   // exact - computed: false, optional: false, required: true
-  private _exact?: string[]; 
+  private _exact?: string[];
   public get exact() {
     return cdktf.Fn.tolist(this.getListAttribute('exact'));
   }
@@ -350,7 +350,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSu
 export interface AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#match AppmeshVirtualGateway#match}
   */
   readonly match: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch;
@@ -461,7 +461,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTr
   }
 
   // certificate_authority_arns - computed: false, optional: false, required: true
-  private _certificateAuthorityArns?: string[]; 
+  private _certificateAuthorityArns?: string[];
   public get certificateAuthorityArns() {
     return cdktf.Fn.tolist(this.getListAttribute('certificate_authority_arns'));
   }
@@ -523,7 +523,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTr
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -585,7 +585,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTr
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -600,19 +600,19 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTr
 export interface AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
   /**
   * acm block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#acm AppmeshVirtualGateway#acm}
   */
   readonly acm?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#file AppmeshVirtualGateway#file}
   */
   readonly file?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#sds AppmeshVirtualGateway#sds}
   */
   readonly sds?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds;
@@ -725,13 +725,13 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTr
 export interface AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
   /**
   * subject_alternative_names block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#subject_alternative_names AppmeshVirtualGateway#subject_alternative_names}
   */
   readonly subjectAlternativeNames?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames;
   /**
   * trust block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#trust AppmeshVirtualGateway#trust}
   */
   readonly trust: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust;
@@ -826,13 +826,13 @@ export interface AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTls {
   readonly ports?: number[];
   /**
   * certificate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#certificate AppmeshVirtualGateway#certificate}
   */
   readonly certificate?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate;
   /**
   * validation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#validation AppmeshVirtualGateway#validation}
   */
   readonly validation: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation;
@@ -902,7 +902,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsOutputRefere
   }
 
   // enforce - computed: false, optional: true, required: false
-  private _enforce?: boolean | cdktf.IResolvable; 
+  private _enforce?: boolean | cdktf.IResolvable;
   public get enforce() {
     return this.getBooleanAttribute('enforce');
   }
@@ -918,7 +918,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsOutputRefere
   }
 
   // ports - computed: false, optional: true, required: false
-  private _ports?: number[]; 
+  private _ports?: number[];
   public get ports() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('ports')));
   }
@@ -965,7 +965,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTlsOutputRefere
 export interface AppmeshVirtualGatewaySpecBackendDefaultsClientPolicy {
   /**
   * tls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#tls AppmeshVirtualGateway#tls}
   */
   readonly tls?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyTls;
@@ -1032,7 +1032,7 @@ export class AppmeshVirtualGatewaySpecBackendDefaultsClientPolicyOutputReference
 export interface AppmeshVirtualGatewaySpecBackendDefaults {
   /**
   * client_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#client_policy AppmeshVirtualGateway#client_policy}
   */
   readonly clientPolicy?: AppmeshVirtualGatewaySpecBackendDefaultsClientPolicy;
@@ -1146,7 +1146,7 @@ export class AppmeshVirtualGatewaySpecListenerConnectionPoolGrpcOutputReference 
   }
 
   // max_requests - computed: false, optional: false, required: true
-  private _maxRequests?: number; 
+  private _maxRequests?: number;
   public get maxRequests() {
     return this.getNumberAttribute('max_requests');
   }
@@ -1219,7 +1219,7 @@ export class AppmeshVirtualGatewaySpecListenerConnectionPoolHttpOutputReference 
   }
 
   // max_connections - computed: false, optional: false, required: true
-  private _maxConnections?: number; 
+  private _maxConnections?: number;
   public get maxConnections() {
     return this.getNumberAttribute('max_connections');
   }
@@ -1232,7 +1232,7 @@ export class AppmeshVirtualGatewaySpecListenerConnectionPoolHttpOutputReference 
   }
 
   // max_pending_requests - computed: false, optional: true, required: false
-  private _maxPendingRequests?: number; 
+  private _maxPendingRequests?: number;
   public get maxPendingRequests() {
     return this.getNumberAttribute('max_pending_requests');
   }
@@ -1297,7 +1297,7 @@ export class AppmeshVirtualGatewaySpecListenerConnectionPoolHttp2OutputReference
   }
 
   // max_requests - computed: false, optional: false, required: true
-  private _maxRequests?: number; 
+  private _maxRequests?: number;
   public get maxRequests() {
     return this.getNumberAttribute('max_requests');
   }
@@ -1312,19 +1312,19 @@ export class AppmeshVirtualGatewaySpecListenerConnectionPoolHttp2OutputReference
 export interface AppmeshVirtualGatewaySpecListenerConnectionPool {
   /**
   * grpc block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#grpc AppmeshVirtualGateway#grpc}
   */
   readonly grpc?: AppmeshVirtualGatewaySpecListenerConnectionPoolGrpc;
   /**
   * http block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#http AppmeshVirtualGateway#http}
   */
   readonly http?: AppmeshVirtualGatewaySpecListenerConnectionPoolHttp;
   /**
   * http2 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#http2 AppmeshVirtualGateway#http2}
   */
   readonly http2?: AppmeshVirtualGatewaySpecListenerConnectionPoolHttp2;
@@ -1550,7 +1550,7 @@ export class AppmeshVirtualGatewaySpecListenerHealthCheckOutputReference extends
   }
 
   // healthy_threshold - computed: false, optional: false, required: true
-  private _healthyThreshold?: number; 
+  private _healthyThreshold?: number;
   public get healthyThreshold() {
     return this.getNumberAttribute('healthy_threshold');
   }
@@ -1563,7 +1563,7 @@ export class AppmeshVirtualGatewaySpecListenerHealthCheckOutputReference extends
   }
 
   // interval_millis - computed: false, optional: false, required: true
-  private _intervalMillis?: number; 
+  private _intervalMillis?: number;
   public get intervalMillis() {
     return this.getNumberAttribute('interval_millis');
   }
@@ -1576,7 +1576,7 @@ export class AppmeshVirtualGatewaySpecListenerHealthCheckOutputReference extends
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -1592,7 +1592,7 @@ export class AppmeshVirtualGatewaySpecListenerHealthCheckOutputReference extends
   }
 
   // port - computed: true, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1608,7 +1608,7 @@ export class AppmeshVirtualGatewaySpecListenerHealthCheckOutputReference extends
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -1621,7 +1621,7 @@ export class AppmeshVirtualGatewaySpecListenerHealthCheckOutputReference extends
   }
 
   // timeout_millis - computed: false, optional: false, required: true
-  private _timeoutMillis?: number; 
+  private _timeoutMillis?: number;
   public get timeoutMillis() {
     return this.getNumberAttribute('timeout_millis');
   }
@@ -1634,7 +1634,7 @@ export class AppmeshVirtualGatewaySpecListenerHealthCheckOutputReference extends
   }
 
   // unhealthy_threshold - computed: false, optional: false, required: true
-  private _unhealthyThreshold?: number; 
+  private _unhealthyThreshold?: number;
   public get unhealthyThreshold() {
     return this.getNumberAttribute('unhealthy_threshold');
   }
@@ -1707,7 +1707,7 @@ export class AppmeshVirtualGatewaySpecListenerPortMappingOutputReference extends
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1720,7 +1720,7 @@ export class AppmeshVirtualGatewaySpecListenerPortMappingOutputReference extends
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -1782,7 +1782,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsCertificateAcmOutputReference e
   }
 
   // certificate_arn - computed: false, optional: false, required: true
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -1855,7 +1855,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsCertificateFileOutputReference 
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -1868,7 +1868,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsCertificateFileOutputReference 
   }
 
   // private_key - computed: false, optional: false, required: true
-  private _privateKey?: string; 
+  private _privateKey?: string;
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -1930,7 +1930,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsCertificateSdsOutputReference e
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -1945,19 +1945,19 @@ export class AppmeshVirtualGatewaySpecListenerTlsCertificateSdsOutputReference e
 export interface AppmeshVirtualGatewaySpecListenerTlsCertificate {
   /**
   * acm block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#acm AppmeshVirtualGateway#acm}
   */
   readonly acm?: AppmeshVirtualGatewaySpecListenerTlsCertificateAcm;
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#file AppmeshVirtualGateway#file}
   */
   readonly file?: AppmeshVirtualGatewaySpecListenerTlsCertificateFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#sds AppmeshVirtualGateway#sds}
   */
   readonly sds?: AppmeshVirtualGatewaySpecListenerTlsCertificateSds;
@@ -2117,7 +2117,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNam
   }
 
   // exact - computed: false, optional: false, required: true
-  private _exact?: string[]; 
+  private _exact?: string[];
   public get exact() {
     return cdktf.Fn.tolist(this.getListAttribute('exact'));
   }
@@ -2132,7 +2132,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNam
 export interface AppmeshVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
   /**
   * match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#match AppmeshVirtualGateway#match}
   */
   readonly match: AppmeshVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch;
@@ -2243,7 +2243,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsValidationTrustFileOutputRefere
   }
 
   // certificate_chain - computed: false, optional: false, required: true
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -2305,7 +2305,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsValidationTrustSdsOutputReferen
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -2320,13 +2320,13 @@ export class AppmeshVirtualGatewaySpecListenerTlsValidationTrustSdsOutputReferen
 export interface AppmeshVirtualGatewaySpecListenerTlsValidationTrust {
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#file AppmeshVirtualGateway#file}
   */
   readonly file?: AppmeshVirtualGatewaySpecListenerTlsValidationTrustFile;
   /**
   * sds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#sds AppmeshVirtualGateway#sds}
   */
   readonly sds?: AppmeshVirtualGatewaySpecListenerTlsValidationTrustSds;
@@ -2416,13 +2416,13 @@ export class AppmeshVirtualGatewaySpecListenerTlsValidationTrustOutputReference 
 export interface AppmeshVirtualGatewaySpecListenerTlsValidation {
   /**
   * subject_alternative_names block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#subject_alternative_names AppmeshVirtualGateway#subject_alternative_names}
   */
   readonly subjectAlternativeNames?: AppmeshVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames;
   /**
   * trust block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#trust AppmeshVirtualGateway#trust}
   */
   readonly trust: AppmeshVirtualGatewaySpecListenerTlsValidationTrust;
@@ -2513,13 +2513,13 @@ export interface AppmeshVirtualGatewaySpecListenerTls {
   readonly mode: string;
   /**
   * certificate block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#certificate AppmeshVirtualGateway#certificate}
   */
   readonly certificate: AppmeshVirtualGatewaySpecListenerTlsCertificate;
   /**
   * validation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#validation AppmeshVirtualGateway#validation}
   */
   readonly validation?: AppmeshVirtualGatewaySpecListenerTlsValidation;
@@ -2582,7 +2582,7 @@ export class AppmeshVirtualGatewaySpecListenerTlsOutputReference extends cdktf.C
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -2626,25 +2626,25 @@ export class AppmeshVirtualGatewaySpecListenerTlsOutputReference extends cdktf.C
 export interface AppmeshVirtualGatewaySpecListener {
   /**
   * connection_pool block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#connection_pool AppmeshVirtualGateway#connection_pool}
   */
   readonly connectionPool?: AppmeshVirtualGatewaySpecListenerConnectionPool;
   /**
   * health_check block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#health_check AppmeshVirtualGateway#health_check}
   */
   readonly healthCheck?: AppmeshVirtualGatewaySpecListenerHealthCheck;
   /**
   * port_mapping block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#port_mapping AppmeshVirtualGateway#port_mapping}
   */
   readonly portMapping: AppmeshVirtualGatewaySpecListenerPortMapping;
   /**
   * tls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#tls AppmeshVirtualGateway#tls}
   */
   readonly tls?: AppmeshVirtualGatewaySpecListenerTls;
@@ -2879,7 +2879,7 @@ export class AppmeshVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputRefere
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2892,7 +2892,7 @@ export class AppmeshVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputRefere
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2931,7 +2931,7 @@ export interface AppmeshVirtualGatewaySpecLoggingAccessLogFileFormat {
   readonly text?: string;
   /**
   * json block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#json AppmeshVirtualGateway#json}
   */
   readonly json?: AppmeshVirtualGatewaySpecLoggingAccessLogFileFormatJson[] | cdktf.IResolvable;
@@ -2987,7 +2987,7 @@ export class AppmeshVirtualGatewaySpecLoggingAccessLogFileFormatOutputReference 
   }
 
   // text - computed: false, optional: true, required: false
-  private _text?: string; 
+  private _text?: string;
   public get text() {
     return this.getStringAttribute('text');
   }
@@ -3025,7 +3025,7 @@ export interface AppmeshVirtualGatewaySpecLoggingAccessLogFile {
   readonly path: string;
   /**
   * format block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#format AppmeshVirtualGateway#format}
   */
   readonly format?: AppmeshVirtualGatewaySpecLoggingAccessLogFileFormat;
@@ -3081,7 +3081,7 @@ export class AppmeshVirtualGatewaySpecLoggingAccessLogFileOutputReference extend
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3112,7 +3112,7 @@ export class AppmeshVirtualGatewaySpecLoggingAccessLogFileOutputReference extend
 export interface AppmeshVirtualGatewaySpecLoggingAccessLog {
   /**
   * file block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#file AppmeshVirtualGateway#file}
   */
   readonly file?: AppmeshVirtualGatewaySpecLoggingAccessLogFile;
@@ -3179,7 +3179,7 @@ export class AppmeshVirtualGatewaySpecLoggingAccessLogOutputReference extends cd
 export interface AppmeshVirtualGatewaySpecLogging {
   /**
   * access_log block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#access_log AppmeshVirtualGateway#access_log}
   */
   readonly accessLog?: AppmeshVirtualGatewaySpecLoggingAccessLog;
@@ -3246,19 +3246,19 @@ export class AppmeshVirtualGatewaySpecLoggingOutputReference extends cdktf.Compl
 export interface AppmeshVirtualGatewaySpec {
   /**
   * backend_defaults block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#backend_defaults AppmeshVirtualGateway#backend_defaults}
   */
   readonly backendDefaults?: AppmeshVirtualGatewaySpecBackendDefaults;
   /**
   * listener block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#listener AppmeshVirtualGateway#listener}
   */
   readonly listener: AppmeshVirtualGatewaySpecListener[] | cdktf.IResolvable;
   /**
   * logging block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_gateway#logging AppmeshVirtualGateway#logging}
   */
   readonly logging?: AppmeshVirtualGatewaySpecLogging;
@@ -3427,7 +3427,7 @@ export class AppmeshVirtualGateway extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3448,7 +3448,7 @@ export class AppmeshVirtualGateway extends cdktf.TerraformResource {
   }
 
   // mesh_name - computed: false, optional: false, required: true
-  private _meshName?: string; 
+  private _meshName?: string;
   public get meshName() {
     return this.getStringAttribute('mesh_name');
   }
@@ -3461,7 +3461,7 @@ export class AppmeshVirtualGateway extends cdktf.TerraformResource {
   }
 
   // mesh_owner - computed: true, optional: true, required: false
-  private _meshOwner?: string; 
+  private _meshOwner?: string;
   public get meshOwner() {
     return this.getStringAttribute('mesh_owner');
   }
@@ -3477,7 +3477,7 @@ export class AppmeshVirtualGateway extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3495,7 +3495,7 @@ export class AppmeshVirtualGateway extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3511,7 +3511,7 @@ export class AppmeshVirtualGateway extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

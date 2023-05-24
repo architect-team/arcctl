@@ -3,7 +3,7 @@ import { ResourceModule } from '../../module.js';
 import { Route53Zone } from '../.gen/providers/aws/route53-zone/index.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsDnsZoneService } from '../services/dns-zone.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class AwsDnsZoneModule extends ResourceModule<
   'dnsZone',

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface WafRateBasedRuleConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * predicates block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule#predicates WafRateBasedRule#predicates}
   */
   readonly predicates?: WafRateBasedRulePredicates[] | cdktf.IResolvable;
@@ -129,7 +129,7 @@ export class WafRateBasedRulePredicatesOutputReference extends cdktf.ComplexObje
   }
 
   // data_id - computed: false, optional: false, required: true
-  private _dataId?: string; 
+  private _dataId?: string;
   public get dataId() {
     return this.getStringAttribute('data_id');
   }
@@ -142,7 +142,7 @@ export class WafRateBasedRulePredicatesOutputReference extends cdktf.ComplexObje
   }
 
   // negated - computed: false, optional: false, required: true
-  private _negated?: boolean | cdktf.IResolvable; 
+  private _negated?: boolean | cdktf.IResolvable;
   public get negated() {
     return this.getBooleanAttribute('negated');
   }
@@ -155,7 +155,7 @@ export class WafRateBasedRulePredicatesOutputReference extends cdktf.ComplexObje
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -245,7 +245,7 @@ export class WafRateBasedRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -261,7 +261,7 @@ export class WafRateBasedRule extends cdktf.TerraformResource {
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -274,7 +274,7 @@ export class WafRateBasedRule extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -287,7 +287,7 @@ export class WafRateBasedRule extends cdktf.TerraformResource {
   }
 
   // rate_key - computed: false, optional: false, required: true
-  private _rateKey?: string; 
+  private _rateKey?: string;
   public get rateKey() {
     return this.getStringAttribute('rate_key');
   }
@@ -300,7 +300,7 @@ export class WafRateBasedRule extends cdktf.TerraformResource {
   }
 
   // rate_limit - computed: false, optional: false, required: true
-  private _rateLimit?: number; 
+  private _rateLimit?: number;
   public get rateLimit() {
     return this.getNumberAttribute('rate_limit');
   }
@@ -313,7 +313,7 @@ export class WafRateBasedRule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -329,7 +329,7 @@ export class WafRateBasedRule extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

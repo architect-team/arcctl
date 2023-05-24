@@ -6,7 +6,7 @@ import Mustache from 'mustache';
 import path from 'path';
 import url from 'url';
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = new URL('.', import.meta.url).pathname;
 const resourcesDir = path.join(__dirname, '../../src', '@resources');
 
 const allTypes = (await fs.readdir(resourcesDir, { withFileTypes: true }))

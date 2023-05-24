@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -136,7 +136,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -152,7 +152,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_bandwidth_bits - computed: false, optional: true, required: false
-  private _downlinkBandwidthBits?: number; 
+  private _downlinkBandwidthBits?: number;
   public get downlinkBandwidthBits() {
     return this.getNumberAttribute('downlink_bandwidth_bits');
   }
@@ -168,7 +168,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_delay_ms - computed: false, optional: true, required: false
-  private _downlinkDelayMs?: number; 
+  private _downlinkDelayMs?: number;
   public get downlinkDelayMs() {
     return this.getNumberAttribute('downlink_delay_ms');
   }
@@ -184,7 +184,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_jitter_ms - computed: false, optional: true, required: false
-  private _downlinkJitterMs?: number; 
+  private _downlinkJitterMs?: number;
   public get downlinkJitterMs() {
     return this.getNumberAttribute('downlink_jitter_ms');
   }
@@ -200,7 +200,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_loss_percent - computed: false, optional: true, required: false
-  private _downlinkLossPercent?: number; 
+  private _downlinkLossPercent?: number;
   public get downlinkLossPercent() {
     return this.getNumberAttribute('downlink_loss_percent');
   }
@@ -216,7 +216,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -232,7 +232,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -245,7 +245,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // project_arn - computed: false, optional: false, required: true
-  private _projectArn?: string; 
+  private _projectArn?: string;
   public get projectArn() {
     return this.getStringAttribute('project_arn');
   }
@@ -258,7 +258,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -274,7 +274,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -290,7 +290,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -306,7 +306,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_bandwidth_bits - computed: false, optional: true, required: false
-  private _uplinkBandwidthBits?: number; 
+  private _uplinkBandwidthBits?: number;
   public get uplinkBandwidthBits() {
     return this.getNumberAttribute('uplink_bandwidth_bits');
   }
@@ -322,7 +322,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_delay_ms - computed: false, optional: true, required: false
-  private _uplinkDelayMs?: number; 
+  private _uplinkDelayMs?: number;
   public get uplinkDelayMs() {
     return this.getNumberAttribute('uplink_delay_ms');
   }
@@ -338,7 +338,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_jitter_ms - computed: false, optional: true, required: false
-  private _uplinkJitterMs?: number; 
+  private _uplinkJitterMs?: number;
   public get uplinkJitterMs() {
     return this.getNumberAttribute('uplink_jitter_ms');
   }
@@ -354,7 +354,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_loss_percent - computed: false, optional: true, required: false
-  private _uplinkLossPercent?: number; 
+  private _uplinkLossPercent?: number;
   public get uplinkLossPercent() {
     return this.getNumberAttribute('uplink_loss_percent');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_snapshot_schedule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // definitions - computed: false, optional: false, required: true
-  private _definitions?: string[]; 
+  private _definitions?: string[];
   public get definitions() {
     return cdktf.Fn.tolist(this.getListAttribute('definitions'));
   }
@@ -114,7 +114,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -130,7 +130,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -146,7 +146,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +162,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // identifier - computed: true, optional: true, required: false
-  private _identifier?: string; 
+  private _identifier?: string;
   public get identifier() {
     return this.getStringAttribute('identifier');
   }
@@ -178,7 +178,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // identifier_prefix - computed: true, optional: true, required: false
-  private _identifierPrefix?: string; 
+  private _identifierPrefix?: string;
   public get identifierPrefix() {
     return this.getStringAttribute('identifier_prefix');
   }
@@ -194,7 +194,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -210,7 +210,7 @@ export class RedshiftSnapshotSchedule extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

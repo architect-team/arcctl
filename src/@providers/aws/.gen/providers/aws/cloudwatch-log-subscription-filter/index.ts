@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_subscription_filter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class CloudwatchLogSubscriptionFilter extends cdktf.TerraformResource {
   // ==========
 
   // destination_arn - computed: false, optional: false, required: true
-  private _destinationArn?: string; 
+  private _destinationArn?: string;
   public get destinationArn() {
     return this.getStringAttribute('destination_arn');
   }
@@ -104,7 +104,7 @@ export class CloudwatchLogSubscriptionFilter extends cdktf.TerraformResource {
   }
 
   // distribution - computed: false, optional: true, required: false
-  private _distribution?: string; 
+  private _distribution?: string;
   public get distribution() {
     return this.getStringAttribute('distribution');
   }
@@ -120,7 +120,7 @@ export class CloudwatchLogSubscriptionFilter extends cdktf.TerraformResource {
   }
 
   // filter_pattern - computed: false, optional: false, required: true
-  private _filterPattern?: string; 
+  private _filterPattern?: string;
   public get filterPattern() {
     return this.getStringAttribute('filter_pattern');
   }
@@ -133,7 +133,7 @@ export class CloudwatchLogSubscriptionFilter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -149,7 +149,7 @@ export class CloudwatchLogSubscriptionFilter extends cdktf.TerraformResource {
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -162,7 +162,7 @@ export class CloudwatchLogSubscriptionFilter extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -175,7 +175,7 @@ export class CloudwatchLogSubscriptionFilter extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: true, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

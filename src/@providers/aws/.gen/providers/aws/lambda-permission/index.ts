@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_permission
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -116,7 +116,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   // ==========
 
   // action - computed: false, optional: false, required: true
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -129,7 +129,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // event_source_token - computed: false, optional: true, required: false
-  private _eventSourceToken?: string; 
+  private _eventSourceToken?: string;
   public get eventSourceToken() {
     return this.getStringAttribute('event_source_token');
   }
@@ -145,7 +145,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -158,7 +158,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // function_url_auth_type - computed: false, optional: true, required: false
-  private _functionUrlAuthType?: string; 
+  private _functionUrlAuthType?: string;
   public get functionUrlAuthType() {
     return this.getStringAttribute('function_url_auth_type');
   }
@@ -174,7 +174,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -190,7 +190,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -203,7 +203,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // principal_org_id - computed: false, optional: true, required: false
-  private _principalOrgId?: string; 
+  private _principalOrgId?: string;
   public get principalOrgId() {
     return this.getStringAttribute('principal_org_id');
   }
@@ -219,7 +219,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // qualifier - computed: false, optional: true, required: false
-  private _qualifier?: string; 
+  private _qualifier?: string;
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }
@@ -235,7 +235,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // source_account - computed: false, optional: true, required: false
-  private _sourceAccount?: string; 
+  private _sourceAccount?: string;
   public get sourceAccount() {
     return this.getStringAttribute('source_account');
   }
@@ -251,7 +251,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // source_arn - computed: false, optional: true, required: false
-  private _sourceArn?: string; 
+  private _sourceArn?: string;
   public get sourceArn() {
     return this.getStringAttribute('source_arn');
   }
@@ -267,7 +267,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // statement_id - computed: true, optional: true, required: false
-  private _statementId?: string; 
+  private _statementId?: string;
   public get statementId() {
     return this.getStringAttribute('statement_id');
   }
@@ -283,7 +283,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // statement_id_prefix - computed: true, optional: true, required: false
-  private _statementIdPrefix?: string; 
+  private _statementIdPrefix?: string;
   public get statementIdPrefix() {
     return this.getStringAttribute('statement_id_prefix');
   }

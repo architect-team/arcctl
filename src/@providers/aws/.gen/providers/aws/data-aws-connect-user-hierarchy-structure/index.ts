@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/connect_user_hierarchy_structure
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -531,7 +531,7 @@ export class DataAwsConnectUserHierarchyStructure extends cdktf.TerraformDataSou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -547,7 +547,7 @@ export class DataAwsConnectUserHierarchyStructure extends cdktf.TerraformDataSou
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }

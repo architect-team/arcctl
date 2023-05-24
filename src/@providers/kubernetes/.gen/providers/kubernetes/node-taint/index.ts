@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/node_taint
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface NodeTaintConfig extends cdktf.TerraformMetaArguments {
   /**
   * Set the name of the field manager for the node taint
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#field_manager NodeTaint#field_manager}
   */
   readonly fieldManager?: string;
   /**
   * Force overwriting annotations that were created or edited outside of Terraform.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#force NodeTaint#force}
   */
   readonly force?: boolean | cdktf.IResolvable;
@@ -28,13 +28,13 @@ export interface NodeTaintConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#metadata NodeTaint#metadata}
   */
   readonly metadata: NodeTaintMetadata;
   /**
   * taint block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#taint NodeTaint#taint}
   */
   readonly taint: NodeTaintTaint;
@@ -42,7 +42,7 @@ export interface NodeTaintConfig extends cdktf.TerraformMetaArguments {
 export interface NodeTaintMetadata {
   /**
   * The name of the node
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#name NodeTaint#name}
   */
   readonly name: string;
@@ -91,7 +91,7 @@ export class NodeTaintMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -106,19 +106,19 @@ export class NodeTaintMetadataOutputReference extends cdktf.ComplexObject {
 export interface NodeTaintTaint {
   /**
   * The taint effect
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#effect NodeTaint#effect}
   */
   readonly effect: string;
   /**
   * The taint key
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#key NodeTaint#key}
   */
   readonly key: string;
   /**
   * The taint value
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/node_taint#value NodeTaint#value}
   */
   readonly value: string;
@@ -181,7 +181,7 @@ export class NodeTaintTaintOutputReference extends cdktf.ComplexObject {
   }
 
   // effect - computed: false, optional: false, required: true
-  private _effect?: string; 
+  private _effect?: string;
   public get effect() {
     return this.getStringAttribute('effect');
   }
@@ -194,7 +194,7 @@ export class NodeTaintTaintOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -207,7 +207,7 @@ export class NodeTaintTaintOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -269,7 +269,7 @@ export class NodeTaint extends cdktf.TerraformResource {
   // ==========
 
   // field_manager - computed: false, optional: true, required: false
-  private _fieldManager?: string; 
+  private _fieldManager?: string;
   public get fieldManager() {
     return this.getStringAttribute('field_manager');
   }
@@ -285,7 +285,7 @@ export class NodeTaint extends cdktf.TerraformResource {
   }
 
   // force - computed: false, optional: true, required: false
-  private _force?: boolean | cdktf.IResolvable; 
+  private _force?: boolean | cdktf.IResolvable;
   public get force() {
     return this.getBooleanAttribute('force');
   }
@@ -301,7 +301,7 @@ export class NodeTaint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

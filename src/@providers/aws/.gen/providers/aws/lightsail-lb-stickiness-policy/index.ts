@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class LightsailLbStickinessPolicy extends cdktf.TerraformResource {
   // ==========
 
   // cookie_duration - computed: false, optional: false, required: true
-  private _cookieDuration?: number; 
+  private _cookieDuration?: number;
   public get cookieDuration() {
     return this.getNumberAttribute('cookie_duration');
   }
@@ -89,7 +89,7 @@ export class LightsailLbStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -102,7 +102,7 @@ export class LightsailLbStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class LightsailLbStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // lb_name - computed: false, optional: false, required: true
-  private _lbName?: string; 
+  private _lbName?: string;
   public get lbName() {
     return this.getStringAttribute('lb_name');
   }

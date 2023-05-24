@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/codecommit_repository
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsCodecommitRepository extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class DataAwsCodecommitRepository extends cdktf.TerraformDataSource {
   }
 
   // repository_name - computed: false, optional: false, required: true
-  private _repositoryName?: string; 
+  private _repositoryName?: string;
   public get repositoryName() {
     return this.getStringAttribute('repository_name');
   }

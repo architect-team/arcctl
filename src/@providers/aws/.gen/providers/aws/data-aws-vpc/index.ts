@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/vpc
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface DataAwsVpcConfig extends cdktf.TerraformMetaArguments {
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc#filter DataAwsVpc#filter}
   */
   readonly filter?: DataAwsVpcFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc#timeouts DataAwsVpc#timeouts}
   */
   readonly timeouts?: DataAwsVpcTimeouts;
@@ -194,7 +194,7 @@ export class DataAwsVpcFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -207,7 +207,7 @@ export class DataAwsVpcFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -299,7 +299,7 @@ export class DataAwsVpcTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -372,7 +372,7 @@ export class DataAwsVpc extends cdktf.TerraformDataSource {
   }
 
   // cidr_block - computed: true, optional: true, required: false
-  private _cidrBlock?: string; 
+  private _cidrBlock?: string;
   public get cidrBlock() {
     return this.getStringAttribute('cidr_block');
   }
@@ -394,7 +394,7 @@ export class DataAwsVpc extends cdktf.TerraformDataSource {
   }
 
   // default - computed: true, optional: true, required: false
-  private _default?: boolean | cdktf.IResolvable; 
+  private _default?: boolean | cdktf.IResolvable;
   public get default() {
     return this.getBooleanAttribute('default');
   }
@@ -410,7 +410,7 @@ export class DataAwsVpc extends cdktf.TerraformDataSource {
   }
 
   // dhcp_options_id - computed: true, optional: true, required: false
-  private _dhcpOptionsId?: string; 
+  private _dhcpOptionsId?: string;
   public get dhcpOptionsId() {
     return this.getStringAttribute('dhcp_options_id');
   }
@@ -441,7 +441,7 @@ export class DataAwsVpc extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -482,7 +482,7 @@ export class DataAwsVpc extends cdktf.TerraformDataSource {
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -498,7 +498,7 @@ export class DataAwsVpc extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

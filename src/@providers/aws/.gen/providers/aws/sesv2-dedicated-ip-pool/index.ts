@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface Sesv2DedicatedIpPoolConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#timeouts Sesv2DedicatedIpPool#timeouts}
   */
   readonly timeouts?: Sesv2DedicatedIpPoolTimeouts;
@@ -119,7 +119,7 @@ export class Sesv2DedicatedIpPoolTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -135,7 +135,7 @@ export class Sesv2DedicatedIpPoolTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -151,7 +151,7 @@ export class Sesv2DedicatedIpPoolTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -222,7 +222,7 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -238,7 +238,7 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
   }
 
   // pool_name - computed: false, optional: false, required: true
-  private _poolName?: string; 
+  private _poolName?: string;
   public get poolName() {
     return this.getStringAttribute('pool_name');
   }
@@ -251,7 +251,7 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
   }
 
   // scaling_mode - computed: true, optional: true, required: false
-  private _scalingMode?: string; 
+  private _scalingMode?: string;
   public get scalingMode() {
     return this.getStringAttribute('scaling_mode');
   }
@@ -267,7 +267,7 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -283,7 +283,7 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

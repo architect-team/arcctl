@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_access_point_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class S3ControlAccessPointPolicy extends cdktf.TerraformResource {
   // ==========
 
   // access_point_arn - computed: false, optional: false, required: true
-  private _accessPointArn?: string; 
+  private _accessPointArn?: string;
   public get accessPointArn() {
     return this.getStringAttribute('access_point_arn');
   }
@@ -89,7 +89,7 @@ export class S3ControlAccessPointPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class S3ControlAccessPointPolicy extends cdktf.TerraformResource {
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }

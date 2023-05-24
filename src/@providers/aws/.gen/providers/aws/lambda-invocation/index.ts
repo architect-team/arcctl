@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_invocation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class LambdaInvocation extends cdktf.TerraformResource {
   // ==========
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -94,7 +94,7 @@ export class LambdaInvocation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class LambdaInvocation extends cdktf.TerraformResource {
   }
 
   // input - computed: false, optional: false, required: true
-  private _input?: string; 
+  private _input?: string;
   public get input() {
     return this.getStringAttribute('input');
   }
@@ -123,7 +123,7 @@ export class LambdaInvocation extends cdktf.TerraformResource {
   }
 
   // qualifier - computed: false, optional: true, required: false
-  private _qualifier?: string; 
+  private _qualifier?: string;
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }
@@ -144,7 +144,7 @@ export class LambdaInvocation extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

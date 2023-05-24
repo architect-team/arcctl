@@ -1,12 +1,12 @@
-import { Component } from '../components/component.js';
-import { parseComponent } from '../components/parser.js';
-import { ComponentStoreDB } from './db.js';
-import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
-import crypto from 'crypto';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import tar from 'tar';
+import { Component } from '../components/component.ts';
+import { parseComponent } from '../components/parser.ts';
+import { ComponentStoreDB } from './db.ts';
+import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';  // TODO: how do
+import tar from 'npm:tar';
+import * as fs from "https://deno.land/std@0.188.0/fs/mod.ts";
+import * as path from "https://deno.land/std@0.188.0/path/mod.ts";
+import * as crypto from "https://deno.land/std@0.110.0/node/crypto.ts";
+import tmpDir from "https://deno.land/x/tmp_dir@v0.1.0/mod.ts";
 
 const CACHE_DB_FILENAME = 'component.db.json';
 
@@ -31,7 +31,7 @@ export class ComponentStore {
 
     try {
       this.db = JSON.parse(
-        fs.readFileSync(path.join(this.cache_dir, CACHE_DB_FILENAME), 'utf8'),
+        Deno.readTextFileSync(path.join(this.cache_dir, CACHE_DB_FILENAME)),
       );
     } catch {
       this.db = {};
@@ -39,7 +39,7 @@ export class ComponentStore {
   }
 
   private save() {
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       path.join(this.cache_dir, CACHE_DB_FILENAME),
       JSON.stringify(this.db),
     );
@@ -111,12 +111,13 @@ export class ComponentStore {
     const artifact_id = crypto
       .createHash('sha256')
       .update(component_contents)
-      .digest('hex');
+      .setEncoding('utf-8')  // TODO: Test this
+      .digest('hex') as string;
     const new_path = path.join(this.cache_dir, artifact_id);
     if (!fs.existsSync(new_path)) {
-      fs.mkdirSync(new_path, { recursive: true });
+      Deno.mkdirSync(new_path, { recursive: true });
     }
-    fs.writeFileSync(path.join(new_path, 'architect.json'), component_contents);
+    Deno.writeTextFileSync(path.join(new_path, 'architect.json'), component_contents);
     return artifact_id;
   }
 
@@ -134,13 +135,13 @@ export class ComponentStore {
           throw new MissingComponentRef(ref_string);
         }
 
-        fs.rmSync(src_path, { recursive: true });
+        Deno.removeSync(src_path, { recursive: true });
         return;
       }
 
       const repo = new ImageRepository(ref_string, this.default_registry);
       const { config_path } = await this.getCachedComponentDetails(repo);
-      fs.rmSync(path.dirname(config_path), { recursive: true });
+      Deno.removeSync(path.dirname(config_path), { recursive: true });
 
       if (
         this.db[repo.repository] &&
@@ -148,7 +149,7 @@ export class ComponentStore {
       ) {
         delete this.db[repo.repository][repo.toString()];
       }
-    } catch (err) {
+    } catch (_err) {
       throw new MissingComponentRef(ref_string);
     }
   }
@@ -213,11 +214,11 @@ export class ComponentStore {
     );
 
     // Upload the component config
-    fs.writeFileSync(config_path, JSON.stringify(component));
+    Deno.writeTextFileSync(config_path, JSON.stringify(component));
     const config_blob = await repository.uploadBlob(config_path);
 
     // Upload the component directory contents
-    const tar_filepath = path.join(os.tmpdir(), 'files-layer.tgz');
+    const tar_filepath = path.join(tmpDir() || '', 'files-layer.tgz');
     await tar.create(
       { gzip: true, file: tar_filepath, cwd: path.dirname(config_path) },
       ['./'],
@@ -270,7 +271,7 @@ export class ComponentStore {
       manifest.config.digest.replace(/^sha256:/, ''),
     );
     if (!fs.existsSync(store_dir)) {
-      fs.mkdirSync(store_dir, { recursive: true });
+      Deno.mkdirSync(store_dir, { recursive: true });
     }
 
     if (

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -64,7 +64,7 @@ export interface ApiGatewayRestApiConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * endpoint_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#endpoint_configuration ApiGatewayRestApi#endpoint_configuration}
   */
   readonly endpointConfiguration?: ApiGatewayRestApiEndpointConfiguration;
@@ -130,7 +130,7 @@ export class ApiGatewayRestApiEndpointConfigurationOutputReference extends cdktf
   }
 
   // types - computed: false, optional: false, required: true
-  private _types?: string[]; 
+  private _types?: string[];
   public get types() {
     return this.getListAttribute('types');
   }
@@ -143,7 +143,7 @@ export class ApiGatewayRestApiEndpointConfigurationOutputReference extends cdktf
   }
 
   // vpc_endpoint_ids - computed: true, optional: true, required: false
-  private _vpcEndpointIds?: string[]; 
+  private _vpcEndpointIds?: string[];
   public get vpcEndpointIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_endpoint_ids'));
   }
@@ -217,7 +217,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   // ==========
 
   // api_key_source - computed: true, optional: true, required: false
-  private _apiKeySource?: string; 
+  private _apiKeySource?: string;
   public get apiKeySource() {
     return this.getStringAttribute('api_key_source');
   }
@@ -238,7 +238,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // binary_media_types - computed: true, optional: true, required: false
-  private _binaryMediaTypes?: string[]; 
+  private _binaryMediaTypes?: string[];
   public get binaryMediaTypes() {
     return this.getListAttribute('binary_media_types');
   }
@@ -254,7 +254,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // body - computed: false, optional: true, required: false
-  private _body?: string; 
+  private _body?: string;
   public get body() {
     return this.getStringAttribute('body');
   }
@@ -275,7 +275,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -291,7 +291,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // disable_execute_api_endpoint - computed: true, optional: true, required: false
-  private _disableExecuteApiEndpoint?: boolean | cdktf.IResolvable; 
+  private _disableExecuteApiEndpoint?: boolean | cdktf.IResolvable;
   public get disableExecuteApiEndpoint() {
     return this.getBooleanAttribute('disable_execute_api_endpoint');
   }
@@ -312,7 +312,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -328,7 +328,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // minimum_compression_size - computed: false, optional: true, required: false
-  private _minimumCompressionSize?: number; 
+  private _minimumCompressionSize?: number;
   public get minimumCompressionSize() {
     return this.getNumberAttribute('minimum_compression_size');
   }
@@ -344,7 +344,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -357,7 +357,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -373,7 +373,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -389,7 +389,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // put_rest_api_mode - computed: false, optional: true, required: false
-  private _putRestApiMode?: string; 
+  private _putRestApiMode?: string;
   public get putRestApiMode() {
     return this.getStringAttribute('put_rest_api_mode');
   }
@@ -410,7 +410,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -426,7 +426,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

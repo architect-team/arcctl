@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/imagebuilder_image_recipe
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -389,7 +389,7 @@ export class DataAwsImagebuilderImageRecipe extends cdktf.TerraformDataSource {
   // ==========
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -424,7 +424,7 @@ export class DataAwsImagebuilderImageRecipe extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -460,7 +460,7 @@ export class DataAwsImagebuilderImageRecipe extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

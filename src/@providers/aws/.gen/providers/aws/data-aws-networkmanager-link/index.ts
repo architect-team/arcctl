@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/networkmanager_link
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -161,7 +161,7 @@ export class DataAwsNetworkmanagerLink extends cdktf.TerraformDataSource {
   }
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -174,7 +174,7 @@ export class DataAwsNetworkmanagerLink extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -190,7 +190,7 @@ export class DataAwsNetworkmanagerLink extends cdktf.TerraformDataSource {
   }
 
   // link_id - computed: false, optional: false, required: true
-  private _linkId?: string; 
+  private _linkId?: string;
   public get linkId() {
     return this.getStringAttribute('link_id');
   }
@@ -213,7 +213,7 @@ export class DataAwsNetworkmanagerLink extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

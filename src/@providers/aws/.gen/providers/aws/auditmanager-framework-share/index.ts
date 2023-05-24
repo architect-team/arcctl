@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_framework_share
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -73,7 +73,7 @@ export class AuditmanagerFrameworkShare extends cdktf.TerraformResource {
   // ==========
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -89,7 +89,7 @@ export class AuditmanagerFrameworkShare extends cdktf.TerraformResource {
   }
 
   // destination_account - computed: false, optional: false, required: true
-  private _destinationAccount?: string; 
+  private _destinationAccount?: string;
   public get destinationAccount() {
     return this.getStringAttribute('destination_account');
   }
@@ -102,7 +102,7 @@ export class AuditmanagerFrameworkShare extends cdktf.TerraformResource {
   }
 
   // destination_region - computed: false, optional: false, required: true
-  private _destinationRegion?: string; 
+  private _destinationRegion?: string;
   public get destinationRegion() {
     return this.getStringAttribute('destination_region');
   }
@@ -115,7 +115,7 @@ export class AuditmanagerFrameworkShare extends cdktf.TerraformResource {
   }
 
   // framework_id - computed: false, optional: false, required: true
-  private _frameworkId?: string; 
+  private _frameworkId?: string;
   public get frameworkId() {
     return this.getStringAttribute('framework_id');
   }

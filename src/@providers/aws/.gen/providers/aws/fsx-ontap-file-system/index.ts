@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_ontap_file_system
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -80,13 +80,13 @@ export interface FsxOntapFileSystemConfig extends cdktf.TerraformMetaArguments {
   readonly weeklyMaintenanceStartTime?: string;
   /**
   * disk_iops_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_file_system#disk_iops_configuration FsxOntapFileSystem#disk_iops_configuration}
   */
   readonly diskIopsConfiguration?: FsxOntapFileSystemDiskIopsConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_file_system#timeouts FsxOntapFileSystem#timeouts}
   */
   readonly timeouts?: FsxOntapFileSystemTimeouts;
@@ -361,7 +361,7 @@ export class FsxOntapFileSystemDiskIopsConfigurationOutputReference extends cdkt
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -377,7 +377,7 @@ export class FsxOntapFileSystemDiskIopsConfigurationOutputReference extends cdkt
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -474,7 +474,7 @@ export class FsxOntapFileSystemTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -490,7 +490,7 @@ export class FsxOntapFileSystemTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -506,7 +506,7 @@ export class FsxOntapFileSystemTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -590,7 +590,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // automatic_backup_retention_days - computed: false, optional: true, required: false
-  private _automaticBackupRetentionDays?: number; 
+  private _automaticBackupRetentionDays?: number;
   public get automaticBackupRetentionDays() {
     return this.getNumberAttribute('automatic_backup_retention_days');
   }
@@ -606,7 +606,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // daily_automatic_backup_start_time - computed: true, optional: true, required: false
-  private _dailyAutomaticBackupStartTime?: string; 
+  private _dailyAutomaticBackupStartTime?: string;
   public get dailyAutomaticBackupStartTime() {
     return this.getStringAttribute('daily_automatic_backup_start_time');
   }
@@ -622,7 +622,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // deployment_type - computed: false, optional: false, required: true
-  private _deploymentType?: string; 
+  private _deploymentType?: string;
   public get deploymentType() {
     return this.getStringAttribute('deployment_type');
   }
@@ -640,7 +640,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // endpoint_ip_address_range - computed: true, optional: true, required: false
-  private _endpointIpAddressRange?: string; 
+  private _endpointIpAddressRange?: string;
   public get endpointIpAddressRange() {
     return this.getStringAttribute('endpoint_ip_address_range');
   }
@@ -662,7 +662,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // fsx_admin_password - computed: false, optional: true, required: false
-  private _fsxAdminPassword?: string; 
+  private _fsxAdminPassword?: string;
   public get fsxAdminPassword() {
     return this.getStringAttribute('fsx_admin_password');
   }
@@ -678,7 +678,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -694,7 +694,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -720,7 +720,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // preferred_subnet_id - computed: false, optional: false, required: true
-  private _preferredSubnetId?: string; 
+  private _preferredSubnetId?: string;
   public get preferredSubnetId() {
     return this.getStringAttribute('preferred_subnet_id');
   }
@@ -733,7 +733,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // route_table_ids - computed: true, optional: true, required: false
-  private _routeTableIds?: string[]; 
+  private _routeTableIds?: string[];
   public get routeTableIds() {
     return cdktf.Fn.tolist(this.getListAttribute('route_table_ids'));
   }
@@ -749,7 +749,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -765,7 +765,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // storage_capacity - computed: false, optional: true, required: false
-  private _storageCapacity?: number; 
+  private _storageCapacity?: number;
   public get storageCapacity() {
     return this.getNumberAttribute('storage_capacity');
   }
@@ -781,7 +781,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // storage_type - computed: false, optional: true, required: false
-  private _storageType?: string; 
+  private _storageType?: string;
   public get storageType() {
     return this.getStringAttribute('storage_type');
   }
@@ -797,7 +797,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return this.getListAttribute('subnet_ids');
   }
@@ -810,7 +810,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -826,7 +826,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -842,7 +842,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // throughput_capacity - computed: false, optional: false, required: true
-  private _throughputCapacity?: number; 
+  private _throughputCapacity?: number;
   public get throughputCapacity() {
     return this.getNumberAttribute('throughput_capacity');
   }
@@ -860,7 +860,7 @@ export class FsxOntapFileSystem extends cdktf.TerraformResource {
   }
 
   // weekly_maintenance_start_time - computed: true, optional: true, required: false
-  private _weeklyMaintenanceStartTime?: string; 
+  private _weeklyMaintenanceStartTime?: string;
   public get weeklyMaintenanceStartTime() {
     return this.getStringAttribute('weekly_maintenance_start_time');
   }

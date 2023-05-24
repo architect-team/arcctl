@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dataexchange_revision
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataexchangeRevision extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -102,7 +102,7 @@ export class DataexchangeRevision extends cdktf.TerraformResource {
   }
 
   // data_set_id - computed: false, optional: false, required: true
-  private _dataSetId?: string; 
+  private _dataSetId?: string;
   public get dataSetId() {
     return this.getStringAttribute('data_set_id');
   }
@@ -115,7 +115,7 @@ export class DataexchangeRevision extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -136,7 +136,7 @@ export class DataexchangeRevision extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -152,7 +152,7 @@ export class DataexchangeRevision extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

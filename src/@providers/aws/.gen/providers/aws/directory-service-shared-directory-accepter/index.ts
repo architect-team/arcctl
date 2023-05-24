@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DirectoryServiceSharedDirectoryAccepterConfig extends cdktf.Ter
   readonly sharedDirectoryId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#timeouts DirectoryServiceSharedDirectoryAccepter#timeouts}
   */
   readonly timeouts?: DirectoryServiceSharedDirectoryAccepterTimeouts;
@@ -96,7 +96,7 @@ export class DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference exte
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -112,7 +112,7 @@ export class DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference exte
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -175,7 +175,7 @@ export class DirectoryServiceSharedDirectoryAccepter extends cdktf.TerraformReso
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -211,7 +211,7 @@ export class DirectoryServiceSharedDirectoryAccepter extends cdktf.TerraformReso
   }
 
   // shared_directory_id - computed: false, optional: false, required: true
-  private _sharedDirectoryId?: string; 
+  private _sharedDirectoryId?: string;
   public get sharedDirectoryId() {
     return this.getStringAttribute('shared_directory_id');
   }

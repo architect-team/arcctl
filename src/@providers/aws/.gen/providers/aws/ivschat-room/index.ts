@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ivschat_room
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface IvschatRoomConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * message_review_handler block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#message_review_handler IvschatRoom#message_review_handler}
   */
   readonly messageReviewHandler?: IvschatRoomMessageReviewHandler;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#timeouts IvschatRoom#timeouts}
   */
   readonly timeouts?: IvschatRoomTimeouts;
@@ -112,7 +112,7 @@ export class IvschatRoomMessageReviewHandlerOutputReference extends cdktf.Comple
   }
 
   // fallback_result - computed: true, optional: true, required: false
-  private _fallbackResult?: string; 
+  private _fallbackResult?: string;
   public get fallbackResult() {
     return this.getStringAttribute('fallback_result');
   }
@@ -128,7 +128,7 @@ export class IvschatRoomMessageReviewHandlerOutputReference extends cdktf.Comple
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -225,7 +225,7 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -241,7 +241,7 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -257,7 +257,7 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -331,7 +331,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -347,7 +347,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // logging_configuration_identifiers - computed: false, optional: true, required: false
-  private _loggingConfigurationIdentifiers?: string[]; 
+  private _loggingConfigurationIdentifiers?: string[];
   public get loggingConfigurationIdentifiers() {
     return this.getListAttribute('logging_configuration_identifiers');
   }
@@ -363,7 +363,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // maximum_message_length - computed: true, optional: true, required: false
-  private _maximumMessageLength?: number; 
+  private _maximumMessageLength?: number;
   public get maximumMessageLength() {
     return this.getNumberAttribute('maximum_message_length');
   }
@@ -379,7 +379,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // maximum_message_rate_per_second - computed: true, optional: true, required: false
-  private _maximumMessageRatePerSecond?: number; 
+  private _maximumMessageRatePerSecond?: number;
   public get maximumMessageRatePerSecond() {
     return this.getNumberAttribute('maximum_message_rate_per_second');
   }
@@ -395,7 +395,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -411,7 +411,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -427,7 +427,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

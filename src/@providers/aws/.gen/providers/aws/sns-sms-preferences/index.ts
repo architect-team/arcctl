@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   // ==========
 
   // default_sender_id - computed: false, optional: true, required: false
-  private _defaultSenderId?: string; 
+  private _defaultSenderId?: string;
   public get defaultSenderId() {
     return this.getStringAttribute('default_sender_id');
   }
@@ -107,7 +107,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // default_sms_type - computed: false, optional: true, required: false
-  private _defaultSmsType?: string; 
+  private _defaultSmsType?: string;
   public get defaultSmsType() {
     return this.getStringAttribute('default_sms_type');
   }
@@ -123,7 +123,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // delivery_status_iam_role_arn - computed: false, optional: true, required: false
-  private _deliveryStatusIamRoleArn?: string; 
+  private _deliveryStatusIamRoleArn?: string;
   public get deliveryStatusIamRoleArn() {
     return this.getStringAttribute('delivery_status_iam_role_arn');
   }
@@ -139,7 +139,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // delivery_status_success_sampling_rate - computed: false, optional: true, required: false
-  private _deliveryStatusSuccessSamplingRate?: string; 
+  private _deliveryStatusSuccessSamplingRate?: string;
   public get deliveryStatusSuccessSamplingRate() {
     return this.getStringAttribute('delivery_status_success_sampling_rate');
   }
@@ -155,7 +155,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -171,7 +171,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // monthly_spend_limit - computed: true, optional: true, required: false
-  private _monthlySpendLimit?: number; 
+  private _monthlySpendLimit?: number;
   public get monthlySpendLimit() {
     return this.getNumberAttribute('monthly_spend_limit');
   }
@@ -187,7 +187,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // usage_report_s3_bucket - computed: false, optional: true, required: false
-  private _usageReportS3Bucket?: string; 
+  private _usageReportS3Bucket?: string;
   public get usageReportS3Bucket() {
     return this.getStringAttribute('usage_report_s3_bucket');
   }

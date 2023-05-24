@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/inspector2_enabler
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface Inspector2EnablerConfig extends cdktf.TerraformMetaArguments {
   readonly resourceTypes: string[];
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#timeouts Inspector2Enabler#timeouts}
   */
   readonly timeouts?: Inspector2EnablerTimeouts;
@@ -111,7 +111,7 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -127,7 +127,7 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -143,7 +143,7 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -207,7 +207,7 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
   // ==========
 
   // account_ids - computed: false, optional: false, required: true
-  private _accountIds?: string[]; 
+  private _accountIds?: string[];
   public get accountIds() {
     return cdktf.Fn.tolist(this.getListAttribute('account_ids'));
   }
@@ -220,7 +220,7 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -236,7 +236,7 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
   }
 
   // resource_types - computed: false, optional: false, required: true
-  private _resourceTypes?: string[]; 
+  private _resourceTypes?: string[];
   public get resourceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_types'));
   }

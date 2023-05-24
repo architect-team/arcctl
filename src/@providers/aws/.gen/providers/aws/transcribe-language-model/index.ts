@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/transcribe_language_model
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface TranscribeLanguageModelConfig extends cdktf.TerraformMetaArgume
   readonly tagsAll?: { [key: string]: string };
   /**
   * input_data_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transcribe_language_model#input_data_config TranscribeLanguageModel#input_data_config}
   */
   readonly inputDataConfig: TranscribeLanguageModelInputDataConfig;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transcribe_language_model#timeouts TranscribeLanguageModel#timeouts}
   */
   readonly timeouts?: TranscribeLanguageModelTimeouts;
@@ -119,7 +119,7 @@ export class TranscribeLanguageModelInputDataConfigOutputReference extends cdktf
   }
 
   // data_access_role_arn - computed: false, optional: false, required: true
-  private _dataAccessRoleArn?: string; 
+  private _dataAccessRoleArn?: string;
   public get dataAccessRoleArn() {
     return this.getStringAttribute('data_access_role_arn');
   }
@@ -132,7 +132,7 @@ export class TranscribeLanguageModelInputDataConfigOutputReference extends cdktf
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -145,7 +145,7 @@ export class TranscribeLanguageModelInputDataConfigOutputReference extends cdktf
   }
 
   // tuning_data_s3_uri - computed: true, optional: true, required: false
-  private _tuningDataS3Uri?: string; 
+  private _tuningDataS3Uri?: string;
   public get tuningDataS3Uri() {
     return this.getStringAttribute('tuning_data_s3_uri');
   }
@@ -220,7 +220,7 @@ export class TranscribeLanguageModelTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -293,7 +293,7 @@ export class TranscribeLanguageModel extends cdktf.TerraformResource {
   }
 
   // base_model_name - computed: false, optional: false, required: true
-  private _baseModelName?: string; 
+  private _baseModelName?: string;
   public get baseModelName() {
     return this.getStringAttribute('base_model_name');
   }
@@ -306,7 +306,7 @@ export class TranscribeLanguageModel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -322,7 +322,7 @@ export class TranscribeLanguageModel extends cdktf.TerraformResource {
   }
 
   // language_code - computed: false, optional: false, required: true
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -335,7 +335,7 @@ export class TranscribeLanguageModel extends cdktf.TerraformResource {
   }
 
   // model_name - computed: false, optional: false, required: true
-  private _modelName?: string; 
+  private _modelName?: string;
   public get modelName() {
     return this.getStringAttribute('model_name');
   }
@@ -348,7 +348,7 @@ export class TranscribeLanguageModel extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -364,7 +364,7 @@ export class TranscribeLanguageModel extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/certificate
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataDigitaloceanCertificateConfig extends cdktf.TerraformMetaAr
   readonly id?: string;
   /**
   * name of the certificate
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/certificate#name DataDigitaloceanCertificate#name}
   */
   readonly name: string;
@@ -73,7 +73,7 @@ export class DataDigitaloceanCertificate extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -89,7 +89,7 @@ export class DataDigitaloceanCertificate extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

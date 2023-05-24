@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface VpcEndpointPolicyConfig extends cdktf.TerraformMetaArguments {
   readonly vpcEndpointId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_policy#timeouts VpcEndpointPolicy#timeouts}
   */
   readonly timeouts?: VpcEndpointPolicyTimeouts;
@@ -100,7 +100,7 @@ export class VpcEndpointPolicyTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class VpcEndpointPolicyTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class VpcEndpointPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -196,7 +196,7 @@ export class VpcEndpointPolicy extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -212,7 +212,7 @@ export class VpcEndpointPolicy extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_id - computed: false, optional: false, required: true
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }

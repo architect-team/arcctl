@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/record
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataDigitaloceanRecordConfig extends cdktf.TerraformMetaArguments {
   /**
   * domain of the name record
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#domain DataDigitaloceanRecord#domain}
   */
   readonly domain: string;
@@ -22,7 +22,7 @@ export interface DataDigitaloceanRecordConfig extends cdktf.TerraformMetaArgumen
   readonly id?: string;
   /**
   * name of the record
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#name DataDigitaloceanRecord#name}
   */
   readonly name: string;
@@ -80,7 +80,7 @@ export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -98,7 +98,7 @@ export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -114,7 +114,7 @@ export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_object_lambda_access_point_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class S3ControlObjectLambdaAccessPointPolicy extends cdktf.TerraformResou
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -97,7 +97,7 @@ export class S3ControlObjectLambdaAccessPointPolicy extends cdktf.TerraformResou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class S3ControlObjectLambdaAccessPointPolicy extends cdktf.TerraformResou
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -126,7 +126,7 @@ export class S3ControlObjectLambdaAccessPointPolicy extends cdktf.TerraformResou
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }

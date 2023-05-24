@@ -1,11 +1,11 @@
-import { CloudEdge, CloudNode } from '../../../cloud-graph';
+import { CloudEdge, CloudNode } from '../../../cloud-graph.ts';
 import {
   testDeploymentGeneration,
   testServiceGeneration,
   testServiceIntegration,
-} from '../../__tests__/version-helper.js';
-import ComponentV1 from '../index.js';
-import yaml from 'js-yaml';
+} from '../../__tests__/version-helper.ts';
+import ComponentV1 from '../index.ts';
+import yaml from 'npm:js-yaml';
 
 describe('Component Schema: v1', () => {
   it('should generate deployments', async () =>

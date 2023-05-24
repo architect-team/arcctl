@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_permission
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class OpsworksPermission extends cdktf.TerraformResource {
   // ==========
 
   // allow_ssh - computed: true, optional: true, required: false
-  private _allowSsh?: boolean | cdktf.IResolvable; 
+  private _allowSsh?: boolean | cdktf.IResolvable;
   public get allowSsh() {
     return this.getBooleanAttribute('allow_ssh');
   }
@@ -102,7 +102,7 @@ export class OpsworksPermission extends cdktf.TerraformResource {
   }
 
   // allow_sudo - computed: true, optional: true, required: false
-  private _allowSudo?: boolean | cdktf.IResolvable; 
+  private _allowSudo?: boolean | cdktf.IResolvable;
   public get allowSudo() {
     return this.getBooleanAttribute('allow_sudo');
   }
@@ -118,7 +118,7 @@ export class OpsworksPermission extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -134,7 +134,7 @@ export class OpsworksPermission extends cdktf.TerraformResource {
   }
 
   // level - computed: true, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -150,7 +150,7 @@ export class OpsworksPermission extends cdktf.TerraformResource {
   }
 
   // stack_id - computed: false, optional: false, required: true
-  private _stackId?: string; 
+  private _stackId?: string;
   public get stackId() {
     return this.getStringAttribute('stack_id');
   }
@@ -163,7 +163,7 @@ export class OpsworksPermission extends cdktf.TerraformResource {
   }
 
   // user_arn - computed: false, optional: false, required: true
-  private _userArn?: string; 
+  private _userArn?: string;
   public get userArn() {
     return this.getStringAttribute('user_arn');
   }

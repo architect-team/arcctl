@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ami_launch_permission
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class AmiLaunchPermission extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -102,7 +102,7 @@ export class AmiLaunchPermission extends cdktf.TerraformResource {
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -118,7 +118,7 @@ export class AmiLaunchPermission extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -134,7 +134,7 @@ export class AmiLaunchPermission extends cdktf.TerraformResource {
   }
 
   // image_id - computed: false, optional: false, required: true
-  private _imageId?: string; 
+  private _imageId?: string;
   public get imageId() {
     return this.getStringAttribute('image_id');
   }
@@ -147,7 +147,7 @@ export class AmiLaunchPermission extends cdktf.TerraformResource {
   }
 
   // organization_arn - computed: false, optional: true, required: false
-  private _organizationArn?: string; 
+  private _organizationArn?: string;
   public get organizationArn() {
     return this.getStringAttribute('organization_arn');
   }
@@ -163,7 +163,7 @@ export class AmiLaunchPermission extends cdktf.TerraformResource {
   }
 
   // organizational_unit_arn - computed: false, optional: true, required: false
-  private _organizationalUnitArn?: string; 
+  private _organizationalUnitArn?: string;
   public get organizationalUnitArn() {
     return this.getStringAttribute('organizational_unit_arn');
   }

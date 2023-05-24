@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_identity_notification_topic
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class SesIdentityNotificationTopic extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class SesIdentityNotificationTopic extends cdktf.TerraformResource {
   }
 
   // identity - computed: false, optional: false, required: true
-  private _identity?: string; 
+  private _identity?: string;
   public get identity() {
     return this.getStringAttribute('identity');
   }
@@ -110,7 +110,7 @@ export class SesIdentityNotificationTopic extends cdktf.TerraformResource {
   }
 
   // include_original_headers - computed: false, optional: true, required: false
-  private _includeOriginalHeaders?: boolean | cdktf.IResolvable; 
+  private _includeOriginalHeaders?: boolean | cdktf.IResolvable;
   public get includeOriginalHeaders() {
     return this.getBooleanAttribute('include_original_headers');
   }
@@ -126,7 +126,7 @@ export class SesIdentityNotificationTopic extends cdktf.TerraformResource {
   }
 
   // notification_type - computed: false, optional: false, required: true
-  private _notificationType?: string; 
+  private _notificationType?: string;
   public get notificationType() {
     return this.getStringAttribute('notification_type');
   }
@@ -139,7 +139,7 @@ export class SesIdentityNotificationTopic extends cdktf.TerraformResource {
   }
 
   // topic_arn - computed: false, optional: true, required: false
-  private _topicArn?: string; 
+  private _topicArn?: string;
   public get topicArn() {
     return this.getStringAttribute('topic_arn');
   }

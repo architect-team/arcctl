@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/controltower_control
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface ControltowerControlConfig extends cdktf.TerraformMetaArguments 
   readonly targetIdentifier: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#timeouts ControltowerControl#timeouts}
   */
   readonly timeouts?: ControltowerControlTimeouts;
@@ -100,7 +100,7 @@ export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
   // ==========
 
   // control_identifier - computed: false, optional: false, required: true
-  private _controlIdentifier?: string; 
+  private _controlIdentifier?: string;
   public get controlIdentifier() {
     return this.getStringAttribute('control_identifier');
   }
@@ -193,7 +193,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -209,7 +209,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
   }
 
   // target_identifier - computed: false, optional: false, required: true
-  private _targetIdentifier?: string; 
+  private _targetIdentifier?: string;
   public get targetIdentifier() {
     return this.getStringAttribute('target_identifier');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface NetworkmanagerVpcAttachmentConfig extends cdktf.TerraformMetaAr
   readonly vpcArn: string;
   /**
   * options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#options NetworkmanagerVpcAttachment#options}
   */
   readonly options?: NetworkmanagerVpcAttachmentOptions;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#timeouts NetworkmanagerVpcAttachment#timeouts}
   */
   readonly timeouts?: NetworkmanagerVpcAttachmentTimeouts;
@@ -108,7 +108,7 @@ export class NetworkmanagerVpcAttachmentOptionsOutputReference extends cdktf.Com
   }
 
   // appliance_mode_support - computed: false, optional: true, required: false
-  private _applianceModeSupport?: boolean | cdktf.IResolvable; 
+  private _applianceModeSupport?: boolean | cdktf.IResolvable;
   public get applianceModeSupport() {
     return this.getBooleanAttribute('appliance_mode_support');
   }
@@ -124,7 +124,7 @@ export class NetworkmanagerVpcAttachmentOptionsOutputReference extends cdktf.Com
   }
 
   // ipv6_support - computed: false, optional: true, required: false
-  private _ipv6Support?: boolean | cdktf.IResolvable; 
+  private _ipv6Support?: boolean | cdktf.IResolvable;
   public get ipv6Support() {
     return this.getBooleanAttribute('ipv6_support');
   }
@@ -221,7 +221,7 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -237,7 +237,7 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -253,7 +253,7 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -341,7 +341,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // core_network_id - computed: false, optional: false, required: true
-  private _coreNetworkId?: string; 
+  private _coreNetworkId?: string;
   public get coreNetworkId() {
     return this.getStringAttribute('core_network_id');
   }
@@ -359,7 +359,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -395,7 +395,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // subnet_arns - computed: false, optional: false, required: true
-  private _subnetArns?: string[]; 
+  private _subnetArns?: string[];
   public get subnetArns() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_arns'));
   }
@@ -408,7 +408,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -424,7 +424,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -440,7 +440,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // vpc_arn - computed: false, optional: false, required: true
-  private _vpcArn?: string; 
+  private _vpcArn?: string;
   public get vpcArn() {
     return this.getStringAttribute('vpc_arn');
   }

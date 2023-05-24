@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/oam_sink
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsOamSink extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class DataAwsOamSink extends cdktf.TerraformDataSource {
   }
 
   // sink_identifier - computed: false, optional: false, required: true
-  private _sinkIdentifier?: string; 
+  private _sinkIdentifier?: string;
   public get sinkIdentifier() {
     return this.getStringAttribute('sink_identifier');
   }
@@ -115,7 +115,7 @@ export class DataAwsOamSink extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

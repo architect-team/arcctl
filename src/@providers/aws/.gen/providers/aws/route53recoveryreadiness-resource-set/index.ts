@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface Route53RecoveryreadinessResourceSetConfig extends cdktf.Terrafo
   readonly tagsAll?: { [key: string]: string };
   /**
   * resources block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set#resources Route53RecoveryreadinessResourceSet#resources}
   */
   readonly resources: Route53RecoveryreadinessResourceSetResources[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set#timeouts Route53RecoveryreadinessResourceSet#timeouts}
   */
   readonly timeouts?: Route53RecoveryreadinessResourceSetTimeouts;
@@ -93,7 +93,7 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTarget
   }
 
   // arn - computed: false, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -169,7 +169,7 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTarget
   }
 
   // domain_name - computed: false, optional: true, required: false
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -185,7 +185,7 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTarget
   }
 
   // record_set_id - computed: false, optional: true, required: false
-  private _recordSetId?: string; 
+  private _recordSetId?: string;
   public get recordSetId() {
     return this.getStringAttribute('record_set_id');
   }
@@ -203,13 +203,13 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTarget
 export interface Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTargetResource {
   /**
   * nlb_resource block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set#nlb_resource Route53RecoveryreadinessResourceSet#nlb_resource}
   */
   readonly nlbResource?: Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTargetResourceNlbResource;
   /**
   * r53_resource block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set#r53_resource Route53RecoveryreadinessResourceSet#r53_resource}
   */
   readonly r53Resource?: Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTargetResourceR53Resource;
@@ -315,7 +315,7 @@ export interface Route53RecoveryreadinessResourceSetResourcesDnsTargetResource {
   readonly recordType?: string;
   /**
   * target_resource block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set#target_resource Route53RecoveryreadinessResourceSet#target_resource}
   */
   readonly targetResource?: Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceTargetResource;
@@ -392,7 +392,7 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceOutput
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -405,7 +405,7 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceOutput
   }
 
   // hosted_zone_arn - computed: false, optional: true, required: false
-  private _hostedZoneArn?: string; 
+  private _hostedZoneArn?: string;
   public get hostedZoneArn() {
     return this.getStringAttribute('hosted_zone_arn');
   }
@@ -421,7 +421,7 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceOutput
   }
 
   // record_set_id - computed: false, optional: true, required: false
-  private _recordSetId?: string; 
+  private _recordSetId?: string;
   public get recordSetId() {
     return this.getStringAttribute('record_set_id');
   }
@@ -437,7 +437,7 @@ export class Route53RecoveryreadinessResourceSetResourcesDnsTargetResourceOutput
   }
 
   // record_type - computed: false, optional: true, required: false
-  private _recordType?: string; 
+  private _recordType?: string;
   public get recordType() {
     return this.getStringAttribute('record_type');
   }
@@ -479,7 +479,7 @@ export interface Route53RecoveryreadinessResourceSetResources {
   readonly resourceArn?: string;
   /**
   * dns_target_resource block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set#dns_target_resource Route53RecoveryreadinessResourceSet#dns_target_resource}
   */
   readonly dnsTargetResource?: Route53RecoveryreadinessResourceSetResourcesDnsTargetResource;
@@ -559,7 +559,7 @@ export class Route53RecoveryreadinessResourceSetResourcesOutputReference extends
   }
 
   // readiness_scopes - computed: false, optional: true, required: false
-  private _readinessScopes?: string[]; 
+  private _readinessScopes?: string[];
   public get readinessScopes() {
     return this.getListAttribute('readiness_scopes');
   }
@@ -575,7 +575,7 @@ export class Route53RecoveryreadinessResourceSetResourcesOutputReference extends
   }
 
   // resource_arn - computed: false, optional: true, required: false
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -686,7 +686,7 @@ export class Route53RecoveryreadinessResourceSetTimeoutsOutputReference extends 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -758,7 +758,7 @@ export class Route53RecoveryreadinessResourceSet extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -774,7 +774,7 @@ export class Route53RecoveryreadinessResourceSet extends cdktf.TerraformResource
   }
 
   // resource_set_name - computed: false, optional: false, required: true
-  private _resourceSetName?: string; 
+  private _resourceSetName?: string;
   public get resourceSetName() {
     return this.getStringAttribute('resource_set_name');
   }
@@ -787,7 +787,7 @@ export class Route53RecoveryreadinessResourceSet extends cdktf.TerraformResource
   }
 
   // resource_set_type - computed: false, optional: false, required: true
-  private _resourceSetType?: string; 
+  private _resourceSetType?: string;
   public get resourceSetType() {
     return this.getStringAttribute('resource_set_type');
   }
@@ -800,7 +800,7 @@ export class Route53RecoveryreadinessResourceSet extends cdktf.TerraformResource
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -816,7 +816,7 @@ export class Route53RecoveryreadinessResourceSet extends cdktf.TerraformResource
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

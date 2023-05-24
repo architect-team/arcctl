@@ -1,6 +1,6 @@
-import aws from './aws/provider.js';
-import digitalocean from './digitalocean/provider.js';
-import kubernetes from './kubernetes/provider.js';
+import aws from './aws/provider.ts';
+import digitalocean from './digitalocean/provider.ts';
+import kubernetes from './kubernetes/provider.ts';
 
 export const SupportedProviders = {
   aws,

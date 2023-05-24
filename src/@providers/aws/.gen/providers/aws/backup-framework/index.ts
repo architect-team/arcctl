@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_framework
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface BackupFrameworkConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * control block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#control BackupFramework#control}
   */
   readonly control: BackupFrameworkControl[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#timeouts BackupFramework#timeouts}
   */
   readonly timeouts?: BackupFrameworkTimeouts;
@@ -116,7 +116,7 @@ export class BackupFrameworkControlInputParameterOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -132,7 +132,7 @@ export class BackupFrameworkControlInputParameterOutputReference extends cdktf.C
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -239,7 +239,7 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
   }
 
   // compliance_resource_ids - computed: false, optional: true, required: false
-  private _complianceResourceIds?: string[]; 
+  private _complianceResourceIds?: string[];
   public get complianceResourceIds() {
     return cdktf.Fn.tolist(this.getListAttribute('compliance_resource_ids'));
   }
@@ -255,7 +255,7 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
   }
 
   // compliance_resource_types - computed: false, optional: true, required: false
-  private _complianceResourceTypes?: string[]; 
+  private _complianceResourceTypes?: string[];
   public get complianceResourceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('compliance_resource_types'));
   }
@@ -271,7 +271,7 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -293,13 +293,13 @@ export interface BackupFrameworkControl {
   readonly name: string;
   /**
   * input_parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#input_parameter BackupFramework#input_parameter}
   */
   readonly inputParameter?: BackupFrameworkControlInputParameter[] | cdktf.IResolvable;
   /**
   * scope block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#scope BackupFramework#scope}
   */
   readonly scope?: BackupFrameworkControlScope;
@@ -374,7 +374,7 @@ export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -520,7 +520,7 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -536,7 +536,7 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -552,7 +552,7 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -634,7 +634,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -650,7 +650,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -666,7 +666,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -684,7 +684,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -700,7 +700,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

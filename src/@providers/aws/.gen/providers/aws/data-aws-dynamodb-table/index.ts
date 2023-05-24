@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/dynamodb_table
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface DataAwsDynamodbTableConfig extends cdktf.TerraformMetaArguments
   readonly tags?: { [key: string]: string };
   /**
   * server_side_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/dynamodb_table#server_side_encryption DataAwsDynamodbTable#server_side_encryption}
   */
   readonly serverSideEncryption?: DataAwsDynamodbTableServerSideEncryption;
@@ -602,7 +602,7 @@ export class DataAwsDynamodbTable extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -624,7 +624,7 @@ export class DataAwsDynamodbTable extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -684,7 +684,7 @@ export class DataAwsDynamodbTable extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

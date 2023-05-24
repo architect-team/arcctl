@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface NetworkmanagerConnectPeerConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * bgp_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#bgp_options NetworkmanagerConnectPeer#bgp_options}
   */
   readonly bgpOptions?: NetworkmanagerConnectPeerBgpOptions;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#timeouts NetworkmanagerConnectPeer#timeouts}
   */
   readonly timeouts?: NetworkmanagerConnectPeerTimeouts;
@@ -265,7 +265,7 @@ export class NetworkmanagerConnectPeerBgpOptionsOutputReference extends cdktf.Co
   }
 
   // peer_asn - computed: false, optional: true, required: false
-  private _peerAsn?: number; 
+  private _peerAsn?: number;
   public get peerAsn() {
     return this.getNumberAttribute('peer_asn');
   }
@@ -351,7 +351,7 @@ export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -367,7 +367,7 @@ export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -447,7 +447,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // connect_attachment_id - computed: false, optional: false, required: true
-  private _connectAttachmentId?: string; 
+  private _connectAttachmentId?: string;
   public get connectAttachmentId() {
     return this.getStringAttribute('connect_attachment_id');
   }
@@ -465,7 +465,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // core_network_address - computed: false, optional: true, required: false
-  private _coreNetworkAddress?: string; 
+  private _coreNetworkAddress?: string;
   public get coreNetworkAddress() {
     return this.getStringAttribute('core_network_address');
   }
@@ -496,7 +496,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -512,7 +512,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // inside_cidr_blocks - computed: false, optional: false, required: true
-  private _insideCidrBlocks?: string[]; 
+  private _insideCidrBlocks?: string[];
   public get insideCidrBlocks() {
     return this.getListAttribute('inside_cidr_blocks');
   }
@@ -525,7 +525,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // peer_address - computed: false, optional: false, required: true
-  private _peerAddress?: string; 
+  private _peerAddress?: string;
   public get peerAddress() {
     return this.getStringAttribute('peer_address');
   }
@@ -543,7 +543,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -559,7 +559,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

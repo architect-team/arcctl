@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface AppflowConnectorProfileConfig extends cdktf.TerraformMetaArgume
   readonly name: string;
   /**
   * connector_profile_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#connector_profile_config AppflowConnectorProfile#connector_profile_config}
   */
   readonly connectorProfileConfig: AppflowConnectorProfileConnectorProfileConfig;
@@ -102,7 +102,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -115,7 +115,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // secret_key - computed: false, optional: false, required: true
-  private _secretKey?: string; 
+  private _secretKey?: string;
   public get secretKey() {
     return this.getStringAttribute('secret_key');
   }
@@ -188,7 +188,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -201,7 +201,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // api_secret_key - computed: false, optional: true, required: false
-  private _apiSecretKey?: string; 
+  private _apiSecretKey?: string;
   public get apiSecretKey() {
     return this.getStringAttribute('api_secret_key');
   }
@@ -277,7 +277,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -290,7 +290,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -363,7 +363,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // credentials_map - computed: false, optional: true, required: false
-  private _credentialsMap?: { [key: string]: string }; 
+  private _credentialsMap?: { [key: string]: string };
   public get credentialsMap() {
     return this.getStringMapAttribute('credentials_map');
   }
@@ -379,7 +379,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // custom_authentication_type - computed: false, optional: false, required: true
-  private _customAuthenticationType?: string; 
+  private _customAuthenticationType?: string;
   public get customAuthenticationType() {
     return this.getStringAttribute('custom_authentication_type');
   }
@@ -452,7 +452,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -468,7 +468,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -502,7 +502,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly refreshToken?: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest;
@@ -579,7 +579,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -595,7 +595,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_id - computed: false, optional: true, required: false
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -611,7 +611,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_secret - computed: false, optional: true, required: false
-  private _clientSecret?: string; 
+  private _clientSecret?: string;
   public get clientSecret() {
     return this.getStringAttribute('client_secret');
   }
@@ -627,7 +627,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // refresh_token - computed: false, optional: true, required: false
-  private _refreshToken?: string; 
+  private _refreshToken?: string;
   public get refreshToken() {
     return this.getStringAttribute('refresh_token');
   }
@@ -665,25 +665,25 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly authenticationType: string;
   /**
   * api_key block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#api_key AppflowConnectorProfile#api_key}
   */
   readonly apiKey?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey;
   /**
   * basic block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#basic AppflowConnectorProfile#basic}
   */
   readonly basic?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic;
   /**
   * custom block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#custom AppflowConnectorProfile#custom}
   */
   readonly custom?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom;
   /**
   * oauth2 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth2 AppflowConnectorProfile#oauth2}
   */
   readonly oauth2?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2;
@@ -760,7 +760,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // authentication_type - computed: false, optional: false, required: true
-  private _authenticationType?: string; 
+  private _authenticationType?: string;
   public get authenticationType() {
     return this.getStringAttribute('authentication_type');
   }
@@ -897,7 +897,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -910,7 +910,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // application_key - computed: false, optional: false, required: true
-  private _applicationKey?: string; 
+  private _applicationKey?: string;
   public get applicationKey() {
     return this.getStringAttribute('application_key');
   }
@@ -972,7 +972,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // api_token - computed: false, optional: false, required: true
-  private _apiToken?: string; 
+  private _apiToken?: string;
   public get apiToken() {
     return this.getStringAttribute('api_token');
   }
@@ -1045,7 +1045,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -1061,7 +1061,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -1095,7 +1095,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly refreshToken?: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest;
@@ -1172,7 +1172,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -1188,7 +1188,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -1201,7 +1201,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_secret - computed: false, optional: false, required: true
-  private _clientSecret?: string; 
+  private _clientSecret?: string;
   public get clientSecret() {
     return this.getStringAttribute('client_secret');
   }
@@ -1214,7 +1214,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // refresh_token - computed: false, optional: true, required: false
-  private _refreshToken?: string; 
+  private _refreshToken?: string;
   public get refreshToken() {
     return this.getStringAttribute('refresh_token');
   }
@@ -1306,7 +1306,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -1322,7 +1322,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -1348,7 +1348,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly refreshToken?: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest;
@@ -1411,7 +1411,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -1427,7 +1427,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // refresh_token - computed: false, optional: true, required: false
-  private _refreshToken?: string; 
+  private _refreshToken?: string;
   public get refreshToken() {
     return this.getStringAttribute('refresh_token');
   }
@@ -1541,7 +1541,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_key_id - computed: false, optional: false, required: true
-  private _accessKeyId?: string; 
+  private _accessKeyId?: string;
   public get accessKeyId() {
     return this.getStringAttribute('access_key_id');
   }
@@ -1554,7 +1554,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // datakey - computed: false, optional: false, required: true
-  private _datakey?: string; 
+  private _datakey?: string;
   public get datakey() {
     return this.getStringAttribute('datakey');
   }
@@ -1567,7 +1567,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // secret_access_key - computed: false, optional: false, required: true
-  private _secretAccessKey?: string; 
+  private _secretAccessKey?: string;
   public get secretAccessKey() {
     return this.getStringAttribute('secret_access_key');
   }
@@ -1580,7 +1580,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // user_id - computed: false, optional: false, required: true
-  private _userId?: string; 
+  private _userId?: string;
   public get userId() {
     return this.getStringAttribute('user_id');
   }
@@ -1653,7 +1653,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -1669,7 +1669,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -1699,7 +1699,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly clientSecret: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest;
@@ -1769,7 +1769,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -1785,7 +1785,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -1798,7 +1798,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_secret - computed: false, optional: false, required: true
-  private _clientSecret?: string; 
+  private _clientSecret?: string;
   public get clientSecret() {
     return this.getStringAttribute('client_secret');
   }
@@ -1887,7 +1887,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -1900,7 +1900,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -1973,7 +1973,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -1989,7 +1989,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -2019,7 +2019,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly refreshToken?: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest;
@@ -2089,7 +2089,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -2105,7 +2105,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_credentials_arn - computed: false, optional: true, required: false
-  private _clientCredentialsArn?: string; 
+  private _clientCredentialsArn?: string;
   public get clientCredentialsArn() {
     return this.getStringAttribute('client_credentials_arn');
   }
@@ -2121,7 +2121,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // refresh_token - computed: false, optional: true, required: false
-  private _refreshToken?: string; 
+  private _refreshToken?: string;
   public get refreshToken() {
     return this.getStringAttribute('refresh_token');
   }
@@ -2213,7 +2213,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -2226,7 +2226,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -2299,7 +2299,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -2315,7 +2315,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -2349,7 +2349,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly refreshToken?: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest;
@@ -2426,7 +2426,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -2442,7 +2442,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -2455,7 +2455,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_secret - computed: false, optional: false, required: true
-  private _clientSecret?: string; 
+  private _clientSecret?: string;
   public get clientSecret() {
     return this.getStringAttribute('client_secret');
   }
@@ -2468,7 +2468,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // refresh_token - computed: false, optional: true, required: false
-  private _refreshToken?: string; 
+  private _refreshToken?: string;
   public get refreshToken() {
     return this.getStringAttribute('refresh_token');
   }
@@ -2502,13 +2502,13 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
 export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
   /**
   * basic_auth_credentials block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#basic_auth_credentials AppflowConnectorProfile#basic_auth_credentials}
   */
   readonly basicAuthCredentials?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials;
   /**
   * oauth_credentials block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_credentials AppflowConnectorProfile#oauth_credentials}
   */
   readonly oauthCredentials?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials;
@@ -2656,7 +2656,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -2669,7 +2669,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -2731,7 +2731,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -2804,7 +2804,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -2820,7 +2820,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -2850,7 +2850,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly clientSecret: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest;
@@ -2920,7 +2920,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -2936,7 +2936,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -2949,7 +2949,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_secret - computed: false, optional: false, required: true
-  private _clientSecret?: string; 
+  private _clientSecret?: string;
   public get clientSecret() {
     return this.getStringAttribute('client_secret');
   }
@@ -3038,7 +3038,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -3051,7 +3051,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -3113,7 +3113,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // api_secret_key - computed: false, optional: false, required: true
-  private _apiSecretKey?: string; 
+  private _apiSecretKey?: string;
   public get apiSecretKey() {
     return this.getStringAttribute('api_secret_key');
   }
@@ -3186,7 +3186,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -3199,7 +3199,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -3272,7 +3272,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // auth_code - computed: false, optional: true, required: false
-  private _authCode?: string; 
+  private _authCode?: string;
   public get authCode() {
     return this.getStringAttribute('auth_code');
   }
@@ -3288,7 +3288,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // redirect_uri - computed: false, optional: true, required: false
-  private _redirectUri?: string; 
+  private _redirectUri?: string;
   public get redirectUri() {
     return this.getStringAttribute('redirect_uri');
   }
@@ -3318,7 +3318,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCr
   readonly clientSecret: string;
   /**
   * oauth_request block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_request AppflowConnectorProfile#oauth_request}
   */
   readonly oauthRequest?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest;
@@ -3388,7 +3388,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // access_token - computed: false, optional: true, required: false
-  private _accessToken?: string; 
+  private _accessToken?: string;
   public get accessToken() {
     return this.getStringAttribute('access_token');
   }
@@ -3404,7 +3404,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -3417,7 +3417,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
   }
 
   // client_secret - computed: false, optional: false, required: true
-  private _clientSecret?: string; 
+  private _clientSecret?: string;
   public get clientSecret() {
     return this.getStringAttribute('client_secret');
   }
@@ -3448,109 +3448,109 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileCreden
 export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentials {
   /**
   * amplitude block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#amplitude AppflowConnectorProfile#amplitude}
   */
   readonly amplitude?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude;
   /**
   * custom_connector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#custom_connector AppflowConnectorProfile#custom_connector}
   */
   readonly customConnector?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector;
   /**
   * datadog block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#datadog AppflowConnectorProfile#datadog}
   */
   readonly datadog?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog;
   /**
   * dynatrace block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#dynatrace AppflowConnectorProfile#dynatrace}
   */
   readonly dynatrace?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace;
   /**
   * google_analytics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#google_analytics AppflowConnectorProfile#google_analytics}
   */
   readonly googleAnalytics?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics;
   /**
   * honeycode block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#honeycode AppflowConnectorProfile#honeycode}
   */
   readonly honeycode?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode;
   /**
   * infor_nexus block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#infor_nexus AppflowConnectorProfile#infor_nexus}
   */
   readonly inforNexus?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus;
   /**
   * marketo block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#marketo AppflowConnectorProfile#marketo}
   */
   readonly marketo?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo;
   /**
   * redshift block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#redshift AppflowConnectorProfile#redshift}
   */
   readonly redshift?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift;
   /**
   * salesforce block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#salesforce AppflowConnectorProfile#salesforce}
   */
   readonly salesforce?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce;
   /**
   * sapo_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#sapo_data AppflowConnectorProfile#sapo_data}
   */
   readonly sapoData?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData;
   /**
   * service_now block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#service_now AppflowConnectorProfile#service_now}
   */
   readonly serviceNow?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow;
   /**
   * singular block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#singular AppflowConnectorProfile#singular}
   */
   readonly singular?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular;
   /**
   * slack block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#slack AppflowConnectorProfile#slack}
   */
   readonly slack?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack;
   /**
   * snowflake block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#snowflake AppflowConnectorProfile#snowflake}
   */
   readonly snowflake?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake;
   /**
   * trendmicro block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#trendmicro AppflowConnectorProfile#trendmicro}
   */
   readonly trendmicro?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro;
   /**
   * veeva block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#veeva AppflowConnectorProfile#veeva}
   */
   readonly veeva?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva;
   /**
   * zendesk block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#zendesk AppflowConnectorProfile#zendesk}
   */
   readonly zendesk?: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk;
@@ -4115,7 +4115,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // oauth2_grant_type - computed: false, optional: false, required: true
-  private _oauth2GrantType?: string; 
+  private _oauth2GrantType?: string;
   public get oauth2GrantType() {
     return this.getStringAttribute('oauth2_grant_type');
   }
@@ -4128,7 +4128,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // token_url - computed: false, optional: false, required: true
-  private _tokenUrl?: string; 
+  private _tokenUrl?: string;
   public get tokenUrl() {
     return this.getStringAttribute('token_url');
   }
@@ -4141,7 +4141,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // token_url_custom_properties - computed: false, optional: true, required: false
-  private _tokenUrlCustomProperties?: { [key: string]: string }; 
+  private _tokenUrlCustomProperties?: { [key: string]: string };
   public get tokenUrlCustomProperties() {
     return this.getStringMapAttribute('token_url_custom_properties');
   }
@@ -4163,7 +4163,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfilePr
   readonly profileProperties?: { [key: string]: string };
   /**
   * oauth2_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth2_properties AppflowConnectorProfile#oauth2_properties}
   */
   readonly oauth2Properties?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties;
@@ -4219,7 +4219,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // profile_properties - computed: false, optional: true, required: false
-  private _profileProperties?: { [key: string]: string }; 
+  private _profileProperties?: { [key: string]: string };
   public get profileProperties() {
     return this.getStringMapAttribute('profile_properties');
   }
@@ -4300,7 +4300,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -4362,7 +4362,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -4500,7 +4500,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -4562,7 +4562,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -4690,7 +4690,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -4703,7 +4703,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -4719,7 +4719,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // cluster_identifier - computed: false, optional: true, required: false
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -4735,7 +4735,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // data_api_role_arn - computed: false, optional: true, required: false
-  private _dataApiRoleArn?: string; 
+  private _dataApiRoleArn?: string;
   public get dataApiRoleArn() {
     return this.getStringAttribute('data_api_role_arn');
   }
@@ -4751,7 +4751,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // database_name - computed: false, optional: true, required: false
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -4767,7 +4767,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // database_url - computed: false, optional: true, required: false
-  private _databaseUrl?: string; 
+  private _databaseUrl?: string;
   public get databaseUrl() {
     return this.getStringAttribute('database_url');
   }
@@ -4783,7 +4783,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -4856,7 +4856,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: true, required: false
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -4872,7 +4872,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // is_sandbox_environment - computed: false, optional: true, required: false
-  private _isSandboxEnvironment?: boolean | cdktf.IResolvable; 
+  private _isSandboxEnvironment?: boolean | cdktf.IResolvable;
   public get isSandboxEnvironment() {
     return this.getBooleanAttribute('is_sandbox_environment');
   }
@@ -4959,7 +4959,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // auth_code_url - computed: false, optional: false, required: true
-  private _authCodeUrl?: string; 
+  private _authCodeUrl?: string;
   public get authCodeUrl() {
     return this.getStringAttribute('auth_code_url');
   }
@@ -4972,7 +4972,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // oauth_scopes - computed: false, optional: false, required: true
-  private _oauthScopes?: string[]; 
+  private _oauthScopes?: string[];
   public get oauthScopes() {
     return this.getListAttribute('oauth_scopes');
   }
@@ -4985,7 +4985,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // token_url - computed: false, optional: false, required: true
-  private _tokenUrl?: string; 
+  private _tokenUrl?: string;
   public get tokenUrl() {
     return this.getStringAttribute('token_url');
   }
@@ -5024,7 +5024,7 @@ export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfilePr
   readonly privateLinkServiceName?: string;
   /**
   * oauth_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#oauth_properties AppflowConnectorProfile#oauth_properties}
   */
   readonly oauthProperties?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties;
@@ -5115,7 +5115,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // application_host_url - computed: false, optional: false, required: true
-  private _applicationHostUrl?: string; 
+  private _applicationHostUrl?: string;
   public get applicationHostUrl() {
     return this.getStringAttribute('application_host_url');
   }
@@ -5128,7 +5128,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // application_service_path - computed: false, optional: false, required: true
-  private _applicationServicePath?: string; 
+  private _applicationServicePath?: string;
   public get applicationServicePath() {
     return this.getStringAttribute('application_service_path');
   }
@@ -5141,7 +5141,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // client_number - computed: false, optional: false, required: true
-  private _clientNumber?: string; 
+  private _clientNumber?: string;
   public get clientNumber() {
     return this.getStringAttribute('client_number');
   }
@@ -5154,7 +5154,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // logon_language - computed: false, optional: true, required: false
-  private _logonLanguage?: string; 
+  private _logonLanguage?: string;
   public get logonLanguage() {
     return this.getStringAttribute('logon_language');
   }
@@ -5170,7 +5170,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // port_number - computed: false, optional: false, required: true
-  private _portNumber?: number; 
+  private _portNumber?: number;
   public get portNumber() {
     return this.getNumberAttribute('port_number');
   }
@@ -5183,7 +5183,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // private_link_service_name - computed: false, optional: true, required: false
-  private _privateLinkServiceName?: string; 
+  private _privateLinkServiceName?: string;
   public get privateLinkServiceName() {
     return this.getStringAttribute('private_link_service_name');
   }
@@ -5264,7 +5264,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -5364,7 +5364,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -5492,7 +5492,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // account_name - computed: false, optional: true, required: false
-  private _accountName?: string; 
+  private _accountName?: string;
   public get accountName() {
     return this.getStringAttribute('account_name');
   }
@@ -5508,7 +5508,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -5521,7 +5521,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -5537,7 +5537,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // private_link_service_name - computed: false, optional: true, required: false
-  private _privateLinkServiceName?: string; 
+  private _privateLinkServiceName?: string;
   public get privateLinkServiceName() {
     return this.getStringAttribute('private_link_service_name');
   }
@@ -5553,7 +5553,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -5569,7 +5569,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // stage - computed: false, optional: false, required: true
-  private _stage?: string; 
+  private _stage?: string;
   public get stage() {
     return this.getStringAttribute('stage');
   }
@@ -5582,7 +5582,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // warehouse - computed: false, optional: false, required: true
-  private _warehouse?: string; 
+  private _warehouse?: string;
   public get warehouse() {
     return this.getStringAttribute('warehouse');
   }
@@ -5682,7 +5682,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -5744,7 +5744,7 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
   }
 
   // instance_url - computed: false, optional: false, required: true
-  private _instanceUrl?: string; 
+  private _instanceUrl?: string;
   public get instanceUrl() {
     return this.getStringAttribute('instance_url');
   }
@@ -5759,109 +5759,109 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
 export interface AppflowConnectorProfileConnectorProfileConfigConnectorProfileProperties {
   /**
   * amplitude block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#amplitude AppflowConnectorProfile#amplitude}
   */
   readonly amplitude?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude;
   /**
   * custom_connector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#custom_connector AppflowConnectorProfile#custom_connector}
   */
   readonly customConnector?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector;
   /**
   * datadog block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#datadog AppflowConnectorProfile#datadog}
   */
   readonly datadog?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog;
   /**
   * dynatrace block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#dynatrace AppflowConnectorProfile#dynatrace}
   */
   readonly dynatrace?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace;
   /**
   * google_analytics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#google_analytics AppflowConnectorProfile#google_analytics}
   */
   readonly googleAnalytics?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics;
   /**
   * honeycode block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#honeycode AppflowConnectorProfile#honeycode}
   */
   readonly honeycode?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode;
   /**
   * infor_nexus block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#infor_nexus AppflowConnectorProfile#infor_nexus}
   */
   readonly inforNexus?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus;
   /**
   * marketo block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#marketo AppflowConnectorProfile#marketo}
   */
   readonly marketo?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo;
   /**
   * redshift block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#redshift AppflowConnectorProfile#redshift}
   */
   readonly redshift?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift;
   /**
   * salesforce block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#salesforce AppflowConnectorProfile#salesforce}
   */
   readonly salesforce?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce;
   /**
   * sapo_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#sapo_data AppflowConnectorProfile#sapo_data}
   */
   readonly sapoData?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData;
   /**
   * service_now block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#service_now AppflowConnectorProfile#service_now}
   */
   readonly serviceNow?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow;
   /**
   * singular block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#singular AppflowConnectorProfile#singular}
   */
   readonly singular?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular;
   /**
   * slack block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#slack AppflowConnectorProfile#slack}
   */
   readonly slack?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack;
   /**
   * snowflake block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#snowflake AppflowConnectorProfile#snowflake}
   */
   readonly snowflake?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake;
   /**
   * trendmicro block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#trendmicro AppflowConnectorProfile#trendmicro}
   */
   readonly trendmicro?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro;
   /**
   * veeva block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#veeva AppflowConnectorProfile#veeva}
   */
   readonly veeva?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva;
   /**
   * zendesk block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#zendesk AppflowConnectorProfile#zendesk}
   */
   readonly zendesk?: AppflowConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk;
@@ -6319,13 +6319,13 @@ export class AppflowConnectorProfileConnectorProfileConfigConnectorProfileProper
 export interface AppflowConnectorProfileConnectorProfileConfig {
   /**
   * connector_profile_credentials block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#connector_profile_credentials AppflowConnectorProfile#connector_profile_credentials}
   */
   readonly connectorProfileCredentials: AppflowConnectorProfileConnectorProfileConfigConnectorProfileCredentials;
   /**
   * connector_profile_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_connector_profile#connector_profile_properties AppflowConnectorProfile#connector_profile_properties}
   */
   readonly connectorProfileProperties: AppflowConnectorProfileConnectorProfileConfigConnectorProfileProperties;
@@ -6463,7 +6463,7 @@ export class AppflowConnectorProfile extends cdktf.TerraformResource {
   }
 
   // connection_mode - computed: false, optional: false, required: true
-  private _connectionMode?: string; 
+  private _connectionMode?: string;
   public get connectionMode() {
     return this.getStringAttribute('connection_mode');
   }
@@ -6476,7 +6476,7 @@ export class AppflowConnectorProfile extends cdktf.TerraformResource {
   }
 
   // connector_label - computed: false, optional: true, required: false
-  private _connectorLabel?: string; 
+  private _connectorLabel?: string;
   public get connectorLabel() {
     return this.getStringAttribute('connector_label');
   }
@@ -6492,7 +6492,7 @@ export class AppflowConnectorProfile extends cdktf.TerraformResource {
   }
 
   // connector_type - computed: false, optional: false, required: true
-  private _connectorType?: string; 
+  private _connectorType?: string;
   public get connectorType() {
     return this.getStringAttribute('connector_type');
   }
@@ -6510,7 +6510,7 @@ export class AppflowConnectorProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -6526,7 +6526,7 @@ export class AppflowConnectorProfile extends cdktf.TerraformResource {
   }
 
   // kms_arn - computed: true, optional: true, required: false
-  private _kmsArn?: string; 
+  private _kmsArn?: string;
   public get kmsArn() {
     return this.getStringAttribute('kms_arn');
   }
@@ -6542,7 +6542,7 @@ export class AppflowConnectorProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

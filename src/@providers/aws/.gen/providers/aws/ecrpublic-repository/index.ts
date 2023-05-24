@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface EcrpublicRepositoryConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * catalog_data block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#catalog_data EcrpublicRepository#catalog_data}
   */
   readonly catalogData?: EcrpublicRepositoryCatalogData;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#timeouts EcrpublicRepository#timeouts}
   */
   readonly timeouts?: EcrpublicRepositoryTimeouts;
@@ -148,7 +148,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // about_text - computed: false, optional: true, required: false
-  private _aboutText?: string; 
+  private _aboutText?: string;
   public get aboutText() {
     return this.getStringAttribute('about_text');
   }
@@ -164,7 +164,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // architectures - computed: false, optional: true, required: false
-  private _architectures?: string[]; 
+  private _architectures?: string[];
   public get architectures() {
     return cdktf.Fn.tolist(this.getListAttribute('architectures'));
   }
@@ -180,7 +180,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -196,7 +196,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // logo_image_blob - computed: true, optional: true, required: false
-  private _logoImageBlob?: string; 
+  private _logoImageBlob?: string;
   public get logoImageBlob() {
     return this.getStringAttribute('logo_image_blob');
   }
@@ -212,7 +212,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // operating_systems - computed: false, optional: true, required: false
-  private _operatingSystems?: string[]; 
+  private _operatingSystems?: string[];
   public get operatingSystems() {
     return cdktf.Fn.tolist(this.getListAttribute('operating_systems'));
   }
@@ -228,7 +228,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // usage_text - computed: false, optional: true, required: false
-  private _usageText?: string; 
+  private _usageText?: string;
   public get usageText() {
     return this.getStringAttribute('usage_text');
   }
@@ -303,7 +303,7 @@ export class EcrpublicRepositoryTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -375,7 +375,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -391,7 +391,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -412,7 +412,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // repository_name - computed: false, optional: false, required: true
-  private _repositoryName?: string; 
+  private _repositoryName?: string;
   public get repositoryName() {
     return this.getStringAttribute('repository_name');
   }
@@ -430,7 +430,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -446,7 +446,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

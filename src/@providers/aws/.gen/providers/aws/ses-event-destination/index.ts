@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_event_destination
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,19 +32,19 @@ export interface SesEventDestinationConfig extends cdktf.TerraformMetaArguments 
   readonly name: string;
   /**
   * cloudwatch_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_event_destination#cloudwatch_destination SesEventDestination#cloudwatch_destination}
   */
   readonly cloudwatchDestination?: SesEventDestinationCloudwatchDestination[] | cdktf.IResolvable;
   /**
   * kinesis_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_event_destination#kinesis_destination SesEventDestination#kinesis_destination}
   */
   readonly kinesisDestination?: SesEventDestinationKinesisDestination;
   /**
   * sns_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_event_destination#sns_destination SesEventDestination#sns_destination}
   */
   readonly snsDestination?: SesEventDestinationSnsDestination;
@@ -133,7 +133,7 @@ export class SesEventDestinationCloudwatchDestinationOutputReference extends cdk
   }
 
   // default_value - computed: false, optional: false, required: true
-  private _defaultValue?: string; 
+  private _defaultValue?: string;
   public get defaultValue() {
     return this.getStringAttribute('default_value');
   }
@@ -146,7 +146,7 @@ export class SesEventDestinationCloudwatchDestinationOutputReference extends cdk
   }
 
   // dimension_name - computed: false, optional: false, required: true
-  private _dimensionName?: string; 
+  private _dimensionName?: string;
   public get dimensionName() {
     return this.getStringAttribute('dimension_name');
   }
@@ -159,7 +159,7 @@ export class SesEventDestinationCloudwatchDestinationOutputReference extends cdk
   }
 
   // value_source - computed: false, optional: false, required: true
-  private _valueSource?: string; 
+  private _valueSource?: string;
   public get valueSource() {
     return this.getStringAttribute('value_source');
   }
@@ -252,7 +252,7 @@ export class SesEventDestinationKinesisDestinationOutputReference extends cdktf.
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -265,7 +265,7 @@ export class SesEventDestinationKinesisDestinationOutputReference extends cdktf.
   }
 
   // stream_arn - computed: false, optional: false, required: true
-  private _streamArn?: string; 
+  private _streamArn?: string;
   public get streamArn() {
     return this.getStringAttribute('stream_arn');
   }
@@ -327,7 +327,7 @@ export class SesEventDestinationSnsDestinationOutputReference extends cdktf.Comp
   }
 
   // topic_arn - computed: false, optional: false, required: true
-  private _topicArn?: string; 
+  private _topicArn?: string;
   public get topicArn() {
     return this.getStringAttribute('topic_arn');
   }
@@ -397,7 +397,7 @@ export class SesEventDestination extends cdktf.TerraformResource {
   }
 
   // configuration_set_name - computed: false, optional: false, required: true
-  private _configurationSetName?: string; 
+  private _configurationSetName?: string;
   public get configurationSetName() {
     return this.getStringAttribute('configuration_set_name');
   }
@@ -410,7 +410,7 @@ export class SesEventDestination extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -426,7 +426,7 @@ export class SesEventDestination extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -442,7 +442,7 @@ export class SesEventDestination extends cdktf.TerraformResource {
   }
 
   // matching_types - computed: false, optional: false, required: true
-  private _matchingTypes?: string[]; 
+  private _matchingTypes?: string[];
   public get matchingTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('matching_types'));
   }
@@ -455,7 +455,7 @@ export class SesEventDestination extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

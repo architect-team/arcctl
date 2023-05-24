@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/schemas_schema
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -114,7 +114,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -130,7 +130,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -151,7 +151,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -164,7 +164,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // registry_name - computed: false, optional: false, required: true
-  private _registryName?: string; 
+  private _registryName?: string;
   public get registryName() {
     return this.getStringAttribute('registry_name');
   }
@@ -177,7 +177,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -193,7 +193,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -209,7 +209,7 @@ export class SchemasSchema extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

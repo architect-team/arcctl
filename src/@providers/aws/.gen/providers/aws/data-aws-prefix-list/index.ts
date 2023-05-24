@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/prefix_list
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsPrefixListConfig extends cdktf.TerraformMetaArguments {
   readonly prefixListId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/prefix_list#filter DataAwsPrefixList#filter}
   */
   readonly filter?: DataAwsPrefixListFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/prefix_list#timeouts DataAwsPrefixList#timeouts}
   */
   readonly timeouts?: DataAwsPrefixListTimeouts;
@@ -108,7 +108,7 @@ export class DataAwsPrefixListFilterOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +121,7 @@ export class DataAwsPrefixListFilterOutputReference extends cdktf.ComplexObject 
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -213,7 +213,7 @@ export class DataAwsPrefixListTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -283,7 +283,7 @@ export class DataAwsPrefixList extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DataAwsPrefixList extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -315,7 +315,7 @@ export class DataAwsPrefixList extends cdktf.TerraformDataSource {
   }
 
   // prefix_list_id - computed: false, optional: true, required: false
-  private _prefixListId?: string; 
+  private _prefixListId?: string;
   public get prefixListId() {
     return this.getStringAttribute('prefix_list_id');
   }

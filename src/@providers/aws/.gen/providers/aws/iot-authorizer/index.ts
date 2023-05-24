@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_authorizer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_function_arn - computed: false, optional: false, required: true
-  private _authorizerFunctionArn?: string; 
+  private _authorizerFunctionArn?: string;
   public get authorizerFunctionArn() {
     return this.getStringAttribute('authorizer_function_arn');
   }
@@ -114,7 +114,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // enable_caching_for_http - computed: false, optional: true, required: false
-  private _enableCachingForHttp?: boolean | cdktf.IResolvable; 
+  private _enableCachingForHttp?: boolean | cdktf.IResolvable;
   public get enableCachingForHttp() {
     return this.getBooleanAttribute('enable_caching_for_http');
   }
@@ -130,7 +130,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -146,7 +146,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -159,7 +159,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // signing_disabled - computed: false, optional: true, required: false
-  private _signingDisabled?: boolean | cdktf.IResolvable; 
+  private _signingDisabled?: boolean | cdktf.IResolvable;
   public get signingDisabled() {
     return this.getBooleanAttribute('signing_disabled');
   }
@@ -175,7 +175,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -191,7 +191,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // token_key_name - computed: false, optional: true, required: false
-  private _tokenKeyName?: string; 
+  private _tokenKeyName?: string;
   public get tokenKeyName() {
     return this.getStringAttribute('token_key_name');
   }
@@ -207,7 +207,7 @@ export class IotAuthorizer extends cdktf.TerraformResource {
   }
 
   // token_signing_public_keys - computed: false, optional: true, required: false
-  private _tokenSigningPublicKeys?: { [key: string]: string }; 
+  private _tokenSigningPublicKeys?: { [key: string]: string };
   public get tokenSigningPublicKeys() {
     return this.getStringMapAttribute('token_signing_public_keys');
   }

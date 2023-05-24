@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecr_registry_scanning_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface EcrRegistryScanningConfigurationConfig extends cdktf.TerraformM
   readonly scanType: string;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_registry_scanning_configuration#rule EcrRegistryScanningConfiguration#rule}
   */
   readonly rule?: EcrRegistryScanningConfigurationRule[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class EcrRegistryScanningConfigurationRuleRepositoryFilterOutputReference
   }
 
   // filter - computed: false, optional: false, required: true
-  private _filter?: string; 
+  private _filter?: string;
   public get filter() {
     return this.getStringAttribute('filter');
   }
@@ -111,7 +111,7 @@ export class EcrRegistryScanningConfigurationRuleRepositoryFilterOutputReference
   }
 
   // filter_type - computed: false, optional: false, required: true
-  private _filterType?: string; 
+  private _filterType?: string;
   public get filterType() {
     return this.getStringAttribute('filter_type');
   }
@@ -150,7 +150,7 @@ export interface EcrRegistryScanningConfigurationRule {
   readonly scanFrequency: string;
   /**
   * repository_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_registry_scanning_configuration#repository_filter EcrRegistryScanningConfiguration#repository_filter}
   */
   readonly repositoryFilter: EcrRegistryScanningConfigurationRuleRepositoryFilter[] | cdktf.IResolvable;
@@ -218,7 +218,7 @@ export class EcrRegistryScanningConfigurationRuleOutputReference extends cdktf.C
   }
 
   // scan_frequency - computed: false, optional: false, required: true
-  private _scanFrequency?: string; 
+  private _scanFrequency?: string;
   public get scanFrequency() {
     return this.getStringAttribute('scan_frequency');
   }
@@ -311,7 +311,7 @@ export class EcrRegistryScanningConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -332,7 +332,7 @@ export class EcrRegistryScanningConfiguration extends cdktf.TerraformResource {
   }
 
   // scan_type - computed: false, optional: false, required: true
-  private _scanType?: string; 
+  private _scanType?: string;
   public get scanType() {
     return this.getStringAttribute('scan_type');
   }

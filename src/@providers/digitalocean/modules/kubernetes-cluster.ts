@@ -8,7 +8,7 @@ import { KubernetesCluster } from '../.gen/providers/digitalocean/kubernetes-clu
 import { KubernetesNodePool } from '../.gen/providers/digitalocean/kubernetes-node-pool/index.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { TerraformOutput } from 'cdktf';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class DigitaloceanKubernetesClusterModule extends ResourceModule<
   'kubernetesCluster',

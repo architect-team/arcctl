@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/auditmanager_control
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -17,7 +17,7 @@ export interface DataAwsAuditmanagerControlConfig extends cdktf.TerraformMetaArg
   readonly type: string;
   /**
   * control_mapping_sources block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/auditmanager_control#control_mapping_sources DataAwsAuditmanagerControl#control_mapping_sources}
   */
   readonly controlMappingSources?: DataAwsAuditmanagerControlControlMappingSources[] | cdktf.IResolvable;
@@ -105,7 +105,7 @@ export class DataAwsAuditmanagerControlControlMappingSourcesSourceKeywordList ex
 export interface DataAwsAuditmanagerControlControlMappingSources {
   /**
   * source_keyword block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/auditmanager_control#source_keyword DataAwsAuditmanagerControl#source_keyword}
   */
   readonly sourceKeyword?: DataAwsAuditmanagerControlControlMappingSourcesSourceKeyword[] | cdktf.IResolvable;
@@ -309,7 +309,7 @@ export class DataAwsAuditmanagerControl extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -333,7 +333,7 @@ export class DataAwsAuditmanagerControl extends cdktf.TerraformDataSource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

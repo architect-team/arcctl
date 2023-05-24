@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/prometheus_alert_manager_definition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class PrometheusAlertManagerDefinition extends cdktf.TerraformResource {
   // ==========
 
   // definition - computed: false, optional: false, required: true
-  private _definition?: string; 
+  private _definition?: string;
   public get definition() {
     return this.getStringAttribute('definition');
   }
@@ -84,7 +84,7 @@ export class PrometheusAlertManagerDefinition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class PrometheusAlertManagerDefinition extends cdktf.TerraformResource {
   }
 
   // workspace_id - computed: false, optional: false, required: true
-  private _workspaceId?: string; 
+  private _workspaceId?: string;
   public get workspaceId() {
     return this.getStringAttribute('workspace_id');
   }

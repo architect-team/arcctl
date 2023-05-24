@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codebuild_report_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface CodebuildReportGroupConfig extends cdktf.TerraformMetaArguments
   readonly type: string;
   /**
   * export_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#export_config CodebuildReportGroup#export_config}
   */
   readonly exportConfig: CodebuildReportGroupExportConfig;
@@ -135,7 +135,7 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -148,7 +148,7 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
   }
 
   // encryption_disabled - computed: false, optional: true, required: false
-  private _encryptionDisabled?: boolean | cdktf.IResolvable; 
+  private _encryptionDisabled?: boolean | cdktf.IResolvable;
   public get encryptionDisabled() {
     return this.getBooleanAttribute('encryption_disabled');
   }
@@ -164,7 +164,7 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
   }
 
   // encryption_key - computed: false, optional: false, required: true
-  private _encryptionKey?: string; 
+  private _encryptionKey?: string;
   public get encryptionKey() {
     return this.getStringAttribute('encryption_key');
   }
@@ -177,7 +177,7 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
   }
 
   // packaging - computed: false, optional: true, required: false
-  private _packaging?: string; 
+  private _packaging?: string;
   public get packaging() {
     return this.getStringAttribute('packaging');
   }
@@ -193,7 +193,7 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -215,7 +215,7 @@ export interface CodebuildReportGroupExportConfig {
   readonly type: string;
   /**
   * s3_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#s3_destination CodebuildReportGroup#s3_destination}
   */
   readonly s3Destination?: CodebuildReportGroupExportConfigS3Destination;
@@ -271,7 +271,7 @@ export class CodebuildReportGroupExportConfigOutputReference extends cdktf.Compl
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -361,7 +361,7 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
   }
 
   // delete_reports - computed: false, optional: true, required: false
-  private _deleteReports?: boolean | cdktf.IResolvable; 
+  private _deleteReports?: boolean | cdktf.IResolvable;
   public get deleteReports() {
     return this.getBooleanAttribute('delete_reports');
   }
@@ -377,7 +377,7 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -393,7 +393,7 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -406,7 +406,7 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -422,7 +422,7 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -438,7 +438,7 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/dx_router_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -165,7 +165,7 @@ export class DataAwsDxRouterConfiguration extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -187,7 +187,7 @@ export class DataAwsDxRouterConfiguration extends cdktf.TerraformDataSource {
   }
 
   // router_type_identifier - computed: false, optional: false, required: true
-  private _routerTypeIdentifier?: string; 
+  private _routerTypeIdentifier?: string;
   public get routerTypeIdentifier() {
     return this.getStringAttribute('router_type_identifier');
   }
@@ -200,7 +200,7 @@ export class DataAwsDxRouterConfiguration extends cdktf.TerraformDataSource {
   }
 
   // virtual_interface_id - computed: false, optional: false, required: true
-  private _virtualInterfaceId?: string; 
+  private _virtualInterfaceId?: string;
   public get virtualInterfaceId() {
     return this.getStringAttribute('virtual_interface_id');
   }

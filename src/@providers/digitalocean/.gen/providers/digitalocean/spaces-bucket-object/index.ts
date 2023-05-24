@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -141,7 +141,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   // ==========
 
   // acl - computed: false, optional: true, required: false
-  private _acl?: string; 
+  private _acl?: string;
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -157,7 +157,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -170,7 +170,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // cache_control - computed: false, optional: true, required: false
-  private _cacheControl?: string; 
+  private _cacheControl?: string;
   public get cacheControl() {
     return this.getStringAttribute('cache_control');
   }
@@ -186,7 +186,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content - computed: false, optional: true, required: false
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -202,7 +202,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_base64 - computed: false, optional: true, required: false
-  private _contentBase64?: string; 
+  private _contentBase64?: string;
   public get contentBase64() {
     return this.getStringAttribute('content_base64');
   }
@@ -218,7 +218,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_disposition - computed: false, optional: true, required: false
-  private _contentDisposition?: string; 
+  private _contentDisposition?: string;
   public get contentDisposition() {
     return this.getStringAttribute('content_disposition');
   }
@@ -234,7 +234,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_encoding - computed: false, optional: true, required: false
-  private _contentEncoding?: string; 
+  private _contentEncoding?: string;
   public get contentEncoding() {
     return this.getStringAttribute('content_encoding');
   }
@@ -250,7 +250,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_language - computed: false, optional: true, required: false
-  private _contentLanguage?: string; 
+  private _contentLanguage?: string;
   public get contentLanguage() {
     return this.getStringAttribute('content_language');
   }
@@ -266,7 +266,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_type - computed: true, optional: true, required: false
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -282,7 +282,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // etag - computed: true, optional: true, required: false
-  private _etag?: string; 
+  private _etag?: string;
   public get etag() {
     return this.getStringAttribute('etag');
   }
@@ -298,7 +298,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -314,7 +314,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -330,7 +330,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -343,7 +343,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: true, required: false
-  private _metadata?: { [key: string]: string }; 
+  private _metadata?: { [key: string]: string };
   public get metadata() {
     return this.getStringMapAttribute('metadata');
   }
@@ -359,7 +359,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -372,7 +372,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -393,7 +393,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // website_redirect - computed: false, optional: true, required: false
-  private _websiteRedirect?: string; 
+  private _websiteRedirect?: string;
   public get websiteRedirect() {
     return this.getStringAttribute('website_redirect');
   }

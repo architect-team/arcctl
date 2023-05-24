@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -17,7 +17,7 @@ export interface Resourceexplorer2IndexConfig extends cdktf.TerraformMetaArgumen
   readonly type: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#timeouts Resourceexplorer2Index#timeouts}
   */
   readonly timeouts?: Resourceexplorer2IndexTimeouts;
@@ -104,7 +104,7 @@ export class Resourceexplorer2IndexTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -120,7 +120,7 @@ export class Resourceexplorer2IndexTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -136,7 +136,7 @@ export class Resourceexplorer2IndexTimeoutsOutputReference extends cdktf.Complex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -209,7 +209,7 @@ export class Resourceexplorer2Index extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -231,7 +231,7 @@ export class Resourceexplorer2Index extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

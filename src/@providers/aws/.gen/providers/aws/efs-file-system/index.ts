@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/efs_file_system
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,7 +52,7 @@ export interface EfsFileSystemConfig extends cdktf.TerraformMetaArguments {
   readonly throughputMode?: string;
   /**
   * lifecycle_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_file_system#lifecycle_policy EfsFileSystem#lifecycle_policy}
   */
   readonly lifecyclePolicy?: EfsFileSystemLifecyclePolicy[] | cdktf.IResolvable;
@@ -204,7 +204,7 @@ export class EfsFileSystemLifecyclePolicyOutputReference extends cdktf.ComplexOb
   }
 
   // transition_to_ia - computed: false, optional: true, required: false
-  private _transitionToIa?: string; 
+  private _transitionToIa?: string;
   public get transitionToIa() {
     return this.getStringAttribute('transition_to_ia');
   }
@@ -220,7 +220,7 @@ export class EfsFileSystemLifecyclePolicyOutputReference extends cdktf.ComplexOb
   }
 
   // transition_to_primary_storage_class - computed: false, optional: true, required: false
-  private _transitionToPrimaryStorageClass?: string; 
+  private _transitionToPrimaryStorageClass?: string;
   public get transitionToPrimaryStorageClass() {
     return this.getStringAttribute('transition_to_primary_storage_class');
   }
@@ -321,7 +321,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // availability_zone_name - computed: true, optional: true, required: false
-  private _availabilityZoneName?: string; 
+  private _availabilityZoneName?: string;
   public get availabilityZoneName() {
     return this.getStringAttribute('availability_zone_name');
   }
@@ -337,7 +337,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // creation_token - computed: true, optional: true, required: false
-  private _creationToken?: string; 
+  private _creationToken?: string;
   public get creationToken() {
     return this.getStringAttribute('creation_token');
   }
@@ -358,7 +358,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable; 
+  private _encrypted?: boolean | cdktf.IResolvable;
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -374,7 +374,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -390,7 +390,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -416,7 +416,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // performance_mode - computed: true, optional: true, required: false
-  private _performanceMode?: string; 
+  private _performanceMode?: string;
   public get performanceMode() {
     return this.getStringAttribute('performance_mode');
   }
@@ -432,7 +432,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // provisioned_throughput_in_mibps - computed: false, optional: true, required: false
-  private _provisionedThroughputInMibps?: number; 
+  private _provisionedThroughputInMibps?: number;
   public get provisionedThroughputInMibps() {
     return this.getNumberAttribute('provisioned_throughput_in_mibps');
   }
@@ -454,7 +454,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -470,7 +470,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -486,7 +486,7 @@ export class EfsFileSystem extends cdktf.TerraformResource {
   }
 
   // throughput_mode - computed: false, optional: true, required: false
-  private _throughputMode?: string; 
+  private _throughputMode?: string;
   public get throughputMode() {
     return this.getStringAttribute('throughput_mode');
   }

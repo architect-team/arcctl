@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/resources
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,43 +9,43 @@ import * as cdktf from 'cdktf';
 export interface DataKubernetesResourcesConfig extends cdktf.TerraformMetaArguments {
   /**
   * The resource apiVersion.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resources#api_version DataKubernetesResources#api_version}
   */
   readonly apiVersion: string;
   /**
   * A selector to restrict the list of returned objects by their fields.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resources#field_selector DataKubernetesResources#field_selector}
   */
   readonly fieldSelector?: string;
   /**
   * The resource kind.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resources#kind DataKubernetesResources#kind}
   */
   readonly kind: string;
   /**
   * A selector to restrict the list of returned objects by their labels.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resources#label_selector DataKubernetesResources#label_selector}
   */
   readonly labelSelector?: string;
   /**
   * Limit is a maximum number of responses to return for a list call.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resources#limit DataKubernetesResources#limit}
   */
   readonly limit?: number;
   /**
   * The resource namespace.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resources#namespace DataKubernetesResources#namespace}
   */
   readonly namespace?: string;
   /**
   * The response from the API server.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/resources#objects DataKubernetesResources#objects}
   */
   readonly objects?: { [key: string]: any };
@@ -102,7 +102,7 @@ export class DataKubernetesResources extends cdktf.TerraformDataSource {
   // ==========
 
   // api_version - computed: false, optional: false, required: true
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -115,7 +115,7 @@ export class DataKubernetesResources extends cdktf.TerraformDataSource {
   }
 
   // field_selector - computed: false, optional: true, required: false
-  private _fieldSelector?: string; 
+  private _fieldSelector?: string;
   public get fieldSelector() {
     return this.getStringAttribute('field_selector');
   }
@@ -131,7 +131,7 @@ export class DataKubernetesResources extends cdktf.TerraformDataSource {
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -144,7 +144,7 @@ export class DataKubernetesResources extends cdktf.TerraformDataSource {
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector?: string; 
+  private _labelSelector?: string;
   public get labelSelector() {
     return this.getStringAttribute('label_selector');
   }
@@ -160,7 +160,7 @@ export class DataKubernetesResources extends cdktf.TerraformDataSource {
   }
 
   // limit - computed: false, optional: true, required: false
-  private _limit?: number; 
+  private _limit?: number;
   public get limit() {
     return this.getNumberAttribute('limit');
   }
@@ -176,7 +176,7 @@ export class DataKubernetesResources extends cdktf.TerraformDataSource {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -192,7 +192,7 @@ export class DataKubernetesResources extends cdktf.TerraformDataSource {
   }
 
   // objects - computed: true, optional: true, required: false
-  private _objects?: { [key: string]: any }; 
+  private _objects?: { [key: string]: any };
   public get objects() {
     return this.getAnyMapAttribute('objects');
   }

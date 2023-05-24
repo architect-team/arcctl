@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_indexing_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface IotIndexingConfigurationConfig extends cdktf.TerraformMetaArgum
   readonly id?: string;
   /**
   * thing_group_indexing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_indexing_configuration#thing_group_indexing_configuration IotIndexingConfiguration#thing_group_indexing_configuration}
   */
   readonly thingGroupIndexingConfiguration?: IotIndexingConfigurationThingGroupIndexingConfiguration;
   /**
   * thing_indexing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_indexing_configuration#thing_indexing_configuration IotIndexingConfiguration#thing_indexing_configuration}
   */
   readonly thingIndexingConfiguration?: IotIndexingConfigurationThingIndexingConfiguration;
@@ -100,7 +100,7 @@ export class IotIndexingConfigurationThingGroupIndexingConfigurationCustomFieldO
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -116,7 +116,7 @@ export class IotIndexingConfigurationThingGroupIndexingConfigurationCustomFieldO
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -224,7 +224,7 @@ export class IotIndexingConfigurationThingGroupIndexingConfigurationManagedField
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -240,7 +240,7 @@ export class IotIndexingConfigurationThingGroupIndexingConfigurationManagedField
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -282,13 +282,13 @@ export interface IotIndexingConfigurationThingGroupIndexingConfiguration {
   readonly thingGroupIndexingMode: string;
   /**
   * custom_field block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_indexing_configuration#custom_field IotIndexingConfiguration#custom_field}
   */
   readonly customField?: IotIndexingConfigurationThingGroupIndexingConfigurationCustomField[] | cdktf.IResolvable;
   /**
   * managed_field block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_indexing_configuration#managed_field IotIndexingConfiguration#managed_field}
   */
   readonly managedField?: IotIndexingConfigurationThingGroupIndexingConfigurationManagedField[] | cdktf.IResolvable;
@@ -351,7 +351,7 @@ export class IotIndexingConfigurationThingGroupIndexingConfigurationOutputRefere
   }
 
   // thing_group_indexing_mode - computed: false, optional: false, required: true
-  private _thingGroupIndexingMode?: string; 
+  private _thingGroupIndexingMode?: string;
   public get thingGroupIndexingMode() {
     return this.getStringAttribute('thing_group_indexing_mode');
   }
@@ -468,7 +468,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationCustomFieldOutput
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -484,7 +484,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationCustomFieldOutput
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -592,7 +592,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationManagedFieldOutpu
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -608,7 +608,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationManagedFieldOutpu
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -662,13 +662,13 @@ export interface IotIndexingConfigurationThingIndexingConfiguration {
   readonly thingIndexingMode: string;
   /**
   * custom_field block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_indexing_configuration#custom_field IotIndexingConfiguration#custom_field}
   */
   readonly customField?: IotIndexingConfigurationThingIndexingConfigurationCustomField[] | cdktf.IResolvable;
   /**
   * managed_field block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_indexing_configuration#managed_field IotIndexingConfiguration#managed_field}
   */
   readonly managedField?: IotIndexingConfigurationThingIndexingConfigurationManagedField[] | cdktf.IResolvable;
@@ -752,7 +752,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationOutputReference e
   }
 
   // device_defender_indexing_mode - computed: false, optional: true, required: false
-  private _deviceDefenderIndexingMode?: string; 
+  private _deviceDefenderIndexingMode?: string;
   public get deviceDefenderIndexingMode() {
     return this.getStringAttribute('device_defender_indexing_mode');
   }
@@ -768,7 +768,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationOutputReference e
   }
 
   // named_shadow_indexing_mode - computed: false, optional: true, required: false
-  private _namedShadowIndexingMode?: string; 
+  private _namedShadowIndexingMode?: string;
   public get namedShadowIndexingMode() {
     return this.getStringAttribute('named_shadow_indexing_mode');
   }
@@ -784,7 +784,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationOutputReference e
   }
 
   // thing_connectivity_indexing_mode - computed: false, optional: true, required: false
-  private _thingConnectivityIndexingMode?: string; 
+  private _thingConnectivityIndexingMode?: string;
   public get thingConnectivityIndexingMode() {
     return this.getStringAttribute('thing_connectivity_indexing_mode');
   }
@@ -800,7 +800,7 @@ export class IotIndexingConfigurationThingIndexingConfigurationOutputReference e
   }
 
   // thing_indexing_mode - computed: false, optional: false, required: true
-  private _thingIndexingMode?: string; 
+  private _thingIndexingMode?: string;
   public get thingIndexingMode() {
     return this.getStringAttribute('thing_indexing_mode');
   }
@@ -892,7 +892,7 @@ export class IotIndexingConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

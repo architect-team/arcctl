@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_hosted_transit_virtual_interface_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface DxHostedTransitVirtualInterfaceAccepterConfig extends cdktf.Ter
   readonly virtualInterfaceId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_transit_virtual_interface_accepter#timeouts DxHostedTransitVirtualInterfaceAccepter#timeouts}
   */
   readonly timeouts?: DxHostedTransitVirtualInterfaceAccepterTimeouts;
@@ -108,7 +108,7 @@ export class DxHostedTransitVirtualInterfaceAccepterTimeoutsOutputReference exte
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class DxHostedTransitVirtualInterfaceAccepterTimeoutsOutputReference exte
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -195,7 +195,7 @@ export class DxHostedTransitVirtualInterfaceAccepter extends cdktf.TerraformReso
   }
 
   // dx_gateway_id - computed: false, optional: false, required: true
-  private _dxGatewayId?: string; 
+  private _dxGatewayId?: string;
   public get dxGatewayId() {
     return this.getStringAttribute('dx_gateway_id');
   }
@@ -208,7 +208,7 @@ export class DxHostedTransitVirtualInterfaceAccepter extends cdktf.TerraformReso
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -224,7 +224,7 @@ export class DxHostedTransitVirtualInterfaceAccepter extends cdktf.TerraformReso
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -240,7 +240,7 @@ export class DxHostedTransitVirtualInterfaceAccepter extends cdktf.TerraformReso
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -256,7 +256,7 @@ export class DxHostedTransitVirtualInterfaceAccepter extends cdktf.TerraformReso
   }
 
   // virtual_interface_id - computed: false, optional: false, required: true
-  private _virtualInterfaceId?: string; 
+  private _virtualInterfaceId?: string;
   public get virtualInterfaceId() {
     return this.getStringAttribute('virtual_interface_id');
   }

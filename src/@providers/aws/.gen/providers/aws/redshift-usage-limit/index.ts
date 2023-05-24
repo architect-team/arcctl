@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_usage_limit
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   // ==========
 
   // amount - computed: false, optional: false, required: true
-  private _amount?: number; 
+  private _amount?: number;
   public get amount() {
     return this.getNumberAttribute('amount');
   }
@@ -119,7 +119,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // breach_action - computed: false, optional: true, required: false
-  private _breachAction?: string; 
+  private _breachAction?: string;
   public get breachAction() {
     return this.getStringAttribute('breach_action');
   }
@@ -135,7 +135,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -148,7 +148,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // feature_type - computed: false, optional: false, required: true
-  private _featureType?: string; 
+  private _featureType?: string;
   public get featureType() {
     return this.getStringAttribute('feature_type');
   }
@@ -161,7 +161,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -177,7 +177,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // limit_type - computed: false, optional: false, required: true
-  private _limitType?: string; 
+  private _limitType?: string;
   public get limitType() {
     return this.getStringAttribute('limit_type');
   }
@@ -190,7 +190,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // period - computed: false, optional: true, required: false
-  private _period?: string; 
+  private _period?: string;
   public get period() {
     return this.getStringAttribute('period');
   }
@@ -206,7 +206,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -222,7 +222,7 @@ export class RedshiftUsageLimit extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

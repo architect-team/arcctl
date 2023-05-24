@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,25 +20,25 @@ export interface DataAwsNetworkmanagerCoreNetworkPolicyDocumentConfig extends cd
   readonly version?: string;
   /**
   * attachment_policies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document#attachment_policies DataAwsNetworkmanagerCoreNetworkPolicyDocument#attachment_policies}
   */
   readonly attachmentPolicies?: DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPolicies[] | cdktf.IResolvable;
   /**
   * core_network_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document#core_network_configuration DataAwsNetworkmanagerCoreNetworkPolicyDocument#core_network_configuration}
   */
   readonly coreNetworkConfiguration: DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfiguration[] | cdktf.IResolvable;
   /**
   * segment_actions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document#segment_actions DataAwsNetworkmanagerCoreNetworkPolicyDocument#segment_actions}
   */
   readonly segmentActions?: DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActions[] | cdktf.IResolvable;
   /**
   * segments block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document#segments DataAwsNetworkmanagerCoreNetworkPolicyDocument#segments}
   */
   readonly segments: DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegments[] | cdktf.IResolvable;
@@ -126,7 +126,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesAct
   }
 
   // association_method - computed: false, optional: false, required: true
-  private _associationMethod?: string; 
+  private _associationMethod?: string;
   public get associationMethod() {
     return this.getStringAttribute('association_method');
   }
@@ -139,7 +139,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesAct
   }
 
   // require_acceptance - computed: false, optional: true, required: false
-  private _requireAcceptance?: boolean | cdktf.IResolvable; 
+  private _requireAcceptance?: boolean | cdktf.IResolvable;
   public get requireAcceptance() {
     return this.getBooleanAttribute('require_acceptance');
   }
@@ -155,7 +155,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesAct
   }
 
   // segment - computed: false, optional: true, required: false
-  private _segment?: string; 
+  private _segment?: string;
   public get segment() {
     return this.getStringAttribute('segment');
   }
@@ -171,7 +171,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesAct
   }
 
   // tag_value_of_key - computed: false, optional: true, required: false
-  private _tagValueOfKey?: string; 
+  private _tagValueOfKey?: string;
   public get tagValueOfKey() {
     return this.getStringAttribute('tag_value_of_key');
   }
@@ -281,7 +281,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesCon
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -297,7 +297,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesCon
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -313,7 +313,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesCon
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -326,7 +326,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesCon
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -376,13 +376,13 @@ export interface DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPolicie
   readonly ruleNumber: number;
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document#action DataAwsNetworkmanagerCoreNetworkPolicyDocument#action}
   */
   readonly action: DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesAction;
   /**
   * conditions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document#conditions DataAwsNetworkmanagerCoreNetworkPolicyDocument#conditions}
   */
   readonly conditions: DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesConditions[] | cdktf.IResolvable;
@@ -471,7 +471,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesOut
   }
 
   // condition_logic - computed: false, optional: true, required: false
-  private _conditionLogic?: string; 
+  private _conditionLogic?: string;
   public get conditionLogic() {
     return this.getStringAttribute('condition_logic');
   }
@@ -487,7 +487,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesOut
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -503,7 +503,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentAttachmentPoliciesOut
   }
 
   // rule_number - computed: false, optional: false, required: true
-  private _ruleNumber?: number; 
+  private _ruleNumber?: number;
   public get ruleNumber() {
     return this.getNumberAttribute('rule_number');
   }
@@ -645,7 +645,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfigurat
   }
 
   // asn - computed: false, optional: true, required: false
-  private _asn?: string; 
+  private _asn?: string;
   public get asn() {
     return this.getStringAttribute('asn');
   }
@@ -661,7 +661,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfigurat
   }
 
   // inside_cidr_blocks - computed: false, optional: true, required: false
-  private _insideCidrBlocks?: string[]; 
+  private _insideCidrBlocks?: string[];
   public get insideCidrBlocks() {
     return this.getListAttribute('inside_cidr_blocks');
   }
@@ -677,7 +677,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfigurat
   }
 
   // location - computed: false, optional: false, required: true
-  private _location?: string; 
+  private _location?: string;
   public get location() {
     return this.getStringAttribute('location');
   }
@@ -724,7 +724,7 @@ export interface DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfig
   readonly vpnEcmpSupport?: boolean | cdktf.IResolvable;
   /**
   * edge_locations block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/networkmanager_core_network_policy_document#edge_locations DataAwsNetworkmanagerCoreNetworkPolicyDocument#edge_locations}
   */
   readonly edgeLocations: DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocations[] | cdktf.IResolvable;
@@ -806,7 +806,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfigurat
   }
 
   // asn_ranges - computed: false, optional: false, required: true
-  private _asnRanges?: string[]; 
+  private _asnRanges?: string[];
   public get asnRanges() {
     return cdktf.Fn.tolist(this.getListAttribute('asn_ranges'));
   }
@@ -819,7 +819,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfigurat
   }
 
   // inside_cidr_blocks - computed: false, optional: true, required: false
-  private _insideCidrBlocks?: string[]; 
+  private _insideCidrBlocks?: string[];
   public get insideCidrBlocks() {
     return cdktf.Fn.tolist(this.getListAttribute('inside_cidr_blocks'));
   }
@@ -835,7 +835,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentCoreNetworkConfigurat
   }
 
   // vpn_ecmp_support - computed: false, optional: true, required: false
-  private _vpnEcmpSupport?: boolean | cdktf.IResolvable; 
+  private _vpnEcmpSupport?: boolean | cdktf.IResolvable;
   public get vpnEcmpSupport() {
     return this.getBooleanAttribute('vpn_ecmp_support');
   }
@@ -1022,7 +1022,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // action - computed: false, optional: false, required: true
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -1035,7 +1035,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1051,7 +1051,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // destination_cidr_blocks - computed: false, optional: true, required: false
-  private _destinationCidrBlocks?: string[]; 
+  private _destinationCidrBlocks?: string[];
   public get destinationCidrBlocks() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_cidr_blocks'));
   }
@@ -1067,7 +1067,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // destinations - computed: false, optional: true, required: false
-  private _destinations?: string[]; 
+  private _destinations?: string[];
   public get destinations() {
     return cdktf.Fn.tolist(this.getListAttribute('destinations'));
   }
@@ -1083,7 +1083,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -1099,7 +1099,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // segment - computed: false, optional: false, required: true
-  private _segment?: string; 
+  private _segment?: string;
   public get segment() {
     return this.getStringAttribute('segment');
   }
@@ -1112,7 +1112,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // share_with - computed: false, optional: true, required: false
-  private _shareWith?: string[]; 
+  private _shareWith?: string[];
   public get shareWith() {
     return cdktf.Fn.tolist(this.getListAttribute('share_with'));
   }
@@ -1128,7 +1128,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentActionsOutputR
   }
 
   // share_with_except - computed: false, optional: true, required: false
-  private _shareWithExcept?: string[]; 
+  private _shareWithExcept?: string[];
   public get shareWithExcept() {
     return cdktf.Fn.tolist(this.getListAttribute('share_with_except'));
   }
@@ -1291,7 +1291,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentsOutputReferen
   }
 
   // allow_filter - computed: false, optional: true, required: false
-  private _allowFilter?: string[]; 
+  private _allowFilter?: string[];
   public get allowFilter() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_filter'));
   }
@@ -1307,7 +1307,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentsOutputReferen
   }
 
   // deny_filter - computed: false, optional: true, required: false
-  private _denyFilter?: string[]; 
+  private _denyFilter?: string[];
   public get denyFilter() {
     return cdktf.Fn.tolist(this.getListAttribute('deny_filter'));
   }
@@ -1323,7 +1323,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentsOutputReferen
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1339,7 +1339,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentsOutputReferen
   }
 
   // edge_locations - computed: false, optional: true, required: false
-  private _edgeLocations?: string[]; 
+  private _edgeLocations?: string[];
   public get edgeLocations() {
     return cdktf.Fn.tolist(this.getListAttribute('edge_locations'));
   }
@@ -1355,7 +1355,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentsOutputReferen
   }
 
   // isolate_attachments - computed: false, optional: true, required: false
-  private _isolateAttachments?: boolean | cdktf.IResolvable; 
+  private _isolateAttachments?: boolean | cdktf.IResolvable;
   public get isolateAttachments() {
     return this.getBooleanAttribute('isolate_attachments');
   }
@@ -1371,7 +1371,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentsOutputReferen
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1384,7 +1384,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocumentSegmentsOutputReferen
   }
 
   // require_attachment_acceptance - computed: false, optional: true, required: false
-  private _requireAttachmentAcceptance?: boolean | cdktf.IResolvable; 
+  private _requireAttachmentAcceptance?: boolean | cdktf.IResolvable;
   public get requireAttachmentAcceptance() {
     return this.getBooleanAttribute('require_attachment_acceptance');
   }
@@ -1470,7 +1470,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocument extends cdktf.Terraf
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1491,7 +1491,7 @@ export class DataAwsNetworkmanagerCoreNetworkPolicyDocument extends cdktf.Terraf
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

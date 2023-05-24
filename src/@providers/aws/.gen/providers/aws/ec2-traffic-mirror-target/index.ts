@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -112,7 +112,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // gateway_load_balancer_endpoint_id - computed: false, optional: true, required: false
-  private _gatewayLoadBalancerEndpointId?: string; 
+  private _gatewayLoadBalancerEndpointId?: string;
   public get gatewayLoadBalancerEndpointId() {
     return this.getStringAttribute('gateway_load_balancer_endpoint_id');
   }
@@ -128,7 +128,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -144,7 +144,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // network_interface_id - computed: false, optional: true, required: false
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -160,7 +160,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // network_load_balancer_arn - computed: false, optional: true, required: false
-  private _networkLoadBalancerArn?: string; 
+  private _networkLoadBalancerArn?: string;
   public get networkLoadBalancerArn() {
     return this.getStringAttribute('network_load_balancer_arn');
   }
@@ -181,7 +181,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -197,7 +197,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

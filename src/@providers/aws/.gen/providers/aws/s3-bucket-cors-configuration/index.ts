@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_cors_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface S3BucketCorsConfigurationConfig extends cdktf.TerraformMetaArgu
   readonly id?: string;
   /**
   * cors_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_cors_configuration#cors_rule S3BucketCorsConfiguration#cors_rule}
   */
   readonly corsRule: S3BucketCorsConfigurationCorsRule[] | cdktf.IResolvable;
@@ -149,7 +149,7 @@ export class S3BucketCorsConfigurationCorsRuleOutputReference extends cdktf.Comp
   }
 
   // allowed_headers - computed: false, optional: true, required: false
-  private _allowedHeaders?: string[]; 
+  private _allowedHeaders?: string[];
   public get allowedHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_headers'));
   }
@@ -165,7 +165,7 @@ export class S3BucketCorsConfigurationCorsRuleOutputReference extends cdktf.Comp
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[]; 
+  private _allowedMethods?: string[];
   public get allowedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_methods'));
   }
@@ -178,7 +178,7 @@ export class S3BucketCorsConfigurationCorsRuleOutputReference extends cdktf.Comp
   }
 
   // allowed_origins - computed: false, optional: false, required: true
-  private _allowedOrigins?: string[]; 
+  private _allowedOrigins?: string[];
   public get allowedOrigins() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_origins'));
   }
@@ -191,7 +191,7 @@ export class S3BucketCorsConfigurationCorsRuleOutputReference extends cdktf.Comp
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[]; 
+  private _exposeHeaders?: string[];
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -207,7 +207,7 @@ export class S3BucketCorsConfigurationCorsRuleOutputReference extends cdktf.Comp
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -223,7 +223,7 @@ export class S3BucketCorsConfigurationCorsRuleOutputReference extends cdktf.Comp
   }
 
   // max_age_seconds - computed: false, optional: true, required: false
-  private _maxAgeSeconds?: number; 
+  private _maxAgeSeconds?: number;
   public get maxAgeSeconds() {
     return this.getNumberAttribute('max_age_seconds');
   }
@@ -307,7 +307,7 @@ export class S3BucketCorsConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -320,7 +320,7 @@ export class S3BucketCorsConfiguration extends cdktf.TerraformResource {
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -336,7 +336,7 @@ export class S3BucketCorsConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

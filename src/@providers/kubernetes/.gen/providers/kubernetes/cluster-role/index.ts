@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/cluster_role
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,19 +16,19 @@ export interface ClusterRoleConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * aggregation_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#aggregation_rule ClusterRole#aggregation_rule}
   */
   readonly aggregationRule?: ClusterRoleAggregationRule;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#metadata ClusterRole#metadata}
   */
   readonly metadata: ClusterRoleMetadata;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#rule ClusterRole#rule}
   */
   readonly rule?: ClusterRoleRule[] | cdktf.IResolvable;
@@ -36,19 +36,19 @@ export interface ClusterRoleConfig extends cdktf.TerraformMetaArguments {
 export interface ClusterRoleAggregationRuleClusterRoleSelectorsMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#key ClusterRole#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#operator ClusterRole#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#values ClusterRole#values}
   */
   readonly values?: string[];
@@ -123,7 +123,7 @@ export class ClusterRoleAggregationRuleClusterRoleSelectorsMatchExpressionsOutpu
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -139,7 +139,7 @@ export class ClusterRoleAggregationRuleClusterRoleSelectorsMatchExpressionsOutpu
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -155,7 +155,7 @@ export class ClusterRoleAggregationRuleClusterRoleSelectorsMatchExpressionsOutpu
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -193,13 +193,13 @@ export class ClusterRoleAggregationRuleClusterRoleSelectorsMatchExpressionsList 
 export interface ClusterRoleAggregationRuleClusterRoleSelectors {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#match_labels ClusterRole#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#match_expressions ClusterRole#match_expressions}
   */
   readonly matchExpressions?: ClusterRoleAggregationRuleClusterRoleSelectorsMatchExpressions[] | cdktf.IResolvable;
@@ -267,7 +267,7 @@ export class ClusterRoleAggregationRuleClusterRoleSelectorsOutputReference exten
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -321,7 +321,7 @@ export class ClusterRoleAggregationRuleClusterRoleSelectorsList extends cdktf.Co
 export interface ClusterRoleAggregationRule {
   /**
   * cluster_role_selectors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#cluster_role_selectors ClusterRole#cluster_role_selectors}
   */
   readonly clusterRoleSelectors?: ClusterRoleAggregationRuleClusterRoleSelectors[] | cdktf.IResolvable;
@@ -388,25 +388,25 @@ export class ClusterRoleAggregationRuleOutputReference extends cdktf.ComplexObje
 export interface ClusterRoleMetadata {
   /**
   * An unstructured key value map stored with the clusterRole that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#annotations ClusterRole#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#generate_name ClusterRole#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the clusterRole. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#labels ClusterRole#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the clusterRole, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#name ClusterRole#name}
   */
   readonly name?: string;
@@ -476,7 +476,7 @@ export class ClusterRoleMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -492,7 +492,7 @@ export class ClusterRoleMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -513,7 +513,7 @@ export class ClusterRoleMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -529,7 +529,7 @@ export class ClusterRoleMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -557,31 +557,31 @@ export class ClusterRoleMetadataOutputReference extends cdktf.ComplexObject {
 export interface ClusterRoleRule {
   /**
   * APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#api_groups ClusterRole#api_groups}
   */
   readonly apiGroups?: string[];
   /**
   * NonResourceURLs is a set of partial urls that a user should have access to. *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"), but not both.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#non_resource_urls ClusterRole#non_resource_urls}
   */
   readonly nonResourceUrls?: string[];
   /**
   * ResourceNames is an optional white list of names that the rule applies to. An empty set means that everything is allowed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#resource_names ClusterRole#resource_names}
   */
   readonly resourceNames?: string[];
   /**
   * Resources is a list of resources this rule applies to. ResourceAll represents all resources.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#resources ClusterRole#resources}
   */
   readonly resources?: string[];
   /**
   * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. VerbAll represents all kinds.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role#verbs ClusterRole#verbs}
   */
   readonly verbs: string[];
@@ -670,7 +670,7 @@ export class ClusterRoleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // api_groups - computed: false, optional: true, required: false
-  private _apiGroups?: string[]; 
+  private _apiGroups?: string[];
   public get apiGroups() {
     return this.getListAttribute('api_groups');
   }
@@ -686,7 +686,7 @@ export class ClusterRoleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // non_resource_urls - computed: false, optional: true, required: false
-  private _nonResourceUrls?: string[]; 
+  private _nonResourceUrls?: string[];
   public get nonResourceUrls() {
     return this.getListAttribute('non_resource_urls');
   }
@@ -702,7 +702,7 @@ export class ClusterRoleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // resource_names - computed: false, optional: true, required: false
-  private _resourceNames?: string[]; 
+  private _resourceNames?: string[];
   public get resourceNames() {
     return this.getListAttribute('resource_names');
   }
@@ -718,7 +718,7 @@ export class ClusterRoleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return this.getListAttribute('resources');
   }
@@ -734,7 +734,7 @@ export class ClusterRoleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // verbs - computed: false, optional: false, required: true
-  private _verbs?: string[]; 
+  private _verbs?: string[];
   public get verbs() {
     return this.getListAttribute('verbs');
   }
@@ -815,7 +815,7 @@ export class ClusterRole extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

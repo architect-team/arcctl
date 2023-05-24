@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/projects
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataDigitaloceanProjectsConfig extends cdktf.TerraformMetaArgum
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#filter DataDigitaloceanProjects#filter}
   */
   readonly filter?: DataDigitaloceanProjectsFilter[] | cdktf.IResolvable;
   /**
   * sort block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#sort DataDigitaloceanProjects#sort}
   */
   readonly sort?: DataDigitaloceanProjectsSort[] | cdktf.IResolvable;
@@ -236,7 +236,7 @@ export class DataDigitaloceanProjectsFilterOutputReference extends cdktf.Complex
   }
 
   // all - computed: false, optional: true, required: false
-  private _all?: boolean | cdktf.IResolvable; 
+  private _all?: boolean | cdktf.IResolvable;
   public get all() {
     return this.getBooleanAttribute('all');
   }
@@ -252,7 +252,7 @@ export class DataDigitaloceanProjectsFilterOutputReference extends cdktf.Complex
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -265,7 +265,7 @@ export class DataDigitaloceanProjectsFilterOutputReference extends cdktf.Complex
   }
 
   // match_by - computed: false, optional: true, required: false
-  private _matchBy?: string; 
+  private _matchBy?: string;
   public get matchBy() {
     return this.getStringAttribute('match_by');
   }
@@ -281,7 +281,7 @@ export class DataDigitaloceanProjectsFilterOutputReference extends cdktf.Complex
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -386,7 +386,7 @@ export class DataDigitaloceanProjectsSortOutputReference extends cdktf.ComplexOb
   }
 
   // direction - computed: false, optional: true, required: false
-  private _direction?: string; 
+  private _direction?: string;
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -402,7 +402,7 @@ export class DataDigitaloceanProjectsSortOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -482,7 +482,7 @@ export class DataDigitaloceanProjects extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

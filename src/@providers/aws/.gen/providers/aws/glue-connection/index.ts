@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_connection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,7 +48,7 @@ export interface GlueConnectionConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * physical_connection_requirements block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#physical_connection_requirements GlueConnection#physical_connection_requirements}
   */
   readonly physicalConnectionRequirements?: GlueConnectionPhysicalConnectionRequirements;
@@ -125,7 +125,7 @@ export class GlueConnectionPhysicalConnectionRequirementsOutputReference extends
   }
 
   // availability_zone - computed: false, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -141,7 +141,7 @@ export class GlueConnectionPhysicalConnectionRequirementsOutputReference extends
   }
 
   // security_group_id_list - computed: false, optional: true, required: false
-  private _securityGroupIdList?: string[]; 
+  private _securityGroupIdList?: string[];
   public get securityGroupIdList() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_id_list'));
   }
@@ -157,7 +157,7 @@ export class GlueConnectionPhysicalConnectionRequirementsOutputReference extends
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -232,7 +232,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -248,7 +248,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // connection_properties - computed: false, optional: true, required: false
-  private _connectionProperties?: { [key: string]: string }; 
+  private _connectionProperties?: { [key: string]: string };
   public get connectionProperties() {
     return this.getStringMapAttribute('connection_properties');
   }
@@ -264,7 +264,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // connection_type - computed: false, optional: true, required: false
-  private _connectionType?: string; 
+  private _connectionType?: string;
   public get connectionType() {
     return this.getStringAttribute('connection_type');
   }
@@ -280,7 +280,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -296,7 +296,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -312,7 +312,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // match_criteria - computed: false, optional: true, required: false
-  private _matchCriteria?: string[]; 
+  private _matchCriteria?: string[];
   public get matchCriteria() {
     return this.getListAttribute('match_criteria');
   }
@@ -328,7 +328,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -341,7 +341,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -357,7 +357,7 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

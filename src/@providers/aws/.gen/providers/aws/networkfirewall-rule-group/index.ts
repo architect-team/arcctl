@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,13 +44,13 @@ export interface NetworkfirewallRuleGroupConfig extends cdktf.TerraformMetaArgum
   readonly type: string;
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#encryption_configuration NetworkfirewallRuleGroup#encryption_configuration}
   */
   readonly encryptionConfiguration?: NetworkfirewallRuleGroupEncryptionConfiguration;
   /**
   * rule_group block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#rule_group NetworkfirewallRuleGroup#rule_group}
   */
   readonly ruleGroup?: NetworkfirewallRuleGroupRuleGroup;
@@ -116,7 +116,7 @@ export class NetworkfirewallRuleGroupEncryptionConfigurationOutputReference exte
   }
 
   // key_id - computed: false, optional: true, required: false
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -132,7 +132,7 @@ export class NetworkfirewallRuleGroupEncryptionConfigurationOutputReference exte
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -206,7 +206,7 @@ export class NetworkfirewallRuleGroupRuleGroupReferenceSetsIpSetReferencesIpSetR
   }
 
   // reference_arn - computed: false, optional: false, required: true
-  private _referenceArn?: string; 
+  private _referenceArn?: string;
   public get referenceArn() {
     return this.getStringAttribute('reference_arn');
   }
@@ -245,7 +245,7 @@ export interface NetworkfirewallRuleGroupRuleGroupReferenceSetsIpSetReferences {
   readonly key: string;
   /**
   * ip_set_reference block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#ip_set_reference NetworkfirewallRuleGroup#ip_set_reference}
   */
   readonly ipSetReference: NetworkfirewallRuleGroupRuleGroupReferenceSetsIpSetReferencesIpSetReference[] | cdktf.IResolvable;
@@ -313,7 +313,7 @@ export class NetworkfirewallRuleGroupRuleGroupReferenceSetsIpSetReferencesOutput
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -361,7 +361,7 @@ export class NetworkfirewallRuleGroupRuleGroupReferenceSetsIpSetReferencesList e
 export interface NetworkfirewallRuleGroupRuleGroupReferenceSets {
   /**
   * ip_set_references block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#ip_set_references NetworkfirewallRuleGroup#ip_set_references}
   */
   readonly ipSetReferences?: NetworkfirewallRuleGroupRuleGroupReferenceSetsIpSetReferences[] | cdktf.IResolvable;
@@ -475,7 +475,7 @@ export class NetworkfirewallRuleGroupRuleGroupRuleVariablesIpSetsIpSetOutputRefe
   }
 
   // definition - computed: false, optional: false, required: true
-  private _definition?: string[]; 
+  private _definition?: string[];
   public get definition() {
     return cdktf.Fn.tolist(this.getListAttribute('definition'));
   }
@@ -494,7 +494,7 @@ export interface NetworkfirewallRuleGroupRuleGroupRuleVariablesIpSets {
   readonly key: string;
   /**
   * ip_set block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#ip_set NetworkfirewallRuleGroup#ip_set}
   */
   readonly ipSet: NetworkfirewallRuleGroupRuleGroupRuleVariablesIpSetsIpSet;
@@ -562,7 +562,7 @@ export class NetworkfirewallRuleGroupRuleGroupRuleVariablesIpSetsOutputReference
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -657,7 +657,7 @@ export class NetworkfirewallRuleGroupRuleGroupRuleVariablesPortSetsPortSetOutput
   }
 
   // definition - computed: false, optional: false, required: true
-  private _definition?: string[]; 
+  private _definition?: string[];
   public get definition() {
     return cdktf.Fn.tolist(this.getListAttribute('definition'));
   }
@@ -676,7 +676,7 @@ export interface NetworkfirewallRuleGroupRuleGroupRuleVariablesPortSets {
   readonly key: string;
   /**
   * port_set block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#port_set NetworkfirewallRuleGroup#port_set}
   */
   readonly portSet: NetworkfirewallRuleGroupRuleGroupRuleVariablesPortSetsPortSet;
@@ -744,7 +744,7 @@ export class NetworkfirewallRuleGroupRuleGroupRuleVariablesPortSetsOutputReferen
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -792,13 +792,13 @@ export class NetworkfirewallRuleGroupRuleGroupRuleVariablesPortSetsList extends 
 export interface NetworkfirewallRuleGroupRuleGroupRuleVariables {
   /**
   * ip_sets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#ip_sets NetworkfirewallRuleGroup#ip_sets}
   */
   readonly ipSets?: NetworkfirewallRuleGroupRuleGroupRuleVariablesIpSets[] | cdktf.IResolvable;
   /**
   * port_sets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#port_sets NetworkfirewallRuleGroup#port_sets}
   */
   readonly portSets?: NetworkfirewallRuleGroupRuleGroupRuleVariablesPortSets[] | cdktf.IResolvable;
@@ -957,7 +957,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceRulesSourceListOutputRe
   }
 
   // generated_rules_type - computed: false, optional: false, required: true
-  private _generatedRulesType?: string; 
+  private _generatedRulesType?: string;
   public get generatedRulesType() {
     return this.getStringAttribute('generated_rules_type');
   }
@@ -970,7 +970,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceRulesSourceListOutputRe
   }
 
   // target_types - computed: false, optional: false, required: true
-  private _targetTypes?: string[]; 
+  private _targetTypes?: string[];
   public get targetTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('target_types'));
   }
@@ -983,7 +983,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceRulesSourceListOutputRe
   }
 
   // targets - computed: false, optional: false, required: true
-  private _targets?: string[]; 
+  private _targets?: string[];
   public get targets() {
     return cdktf.Fn.tolist(this.getListAttribute('targets'));
   }
@@ -1100,7 +1100,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutpu
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -1113,7 +1113,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutpu
   }
 
   // destination_port - computed: false, optional: false, required: true
-  private _destinationPort?: string; 
+  private _destinationPort?: string;
   public get destinationPort() {
     return this.getStringAttribute('destination_port');
   }
@@ -1126,7 +1126,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutpu
   }
 
   // direction - computed: false, optional: false, required: true
-  private _direction?: string; 
+  private _direction?: string;
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -1139,7 +1139,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutpu
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -1152,7 +1152,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutpu
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -1165,7 +1165,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutpu
   }
 
   // source_port - computed: false, optional: false, required: true
-  private _sourcePort?: string; 
+  private _sourcePort?: string;
   public get sourcePort() {
     return this.getStringAttribute('source_port');
   }
@@ -1250,7 +1250,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionO
   }
 
   // keyword - computed: false, optional: false, required: true
-  private _keyword?: string; 
+  private _keyword?: string;
   public get keyword() {
     return this.getStringAttribute('keyword');
   }
@@ -1263,7 +1263,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionO
   }
 
   // settings - computed: false, optional: true, required: false
-  private _settings?: string[]; 
+  private _settings?: string[];
   public get settings() {
     return cdktf.Fn.tolist(this.getListAttribute('settings'));
   }
@@ -1305,13 +1305,13 @@ export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRule {
   readonly action: string;
   /**
   * header block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#header NetworkfirewallRuleGroup#header}
   */
   readonly header: NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleHeader;
   /**
   * rule_option block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#rule_option NetworkfirewallRuleGroup#rule_option}
   */
   readonly ruleOption: NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleRuleOption[] | cdktf.IResolvable;
@@ -1386,7 +1386,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRuleOutputRefer
   }
 
   // action - computed: false, optional: false, required: true
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -1506,7 +1506,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1541,7 +1541,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
 export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction {
   /**
   * dimension block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#dimension NetworkfirewallRuleGroup#dimension}
   */
   readonly dimension: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension[] | cdktf.IResolvable;
@@ -1605,7 +1605,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
 export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition {
   /**
   * publish_metric_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#publish_metric_action NetworkfirewallRuleGroup#publish_metric_action}
   */
   readonly publishMetricAction: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction;
@@ -1673,7 +1673,7 @@ export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCu
   readonly actionName: string;
   /**
   * action_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#action_definition NetworkfirewallRuleGroup#action_definition}
   */
   readonly actionDefinition: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition;
@@ -1741,7 +1741,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // action_name - computed: false, optional: false, required: true
-  private _actionName?: string; 
+  private _actionName?: string;
   public get actionName() {
     return this.getStringAttribute('action_name');
   }
@@ -1848,7 +1848,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // address_definition - computed: false, optional: false, required: true
-  private _addressDefinition?: string; 
+  private _addressDefinition?: string;
   public get addressDefinition() {
     return this.getStringAttribute('address_definition');
   }
@@ -1953,7 +1953,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // from_port - computed: false, optional: false, required: true
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -1966,7 +1966,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // to_port - computed: false, optional: true, required: false
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -2063,7 +2063,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // address_definition - computed: false, optional: false, required: true
-  private _addressDefinition?: string; 
+  private _addressDefinition?: string;
   public get addressDefinition() {
     return this.getStringAttribute('address_definition');
   }
@@ -2168,7 +2168,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // from_port - computed: false, optional: false, required: true
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -2181,7 +2181,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // to_port - computed: false, optional: true, required: false
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -2289,7 +2289,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // flags - computed: false, optional: false, required: true
-  private _flags?: string[]; 
+  private _flags?: string[];
   public get flags() {
     return cdktf.Fn.tolist(this.getListAttribute('flags'));
   }
@@ -2302,7 +2302,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // masks - computed: false, optional: true, required: false
-  private _masks?: string[]; 
+  private _masks?: string[];
   public get masks() {
     return cdktf.Fn.tolist(this.getListAttribute('masks'));
   }
@@ -2344,31 +2344,31 @@ export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCu
   readonly protocols?: number[];
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#destination NetworkfirewallRuleGroup#destination}
   */
   readonly destination?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination[] | cdktf.IResolvable;
   /**
   * destination_port block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#destination_port NetworkfirewallRuleGroup#destination_port}
   */
   readonly destinationPort?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort[] | cdktf.IResolvable;
   /**
   * source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#source NetworkfirewallRuleGroup#source}
   */
   readonly source?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource[] | cdktf.IResolvable;
   /**
   * source_port block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#source_port NetworkfirewallRuleGroup#source_port}
   */
   readonly sourcePort?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort[] | cdktf.IResolvable;
   /**
   * tcp_flag block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#tcp_flag NetworkfirewallRuleGroup#tcp_flag}
   */
   readonly tcpFlag?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag[] | cdktf.IResolvable;
@@ -2452,7 +2452,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // protocols - computed: false, optional: true, required: false
-  private _protocols?: number[]; 
+  private _protocols?: number[];
   public get protocols() {
     return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('protocols')));
   }
@@ -2554,7 +2554,7 @@ export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCu
   readonly actions: string[];
   /**
   * match_attributes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#match_attributes NetworkfirewallRuleGroup#match_attributes}
   */
   readonly matchAttributes: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes;
@@ -2610,7 +2610,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // actions - computed: false, optional: false, required: true
-  private _actions?: string[]; 
+  private _actions?: string[];
   public get actions() {
     return cdktf.Fn.tolist(this.getListAttribute('actions'));
   }
@@ -2642,7 +2642,7 @@ export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCu
   readonly priority: number;
   /**
   * rule_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#rule_definition NetworkfirewallRuleGroup#rule_definition}
   */
   readonly ruleDefinition: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition;
@@ -2710,7 +2710,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
   }
 
   // priority - computed: false, optional: false, required: true
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -2758,13 +2758,13 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustom
 export interface NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
   /**
   * custom_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#custom_action NetworkfirewallRuleGroup#custom_action}
   */
   readonly customAction?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction[] | cdktf.IResolvable;
   /**
   * stateless_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#stateless_rule NetworkfirewallRuleGroup#stateless_rule}
   */
   readonly statelessRule: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule[] | cdktf.IResolvable;
@@ -2855,19 +2855,19 @@ export interface NetworkfirewallRuleGroupRuleGroupRulesSource {
   readonly rulesString?: string;
   /**
   * rules_source_list block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#rules_source_list NetworkfirewallRuleGroup#rules_source_list}
   */
   readonly rulesSourceList?: NetworkfirewallRuleGroupRuleGroupRulesSourceRulesSourceList;
   /**
   * stateful_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#stateful_rule NetworkfirewallRuleGroup#stateful_rule}
   */
   readonly statefulRule?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatefulRule[] | cdktf.IResolvable;
   /**
   * stateless_rules_and_custom_actions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#stateless_rules_and_custom_actions NetworkfirewallRuleGroup#stateless_rules_and_custom_actions}
   */
   readonly statelessRulesAndCustomActions?: NetworkfirewallRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions;
@@ -2937,7 +2937,7 @@ export class NetworkfirewallRuleGroupRuleGroupRulesSourceOutputReference extends
   }
 
   // rules_string - computed: false, optional: true, required: false
-  private _rulesString?: string; 
+  private _rulesString?: string;
   public get rulesString() {
     return this.getStringAttribute('rules_string');
   }
@@ -3050,7 +3050,7 @@ export class NetworkfirewallRuleGroupRuleGroupStatefulRuleOptionsOutputReference
   }
 
   // rule_order - computed: false, optional: false, required: true
-  private _ruleOrder?: string; 
+  private _ruleOrder?: string;
   public get ruleOrder() {
     return this.getStringAttribute('rule_order');
   }
@@ -3065,25 +3065,25 @@ export class NetworkfirewallRuleGroupRuleGroupStatefulRuleOptionsOutputReference
 export interface NetworkfirewallRuleGroupRuleGroup {
   /**
   * reference_sets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#reference_sets NetworkfirewallRuleGroup#reference_sets}
   */
   readonly referenceSets?: NetworkfirewallRuleGroupRuleGroupReferenceSets;
   /**
   * rule_variables block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#rule_variables NetworkfirewallRuleGroup#rule_variables}
   */
   readonly ruleVariables?: NetworkfirewallRuleGroupRuleGroupRuleVariables;
   /**
   * rules_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#rules_source NetworkfirewallRuleGroup#rules_source}
   */
   readonly rulesSource: NetworkfirewallRuleGroupRuleGroupRulesSource;
   /**
   * stateful_rule_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_rule_group#stateful_rule_options NetworkfirewallRuleGroup#stateful_rule_options}
   */
   readonly statefulRuleOptions?: NetworkfirewallRuleGroupRuleGroupStatefulRuleOptions;
@@ -3273,7 +3273,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // capacity - computed: false, optional: false, required: true
-  private _capacity?: number; 
+  private _capacity?: number;
   public get capacity() {
     return this.getNumberAttribute('capacity');
   }
@@ -3286,7 +3286,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -3302,7 +3302,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3318,7 +3318,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3331,7 +3331,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // rules - computed: false, optional: true, required: false
-  private _rules?: string; 
+  private _rules?: string;
   public get rules() {
     return this.getStringAttribute('rules');
   }
@@ -3347,7 +3347,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3363,7 +3363,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -3379,7 +3379,7 @@ export class NetworkfirewallRuleGroup extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

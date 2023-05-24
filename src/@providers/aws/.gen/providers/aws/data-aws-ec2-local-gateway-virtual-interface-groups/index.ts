@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_groups
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface DataAwsEc2LocalGatewayVirtualInterfaceGroupsConfig extends cdkt
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_groups#filter DataAwsEc2LocalGatewayVirtualInterfaceGroups#filter}
   */
   readonly filter?: DataAwsEc2LocalGatewayVirtualInterfaceGroupsFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_groups#timeouts DataAwsEc2LocalGatewayVirtualInterfaceGroups#timeouts}
   */
   readonly timeouts?: DataAwsEc2LocalGatewayVirtualInterfaceGroupsTimeouts;
@@ -104,7 +104,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupsFilterOutputReference e
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -117,7 +117,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupsFilterOutputReference e
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -209,7 +209,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupsTimeoutsOutputReference
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -273,7 +273,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroups extends cdktf.Terrafor
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroups extends cdktf.Terrafor
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

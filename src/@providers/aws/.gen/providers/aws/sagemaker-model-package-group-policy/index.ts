@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_model_package_group_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SagemakerModelPackageGroupPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class SagemakerModelPackageGroupPolicy extends cdktf.TerraformResource {
   }
 
   // model_package_group_name - computed: false, optional: false, required: true
-  private _modelPackageGroupName?: string; 
+  private _modelPackageGroupName?: string;
   public get modelPackageGroupName() {
     return this.getStringAttribute('model_package_group_name');
   }
@@ -100,7 +100,7 @@ export class SagemakerModelPackageGroupPolicy extends cdktf.TerraformResource {
   }
 
   // resource_policy - computed: false, optional: false, required: true
-  private _resourcePolicy?: string; 
+  private _resourcePolicy?: string;
   public get resourcePolicy() {
     return this.getStringAttribute('resource_policy');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apprunner_vpc_ingress_connection
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface ApprunnerVpcIngressConnectionConfig extends cdktf.TerraformMeta
   readonly tagsAll?: { [key: string]: string };
   /**
   * ingress_vpc_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_vpc_ingress_connection#ingress_vpc_configuration ApprunnerVpcIngressConnection#ingress_vpc_configuration}
   */
   readonly ingressVpcConfiguration: ApprunnerVpcIngressConnectionIngressVpcConfiguration;
@@ -98,7 +98,7 @@ export class ApprunnerVpcIngressConnectionIngressVpcConfigurationOutputReference
   }
 
   // vpc_endpoint_id - computed: false, optional: true, required: false
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }
@@ -114,7 +114,7 @@ export class ApprunnerVpcIngressConnectionIngressVpcConfigurationOutputReference
   }
 
   // vpc_id - computed: false, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -190,7 +190,7 @@ export class ApprunnerVpcIngressConnection extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -206,7 +206,7 @@ export class ApprunnerVpcIngressConnection extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -219,7 +219,7 @@ export class ApprunnerVpcIngressConnection extends cdktf.TerraformResource {
   }
 
   // service_arn - computed: false, optional: false, required: true
-  private _serviceArn?: string; 
+  private _serviceArn?: string;
   public get serviceArn() {
     return this.getStringAttribute('service_arn');
   }
@@ -237,7 +237,7 @@ export class ApprunnerVpcIngressConnection extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -253,7 +253,7 @@ export class ApprunnerVpcIngressConnection extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

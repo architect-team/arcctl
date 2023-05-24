@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_email_identity
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SesEmailIdentity extends cdktf.TerraformResource {
   }
 
   // email - computed: false, optional: false, required: true
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -84,7 +84,7 @@ export class SesEmailIdentity extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

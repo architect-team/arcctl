@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_coip_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface DataAwsEc2CoipPoolConfig extends cdktf.TerraformMetaArguments {
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_coip_pool#filter DataAwsEc2CoipPool#filter}
   */
   readonly filter?: DataAwsEc2CoipPoolFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_coip_pool#timeouts DataAwsEc2CoipPool#timeouts}
   */
   readonly timeouts?: DataAwsEc2CoipPoolTimeouts;
@@ -112,7 +112,7 @@ export class DataAwsEc2CoipPoolFilterOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -125,7 +125,7 @@ export class DataAwsEc2CoipPoolFilterOutputReference extends cdktf.ComplexObject
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -217,7 +217,7 @@ export class DataAwsEc2CoipPoolTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -288,7 +288,7 @@ export class DataAwsEc2CoipPool extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -304,7 +304,7 @@ export class DataAwsEc2CoipPool extends cdktf.TerraformDataSource {
   }
 
   // local_gateway_route_table_id - computed: true, optional: true, required: false
-  private _localGatewayRouteTableId?: string; 
+  private _localGatewayRouteTableId?: string;
   public get localGatewayRouteTableId() {
     return this.getStringAttribute('local_gateway_route_table_id');
   }
@@ -325,7 +325,7 @@ export class DataAwsEc2CoipPool extends cdktf.TerraformDataSource {
   }
 
   // pool_id - computed: true, optional: true, required: false
-  private _poolId?: string; 
+  private _poolId?: string;
   public get poolId() {
     return this.getStringAttribute('pool_id');
   }
@@ -341,7 +341,7 @@ export class DataAwsEc2CoipPool extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

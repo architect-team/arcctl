@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/identitystore_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -145,7 +145,7 @@ export class IdentitystoreGroup extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -161,7 +161,7 @@ export class IdentitystoreGroup extends cdktf.TerraformResource {
   }
 
   // display_name - computed: false, optional: false, required: true
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -185,7 +185,7 @@ export class IdentitystoreGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -201,7 +201,7 @@ export class IdentitystoreGroup extends cdktf.TerraformResource {
   }
 
   // identity_store_id - computed: false, optional: false, required: true
-  private _identityStoreId?: string; 
+  private _identityStoreId?: string;
   public get identityStoreId() {
     return this.getStringAttribute('identity_store_id');
   }

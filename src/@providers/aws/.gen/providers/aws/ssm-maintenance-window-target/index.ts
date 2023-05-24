@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_target
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface SsmMaintenanceWindowTargetConfig extends cdktf.TerraformMetaArg
   readonly windowId: string;
   /**
   * targets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_target#targets SsmMaintenanceWindowTarget#targets}
   */
   readonly targets: SsmMaintenanceWindowTargetTargets[] | cdktf.IResolvable;
@@ -114,7 +114,7 @@ export class SsmMaintenanceWindowTargetTargetsOutputReference extends cdktf.Comp
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -127,7 +127,7 @@ export class SsmMaintenanceWindowTargetTargetsOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -211,7 +211,7 @@ export class SsmMaintenanceWindowTarget extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -227,7 +227,7 @@ export class SsmMaintenanceWindowTarget extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -243,7 +243,7 @@ export class SsmMaintenanceWindowTarget extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -259,7 +259,7 @@ export class SsmMaintenanceWindowTarget extends cdktf.TerraformResource {
   }
 
   // owner_information - computed: false, optional: true, required: false
-  private _ownerInformation?: string; 
+  private _ownerInformation?: string;
   public get ownerInformation() {
     return this.getStringAttribute('owner_information');
   }
@@ -275,7 +275,7 @@ export class SsmMaintenanceWindowTarget extends cdktf.TerraformResource {
   }
 
   // resource_type - computed: false, optional: false, required: true
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -288,7 +288,7 @@ export class SsmMaintenanceWindowTarget extends cdktf.TerraformResource {
   }
 
   // window_id - computed: false, optional: false, required: true
-  private _windowId?: string; 
+  private _windowId?: string;
   public get windowId() {
     return this.getStringAttribute('window_id');
   }

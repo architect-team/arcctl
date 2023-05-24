@@ -8,7 +8,7 @@ import { DeepPartial } from '../../utils/types.js';
 import { Datacenter } from '../datacenter.js';
 import { StateBackends } from './backends.js';
 import { LocalBackend, S3Backend } from 'cdktf';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import path from 'path';
 
 /**

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/amplify_webhook
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class AmplifyWebhook extends cdktf.TerraformResource {
   // ==========
 
   // app_id - computed: false, optional: false, required: true
-  private _appId?: string; 
+  private _appId?: string;
   public get appId() {
     return this.getStringAttribute('app_id');
   }
@@ -94,7 +94,7 @@ export class AmplifyWebhook extends cdktf.TerraformResource {
   }
 
   // branch_name - computed: false, optional: false, required: true
-  private _branchName?: string; 
+  private _branchName?: string;
   public get branchName() {
     return this.getStringAttribute('branch_name');
   }
@@ -107,7 +107,7 @@ export class AmplifyWebhook extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -123,7 +123,7 @@ export class AmplifyWebhook extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

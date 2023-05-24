@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lex_slot_type
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface LexSlotTypeConfig extends cdktf.TerraformMetaArguments {
   readonly valueSelectionStrategy?: string;
   /**
   * enumeration_value block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_slot_type#enumeration_value LexSlotType#enumeration_value}
   */
   readonly enumerationValue: LexSlotTypeEnumerationValue[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lex_slot_type#timeouts LexSlotType#timeouts}
   */
   readonly timeouts?: LexSlotTypeTimeouts;
@@ -116,7 +116,7 @@ export class LexSlotTypeEnumerationValueOutputReference extends cdktf.ComplexObj
   }
 
   // synonyms - computed: false, optional: true, required: false
-  private _synonyms?: string[]; 
+  private _synonyms?: string[];
   public get synonyms() {
     return cdktf.Fn.tolist(this.getListAttribute('synonyms'));
   }
@@ -132,7 +132,7 @@ export class LexSlotTypeEnumerationValueOutputReference extends cdktf.ComplexObj
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -246,7 +246,7 @@ export class LexSlotTypeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -262,7 +262,7 @@ export class LexSlotTypeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -278,7 +278,7 @@ export class LexSlotTypeTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -350,7 +350,7 @@ export class LexSlotType extends cdktf.TerraformResource {
   }
 
   // create_version - computed: false, optional: true, required: false
-  private _createVersion?: boolean | cdktf.IResolvable; 
+  private _createVersion?: boolean | cdktf.IResolvable;
   public get createVersion() {
     return this.getBooleanAttribute('create_version');
   }
@@ -371,7 +371,7 @@ export class LexSlotType extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -387,7 +387,7 @@ export class LexSlotType extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -408,7 +408,7 @@ export class LexSlotType extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -421,7 +421,7 @@ export class LexSlotType extends cdktf.TerraformResource {
   }
 
   // value_selection_strategy - computed: false, optional: true, required: false
-  private _valueSelectionStrategy?: string; 
+  private _valueSelectionStrategy?: string;
   public get valueSelectionStrategy() {
     return this.getStringAttribute('value_selection_strategy');
   }

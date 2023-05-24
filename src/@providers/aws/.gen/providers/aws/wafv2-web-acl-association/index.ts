@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface Wafv2WebAclAssociationConfig extends cdktf.TerraformMetaArgumen
   readonly webAclArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#timeouts Wafv2WebAclAssociation#timeouts}
   */
   readonly timeouts?: Wafv2WebAclAssociationTimeouts;
@@ -89,7 +89,7 @@ export class Wafv2WebAclAssociationTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -153,7 +153,7 @@ export class Wafv2WebAclAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -169,7 +169,7 @@ export class Wafv2WebAclAssociation extends cdktf.TerraformResource {
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -182,7 +182,7 @@ export class Wafv2WebAclAssociation extends cdktf.TerraformResource {
   }
 
   // web_acl_arn - computed: false, optional: false, required: true
-  private _webAclArn?: string; 
+  private _webAclArn?: string;
   public get webAclArn() {
     return this.getStringAttribute('web_acl_arn');
   }

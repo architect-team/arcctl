@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,13 +56,13 @@ export interface SsmMaintenanceWindowTaskConfig extends cdktf.TerraformMetaArgum
   readonly windowId: string;
   /**
   * targets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#targets SsmMaintenanceWindowTask#targets}
   */
   readonly targets?: SsmMaintenanceWindowTaskTargets[] | cdktf.IResolvable;
   /**
   * task_invocation_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#task_invocation_parameters SsmMaintenanceWindowTask#task_invocation_parameters}
   */
   readonly taskInvocationParameters?: SsmMaintenanceWindowTaskTaskInvocationParameters;
@@ -140,7 +140,7 @@ export class SsmMaintenanceWindowTaskTargetsOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -153,7 +153,7 @@ export class SsmMaintenanceWindowTaskTargetsOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -258,7 +258,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersAutomationParameter
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -271,7 +271,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersAutomationParameter
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -310,7 +310,7 @@ export interface SsmMaintenanceWindowTaskTaskInvocationParametersAutomationParam
   readonly documentVersion?: string;
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#parameter SsmMaintenanceWindowTask#parameter}
   */
   readonly parameter?: SsmMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter[] | cdktf.IResolvable;
@@ -366,7 +366,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersAutomationParameter
   }
 
   // document_version - computed: false, optional: true, required: false
-  private _documentVersion?: string; 
+  private _documentVersion?: string;
   public get documentVersion() {
     return this.getStringAttribute('document_version');
   }
@@ -469,7 +469,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOut
   }
 
   // client_context - computed: false, optional: true, required: false
-  private _clientContext?: string; 
+  private _clientContext?: string;
   public get clientContext() {
     return this.getStringAttribute('client_context');
   }
@@ -485,7 +485,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOut
   }
 
   // payload - computed: false, optional: true, required: false
-  private _payload?: string; 
+  private _payload?: string;
   public get payload() {
     return this.getStringAttribute('payload');
   }
@@ -501,7 +501,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOut
   }
 
   // qualifier - computed: false, optional: true, required: false
-  private _qualifier?: string; 
+  private _qualifier?: string;
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }
@@ -577,7 +577,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // cloudwatch_log_group_name - computed: true, optional: true, required: false
-  private _cloudwatchLogGroupName?: string; 
+  private _cloudwatchLogGroupName?: string;
   public get cloudwatchLogGroupName() {
     return this.getStringAttribute('cloudwatch_log_group_name');
   }
@@ -593,7 +593,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // cloudwatch_output_enabled - computed: false, optional: true, required: false
-  private _cloudwatchOutputEnabled?: boolean | cdktf.IResolvable; 
+  private _cloudwatchOutputEnabled?: boolean | cdktf.IResolvable;
   public get cloudwatchOutputEnabled() {
     return this.getBooleanAttribute('cloudwatch_output_enabled');
   }
@@ -680,7 +680,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // notification_arn - computed: false, optional: true, required: false
-  private _notificationArn?: string; 
+  private _notificationArn?: string;
   public get notificationArn() {
     return this.getStringAttribute('notification_arn');
   }
@@ -696,7 +696,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // notification_events - computed: false, optional: true, required: false
-  private _notificationEvents?: string[]; 
+  private _notificationEvents?: string[];
   public get notificationEvents() {
     return this.getListAttribute('notification_events');
   }
@@ -712,7 +712,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // notification_type - computed: false, optional: true, required: false
-  private _notificationType?: string; 
+  private _notificationType?: string;
   public get notificationType() {
     return this.getStringAttribute('notification_type');
   }
@@ -800,7 +800,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -813,7 +813,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -880,19 +880,19 @@ export interface SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParam
   readonly timeoutSeconds?: number;
   /**
   * cloudwatch_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#cloudwatch_config SsmMaintenanceWindowTask#cloudwatch_config}
   */
   readonly cloudwatchConfig?: SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig;
   /**
   * notification_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#notification_config SsmMaintenanceWindowTask#notification_config}
   */
   readonly notificationConfig?: SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig;
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#parameter SsmMaintenanceWindowTask#parameter}
   */
   readonly parameter?: SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter[] | cdktf.IResolvable;
@@ -1011,7 +1011,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -1027,7 +1027,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // document_hash - computed: false, optional: true, required: false
-  private _documentHash?: string; 
+  private _documentHash?: string;
   public get documentHash() {
     return this.getStringAttribute('document_hash');
   }
@@ -1043,7 +1043,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // document_hash_type - computed: false, optional: true, required: false
-  private _documentHashType?: string; 
+  private _documentHashType?: string;
   public get documentHashType() {
     return this.getStringAttribute('document_hash_type');
   }
@@ -1059,7 +1059,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // document_version - computed: false, optional: true, required: false
-  private _documentVersion?: string; 
+  private _documentVersion?: string;
   public get documentVersion() {
     return this.getStringAttribute('document_version');
   }
@@ -1075,7 +1075,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // output_s3_bucket - computed: false, optional: true, required: false
-  private _outputS3Bucket?: string; 
+  private _outputS3Bucket?: string;
   public get outputS3Bucket() {
     return this.getStringAttribute('output_s3_bucket');
   }
@@ -1091,7 +1091,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // output_s3_key_prefix - computed: false, optional: true, required: false
-  private _outputS3KeyPrefix?: string; 
+  private _outputS3KeyPrefix?: string;
   public get outputS3KeyPrefix() {
     return this.getStringAttribute('output_s3_key_prefix');
   }
@@ -1107,7 +1107,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // service_role_arn - computed: false, optional: true, required: false
-  private _serviceRoleArn?: string; 
+  private _serviceRoleArn?: string;
   public get serviceRoleArn() {
     return this.getStringAttribute('service_role_arn');
   }
@@ -1123,7 +1123,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameter
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -1247,7 +1247,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParame
   }
 
   // input - computed: false, optional: true, required: false
-  private _input?: string; 
+  private _input?: string;
   public get input() {
     return this.getStringAttribute('input');
   }
@@ -1263,7 +1263,7 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParame
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1281,25 +1281,25 @@ export class SsmMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParame
 export interface SsmMaintenanceWindowTaskTaskInvocationParameters {
   /**
   * automation_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#automation_parameters SsmMaintenanceWindowTask#automation_parameters}
   */
   readonly automationParameters?: SsmMaintenanceWindowTaskTaskInvocationParametersAutomationParameters;
   /**
   * lambda_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#lambda_parameters SsmMaintenanceWindowTask#lambda_parameters}
   */
   readonly lambdaParameters?: SsmMaintenanceWindowTaskTaskInvocationParametersLambdaParameters;
   /**
   * run_command_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#run_command_parameters SsmMaintenanceWindowTask#run_command_parameters}
   */
   readonly runCommandParameters?: SsmMaintenanceWindowTaskTaskInvocationParametersRunCommandParameters;
   /**
   * step_functions_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_maintenance_window_task#step_functions_parameters SsmMaintenanceWindowTask#step_functions_parameters}
   */
   readonly stepFunctionsParameters?: SsmMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters;
@@ -1495,7 +1495,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // cutoff_behavior - computed: false, optional: true, required: false
-  private _cutoffBehavior?: string; 
+  private _cutoffBehavior?: string;
   public get cutoffBehavior() {
     return this.getStringAttribute('cutoff_behavior');
   }
@@ -1511,7 +1511,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1527,7 +1527,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1543,7 +1543,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // max_concurrency - computed: true, optional: true, required: false
-  private _maxConcurrency?: string; 
+  private _maxConcurrency?: string;
   public get maxConcurrency() {
     return this.getStringAttribute('max_concurrency');
   }
@@ -1559,7 +1559,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // max_errors - computed: true, optional: true, required: false
-  private _maxErrors?: string; 
+  private _maxErrors?: string;
   public get maxErrors() {
     return this.getStringAttribute('max_errors');
   }
@@ -1575,7 +1575,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1591,7 +1591,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -1607,7 +1607,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // service_role_arn - computed: true, optional: true, required: false
-  private _serviceRoleArn?: string; 
+  private _serviceRoleArn?: string;
   public get serviceRoleArn() {
     return this.getStringAttribute('service_role_arn');
   }
@@ -1623,7 +1623,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // task_arn - computed: false, optional: false, required: true
-  private _taskArn?: string; 
+  private _taskArn?: string;
   public get taskArn() {
     return this.getStringAttribute('task_arn');
   }
@@ -1636,7 +1636,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // task_type - computed: false, optional: false, required: true
-  private _taskType?: string; 
+  private _taskType?: string;
   public get taskType() {
     return this.getStringAttribute('task_type');
   }
@@ -1649,7 +1649,7 @@ export class SsmMaintenanceWindowTask extends cdktf.TerraformResource {
   }
 
   // window_id - computed: false, optional: false, required: true
-  private _windowId?: string; 
+  private _windowId?: string;
   public get windowId() {
     return this.getStringAttribute('window_id');
   }

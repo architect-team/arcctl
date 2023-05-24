@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/db_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // db_instance_identifier - computed: false, optional: true, required: false
-  private _dbInstanceIdentifier?: string; 
+  private _dbInstanceIdentifier?: string;
   public get dbInstanceIdentifier() {
     return this.getStringAttribute('db_instance_identifier');
   }
@@ -122,7 +122,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // db_snapshot_identifier - computed: false, optional: true, required: false
-  private _dbSnapshotIdentifier?: string; 
+  private _dbSnapshotIdentifier?: string;
   public get dbSnapshotIdentifier() {
     return this.getStringAttribute('db_snapshot_identifier');
   }
@@ -153,7 +153,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -169,7 +169,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // include_public - computed: false, optional: true, required: false
-  private _includePublic?: boolean | cdktf.IResolvable; 
+  private _includePublic?: boolean | cdktf.IResolvable;
   public get includePublic() {
     return this.getBooleanAttribute('include_public');
   }
@@ -185,7 +185,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // include_shared - computed: false, optional: true, required: false
-  private _includeShared?: boolean | cdktf.IResolvable; 
+  private _includeShared?: boolean | cdktf.IResolvable;
   public get includeShared() {
     return this.getBooleanAttribute('include_shared');
   }
@@ -216,7 +216,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable; 
+  private _mostRecent?: boolean | cdktf.IResolvable;
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }
@@ -247,7 +247,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // snapshot_type - computed: false, optional: true, required: false
-  private _snapshotType?: string; 
+  private _snapshotType?: string;
   public get snapshotType() {
     return this.getStringAttribute('snapshot_type');
   }

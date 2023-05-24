@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_location_hdfs
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -64,13 +64,13 @@ export interface DatasyncLocationHdfsConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * name_node block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_hdfs#name_node DatasyncLocationHdfs#name_node}
   */
   readonly nameNode: DatasyncLocationHdfsNameNode[] | cdktf.IResolvable;
   /**
   * qop_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_hdfs#qop_configuration DatasyncLocationHdfs#qop_configuration}
   */
   readonly qopConfiguration?: DatasyncLocationHdfsQopConfiguration;
@@ -148,7 +148,7 @@ export class DatasyncLocationHdfsNameNodeOutputReference extends cdktf.ComplexOb
   }
 
   // hostname - computed: false, optional: false, required: true
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -161,7 +161,7 @@ export class DatasyncLocationHdfsNameNodeOutputReference extends cdktf.ComplexOb
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -254,7 +254,7 @@ export class DatasyncLocationHdfsQopConfigurationOutputReference extends cdktf.C
   }
 
   // data_transfer_protection - computed: false, optional: true, required: false
-  private _dataTransferProtection?: string; 
+  private _dataTransferProtection?: string;
   public get dataTransferProtection() {
     return this.getStringAttribute('data_transfer_protection');
   }
@@ -270,7 +270,7 @@ export class DatasyncLocationHdfsQopConfigurationOutputReference extends cdktf.C
   }
 
   // rpc_protection - computed: false, optional: true, required: false
-  private _rpcProtection?: string; 
+  private _rpcProtection?: string;
   public get rpcProtection() {
     return this.getStringAttribute('rpc_protection');
   }
@@ -345,7 +345,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   // ==========
 
   // agent_arns - computed: false, optional: false, required: true
-  private _agentArns?: string[]; 
+  private _agentArns?: string[];
   public get agentArns() {
     return cdktf.Fn.tolist(this.getListAttribute('agent_arns'));
   }
@@ -363,7 +363,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // authentication_type - computed: false, optional: true, required: false
-  private _authenticationType?: string; 
+  private _authenticationType?: string;
   public get authenticationType() {
     return this.getStringAttribute('authentication_type');
   }
@@ -379,7 +379,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // block_size - computed: false, optional: true, required: false
-  private _blockSize?: number; 
+  private _blockSize?: number;
   public get blockSize() {
     return this.getNumberAttribute('block_size');
   }
@@ -395,7 +395,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -411,7 +411,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // kerberos_keytab - computed: false, optional: true, required: false
-  private _kerberosKeytab?: string; 
+  private _kerberosKeytab?: string;
   public get kerberosKeytab() {
     return this.getStringAttribute('kerberos_keytab');
   }
@@ -427,7 +427,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // kerberos_krb5_conf - computed: false, optional: true, required: false
-  private _kerberosKrb5Conf?: string; 
+  private _kerberosKrb5Conf?: string;
   public get kerberosKrb5Conf() {
     return this.getStringAttribute('kerberos_krb5_conf');
   }
@@ -443,7 +443,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // kerberos_principal - computed: false, optional: true, required: false
-  private _kerberosPrincipal?: string; 
+  private _kerberosPrincipal?: string;
   public get kerberosPrincipal() {
     return this.getStringAttribute('kerberos_principal');
   }
@@ -459,7 +459,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // kms_key_provider_uri - computed: false, optional: true, required: false
-  private _kmsKeyProviderUri?: string; 
+  private _kmsKeyProviderUri?: string;
   public get kmsKeyProviderUri() {
     return this.getStringAttribute('kms_key_provider_uri');
   }
@@ -475,7 +475,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // replication_factor - computed: false, optional: true, required: false
-  private _replicationFactor?: number; 
+  private _replicationFactor?: number;
   public get replicationFactor() {
     return this.getNumberAttribute('replication_factor');
   }
@@ -491,7 +491,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // simple_user - computed: false, optional: true, required: false
-  private _simpleUser?: string; 
+  private _simpleUser?: string;
   public get simpleUser() {
     return this.getStringAttribute('simple_user');
   }
@@ -507,7 +507,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // subdirectory - computed: false, optional: true, required: false
-  private _subdirectory?: string; 
+  private _subdirectory?: string;
   public get subdirectory() {
     return this.getStringAttribute('subdirectory');
   }
@@ -523,7 +523,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -539,7 +539,7 @@ export class DatasyncLocationHdfs extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

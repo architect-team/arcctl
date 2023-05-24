@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/rolesanywhere_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // duration_seconds - computed: true, optional: true, required: false
-  private _durationSeconds?: number; 
+  private _durationSeconds?: number;
   public get durationSeconds() {
     return this.getNumberAttribute('duration_seconds');
   }
@@ -127,7 +127,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -143,7 +143,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -159,7 +159,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // managed_policy_arns - computed: false, optional: true, required: false
-  private _managedPolicyArns?: string[]; 
+  private _managedPolicyArns?: string[];
   public get managedPolicyArns() {
     return cdktf.Fn.tolist(this.getListAttribute('managed_policy_arns'));
   }
@@ -175,7 +175,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -188,7 +188,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // require_instance_properties - computed: false, optional: true, required: false
-  private _requireInstanceProperties?: boolean | cdktf.IResolvable; 
+  private _requireInstanceProperties?: boolean | cdktf.IResolvable;
   public get requireInstanceProperties() {
     return this.getBooleanAttribute('require_instance_properties');
   }
@@ -204,7 +204,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // role_arns - computed: false, optional: false, required: true
-  private _roleArns?: string[]; 
+  private _roleArns?: string[];
   public get roleArns() {
     return cdktf.Fn.tolist(this.getListAttribute('role_arns'));
   }
@@ -217,7 +217,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // session_policy - computed: false, optional: true, required: false
-  private _sessionPolicy?: string; 
+  private _sessionPolicy?: string;
   public get sessionPolicy() {
     return this.getStringAttribute('session_policy');
   }
@@ -233,7 +233,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -249,7 +249,7 @@ export class RolesanywhereProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

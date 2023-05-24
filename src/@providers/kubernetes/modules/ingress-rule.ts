@@ -2,7 +2,7 @@ import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
 import { ResourceModule } from '../../module.js';
 import { IngressV1 } from '../.gen/providers/kubernetes/ingress-v1/index.js';
 import { KubernetesCredentials } from '../credentials.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class KubernetesIngressRuleModule extends ResourceModule<
   'ingressRule',

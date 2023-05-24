@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_cluster_iam_roles
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface RedshiftClusterIamRolesConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_iam_roles#timeouts RedshiftClusterIamRoles#timeouts}
   */
   readonly timeouts?: RedshiftClusterIamRolesTimeouts;
@@ -115,7 +115,7 @@ export class RedshiftClusterIamRolesTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -131,7 +131,7 @@ export class RedshiftClusterIamRolesTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -147,7 +147,7 @@ export class RedshiftClusterIamRolesTimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -212,7 +212,7 @@ export class RedshiftClusterIamRoles extends cdktf.TerraformResource {
   // ==========
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -225,7 +225,7 @@ export class RedshiftClusterIamRoles extends cdktf.TerraformResource {
   }
 
   // default_iam_role_arn - computed: true, optional: true, required: false
-  private _defaultIamRoleArn?: string; 
+  private _defaultIamRoleArn?: string;
   public get defaultIamRoleArn() {
     return this.getStringAttribute('default_iam_role_arn');
   }
@@ -241,7 +241,7 @@ export class RedshiftClusterIamRoles extends cdktf.TerraformResource {
   }
 
   // iam_role_arns - computed: true, optional: true, required: false
-  private _iamRoleArns?: string[]; 
+  private _iamRoleArns?: string[];
   public get iamRoleArns() {
     return cdktf.Fn.tolist(this.getListAttribute('iam_role_arns'));
   }
@@ -257,7 +257,7 @@ export class RedshiftClusterIamRoles extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

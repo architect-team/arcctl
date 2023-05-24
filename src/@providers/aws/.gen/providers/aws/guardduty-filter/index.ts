@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/guardduty_filter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface GuarddutyFilterConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * finding_criteria block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#finding_criteria GuarddutyFilter#finding_criteria}
   */
   readonly findingCriteria: GuarddutyFilterFindingCriteria;
@@ -177,7 +177,7 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   }
 
   // equals - computed: false, optional: true, required: false
-  private _equals?: string[]; 
+  private _equals?: string[];
   public get equalTo() {
     return this.getListAttribute('equals');
   }
@@ -193,7 +193,7 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   }
 
   // field - computed: false, optional: false, required: true
-  private _field?: string; 
+  private _field?: string;
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -206,7 +206,7 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   }
 
   // greater_than - computed: false, optional: true, required: false
-  private _greaterThan?: string; 
+  private _greaterThan?: string;
   public get greaterThan() {
     return this.getStringAttribute('greater_than');
   }
@@ -222,7 +222,7 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   }
 
   // greater_than_or_equal - computed: false, optional: true, required: false
-  private _greaterThanOrEqual?: string; 
+  private _greaterThanOrEqual?: string;
   public get greaterThanOrEqual() {
     return this.getStringAttribute('greater_than_or_equal');
   }
@@ -238,7 +238,7 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   }
 
   // less_than - computed: false, optional: true, required: false
-  private _lessThan?: string; 
+  private _lessThan?: string;
   public get lessThan() {
     return this.getStringAttribute('less_than');
   }
@@ -254,7 +254,7 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   }
 
   // less_than_or_equal - computed: false, optional: true, required: false
-  private _lessThanOrEqual?: string; 
+  private _lessThanOrEqual?: string;
   public get lessThanOrEqual() {
     return this.getStringAttribute('less_than_or_equal');
   }
@@ -270,7 +270,7 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   }
 
   // not_equals - computed: false, optional: true, required: false
-  private _notEquals?: string[]; 
+  private _notEquals?: string[];
   public get notEquals() {
     return this.getListAttribute('not_equals');
   }
@@ -308,7 +308,7 @@ export class GuarddutyFilterFindingCriteriaCriterionList extends cdktf.ComplexLi
 export interface GuarddutyFilterFindingCriteria {
   /**
   * criterion block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#criterion GuarddutyFilter#criterion}
   */
   readonly criterion: GuarddutyFilterFindingCriteriaCriterion[] | cdktf.IResolvable;
@@ -423,7 +423,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   // ==========
 
   // action - computed: false, optional: false, required: true
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -441,7 +441,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -457,7 +457,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // detector_id - computed: false, optional: false, required: true
-  private _detectorId?: string; 
+  private _detectorId?: string;
   public get detectorId() {
     return this.getStringAttribute('detector_id');
   }
@@ -470,7 +470,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -486,7 +486,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -499,7 +499,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // rank - computed: false, optional: false, required: true
-  private _rank?: number; 
+  private _rank?: number;
   public get rank() {
     return this.getNumberAttribute('rank');
   }
@@ -512,7 +512,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -528,7 +528,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

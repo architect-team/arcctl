@@ -8,7 +8,7 @@ import url from 'url';
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = new URL('.', import.meta.url).pathname;
 
 const environment_schema_contents = await fs.readFile(
   path.join(__dirname, './environment.schema.json'),

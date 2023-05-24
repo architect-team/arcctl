@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_instance_types
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataAwsEc2InstanceTypesConfig extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_instance_types#filter DataAwsEc2InstanceTypes#filter}
   */
   readonly filter?: DataAwsEc2InstanceTypesFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_instance_types#timeouts DataAwsEc2InstanceTypes#timeouts}
   */
   readonly timeouts?: DataAwsEc2InstanceTypesTimeouts;
@@ -100,7 +100,7 @@ export class DataAwsEc2InstanceTypesFilterOutputReference extends cdktf.ComplexO
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -113,7 +113,7 @@ export class DataAwsEc2InstanceTypesFilterOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -205,7 +205,7 @@ export class DataAwsEc2InstanceTypesTimeoutsOutputReference extends cdktf.Comple
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -268,7 +268,7 @@ export class DataAwsEc2InstanceTypes extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

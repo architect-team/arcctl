@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/image
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataDigitaloceanImageConfig extends cdktf.TerraformMetaArguments {
   /**
   * id of the image
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#id DataDigitaloceanImage#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
@@ -18,13 +18,13 @@ export interface DataDigitaloceanImageConfig extends cdktf.TerraformMetaArgument
   readonly id?: number;
   /**
   * name of the image
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#name DataDigitaloceanImage#name}
   */
   readonly name?: string;
   /**
   * slug of the image
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#slug DataDigitaloceanImage#slug}
   */
   readonly slug?: string;
@@ -102,7 +102,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: number; 
+  private _id?: number;
   public get id() {
     return this.getNumberAttribute('id');
   }
@@ -128,7 +128,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -159,7 +159,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // slug - computed: true, optional: true, required: false
-  private _slug?: string; 
+  private _slug?: string;
   public get slug() {
     return this.getStringAttribute('slug');
   }
@@ -175,7 +175,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }

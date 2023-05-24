@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_resolver_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface Route53ResolverRuleConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * target_ip block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_rule#target_ip Route53ResolverRule#target_ip}
   */
   readonly targetIp?: Route53ResolverRuleTargetIp[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_rule#timeouts Route53ResolverRule#timeouts}
   */
   readonly timeouts?: Route53ResolverRuleTimeouts;
@@ -124,7 +124,7 @@ export class Route53ResolverRuleTargetIpOutputReference extends cdktf.ComplexObj
   }
 
   // ip - computed: false, optional: false, required: true
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -137,7 +137,7 @@ export class Route53ResolverRuleTargetIpOutputReference extends cdktf.ComplexObj
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -254,7 +254,7 @@ export class Route53ResolverRuleTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -270,7 +270,7 @@ export class Route53ResolverRuleTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -286,7 +286,7 @@ export class Route53ResolverRuleTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -360,7 +360,7 @@ export class Route53ResolverRule extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -373,7 +373,7 @@ export class Route53ResolverRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -389,7 +389,7 @@ export class Route53ResolverRule extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -410,7 +410,7 @@ export class Route53ResolverRule extends cdktf.TerraformResource {
   }
 
   // resolver_endpoint_id - computed: false, optional: true, required: false
-  private _resolverEndpointId?: string; 
+  private _resolverEndpointId?: string;
   public get resolverEndpointId() {
     return this.getStringAttribute('resolver_endpoint_id');
   }
@@ -426,7 +426,7 @@ export class Route53ResolverRule extends cdktf.TerraformResource {
   }
 
   // rule_type - computed: false, optional: false, required: true
-  private _ruleType?: string; 
+  private _ruleType?: string;
   public get ruleType() {
     return this.getStringAttribute('rule_type');
   }
@@ -444,7 +444,7 @@ export class Route53ResolverRule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -460,7 +460,7 @@ export class Route53ResolverRule extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

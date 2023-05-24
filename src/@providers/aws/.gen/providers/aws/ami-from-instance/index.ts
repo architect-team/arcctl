@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ami_from_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,19 +44,19 @@ export interface AmiFromInstanceConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * ebs_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami_from_instance#ebs_block_device AmiFromInstance#ebs_block_device}
   */
   readonly ebsBlockDevice?: AmiFromInstanceEbsBlockDevice[] | cdktf.IResolvable;
   /**
   * ephemeral_block_device block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami_from_instance#ephemeral_block_device AmiFromInstance#ephemeral_block_device}
   */
   readonly ephemeralBlockDevice?: AmiFromInstanceEphemeralBlockDevice[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami_from_instance#timeouts AmiFromInstance#timeouts}
   */
   readonly timeouts?: AmiFromInstanceTimeouts;
@@ -338,7 +338,7 @@ export class AmiFromInstanceTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -354,7 +354,7 @@ export class AmiFromInstanceTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -370,7 +370,7 @@ export class AmiFromInstanceTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -456,7 +456,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // deprecation_time - computed: false, optional: true, required: false
-  private _deprecationTime?: string; 
+  private _deprecationTime?: string;
   public get deprecationTime() {
     return this.getStringAttribute('deprecation_time');
   }
@@ -472,7 +472,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -498,7 +498,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -544,7 +544,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -592,7 +592,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // snapshot_without_reboot - computed: false, optional: true, required: false
-  private _snapshotWithoutReboot?: boolean | cdktf.IResolvable; 
+  private _snapshotWithoutReboot?: boolean | cdktf.IResolvable;
   public get snapshotWithoutReboot() {
     return this.getBooleanAttribute('snapshot_without_reboot');
   }
@@ -608,7 +608,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // source_instance_id - computed: false, optional: false, required: true
-  private _sourceInstanceId?: string; 
+  private _sourceInstanceId?: string;
   public get sourceInstanceId() {
     return this.getStringAttribute('source_instance_id');
   }
@@ -626,7 +626,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -642,7 +642,7 @@ export class AmiFromInstance extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

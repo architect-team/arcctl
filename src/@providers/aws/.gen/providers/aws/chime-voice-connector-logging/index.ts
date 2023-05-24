@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_logging
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class ChimeVoiceConnectorLogging extends cdktf.TerraformResource {
   // ==========
 
   // enable_media_metric_logs - computed: false, optional: true, required: false
-  private _enableMediaMetricLogs?: boolean | cdktf.IResolvable; 
+  private _enableMediaMetricLogs?: boolean | cdktf.IResolvable;
   public get enableMediaMetricLogs() {
     return this.getBooleanAttribute('enable_media_metric_logs');
   }
@@ -92,7 +92,7 @@ export class ChimeVoiceConnectorLogging extends cdktf.TerraformResource {
   }
 
   // enable_sip_logs - computed: false, optional: true, required: false
-  private _enableSipLogs?: boolean | cdktf.IResolvable; 
+  private _enableSipLogs?: boolean | cdktf.IResolvable;
   public get enableSipLogs() {
     return this.getBooleanAttribute('enable_sip_logs');
   }
@@ -108,7 +108,7 @@ export class ChimeVoiceConnectorLogging extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -124,7 +124,7 @@ export class ChimeVoiceConnectorLogging extends cdktf.TerraformResource {
   }
 
   // voice_connector_id - computed: false, optional: false, required: true
-  private _voiceConnectorId?: string; 
+  private _voiceConnectorId?: string;
   public get voiceConnectorId() {
     return this.getStringAttribute('voice_connector_id');
   }

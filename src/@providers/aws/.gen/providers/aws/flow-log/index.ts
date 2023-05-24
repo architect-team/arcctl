@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/flow_log
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export interface FlowLogConfig extends cdktf.TerraformMetaArguments {
   readonly vpcId?: string;
   /**
   * destination_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/flow_log#destination_options FlowLog#destination_options}
   */
   readonly destinationOptions?: FlowLogDestinationOptions;
@@ -153,7 +153,7 @@ export class FlowLogDestinationOptionsOutputReference extends cdktf.ComplexObjec
   }
 
   // file_format - computed: false, optional: true, required: false
-  private _fileFormat?: string; 
+  private _fileFormat?: string;
   public get fileFormat() {
     return this.getStringAttribute('file_format');
   }
@@ -169,7 +169,7 @@ export class FlowLogDestinationOptionsOutputReference extends cdktf.ComplexObjec
   }
 
   // hive_compatible_partitions - computed: false, optional: true, required: false
-  private _hiveCompatiblePartitions?: boolean | cdktf.IResolvable; 
+  private _hiveCompatiblePartitions?: boolean | cdktf.IResolvable;
   public get hiveCompatiblePartitions() {
     return this.getBooleanAttribute('hive_compatible_partitions');
   }
@@ -185,7 +185,7 @@ export class FlowLogDestinationOptionsOutputReference extends cdktf.ComplexObjec
   }
 
   // per_hour_partition - computed: false, optional: true, required: false
-  private _perHourPartition?: boolean | cdktf.IResolvable; 
+  private _perHourPartition?: boolean | cdktf.IResolvable;
   public get perHourPartition() {
     return this.getBooleanAttribute('per_hour_partition');
   }
@@ -267,7 +267,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // deliver_cross_account_role - computed: false, optional: true, required: false
-  private _deliverCrossAccountRole?: string; 
+  private _deliverCrossAccountRole?: string;
   public get deliverCrossAccountRole() {
     return this.getStringAttribute('deliver_cross_account_role');
   }
@@ -283,7 +283,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // eni_id - computed: false, optional: true, required: false
-  private _eniId?: string; 
+  private _eniId?: string;
   public get eniId() {
     return this.getStringAttribute('eni_id');
   }
@@ -299,7 +299,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // iam_role_arn - computed: false, optional: true, required: false
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -315,7 +315,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -331,7 +331,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // log_destination - computed: true, optional: true, required: false
-  private _logDestination?: string; 
+  private _logDestination?: string;
   public get logDestination() {
     return this.getStringAttribute('log_destination');
   }
@@ -347,7 +347,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // log_destination_type - computed: false, optional: true, required: false
-  private _logDestinationType?: string; 
+  private _logDestinationType?: string;
   public get logDestinationType() {
     return this.getStringAttribute('log_destination_type');
   }
@@ -363,7 +363,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // log_format - computed: true, optional: true, required: false
-  private _logFormat?: string; 
+  private _logFormat?: string;
   public get logFormat() {
     return this.getStringAttribute('log_format');
   }
@@ -379,7 +379,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // log_group_name - computed: true, optional: true, required: false
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -395,7 +395,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // max_aggregation_interval - computed: false, optional: true, required: false
-  private _maxAggregationInterval?: number; 
+  private _maxAggregationInterval?: number;
   public get maxAggregationInterval() {
     return this.getNumberAttribute('max_aggregation_interval');
   }
@@ -411,7 +411,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -427,7 +427,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -443,7 +443,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -459,7 +459,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // traffic_type - computed: false, optional: true, required: false
-  private _trafficType?: string; 
+  private _trafficType?: string;
   public get trafficType() {
     return this.getStringAttribute('traffic_type');
   }
@@ -475,7 +475,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // transit_gateway_attachment_id - computed: false, optional: true, required: false
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }
@@ -491,7 +491,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // transit_gateway_id - computed: false, optional: true, required: false
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -507,7 +507,7 @@ export class FlowLog extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

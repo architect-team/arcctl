@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_logging_options
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class IotLoggingOptions extends cdktf.TerraformResource {
   // ==========
 
   // default_log_level - computed: false, optional: false, required: true
-  private _defaultLogLevel?: string; 
+  private _defaultLogLevel?: string;
   public get defaultLogLevel() {
     return this.getStringAttribute('default_log_level');
   }
@@ -89,7 +89,7 @@ export class IotLoggingOptions extends cdktf.TerraformResource {
   }
 
   // disable_all_logs - computed: false, optional: true, required: false
-  private _disableAllLogs?: boolean | cdktf.IResolvable; 
+  private _disableAllLogs?: boolean | cdktf.IResolvable;
   public get disableAllLogs() {
     return this.getBooleanAttribute('disable_all_logs');
   }
@@ -105,7 +105,7 @@ export class IotLoggingOptions extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -121,7 +121,7 @@ export class IotLoggingOptions extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_usage_plan_key
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class ApiGatewayUsagePlanKey extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class ApiGatewayUsagePlanKey extends cdktf.TerraformResource {
   }
 
   // key_id - computed: false, optional: false, required: true
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -105,7 +105,7 @@ export class ApiGatewayUsagePlanKey extends cdktf.TerraformResource {
   }
 
   // key_type - computed: false, optional: false, required: true
-  private _keyType?: string; 
+  private _keyType?: string;
   public get keyType() {
     return this.getStringAttribute('key_type');
   }
@@ -123,7 +123,7 @@ export class ApiGatewayUsagePlanKey extends cdktf.TerraformResource {
   }
 
   // usage_plan_id - computed: false, optional: false, required: true
-  private _usagePlanId?: string; 
+  private _usagePlanId?: string;
   public get usagePlanId() {
     return this.getStringAttribute('usage_plan_id');
   }

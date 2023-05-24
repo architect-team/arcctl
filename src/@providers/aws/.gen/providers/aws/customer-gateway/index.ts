@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/customer_gateway
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // bgp_asn - computed: false, optional: false, required: true
-  private _bgpAsn?: string; 
+  private _bgpAsn?: string;
   public get bgpAsn() {
     return this.getStringAttribute('bgp_asn');
   }
@@ -114,7 +114,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // certificate_arn - computed: false, optional: true, required: false
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -130,7 +130,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // device_name - computed: false, optional: true, required: false
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -146,7 +146,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +162,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // ip_address - computed: false, optional: true, required: false
-  private _ipAddress?: string; 
+  private _ipAddress?: string;
   public get ipAddress() {
     return this.getStringAttribute('ip_address');
   }
@@ -178,7 +178,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -194,7 +194,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -210,7 +210,7 @@ export class CustomerGateway extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

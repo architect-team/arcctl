@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_network_insights_analysis
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface DataAwsEc2NetworkInsightsAnalysisConfig extends cdktf.Terraform
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_network_insights_analysis#filter DataAwsEc2NetworkInsightsAnalysis#filter}
   */
   readonly filter?: DataAwsEc2NetworkInsightsAnalysisFilter[] | cdktf.IResolvable;
@@ -6793,7 +6793,7 @@ export class DataAwsEc2NetworkInsightsAnalysisFilterOutputReference extends cdkt
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -6806,7 +6806,7 @@ export class DataAwsEc2NetworkInsightsAnalysisFilterOutputReference extends cdkt
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -6915,7 +6915,7 @@ export class DataAwsEc2NetworkInsightsAnalysis extends cdktf.TerraformDataSource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -6931,7 +6931,7 @@ export class DataAwsEc2NetworkInsightsAnalysis extends cdktf.TerraformDataSource
   }
 
   // network_insights_analysis_id - computed: true, optional: true, required: false
-  private _networkInsightsAnalysisId?: string; 
+  private _networkInsightsAnalysisId?: string;
   public get networkInsightsAnalysisId() {
     return this.getStringAttribute('network_insights_analysis_id');
   }
@@ -6978,7 +6978,7 @@ export class DataAwsEc2NetworkInsightsAnalysis extends cdktf.TerraformDataSource
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

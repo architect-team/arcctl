@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface Route53RecoverycontrolconfigSafetyRuleConfig extends cdktf.Terr
   readonly waitPeriodMs: number;
   /**
   * rule_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#rule_config Route53RecoverycontrolconfigSafetyRule#rule_config}
   */
   readonly ruleConfig: Route53RecoverycontrolconfigSafetyRuleRuleConfig;
@@ -117,7 +117,7 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
   }
 
   // inverted - computed: false, optional: false, required: true
-  private _inverted?: boolean | cdktf.IResolvable; 
+  private _inverted?: boolean | cdktf.IResolvable;
   public get inverted() {
     return this.getBooleanAttribute('inverted');
   }
@@ -130,7 +130,7 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
   }
 
   // threshold - computed: false, optional: false, required: true
-  private _threshold?: number; 
+  private _threshold?: number;
   public get threshold() {
     return this.getNumberAttribute('threshold');
   }
@@ -143,7 +143,7 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -213,7 +213,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // asserted_controls - computed: false, optional: true, required: false
-  private _assertedControls?: string[]; 
+  private _assertedControls?: string[];
   public get assertedControls() {
     return this.getListAttribute('asserted_controls');
   }
@@ -229,7 +229,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // control_panel_arn - computed: false, optional: false, required: true
-  private _controlPanelArn?: string; 
+  private _controlPanelArn?: string;
   public get controlPanelArn() {
     return this.getStringAttribute('control_panel_arn');
   }
@@ -242,7 +242,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // gating_controls - computed: false, optional: true, required: false
-  private _gatingControls?: string[]; 
+  private _gatingControls?: string[];
   public get gatingControls() {
     return this.getListAttribute('gating_controls');
   }
@@ -258,7 +258,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -274,7 +274,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -292,7 +292,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // target_controls - computed: false, optional: true, required: false
-  private _targetControls?: string[]; 
+  private _targetControls?: string[];
   public get targetControls() {
     return this.getListAttribute('target_controls');
   }
@@ -308,7 +308,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // wait_period_ms - computed: false, optional: false, required: true
-  private _waitPeriodMs?: number; 
+  private _waitPeriodMs?: number;
   public get waitPeriodMs() {
     return this.getNumberAttribute('wait_period_ms');
   }

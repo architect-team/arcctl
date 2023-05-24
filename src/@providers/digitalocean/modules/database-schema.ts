@@ -4,7 +4,7 @@ import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/
 import { DatabaseDb } from '../.gen/providers/digitalocean/database-db/index.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { ResourceInputs, ResourceOutputs } from '@resources/index.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class DigitaloceanDatabaseSchemaModule extends ResourceModule<
   'databaseSchema',

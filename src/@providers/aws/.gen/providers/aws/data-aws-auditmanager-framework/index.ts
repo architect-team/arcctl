@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/auditmanager_framework
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -17,7 +17,7 @@ export interface DataAwsAuditmanagerFrameworkConfig extends cdktf.TerraformMetaA
   readonly name: string;
   /**
   * control_sets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/auditmanager_framework#control_sets DataAwsAuditmanagerFramework#control_sets}
   */
   readonly controlSets?: DataAwsAuditmanagerFrameworkControlSets[] | cdktf.IResolvable;
@@ -100,7 +100,7 @@ export class DataAwsAuditmanagerFrameworkControlSetsControlsList extends cdktf.C
 export interface DataAwsAuditmanagerFrameworkControlSets {
   /**
   * controls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/auditmanager_framework#controls DataAwsAuditmanagerFramework#controls}
   */
   readonly controls?: DataAwsAuditmanagerFrameworkControlSetsControls[] | cdktf.IResolvable;
@@ -269,7 +269,7 @@ export class DataAwsAuditmanagerFramework extends cdktf.TerraformDataSource {
   }
 
   // framework_type - computed: false, optional: false, required: true
-  private _frameworkType?: string; 
+  private _frameworkType?: string;
   public get frameworkType() {
     return this.getStringAttribute('framework_type');
   }
@@ -287,7 +287,7 @@ export class DataAwsAuditmanagerFramework extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

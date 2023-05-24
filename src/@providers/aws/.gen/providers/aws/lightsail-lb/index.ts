@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_lb
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class LightsailLb extends cdktf.TerraformResource {
   }
 
   // health_check_path - computed: false, optional: true, required: false
-  private _healthCheckPath?: string; 
+  private _healthCheckPath?: string;
   public get healthCheckPath() {
     return this.getStringAttribute('health_check_path');
   }
@@ -122,7 +122,7 @@ export class LightsailLb extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -138,7 +138,7 @@ export class LightsailLb extends cdktf.TerraformResource {
   }
 
   // instance_port - computed: false, optional: false, required: true
-  private _instancePort?: number; 
+  private _instancePort?: number;
   public get instancePort() {
     return this.getNumberAttribute('instance_port');
   }
@@ -151,7 +151,7 @@ export class LightsailLb extends cdktf.TerraformResource {
   }
 
   // ip_address_type - computed: false, optional: true, required: false
-  private _ipAddressType?: string; 
+  private _ipAddressType?: string;
   public get ipAddressType() {
     return this.getStringAttribute('ip_address_type');
   }
@@ -167,7 +167,7 @@ export class LightsailLb extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -195,7 +195,7 @@ export class LightsailLb extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -211,7 +211,7 @@ export class LightsailLb extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

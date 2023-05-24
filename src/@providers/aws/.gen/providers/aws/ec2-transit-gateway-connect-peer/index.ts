@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_connect_peer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface Ec2TransitGatewayConnectPeerConfig extends cdktf.TerraformMetaA
   readonly transitGatewayAttachmentId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_connect_peer#timeouts Ec2TransitGatewayConnectPeer#timeouts}
   */
   readonly timeouts?: Ec2TransitGatewayConnectPeerTimeouts;
@@ -120,7 +120,7 @@ export class Ec2TransitGatewayConnectPeerTimeoutsOutputReference extends cdktf.C
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -136,7 +136,7 @@ export class Ec2TransitGatewayConnectPeerTimeoutsOutputReference extends cdktf.C
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -210,7 +210,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // bgp_asn - computed: true, optional: true, required: false
-  private _bgpAsn?: string; 
+  private _bgpAsn?: string;
   public get bgpAsn() {
     return this.getStringAttribute('bgp_asn');
   }
@@ -226,7 +226,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -242,7 +242,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // inside_cidr_blocks - computed: false, optional: false, required: true
-  private _insideCidrBlocks?: string[]; 
+  private _insideCidrBlocks?: string[];
   public get insideCidrBlocks() {
     return cdktf.Fn.tolist(this.getListAttribute('inside_cidr_blocks'));
   }
@@ -255,7 +255,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // peer_address - computed: false, optional: false, required: true
-  private _peerAddress?: string; 
+  private _peerAddress?: string;
   public get peerAddress() {
     return this.getStringAttribute('peer_address');
   }
@@ -268,7 +268,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -284,7 +284,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -300,7 +300,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // transit_gateway_address - computed: true, optional: true, required: false
-  private _transitGatewayAddress?: string; 
+  private _transitGatewayAddress?: string;
   public get transitGatewayAddress() {
     return this.getStringAttribute('transit_gateway_address');
   }
@@ -316,7 +316,7 @@ export class Ec2TransitGatewayConnectPeer extends cdktf.TerraformResource {
   }
 
   // transit_gateway_attachment_id - computed: false, optional: false, required: true
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }

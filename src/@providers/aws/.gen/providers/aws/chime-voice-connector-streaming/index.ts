@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
   // ==========
 
   // data_retention - computed: false, optional: false, required: true
-  private _dataRetention?: number; 
+  private _dataRetention?: number;
   public get dataRetention() {
     return this.getNumberAttribute('data_retention');
   }
@@ -94,7 +94,7 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable; 
+  private _disabled?: boolean | cdktf.IResolvable;
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -110,7 +110,7 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -126,7 +126,7 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
   }
 
   // streaming_notification_targets - computed: false, optional: true, required: false
-  private _streamingNotificationTargets?: string[]; 
+  private _streamingNotificationTargets?: string[];
   public get streamingNotificationTargets() {
     return cdktf.Fn.tolist(this.getListAttribute('streaming_notification_targets'));
   }
@@ -142,7 +142,7 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
   }
 
   // voice_connector_id - computed: false, optional: false, required: true
-  private _voiceConnectorId?: string; 
+  private _voiceConnectorId?: string;
   public get voiceConnectorId() {
     return this.getStringAttribute('voice_connector_id');
   }

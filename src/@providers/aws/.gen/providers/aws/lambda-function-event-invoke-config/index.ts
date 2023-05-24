@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface LambdaFunctionEventInvokeConfigConfig extends cdktf.TerraformMe
   readonly qualifier?: string;
   /**
   * destination_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#destination_config LambdaFunctionEventInvokeConfig#destination_config}
   */
   readonly destinationConfig?: LambdaFunctionEventInvokeConfigDestinationConfig;
@@ -87,7 +87,7 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputRefe
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -149,7 +149,7 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputRefe
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -164,13 +164,13 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputRefe
 export interface LambdaFunctionEventInvokeConfigDestinationConfig {
   /**
   * on_failure block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#on_failure LambdaFunctionEventInvokeConfig#on_failure}
   */
   readonly onFailure?: LambdaFunctionEventInvokeConfigDestinationConfigOnFailure;
   /**
   * on_success block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#on_success LambdaFunctionEventInvokeConfig#on_success}
   */
   readonly onSuccess?: LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess;
@@ -308,7 +308,7 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
   // ==========
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -321,7 +321,7 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -337,7 +337,7 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
   }
 
   // maximum_event_age_in_seconds - computed: false, optional: true, required: false
-  private _maximumEventAgeInSeconds?: number; 
+  private _maximumEventAgeInSeconds?: number;
   public get maximumEventAgeInSeconds() {
     return this.getNumberAttribute('maximum_event_age_in_seconds');
   }
@@ -353,7 +353,7 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
   }
 
   // maximum_retry_attempts - computed: false, optional: true, required: false
-  private _maximumRetryAttempts?: number; 
+  private _maximumRetryAttempts?: number;
   public get maximumRetryAttempts() {
     return this.getNumberAttribute('maximum_retry_attempts');
   }
@@ -369,7 +369,7 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
   }
 
   // qualifier - computed: false, optional: true, required: false
-  private _qualifier?: string; 
+  private _qualifier?: string;
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }

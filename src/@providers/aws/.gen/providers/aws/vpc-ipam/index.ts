@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_ipam
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface VpcIpamConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * operating_regions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam#operating_regions VpcIpam#operating_regions}
   */
   readonly operatingRegions: VpcIpamOperatingRegions[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam#timeouts VpcIpam#timeouts}
   */
   readonly timeouts?: VpcIpamTimeouts;
@@ -105,7 +105,7 @@ export class VpcIpamOperatingRegionsOutputReference extends cdktf.ComplexObject 
   }
 
   // region_name - computed: false, optional: false, required: true
-  private _regionName?: string; 
+  private _regionName?: string;
   public get regionName() {
     return this.getStringAttribute('region_name');
   }
@@ -219,7 +219,7 @@ export class VpcIpamTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -235,7 +235,7 @@ export class VpcIpamTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -251,7 +251,7 @@ export class VpcIpamTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -323,7 +323,7 @@ export class VpcIpam extends cdktf.TerraformResource {
   }
 
   // cascade - computed: false, optional: true, required: false
-  private _cascade?: boolean | cdktf.IResolvable; 
+  private _cascade?: boolean | cdktf.IResolvable;
   public get cascade() {
     return this.getBooleanAttribute('cascade');
   }
@@ -349,7 +349,7 @@ export class VpcIpam extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -365,7 +365,7 @@ export class VpcIpam extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -396,7 +396,7 @@ export class VpcIpam extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -412,7 +412,7 @@ export class VpcIpam extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

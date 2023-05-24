@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class IamRolePolicyAttachment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class IamRolePolicyAttachment extends cdktf.TerraformResource {
   }
 
   // policy_arn - computed: false, optional: false, required: true
-  private _policyArn?: string; 
+  private _policyArn?: string;
   public get policyArn() {
     return this.getStringAttribute('policy_arn');
   }
@@ -100,7 +100,7 @@ export class IamRolePolicyAttachment extends cdktf.TerraformResource {
   }
 
   // role - computed: false, optional: false, required: true
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }

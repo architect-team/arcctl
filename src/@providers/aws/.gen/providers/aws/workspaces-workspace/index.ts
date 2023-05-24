@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/workspaces_workspace
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface WorkspacesWorkspaceConfig extends cdktf.TerraformMetaArguments 
   readonly volumeEncryptionKey?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#timeouts WorkspacesWorkspace#timeouts}
   */
   readonly timeouts?: WorkspacesWorkspaceTimeouts;
   /**
   * workspace_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#workspace_properties WorkspacesWorkspace#workspace_properties}
   */
   readonly workspaceProperties?: WorkspacesWorkspaceWorkspaceProperties;
@@ -141,7 +141,7 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -157,7 +157,7 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -173,7 +173,7 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -282,7 +282,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // compute_type_name - computed: false, optional: true, required: false
-  private _computeTypeName?: string; 
+  private _computeTypeName?: string;
   public get computeTypeName() {
     return this.getStringAttribute('compute_type_name');
   }
@@ -298,7 +298,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // root_volume_size_gib - computed: false, optional: true, required: false
-  private _rootVolumeSizeGib?: number; 
+  private _rootVolumeSizeGib?: number;
   public get rootVolumeSizeGib() {
     return this.getNumberAttribute('root_volume_size_gib');
   }
@@ -314,7 +314,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // running_mode - computed: false, optional: true, required: false
-  private _runningMode?: string; 
+  private _runningMode?: string;
   public get runningMode() {
     return this.getStringAttribute('running_mode');
   }
@@ -330,7 +330,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // running_mode_auto_stop_timeout_in_minutes - computed: true, optional: true, required: false
-  private _runningModeAutoStopTimeoutInMinutes?: number; 
+  private _runningModeAutoStopTimeoutInMinutes?: number;
   public get runningModeAutoStopTimeoutInMinutes() {
     return this.getNumberAttribute('running_mode_auto_stop_timeout_in_minutes');
   }
@@ -346,7 +346,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // user_volume_size_gib - computed: false, optional: true, required: false
-  private _userVolumeSizeGib?: number; 
+  private _userVolumeSizeGib?: number;
   public get userVolumeSizeGib() {
     return this.getNumberAttribute('user_volume_size_gib');
   }
@@ -417,7 +417,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   // ==========
 
   // bundle_id - computed: false, optional: false, required: true
-  private _bundleId?: string; 
+  private _bundleId?: string;
   public get bundleId() {
     return this.getStringAttribute('bundle_id');
   }
@@ -435,7 +435,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -448,7 +448,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -469,7 +469,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // root_volume_encryption_enabled - computed: false, optional: true, required: false
-  private _rootVolumeEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _rootVolumeEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get rootVolumeEncryptionEnabled() {
     return this.getBooleanAttribute('root_volume_encryption_enabled');
   }
@@ -490,7 +490,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -506,7 +506,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -522,7 +522,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }
@@ -535,7 +535,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // user_volume_encryption_enabled - computed: false, optional: true, required: false
-  private _userVolumeEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _userVolumeEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get userVolumeEncryptionEnabled() {
     return this.getBooleanAttribute('user_volume_encryption_enabled');
   }
@@ -551,7 +551,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // volume_encryption_key - computed: false, optional: true, required: false
-  private _volumeEncryptionKey?: string; 
+  private _volumeEncryptionKey?: string;
   public get volumeEncryptionKey() {
     return this.getStringAttribute('volume_encryption_key');
   }

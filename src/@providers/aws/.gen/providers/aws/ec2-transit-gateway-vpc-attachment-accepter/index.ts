@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class Ec2TransitGatewayVpcAttachmentAccepter extends cdktf.TerraformResou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -122,7 +122,7 @@ export class Ec2TransitGatewayVpcAttachmentAccepter extends cdktf.TerraformResou
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -138,7 +138,7 @@ export class Ec2TransitGatewayVpcAttachmentAccepter extends cdktf.TerraformResou
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -154,7 +154,7 @@ export class Ec2TransitGatewayVpcAttachmentAccepter extends cdktf.TerraformResou
   }
 
   // transit_gateway_attachment_id - computed: false, optional: false, required: true
-  private _transitGatewayAttachmentId?: string; 
+  private _transitGatewayAttachmentId?: string;
   public get transitGatewayAttachmentId() {
     return this.getStringAttribute('transit_gateway_attachment_id');
   }
@@ -167,7 +167,7 @@ export class Ec2TransitGatewayVpcAttachmentAccepter extends cdktf.TerraformResou
   }
 
   // transit_gateway_default_route_table_association - computed: false, optional: true, required: false
-  private _transitGatewayDefaultRouteTableAssociation?: boolean | cdktf.IResolvable; 
+  private _transitGatewayDefaultRouteTableAssociation?: boolean | cdktf.IResolvable;
   public get transitGatewayDefaultRouteTableAssociation() {
     return this.getBooleanAttribute('transit_gateway_default_route_table_association');
   }
@@ -183,7 +183,7 @@ export class Ec2TransitGatewayVpcAttachmentAccepter extends cdktf.TerraformResou
   }
 
   // transit_gateway_default_route_table_propagation - computed: false, optional: true, required: false
-  private _transitGatewayDefaultRouteTablePropagation?: boolean | cdktf.IResolvable; 
+  private _transitGatewayDefaultRouteTablePropagation?: boolean | cdktf.IResolvable;
   public get transitGatewayDefaultRouteTablePropagation() {
     return this.getBooleanAttribute('transit_gateway_default_route_table_propagation');
   }

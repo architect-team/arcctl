@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_user_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class IamUserPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class IamUserPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -113,7 +113,7 @@ export class IamUserPolicy extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: false, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -129,7 +129,7 @@ export class IamUserPolicy extends cdktf.TerraformResource {
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -142,7 +142,7 @@ export class IamUserPolicy extends cdktf.TerraformResource {
   }
 
   // user - computed: false, optional: false, required: true
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }

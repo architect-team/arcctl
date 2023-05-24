@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_function_url
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface LambdaFunctionUrlConfig extends cdktf.TerraformMetaArguments {
   readonly qualifier?: string;
   /**
   * cors block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#cors LambdaFunctionUrl#cors}
   */
   readonly cors?: LambdaFunctionUrlCors;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#timeouts LambdaFunctionUrl#timeouts}
   */
   readonly timeouts?: LambdaFunctionUrlTimeouts;
@@ -144,7 +144,7 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_credentials - computed: false, optional: true, required: false
-  private _allowCredentials?: boolean | cdktf.IResolvable; 
+  private _allowCredentials?: boolean | cdktf.IResolvable;
   public get allowCredentials() {
     return this.getBooleanAttribute('allow_credentials');
   }
@@ -160,7 +160,7 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_headers - computed: false, optional: true, required: false
-  private _allowHeaders?: string[]; 
+  private _allowHeaders?: string[];
   public get allowHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_headers'));
   }
@@ -176,7 +176,7 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_methods - computed: false, optional: true, required: false
-  private _allowMethods?: string[]; 
+  private _allowMethods?: string[];
   public get allowMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_methods'));
   }
@@ -192,7 +192,7 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_origins - computed: false, optional: true, required: false
-  private _allowOrigins?: string[]; 
+  private _allowOrigins?: string[];
   public get allowOrigins() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_origins'));
   }
@@ -208,7 +208,7 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[]; 
+  private _exposeHeaders?: string[];
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -224,7 +224,7 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age - computed: false, optional: true, required: false
-  private _maxAge?: number; 
+  private _maxAge?: number;
   public get maxAge() {
     return this.getNumberAttribute('max_age');
   }
@@ -299,7 +299,7 @@ export class LambdaFunctionUrlTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -365,7 +365,7 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
   // ==========
 
   // authorization_type - computed: false, optional: false, required: true
-  private _authorizationType?: string; 
+  private _authorizationType?: string;
   public get authorizationType() {
     return this.getStringAttribute('authorization_type');
   }
@@ -383,7 +383,7 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
   }
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string; 
+  private _functionName?: string;
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -401,7 +401,7 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -417,7 +417,7 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
   }
 
   // qualifier - computed: false, optional: true, required: false
-  private _qualifier?: string; 
+  private _qualifier?: string;
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }

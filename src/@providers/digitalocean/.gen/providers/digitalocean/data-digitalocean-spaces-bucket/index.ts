@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataDigitaloceanSpacesBucketConfig extends cdktf.TerraformMetaA
   readonly id?: string;
   /**
   * Bucket name
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#name DataDigitaloceanSpacesBucket#name}
   */
   readonly name: string;
   /**
   * Bucket region
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#region DataDigitaloceanSpacesBucket#region}
   */
   readonly region: string;
@@ -85,7 +85,7 @@ export class DataDigitaloceanSpacesBucket extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -101,7 +101,7 @@ export class DataDigitaloceanSpacesBucket extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -114,7 +114,7 @@ export class DataDigitaloceanSpacesBucket extends cdktf.TerraformDataSource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

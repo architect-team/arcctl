@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface DataAwsVpcIpamPoolCidrsConfig extends cdktf.TerraformMetaArgume
   readonly ipamPoolId: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#filter DataAwsVpcIpamPoolCidrs#filter}
   */
   readonly filter?: DataAwsVpcIpamPoolCidrsFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#timeouts DataAwsVpcIpamPoolCidrs#timeouts}
   */
   readonly timeouts?: DataAwsVpcIpamPoolCidrsTimeouts;
@@ -173,7 +173,7 @@ export class DataAwsVpcIpamPoolCidrsFilterOutputReference extends cdktf.ComplexO
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -186,7 +186,7 @@ export class DataAwsVpcIpamPoolCidrsFilterOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -278,7 +278,7 @@ export class DataAwsVpcIpamPoolCidrsTimeoutsOutputReference extends cdktf.Comple
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -342,7 +342,7 @@ export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -364,7 +364,7 @@ export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
   }
 
   // ipam_pool_id - computed: false, optional: false, required: true
-  private _ipamPoolId?: string; 
+  private _ipamPoolId?: string;
   public get ipamPoolId() {
     return this.getStringAttribute('ipam_pool_id');
   }

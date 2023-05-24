@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   }
 
   // replace_default_association - computed: false, optional: true, required: false
-  private _replaceDefaultAssociation?: boolean | cdktf.IResolvable; 
+  private _replaceDefaultAssociation?: boolean | cdktf.IResolvable;
   public get replaceDefaultAssociation() {
     return this.getBooleanAttribute('replace_default_association');
   }
@@ -108,7 +108,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   }
 
   // security_group_id - computed: false, optional: false, required: true
-  private _securityGroupId?: string; 
+  private _securityGroupId?: string;
   public get securityGroupId() {
     return this.getStringAttribute('security_group_id');
   }
@@ -121,7 +121,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   }
 
   // vpc_endpoint_id - computed: false, optional: false, required: true
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }

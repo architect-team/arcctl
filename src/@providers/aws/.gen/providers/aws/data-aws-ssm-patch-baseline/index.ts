@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ssm_patch_baseline
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -399,7 +399,7 @@ export class DataAwsSsmPatchBaseline extends cdktf.TerraformDataSource {
   }
 
   // default_baseline - computed: false, optional: true, required: false
-  private _defaultBaseline?: boolean | cdktf.IResolvable; 
+  private _defaultBaseline?: boolean | cdktf.IResolvable;
   public get defaultBaseline() {
     return this.getBooleanAttribute('default_baseline');
   }
@@ -426,7 +426,7 @@ export class DataAwsSsmPatchBaseline extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -447,7 +447,7 @@ export class DataAwsSsmPatchBaseline extends cdktf.TerraformDataSource {
   }
 
   // name_prefix - computed: false, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -463,7 +463,7 @@ export class DataAwsSsmPatchBaseline extends cdktf.TerraformDataSource {
   }
 
   // operating_system - computed: false, optional: true, required: false
-  private _operatingSystem?: string; 
+  private _operatingSystem?: string;
   public get operatingSystem() {
     return this.getStringAttribute('operating_system');
   }
@@ -479,7 +479,7 @@ export class DataAwsSsmPatchBaseline extends cdktf.TerraformDataSource {
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }

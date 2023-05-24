@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecs_task_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -60,31 +60,31 @@ export interface EcsTaskSetConfig extends cdktf.TerraformMetaArguments {
   readonly waitUntilStableTimeout?: string;
   /**
   * capacity_provider_strategy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#capacity_provider_strategy EcsTaskSet#capacity_provider_strategy}
   */
   readonly capacityProviderStrategy?: EcsTaskSetCapacityProviderStrategy[] | cdktf.IResolvable;
   /**
   * load_balancer block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#load_balancer EcsTaskSet#load_balancer}
   */
   readonly loadBalancer?: EcsTaskSetLoadBalancer[] | cdktf.IResolvable;
   /**
   * network_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#network_configuration EcsTaskSet#network_configuration}
   */
   readonly networkConfiguration?: EcsTaskSetNetworkConfiguration;
   /**
   * scale block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#scale EcsTaskSet#scale}
   */
   readonly scale?: EcsTaskSetScale;
   /**
   * service_registries block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#service_registries EcsTaskSet#service_registries}
   */
   readonly serviceRegistries?: EcsTaskSetServiceRegistries;
@@ -173,7 +173,7 @@ export class EcsTaskSetCapacityProviderStrategyOutputReference extends cdktf.Com
   }
 
   // base - computed: false, optional: true, required: false
-  private _base?: number; 
+  private _base?: number;
   public get base() {
     return this.getNumberAttribute('base');
   }
@@ -189,7 +189,7 @@ export class EcsTaskSetCapacityProviderStrategyOutputReference extends cdktf.Com
   }
 
   // capacity_provider - computed: false, optional: false, required: true
-  private _capacityProvider?: string; 
+  private _capacityProvider?: string;
   public get capacityProvider() {
     return this.getStringAttribute('capacity_provider');
   }
@@ -202,7 +202,7 @@ export class EcsTaskSetCapacityProviderStrategyOutputReference extends cdktf.Com
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -329,7 +329,7 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -342,7 +342,7 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
   }
 
   // container_port - computed: false, optional: true, required: false
-  private _containerPort?: number; 
+  private _containerPort?: number;
   public get containerPort() {
     return this.getNumberAttribute('container_port');
   }
@@ -358,7 +358,7 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
   }
 
   // load_balancer_name - computed: false, optional: true, required: false
-  private _loadBalancerName?: string; 
+  private _loadBalancerName?: string;
   public get loadBalancerName() {
     return this.getStringAttribute('load_balancer_name');
   }
@@ -374,7 +374,7 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
   }
 
   // target_group_arn - computed: false, optional: true, required: false
-  private _targetGroupArn?: string; 
+  private _targetGroupArn?: string;
   public get targetGroupArn() {
     return this.getStringAttribute('target_group_arn');
   }
@@ -481,7 +481,7 @@ export class EcsTaskSetNetworkConfigurationOutputReference extends cdktf.Complex
   }
 
   // assign_public_ip - computed: false, optional: true, required: false
-  private _assignPublicIp?: boolean | cdktf.IResolvable; 
+  private _assignPublicIp?: boolean | cdktf.IResolvable;
   public get assignPublicIp() {
     return this.getBooleanAttribute('assign_public_ip');
   }
@@ -497,7 +497,7 @@ export class EcsTaskSetNetworkConfigurationOutputReference extends cdktf.Complex
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -513,7 +513,7 @@ export class EcsTaskSetNetworkConfigurationOutputReference extends cdktf.Complex
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -586,7 +586,7 @@ export class EcsTaskSetScaleOutputReference extends cdktf.ComplexObject {
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -602,7 +602,7 @@ export class EcsTaskSetScaleOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -700,7 +700,7 @@ export class EcsTaskSetServiceRegistriesOutputReference extends cdktf.ComplexObj
   }
 
   // container_name - computed: false, optional: true, required: false
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -716,7 +716,7 @@ export class EcsTaskSetServiceRegistriesOutputReference extends cdktf.ComplexObj
   }
 
   // container_port - computed: false, optional: true, required: false
-  private _containerPort?: number; 
+  private _containerPort?: number;
   public get containerPort() {
     return this.getNumberAttribute('container_port');
   }
@@ -732,7 +732,7 @@ export class EcsTaskSetServiceRegistriesOutputReference extends cdktf.ComplexObj
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -748,7 +748,7 @@ export class EcsTaskSetServiceRegistriesOutputReference extends cdktf.ComplexObj
   }
 
   // registry_arn - computed: false, optional: false, required: true
-  private _registryArn?: string; 
+  private _registryArn?: string;
   public get registryArn() {
     return this.getStringAttribute('registry_arn');
   }
@@ -827,7 +827,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // cluster - computed: false, optional: false, required: true
-  private _cluster?: string; 
+  private _cluster?: string;
   public get cluster() {
     return this.getStringAttribute('cluster');
   }
@@ -840,7 +840,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // external_id - computed: true, optional: true, required: false
-  private _externalId?: string; 
+  private _externalId?: string;
   public get externalId() {
     return this.getStringAttribute('external_id');
   }
@@ -856,7 +856,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // force_delete - computed: false, optional: true, required: false
-  private _forceDelete?: boolean | cdktf.IResolvable; 
+  private _forceDelete?: boolean | cdktf.IResolvable;
   public get forceDelete() {
     return this.getBooleanAttribute('force_delete');
   }
@@ -872,7 +872,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -888,7 +888,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // launch_type - computed: true, optional: true, required: false
-  private _launchType?: string; 
+  private _launchType?: string;
   public get launchType() {
     return this.getStringAttribute('launch_type');
   }
@@ -904,7 +904,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // platform_version - computed: true, optional: true, required: false
-  private _platformVersion?: string; 
+  private _platformVersion?: string;
   public get platformVersion() {
     return this.getStringAttribute('platform_version');
   }
@@ -920,7 +920,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // service - computed: false, optional: false, required: true
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -943,7 +943,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -959,7 +959,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -975,7 +975,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // task_definition - computed: false, optional: false, required: true
-  private _taskDefinition?: string; 
+  private _taskDefinition?: string;
   public get taskDefinition() {
     return this.getStringAttribute('task_definition');
   }
@@ -993,7 +993,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // wait_until_stable - computed: false, optional: true, required: false
-  private _waitUntilStable?: boolean | cdktf.IResolvable; 
+  private _waitUntilStable?: boolean | cdktf.IResolvable;
   public get waitUntilStable() {
     return this.getBooleanAttribute('wait_until_stable');
   }
@@ -1009,7 +1009,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // wait_until_stable_timeout - computed: false, optional: true, required: false
-  private _waitUntilStableTimeout?: string; 
+  private _waitUntilStableTimeout?: string;
   public get waitUntilStableTimeout() {
     return this.getStringAttribute('wait_until_stable_timeout');
   }

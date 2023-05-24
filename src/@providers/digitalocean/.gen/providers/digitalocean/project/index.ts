@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/project
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,13 +9,13 @@ import * as cdktf from 'cdktf';
 export interface ProjectConfig extends cdktf.TerraformMetaArguments {
   /**
   * the description of the project
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#description Project#description}
   */
   readonly description?: string;
   /**
   * the environment of the project's resources
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#environment Project#environment}
   */
   readonly environment?: string;
@@ -28,25 +28,25 @@ export interface ProjectConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * determine if the project is the default or not.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#is_default Project#is_default}
   */
   readonly isDefault?: boolean | cdktf.IResolvable;
   /**
   * the human-readable name for the project
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#name Project#name}
   */
   readonly name: string;
   /**
   * the purpose of the project
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#purpose Project#purpose}
   */
   readonly purpose?: string;
   /**
   * the resources associated with the project
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#resources Project#resources}
   */
   readonly resources?: string[];
@@ -108,7 +108,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -124,7 +124,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment?: string; 
+  private _environment?: string;
   public get environment() {
     return this.getStringAttribute('environment');
   }
@@ -140,7 +140,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -156,7 +156,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // is_default - computed: false, optional: true, required: false
-  private _isDefault?: boolean | cdktf.IResolvable; 
+  private _isDefault?: boolean | cdktf.IResolvable;
   public get isDefault() {
     return this.getBooleanAttribute('is_default');
   }
@@ -172,7 +172,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -195,7 +195,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // purpose - computed: false, optional: true, required: false
-  private _purpose?: string; 
+  private _purpose?: string;
   public get purpose() {
     return this.getStringAttribute('purpose');
   }
@@ -211,7 +211,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // resources - computed: true, optional: true, required: false
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return cdktf.Fn.tolist(this.getListAttribute('resources'));
   }

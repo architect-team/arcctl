@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpn_gateway_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class VpnGatewayAttachment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class VpnGatewayAttachment extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -100,7 +100,7 @@ export class VpnGatewayAttachment extends cdktf.TerraformResource {
   }
 
   // vpn_gateway_id - computed: false, optional: false, required: true
-  private _vpnGatewayId?: string; 
+  private _vpnGatewayId?: string;
   public get vpnGatewayId() {
     return this.getStringAttribute('vpn_gateway_id');
   }

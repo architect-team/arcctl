@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   // ==========
 
   // actions_enabled - computed: false, optional: true, required: false
-  private _actionsEnabled?: boolean | cdktf.IResolvable; 
+  private _actionsEnabled?: boolean | cdktf.IResolvable;
   public get actionsEnabled() {
     return this.getBooleanAttribute('actions_enabled');
   }
@@ -122,7 +122,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_actions - computed: false, optional: true, required: false
-  private _alarmActions?: string[]; 
+  private _alarmActions?: string[];
   public get alarmActions() {
     return cdktf.Fn.tolist(this.getListAttribute('alarm_actions'));
   }
@@ -138,7 +138,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_description - computed: false, optional: true, required: false
-  private _alarmDescription?: string; 
+  private _alarmDescription?: string;
   public get alarmDescription() {
     return this.getStringAttribute('alarm_description');
   }
@@ -154,7 +154,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_name - computed: false, optional: false, required: true
-  private _alarmName?: string; 
+  private _alarmName?: string;
   public get alarmName() {
     return this.getStringAttribute('alarm_name');
   }
@@ -167,7 +167,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_rule - computed: false, optional: false, required: true
-  private _alarmRule?: string; 
+  private _alarmRule?: string;
   public get alarmRule() {
     return this.getStringAttribute('alarm_rule');
   }
@@ -185,7 +185,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -201,7 +201,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // insufficient_data_actions - computed: false, optional: true, required: false
-  private _insufficientDataActions?: string[]; 
+  private _insufficientDataActions?: string[];
   public get insufficientDataActions() {
     return cdktf.Fn.tolist(this.getListAttribute('insufficient_data_actions'));
   }
@@ -217,7 +217,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // ok_actions - computed: false, optional: true, required: false
-  private _okActions?: string[]; 
+  private _okActions?: string[];
   public get okActions() {
     return cdktf.Fn.tolist(this.getListAttribute('ok_actions'));
   }
@@ -233,7 +233,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -249,7 +249,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

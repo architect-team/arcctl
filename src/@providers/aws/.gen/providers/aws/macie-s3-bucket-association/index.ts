@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface MacieS3BucketAssociationConfig extends cdktf.TerraformMetaArgum
   readonly prefix?: string;
   /**
   * classification_type block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#classification_type MacieS3BucketAssociation#classification_type}
   */
   readonly classificationType?: MacieS3BucketAssociationClassificationType;
@@ -94,7 +94,7 @@ export class MacieS3BucketAssociationClassificationTypeOutputReference extends c
   }
 
   // continuous - computed: false, optional: true, required: false
-  private _continuous?: string; 
+  private _continuous?: string;
   public get continuous() {
     return this.getStringAttribute('continuous');
   }
@@ -110,7 +110,7 @@ export class MacieS3BucketAssociationClassificationTypeOutputReference extends c
   }
 
   // one_time - computed: false, optional: true, required: false
-  private _oneTime?: string; 
+  private _oneTime?: string;
   public get oneTime() {
     return this.getStringAttribute('one_time');
   }
@@ -175,7 +175,7 @@ export class MacieS3BucketAssociation extends cdktf.TerraformResource {
   // ==========
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -188,7 +188,7 @@ export class MacieS3BucketAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -204,7 +204,7 @@ export class MacieS3BucketAssociation extends cdktf.TerraformResource {
   }
 
   // member_account_id - computed: false, optional: true, required: false
-  private _memberAccountId?: string; 
+  private _memberAccountId?: string;
   public get memberAccountId() {
     return this.getStringAttribute('member_account_id');
   }
@@ -220,7 +220,7 @@ export class MacieS3BucketAssociation extends cdktf.TerraformResource {
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_configuration_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface SesConfigurationSetConfig extends cdktf.TerraformMetaArguments 
   readonly sendingEnabled?: boolean | cdktf.IResolvable;
   /**
   * delivery_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#delivery_options SesConfigurationSet#delivery_options}
   */
   readonly deliveryOptions?: SesConfigurationSetDeliveryOptions;
   /**
   * tracking_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#tracking_options SesConfigurationSet#tracking_options}
   */
   readonly trackingOptions?: SesConfigurationSetTrackingOptions;
@@ -89,7 +89,7 @@ export class SesConfigurationSetDeliveryOptionsOutputReference extends cdktf.Com
   }
 
   // tls_policy - computed: false, optional: true, required: false
-  private _tlsPolicy?: string; 
+  private _tlsPolicy?: string;
   public get tlsPolicy() {
     return this.getStringAttribute('tls_policy');
   }
@@ -154,7 +154,7 @@ export class SesConfigurationSetTrackingOptionsOutputReference extends cdktf.Com
   }
 
   // custom_redirect_domain - computed: false, optional: true, required: false
-  private _customRedirectDomain?: string; 
+  private _customRedirectDomain?: string;
   public get customRedirectDomain() {
     return this.getStringAttribute('custom_redirect_domain');
   }
@@ -225,7 +225,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -246,7 +246,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -259,7 +259,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // reputation_metrics_enabled - computed: false, optional: true, required: false
-  private _reputationMetricsEnabled?: boolean | cdktf.IResolvable; 
+  private _reputationMetricsEnabled?: boolean | cdktf.IResolvable;
   public get reputationMetricsEnabled() {
     return this.getBooleanAttribute('reputation_metrics_enabled');
   }
@@ -275,7 +275,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // sending_enabled - computed: false, optional: true, required: false
-  private _sendingEnabled?: boolean | cdktf.IResolvable; 
+  private _sendingEnabled?: boolean | cdktf.IResolvable;
   public get sendingEnabled() {
     return this.getBooleanAttribute('sending_enabled');
   }

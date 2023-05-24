@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_control
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -33,7 +33,7 @@ export interface AuditmanagerControlConfig extends cdktf.TerraformMetaArguments 
   readonly testingInformation?: string;
   /**
   * control_mapping_sources block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#control_mapping_sources AuditmanagerControl#control_mapping_sources}
   */
   readonly controlMappingSources?: AuditmanagerControlControlMappingSources[] | cdktf.IResolvable;
@@ -111,7 +111,7 @@ export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReferenc
   }
 
   // keyword_input_type - computed: false, optional: false, required: true
-  private _keywordInputType?: string; 
+  private _keywordInputType?: string;
   public get keywordInputType() {
     return this.getStringAttribute('keyword_input_type');
   }
@@ -124,7 +124,7 @@ export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReferenc
   }
 
   // keyword_value - computed: false, optional: false, required: true
-  private _keywordValue?: string; 
+  private _keywordValue?: string;
   public get keywordValue() {
     return this.getStringAttribute('keyword_value');
   }
@@ -183,7 +183,7 @@ export interface AuditmanagerControlControlMappingSources {
   readonly troubleshootingText?: string;
   /**
   * source_keyword block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_keyword AuditmanagerControl#source_keyword}
   */
   readonly sourceKeyword?: AuditmanagerControlControlMappingSourcesSourceKeyword[] | cdktf.IResolvable;
@@ -286,7 +286,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_description - computed: false, optional: true, required: false
-  private _sourceDescription?: string; 
+  private _sourceDescription?: string;
   public get sourceDescription() {
     return this.getStringAttribute('source_description');
   }
@@ -302,7 +302,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_frequency - computed: false, optional: true, required: false
-  private _sourceFrequency?: string; 
+  private _sourceFrequency?: string;
   public get sourceFrequency() {
     return this.getStringAttribute('source_frequency');
   }
@@ -323,7 +323,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_name - computed: false, optional: false, required: true
-  private _sourceName?: string; 
+  private _sourceName?: string;
   public get sourceName() {
     return this.getStringAttribute('source_name');
   }
@@ -336,7 +336,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_set_up_option - computed: false, optional: false, required: true
-  private _sourceSetUpOption?: string; 
+  private _sourceSetUpOption?: string;
   public get sourceSetUpOption() {
     return this.getStringAttribute('source_set_up_option');
   }
@@ -349,7 +349,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_type - computed: false, optional: false, required: true
-  private _sourceType?: string; 
+  private _sourceType?: string;
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }
@@ -362,7 +362,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // troubleshooting_text - computed: false, optional: true, required: false
-  private _troubleshootingText?: string; 
+  private _troubleshootingText?: string;
   public get troubleshootingText() {
     return this.getStringAttribute('troubleshooting_text');
   }
@@ -465,7 +465,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   // ==========
 
   // action_plan_instructions - computed: false, optional: true, required: false
-  private _actionPlanInstructions?: string; 
+  private _actionPlanInstructions?: string;
   public get actionPlanInstructions() {
     return this.getStringAttribute('action_plan_instructions');
   }
@@ -481,7 +481,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // action_plan_title - computed: false, optional: true, required: false
-  private _actionPlanTitle?: string; 
+  private _actionPlanTitle?: string;
   public get actionPlanTitle() {
     return this.getStringAttribute('action_plan_title');
   }
@@ -502,7 +502,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -523,7 +523,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -536,7 +536,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -558,7 +558,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // testing_information - computed: false, optional: true, required: false
-  private _testingInformation?: string; 
+  private _testingInformation?: string;
   public get testingInformation() {
     return this.getStringAttribute('testing_information');
   }

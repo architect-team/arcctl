@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kms_alias
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class KmsAlias extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -97,7 +97,7 @@ export class KmsAlias extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -113,7 +113,7 @@ export class KmsAlias extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -134,7 +134,7 @@ export class KmsAlias extends cdktf.TerraformResource {
   }
 
   // target_key_id - computed: false, optional: false, required: true
-  private _targetKeyId?: string; 
+  private _targetKeyId?: string;
   public get targetKeyId() {
     return this.getStringAttribute('target_key_id');
   }

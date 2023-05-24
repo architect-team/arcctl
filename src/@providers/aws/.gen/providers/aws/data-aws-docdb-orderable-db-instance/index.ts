@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/docdb_orderable_db_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class DataAwsDocdbOrderableDbInstance extends cdktf.TerraformDataSource {
   }
 
   // engine - computed: false, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -112,7 +112,7 @@ export class DataAwsDocdbOrderableDbInstance extends cdktf.TerraformDataSource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -128,7 +128,7 @@ export class DataAwsDocdbOrderableDbInstance extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -144,7 +144,7 @@ export class DataAwsDocdbOrderableDbInstance extends cdktf.TerraformDataSource {
   }
 
   // instance_class - computed: true, optional: true, required: false
-  private _instanceClass?: string; 
+  private _instanceClass?: string;
   public get instanceClass() {
     return this.getStringAttribute('instance_class');
   }
@@ -160,7 +160,7 @@ export class DataAwsDocdbOrderableDbInstance extends cdktf.TerraformDataSource {
   }
 
   // license_model - computed: false, optional: true, required: false
-  private _licenseModel?: string; 
+  private _licenseModel?: string;
   public get licenseModel() {
     return this.getStringAttribute('license_model');
   }
@@ -176,7 +176,7 @@ export class DataAwsDocdbOrderableDbInstance extends cdktf.TerraformDataSource {
   }
 
   // preferred_instance_classes - computed: false, optional: true, required: false
-  private _preferredInstanceClasses?: string[]; 
+  private _preferredInstanceClasses?: string[];
   public get preferredInstanceClasses() {
     return this.getListAttribute('preferred_instance_classes');
   }
@@ -192,7 +192,7 @@ export class DataAwsDocdbOrderableDbInstance extends cdktf.TerraformDataSource {
   }
 
   // vpc - computed: true, optional: true, required: false
-  private _vpc?: boolean | cdktf.IResolvable; 
+  private _vpc?: boolean | cdktf.IResolvable;
   public get vpc() {
     return this.getBooleanAttribute('vpc');
   }

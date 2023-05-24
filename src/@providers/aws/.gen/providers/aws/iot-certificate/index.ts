@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_certificate
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   // ==========
 
   // active - computed: false, optional: false, required: true
-  private _active?: boolean | cdktf.IResolvable; 
+  private _active?: boolean | cdktf.IResolvable;
   public get active() {
     return this.getBooleanAttribute('active');
   }
@@ -99,7 +99,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // ca_pem - computed: false, optional: true, required: false
-  private _caPem?: string; 
+  private _caPem?: string;
   public get caPem() {
     return this.getStringAttribute('ca_pem');
   }
@@ -115,7 +115,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // certificate_pem - computed: true, optional: true, required: false
-  private _certificatePem?: string; 
+  private _certificatePem?: string;
   public get certificatePem() {
     return this.getStringAttribute('certificate_pem');
   }
@@ -131,7 +131,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // csr - computed: false, optional: true, required: false
-  private _csr?: string; 
+  private _csr?: string;
   public get csr() {
     return this.getStringAttribute('csr');
   }
@@ -147,7 +147,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

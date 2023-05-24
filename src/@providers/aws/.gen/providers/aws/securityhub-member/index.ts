@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_member
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class SecurityhubMember extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -89,7 +89,7 @@ export class SecurityhubMember extends cdktf.TerraformResource {
   }
 
   // email - computed: false, optional: true, required: false
-  private _email?: string; 
+  private _email?: string;
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -105,7 +105,7 @@ export class SecurityhubMember extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -121,7 +121,7 @@ export class SecurityhubMember extends cdktf.TerraformResource {
   }
 
   // invite - computed: false, optional: true, required: false
-  private _invite?: boolean | cdktf.IResolvable; 
+  private _invite?: boolean | cdktf.IResolvable;
   public get invite() {
     return this.getBooleanAttribute('invite');
   }

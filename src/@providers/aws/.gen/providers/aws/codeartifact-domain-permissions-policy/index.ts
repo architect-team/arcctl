@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codeartifact_domain_permissions_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class CodeartifactDomainPermissionsPolicy extends cdktf.TerraformResource
   // ==========
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -94,7 +94,7 @@ export class CodeartifactDomainPermissionsPolicy extends cdktf.TerraformResource
   }
 
   // domain_owner - computed: true, optional: true, required: false
-  private _domainOwner?: string; 
+  private _domainOwner?: string;
   public get domainOwner() {
     return this.getStringAttribute('domain_owner');
   }
@@ -110,7 +110,7 @@ export class CodeartifactDomainPermissionsPolicy extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -126,7 +126,7 @@ export class CodeartifactDomainPermissionsPolicy extends cdktf.TerraformResource
   }
 
   // policy_document - computed: false, optional: false, required: true
-  private _policyDocument?: string; 
+  private _policyDocument?: string;
   public get policyDocument() {
     return this.getStringAttribute('policy_document');
   }
@@ -139,7 +139,7 @@ export class CodeartifactDomainPermissionsPolicy extends cdktf.TerraformResource
   }
 
   // policy_revision - computed: true, optional: true, required: false
-  private _policyRevision?: string; 
+  private _policyRevision?: string;
   public get policyRevision() {
     return this.getStringAttribute('policy_revision');
   }

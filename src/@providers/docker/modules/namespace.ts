@@ -2,7 +2,7 @@ import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
 import { ResourceModule } from '../../module.js';
 import { Network } from '../.gen/providers/docker/network/index.js';
 import { DockerCredentials } from '../credentials.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class DockerNetworkModule extends ResourceModule<
   'namespace',

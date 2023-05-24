@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class Ec2TrafficMirrorFilter extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -102,7 +102,7 @@ export class Ec2TrafficMirrorFilter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class Ec2TrafficMirrorFilter extends cdktf.TerraformResource {
   }
 
   // network_services - computed: false, optional: true, required: false
-  private _networkServices?: string[]; 
+  private _networkServices?: string[];
   public get networkServices() {
     return cdktf.Fn.tolist(this.getListAttribute('network_services'));
   }
@@ -134,7 +134,7 @@ export class Ec2TrafficMirrorFilter extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -150,7 +150,7 @@ export class Ec2TrafficMirrorFilter extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

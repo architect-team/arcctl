@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route_table_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   // ==========
 
   // gateway_id - computed: false, optional: true, required: false
-  private _gatewayId?: string; 
+  private _gatewayId?: string;
   public get gatewayId() {
     return this.getStringAttribute('gateway_id');
   }
@@ -92,7 +92,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -108,7 +108,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string; 
+  private _routeTableId?: string;
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -121,7 +121,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/vpc
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface VpcConfig extends cdktf.TerraformMetaArguments {
   /**
   * A free-form description for the VPC
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#description Vpc#description}
   */
   readonly description?: string;
@@ -22,25 +22,25 @@ export interface VpcConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * The range of IP addresses for the VPC in CIDR notation
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#ip_range Vpc#ip_range}
   */
   readonly ipRange?: string;
   /**
   * The name of the VPC
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#name Vpc#name}
   */
   readonly name: string;
   /**
   * DigitalOcean region slug for the VPC's location
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#region Vpc#region}
   */
   readonly region: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#timeouts Vpc#timeouts}
   */
   readonly timeouts?: VpcTimeouts;
@@ -105,7 +105,7 @@ export class VpcTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -181,7 +181,7 @@ export class Vpc extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -197,7 +197,7 @@ export class Vpc extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -213,7 +213,7 @@ export class Vpc extends cdktf.TerraformResource {
   }
 
   // ip_range - computed: true, optional: true, required: false
-  private _ipRange?: string; 
+  private _ipRange?: string;
   public get ipRange() {
     return this.getStringAttribute('ip_range');
   }
@@ -229,7 +229,7 @@ export class Vpc extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -242,7 +242,7 @@ export class Vpc extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

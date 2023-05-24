@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface AccessanalyzerArchiveRuleConfig extends cdktf.TerraformMetaArgu
   readonly ruleName: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#filter AccessanalyzerArchiveRule#filter}
   */
   readonly filter: AccessanalyzerArchiveRuleFilter[] | cdktf.IResolvable;
@@ -135,7 +135,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // contains - computed: true, optional: true, required: false
-  private _contains?: string[]; 
+  private _contains?: string[];
   public get contains() {
     return this.getListAttribute('contains');
   }
@@ -151,7 +151,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // criteria - computed: false, optional: false, required: true
-  private _criteria?: string; 
+  private _criteria?: string;
   public get criteria() {
     return this.getStringAttribute('criteria');
   }
@@ -164,7 +164,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // eq - computed: true, optional: true, required: false
-  private _eq?: string[]; 
+  private _eq?: string[];
   public get eq() {
     return this.getListAttribute('eq');
   }
@@ -180,7 +180,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // exists - computed: true, optional: true, required: false
-  private _exists?: string; 
+  private _exists?: string;
   public get exists() {
     return this.getStringAttribute('exists');
   }
@@ -196,7 +196,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // neq - computed: true, optional: true, required: false
-  private _neq?: string[]; 
+  private _neq?: string[];
   public get neq() {
     return this.getListAttribute('neq');
   }
@@ -280,7 +280,7 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
   // ==========
 
   // analyzer_name - computed: false, optional: false, required: true
-  private _analyzerName?: string; 
+  private _analyzerName?: string;
   public get analyzerName() {
     return this.getStringAttribute('analyzer_name');
   }
@@ -293,7 +293,7 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -309,7 +309,7 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
   }
 
   // rule_name - computed: false, optional: false, required: true
-  private _ruleName?: string; 
+  private _ruleName?: string;
   public get ruleName() {
     return this.getStringAttribute('rule_name');
   }

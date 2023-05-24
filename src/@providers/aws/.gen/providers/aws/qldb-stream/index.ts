@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/qldb_stream
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface QldbStreamConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * kinesis_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/qldb_stream#kinesis_configuration QldbStream#kinesis_configuration}
   */
   readonly kinesisConfiguration: QldbStreamKinesisConfiguration;
@@ -110,7 +110,7 @@ export class QldbStreamKinesisConfigurationOutputReference extends cdktf.Complex
   }
 
   // aggregation_enabled - computed: false, optional: true, required: false
-  private _aggregationEnabled?: boolean | cdktf.IResolvable; 
+  private _aggregationEnabled?: boolean | cdktf.IResolvable;
   public get aggregationEnabled() {
     return this.getBooleanAttribute('aggregation_enabled');
   }
@@ -126,7 +126,7 @@ export class QldbStreamKinesisConfigurationOutputReference extends cdktf.Complex
   }
 
   // stream_arn - computed: false, optional: false, required: true
-  private _streamArn?: string; 
+  private _streamArn?: string;
   public get streamArn() {
     return this.getStringAttribute('stream_arn');
   }
@@ -197,7 +197,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // exclusive_end_time - computed: false, optional: true, required: false
-  private _exclusiveEndTime?: string; 
+  private _exclusiveEndTime?: string;
   public get exclusiveEndTime() {
     return this.getStringAttribute('exclusive_end_time');
   }
@@ -213,7 +213,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -229,7 +229,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // inclusive_start_time - computed: false, optional: false, required: true
-  private _inclusiveStartTime?: string; 
+  private _inclusiveStartTime?: string;
   public get inclusiveStartTime() {
     return this.getStringAttribute('inclusive_start_time');
   }
@@ -242,7 +242,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // ledger_name - computed: false, optional: false, required: true
-  private _ledgerName?: string; 
+  private _ledgerName?: string;
   public get ledgerName() {
     return this.getStringAttribute('ledger_name');
   }
@@ -255,7 +255,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -268,7 +268,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // stream_name - computed: false, optional: false, required: true
-  private _streamName?: string; 
+  private _streamName?: string;
   public get streamName() {
     return this.getStringAttribute('stream_name');
   }
@@ -281,7 +281,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -297,7 +297,7 @@ export class QldbStream extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

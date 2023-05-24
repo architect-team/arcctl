@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_hours_of_operation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface ConnectHoursOfOperationConfig extends cdktf.TerraformMetaArgume
   readonly timeZone: string;
   /**
   * config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_hours_of_operation#config ConnectHoursOfOperation#config}
   */
   readonly config: ConnectHoursOfOperationConfigA[] | cdktf.IResolvable;
@@ -106,7 +106,7 @@ export class ConnectHoursOfOperationConfigEndTimeOutputReference extends cdktf.C
   }
 
   // hours - computed: false, optional: false, required: true
-  private _hours?: number; 
+  private _hours?: number;
   public get hours() {
     return this.getNumberAttribute('hours');
   }
@@ -119,7 +119,7 @@ export class ConnectHoursOfOperationConfigEndTimeOutputReference extends cdktf.C
   }
 
   // minutes - computed: false, optional: false, required: true
-  private _minutes?: number; 
+  private _minutes?: number;
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -192,7 +192,7 @@ export class ConnectHoursOfOperationConfigStartTimeOutputReference extends cdktf
   }
 
   // hours - computed: false, optional: false, required: true
-  private _hours?: number; 
+  private _hours?: number;
   public get hours() {
     return this.getNumberAttribute('hours');
   }
@@ -205,7 +205,7 @@ export class ConnectHoursOfOperationConfigStartTimeOutputReference extends cdktf
   }
 
   // minutes - computed: false, optional: false, required: true
-  private _minutes?: number; 
+  private _minutes?: number;
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -224,13 +224,13 @@ export interface ConnectHoursOfOperationConfigA {
   readonly day: string;
   /**
   * end_time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_hours_of_operation#end_time ConnectHoursOfOperation#end_time}
   */
   readonly endTime: ConnectHoursOfOperationConfigEndTime;
   /**
   * start_time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_hours_of_operation#start_time ConnectHoursOfOperation#start_time}
   */
   readonly startTime: ConnectHoursOfOperationConfigStartTime;
@@ -305,7 +305,7 @@ export class ConnectHoursOfOperationConfigAOutputReference extends cdktf.Complex
   }
 
   // day - computed: false, optional: false, required: true
-  private _day?: string; 
+  private _day?: string;
   public get day() {
     return this.getStringAttribute('day');
   }
@@ -421,7 +421,7 @@ export class ConnectHoursOfOperation extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -447,7 +447,7 @@ export class ConnectHoursOfOperation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -463,7 +463,7 @@ export class ConnectHoursOfOperation extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -476,7 +476,7 @@ export class ConnectHoursOfOperation extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -489,7 +489,7 @@ export class ConnectHoursOfOperation extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -505,7 +505,7 @@ export class ConnectHoursOfOperation extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -521,7 +521,7 @@ export class ConnectHoursOfOperation extends cdktf.TerraformResource {
   }
 
   // time_zone - computed: false, optional: false, required: true
-  private _timeZone?: string; 
+  private _timeZone?: string;
   public get timeZone() {
     return this.getStringAttribute('time_zone');
   }

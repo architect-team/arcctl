@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/apigatewayv2_export
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DataAwsApigatewayv2Export extends cdktf.TerraformDataSource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -109,7 +109,7 @@ export class DataAwsApigatewayv2Export extends cdktf.TerraformDataSource {
   }
 
   // export_version - computed: false, optional: true, required: false
-  private _exportVersion?: string; 
+  private _exportVersion?: string;
   public get exportVersion() {
     return this.getStringAttribute('export_version');
   }
@@ -125,7 +125,7 @@ export class DataAwsApigatewayv2Export extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -141,7 +141,7 @@ export class DataAwsApigatewayv2Export extends cdktf.TerraformDataSource {
   }
 
   // include_extensions - computed: false, optional: true, required: false
-  private _includeExtensions?: boolean | cdktf.IResolvable; 
+  private _includeExtensions?: boolean | cdktf.IResolvable;
   public get includeExtensions() {
     return this.getBooleanAttribute('include_extensions');
   }
@@ -157,7 +157,7 @@ export class DataAwsApigatewayv2Export extends cdktf.TerraformDataSource {
   }
 
   // output_type - computed: false, optional: false, required: true
-  private _outputType?: string; 
+  private _outputType?: string;
   public get outputType() {
     return this.getStringAttribute('output_type');
   }
@@ -170,7 +170,7 @@ export class DataAwsApigatewayv2Export extends cdktf.TerraformDataSource {
   }
 
   // specification - computed: false, optional: false, required: true
-  private _specification?: string; 
+  private _specification?: string;
   public get specification() {
     return this.getStringAttribute('specification');
   }
@@ -183,7 +183,7 @@ export class DataAwsApigatewayv2Export extends cdktf.TerraformDataSource {
   }
 
   // stage_name - computed: false, optional: true, required: false
-  private _stageName?: string; 
+  private _stageName?: string;
   public get stageName() {
     return this.getStringAttribute('stage_name');
   }

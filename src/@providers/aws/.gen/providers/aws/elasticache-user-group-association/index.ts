@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/elasticache_user_group_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class ElasticacheUserGroupAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class ElasticacheUserGroupAssociation extends cdktf.TerraformResource {
   }
 
   // user_group_id - computed: false, optional: false, required: true
-  private _userGroupId?: string; 
+  private _userGroupId?: string;
   public get userGroupId() {
     return this.getStringAttribute('user_group_id');
   }
@@ -100,7 +100,7 @@ export class ElasticacheUserGroupAssociation extends cdktf.TerraformResource {
   }
 
   // user_id - computed: false, optional: false, required: true
-  private _userId?: string; 
+  private _userId?: string;
   public get userId() {
     return this.getStringAttribute('user_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_logging
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface S3BucketLoggingAConfig extends cdktf.TerraformMetaArguments {
   readonly targetPrefix: string;
   /**
   * target_grant block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_logging#target_grant S3BucketLoggingA#target_grant}
   */
   readonly targetGrant?: S3BucketLoggingTargetGrant[] | cdktf.IResolvable;
@@ -128,7 +128,7 @@ export class S3BucketLoggingTargetGrantGranteeOutputReference extends cdktf.Comp
   }
 
   // email_address - computed: false, optional: true, required: false
-  private _emailAddress?: string; 
+  private _emailAddress?: string;
   public get emailAddress() {
     return this.getStringAttribute('email_address');
   }
@@ -144,7 +144,7 @@ export class S3BucketLoggingTargetGrantGranteeOutputReference extends cdktf.Comp
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -160,7 +160,7 @@ export class S3BucketLoggingTargetGrantGranteeOutputReference extends cdktf.Comp
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -173,7 +173,7 @@ export class S3BucketLoggingTargetGrantGranteeOutputReference extends cdktf.Comp
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -195,7 +195,7 @@ export interface S3BucketLoggingTargetGrant {
   readonly permission: string;
   /**
   * grantee block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_logging#grantee S3BucketLoggingA#grantee}
   */
   readonly grantee: S3BucketLoggingTargetGrantGrantee;
@@ -263,7 +263,7 @@ export class S3BucketLoggingTargetGrantOutputReference extends cdktf.ComplexObje
   }
 
   // permission - computed: false, optional: false, required: true
-  private _permission?: string; 
+  private _permission?: string;
   public get permission() {
     return this.getStringAttribute('permission');
   }
@@ -359,7 +359,7 @@ export class S3BucketLoggingA extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -372,7 +372,7 @@ export class S3BucketLoggingA extends cdktf.TerraformResource {
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -388,7 +388,7 @@ export class S3BucketLoggingA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -404,7 +404,7 @@ export class S3BucketLoggingA extends cdktf.TerraformResource {
   }
 
   // target_bucket - computed: false, optional: false, required: true
-  private _targetBucket?: string; 
+  private _targetBucket?: string;
   public get targetBucket() {
     return this.getStringAttribute('target_bucket');
   }
@@ -417,7 +417,7 @@ export class S3BucketLoggingA extends cdktf.TerraformResource {
   }
 
   // target_prefix - computed: false, optional: false, required: true
-  private _targetPrefix?: string; 
+  private _targetPrefix?: string;
   public get targetPrefix() {
     return this.getStringAttribute('target_prefix');
   }

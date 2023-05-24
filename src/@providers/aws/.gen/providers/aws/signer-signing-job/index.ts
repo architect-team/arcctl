@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/signer_signing_job
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface SignerSigningJobConfig extends cdktf.TerraformMetaArguments {
   readonly profileName: string;
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_job#destination SignerSigningJob#destination}
   */
   readonly destination: SignerSigningJobDestination;
   /**
   * source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_job#source SignerSigningJob#source}
   */
   readonly source: SignerSigningJobSource;
@@ -304,7 +304,7 @@ export class SignerSigningJobDestinationS3OutputReference extends cdktf.ComplexO
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -317,7 +317,7 @@ export class SignerSigningJobDestinationS3OutputReference extends cdktf.ComplexO
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -335,7 +335,7 @@ export class SignerSigningJobDestinationS3OutputReference extends cdktf.ComplexO
 export interface SignerSigningJobDestination {
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_job#s3 SignerSigningJob#s3}
   */
   readonly s3: SignerSigningJobDestinationS3;
@@ -468,7 +468,7 @@ export class SignerSigningJobSourceS3OutputReference extends cdktf.ComplexObject
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -481,7 +481,7 @@ export class SignerSigningJobSourceS3OutputReference extends cdktf.ComplexObject
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -494,7 +494,7 @@ export class SignerSigningJobSourceS3OutputReference extends cdktf.ComplexObject
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -509,7 +509,7 @@ export class SignerSigningJobSourceS3OutputReference extends cdktf.ComplexObject
 export interface SignerSigningJobSource {
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_job#s3 SignerSigningJob#s3}
   */
   readonly s3: SignerSigningJobSourceS3;
@@ -630,7 +630,7 @@ export class SignerSigningJob extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -646,7 +646,7 @@ export class SignerSigningJob extends cdktf.TerraformResource {
   }
 
   // ignore_signing_job_failure - computed: false, optional: true, required: false
-  private _ignoreSigningJobFailure?: boolean | cdktf.IResolvable; 
+  private _ignoreSigningJobFailure?: boolean | cdktf.IResolvable;
   public get ignoreSigningJobFailure() {
     return this.getBooleanAttribute('ignore_signing_job_failure');
   }
@@ -687,7 +687,7 @@ export class SignerSigningJob extends cdktf.TerraformResource {
   }
 
   // profile_name - computed: false, optional: false, required: true
-  private _profileName?: string; 
+  private _profileName?: string;
   public get profileName() {
     return this.getStringAttribute('profile_name');
   }

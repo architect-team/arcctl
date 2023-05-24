@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -549,7 +549,7 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -582,7 +582,7 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -621,7 +621,7 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route_response
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class Apigatewayv2RouteResponse extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -99,7 +99,7 @@ export class Apigatewayv2RouteResponse extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class Apigatewayv2RouteResponse extends cdktf.TerraformResource {
   }
 
   // model_selection_expression - computed: false, optional: true, required: false
-  private _modelSelectionExpression?: string; 
+  private _modelSelectionExpression?: string;
   public get modelSelectionExpression() {
     return this.getStringAttribute('model_selection_expression');
   }
@@ -131,7 +131,7 @@ export class Apigatewayv2RouteResponse extends cdktf.TerraformResource {
   }
 
   // response_models - computed: false, optional: true, required: false
-  private _responseModels?: { [key: string]: string }; 
+  private _responseModels?: { [key: string]: string };
   public get responseModels() {
     return this.getStringMapAttribute('response_models');
   }
@@ -147,7 +147,7 @@ export class Apigatewayv2RouteResponse extends cdktf.TerraformResource {
   }
 
   // route_id - computed: false, optional: false, required: true
-  private _routeId?: string; 
+  private _routeId?: string;
   public get routeId() {
     return this.getStringAttribute('route_id');
   }
@@ -160,7 +160,7 @@ export class Apigatewayv2RouteResponse extends cdktf.TerraformResource {
   }
 
   // route_response_key - computed: false, optional: false, required: true
-  private _routeResponseKey?: string; 
+  private _routeResponseKey?: string;
   public get routeResponseKey() {
     return this.getStringAttribute('route_response_key');
   }

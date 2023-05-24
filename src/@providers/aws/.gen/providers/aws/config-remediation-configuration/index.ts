@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,13 +48,13 @@ export interface ConfigRemediationConfigurationConfig extends cdktf.TerraformMet
   readonly targetVersion?: string;
   /**
   * execution_controls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#execution_controls ConfigRemediationConfiguration#execution_controls}
   */
   readonly executionControls?: ConfigRemediationConfigurationExecutionControls;
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#parameter ConfigRemediationConfiguration#parameter}
   */
   readonly parameter?: ConfigRemediationConfigurationParameter[] | cdktf.IResolvable;
@@ -120,7 +120,7 @@ export class ConfigRemediationConfigurationExecutionControlsSsmControlsOutputRef
   }
 
   // concurrent_execution_rate_percentage - computed: false, optional: true, required: false
-  private _concurrentExecutionRatePercentage?: number; 
+  private _concurrentExecutionRatePercentage?: number;
   public get concurrentExecutionRatePercentage() {
     return this.getNumberAttribute('concurrent_execution_rate_percentage');
   }
@@ -136,7 +136,7 @@ export class ConfigRemediationConfigurationExecutionControlsSsmControlsOutputRef
   }
 
   // error_percentage - computed: false, optional: true, required: false
-  private _errorPercentage?: number; 
+  private _errorPercentage?: number;
   public get errorPercentage() {
     return this.getNumberAttribute('error_percentage');
   }
@@ -154,7 +154,7 @@ export class ConfigRemediationConfigurationExecutionControlsSsmControlsOutputRef
 export interface ConfigRemediationConfigurationExecutionControls {
   /**
   * ssm_controls block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#ssm_controls ConfigRemediationConfiguration#ssm_controls}
   */
   readonly ssmControls?: ConfigRemediationConfigurationExecutionControlsSsmControls;
@@ -313,7 +313,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -326,7 +326,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // resource_value - computed: false, optional: true, required: false
-  private _resourceValue?: string; 
+  private _resourceValue?: string;
   public get resourceValue() {
     return this.getStringAttribute('resource_value');
   }
@@ -342,7 +342,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // static_value - computed: false, optional: true, required: false
-  private _staticValue?: string; 
+  private _staticValue?: string;
   public get staticValue() {
     return this.getStringAttribute('static_value');
   }
@@ -358,7 +358,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // static_values - computed: false, optional: true, required: false
-  private _staticValues?: string[]; 
+  private _staticValues?: string[];
   public get staticValues() {
     return this.getListAttribute('static_values');
   }
@@ -454,7 +454,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // automatic - computed: false, optional: true, required: false
-  private _automatic?: boolean | cdktf.IResolvable; 
+  private _automatic?: boolean | cdktf.IResolvable;
   public get automatic() {
     return this.getBooleanAttribute('automatic');
   }
@@ -470,7 +470,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // config_rule_name - computed: false, optional: false, required: true
-  private _configRuleName?: string; 
+  private _configRuleName?: string;
   public get configRuleName() {
     return this.getStringAttribute('config_rule_name');
   }
@@ -483,7 +483,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -499,7 +499,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // maximum_automatic_attempts - computed: false, optional: true, required: false
-  private _maximumAutomaticAttempts?: number; 
+  private _maximumAutomaticAttempts?: number;
   public get maximumAutomaticAttempts() {
     return this.getNumberAttribute('maximum_automatic_attempts');
   }
@@ -515,7 +515,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // resource_type - computed: false, optional: true, required: false
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -531,7 +531,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // retry_attempt_seconds - computed: false, optional: true, required: false
-  private _retryAttemptSeconds?: number; 
+  private _retryAttemptSeconds?: number;
   public get retryAttemptSeconds() {
     return this.getNumberAttribute('retry_attempt_seconds');
   }
@@ -547,7 +547,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // target_id - computed: false, optional: false, required: true
-  private _targetId?: string; 
+  private _targetId?: string;
   public get targetId() {
     return this.getStringAttribute('target_id');
   }
@@ -560,7 +560,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // target_type - computed: false, optional: false, required: true
-  private _targetType?: string; 
+  private _targetType?: string;
   public get targetType() {
     return this.getStringAttribute('target_type');
   }
@@ -573,7 +573,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // target_version - computed: false, optional: true, required: false
-  private _targetVersion?: string; 
+  private _targetVersion?: string;
   public get targetVersion() {
     return this.getStringAttribute('target_version');
   }

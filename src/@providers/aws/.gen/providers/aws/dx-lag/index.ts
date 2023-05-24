@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_lag
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // connection_id - computed: false, optional: true, required: false
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -122,7 +122,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // connections_bandwidth - computed: false, optional: false, required: true
-  private _connectionsBandwidth?: string; 
+  private _connectionsBandwidth?: string;
   public get connectionsBandwidth() {
     return this.getStringAttribute('connections_bandwidth');
   }
@@ -135,7 +135,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -156,7 +156,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -177,7 +177,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // location - computed: false, optional: false, required: true
-  private _location?: string; 
+  private _location?: string;
   public get location() {
     return this.getStringAttribute('location');
   }
@@ -190,7 +190,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -208,7 +208,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // provider_name - computed: true, optional: true, required: false
-  private _providerName?: string; 
+  private _providerName?: string;
   public get providerName() {
     return this.getStringAttribute('provider_name');
   }
@@ -224,7 +224,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -240,7 +240,7 @@ export class DxLag extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

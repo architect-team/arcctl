@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface ServiceAccountV1Config extends cdktf.TerraformMetaArguments {
   /**
   * Enable automatic mounting of the service account token
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#automount_service_account_token ServiceAccountV1#automount_service_account_token}
   */
   readonly automountServiceAccountToken?: boolean | cdktf.IResolvable;
@@ -22,25 +22,25 @@ export interface ServiceAccountV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * image_pull_secret block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#image_pull_secret ServiceAccountV1#image_pull_secret}
   */
   readonly imagePullSecret?: ServiceAccountV1ImagePullSecret[] | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#metadata ServiceAccountV1#metadata}
   */
   readonly metadata: ServiceAccountV1Metadata;
   /**
   * secret block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#secret ServiceAccountV1#secret}
   */
   readonly secret?: ServiceAccountV1Secret[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#timeouts ServiceAccountV1#timeouts}
   */
   readonly timeouts?: ServiceAccountV1Timeouts;
@@ -48,7 +48,7 @@ export interface ServiceAccountV1Config extends cdktf.TerraformMetaArguments {
 export interface ServiceAccountV1ImagePullSecret {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
   */
   readonly name?: string;
@@ -109,7 +109,7 @@ export class ServiceAccountV1ImagePullSecretOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -147,31 +147,31 @@ export class ServiceAccountV1ImagePullSecretList extends cdktf.ComplexList {
 export interface ServiceAccountV1Metadata {
   /**
   * An unstructured key value map stored with the service account that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#annotations ServiceAccountV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#generate_name ServiceAccountV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the service account. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#labels ServiceAccountV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the service account, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the service account must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#namespace ServiceAccountV1#namespace}
   */
   readonly namespace?: string;
@@ -248,7 +248,7 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -264,7 +264,7 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -285,7 +285,7 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -301,7 +301,7 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -317,7 +317,7 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -345,7 +345,7 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
 export interface ServiceAccountV1Secret {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
   */
   readonly name?: string;
@@ -406,7 +406,7 @@ export class ServiceAccountV1SecretOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -501,7 +501,7 @@ export class ServiceAccountV1TimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -567,7 +567,7 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
   // ==========
 
   // automount_service_account_token - computed: false, optional: true, required: false
-  private _automountServiceAccountToken?: boolean | cdktf.IResolvable; 
+  private _automountServiceAccountToken?: boolean | cdktf.IResolvable;
   public get automountServiceAccountToken() {
     return this.getBooleanAttribute('automount_service_account_token');
   }
@@ -588,7 +588,7 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

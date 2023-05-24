@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafregional_byte_match_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface WafregionalByteMatchSetConfig extends cdktf.TerraformMetaArgume
   readonly name: string;
   /**
   * byte_match_tuples block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_byte_match_set#byte_match_tuples WafregionalByteMatchSet#byte_match_tuples}
   */
   readonly byteMatchTuples?: WafregionalByteMatchSetByteMatchTuples[] | cdktf.IResolvable;
@@ -86,7 +86,7 @@ export class WafregionalByteMatchSetByteMatchTuplesFieldToMatchOutputReference e
   }
 
   // data - computed: false, optional: true, required: false
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -102,7 +102,7 @@ export class WafregionalByteMatchSetByteMatchTuplesFieldToMatchOutputReference e
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -129,7 +129,7 @@ export interface WafregionalByteMatchSetByteMatchTuples {
   readonly textTransformation: string;
   /**
   * field_to_match block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_byte_match_set#field_to_match WafregionalByteMatchSet#field_to_match}
   */
   readonly fieldToMatch: WafregionalByteMatchSetByteMatchTuplesFieldToMatch;
@@ -211,7 +211,7 @@ export class WafregionalByteMatchSetByteMatchTuplesOutputReference extends cdktf
   }
 
   // positional_constraint - computed: false, optional: false, required: true
-  private _positionalConstraint?: string; 
+  private _positionalConstraint?: string;
   public get positionalConstraint() {
     return this.getStringAttribute('positional_constraint');
   }
@@ -224,7 +224,7 @@ export class WafregionalByteMatchSetByteMatchTuplesOutputReference extends cdktf
   }
 
   // target_string - computed: false, optional: true, required: false
-  private _targetString?: string; 
+  private _targetString?: string;
   public get targetString() {
     return this.getStringAttribute('target_string');
   }
@@ -240,7 +240,7 @@ export class WafregionalByteMatchSetByteMatchTuplesOutputReference extends cdktf
   }
 
   // text_transformation - computed: false, optional: false, required: true
-  private _textTransformation?: string; 
+  private _textTransformation?: string;
   public get textTransformation() {
     return this.getStringAttribute('text_transformation');
   }
@@ -333,7 +333,7 @@ export class WafregionalByteMatchSet extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -349,7 +349,7 @@ export class WafregionalByteMatchSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

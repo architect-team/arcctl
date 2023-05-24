@@ -1,13 +1,13 @@
-import { ResourceType } from '../@resources/index.js';
-import { TerraformVersion } from '../plugins/terraform-plugin.js';
+import { ResourceType } from '../@resources/index.ts';
+import { TerraformVersion } from '../plugins/terraform-plugin.ts';
 import {
   ProviderCredentials,
   ProviderCredentialsSchema,
-} from './credentials.js';
-import { ResourceService } from './service.js';
-import { CldctlTestResource } from './tests.js';
-import { SaveFileFn } from './types.js';
-import { Construct } from 'constructs';
+} from './credentials.ts';
+import { ResourceService } from './service.ts';
+import { CldctlTestResource } from './tests.ts';
+import { SaveFileFn } from './types.ts';
+import { Construct } from 'npm:constructs';
 
 export type ProviderResources<C extends ProviderCredentials> = {
   [T in ResourceType]?: ResourceService<T, C>;

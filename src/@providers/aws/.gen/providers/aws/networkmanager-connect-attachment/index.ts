@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface NetworkmanagerConnectAttachmentConfig extends cdktf.TerraformMe
   readonly transportAttachmentId: string;
   /**
   * options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_attachment#options NetworkmanagerConnectAttachment#options}
   */
   readonly options: NetworkmanagerConnectAttachmentOptions;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_attachment#timeouts NetworkmanagerConnectAttachment#timeouts}
   */
   readonly timeouts?: NetworkmanagerConnectAttachmentTimeouts;
@@ -97,7 +97,7 @@ export class NetworkmanagerConnectAttachmentOptionsOutputReference extends cdktf
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -183,7 +183,7 @@ export class NetworkmanagerConnectAttachmentTimeoutsOutputReference extends cdkt
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -199,7 +199,7 @@ export class NetworkmanagerConnectAttachmentTimeoutsOutputReference extends cdkt
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -292,7 +292,7 @@ export class NetworkmanagerConnectAttachment extends cdktf.TerraformResource {
   }
 
   // core_network_id - computed: false, optional: false, required: true
-  private _coreNetworkId?: string; 
+  private _coreNetworkId?: string;
   public get coreNetworkId() {
     return this.getStringAttribute('core_network_id');
   }
@@ -305,7 +305,7 @@ export class NetworkmanagerConnectAttachment extends cdktf.TerraformResource {
   }
 
   // edge_location - computed: false, optional: false, required: true
-  private _edgeLocation?: string; 
+  private _edgeLocation?: string;
   public get edgeLocation() {
     return this.getStringAttribute('edge_location');
   }
@@ -318,7 +318,7 @@ export class NetworkmanagerConnectAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -354,7 +354,7 @@ export class NetworkmanagerConnectAttachment extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -370,7 +370,7 @@ export class NetworkmanagerConnectAttachment extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -386,7 +386,7 @@ export class NetworkmanagerConnectAttachment extends cdktf.TerraformResource {
   }
 
   // transport_attachment_id - computed: false, optional: false, required: true
-  private _transportAttachmentId?: string; 
+  private _transportAttachmentId?: string;
   public get transportAttachmentId() {
     return this.getStringAttribute('transport_attachment_id');
   }

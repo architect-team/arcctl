@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/devicefarm_device_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface DevicefarmDevicePoolConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_device_pool#rule DevicefarmDevicePool#rule}
   */
   readonly rule: DevicefarmDevicePoolRule[] | cdktf.IResolvable;
@@ -129,7 +129,7 @@ export class DevicefarmDevicePoolRuleOutputReference extends cdktf.ComplexObject
   }
 
   // attribute - computed: false, optional: true, required: false
-  private _attribute?: string; 
+  private _attribute?: string;
   public get attribute() {
     return this.getStringAttribute('attribute');
   }
@@ -145,7 +145,7 @@ export class DevicefarmDevicePoolRuleOutputReference extends cdktf.ComplexObject
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -161,7 +161,7 @@ export class DevicefarmDevicePoolRuleOutputReference extends cdktf.ComplexObject
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -254,7 +254,7 @@ export class DevicefarmDevicePool extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -270,7 +270,7 @@ export class DevicefarmDevicePool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -286,7 +286,7 @@ export class DevicefarmDevicePool extends cdktf.TerraformResource {
   }
 
   // max_devices - computed: false, optional: true, required: false
-  private _maxDevices?: number; 
+  private _maxDevices?: number;
   public get maxDevices() {
     return this.getNumberAttribute('max_devices');
   }
@@ -302,7 +302,7 @@ export class DevicefarmDevicePool extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -315,7 +315,7 @@ export class DevicefarmDevicePool extends cdktf.TerraformResource {
   }
 
   // project_arn - computed: false, optional: false, required: true
-  private _projectArn?: string; 
+  private _projectArn?: string;
   public get projectArn() {
     return this.getStringAttribute('project_arn');
   }
@@ -328,7 +328,7 @@ export class DevicefarmDevicePool extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -344,7 +344,7 @@ export class DevicefarmDevicePool extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

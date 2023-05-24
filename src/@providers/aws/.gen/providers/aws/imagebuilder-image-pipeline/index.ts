@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,13 +56,13 @@ export interface ImagebuilderImagePipelineConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * image_tests_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#image_tests_configuration ImagebuilderImagePipeline#image_tests_configuration}
   */
   readonly imageTestsConfiguration?: ImagebuilderImagePipelineImageTestsConfiguration;
   /**
   * schedule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#schedule ImagebuilderImagePipeline#schedule}
   */
   readonly schedule?: ImagebuilderImagePipelineSchedule;
@@ -128,7 +128,7 @@ export class ImagebuilderImagePipelineImageTestsConfigurationOutputReference ext
   }
 
   // image_tests_enabled - computed: false, optional: true, required: false
-  private _imageTestsEnabled?: boolean | cdktf.IResolvable; 
+  private _imageTestsEnabled?: boolean | cdktf.IResolvable;
   public get imageTestsEnabled() {
     return this.getBooleanAttribute('image_tests_enabled');
   }
@@ -144,7 +144,7 @@ export class ImagebuilderImagePipelineImageTestsConfigurationOutputReference ext
   }
 
   // timeout_minutes - computed: false, optional: true, required: false
-  private _timeoutMinutes?: number; 
+  private _timeoutMinutes?: number;
   public get timeoutMinutes() {
     return this.getNumberAttribute('timeout_minutes');
   }
@@ -231,7 +231,7 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
   }
 
   // pipeline_execution_start_condition - computed: false, optional: true, required: false
-  private _pipelineExecutionStartCondition?: string; 
+  private _pipelineExecutionStartCondition?: string;
   public get pipelineExecutionStartCondition() {
     return this.getStringAttribute('pipeline_execution_start_condition');
   }
@@ -247,7 +247,7 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
   }
 
   // schedule_expression - computed: false, optional: false, required: true
-  private _scheduleExpression?: string; 
+  private _scheduleExpression?: string;
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -260,7 +260,7 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
   }
 
   // timezone - computed: true, optional: true, required: false
-  private _timezone?: string; 
+  private _timezone?: string;
   public get timezone() {
     return this.getStringAttribute('timezone');
   }
@@ -338,7 +338,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // container_recipe_arn - computed: false, optional: true, required: false
-  private _containerRecipeArn?: string; 
+  private _containerRecipeArn?: string;
   public get containerRecipeArn() {
     return this.getStringAttribute('container_recipe_arn');
   }
@@ -374,7 +374,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -390,7 +390,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // distribution_configuration_arn - computed: false, optional: true, required: false
-  private _distributionConfigurationArn?: string; 
+  private _distributionConfigurationArn?: string;
   public get distributionConfigurationArn() {
     return this.getStringAttribute('distribution_configuration_arn');
   }
@@ -406,7 +406,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // enhanced_image_metadata_enabled - computed: false, optional: true, required: false
-  private _enhancedImageMetadataEnabled?: boolean | cdktf.IResolvable; 
+  private _enhancedImageMetadataEnabled?: boolean | cdktf.IResolvable;
   public get enhancedImageMetadataEnabled() {
     return this.getBooleanAttribute('enhanced_image_metadata_enabled');
   }
@@ -422,7 +422,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -438,7 +438,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // image_recipe_arn - computed: false, optional: true, required: false
-  private _imageRecipeArn?: string; 
+  private _imageRecipeArn?: string;
   public get imageRecipeArn() {
     return this.getStringAttribute('image_recipe_arn');
   }
@@ -454,7 +454,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // infrastructure_configuration_arn - computed: false, optional: false, required: true
-  private _infrastructureConfigurationArn?: string; 
+  private _infrastructureConfigurationArn?: string;
   public get infrastructureConfigurationArn() {
     return this.getStringAttribute('infrastructure_configuration_arn');
   }
@@ -467,7 +467,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -485,7 +485,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -501,7 +501,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -517,7 +517,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

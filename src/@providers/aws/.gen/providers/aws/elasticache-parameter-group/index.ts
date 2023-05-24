@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/elasticache_parameter_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface ElasticacheParameterGroupConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_parameter_group#parameter ElasticacheParameterGroup#parameter}
   */
   readonly parameter?: ElasticacheParameterGroupParameter[] | cdktf.IResolvable;
@@ -114,7 +114,7 @@ export class ElasticacheParameterGroupParameterOutputReference extends cdktf.Com
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -127,7 +127,7 @@ export class ElasticacheParameterGroupParameterOutputReference extends cdktf.Com
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -216,7 +216,7 @@ export class ElasticacheParameterGroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -232,7 +232,7 @@ export class ElasticacheParameterGroup extends cdktf.TerraformResource {
   }
 
   // family - computed: false, optional: false, required: true
-  private _family?: string; 
+  private _family?: string;
   public get family() {
     return this.getStringAttribute('family');
   }
@@ -245,7 +245,7 @@ export class ElasticacheParameterGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -261,7 +261,7 @@ export class ElasticacheParameterGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -274,7 +274,7 @@ export class ElasticacheParameterGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -290,7 +290,7 @@ export class ElasticacheParameterGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

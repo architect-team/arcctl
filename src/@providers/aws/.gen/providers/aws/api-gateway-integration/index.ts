@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_integration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -80,7 +80,7 @@ export interface ApiGatewayIntegrationConfig extends cdktf.TerraformMetaArgument
   readonly uri?: string;
   /**
   * tls_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#tls_config ApiGatewayIntegration#tls_config}
   */
   readonly tlsConfig?: ApiGatewayIntegrationTlsConfig;
@@ -135,7 +135,7 @@ export class ApiGatewayIntegrationTlsConfigOutputReference extends cdktf.Complex
   }
 
   // insecure_skip_verification - computed: false, optional: true, required: false
-  private _insecureSkipVerification?: boolean | cdktf.IResolvable; 
+  private _insecureSkipVerification?: boolean | cdktf.IResolvable;
   public get insecureSkipVerification() {
     return this.getBooleanAttribute('insecure_skip_verification');
   }
@@ -213,7 +213,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   // ==========
 
   // cache_key_parameters - computed: false, optional: true, required: false
-  private _cacheKeyParameters?: string[]; 
+  private _cacheKeyParameters?: string[];
   public get cacheKeyParameters() {
     return cdktf.Fn.tolist(this.getListAttribute('cache_key_parameters'));
   }
@@ -229,7 +229,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // cache_namespace - computed: true, optional: true, required: false
-  private _cacheNamespace?: string; 
+  private _cacheNamespace?: string;
   public get cacheNamespace() {
     return this.getStringAttribute('cache_namespace');
   }
@@ -245,7 +245,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // connection_id - computed: false, optional: true, required: false
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -261,7 +261,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // connection_type - computed: false, optional: true, required: false
-  private _connectionType?: string; 
+  private _connectionType?: string;
   public get connectionType() {
     return this.getStringAttribute('connection_type');
   }
@@ -277,7 +277,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // content_handling - computed: false, optional: true, required: false
-  private _contentHandling?: string; 
+  private _contentHandling?: string;
   public get contentHandling() {
     return this.getStringAttribute('content_handling');
   }
@@ -293,7 +293,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // credentials - computed: false, optional: true, required: false
-  private _credentials?: string; 
+  private _credentials?: string;
   public get credentials() {
     return this.getStringAttribute('credentials');
   }
@@ -309,7 +309,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // http_method - computed: false, optional: false, required: true
-  private _httpMethod?: string; 
+  private _httpMethod?: string;
   public get httpMethod() {
     return this.getStringAttribute('http_method');
   }
@@ -322,7 +322,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -338,7 +338,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // integration_http_method - computed: false, optional: true, required: false
-  private _integrationHttpMethod?: string; 
+  private _integrationHttpMethod?: string;
   public get integrationHttpMethod() {
     return this.getStringAttribute('integration_http_method');
   }
@@ -354,7 +354,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // passthrough_behavior - computed: true, optional: true, required: false
-  private _passthroughBehavior?: string; 
+  private _passthroughBehavior?: string;
   public get passthroughBehavior() {
     return this.getStringAttribute('passthrough_behavior');
   }
@@ -370,7 +370,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // request_parameters - computed: false, optional: true, required: false
-  private _requestParameters?: { [key: string]: string }; 
+  private _requestParameters?: { [key: string]: string };
   public get requestParameters() {
     return this.getStringMapAttribute('request_parameters');
   }
@@ -386,7 +386,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // request_templates - computed: false, optional: true, required: false
-  private _requestTemplates?: { [key: string]: string }; 
+  private _requestTemplates?: { [key: string]: string };
   public get requestTemplates() {
     return this.getStringMapAttribute('request_templates');
   }
@@ -402,7 +402,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }
@@ -415,7 +415,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -428,7 +428,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // timeout_milliseconds - computed: false, optional: true, required: false
-  private _timeoutMilliseconds?: number; 
+  private _timeoutMilliseconds?: number;
   public get timeoutMilliseconds() {
     return this.getNumberAttribute('timeout_milliseconds');
   }
@@ -444,7 +444,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -457,7 +457,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }

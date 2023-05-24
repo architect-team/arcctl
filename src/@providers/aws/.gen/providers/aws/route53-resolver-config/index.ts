@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_resolver_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class Route53ResolverConfig extends cdktf.TerraformResource {
   // ==========
 
   // autodefined_reverse_flag - computed: false, optional: false, required: true
-  private _autodefinedReverseFlag?: string; 
+  private _autodefinedReverseFlag?: string;
   public get autodefinedReverseFlag() {
     return this.getStringAttribute('autodefined_reverse_flag');
   }
@@ -84,7 +84,7 @@ export class Route53ResolverConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class Route53ResolverConfig extends cdktf.TerraformResource {
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }

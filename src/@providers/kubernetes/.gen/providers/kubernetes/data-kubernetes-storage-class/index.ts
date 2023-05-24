@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/storage_class
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataKubernetesStorageClassConfig extends cdktf.TerraformMetaArguments {
   /**
   * Indicates whether the storage class allow volume expand
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#allow_volume_expansion DataKubernetesStorageClass#allow_volume_expansion}
   */
   readonly allowVolumeExpansion?: boolean | cdktf.IResolvable;
@@ -22,37 +22,37 @@ export interface DataKubernetesStorageClassConfig extends cdktf.TerraformMetaArg
   readonly id?: string;
   /**
   * Persistent Volumes that are dynamically created by a storage class will have the mount options specified
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#mount_options DataKubernetesStorageClass#mount_options}
   */
   readonly mountOptions?: string[];
   /**
   * The parameters for the provisioner that should create volumes of this storage class
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#parameters DataKubernetesStorageClass#parameters}
   */
   readonly parameters?: { [key: string]: string };
   /**
   * Indicates the type of the reclaim policy
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#reclaim_policy DataKubernetesStorageClass#reclaim_policy}
   */
   readonly reclaimPolicy?: string;
   /**
   * Indicates when volume binding and dynamic provisioning should occur
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#volume_binding_mode DataKubernetesStorageClass#volume_binding_mode}
   */
   readonly volumeBindingMode?: string;
   /**
   * allowed_topologies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#allowed_topologies DataKubernetesStorageClass#allowed_topologies}
   */
   readonly allowedTopologies?: DataKubernetesStorageClassAllowedTopologies;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#metadata DataKubernetesStorageClass#metadata}
   */
   readonly metadata: DataKubernetesStorageClassMetadata;
@@ -60,13 +60,13 @@ export interface DataKubernetesStorageClassConfig extends cdktf.TerraformMetaArg
 export interface DataKubernetesStorageClassAllowedTopologiesMatchLabelExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#key DataKubernetesStorageClass#key}
   */
   readonly key?: string;
   /**
   * An array of string values. One value must match the label to be selected.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#values DataKubernetesStorageClass#values}
   */
   readonly values?: string[];
@@ -134,7 +134,7 @@ export class DataKubernetesStorageClassAllowedTopologiesMatchLabelExpressionsOut
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -150,7 +150,7 @@ export class DataKubernetesStorageClassAllowedTopologiesMatchLabelExpressionsOut
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -188,7 +188,7 @@ export class DataKubernetesStorageClassAllowedTopologiesMatchLabelExpressionsLis
 export interface DataKubernetesStorageClassAllowedTopologies {
   /**
   * match_label_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#match_label_expressions DataKubernetesStorageClass#match_label_expressions}
   */
   readonly matchLabelExpressions?: DataKubernetesStorageClassAllowedTopologiesMatchLabelExpressions[] | cdktf.IResolvable;
@@ -255,19 +255,19 @@ export class DataKubernetesStorageClassAllowedTopologiesOutputReference extends 
 export interface DataKubernetesStorageClassMetadata {
   /**
   * An unstructured key value map stored with the storage class that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#annotations DataKubernetesStorageClass#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the storage class. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#labels DataKubernetesStorageClass#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the storage class, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/storage_class#name DataKubernetesStorageClass#name}
   */
   readonly name?: string;
@@ -330,7 +330,7 @@ export class DataKubernetesStorageClassMetadataOutputReference extends cdktf.Com
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -351,7 +351,7 @@ export class DataKubernetesStorageClassMetadataOutputReference extends cdktf.Com
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -367,7 +367,7 @@ export class DataKubernetesStorageClassMetadataOutputReference extends cdktf.Com
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -445,7 +445,7 @@ export class DataKubernetesStorageClass extends cdktf.TerraformDataSource {
   // ==========
 
   // allow_volume_expansion - computed: true, optional: true, required: false
-  private _allowVolumeExpansion?: boolean | cdktf.IResolvable; 
+  private _allowVolumeExpansion?: boolean | cdktf.IResolvable;
   public get allowVolumeExpansion() {
     return this.getBooleanAttribute('allow_volume_expansion');
   }
@@ -461,7 +461,7 @@ export class DataKubernetesStorageClass extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -477,7 +477,7 @@ export class DataKubernetesStorageClass extends cdktf.TerraformDataSource {
   }
 
   // mount_options - computed: true, optional: true, required: false
-  private _mountOptions?: string[]; 
+  private _mountOptions?: string[];
   public get mountOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('mount_options'));
   }
@@ -493,7 +493,7 @@ export class DataKubernetesStorageClass extends cdktf.TerraformDataSource {
   }
 
   // parameters - computed: true, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -509,7 +509,7 @@ export class DataKubernetesStorageClass extends cdktf.TerraformDataSource {
   }
 
   // reclaim_policy - computed: true, optional: true, required: false
-  private _reclaimPolicy?: string; 
+  private _reclaimPolicy?: string;
   public get reclaimPolicy() {
     return this.getStringAttribute('reclaim_policy');
   }
@@ -530,7 +530,7 @@ export class DataKubernetesStorageClass extends cdktf.TerraformDataSource {
   }
 
   // volume_binding_mode - computed: true, optional: true, required: false
-  private _volumeBindingMode?: string; 
+  private _volumeBindingMode?: string;
   public get volumeBindingMode() {
     return this.getStringAttribute('volume_binding_mode');
   }

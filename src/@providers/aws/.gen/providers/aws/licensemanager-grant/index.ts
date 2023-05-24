@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/licensemanager_grant
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface LicensemanagerGrantConfig extends cdktf.TerraformMetaArguments {
   /**
   * Allowed operations for the grant. This is a subset of the allowed operations on the license.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/licensemanager_grant#allowed_operations LicensemanagerGrant#allowed_operations}
   */
   readonly allowedOperations: string[];
@@ -22,19 +22,19 @@ export interface LicensemanagerGrantConfig extends cdktf.TerraformMetaArguments 
   readonly id?: string;
   /**
   * License ARN.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/licensemanager_grant#license_arn LicensemanagerGrant#license_arn}
   */
   readonly licenseArn: string;
   /**
   * Name of the grant.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/licensemanager_grant#name LicensemanagerGrant#name}
   */
   readonly name: string;
   /**
   * The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/licensemanager_grant#principal LicensemanagerGrant#principal}
   */
   readonly principal: string;
@@ -89,7 +89,7 @@ export class LicensemanagerGrant extends cdktf.TerraformResource {
   // ==========
 
   // allowed_operations - computed: false, optional: false, required: true
-  private _allowedOperations?: string[]; 
+  private _allowedOperations?: string[];
   public get allowedOperations() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_operations'));
   }
@@ -112,7 +112,7 @@ export class LicensemanagerGrant extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -128,7 +128,7 @@ export class LicensemanagerGrant extends cdktf.TerraformResource {
   }
 
   // license_arn - computed: false, optional: false, required: true
-  private _licenseArn?: string; 
+  private _licenseArn?: string;
   public get licenseArn() {
     return this.getStringAttribute('license_arn');
   }
@@ -141,7 +141,7 @@ export class LicensemanagerGrant extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -159,7 +159,7 @@ export class LicensemanagerGrant extends cdktf.TerraformResource {
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }

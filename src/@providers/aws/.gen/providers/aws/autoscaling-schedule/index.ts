@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscaling_schedule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // autoscaling_group_name - computed: false, optional: false, required: true
-  private _autoscalingGroupName?: string; 
+  private _autoscalingGroupName?: string;
   public get autoscalingGroupName() {
     return this.getStringAttribute('autoscaling_group_name');
   }
@@ -124,7 +124,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // desired_capacity - computed: true, optional: true, required: false
-  private _desiredCapacity?: number; 
+  private _desiredCapacity?: number;
   public get desiredCapacity() {
     return this.getNumberAttribute('desired_capacity');
   }
@@ -140,7 +140,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // end_time - computed: true, optional: true, required: false
-  private _endTime?: string; 
+  private _endTime?: string;
   public get endTime() {
     return this.getStringAttribute('end_time');
   }
@@ -156,7 +156,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -172,7 +172,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // max_size - computed: true, optional: true, required: false
-  private _maxSize?: number; 
+  private _maxSize?: number;
   public get maxSize() {
     return this.getNumberAttribute('max_size');
   }
@@ -188,7 +188,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // min_size - computed: true, optional: true, required: false
-  private _minSize?: number; 
+  private _minSize?: number;
   public get minSize() {
     return this.getNumberAttribute('min_size');
   }
@@ -204,7 +204,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // recurrence - computed: true, optional: true, required: false
-  private _recurrence?: string; 
+  private _recurrence?: string;
   public get recurrence() {
     return this.getStringAttribute('recurrence');
   }
@@ -220,7 +220,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // scheduled_action_name - computed: false, optional: false, required: true
-  private _scheduledActionName?: string; 
+  private _scheduledActionName?: string;
   public get scheduledActionName() {
     return this.getStringAttribute('scheduled_action_name');
   }
@@ -233,7 +233,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // start_time - computed: true, optional: true, required: false
-  private _startTime?: string; 
+  private _startTime?: string;
   public get startTime() {
     return this.getStringAttribute('start_time');
   }
@@ -249,7 +249,7 @@ export class AutoscalingSchedule extends cdktf.TerraformResource {
   }
 
   // time_zone - computed: true, optional: true, required: false
-  private _timeZone?: string; 
+  private _timeZone?: string;
   public get timeZone() {
     return this.getStringAttribute('time_zone');
   }

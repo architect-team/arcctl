@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_cell
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface Route53RecoveryreadinessCellConfig extends cdktf.TerraformMetaA
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_cell#timeouts Route53RecoveryreadinessCell#timeouts}
   */
   readonly timeouts?: Route53RecoveryreadinessCellTimeouts;
@@ -97,7 +97,7 @@ export class Route53RecoveryreadinessCellTimeoutsOutputReference extends cdktf.C
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -168,7 +168,7 @@ export class Route53RecoveryreadinessCell extends cdktf.TerraformResource {
   }
 
   // cell_name - computed: false, optional: false, required: true
-  private _cellName?: string; 
+  private _cellName?: string;
   public get cellName() {
     return this.getStringAttribute('cell_name');
   }
@@ -181,7 +181,7 @@ export class Route53RecoveryreadinessCell extends cdktf.TerraformResource {
   }
 
   // cells - computed: false, optional: true, required: false
-  private _cells?: string[]; 
+  private _cells?: string[];
   public get cells() {
     return this.getListAttribute('cells');
   }
@@ -197,7 +197,7 @@ export class Route53RecoveryreadinessCell extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -218,7 +218,7 @@ export class Route53RecoveryreadinessCell extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -234,7 +234,7 @@ export class Route53RecoveryreadinessCell extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

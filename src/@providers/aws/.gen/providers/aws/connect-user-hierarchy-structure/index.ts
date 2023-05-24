@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface ConnectUserHierarchyStructureConfig extends cdktf.TerraformMeta
   readonly instanceId: string;
   /**
   * hierarchy_structure block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#hierarchy_structure ConnectUserHierarchyStructure#hierarchy_structure}
   */
   readonly hierarchyStructure: ConnectUserHierarchyStructureHierarchyStructure;
@@ -85,7 +85,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputRefer
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -157,7 +157,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputRefer
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -229,7 +229,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputRefere
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -301,7 +301,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputRefe
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -373,7 +373,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputRefere
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -388,31 +388,31 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputRefere
 export interface ConnectUserHierarchyStructureHierarchyStructure {
   /**
   * level_five block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_five ConnectUserHierarchyStructure#level_five}
   */
   readonly levelFive?: ConnectUserHierarchyStructureHierarchyStructureLevelFive;
   /**
   * level_four block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_four ConnectUserHierarchyStructure#level_four}
   */
   readonly levelFour?: ConnectUserHierarchyStructureHierarchyStructureLevelFour;
   /**
   * level_one block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_one ConnectUserHierarchyStructure#level_one}
   */
   readonly levelOne?: ConnectUserHierarchyStructureHierarchyStructureLevelOne;
   /**
   * level_three block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_three ConnectUserHierarchyStructure#level_three}
   */
   readonly levelThree?: ConnectUserHierarchyStructureHierarchyStructureLevelThree;
   /**
   * level_two block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_two ConnectUserHierarchyStructure#level_two}
   */
   readonly levelTwo?: ConnectUserHierarchyStructureHierarchyStructureLevelTwo;
@@ -616,7 +616,7 @@ export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -632,7 +632,7 @@ export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }

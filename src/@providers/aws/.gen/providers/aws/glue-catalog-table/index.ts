@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_catalog_table
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,25 +56,25 @@ export interface GlueCatalogTableConfig extends cdktf.TerraformMetaArguments {
   readonly viewOriginalText?: string;
   /**
   * partition_index block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#partition_index GlueCatalogTable#partition_index}
   */
   readonly partitionIndex?: GlueCatalogTablePartitionIndex[] | cdktf.IResolvable;
   /**
   * partition_keys block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#partition_keys GlueCatalogTable#partition_keys}
   */
   readonly partitionKeys?: GlueCatalogTablePartitionKeys[] | cdktf.IResolvable;
   /**
   * storage_descriptor block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#storage_descriptor GlueCatalogTable#storage_descriptor}
   */
   readonly storageDescriptor?: GlueCatalogTableStorageDescriptor;
   /**
   * target_table block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#target_table GlueCatalogTable#target_table}
   */
   readonly targetTable?: GlueCatalogTableTargetTable;
@@ -152,7 +152,7 @@ export class GlueCatalogTablePartitionIndexOutputReference extends cdktf.Complex
   }
 
   // index_name - computed: false, optional: false, required: true
-  private _indexName?: string; 
+  private _indexName?: string;
   public get indexName() {
     return this.getStringAttribute('index_name');
   }
@@ -170,7 +170,7 @@ export class GlueCatalogTablePartitionIndexOutputReference extends cdktf.Complex
   }
 
   // keys - computed: false, optional: false, required: true
-  private _keys?: string[]; 
+  private _keys?: string[];
   public get keys() {
     return this.getListAttribute('keys');
   }
@@ -286,7 +286,7 @@ export class GlueCatalogTablePartitionKeysOutputReference extends cdktf.ComplexO
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -302,7 +302,7 @@ export class GlueCatalogTablePartitionKeysOutputReference extends cdktf.ComplexO
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -315,7 +315,7 @@ export class GlueCatalogTablePartitionKeysOutputReference extends cdktf.ComplexO
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -445,7 +445,7 @@ export class GlueCatalogTableStorageDescriptorColumnsOutputReference extends cdk
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -461,7 +461,7 @@ export class GlueCatalogTableStorageDescriptorColumnsOutputReference extends cdk
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -474,7 +474,7 @@ export class GlueCatalogTableStorageDescriptorColumnsOutputReference extends cdk
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -490,7 +490,7 @@ export class GlueCatalogTableStorageDescriptorColumnsOutputReference extends cdk
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -597,7 +597,7 @@ export class GlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputRefer
   }
 
   // registry_name - computed: false, optional: true, required: false
-  private _registryName?: string; 
+  private _registryName?: string;
   public get registryName() {
     return this.getStringAttribute('registry_name');
   }
@@ -613,7 +613,7 @@ export class GlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputRefer
   }
 
   // schema_arn - computed: false, optional: true, required: false
-  private _schemaArn?: string; 
+  private _schemaArn?: string;
   public get schemaArn() {
     return this.getStringAttribute('schema_arn');
   }
@@ -629,7 +629,7 @@ export class GlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputRefer
   }
 
   // schema_name - computed: false, optional: true, required: false
-  private _schemaName?: string; 
+  private _schemaName?: string;
   public get schemaName() {
     return this.getStringAttribute('schema_name');
   }
@@ -655,7 +655,7 @@ export interface GlueCatalogTableStorageDescriptorSchemaReference {
   readonly schemaVersionNumber: number;
   /**
   * schema_id block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#schema_id GlueCatalogTable#schema_id}
   */
   readonly schemaId?: GlueCatalogTableStorageDescriptorSchemaReferenceSchemaId;
@@ -718,7 +718,7 @@ export class GlueCatalogTableStorageDescriptorSchemaReferenceOutputReference ext
   }
 
   // schema_version_id - computed: false, optional: true, required: false
-  private _schemaVersionId?: string; 
+  private _schemaVersionId?: string;
   public get schemaVersionId() {
     return this.getStringAttribute('schema_version_id');
   }
@@ -734,7 +734,7 @@ export class GlueCatalogTableStorageDescriptorSchemaReferenceOutputReference ext
   }
 
   // schema_version_number - computed: false, optional: false, required: true
-  private _schemaVersionNumber?: number; 
+  private _schemaVersionNumber?: number;
   public get schemaVersionNumber() {
     return this.getNumberAttribute('schema_version_number');
   }
@@ -834,7 +834,7 @@ export class GlueCatalogTableStorageDescriptorSerDeInfoOutputReference extends c
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -850,7 +850,7 @@ export class GlueCatalogTableStorageDescriptorSerDeInfoOutputReference extends c
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -866,7 +866,7 @@ export class GlueCatalogTableStorageDescriptorSerDeInfoOutputReference extends c
   }
 
   // serialization_library - computed: false, optional: true, required: false
-  private _serializationLibrary?: string; 
+  private _serializationLibrary?: string;
   public get serializationLibrary() {
     return this.getStringAttribute('serialization_library');
   }
@@ -953,7 +953,7 @@ export class GlueCatalogTableStorageDescriptorSkewedInfoOutputReference extends 
   }
 
   // skewed_column_names - computed: false, optional: true, required: false
-  private _skewedColumnNames?: string[]; 
+  private _skewedColumnNames?: string[];
   public get skewedColumnNames() {
     return this.getListAttribute('skewed_column_names');
   }
@@ -969,7 +969,7 @@ export class GlueCatalogTableStorageDescriptorSkewedInfoOutputReference extends 
   }
 
   // skewed_column_value_location_maps - computed: false, optional: true, required: false
-  private _skewedColumnValueLocationMaps?: { [key: string]: string }; 
+  private _skewedColumnValueLocationMaps?: { [key: string]: string };
   public get skewedColumnValueLocationMaps() {
     return this.getStringMapAttribute('skewed_column_value_location_maps');
   }
@@ -985,7 +985,7 @@ export class GlueCatalogTableStorageDescriptorSkewedInfoOutputReference extends 
   }
 
   // skewed_column_values - computed: false, optional: true, required: false
-  private _skewedColumnValues?: string[]; 
+  private _skewedColumnValues?: string[];
   public get skewedColumnValues() {
     return this.getListAttribute('skewed_column_values');
   }
@@ -1073,7 +1073,7 @@ export class GlueCatalogTableStorageDescriptorSortColumnsOutputReference extends
   }
 
   // column - computed: false, optional: false, required: true
-  private _column?: string; 
+  private _column?: string;
   public get column() {
     return this.getStringAttribute('column');
   }
@@ -1086,7 +1086,7 @@ export class GlueCatalogTableStorageDescriptorSortColumnsOutputReference extends
   }
 
   // sort_order - computed: false, optional: false, required: true
-  private _sortOrder?: number; 
+  private _sortOrder?: number;
   public get sortOrder() {
     return this.getNumberAttribute('sort_order');
   }
@@ -1153,31 +1153,31 @@ export interface GlueCatalogTableStorageDescriptor {
   readonly storedAsSubDirectories?: boolean | cdktf.IResolvable;
   /**
   * columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#columns GlueCatalogTable#columns}
   */
   readonly columns?: GlueCatalogTableStorageDescriptorColumns[] | cdktf.IResolvable;
   /**
   * schema_reference block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#schema_reference GlueCatalogTable#schema_reference}
   */
   readonly schemaReference?: GlueCatalogTableStorageDescriptorSchemaReference;
   /**
   * ser_de_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#ser_de_info GlueCatalogTable#ser_de_info}
   */
   readonly serDeInfo?: GlueCatalogTableStorageDescriptorSerDeInfo;
   /**
   * skewed_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#skewed_info GlueCatalogTable#skewed_info}
   */
   readonly skewedInfo?: GlueCatalogTableStorageDescriptorSkewedInfo;
   /**
   * sort_columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_table#sort_columns GlueCatalogTable#sort_columns}
   */
   readonly sortColumns?: GlueCatalogTableStorageDescriptorSortColumns[] | cdktf.IResolvable;
@@ -1310,7 +1310,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // bucket_columns - computed: false, optional: true, required: false
-  private _bucketColumns?: string[]; 
+  private _bucketColumns?: string[];
   public get bucketColumns() {
     return this.getListAttribute('bucket_columns');
   }
@@ -1326,7 +1326,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // compressed - computed: false, optional: true, required: false
-  private _compressed?: boolean | cdktf.IResolvable; 
+  private _compressed?: boolean | cdktf.IResolvable;
   public get compressed() {
     return this.getBooleanAttribute('compressed');
   }
@@ -1342,7 +1342,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // input_format - computed: false, optional: true, required: false
-  private _inputFormat?: string; 
+  private _inputFormat?: string;
   public get inputFormat() {
     return this.getStringAttribute('input_format');
   }
@@ -1358,7 +1358,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // location - computed: false, optional: true, required: false
-  private _location?: string; 
+  private _location?: string;
   public get location() {
     return this.getStringAttribute('location');
   }
@@ -1374,7 +1374,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // number_of_buckets - computed: false, optional: true, required: false
-  private _numberOfBuckets?: number; 
+  private _numberOfBuckets?: number;
   public get numberOfBuckets() {
     return this.getNumberAttribute('number_of_buckets');
   }
@@ -1390,7 +1390,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // output_format - computed: false, optional: true, required: false
-  private _outputFormat?: string; 
+  private _outputFormat?: string;
   public get outputFormat() {
     return this.getStringAttribute('output_format');
   }
@@ -1406,7 +1406,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -1422,7 +1422,7 @@ export class GlueCatalogTableStorageDescriptorOutputReference extends cdktf.Comp
   }
 
   // stored_as_sub_directories - computed: false, optional: true, required: false
-  private _storedAsSubDirectories?: boolean | cdktf.IResolvable; 
+  private _storedAsSubDirectories?: boolean | cdktf.IResolvable;
   public get storedAsSubDirectories() {
     return this.getBooleanAttribute('stored_as_sub_directories');
   }
@@ -1589,7 +1589,7 @@ export class GlueCatalogTableTargetTableOutputReference extends cdktf.ComplexObj
   }
 
   // catalog_id - computed: false, optional: false, required: true
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -1602,7 +1602,7 @@ export class GlueCatalogTableTargetTableOutputReference extends cdktf.ComplexObj
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -1615,7 +1615,7 @@ export class GlueCatalogTableTargetTableOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1692,7 +1692,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -1708,7 +1708,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -1721,7 +1721,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1737,7 +1737,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1753,7 +1753,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1766,7 +1766,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // owner - computed: false, optional: true, required: false
-  private _owner?: string; 
+  private _owner?: string;
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -1782,7 +1782,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -1798,7 +1798,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // retention - computed: false, optional: true, required: false
-  private _retention?: number; 
+  private _retention?: number;
   public get retention() {
     return this.getNumberAttribute('retention');
   }
@@ -1814,7 +1814,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // table_type - computed: false, optional: true, required: false
-  private _tableType?: string; 
+  private _tableType?: string;
   public get tableType() {
     return this.getStringAttribute('table_type');
   }
@@ -1830,7 +1830,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // view_expanded_text - computed: false, optional: true, required: false
-  private _viewExpandedText?: string; 
+  private _viewExpandedText?: string;
   public get viewExpandedText() {
     return this.getStringAttribute('view_expanded_text');
   }
@@ -1846,7 +1846,7 @@ export class GlueCatalogTable extends cdktf.TerraformResource {
   }
 
   // view_original_text - computed: false, optional: true, required: false
-  private _viewOriginalText?: string; 
+  private _viewOriginalText?: string;
   public get viewOriginalText() {
     return this.getStringAttribute('view_original_text');
   }

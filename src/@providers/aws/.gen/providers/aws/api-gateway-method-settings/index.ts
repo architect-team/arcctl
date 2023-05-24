@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_method_settings
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface ApiGatewayMethodSettingsConfig extends cdktf.TerraformMetaArgum
   readonly stageName: string;
   /**
   * settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_method_settings#settings ApiGatewayMethodSettings#settings}
   */
   readonly settings: ApiGatewayMethodSettingsSettings;
@@ -182,7 +182,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // cache_data_encrypted - computed: true, optional: true, required: false
-  private _cacheDataEncrypted?: boolean | cdktf.IResolvable; 
+  private _cacheDataEncrypted?: boolean | cdktf.IResolvable;
   public get cacheDataEncrypted() {
     return this.getBooleanAttribute('cache_data_encrypted');
   }
@@ -198,7 +198,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // cache_ttl_in_seconds - computed: true, optional: true, required: false
-  private _cacheTtlInSeconds?: number; 
+  private _cacheTtlInSeconds?: number;
   public get cacheTtlInSeconds() {
     return this.getNumberAttribute('cache_ttl_in_seconds');
   }
@@ -214,7 +214,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // caching_enabled - computed: true, optional: true, required: false
-  private _cachingEnabled?: boolean | cdktf.IResolvable; 
+  private _cachingEnabled?: boolean | cdktf.IResolvable;
   public get cachingEnabled() {
     return this.getBooleanAttribute('caching_enabled');
   }
@@ -230,7 +230,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // data_trace_enabled - computed: true, optional: true, required: false
-  private _dataTraceEnabled?: boolean | cdktf.IResolvable; 
+  private _dataTraceEnabled?: boolean | cdktf.IResolvable;
   public get dataTraceEnabled() {
     return this.getBooleanAttribute('data_trace_enabled');
   }
@@ -246,7 +246,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // logging_level - computed: true, optional: true, required: false
-  private _loggingLevel?: string; 
+  private _loggingLevel?: string;
   public get loggingLevel() {
     return this.getStringAttribute('logging_level');
   }
@@ -262,7 +262,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // metrics_enabled - computed: true, optional: true, required: false
-  private _metricsEnabled?: boolean | cdktf.IResolvable; 
+  private _metricsEnabled?: boolean | cdktf.IResolvable;
   public get metricsEnabled() {
     return this.getBooleanAttribute('metrics_enabled');
   }
@@ -278,7 +278,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // require_authorization_for_cache_control - computed: true, optional: true, required: false
-  private _requireAuthorizationForCacheControl?: boolean | cdktf.IResolvable; 
+  private _requireAuthorizationForCacheControl?: boolean | cdktf.IResolvable;
   public get requireAuthorizationForCacheControl() {
     return this.getBooleanAttribute('require_authorization_for_cache_control');
   }
@@ -294,7 +294,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // throttling_burst_limit - computed: false, optional: true, required: false
-  private _throttlingBurstLimit?: number; 
+  private _throttlingBurstLimit?: number;
   public get throttlingBurstLimit() {
     return this.getNumberAttribute('throttling_burst_limit');
   }
@@ -310,7 +310,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // throttling_rate_limit - computed: false, optional: true, required: false
-  private _throttlingRateLimit?: number; 
+  private _throttlingRateLimit?: number;
   public get throttlingRateLimit() {
     return this.getNumberAttribute('throttling_rate_limit');
   }
@@ -326,7 +326,7 @@ export class ApiGatewayMethodSettingsSettingsOutputReference extends cdktf.Compl
   }
 
   // unauthorized_cache_control_header_strategy - computed: true, optional: true, required: false
-  private _unauthorizedCacheControlHeaderStrategy?: string; 
+  private _unauthorizedCacheControlHeaderStrategy?: string;
   public get unauthorizedCacheControlHeaderStrategy() {
     return this.getStringAttribute('unauthorized_cache_control_header_strategy');
   }
@@ -391,7 +391,7 @@ export class ApiGatewayMethodSettings extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -407,7 +407,7 @@ export class ApiGatewayMethodSettings extends cdktf.TerraformResource {
   }
 
   // method_path - computed: false, optional: false, required: true
-  private _methodPath?: string; 
+  private _methodPath?: string;
   public get methodPath() {
     return this.getStringAttribute('method_path');
   }
@@ -420,7 +420,7 @@ export class ApiGatewayMethodSettings extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -433,7 +433,7 @@ export class ApiGatewayMethodSettings extends cdktf.TerraformResource {
   }
 
   // stage_name - computed: false, optional: false, required: true
-  private _stageName?: string; 
+  private _stageName?: string;
   public get stageName() {
     return this.getStringAttribute('stage_name');
   }

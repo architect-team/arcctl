@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/container_registry_docker_credentials
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class ContainerRegistryDockerCredentials extends cdktf.TerraformResource 
   }
 
   // expiry_seconds - computed: false, optional: true, required: false
-  private _expirySeconds?: number; 
+  private _expirySeconds?: number;
   public get expirySeconds() {
     return this.getNumberAttribute('expiry_seconds');
   }
@@ -102,7 +102,7 @@ export class ContainerRegistryDockerCredentials extends cdktf.TerraformResource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class ContainerRegistryDockerCredentials extends cdktf.TerraformResource 
   }
 
   // registry_name - computed: false, optional: false, required: true
-  private _registryName?: string; 
+  private _registryName?: string;
   public get registryName() {
     return this.getStringAttribute('registry_name');
   }
@@ -131,7 +131,7 @@ export class ContainerRegistryDockerCredentials extends cdktf.TerraformResource 
   }
 
   // write - computed: false, optional: true, required: false
-  private _write?: boolean | cdktf.IResolvable; 
+  private _write?: boolean | cdktf.IResolvable;
   public get write() {
     return this.getBooleanAttribute('write');
   }

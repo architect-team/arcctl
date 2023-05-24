@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +112,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // password_length - computed: false, optional: true, required: false
-  private _passwordLength?: number; 
+  private _passwordLength?: number;
   public get passwordLength() {
     return this.getNumberAttribute('password_length');
   }
@@ -128,7 +128,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // password_reset_required - computed: true, optional: true, required: false
-  private _passwordResetRequired?: boolean | cdktf.IResolvable; 
+  private _passwordResetRequired?: boolean | cdktf.IResolvable;
   public get passwordResetRequired() {
     return this.getBooleanAttribute('password_reset_required');
   }
@@ -144,7 +144,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // pgp_key - computed: false, optional: true, required: false
-  private _pgpKey?: string; 
+  private _pgpKey?: string;
   public get pgpKey() {
     return this.getStringAttribute('pgp_key');
   }
@@ -160,7 +160,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // user - computed: false, optional: false, required: true
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }

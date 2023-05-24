@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/s3_objects
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -114,7 +114,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   }
 
   // delimiter - computed: false, optional: true, required: false
-  private _delimiter?: string; 
+  private _delimiter?: string;
   public get delimiter() {
     return this.getStringAttribute('delimiter');
   }
@@ -130,7 +130,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   }
 
   // encoding_type - computed: false, optional: true, required: false
-  private _encodingType?: string; 
+  private _encodingType?: string;
   public get encodingType() {
     return this.getStringAttribute('encoding_type');
   }
@@ -146,7 +146,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   }
 
   // fetch_owner - computed: false, optional: true, required: false
-  private _fetchOwner?: boolean | cdktf.IResolvable; 
+  private _fetchOwner?: boolean | cdktf.IResolvable;
   public get fetchOwner() {
     return this.getBooleanAttribute('fetch_owner');
   }
@@ -162,7 +162,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -183,7 +183,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   }
 
   // max_keys - computed: false, optional: true, required: false
-  private _maxKeys?: number; 
+  private _maxKeys?: number;
   public get maxKeys() {
     return this.getNumberAttribute('max_keys');
   }
@@ -204,7 +204,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -220,7 +220,7 @@ export class DataAwsS3Objects extends cdktf.TerraformDataSource {
   }
 
   // start_after - computed: false, optional: true, required: false
-  private _startAfter?: string; 
+  private _startAfter?: string;
   public get startAfter() {
     return this.getStringAttribute('start_after');
   }

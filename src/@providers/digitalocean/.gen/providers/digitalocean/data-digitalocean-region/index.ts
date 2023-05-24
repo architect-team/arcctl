@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/region
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataDigitaloceanRegion extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class DataDigitaloceanRegion extends cdktf.TerraformDataSource {
   }
 
   // slug - computed: false, optional: false, required: true
-  private _slug?: string; 
+  private _slug?: string;
   public get slug() {
     return this.getStringAttribute('slug');
   }

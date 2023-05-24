@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dms_replication_subnet_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface DmsReplicationSubnetGroupConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_subnet_group#timeouts DmsReplicationSubnetGroup#timeouts}
   */
   readonly timeouts?: DmsReplicationSubnetGroupTimeouts;
@@ -123,7 +123,7 @@ export class DmsReplicationSubnetGroupTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -139,7 +139,7 @@ export class DmsReplicationSubnetGroupTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -155,7 +155,7 @@ export class DmsReplicationSubnetGroupTimeoutsOutputReference extends cdktf.Comp
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -222,7 +222,7 @@ export class DmsReplicationSubnetGroup extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -243,7 +243,7 @@ export class DmsReplicationSubnetGroup extends cdktf.TerraformResource {
   }
 
   // replication_subnet_group_description - computed: false, optional: false, required: true
-  private _replicationSubnetGroupDescription?: string; 
+  private _replicationSubnetGroupDescription?: string;
   public get replicationSubnetGroupDescription() {
     return this.getStringAttribute('replication_subnet_group_description');
   }
@@ -256,7 +256,7 @@ export class DmsReplicationSubnetGroup extends cdktf.TerraformResource {
   }
 
   // replication_subnet_group_id - computed: false, optional: false, required: true
-  private _replicationSubnetGroupId?: string; 
+  private _replicationSubnetGroupId?: string;
   public get replicationSubnetGroupId() {
     return this.getStringAttribute('replication_subnet_group_id');
   }
@@ -269,7 +269,7 @@ export class DmsReplicationSubnetGroup extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -282,7 +282,7 @@ export class DmsReplicationSubnetGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -298,7 +298,7 @@ export class DmsReplicationSubnetGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +112,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable; 
+  private _mostRecent?: boolean | cdktf.IResolvable;
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }
@@ -128,7 +128,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -144,7 +144,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // name_regex - computed: false, optional: true, required: false
-  private _nameRegex?: string; 
+  private _nameRegex?: string;
   public get nameRegex() {
     return this.getStringAttribute('name_regex');
   }
@@ -160,7 +160,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

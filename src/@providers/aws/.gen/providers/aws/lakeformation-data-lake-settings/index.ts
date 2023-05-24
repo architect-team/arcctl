@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/lakeformation_data_lake_settings
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface LakeformationDataLakeSettingsConfig extends cdktf.TerraformMeta
   readonly trustedResourceOwners?: string[];
   /**
   * create_database_default_permissions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_data_lake_settings#create_database_default_permissions LakeformationDataLakeSettings#create_database_default_permissions}
   */
   readonly createDatabaseDefaultPermissions?: LakeformationDataLakeSettingsCreateDatabaseDefaultPermissions[] | cdktf.IResolvable;
   /**
   * create_table_default_permissions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_data_lake_settings#create_table_default_permissions LakeformationDataLakeSettings#create_table_default_permissions}
   */
   readonly createTableDefaultPermissions?: LakeformationDataLakeSettingsCreateTableDefaultPermissions[] | cdktf.IResolvable;
@@ -112,7 +112,7 @@ export class LakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsOutput
   }
 
   // permissions - computed: true, optional: true, required: false
-  private _permissions?: string[]; 
+  private _permissions?: string[];
   public get permissions() {
     return cdktf.Fn.tolist(this.getListAttribute('permissions'));
   }
@@ -128,7 +128,7 @@ export class LakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsOutput
   }
 
   // principal - computed: true, optional: true, required: false
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -236,7 +236,7 @@ export class LakeformationDataLakeSettingsCreateTableDefaultPermissionsOutputRef
   }
 
   // permissions - computed: true, optional: true, required: false
-  private _permissions?: string[]; 
+  private _permissions?: string[];
   public get permissions() {
     return cdktf.Fn.tolist(this.getListAttribute('permissions'));
   }
@@ -252,7 +252,7 @@ export class LakeformationDataLakeSettingsCreateTableDefaultPermissionsOutputRef
   }
 
   // principal - computed: true, optional: true, required: false
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -338,7 +338,7 @@ export class LakeformationDataLakeSettings extends cdktf.TerraformResource {
   // ==========
 
   // admins - computed: true, optional: true, required: false
-  private _admins?: string[]; 
+  private _admins?: string[];
   public get admins() {
     return cdktf.Fn.tolist(this.getListAttribute('admins'));
   }
@@ -354,7 +354,7 @@ export class LakeformationDataLakeSettings extends cdktf.TerraformResource {
   }
 
   // catalog_id - computed: false, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -370,7 +370,7 @@ export class LakeformationDataLakeSettings extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -386,7 +386,7 @@ export class LakeformationDataLakeSettings extends cdktf.TerraformResource {
   }
 
   // trusted_resource_owners - computed: true, optional: true, required: false
-  private _trustedResourceOwners?: string[]; 
+  private _trustedResourceOwners?: string[];
   public get trustedResourceOwners() {
     return this.getListAttribute('trusted_resource_owners');
   }

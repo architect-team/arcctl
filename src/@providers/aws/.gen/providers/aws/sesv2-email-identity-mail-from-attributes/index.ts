@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity_mail_from_attributes
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Sesv2EmailIdentityMailFromAttributes extends cdktf.TerraformResourc
   // ==========
 
   // behavior_on_mx_failure - computed: false, optional: true, required: false
-  private _behaviorOnMxFailure?: string; 
+  private _behaviorOnMxFailure?: string;
   public get behaviorOnMxFailure() {
     return this.getStringAttribute('behavior_on_mx_failure');
   }
@@ -92,7 +92,7 @@ export class Sesv2EmailIdentityMailFromAttributes extends cdktf.TerraformResourc
   }
 
   // email_identity - computed: false, optional: false, required: true
-  private _emailIdentity?: string; 
+  private _emailIdentity?: string;
   public get emailIdentity() {
     return this.getStringAttribute('email_identity');
   }
@@ -105,7 +105,7 @@ export class Sesv2EmailIdentityMailFromAttributes extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -121,7 +121,7 @@ export class Sesv2EmailIdentityMailFromAttributes extends cdktf.TerraformResourc
   }
 
   // mail_from_domain - computed: false, optional: true, required: false
-  private _mailFromDomain?: string; 
+  private _mailFromDomain?: string;
   public get mailFromDomain() {
     return this.getStringAttribute('mail_from_domain');
   }

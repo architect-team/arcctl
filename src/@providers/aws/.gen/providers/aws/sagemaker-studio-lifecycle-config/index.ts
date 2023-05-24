@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_studio_lifecycle_config
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class SagemakerStudioLifecycleConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class SagemakerStudioLifecycleConfig extends cdktf.TerraformResource {
   }
 
   // studio_lifecycle_config_app_type - computed: false, optional: false, required: true
-  private _studioLifecycleConfigAppType?: string; 
+  private _studioLifecycleConfigAppType?: string;
   public get studioLifecycleConfigAppType() {
     return this.getStringAttribute('studio_lifecycle_config_app_type');
   }
@@ -120,7 +120,7 @@ export class SagemakerStudioLifecycleConfig extends cdktf.TerraformResource {
   }
 
   // studio_lifecycle_config_content - computed: false, optional: false, required: true
-  private _studioLifecycleConfigContent?: string; 
+  private _studioLifecycleConfigContent?: string;
   public get studioLifecycleConfigContent() {
     return this.getStringAttribute('studio_lifecycle_config_content');
   }
@@ -133,7 +133,7 @@ export class SagemakerStudioLifecycleConfig extends cdktf.TerraformResource {
   }
 
   // studio_lifecycle_config_name - computed: false, optional: false, required: true
-  private _studioLifecycleConfigName?: string; 
+  private _studioLifecycleConfigName?: string;
   public get studioLifecycleConfigName() {
     return this.getStringAttribute('studio_lifecycle_config_name');
   }
@@ -146,7 +146,7 @@ export class SagemakerStudioLifecycleConfig extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -162,7 +162,7 @@ export class SagemakerStudioLifecycleConfig extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

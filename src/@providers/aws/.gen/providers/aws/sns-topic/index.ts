@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sns_topic
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -196,7 +196,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   // ==========
 
   // application_failure_feedback_role_arn - computed: false, optional: true, required: false
-  private _applicationFailureFeedbackRoleArn?: string; 
+  private _applicationFailureFeedbackRoleArn?: string;
   public get applicationFailureFeedbackRoleArn() {
     return this.getStringAttribute('application_failure_feedback_role_arn');
   }
@@ -212,7 +212,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // application_success_feedback_role_arn - computed: false, optional: true, required: false
-  private _applicationSuccessFeedbackRoleArn?: string; 
+  private _applicationSuccessFeedbackRoleArn?: string;
   public get applicationSuccessFeedbackRoleArn() {
     return this.getStringAttribute('application_success_feedback_role_arn');
   }
@@ -228,7 +228,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // application_success_feedback_sample_rate - computed: false, optional: true, required: false
-  private _applicationSuccessFeedbackSampleRate?: number; 
+  private _applicationSuccessFeedbackSampleRate?: number;
   public get applicationSuccessFeedbackSampleRate() {
     return this.getNumberAttribute('application_success_feedback_sample_rate');
   }
@@ -249,7 +249,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // content_based_deduplication - computed: false, optional: true, required: false
-  private _contentBasedDeduplication?: boolean | cdktf.IResolvable; 
+  private _contentBasedDeduplication?: boolean | cdktf.IResolvable;
   public get contentBasedDeduplication() {
     return this.getBooleanAttribute('content_based_deduplication');
   }
@@ -265,7 +265,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // delivery_policy - computed: false, optional: true, required: false
-  private _deliveryPolicy?: string; 
+  private _deliveryPolicy?: string;
   public get deliveryPolicy() {
     return this.getStringAttribute('delivery_policy');
   }
@@ -281,7 +281,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // display_name - computed: false, optional: true, required: false
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -297,7 +297,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // fifo_topic - computed: false, optional: true, required: false
-  private _fifoTopic?: boolean | cdktf.IResolvable; 
+  private _fifoTopic?: boolean | cdktf.IResolvable;
   public get fifoTopic() {
     return this.getBooleanAttribute('fifo_topic');
   }
@@ -313,7 +313,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // firehose_failure_feedback_role_arn - computed: false, optional: true, required: false
-  private _firehoseFailureFeedbackRoleArn?: string; 
+  private _firehoseFailureFeedbackRoleArn?: string;
   public get firehoseFailureFeedbackRoleArn() {
     return this.getStringAttribute('firehose_failure_feedback_role_arn');
   }
@@ -329,7 +329,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // firehose_success_feedback_role_arn - computed: false, optional: true, required: false
-  private _firehoseSuccessFeedbackRoleArn?: string; 
+  private _firehoseSuccessFeedbackRoleArn?: string;
   public get firehoseSuccessFeedbackRoleArn() {
     return this.getStringAttribute('firehose_success_feedback_role_arn');
   }
@@ -345,7 +345,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // firehose_success_feedback_sample_rate - computed: false, optional: true, required: false
-  private _firehoseSuccessFeedbackSampleRate?: number; 
+  private _firehoseSuccessFeedbackSampleRate?: number;
   public get firehoseSuccessFeedbackSampleRate() {
     return this.getNumberAttribute('firehose_success_feedback_sample_rate');
   }
@@ -361,7 +361,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // http_failure_feedback_role_arn - computed: false, optional: true, required: false
-  private _httpFailureFeedbackRoleArn?: string; 
+  private _httpFailureFeedbackRoleArn?: string;
   public get httpFailureFeedbackRoleArn() {
     return this.getStringAttribute('http_failure_feedback_role_arn');
   }
@@ -377,7 +377,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // http_success_feedback_role_arn - computed: false, optional: true, required: false
-  private _httpSuccessFeedbackRoleArn?: string; 
+  private _httpSuccessFeedbackRoleArn?: string;
   public get httpSuccessFeedbackRoleArn() {
     return this.getStringAttribute('http_success_feedback_role_arn');
   }
@@ -393,7 +393,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // http_success_feedback_sample_rate - computed: false, optional: true, required: false
-  private _httpSuccessFeedbackSampleRate?: number; 
+  private _httpSuccessFeedbackSampleRate?: number;
   public get httpSuccessFeedbackSampleRate() {
     return this.getNumberAttribute('http_success_feedback_sample_rate');
   }
@@ -409,7 +409,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -425,7 +425,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // kms_master_key_id - computed: false, optional: true, required: false
-  private _kmsMasterKeyId?: string; 
+  private _kmsMasterKeyId?: string;
   public get kmsMasterKeyId() {
     return this.getStringAttribute('kms_master_key_id');
   }
@@ -441,7 +441,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // lambda_failure_feedback_role_arn - computed: false, optional: true, required: false
-  private _lambdaFailureFeedbackRoleArn?: string; 
+  private _lambdaFailureFeedbackRoleArn?: string;
   public get lambdaFailureFeedbackRoleArn() {
     return this.getStringAttribute('lambda_failure_feedback_role_arn');
   }
@@ -457,7 +457,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // lambda_success_feedback_role_arn - computed: false, optional: true, required: false
-  private _lambdaSuccessFeedbackRoleArn?: string; 
+  private _lambdaSuccessFeedbackRoleArn?: string;
   public get lambdaSuccessFeedbackRoleArn() {
     return this.getStringAttribute('lambda_success_feedback_role_arn');
   }
@@ -473,7 +473,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // lambda_success_feedback_sample_rate - computed: false, optional: true, required: false
-  private _lambdaSuccessFeedbackSampleRate?: number; 
+  private _lambdaSuccessFeedbackSampleRate?: number;
   public get lambdaSuccessFeedbackSampleRate() {
     return this.getNumberAttribute('lambda_success_feedback_sample_rate');
   }
@@ -489,7 +489,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -505,7 +505,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -526,7 +526,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -542,7 +542,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // signature_version - computed: true, optional: true, required: false
-  private _signatureVersion?: number; 
+  private _signatureVersion?: number;
   public get signatureVersion() {
     return this.getNumberAttribute('signature_version');
   }
@@ -558,7 +558,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // sqs_failure_feedback_role_arn - computed: false, optional: true, required: false
-  private _sqsFailureFeedbackRoleArn?: string; 
+  private _sqsFailureFeedbackRoleArn?: string;
   public get sqsFailureFeedbackRoleArn() {
     return this.getStringAttribute('sqs_failure_feedback_role_arn');
   }
@@ -574,7 +574,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // sqs_success_feedback_role_arn - computed: false, optional: true, required: false
-  private _sqsSuccessFeedbackRoleArn?: string; 
+  private _sqsSuccessFeedbackRoleArn?: string;
   public get sqsSuccessFeedbackRoleArn() {
     return this.getStringAttribute('sqs_success_feedback_role_arn');
   }
@@ -590,7 +590,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // sqs_success_feedback_sample_rate - computed: false, optional: true, required: false
-  private _sqsSuccessFeedbackSampleRate?: number; 
+  private _sqsSuccessFeedbackSampleRate?: number;
   public get sqsSuccessFeedbackSampleRate() {
     return this.getNumberAttribute('sqs_success_feedback_sample_rate');
   }
@@ -606,7 +606,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -622,7 +622,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -638,7 +638,7 @@ export class SnsTopic extends cdktf.TerraformResource {
   }
 
   // tracing_config - computed: true, optional: true, required: false
-  private _tracingConfig?: string; 
+  private _tracingConfig?: string;
   public get tracingConfig() {
     return this.getStringAttribute('tracing_config');
   }

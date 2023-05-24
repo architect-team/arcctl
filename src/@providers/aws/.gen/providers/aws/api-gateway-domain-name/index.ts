@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -64,13 +64,13 @@ export interface ApiGatewayDomainNameConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * endpoint_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#endpoint_configuration ApiGatewayDomainName#endpoint_configuration}
   */
   readonly endpointConfiguration?: ApiGatewayDomainNameEndpointConfiguration;
   /**
   * mutual_tls_authentication block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#mutual_tls_authentication ApiGatewayDomainName#mutual_tls_authentication}
   */
   readonly mutualTlsAuthentication?: ApiGatewayDomainNameMutualTlsAuthentication;
@@ -125,7 +125,7 @@ export class ApiGatewayDomainNameEndpointConfigurationOutputReference extends cd
   }
 
   // types - computed: false, optional: false, required: true
-  private _types?: string[]; 
+  private _types?: string[];
   public get types() {
     return this.getListAttribute('types');
   }
@@ -198,7 +198,7 @@ export class ApiGatewayDomainNameMutualTlsAuthenticationOutputReference extends 
   }
 
   // truststore_uri - computed: false, optional: false, required: true
-  private _truststoreUri?: string; 
+  private _truststoreUri?: string;
   public get truststoreUri() {
     return this.getStringAttribute('truststore_uri');
   }
@@ -211,7 +211,7 @@ export class ApiGatewayDomainNameMutualTlsAuthenticationOutputReference extends 
   }
 
   // truststore_version - computed: false, optional: true, required: false
-  private _truststoreVersion?: string; 
+  private _truststoreVersion?: string;
   public get truststoreVersion() {
     return this.getStringAttribute('truststore_version');
   }
@@ -291,7 +291,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_arn - computed: false, optional: true, required: false
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -307,7 +307,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_body - computed: false, optional: true, required: false
-  private _certificateBody?: string; 
+  private _certificateBody?: string;
   public get certificateBody() {
     return this.getStringAttribute('certificate_body');
   }
@@ -323,7 +323,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_chain - computed: false, optional: true, required: false
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -339,7 +339,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_name - computed: false, optional: true, required: false
-  private _certificateName?: string; 
+  private _certificateName?: string;
   public get certificateName() {
     return this.getStringAttribute('certificate_name');
   }
@@ -355,7 +355,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_private_key - computed: false, optional: true, required: false
-  private _certificatePrivateKey?: string; 
+  private _certificatePrivateKey?: string;
   public get certificatePrivateKey() {
     return this.getStringAttribute('certificate_private_key');
   }
@@ -386,7 +386,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -399,7 +399,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -415,7 +415,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // ownership_verification_certificate_arn - computed: true, optional: true, required: false
-  private _ownershipVerificationCertificateArn?: string; 
+  private _ownershipVerificationCertificateArn?: string;
   public get ownershipVerificationCertificateArn() {
     return this.getStringAttribute('ownership_verification_certificate_arn');
   }
@@ -431,7 +431,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // regional_certificate_arn - computed: false, optional: true, required: false
-  private _regionalCertificateArn?: string; 
+  private _regionalCertificateArn?: string;
   public get regionalCertificateArn() {
     return this.getStringAttribute('regional_certificate_arn');
   }
@@ -447,7 +447,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // regional_certificate_name - computed: false, optional: true, required: false
-  private _regionalCertificateName?: string; 
+  private _regionalCertificateName?: string;
   public get regionalCertificateName() {
     return this.getStringAttribute('regional_certificate_name');
   }
@@ -473,7 +473,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // security_policy - computed: true, optional: true, required: false
-  private _securityPolicy?: string; 
+  private _securityPolicy?: string;
   public get securityPolicy() {
     return this.getStringAttribute('security_policy');
   }
@@ -489,7 +489,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -505,7 +505,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

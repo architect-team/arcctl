@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class InspectorAssessmentTarget extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class InspectorAssessmentTarget extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -105,7 +105,7 @@ export class InspectorAssessmentTarget extends cdktf.TerraformResource {
   }
 
   // resource_group_arn - computed: false, optional: true, required: false
-  private _resourceGroupArn?: string; 
+  private _resourceGroupArn?: string;
   public get resourceGroupArn() {
     return this.getStringAttribute('resource_group_arn');
   }

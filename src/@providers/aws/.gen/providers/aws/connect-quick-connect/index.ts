@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_quick_connect
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface ConnectQuickConnectConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * quick_connect_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_quick_connect#quick_connect_config ConnectQuickConnect#quick_connect_config}
   */
   readonly quickConnectConfig: ConnectQuickConnectQuickConnectConfig;
@@ -103,7 +103,7 @@ export class ConnectQuickConnectQuickConnectConfigPhoneConfigOutputReference ext
   }
 
   // phone_number - computed: false, optional: false, required: true
-  private _phoneNumber?: string; 
+  private _phoneNumber?: string;
   public get phoneNumber() {
     return this.getStringAttribute('phone_number');
   }
@@ -208,7 +208,7 @@ export class ConnectQuickConnectQuickConnectConfigQueueConfigOutputReference ext
   }
 
   // contact_flow_id - computed: false, optional: false, required: true
-  private _contactFlowId?: string; 
+  private _contactFlowId?: string;
   public get contactFlowId() {
     return this.getStringAttribute('contact_flow_id');
   }
@@ -221,7 +221,7 @@ export class ConnectQuickConnectQuickConnectConfigQueueConfigOutputReference ext
   }
 
   // queue_id - computed: false, optional: false, required: true
-  private _queueId?: string; 
+  private _queueId?: string;
   public get queueId() {
     return this.getStringAttribute('queue_id');
   }
@@ -326,7 +326,7 @@ export class ConnectQuickConnectQuickConnectConfigUserConfigOutputReference exte
   }
 
   // contact_flow_id - computed: false, optional: false, required: true
-  private _contactFlowId?: string; 
+  private _contactFlowId?: string;
   public get contactFlowId() {
     return this.getStringAttribute('contact_flow_id');
   }
@@ -339,7 +339,7 @@ export class ConnectQuickConnectQuickConnectConfigUserConfigOutputReference exte
   }
 
   // user_id - computed: false, optional: false, required: true
-  private _userId?: string; 
+  private _userId?: string;
   public get userId() {
     return this.getStringAttribute('user_id');
   }
@@ -378,19 +378,19 @@ export interface ConnectQuickConnectQuickConnectConfig {
   readonly quickConnectType: string;
   /**
   * phone_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_quick_connect#phone_config ConnectQuickConnect#phone_config}
   */
   readonly phoneConfig?: ConnectQuickConnectQuickConnectConfigPhoneConfig[] | cdktf.IResolvable;
   /**
   * queue_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_quick_connect#queue_config ConnectQuickConnect#queue_config}
   */
   readonly queueConfig?: ConnectQuickConnectQuickConnectConfigQueueConfig[] | cdktf.IResolvable;
   /**
   * user_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_quick_connect#user_config ConnectQuickConnect#user_config}
   */
   readonly userConfig?: ConnectQuickConnectQuickConnectConfigUserConfig[] | cdktf.IResolvable;
@@ -460,7 +460,7 @@ export class ConnectQuickConnectQuickConnectConfigOutputReference extends cdktf.
   }
 
   // quick_connect_type - computed: false, optional: false, required: true
-  private _quickConnectType?: string; 
+  private _quickConnectType?: string;
   public get quickConnectType() {
     return this.getStringAttribute('quick_connect_type');
   }
@@ -577,7 +577,7 @@ export class ConnectQuickConnect extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -593,7 +593,7 @@ export class ConnectQuickConnect extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -609,7 +609,7 @@ export class ConnectQuickConnect extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -622,7 +622,7 @@ export class ConnectQuickConnect extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -640,7 +640,7 @@ export class ConnectQuickConnect extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -656,7 +656,7 @@ export class ConnectQuickConnect extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/db_instance_role_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DbInstanceRoleAssociation extends cdktf.TerraformResource {
   // ==========
 
   // db_instance_identifier - computed: false, optional: false, required: true
-  private _dbInstanceIdentifier?: string; 
+  private _dbInstanceIdentifier?: string;
   public get dbInstanceIdentifier() {
     return this.getStringAttribute('db_instance_identifier');
   }
@@ -89,7 +89,7 @@ export class DbInstanceRoleAssociation extends cdktf.TerraformResource {
   }
 
   // feature_name - computed: false, optional: false, required: true
-  private _featureName?: string; 
+  private _featureName?: string;
   public get featureName() {
     return this.getStringAttribute('feature_name');
   }
@@ -102,7 +102,7 @@ export class DbInstanceRoleAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class DbInstanceRoleAssociation extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

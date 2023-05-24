@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/appconfig_environment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -145,7 +145,7 @@ export class DataAwsAppconfigEnvironment extends cdktf.TerraformDataSource {
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -168,7 +168,7 @@ export class DataAwsAppconfigEnvironment extends cdktf.TerraformDataSource {
   }
 
   // environment_id - computed: false, optional: false, required: true
-  private _environmentId?: string; 
+  private _environmentId?: string;
   public get environmentId() {
     return this.getStringAttribute('environment_id');
   }
@@ -181,7 +181,7 @@ export class DataAwsAppconfigEnvironment extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -213,7 +213,7 @@ export class DataAwsAppconfigEnvironment extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

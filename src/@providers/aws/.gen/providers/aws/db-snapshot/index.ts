@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/db_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface DbSnapshotConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot#timeouts DbSnapshot#timeouts}
   */
   readonly timeouts?: DbSnapshotTimeouts;
@@ -101,7 +101,7 @@ export class DbSnapshotTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -178,7 +178,7 @@ export class DbSnapshot extends cdktf.TerraformResource {
   }
 
   // db_instance_identifier - computed: false, optional: false, required: true
-  private _dbInstanceIdentifier?: string; 
+  private _dbInstanceIdentifier?: string;
   public get dbInstanceIdentifier() {
     return this.getStringAttribute('db_instance_identifier');
   }
@@ -196,7 +196,7 @@ export class DbSnapshot extends cdktf.TerraformResource {
   }
 
   // db_snapshot_identifier - computed: false, optional: false, required: true
-  private _dbSnapshotIdentifier?: string; 
+  private _dbSnapshotIdentifier?: string;
   public get dbSnapshotIdentifier() {
     return this.getStringAttribute('db_snapshot_identifier');
   }
@@ -224,7 +224,7 @@ export class DbSnapshot extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -265,7 +265,7 @@ export class DbSnapshot extends cdktf.TerraformResource {
   }
 
   // shared_accounts - computed: false, optional: true, required: false
-  private _sharedAccounts?: string[]; 
+  private _sharedAccounts?: string[];
   public get sharedAccounts() {
     return cdktf.Fn.tolist(this.getListAttribute('shared_accounts'));
   }
@@ -306,7 +306,7 @@ export class DbSnapshot extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -322,7 +322,7 @@ export class DbSnapshot extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

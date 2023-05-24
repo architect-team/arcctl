@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface DirectoryServiceSharedDirectoryConfig extends cdktf.TerraformMe
   readonly notes?: string;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#target DirectoryServiceSharedDirectory#target}
   */
   readonly target: DirectoryServiceSharedDirectoryTarget;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#timeouts DirectoryServiceSharedDirectory#timeouts}
   */
   readonly timeouts?: DirectoryServiceSharedDirectoryTimeouts;
@@ -103,7 +103,7 @@ export class DirectoryServiceSharedDirectoryTargetOutputReference extends cdktf.
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -116,7 +116,7 @@ export class DirectoryServiceSharedDirectoryTargetOutputReference extends cdktf.
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -191,7 +191,7 @@ export class DirectoryServiceSharedDirectoryTimeoutsOutputReference extends cdkt
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -257,7 +257,7 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
   // ==========
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -270,7 +270,7 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -286,7 +286,7 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
   }
 
   // method - computed: false, optional: true, required: false
-  private _method?: string; 
+  private _method?: string;
   public get method() {
     return this.getStringAttribute('method');
   }
@@ -302,7 +302,7 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
   }
 
   // notes - computed: false, optional: true, required: false
-  private _notes?: string; 
+  private _notes?: string;
   public get notes() {
     return this.getStringAttribute('notes');
   }

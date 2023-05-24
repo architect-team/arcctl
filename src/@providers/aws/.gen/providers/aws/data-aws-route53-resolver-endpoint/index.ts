@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_resolver_endpoint
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DataAwsRoute53ResolverEndpointConfig extends cdktf.TerraformMet
   readonly resolverEndpointId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_endpoint#filter DataAwsRoute53ResolverEndpoint#filter}
   */
   readonly filter?: DataAwsRoute53ResolverEndpointFilter[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class DataAwsRoute53ResolverEndpointFilterOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -111,7 +111,7 @@ export class DataAwsRoute53ResolverEndpointFilterOutputReference extends cdktf.C
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -201,7 +201,7 @@ export class DataAwsRoute53ResolverEndpoint extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -227,7 +227,7 @@ export class DataAwsRoute53ResolverEndpoint extends cdktf.TerraformDataSource {
   }
 
   // resolver_endpoint_id - computed: false, optional: true, required: false
-  private _resolverEndpointId?: string; 
+  private _resolverEndpointId?: string;
   public get resolverEndpointId() {
     return this.getStringAttribute('resolver_endpoint_id');
   }

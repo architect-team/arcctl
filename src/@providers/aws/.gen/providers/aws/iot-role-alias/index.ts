@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_role_alias
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class IotRoleAlias extends cdktf.TerraformResource {
   // ==========
 
   // alias - computed: false, optional: false, required: true
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this.getStringAttribute('alias');
   }
@@ -94,7 +94,7 @@ export class IotRoleAlias extends cdktf.TerraformResource {
   }
 
   // credential_duration - computed: false, optional: true, required: false
-  private _credentialDuration?: number; 
+  private _credentialDuration?: number;
   public get credentialDuration() {
     return this.getNumberAttribute('credential_duration');
   }
@@ -110,7 +110,7 @@ export class IotRoleAlias extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -126,7 +126,7 @@ export class IotRoleAlias extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

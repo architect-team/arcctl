@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/worklink_website_certificate_authority_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class WorklinkWebsiteCertificateAuthorityAssociation extends cdktf.Terraf
   // ==========
 
   // certificate - computed: false, optional: false, required: true
-  private _certificate?: string; 
+  private _certificate?: string;
   public get certificate() {
     return this.getStringAttribute('certificate');
   }
@@ -89,7 +89,7 @@ export class WorklinkWebsiteCertificateAuthorityAssociation extends cdktf.Terraf
   }
 
   // display_name - computed: false, optional: true, required: false
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -105,7 +105,7 @@ export class WorklinkWebsiteCertificateAuthorityAssociation extends cdktf.Terraf
   }
 
   // fleet_arn - computed: false, optional: false, required: true
-  private _fleetArn?: string; 
+  private _fleetArn?: string;
   public get fleetArn() {
     return this.getStringAttribute('fleet_arn');
   }
@@ -118,7 +118,7 @@ export class WorklinkWebsiteCertificateAuthorityAssociation extends cdktf.Terraf
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

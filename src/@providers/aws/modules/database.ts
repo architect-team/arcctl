@@ -5,7 +5,7 @@ import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.js'
 import { DbSubnetGroup } from '../.gen/providers/aws/db-subnet-group/index.js';
 import { AwsProvider } from '../.gen/providers/aws/provider/index.js';
 import { AwsCredentials } from '../credentials.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class AwsDatabaseModule extends ResourceModule<
   'database',

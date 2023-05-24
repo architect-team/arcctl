@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/inspector2_delegated_admin_account
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface Inspector2DelegatedAdminAccountConfig extends cdktf.TerraformMe
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_delegated_admin_account#timeouts Inspector2DelegatedAdminAccount#timeouts}
   */
   readonly timeouts?: Inspector2DelegatedAdminAccountTimeouts;
@@ -96,7 +96,7 @@ export class Inspector2DelegatedAdminAccountTimeoutsOutputReference extends cdkt
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -112,7 +112,7 @@ export class Inspector2DelegatedAdminAccountTimeoutsOutputReference extends cdkt
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -175,7 +175,7 @@ export class Inspector2DelegatedAdminAccount extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -188,7 +188,7 @@ export class Inspector2DelegatedAdminAccount extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_rds_db_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class OpsworksRdsDbInstance extends cdktf.TerraformResource {
   // ==========
 
   // db_password - computed: false, optional: false, required: true
-  private _dbPassword?: string; 
+  private _dbPassword?: string;
   public get dbPassword() {
     return this.getStringAttribute('db_password');
   }
@@ -94,7 +94,7 @@ export class OpsworksRdsDbInstance extends cdktf.TerraformResource {
   }
 
   // db_user - computed: false, optional: false, required: true
-  private _dbUser?: string; 
+  private _dbUser?: string;
   public get dbUser() {
     return this.getStringAttribute('db_user');
   }
@@ -107,7 +107,7 @@ export class OpsworksRdsDbInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -123,7 +123,7 @@ export class OpsworksRdsDbInstance extends cdktf.TerraformResource {
   }
 
   // rds_db_instance_arn - computed: false, optional: false, required: true
-  private _rdsDbInstanceArn?: string; 
+  private _rdsDbInstanceArn?: string;
   public get rdsDbInstanceArn() {
     return this.getStringAttribute('rds_db_instance_arn');
   }
@@ -136,7 +136,7 @@ export class OpsworksRdsDbInstance extends cdktf.TerraformResource {
   }
 
   // stack_id - computed: false, optional: false, required: true
-  private _stackId?: string; 
+  private _stackId?: string;
   public get stackId() {
     return this.getStringAttribute('stack_id');
   }

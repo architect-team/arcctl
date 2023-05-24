@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/licensemanager_grants
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface DataAwsLicensemanagerGrantsConfig extends cdktf.TerraformMetaAr
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/licensemanager_grants#filter DataAwsLicensemanagerGrants#filter}
   */
   readonly filter?: DataAwsLicensemanagerGrantsFilter[] | cdktf.IResolvable;
@@ -94,7 +94,7 @@ export class DataAwsLicensemanagerGrantsFilterOutputReference extends cdktf.Comp
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -107,7 +107,7 @@ export class DataAwsLicensemanagerGrantsFilterOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -191,7 +191,7 @@ export class DataAwsLicensemanagerGrants extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_patch_baseline
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,19 +56,19 @@ export interface SsmPatchBaselineConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * approval_rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_patch_baseline#approval_rule SsmPatchBaseline#approval_rule}
   */
   readonly approvalRule?: SsmPatchBaselineApprovalRule[] | cdktf.IResolvable;
   /**
   * global_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_patch_baseline#global_filter SsmPatchBaseline#global_filter}
   */
   readonly globalFilter?: SsmPatchBaselineGlobalFilter[] | cdktf.IResolvable;
   /**
   * source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_patch_baseline#source SsmPatchBaseline#source}
   */
   readonly source?: SsmPatchBaselineSource[] | cdktf.IResolvable;
@@ -146,7 +146,7 @@ export class SsmPatchBaselineApprovalRulePatchFilterOutputReference extends cdkt
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -159,7 +159,7 @@ export class SsmPatchBaselineApprovalRulePatchFilterOutputReference extends cdkt
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -210,7 +210,7 @@ export interface SsmPatchBaselineApprovalRule {
   readonly enableNonSecurity?: boolean | cdktf.IResolvable;
   /**
   * patch_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_patch_baseline#patch_filter SsmPatchBaseline#patch_filter}
   */
   readonly patchFilter: SsmPatchBaselineApprovalRulePatchFilter[] | cdktf.IResolvable;
@@ -299,7 +299,7 @@ export class SsmPatchBaselineApprovalRuleOutputReference extends cdktf.ComplexOb
   }
 
   // approve_after_days - computed: false, optional: true, required: false
-  private _approveAfterDays?: number; 
+  private _approveAfterDays?: number;
   public get approveAfterDays() {
     return this.getNumberAttribute('approve_after_days');
   }
@@ -315,7 +315,7 @@ export class SsmPatchBaselineApprovalRuleOutputReference extends cdktf.ComplexOb
   }
 
   // approve_until_date - computed: false, optional: true, required: false
-  private _approveUntilDate?: string; 
+  private _approveUntilDate?: string;
   public get approveUntilDate() {
     return this.getStringAttribute('approve_until_date');
   }
@@ -331,7 +331,7 @@ export class SsmPatchBaselineApprovalRuleOutputReference extends cdktf.ComplexOb
   }
 
   // compliance_level - computed: false, optional: true, required: false
-  private _complianceLevel?: string; 
+  private _complianceLevel?: string;
   public get complianceLevel() {
     return this.getStringAttribute('compliance_level');
   }
@@ -347,7 +347,7 @@ export class SsmPatchBaselineApprovalRuleOutputReference extends cdktf.ComplexOb
   }
 
   // enable_non_security - computed: false, optional: true, required: false
-  private _enableNonSecurity?: boolean | cdktf.IResolvable; 
+  private _enableNonSecurity?: boolean | cdktf.IResolvable;
   public get enableNonSecurity() {
     return this.getBooleanAttribute('enable_non_security');
   }
@@ -468,7 +468,7 @@ export class SsmPatchBaselineGlobalFilterOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -481,7 +481,7 @@ export class SsmPatchBaselineGlobalFilterOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -597,7 +597,7 @@ export class SsmPatchBaselineSourceOutputReference extends cdktf.ComplexObject {
   }
 
   // configuration - computed: false, optional: false, required: true
-  private _configuration?: string; 
+  private _configuration?: string;
   public get configuration() {
     return this.getStringAttribute('configuration');
   }
@@ -610,7 +610,7 @@ export class SsmPatchBaselineSourceOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -623,7 +623,7 @@ export class SsmPatchBaselineSourceOutputReference extends cdktf.ComplexObject {
   }
 
   // products - computed: false, optional: false, required: true
-  private _products?: string[]; 
+  private _products?: string[];
   public get products() {
     return this.getListAttribute('products');
   }
@@ -714,7 +714,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   // ==========
 
   // approved_patches - computed: false, optional: true, required: false
-  private _approvedPatches?: string[]; 
+  private _approvedPatches?: string[];
   public get approvedPatches() {
     return cdktf.Fn.tolist(this.getListAttribute('approved_patches'));
   }
@@ -730,7 +730,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // approved_patches_compliance_level - computed: false, optional: true, required: false
-  private _approvedPatchesComplianceLevel?: string; 
+  private _approvedPatchesComplianceLevel?: string;
   public get approvedPatchesComplianceLevel() {
     return this.getStringAttribute('approved_patches_compliance_level');
   }
@@ -746,7 +746,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // approved_patches_enable_non_security - computed: false, optional: true, required: false
-  private _approvedPatchesEnableNonSecurity?: boolean | cdktf.IResolvable; 
+  private _approvedPatchesEnableNonSecurity?: boolean | cdktf.IResolvable;
   public get approvedPatchesEnableNonSecurity() {
     return this.getBooleanAttribute('approved_patches_enable_non_security');
   }
@@ -767,7 +767,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -783,7 +783,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -799,7 +799,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -812,7 +812,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // operating_system - computed: false, optional: true, required: false
-  private _operatingSystem?: string; 
+  private _operatingSystem?: string;
   public get operatingSystem() {
     return this.getStringAttribute('operating_system');
   }
@@ -828,7 +828,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // rejected_patches - computed: false, optional: true, required: false
-  private _rejectedPatches?: string[]; 
+  private _rejectedPatches?: string[];
   public get rejectedPatches() {
     return cdktf.Fn.tolist(this.getListAttribute('rejected_patches'));
   }
@@ -844,7 +844,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // rejected_patches_action - computed: true, optional: true, required: false
-  private _rejectedPatchesAction?: string; 
+  private _rejectedPatchesAction?: string;
   public get rejectedPatchesAction() {
     return this.getStringAttribute('rejected_patches_action');
   }
@@ -860,7 +860,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -876,7 +876,7 @@ export class SsmPatchBaseline extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

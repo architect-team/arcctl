@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codepipeline_webhook
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface CodepipelineWebhookConfig extends cdktf.TerraformMetaArguments 
   readonly targetPipeline: string;
   /**
   * authentication_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline_webhook#authentication_configuration CodepipelineWebhook#authentication_configuration}
   */
   readonly authenticationConfiguration?: CodepipelineWebhookAuthenticationConfiguration;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline_webhook#filter CodepipelineWebhook#filter}
   */
   readonly filter: CodepipelineWebhookFilter[] | cdktf.IResolvable;
@@ -112,7 +112,7 @@ export class CodepipelineWebhookAuthenticationConfigurationOutputReference exten
   }
 
   // allowed_ip_range - computed: false, optional: true, required: false
-  private _allowedIpRange?: string; 
+  private _allowedIpRange?: string;
   public get allowedIpRange() {
     return this.getStringAttribute('allowed_ip_range');
   }
@@ -128,7 +128,7 @@ export class CodepipelineWebhookAuthenticationConfigurationOutputReference exten
   }
 
   // secret_token - computed: false, optional: true, required: false
-  private _secretToken?: string; 
+  private _secretToken?: string;
   public get secretToken() {
     return this.getStringAttribute('secret_token');
   }
@@ -216,7 +216,7 @@ export class CodepipelineWebhookFilterOutputReference extends cdktf.ComplexObjec
   }
 
   // json_path - computed: false, optional: false, required: true
-  private _jsonPath?: string; 
+  private _jsonPath?: string;
   public get jsonPath() {
     return this.getStringAttribute('json_path');
   }
@@ -229,7 +229,7 @@ export class CodepipelineWebhookFilterOutputReference extends cdktf.ComplexObjec
   }
 
   // match_equals - computed: false, optional: false, required: true
-  private _matchEquals?: string; 
+  private _matchEquals?: string;
   public get matchEquals() {
     return this.getStringAttribute('match_equals');
   }
@@ -320,7 +320,7 @@ export class CodepipelineWebhook extends cdktf.TerraformResource {
   }
 
   // authentication - computed: false, optional: false, required: true
-  private _authentication?: string; 
+  private _authentication?: string;
   public get authentication() {
     return this.getStringAttribute('authentication');
   }
@@ -333,7 +333,7 @@ export class CodepipelineWebhook extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -349,7 +349,7 @@ export class CodepipelineWebhook extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -362,7 +362,7 @@ export class CodepipelineWebhook extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -378,7 +378,7 @@ export class CodepipelineWebhook extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -394,7 +394,7 @@ export class CodepipelineWebhook extends cdktf.TerraformResource {
   }
 
   // target_action - computed: false, optional: false, required: true
-  private _targetAction?: string; 
+  private _targetAction?: string;
   public get targetAction() {
     return this.getStringAttribute('target_action');
   }
@@ -407,7 +407,7 @@ export class CodepipelineWebhook extends cdktf.TerraformResource {
   }
 
   // target_pipeline - computed: false, optional: false, required: true
-  private _targetPipeline?: string; 
+  private _targetPipeline?: string;
   public get targetPipeline() {
     return this.getStringAttribute('target_pipeline');
   }

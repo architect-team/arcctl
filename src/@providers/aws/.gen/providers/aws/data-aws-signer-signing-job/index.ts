@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/signer_signing_job
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -423,7 +423,7 @@ export class DataAwsSignerSigningJob extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -439,7 +439,7 @@ export class DataAwsSignerSigningJob extends cdktf.TerraformDataSource {
   }
 
   // job_id - computed: false, optional: false, required: true
-  private _jobId?: string; 
+  private _jobId?: string;
   public get jobId() {
     return this.getStringAttribute('job_id');
   }

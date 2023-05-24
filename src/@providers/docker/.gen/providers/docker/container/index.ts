@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/container
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,97 +9,97 @@ import * as cdktf from 'cdktf';
 export interface ContainerConfig extends cdktf.TerraformMetaArguments {
   /**
   * If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#attach Container#attach}
   */
   readonly attach?: boolean | cdktf.IResolvable;
   /**
   * Cgroup namespace mode to use for the container. Possible values are: `private`, `host`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#cgroupns_mode Container#cgroupns_mode}
   */
   readonly cgroupnsMode?: string;
   /**
   * The command to use to start the container. For example, to run `/usr/bin/myprogram -f baz.conf` set the command to be `["/usr/bin/myprogram","-f","baz.con"]`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#command Container#command}
   */
   readonly command?: string[];
   /**
   * The total number of milliseconds to wait for the container to reach status 'running'
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#container_read_refresh_timeout_milliseconds Container#container_read_refresh_timeout_milliseconds}
   */
   readonly containerReadRefreshTimeoutMilliseconds?: number;
   /**
   * A comma-separated list or hyphen-separated range of CPUs a container can use, e.g. `0-1`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#cpu_set Container#cpu_set}
   */
   readonly cpuSet?: string;
   /**
   * CPU shares (relative weight) for the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#cpu_shares Container#cpu_shares}
   */
   readonly cpuShares?: number;
   /**
   * If defined will attempt to stop the container before destroying. Container will be destroyed after `n` seconds or on successful stop.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#destroy_grace_seconds Container#destroy_grace_seconds}
   */
   readonly destroyGraceSeconds?: number;
   /**
   * DNS servers to use.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#dns Container#dns}
   */
   readonly dns?: string[];
   /**
   * DNS options used by the DNS provider(s), see `resolv.conf` documentation for valid list of options.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#dns_opts Container#dns_opts}
   */
   readonly dnsOpts?: string[];
   /**
   * DNS search domains that are used when bare unqualified hostnames are used inside of the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#dns_search Container#dns_search}
   */
   readonly dnsSearch?: string[];
   /**
   * Domain name of the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#domainname Container#domainname}
   */
   readonly domainname?: string;
   /**
   * The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable. For example, to run `/usr/bin/myprogram` when starting a container, set the entrypoint to be `"/usr/bin/myprogra"]`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#entrypoint Container#entrypoint}
   */
   readonly entrypoint?: string[];
   /**
   * Environment variables to set in the form of `KEY=VALUE`, e.g. `DEBUG=0`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#env Container#env}
   */
   readonly env?: string[];
   /**
   * GPU devices to add to the container. Currently, only the value `all` is supported. Passing any other value will result in unexpected behavior.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#gpus Container#gpus}
   */
   readonly gpus?: string;
   /**
   * Additional groups for the container user
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#group_add Container#group_add}
   */
   readonly groupAdd?: string[];
   /**
   * Hostname of the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#hostname Container#hostname}
   */
   readonly hostname?: string;
@@ -112,277 +112,277 @@ export interface ContainerConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * The ID of the image to back this container. The easiest way to get this value is to use the `docker_image` resource as is shown in the example.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#image Container#image}
   */
   readonly image: string;
   /**
   * Configured whether an init process should be injected for this container. If unset this will default to the `dockerd` defaults.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#init Container#init}
   */
   readonly init?: boolean | cdktf.IResolvable;
   /**
   * IPC sharing mode for the container. Possible values are: `none`, `private`, `shareable`, `container:<name|id>` or `host`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#ipc_mode Container#ipc_mode}
   */
   readonly ipcMode?: string;
   /**
   * The logging driver to use for the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#log_driver Container#log_driver}
   */
   readonly logDriver?: string;
   /**
   * Key/value pairs to use as options for the logging driver.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#log_opts Container#log_opts}
   */
   readonly logOpts?: { [key: string]: string };
   /**
   * Save the container logs (`attach` must be enabled). Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#logs Container#logs}
   */
   readonly logs?: boolean | cdktf.IResolvable;
   /**
   * The maximum amount of times to an attempt a restart when `restart` is set to 'on-failure'.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#max_retry_count Container#max_retry_count}
   */
   readonly maxRetryCount?: number;
   /**
   * The memory limit for the container in MBs.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#memory Container#memory}
   */
   readonly memory?: number;
   /**
   * The total memory limit (memory + swap) for the container in MBs. This setting may compute to `-1` after `terraform apply` if the target host doesn't support memory swap, when that is the case docker will use a soft limitation.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#memory_swap Container#memory_swap}
   */
   readonly memorySwap?: number;
   /**
   * If `true`, then the Docker container will be kept running. If `false`, then as long as the container exists, Terraform assumes it is successful. Defaults to `true`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#must_run Container#must_run}
   */
   readonly mustRun?: boolean | cdktf.IResolvable;
   /**
   * The name of the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#name Container#name}
   */
   readonly name: string;
   /**
   * Network mode of the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#network_mode Container#network_mode}
   */
   readonly networkMode?: string;
   /**
   * he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#pid_mode Container#pid_mode}
   */
   readonly pidMode?: string;
   /**
   * If `true`, the container runs in privileged mode.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#privileged Container#privileged}
   */
   readonly privileged?: boolean | cdktf.IResolvable;
   /**
   * Publish all ports of the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#publish_all_ports Container#publish_all_ports}
   */
   readonly publishAllPorts?: boolean | cdktf.IResolvable;
   /**
   * If `true`, the container will be started as readonly. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#read_only Container#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * If `true`, it will remove anonymous volumes associated with the container. Defaults to `true`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#remove_volumes Container#remove_volumes}
   */
   readonly removeVolumes?: boolean | cdktf.IResolvable;
   /**
   * The restart policy for the container. Must be one of 'no', 'on-failure', 'always', 'unless-stopped'. Defaults to `no`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#restart Container#restart}
   */
   readonly restart?: string;
   /**
   * If `true`, then the container will be automatically removed when it exits. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#rm Container#rm}
   */
   readonly rm?: boolean | cdktf.IResolvable;
   /**
   * Runtime to use for the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#runtime Container#runtime}
   */
   readonly runtime?: string;
   /**
   * List of string values to customize labels for MLS systems, such as SELinux. See https://docs.docker.com/engine/reference/run/#security-configuration.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#security_opts Container#security_opts}
   */
   readonly securityOpts?: string[];
   /**
   * Size of `/dev/shm` in MBs.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#shm_size Container#shm_size}
   */
   readonly shmSize?: number;
   /**
   * If `true`, then the Docker container will be started after creation. If `false`, then the container is only created. Defaults to `true`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#start Container#start}
   */
   readonly start?: boolean | cdktf.IResolvable;
   /**
   * If `true`, keep STDIN open even if not attached (`docker run -i`). Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#stdin_open Container#stdin_open}
   */
   readonly stdinOpen?: boolean | cdktf.IResolvable;
   /**
   * Signal to stop a container (default `SIGTERM`).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#stop_signal Container#stop_signal}
   */
   readonly stopSignal?: string;
   /**
   * Timeout (in seconds) to stop a container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#stop_timeout Container#stop_timeout}
   */
   readonly stopTimeout?: number;
   /**
   * Key/value pairs for the storage driver options, e.g. `size`: `120G`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#storage_opts Container#storage_opts}
   */
   readonly storageOpts?: { [key: string]: string };
   /**
   * A map of kernel parameters (sysctls) to set in the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#sysctls Container#sysctls}
   */
   readonly sysctls?: { [key: string]: string };
   /**
   * A map of container directories which should be replaced by `tmpfs mounts`, and their corresponding mount options.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#tmpfs Container#tmpfs}
   */
   readonly tmpfs?: { [key: string]: string };
   /**
   * If `true`, allocate a pseudo-tty (`docker run -t`). Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#tty Container#tty}
   */
   readonly tty?: boolean | cdktf.IResolvable;
   /**
   * User used for run the first process. Format is `user` or `user:group` which user and group can be passed literraly or by name.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#user Container#user}
   */
   readonly user?: string;
   /**
   * Sets the usernamespace mode for the container when usernamespace remapping option is enabled.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#userns_mode Container#userns_mode}
   */
   readonly usernsMode?: string;
   /**
   * If `true`, then the Docker container is waited for being healthy state after creation. If `false`, then the container health state is not checked. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#wait Container#wait}
   */
   readonly wait?: boolean | cdktf.IResolvable;
   /**
   * The timeout in seconds to wait the container to be healthy after creation. Defaults to `60`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#wait_timeout Container#wait_timeout}
   */
   readonly waitTimeout?: number;
   /**
   * The working directory for commands to run in.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#working_dir Container#working_dir}
   */
   readonly workingDir?: string;
   /**
   * capabilities block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#capabilities Container#capabilities}
   */
   readonly capabilities?: ContainerCapabilities;
   /**
   * devices block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#devices Container#devices}
   */
   readonly devices?: ContainerDevices[] | cdktf.IResolvable;
   /**
   * healthcheck block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#healthcheck Container#healthcheck}
   */
   readonly healthcheck?: ContainerHealthcheck;
   /**
   * host block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#host Container#host}
   */
   readonly host?: ContainerHost[] | cdktf.IResolvable;
   /**
   * labels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#labels Container#labels}
   */
   readonly labels?: ContainerLabels[] | cdktf.IResolvable;
   /**
   * mounts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#mounts Container#mounts}
   */
   readonly mounts?: ContainerMounts[] | cdktf.IResolvable;
   /**
   * networks_advanced block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#networks_advanced Container#networks_advanced}
   */
   readonly networksAdvanced?: ContainerNetworksAdvanced[] | cdktf.IResolvable;
   /**
   * ports block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#ports Container#ports}
   */
   readonly ports?: ContainerPorts[] | cdktf.IResolvable;
   /**
   * ulimit block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#ulimit Container#ulimit}
   */
   readonly ulimit?: ContainerUlimit[] | cdktf.IResolvable;
   /**
   * upload block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#upload Container#upload}
   */
   readonly upload?: ContainerUpload[] | cdktf.IResolvable;
   /**
   * volumes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#volumes Container#volumes}
   */
   readonly volumes?: ContainerVolumes[] | cdktf.IResolvable;
@@ -489,13 +489,13 @@ export class ContainerNetworkDataList extends cdktf.ComplexList {
 export interface ContainerCapabilities {
   /**
   * List of linux capabilities to add.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#add Container#add}
   */
   readonly add?: string[];
   /**
   * List of linux capabilities to drop.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#drop Container#drop}
   */
   readonly drop?: string[];
@@ -551,7 +551,7 @@ export class ContainerCapabilitiesOutputReference extends cdktf.ComplexObject {
   }
 
   // add - computed: false, optional: true, required: false
-  private _add?: string[]; 
+  private _add?: string[];
   public get add() {
     return cdktf.Fn.tolist(this.getListAttribute('add'));
   }
@@ -567,7 +567,7 @@ export class ContainerCapabilitiesOutputReference extends cdktf.ComplexObject {
   }
 
   // drop - computed: false, optional: true, required: false
-  private _drop?: string[]; 
+  private _drop?: string[];
   public get drop() {
     return cdktf.Fn.tolist(this.getListAttribute('drop'));
   }
@@ -585,19 +585,19 @@ export class ContainerCapabilitiesOutputReference extends cdktf.ComplexObject {
 export interface ContainerDevices {
   /**
   * The path in the container where the device will be bound.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#container_path Container#container_path}
   */
   readonly containerPath?: string;
   /**
   * The path on the host where the device is located.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#host_path Container#host_path}
   */
   readonly hostPath: string;
   /**
   * The cgroup permissions given to the container to access the device. Defaults to `rwm`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#permissions Container#permissions}
   */
   readonly permissions?: string;
@@ -672,7 +672,7 @@ export class ContainerDevicesOutputReference extends cdktf.ComplexObject {
   }
 
   // container_path - computed: false, optional: true, required: false
-  private _containerPath?: string; 
+  private _containerPath?: string;
   public get containerPath() {
     return this.getStringAttribute('container_path');
   }
@@ -688,7 +688,7 @@ export class ContainerDevicesOutputReference extends cdktf.ComplexObject {
   }
 
   // host_path - computed: false, optional: false, required: true
-  private _hostPath?: string; 
+  private _hostPath?: string;
   public get hostPath() {
     return this.getStringAttribute('host_path');
   }
@@ -701,7 +701,7 @@ export class ContainerDevicesOutputReference extends cdktf.ComplexObject {
   }
 
   // permissions - computed: false, optional: true, required: false
-  private _permissions?: string; 
+  private _permissions?: string;
   public get permissions() {
     return this.getStringAttribute('permissions');
   }
@@ -739,31 +739,31 @@ export class ContainerDevicesList extends cdktf.ComplexList {
 export interface ContainerHealthcheck {
   /**
   * Time between running the check (ms|s|m|h). Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#interval Container#interval}
   */
   readonly interval?: string;
   /**
   * Consecutive failures needed to report unhealthy. Defaults to `0`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#retries Container#retries}
   */
   readonly retries?: number;
   /**
   * Start period for the container to initialize before counting retries towards unstable (ms|s|m|h). Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#start_period Container#start_period}
   */
   readonly startPeriod?: string;
   /**
   * Command to run to check health. For example, to run `curl -f localhost/health` set the command to be `["CMD", "curl", "-f", "localhost/health"]`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#test Container#test}
   */
   readonly test: string[];
   /**
   * Maximum time to allow one check to run (ms|s|m|h). Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#timeout Container#timeout}
   */
   readonly timeout?: string;
@@ -840,7 +840,7 @@ export class ContainerHealthcheckOutputReference extends cdktf.ComplexObject {
   }
 
   // interval - computed: false, optional: true, required: false
-  private _interval?: string; 
+  private _interval?: string;
   public get interval() {
     return this.getStringAttribute('interval');
   }
@@ -856,7 +856,7 @@ export class ContainerHealthcheckOutputReference extends cdktf.ComplexObject {
   }
 
   // retries - computed: false, optional: true, required: false
-  private _retries?: number; 
+  private _retries?: number;
   public get retries() {
     return this.getNumberAttribute('retries');
   }
@@ -872,7 +872,7 @@ export class ContainerHealthcheckOutputReference extends cdktf.ComplexObject {
   }
 
   // start_period - computed: false, optional: true, required: false
-  private _startPeriod?: string; 
+  private _startPeriod?: string;
   public get startPeriod() {
     return this.getStringAttribute('start_period');
   }
@@ -888,7 +888,7 @@ export class ContainerHealthcheckOutputReference extends cdktf.ComplexObject {
   }
 
   // test - computed: false, optional: false, required: true
-  private _test?: string[]; 
+  private _test?: string[];
   public get test() {
     return this.getListAttribute('test');
   }
@@ -901,7 +901,7 @@ export class ContainerHealthcheckOutputReference extends cdktf.ComplexObject {
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: string; 
+  private _timeout?: string;
   public get timeout() {
     return this.getStringAttribute('timeout');
   }
@@ -919,13 +919,13 @@ export class ContainerHealthcheckOutputReference extends cdktf.ComplexObject {
 export interface ContainerHost {
   /**
   * Hostname to add
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#host Container#host}
   */
   readonly host: string;
   /**
   * IP address this hostname should resolve to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#ip Container#ip}
   */
   readonly ip: string;
@@ -993,7 +993,7 @@ export class ContainerHostOutputReference extends cdktf.ComplexObject {
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1006,7 +1006,7 @@ export class ContainerHostOutputReference extends cdktf.ComplexObject {
   }
 
   // ip - computed: false, optional: false, required: true
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -1041,13 +1041,13 @@ export class ContainerHostList extends cdktf.ComplexList {
 export interface ContainerLabels {
   /**
   * Name of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#label Container#label}
   */
   readonly label: string;
   /**
   * Value of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#value Container#value}
   */
   readonly value: string;
@@ -1115,7 +1115,7 @@ export class ContainerLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -1128,7 +1128,7 @@ export class ContainerLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1163,7 +1163,7 @@ export class ContainerLabelsList extends cdktf.ComplexList {
 export interface ContainerMountsBindOptions {
   /**
   * A propagation mode with the value.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#propagation Container#propagation}
   */
   readonly propagation?: string;
@@ -1212,7 +1212,7 @@ export class ContainerMountsBindOptionsOutputReference extends cdktf.ComplexObje
   }
 
   // propagation - computed: false, optional: true, required: false
-  private _propagation?: string; 
+  private _propagation?: string;
   public get propagation() {
     return this.getStringAttribute('propagation');
   }
@@ -1230,13 +1230,13 @@ export class ContainerMountsBindOptionsOutputReference extends cdktf.ComplexObje
 export interface ContainerMountsTmpfsOptions {
   /**
   * The permission mode for the tmpfs mount in an integer.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#mode Container#mode}
   */
   readonly mode?: number;
   /**
   * The size for the tmpfs mount in bytes.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#size_bytes Container#size_bytes}
   */
   readonly sizeBytes?: number;
@@ -1292,7 +1292,7 @@ export class ContainerMountsTmpfsOptionsOutputReference extends cdktf.ComplexObj
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: number; 
+  private _mode?: number;
   public get mode() {
     return this.getNumberAttribute('mode');
   }
@@ -1308,7 +1308,7 @@ export class ContainerMountsTmpfsOptionsOutputReference extends cdktf.ComplexObj
   }
 
   // size_bytes - computed: false, optional: true, required: false
-  private _sizeBytes?: number; 
+  private _sizeBytes?: number;
   public get sizeBytes() {
     return this.getNumberAttribute('size_bytes');
   }
@@ -1326,13 +1326,13 @@ export class ContainerMountsTmpfsOptionsOutputReference extends cdktf.ComplexObj
 export interface ContainerMountsVolumeOptionsLabels {
   /**
   * Name of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#label Container#label}
   */
   readonly label: string;
   /**
   * Value of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#value Container#value}
   */
   readonly value: string;
@@ -1400,7 +1400,7 @@ export class ContainerMountsVolumeOptionsLabelsOutputReference extends cdktf.Com
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -1413,7 +1413,7 @@ export class ContainerMountsVolumeOptionsLabelsOutputReference extends cdktf.Com
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1448,25 +1448,25 @@ export class ContainerMountsVolumeOptionsLabelsList extends cdktf.ComplexList {
 export interface ContainerMountsVolumeOptions {
   /**
   * Name of the driver to use to create the volume.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#driver_name Container#driver_name}
   */
   readonly driverName?: string;
   /**
   * key/value map of driver specific options.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#driver_options Container#driver_options}
   */
   readonly driverOptions?: { [key: string]: string };
   /**
   * Populate volume with data from the target.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#no_copy Container#no_copy}
   */
   readonly noCopy?: boolean | cdktf.IResolvable;
   /**
   * labels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#labels Container#labels}
   */
   readonly labels?: ContainerMountsVolumeOptionsLabels[] | cdktf.IResolvable;
@@ -1536,7 +1536,7 @@ export class ContainerMountsVolumeOptionsOutputReference extends cdktf.ComplexOb
   }
 
   // driver_name - computed: false, optional: true, required: false
-  private _driverName?: string; 
+  private _driverName?: string;
   public get driverName() {
     return this.getStringAttribute('driver_name');
   }
@@ -1552,7 +1552,7 @@ export class ContainerMountsVolumeOptionsOutputReference extends cdktf.ComplexOb
   }
 
   // driver_options - computed: false, optional: true, required: false
-  private _driverOptions?: { [key: string]: string }; 
+  private _driverOptions?: { [key: string]: string };
   public get driverOptions() {
     return this.getStringMapAttribute('driver_options');
   }
@@ -1568,7 +1568,7 @@ export class ContainerMountsVolumeOptionsOutputReference extends cdktf.ComplexOb
   }
 
   // no_copy - computed: false, optional: true, required: false
-  private _noCopy?: boolean | cdktf.IResolvable; 
+  private _noCopy?: boolean | cdktf.IResolvable;
   public get noCopy() {
     return this.getBooleanAttribute('no_copy');
   }
@@ -1602,43 +1602,43 @@ export class ContainerMountsVolumeOptionsOutputReference extends cdktf.ComplexOb
 export interface ContainerMounts {
   /**
   * Whether the mount should be read-only.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#read_only Container#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Mount source (e.g. a volume name, a host path).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#source Container#source}
   */
   readonly source?: string;
   /**
   * Container path
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#target Container#target}
   */
   readonly target: string;
   /**
   * The mount type
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#type Container#type}
   */
   readonly type: string;
   /**
   * bind_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#bind_options Container#bind_options}
   */
   readonly bindOptions?: ContainerMountsBindOptions;
   /**
   * tmpfs_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#tmpfs_options Container#tmpfs_options}
   */
   readonly tmpfsOptions?: ContainerMountsTmpfsOptions;
   /**
   * volume_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#volume_options Container#volume_options}
   */
   readonly volumeOptions?: ContainerMountsVolumeOptions;
@@ -1741,7 +1741,7 @@ export class ContainerMountsOutputReference extends cdktf.ComplexObject {
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1757,7 +1757,7 @@ export class ContainerMountsOutputReference extends cdktf.ComplexObject {
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -1773,7 +1773,7 @@ export class ContainerMountsOutputReference extends cdktf.ComplexObject {
   }
 
   // target - computed: false, optional: false, required: true
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -1786,7 +1786,7 @@ export class ContainerMountsOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1869,25 +1869,25 @@ export class ContainerMountsList extends cdktf.ComplexList {
 export interface ContainerNetworksAdvanced {
   /**
   * The network aliases of the container in the specific network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#aliases Container#aliases}
   */
   readonly aliases?: string[];
   /**
   * The IPV4 address of the container in the specific network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#ipv4_address Container#ipv4_address}
   */
   readonly ipv4Address?: string;
   /**
   * The IPV6 address of the container in the specific network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#ipv6_address Container#ipv6_address}
   */
   readonly ipv6Address?: string;
   /**
   * The name or id of the network to use. You can use `name` or `id` attribute from a `docker_network` resource.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#name Container#name}
   */
   readonly name: string;
@@ -1969,7 +1969,7 @@ export class ContainerNetworksAdvancedOutputReference extends cdktf.ComplexObjec
   }
 
   // aliases - computed: false, optional: true, required: false
-  private _aliases?: string[]; 
+  private _aliases?: string[];
   public get aliases() {
     return cdktf.Fn.tolist(this.getListAttribute('aliases'));
   }
@@ -1985,7 +1985,7 @@ export class ContainerNetworksAdvancedOutputReference extends cdktf.ComplexObjec
   }
 
   // ipv4_address - computed: false, optional: true, required: false
-  private _ipv4Address?: string; 
+  private _ipv4Address?: string;
   public get ipv4Address() {
     return this.getStringAttribute('ipv4_address');
   }
@@ -2001,7 +2001,7 @@ export class ContainerNetworksAdvancedOutputReference extends cdktf.ComplexObjec
   }
 
   // ipv6_address - computed: false, optional: true, required: false
-  private _ipv6Address?: string; 
+  private _ipv6Address?: string;
   public get ipv6Address() {
     return this.getStringAttribute('ipv6_address');
   }
@@ -2017,7 +2017,7 @@ export class ContainerNetworksAdvancedOutputReference extends cdktf.ComplexObjec
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2052,25 +2052,25 @@ export class ContainerNetworksAdvancedList extends cdktf.ComplexList {
 export interface ContainerPorts {
   /**
   * Port exposed out of the container. If not given a free random port `>= 32768` will be used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#external Container#external}
   */
   readonly external?: number;
   /**
   * Port within the container.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#internal Container#internal}
   */
   readonly internal: number;
   /**
   * IP address/mask that can access this port. Defaults to `0.0.0.0`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#ip Container#ip}
   */
   readonly ip?: string;
   /**
   * Protocol that can be used over this port. Defaults to `tcp`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#protocol Container#protocol}
   */
   readonly protocol?: string;
@@ -2152,7 +2152,7 @@ export class ContainerPortsOutputReference extends cdktf.ComplexObject {
   }
 
   // external - computed: true, optional: true, required: false
-  private _external?: number; 
+  private _external?: number;
   public get external() {
     return this.getNumberAttribute('external');
   }
@@ -2168,7 +2168,7 @@ export class ContainerPortsOutputReference extends cdktf.ComplexObject {
   }
 
   // internal - computed: false, optional: false, required: true
-  private _internal?: number; 
+  private _internal?: number;
   public get internal() {
     return this.getNumberAttribute('internal');
   }
@@ -2181,7 +2181,7 @@ export class ContainerPortsOutputReference extends cdktf.ComplexObject {
   }
 
   // ip - computed: false, optional: true, required: false
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -2197,7 +2197,7 @@ export class ContainerPortsOutputReference extends cdktf.ComplexObject {
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -2235,19 +2235,19 @@ export class ContainerPortsList extends cdktf.ComplexList {
 export interface ContainerUlimit {
   /**
   * The hard limit
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#hard Container#hard}
   */
   readonly hard: number;
   /**
   * The name of the ulimit
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#name Container#name}
   */
   readonly name: string;
   /**
   * The soft limit
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#soft Container#soft}
   */
   readonly soft: number;
@@ -2322,7 +2322,7 @@ export class ContainerUlimitOutputReference extends cdktf.ComplexObject {
   }
 
   // hard - computed: false, optional: false, required: true
-  private _hard?: number; 
+  private _hard?: number;
   public get hard() {
     return this.getNumberAttribute('hard');
   }
@@ -2335,7 +2335,7 @@ export class ContainerUlimitOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2348,7 +2348,7 @@ export class ContainerUlimitOutputReference extends cdktf.ComplexObject {
   }
 
   // soft - computed: false, optional: false, required: true
-  private _soft?: number; 
+  private _soft?: number;
   public get soft() {
     return this.getNumberAttribute('soft');
   }
@@ -2383,37 +2383,37 @@ export class ContainerUlimitList extends cdktf.ComplexList {
 export interface ContainerUpload {
   /**
   * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text. Conflicts with `content_base64` & `source`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#content Container#content}
   */
   readonly content?: string;
   /**
   * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for larger binary content such as the result of the `base64encode` interpolation function. See [here](https://github.com/terraform-providers/terraform-provider-docker/issues/48#issuecomment-374174588) for the reason. Conflicts with `content` & `source`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#content_base64 Container#content_base64}
   */
   readonly contentBase64?: string;
   /**
   * If `true`, the file will be uploaded with user executable permission. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#executable Container#executable}
   */
   readonly executable?: boolean | cdktf.IResolvable;
   /**
   * Path to the file in the container where is upload goes to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#file Container#file}
   */
   readonly file: string;
   /**
   * A filename that references a file which will be uploaded as the object content. This allows for large file uploads that do not get stored in state. Conflicts with `content` & `content_base64`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#source Container#source}
   */
   readonly source?: string;
   /**
-  * If using `source`, this will force an update if the file content has updated but the filename has not. 
-  * 
+  * If using `source`, this will force an update if the file content has updated but the filename has not.
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#source_hash Container#source_hash}
   */
   readonly sourceHash?: string;
@@ -2509,7 +2509,7 @@ export class ContainerUploadOutputReference extends cdktf.ComplexObject {
   }
 
   // content - computed: false, optional: true, required: false
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -2525,7 +2525,7 @@ export class ContainerUploadOutputReference extends cdktf.ComplexObject {
   }
 
   // content_base64 - computed: false, optional: true, required: false
-  private _contentBase64?: string; 
+  private _contentBase64?: string;
   public get contentBase64() {
     return this.getStringAttribute('content_base64');
   }
@@ -2541,7 +2541,7 @@ export class ContainerUploadOutputReference extends cdktf.ComplexObject {
   }
 
   // executable - computed: false, optional: true, required: false
-  private _executable?: boolean | cdktf.IResolvable; 
+  private _executable?: boolean | cdktf.IResolvable;
   public get executable() {
     return this.getBooleanAttribute('executable');
   }
@@ -2557,7 +2557,7 @@ export class ContainerUploadOutputReference extends cdktf.ComplexObject {
   }
 
   // file - computed: false, optional: false, required: true
-  private _file?: string; 
+  private _file?: string;
   public get file() {
     return this.getStringAttribute('file');
   }
@@ -2570,7 +2570,7 @@ export class ContainerUploadOutputReference extends cdktf.ComplexObject {
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -2586,7 +2586,7 @@ export class ContainerUploadOutputReference extends cdktf.ComplexObject {
   }
 
   // source_hash - computed: false, optional: true, required: false
-  private _sourceHash?: string; 
+  private _sourceHash?: string;
   public get sourceHash() {
     return this.getStringAttribute('source_hash');
   }
@@ -2624,31 +2624,31 @@ export class ContainerUploadList extends cdktf.ComplexList {
 export interface ContainerVolumes {
   /**
   * The path in the container where the volume will be mounted.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#container_path Container#container_path}
   */
   readonly containerPath?: string;
   /**
   * The container where the volume is coming from.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#from_container Container#from_container}
   */
   readonly fromContainer?: string;
   /**
   * The path on the host where the volume is coming from.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#host_path Container#host_path}
   */
   readonly hostPath?: string;
   /**
   * If `true`, this volume will be readonly. Defaults to `false`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#read_only Container#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * The name of the docker volume which should be mounted.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/container#volume_name Container#volume_name}
   */
   readonly volumeName?: string;
@@ -2737,7 +2737,7 @@ export class ContainerVolumesOutputReference extends cdktf.ComplexObject {
   }
 
   // container_path - computed: false, optional: true, required: false
-  private _containerPath?: string; 
+  private _containerPath?: string;
   public get containerPath() {
     return this.getStringAttribute('container_path');
   }
@@ -2753,7 +2753,7 @@ export class ContainerVolumesOutputReference extends cdktf.ComplexObject {
   }
 
   // from_container - computed: false, optional: true, required: false
-  private _fromContainer?: string; 
+  private _fromContainer?: string;
   public get fromContainer() {
     return this.getStringAttribute('from_container');
   }
@@ -2769,7 +2769,7 @@ export class ContainerVolumesOutputReference extends cdktf.ComplexObject {
   }
 
   // host_path - computed: false, optional: true, required: false
-  private _hostPath?: string; 
+  private _hostPath?: string;
   public get hostPath() {
     return this.getStringAttribute('host_path');
   }
@@ -2785,7 +2785,7 @@ export class ContainerVolumesOutputReference extends cdktf.ComplexObject {
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2801,7 +2801,7 @@ export class ContainerVolumesOutputReference extends cdktf.ComplexObject {
   }
 
   // volume_name - computed: false, optional: true, required: false
-  private _volumeName?: string; 
+  private _volumeName?: string;
   public get volumeName() {
     return this.getStringAttribute('volume_name');
   }
@@ -2944,7 +2944,7 @@ export class Container extends cdktf.TerraformResource {
   // ==========
 
   // attach - computed: false, optional: true, required: false
-  private _attach?: boolean | cdktf.IResolvable; 
+  private _attach?: boolean | cdktf.IResolvable;
   public get attach() {
     return this.getBooleanAttribute('attach');
   }
@@ -2965,7 +2965,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // cgroupns_mode - computed: false, optional: true, required: false
-  private _cgroupnsMode?: string; 
+  private _cgroupnsMode?: string;
   public get cgroupnsMode() {
     return this.getStringAttribute('cgroupns_mode');
   }
@@ -2981,7 +2981,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // command - computed: true, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -3002,7 +3002,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // container_read_refresh_timeout_milliseconds - computed: false, optional: true, required: false
-  private _containerReadRefreshTimeoutMilliseconds?: number; 
+  private _containerReadRefreshTimeoutMilliseconds?: number;
   public get containerReadRefreshTimeoutMilliseconds() {
     return this.getNumberAttribute('container_read_refresh_timeout_milliseconds');
   }
@@ -3018,7 +3018,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // cpu_set - computed: false, optional: true, required: false
-  private _cpuSet?: string; 
+  private _cpuSet?: string;
   public get cpuSet() {
     return this.getStringAttribute('cpu_set');
   }
@@ -3034,7 +3034,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // cpu_shares - computed: false, optional: true, required: false
-  private _cpuShares?: number; 
+  private _cpuShares?: number;
   public get cpuShares() {
     return this.getNumberAttribute('cpu_shares');
   }
@@ -3050,7 +3050,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // destroy_grace_seconds - computed: false, optional: true, required: false
-  private _destroyGraceSeconds?: number; 
+  private _destroyGraceSeconds?: number;
   public get destroyGraceSeconds() {
     return this.getNumberAttribute('destroy_grace_seconds');
   }
@@ -3066,7 +3066,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // dns - computed: false, optional: true, required: false
-  private _dns?: string[]; 
+  private _dns?: string[];
   public get dns() {
     return cdktf.Fn.tolist(this.getListAttribute('dns'));
   }
@@ -3082,7 +3082,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // dns_opts - computed: false, optional: true, required: false
-  private _dnsOpts?: string[]; 
+  private _dnsOpts?: string[];
   public get dnsOpts() {
     return cdktf.Fn.tolist(this.getListAttribute('dns_opts'));
   }
@@ -3098,7 +3098,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // dns_search - computed: false, optional: true, required: false
-  private _dnsSearch?: string[]; 
+  private _dnsSearch?: string[];
   public get dnsSearch() {
     return cdktf.Fn.tolist(this.getListAttribute('dns_search'));
   }
@@ -3114,7 +3114,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // domainname - computed: false, optional: true, required: false
-  private _domainname?: string; 
+  private _domainname?: string;
   public get domainname() {
     return this.getStringAttribute('domainname');
   }
@@ -3130,7 +3130,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // entrypoint - computed: true, optional: true, required: false
-  private _entrypoint?: string[]; 
+  private _entrypoint?: string[];
   public get entrypoint() {
     return this.getListAttribute('entrypoint');
   }
@@ -3146,7 +3146,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // env - computed: true, optional: true, required: false
-  private _env?: string[]; 
+  private _env?: string[];
   public get env() {
     return cdktf.Fn.tolist(this.getListAttribute('env'));
   }
@@ -3167,7 +3167,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // gpus - computed: false, optional: true, required: false
-  private _gpus?: string; 
+  private _gpus?: string;
   public get gpus() {
     return this.getStringAttribute('gpus');
   }
@@ -3183,7 +3183,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // group_add - computed: false, optional: true, required: false
-  private _groupAdd?: string[]; 
+  private _groupAdd?: string[];
   public get groupAdd() {
     return cdktf.Fn.tolist(this.getListAttribute('group_add'));
   }
@@ -3199,7 +3199,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // hostname - computed: true, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -3215,7 +3215,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3231,7 +3231,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -3244,7 +3244,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // init - computed: true, optional: true, required: false
-  private _init?: boolean | cdktf.IResolvable; 
+  private _init?: boolean | cdktf.IResolvable;
   public get init() {
     return this.getBooleanAttribute('init');
   }
@@ -3260,7 +3260,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // ipc_mode - computed: true, optional: true, required: false
-  private _ipcMode?: string; 
+  private _ipcMode?: string;
   public get ipcMode() {
     return this.getStringAttribute('ipc_mode');
   }
@@ -3276,7 +3276,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // log_driver - computed: true, optional: true, required: false
-  private _logDriver?: string; 
+  private _logDriver?: string;
   public get logDriver() {
     return this.getStringAttribute('log_driver');
   }
@@ -3292,7 +3292,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // log_opts - computed: false, optional: true, required: false
-  private _logOpts?: { [key: string]: string }; 
+  private _logOpts?: { [key: string]: string };
   public get logOpts() {
     return this.getStringMapAttribute('log_opts');
   }
@@ -3308,7 +3308,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // logs - computed: false, optional: true, required: false
-  private _logs?: boolean | cdktf.IResolvable; 
+  private _logs?: boolean | cdktf.IResolvable;
   public get logs() {
     return this.getBooleanAttribute('logs');
   }
@@ -3324,7 +3324,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // max_retry_count - computed: false, optional: true, required: false
-  private _maxRetryCount?: number; 
+  private _maxRetryCount?: number;
   public get maxRetryCount() {
     return this.getNumberAttribute('max_retry_count');
   }
@@ -3340,7 +3340,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // memory - computed: false, optional: true, required: false
-  private _memory?: number; 
+  private _memory?: number;
   public get memory() {
     return this.getNumberAttribute('memory');
   }
@@ -3356,7 +3356,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // memory_swap - computed: false, optional: true, required: false
-  private _memorySwap?: number; 
+  private _memorySwap?: number;
   public get memorySwap() {
     return this.getNumberAttribute('memory_swap');
   }
@@ -3372,7 +3372,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // must_run - computed: false, optional: true, required: false
-  private _mustRun?: boolean | cdktf.IResolvable; 
+  private _mustRun?: boolean | cdktf.IResolvable;
   public get mustRun() {
     return this.getBooleanAttribute('must_run');
   }
@@ -3388,7 +3388,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3407,7 +3407,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // network_mode - computed: false, optional: true, required: false
-  private _networkMode?: string; 
+  private _networkMode?: string;
   public get networkMode() {
     return this.getStringAttribute('network_mode');
   }
@@ -3423,7 +3423,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // pid_mode - computed: false, optional: true, required: false
-  private _pidMode?: string; 
+  private _pidMode?: string;
   public get pidMode() {
     return this.getStringAttribute('pid_mode');
   }
@@ -3439,7 +3439,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // privileged - computed: false, optional: true, required: false
-  private _privileged?: boolean | cdktf.IResolvable; 
+  private _privileged?: boolean | cdktf.IResolvable;
   public get privileged() {
     return this.getBooleanAttribute('privileged');
   }
@@ -3455,7 +3455,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // publish_all_ports - computed: false, optional: true, required: false
-  private _publishAllPorts?: boolean | cdktf.IResolvable; 
+  private _publishAllPorts?: boolean | cdktf.IResolvable;
   public get publishAllPorts() {
     return this.getBooleanAttribute('publish_all_ports');
   }
@@ -3471,7 +3471,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3487,7 +3487,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // remove_volumes - computed: false, optional: true, required: false
-  private _removeVolumes?: boolean | cdktf.IResolvable; 
+  private _removeVolumes?: boolean | cdktf.IResolvable;
   public get removeVolumes() {
     return this.getBooleanAttribute('remove_volumes');
   }
@@ -3503,7 +3503,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // restart - computed: false, optional: true, required: false
-  private _restart?: string; 
+  private _restart?: string;
   public get restart() {
     return this.getStringAttribute('restart');
   }
@@ -3519,7 +3519,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // rm - computed: false, optional: true, required: false
-  private _rm?: boolean | cdktf.IResolvable; 
+  private _rm?: boolean | cdktf.IResolvable;
   public get rm() {
     return this.getBooleanAttribute('rm');
   }
@@ -3535,7 +3535,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // runtime - computed: true, optional: true, required: false
-  private _runtime?: string; 
+  private _runtime?: string;
   public get runtime() {
     return this.getStringAttribute('runtime');
   }
@@ -3551,7 +3551,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // security_opts - computed: true, optional: true, required: false
-  private _securityOpts?: string[]; 
+  private _securityOpts?: string[];
   public get securityOpts() {
     return cdktf.Fn.tolist(this.getListAttribute('security_opts'));
   }
@@ -3567,7 +3567,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // shm_size - computed: true, optional: true, required: false
-  private _shmSize?: number; 
+  private _shmSize?: number;
   public get shmSize() {
     return this.getNumberAttribute('shm_size');
   }
@@ -3583,7 +3583,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // start - computed: false, optional: true, required: false
-  private _start?: boolean | cdktf.IResolvable; 
+  private _start?: boolean | cdktf.IResolvable;
   public get start() {
     return this.getBooleanAttribute('start');
   }
@@ -3599,7 +3599,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // stdin_open - computed: false, optional: true, required: false
-  private _stdinOpen?: boolean | cdktf.IResolvable; 
+  private _stdinOpen?: boolean | cdktf.IResolvable;
   public get stdinOpen() {
     return this.getBooleanAttribute('stdin_open');
   }
@@ -3615,7 +3615,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // stop_signal - computed: true, optional: true, required: false
-  private _stopSignal?: string; 
+  private _stopSignal?: string;
   public get stopSignal() {
     return this.getStringAttribute('stop_signal');
   }
@@ -3631,7 +3631,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // stop_timeout - computed: true, optional: true, required: false
-  private _stopTimeout?: number; 
+  private _stopTimeout?: number;
   public get stopTimeout() {
     return this.getNumberAttribute('stop_timeout');
   }
@@ -3647,7 +3647,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // storage_opts - computed: false, optional: true, required: false
-  private _storageOpts?: { [key: string]: string }; 
+  private _storageOpts?: { [key: string]: string };
   public get storageOpts() {
     return this.getStringMapAttribute('storage_opts');
   }
@@ -3663,7 +3663,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // sysctls - computed: false, optional: true, required: false
-  private _sysctls?: { [key: string]: string }; 
+  private _sysctls?: { [key: string]: string };
   public get sysctls() {
     return this.getStringMapAttribute('sysctls');
   }
@@ -3679,7 +3679,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // tmpfs - computed: false, optional: true, required: false
-  private _tmpfs?: { [key: string]: string }; 
+  private _tmpfs?: { [key: string]: string };
   public get tmpfs() {
     return this.getStringMapAttribute('tmpfs');
   }
@@ -3695,7 +3695,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // tty - computed: false, optional: true, required: false
-  private _tty?: boolean | cdktf.IResolvable; 
+  private _tty?: boolean | cdktf.IResolvable;
   public get tty() {
     return this.getBooleanAttribute('tty');
   }
@@ -3711,7 +3711,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -3727,7 +3727,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // userns_mode - computed: false, optional: true, required: false
-  private _usernsMode?: string; 
+  private _usernsMode?: string;
   public get usernsMode() {
     return this.getStringAttribute('userns_mode');
   }
@@ -3743,7 +3743,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // wait - computed: false, optional: true, required: false
-  private _wait?: boolean | cdktf.IResolvable; 
+  private _wait?: boolean | cdktf.IResolvable;
   public get wait() {
     return this.getBooleanAttribute('wait');
   }
@@ -3759,7 +3759,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // wait_timeout - computed: false, optional: true, required: false
-  private _waitTimeout?: number; 
+  private _waitTimeout?: number;
   public get waitTimeout() {
     return this.getNumberAttribute('wait_timeout');
   }
@@ -3775,7 +3775,7 @@ export class Container extends cdktf.TerraformResource {
   }
 
   // working_dir - computed: false, optional: true, required: false
-  private _workingDir?: string; 
+  private _workingDir?: string;
   public get workingDir() {
     return this.getStringAttribute('working_dir');
   }

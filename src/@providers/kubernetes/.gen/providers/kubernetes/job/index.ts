@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { JobMetadata, 
-jobMetadataToTerraform, 
-JobMetadataOutputReference, 
-JobSpec, 
-jobSpecToTerraform, 
-JobSpecOutputReference, 
-JobTimeouts, 
-jobTimeoutsToTerraform, 
+import { JobMetadata,
+jobMetadataToTerraform,
+JobMetadataOutputReference,
+JobSpec,
+jobSpecToTerraform,
+JobSpecOutputReference,
+JobTimeouts,
+jobTimeoutsToTerraform,
 JobTimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface JobConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -26,19 +26,19 @@ export interface JobConfig extends cdktf.TerraformMetaArguments {
   readonly waitForCompletion?: boolean | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#metadata Job#metadata}
   */
   readonly metadata: JobMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#spec Job#spec}
   */
   readonly spec: JobSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#timeouts Job#timeouts}
   */
   readonly timeouts?: JobTimeouts;
@@ -93,7 +93,7 @@ export class Job extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -109,7 +109,7 @@ export class Job extends cdktf.TerraformResource {
   }
 
   // wait_for_completion - computed: false, optional: true, required: false
-  private _waitForCompletion?: boolean | cdktf.IResolvable; 
+  private _waitForCompletion?: boolean | cdktf.IResolvable;
   public get waitForCompletion() {
     return this.getBooleanAttribute('wait_for_completion');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_delegation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -78,7 +78,7 @@ export class AuditmanagerAssessmentDelegation extends cdktf.TerraformResource {
   // ==========
 
   // assessment_id - computed: false, optional: false, required: true
-  private _assessmentId?: string; 
+  private _assessmentId?: string;
   public get assessmentId() {
     return this.getStringAttribute('assessment_id');
   }
@@ -91,7 +91,7 @@ export class AuditmanagerAssessmentDelegation extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -107,7 +107,7 @@ export class AuditmanagerAssessmentDelegation extends cdktf.TerraformResource {
   }
 
   // control_set_id - computed: false, optional: false, required: true
-  private _controlSetId?: string; 
+  private _controlSetId?: string;
   public get controlSetId() {
     return this.getStringAttribute('control_set_id');
   }
@@ -130,7 +130,7 @@ export class AuditmanagerAssessmentDelegation extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -143,7 +143,7 @@ export class AuditmanagerAssessmentDelegation extends cdktf.TerraformResource {
   }
 
   // role_type - computed: false, optional: false, required: true
-  private _roleType?: string; 
+  private _roleType?: string;
   public get roleType() {
     return this.getStringAttribute('role_type');
   }

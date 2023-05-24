@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/macie_member_account_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -66,7 +66,7 @@ export class MacieMemberAccountAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -82,7 +82,7 @@ export class MacieMemberAccountAssociation extends cdktf.TerraformResource {
   }
 
   // member_account_id - computed: false, optional: false, required: true
-  private _memberAccountId?: string; 
+  private _memberAccountId?: string;
   public get memberAccountId() {
     return this.getStringAttribute('member_account_id');
   }

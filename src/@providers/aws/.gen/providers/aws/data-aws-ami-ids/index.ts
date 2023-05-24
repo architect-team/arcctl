@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ami_ids
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface DataAwsAmiIdsConfig extends cdktf.TerraformMetaArguments {
   readonly sortAscending?: boolean | cdktf.IResolvable;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ami_ids#filter DataAwsAmiIds#filter}
   */
   readonly filter?: DataAwsAmiIdsFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ami_ids#timeouts DataAwsAmiIds#timeouts}
   */
   readonly timeouts?: DataAwsAmiIdsTimeouts;
@@ -116,7 +116,7 @@ export class DataAwsAmiIdsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -129,7 +129,7 @@ export class DataAwsAmiIdsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -221,7 +221,7 @@ export class DataAwsAmiIdsTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -288,7 +288,7 @@ export class DataAwsAmiIds extends cdktf.TerraformDataSource {
   // ==========
 
   // executable_users - computed: false, optional: true, required: false
-  private _executableUsers?: string[]; 
+  private _executableUsers?: string[];
   public get executableUsers() {
     return this.getListAttribute('executable_users');
   }
@@ -304,7 +304,7 @@ export class DataAwsAmiIds extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -325,7 +325,7 @@ export class DataAwsAmiIds extends cdktf.TerraformDataSource {
   }
 
   // name_regex - computed: false, optional: true, required: false
-  private _nameRegex?: string; 
+  private _nameRegex?: string;
   public get nameRegex() {
     return this.getStringAttribute('name_regex');
   }
@@ -341,7 +341,7 @@ export class DataAwsAmiIds extends cdktf.TerraformDataSource {
   }
 
   // owners - computed: false, optional: false, required: true
-  private _owners?: string[]; 
+  private _owners?: string[];
   public get owners() {
     return this.getListAttribute('owners');
   }
@@ -354,7 +354,7 @@ export class DataAwsAmiIds extends cdktf.TerraformDataSource {
   }
 
   // sort_ascending - computed: false, optional: true, required: false
-  private _sortAscending?: boolean | cdktf.IResolvable; 
+  private _sortAscending?: boolean | cdktf.IResolvable;
   public get sortAscending() {
     return this.getBooleanAttribute('sort_ascending');
   }

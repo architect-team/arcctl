@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // control_status - computed: false, optional: false, required: true
-  private _controlStatus?: string; 
+  private _controlStatus?: string;
   public get controlStatus() {
     return this.getStringAttribute('control_status');
   }
@@ -104,7 +104,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // disabled_reason - computed: true, optional: true, required: false
-  private _disabledReason?: string; 
+  private _disabledReason?: string;
   public get disabledReason() {
     return this.getStringAttribute('disabled_reason');
   }
@@ -120,7 +120,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -151,7 +151,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // standards_control_arn - computed: false, optional: false, required: true
-  private _standardsControlArn?: string; 
+  private _standardsControlArn?: string;
   public get standardsControlArn() {
     return this.getStringAttribute('standards_control_arn');
   }

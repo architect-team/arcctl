@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/redshift_cluster_credentials
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DataAwsRedshiftClusterCredentials extends cdktf.TerraformDataSource
   // ==========
 
   // auto_create - computed: false, optional: true, required: false
-  private _autoCreate?: boolean | cdktf.IResolvable; 
+  private _autoCreate?: boolean | cdktf.IResolvable;
   public get autoCreate() {
     return this.getBooleanAttribute('auto_create');
   }
@@ -107,7 +107,7 @@ export class DataAwsRedshiftClusterCredentials extends cdktf.TerraformDataSource
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -120,7 +120,7 @@ export class DataAwsRedshiftClusterCredentials extends cdktf.TerraformDataSource
   }
 
   // db_groups - computed: false, optional: true, required: false
-  private _dbGroups?: string[]; 
+  private _dbGroups?: string[];
   public get dbGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('db_groups'));
   }
@@ -136,7 +136,7 @@ export class DataAwsRedshiftClusterCredentials extends cdktf.TerraformDataSource
   }
 
   // db_name - computed: false, optional: true, required: false
-  private _dbName?: string; 
+  private _dbName?: string;
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -157,7 +157,7 @@ export class DataAwsRedshiftClusterCredentials extends cdktf.TerraformDataSource
   }
 
   // db_user - computed: false, optional: false, required: true
-  private _dbUser?: string; 
+  private _dbUser?: string;
   public get dbUser() {
     return this.getStringAttribute('db_user');
   }
@@ -170,7 +170,7 @@ export class DataAwsRedshiftClusterCredentials extends cdktf.TerraformDataSource
   }
 
   // duration_seconds - computed: false, optional: true, required: false
-  private _durationSeconds?: number; 
+  private _durationSeconds?: number;
   public get durationSeconds() {
     return this.getNumberAttribute('duration_seconds');
   }
@@ -191,7 +191,7 @@ export class DataAwsRedshiftClusterCredentials extends cdktf.TerraformDataSource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

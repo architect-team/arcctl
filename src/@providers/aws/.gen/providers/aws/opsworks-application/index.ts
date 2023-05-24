@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_application
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -72,19 +72,19 @@ export interface OpsworksApplicationConfig extends cdktf.TerraformMetaArguments 
   readonly type: string;
   /**
   * app_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#app_source OpsworksApplication#app_source}
   */
   readonly appSource?: OpsworksApplicationAppSource[] | cdktf.IResolvable;
   /**
   * environment block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#environment OpsworksApplication#environment}
   */
   readonly environment?: OpsworksApplicationEnvironment[] | cdktf.IResolvable;
   /**
   * ssl_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#ssl_configuration OpsworksApplication#ssl_configuration}
   */
   readonly sslConfiguration?: OpsworksApplicationSslConfiguration[] | cdktf.IResolvable;
@@ -206,7 +206,7 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -222,7 +222,7 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
   }
 
   // revision - computed: false, optional: true, required: false
-  private _revision?: string; 
+  private _revision?: string;
   public get revision() {
     return this.getStringAttribute('revision');
   }
@@ -238,7 +238,7 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
   }
 
   // ssh_key - computed: false, optional: true, required: false
-  private _sshKey?: string; 
+  private _sshKey?: string;
   public get sshKey() {
     return this.getStringAttribute('ssh_key');
   }
@@ -254,7 +254,7 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -267,7 +267,7 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
   }
 
   // url - computed: false, optional: true, required: false
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -283,7 +283,7 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
   }
 
   // username - computed: false, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -402,7 +402,7 @@ export class OpsworksApplicationEnvironmentOutputReference extends cdktf.Complex
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -415,7 +415,7 @@ export class OpsworksApplicationEnvironmentOutputReference extends cdktf.Complex
   }
 
   // secure - computed: false, optional: true, required: false
-  private _secure?: boolean | cdktf.IResolvable; 
+  private _secure?: boolean | cdktf.IResolvable;
   public get secure() {
     return this.getBooleanAttribute('secure');
   }
@@ -431,7 +431,7 @@ export class OpsworksApplicationEnvironmentOutputReference extends cdktf.Complex
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -547,7 +547,7 @@ export class OpsworksApplicationSslConfigurationOutputReference extends cdktf.Co
   }
 
   // certificate - computed: false, optional: false, required: true
-  private _certificate?: string; 
+  private _certificate?: string;
   public get certificate() {
     return this.getStringAttribute('certificate');
   }
@@ -560,7 +560,7 @@ export class OpsworksApplicationSslConfigurationOutputReference extends cdktf.Co
   }
 
   // chain - computed: false, optional: true, required: false
-  private _chain?: string; 
+  private _chain?: string;
   public get chain() {
     return this.getStringAttribute('chain');
   }
@@ -576,7 +576,7 @@ export class OpsworksApplicationSslConfigurationOutputReference extends cdktf.Co
   }
 
   // private_key - computed: false, optional: false, required: true
-  private _privateKey?: string; 
+  private _privateKey?: string;
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -671,7 +671,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   // ==========
 
   // auto_bundle_on_deploy - computed: false, optional: true, required: false
-  private _autoBundleOnDeploy?: string; 
+  private _autoBundleOnDeploy?: string;
   public get autoBundleOnDeploy() {
     return this.getStringAttribute('auto_bundle_on_deploy');
   }
@@ -687,7 +687,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // aws_flow_ruby_settings - computed: false, optional: true, required: false
-  private _awsFlowRubySettings?: string; 
+  private _awsFlowRubySettings?: string;
   public get awsFlowRubySettings() {
     return this.getStringAttribute('aws_flow_ruby_settings');
   }
@@ -703,7 +703,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // data_source_arn - computed: false, optional: true, required: false
-  private _dataSourceArn?: string; 
+  private _dataSourceArn?: string;
   public get dataSourceArn() {
     return this.getStringAttribute('data_source_arn');
   }
@@ -719,7 +719,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // data_source_database_name - computed: false, optional: true, required: false
-  private _dataSourceDatabaseName?: string; 
+  private _dataSourceDatabaseName?: string;
   public get dataSourceDatabaseName() {
     return this.getStringAttribute('data_source_database_name');
   }
@@ -735,7 +735,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // data_source_type - computed: false, optional: true, required: false
-  private _dataSourceType?: string; 
+  private _dataSourceType?: string;
   public get dataSourceType() {
     return this.getStringAttribute('data_source_type');
   }
@@ -751,7 +751,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -767,7 +767,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // document_root - computed: false, optional: true, required: false
-  private _documentRoot?: string; 
+  private _documentRoot?: string;
   public get documentRoot() {
     return this.getStringAttribute('document_root');
   }
@@ -783,7 +783,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // domains - computed: false, optional: true, required: false
-  private _domains?: string[]; 
+  private _domains?: string[];
   public get domains() {
     return this.getListAttribute('domains');
   }
@@ -799,7 +799,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // enable_ssl - computed: false, optional: true, required: false
-  private _enableSsl?: boolean | cdktf.IResolvable; 
+  private _enableSsl?: boolean | cdktf.IResolvable;
   public get enableSsl() {
     return this.getBooleanAttribute('enable_ssl');
   }
@@ -815,7 +815,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -831,7 +831,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -844,7 +844,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // rails_env - computed: false, optional: true, required: false
-  private _railsEnv?: string; 
+  private _railsEnv?: string;
   public get railsEnv() {
     return this.getStringAttribute('rails_env');
   }
@@ -860,7 +860,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // short_name - computed: true, optional: true, required: false
-  private _shortName?: string; 
+  private _shortName?: string;
   public get shortName() {
     return this.getStringAttribute('short_name');
   }
@@ -876,7 +876,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // stack_id - computed: false, optional: false, required: true
-  private _stackId?: string; 
+  private _stackId?: string;
   public get stackId() {
     return this.getStringAttribute('stack_id');
   }
@@ -889,7 +889,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

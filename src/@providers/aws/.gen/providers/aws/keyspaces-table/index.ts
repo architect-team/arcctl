@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/keyspaces_table
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,43 +36,43 @@ export interface KeyspacesTableConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * capacity_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#capacity_specification KeyspacesTable#capacity_specification}
   */
   readonly capacitySpecification?: KeyspacesTableCapacitySpecification;
   /**
   * comment block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#comment KeyspacesTable#comment}
   */
   readonly comment?: KeyspacesTableComment;
   /**
   * encryption_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#encryption_specification KeyspacesTable#encryption_specification}
   */
   readonly encryptionSpecification?: KeyspacesTableEncryptionSpecification;
   /**
   * point_in_time_recovery block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#point_in_time_recovery KeyspacesTable#point_in_time_recovery}
   */
   readonly pointInTimeRecovery?: KeyspacesTablePointInTimeRecovery;
   /**
   * schema_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#schema_definition KeyspacesTable#schema_definition}
   */
   readonly schemaDefinition: KeyspacesTableSchemaDefinition;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#timeouts KeyspacesTable#timeouts}
   */
   readonly timeouts?: KeyspacesTableTimeouts;
   /**
   * ttl block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#ttl KeyspacesTable#ttl}
   */
   readonly ttl?: KeyspacesTableTtl;
@@ -149,7 +149,7 @@ export class KeyspacesTableCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // read_capacity_units - computed: false, optional: true, required: false
-  private _readCapacityUnits?: number; 
+  private _readCapacityUnits?: number;
   public get readCapacityUnits() {
     return this.getNumberAttribute('read_capacity_units');
   }
@@ -165,7 +165,7 @@ export class KeyspacesTableCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // throughput_mode - computed: true, optional: true, required: false
-  private _throughputMode?: string; 
+  private _throughputMode?: string;
   public get throughputMode() {
     return this.getStringAttribute('throughput_mode');
   }
@@ -181,7 +181,7 @@ export class KeyspacesTableCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // write_capacity_units - computed: false, optional: true, required: false
-  private _writeCapacityUnits?: number; 
+  private _writeCapacityUnits?: number;
   public get writeCapacityUnits() {
     return this.getNumberAttribute('write_capacity_units');
   }
@@ -246,7 +246,7 @@ export class KeyspacesTableCommentOutputReference extends cdktf.ComplexObject {
   }
 
   // message - computed: true, optional: true, required: false
-  private _message?: string; 
+  private _message?: string;
   public get message() {
     return this.getStringAttribute('message');
   }
@@ -322,7 +322,7 @@ export class KeyspacesTableEncryptionSpecificationOutputReference extends cdktf.
   }
 
   // kms_key_identifier - computed: false, optional: true, required: false
-  private _kmsKeyIdentifier?: string; 
+  private _kmsKeyIdentifier?: string;
   public get kmsKeyIdentifier() {
     return this.getStringAttribute('kms_key_identifier');
   }
@@ -338,7 +338,7 @@ export class KeyspacesTableEncryptionSpecificationOutputReference extends cdktf.
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -403,7 +403,7 @@ export class KeyspacesTablePointInTimeRecoveryOutputReference extends cdktf.Comp
   }
 
   // status - computed: true, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -491,7 +491,7 @@ export class KeyspacesTableSchemaDefinitionClusteringKeyOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -504,7 +504,7 @@ export class KeyspacesTableSchemaDefinitionClusteringKeyOutputReference extends 
   }
 
   // order_by - computed: false, optional: false, required: true
-  private _orderBy?: string; 
+  private _orderBy?: string;
   public get orderBy() {
     return this.getStringAttribute('order_by');
   }
@@ -609,7 +609,7 @@ export class KeyspacesTableSchemaDefinitionColumnOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -622,7 +622,7 @@ export class KeyspacesTableSchemaDefinitionColumnOutputReference extends cdktf.C
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -716,7 +716,7 @@ export class KeyspacesTableSchemaDefinitionPartitionKeyOutputReference extends c
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -810,7 +810,7 @@ export class KeyspacesTableSchemaDefinitionStaticColumnOutputReference extends c
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -845,25 +845,25 @@ export class KeyspacesTableSchemaDefinitionStaticColumnList extends cdktf.Comple
 export interface KeyspacesTableSchemaDefinition {
   /**
   * clustering_key block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#clustering_key KeyspacesTable#clustering_key}
   */
   readonly clusteringKey?: KeyspacesTableSchemaDefinitionClusteringKey[] | cdktf.IResolvable;
   /**
   * column block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#column KeyspacesTable#column}
   */
   readonly column: KeyspacesTableSchemaDefinitionColumn[] | cdktf.IResolvable;
   /**
   * partition_key block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#partition_key KeyspacesTable#partition_key}
   */
   readonly partitionKey: KeyspacesTableSchemaDefinitionPartitionKey[] | cdktf.IResolvable;
   /**
   * static_column block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/keyspaces_table#static_column KeyspacesTable#static_column}
   */
   readonly staticColumn?: KeyspacesTableSchemaDefinitionStaticColumn[] | cdktf.IResolvable;
@@ -1072,7 +1072,7 @@ export class KeyspacesTableTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1088,7 +1088,7 @@ export class KeyspacesTableTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1104,7 +1104,7 @@ export class KeyspacesTableTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1169,7 +1169,7 @@ export class KeyspacesTableTtlOutputReference extends cdktf.ComplexObject {
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -1244,7 +1244,7 @@ export class KeyspacesTable extends cdktf.TerraformResource {
   }
 
   // default_time_to_live - computed: false, optional: true, required: false
-  private _defaultTimeToLive?: number; 
+  private _defaultTimeToLive?: number;
   public get defaultTimeToLive() {
     return this.getNumberAttribute('default_time_to_live');
   }
@@ -1260,7 +1260,7 @@ export class KeyspacesTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1276,7 +1276,7 @@ export class KeyspacesTable extends cdktf.TerraformResource {
   }
 
   // keyspace_name - computed: false, optional: false, required: true
-  private _keyspaceName?: string; 
+  private _keyspaceName?: string;
   public get keyspaceName() {
     return this.getStringAttribute('keyspace_name');
   }
@@ -1289,7 +1289,7 @@ export class KeyspacesTable extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -1302,7 +1302,7 @@ export class KeyspacesTable extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1318,7 +1318,7 @@ export class KeyspacesTable extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

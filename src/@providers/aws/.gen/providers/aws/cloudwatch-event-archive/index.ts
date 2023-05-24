@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_event_archive
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class CloudwatchEventArchive extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -107,7 +107,7 @@ export class CloudwatchEventArchive extends cdktf.TerraformResource {
   }
 
   // event_pattern - computed: false, optional: true, required: false
-  private _eventPattern?: string; 
+  private _eventPattern?: string;
   public get eventPattern() {
     return this.getStringAttribute('event_pattern');
   }
@@ -123,7 +123,7 @@ export class CloudwatchEventArchive extends cdktf.TerraformResource {
   }
 
   // event_source_arn - computed: false, optional: false, required: true
-  private _eventSourceArn?: string; 
+  private _eventSourceArn?: string;
   public get eventSourceArn() {
     return this.getStringAttribute('event_source_arn');
   }
@@ -136,7 +136,7 @@ export class CloudwatchEventArchive extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -152,7 +152,7 @@ export class CloudwatchEventArchive extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -165,7 +165,7 @@ export class CloudwatchEventArchive extends cdktf.TerraformResource {
   }
 
   // retention_days - computed: false, optional: true, required: false
-  private _retentionDays?: number; 
+  private _retentionDays?: number;
   public get retentionDays() {
     return this.getNumberAttribute('retention_days');
   }

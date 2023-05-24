@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kms_external_key
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -116,7 +116,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // bypass_policy_lockout_safety_check - computed: false, optional: true, required: false
-  private _bypassPolicyLockoutSafetyCheck?: boolean | cdktf.IResolvable; 
+  private _bypassPolicyLockoutSafetyCheck?: boolean | cdktf.IResolvable;
   public get bypassPolicyLockoutSafetyCheck() {
     return this.getBooleanAttribute('bypass_policy_lockout_safety_check');
   }
@@ -132,7 +132,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // deletion_window_in_days - computed: false, optional: true, required: false
-  private _deletionWindowInDays?: number; 
+  private _deletionWindowInDays?: number;
   public get deletionWindowInDays() {
     return this.getNumberAttribute('deletion_window_in_days');
   }
@@ -148,7 +148,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -164,7 +164,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -185,7 +185,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -201,7 +201,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // key_material_base64 - computed: false, optional: true, required: false
-  private _keyMaterialBase64?: string; 
+  private _keyMaterialBase64?: string;
   public get keyMaterialBase64() {
     return this.getStringAttribute('key_material_base64');
   }
@@ -227,7 +227,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // multi_region - computed: true, optional: true, required: false
-  private _multiRegion?: boolean | cdktf.IResolvable; 
+  private _multiRegion?: boolean | cdktf.IResolvable;
   public get multiRegion() {
     return this.getBooleanAttribute('multi_region');
   }
@@ -243,7 +243,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -259,7 +259,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -275,7 +275,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -291,7 +291,7 @@ export class KmsExternalKey extends cdktf.TerraformResource {
   }
 
   // valid_to - computed: false, optional: true, required: false
-  private _validTo?: string; 
+  private _validTo?: string;
   public get validTo() {
     return this.getStringAttribute('valid_to');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_catalog_database
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface GlueCatalogDatabaseConfig extends cdktf.TerraformMetaArguments 
   readonly parameters?: { [key: string]: string };
   /**
   * create_table_default_permission block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_database#create_table_default_permission GlueCatalogDatabase#create_table_default_permission}
   */
   readonly createTableDefaultPermission?: GlueCatalogDatabaseCreateTableDefaultPermission[] | cdktf.IResolvable;
   /**
   * target_database block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_database#target_database GlueCatalogDatabase#target_database}
   */
   readonly targetDatabase?: GlueCatalogDatabaseTargetDatabase;
@@ -97,7 +97,7 @@ export class GlueCatalogDatabaseCreateTableDefaultPermissionPrincipalOutputRefer
   }
 
   // data_lake_principal_identifier - computed: false, optional: true, required: false
-  private _dataLakePrincipalIdentifier?: string; 
+  private _dataLakePrincipalIdentifier?: string;
   public get dataLakePrincipalIdentifier() {
     return this.getStringAttribute('data_lake_principal_identifier');
   }
@@ -119,7 +119,7 @@ export interface GlueCatalogDatabaseCreateTableDefaultPermission {
   readonly permissions?: string[];
   /**
   * principal block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_catalog_database#principal GlueCatalogDatabase#principal}
   */
   readonly principal?: GlueCatalogDatabaseCreateTableDefaultPermissionPrincipal;
@@ -187,7 +187,7 @@ export class GlueCatalogDatabaseCreateTableDefaultPermissionOutputReference exte
   }
 
   // permissions - computed: false, optional: true, required: false
-  private _permissions?: string[]; 
+  private _permissions?: string[];
   public get permissions() {
     return cdktf.Fn.tolist(this.getListAttribute('permissions'));
   }
@@ -299,7 +299,7 @@ export class GlueCatalogDatabaseTargetDatabaseOutputReference extends cdktf.Comp
   }
 
   // catalog_id - computed: false, optional: false, required: true
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -312,7 +312,7 @@ export class GlueCatalogDatabaseTargetDatabaseOutputReference extends cdktf.Comp
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -382,7 +382,7 @@ export class GlueCatalogDatabase extends cdktf.TerraformResource {
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -398,7 +398,7 @@ export class GlueCatalogDatabase extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -414,7 +414,7 @@ export class GlueCatalogDatabase extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -430,7 +430,7 @@ export class GlueCatalogDatabase extends cdktf.TerraformResource {
   }
 
   // location_uri - computed: true, optional: true, required: false
-  private _locationUri?: string; 
+  private _locationUri?: string;
   public get locationUri() {
     return this.getStringAttribute('location_uri');
   }
@@ -446,7 +446,7 @@ export class GlueCatalogDatabase extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,7 +459,7 @@ export class GlueCatalogDatabase extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }

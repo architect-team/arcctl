@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/neptune_cluster_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface NeptuneClusterSnapshotConfig extends cdktf.TerraformMetaArgumen
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_cluster_snapshot#timeouts NeptuneClusterSnapshot#timeouts}
   */
   readonly timeouts?: NeptuneClusterSnapshotTimeouts;
@@ -89,7 +89,7 @@ export class NeptuneClusterSnapshotTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -163,7 +163,7 @@ export class NeptuneClusterSnapshot extends cdktf.TerraformResource {
   }
 
   // db_cluster_identifier - computed: false, optional: false, required: true
-  private _dbClusterIdentifier?: string; 
+  private _dbClusterIdentifier?: string;
   public get dbClusterIdentifier() {
     return this.getStringAttribute('db_cluster_identifier');
   }
@@ -181,7 +181,7 @@ export class NeptuneClusterSnapshot extends cdktf.TerraformResource {
   }
 
   // db_cluster_snapshot_identifier - computed: false, optional: false, required: true
-  private _dbClusterSnapshotIdentifier?: string; 
+  private _dbClusterSnapshotIdentifier?: string;
   public get dbClusterSnapshotIdentifier() {
     return this.getStringAttribute('db_cluster_snapshot_identifier');
   }
@@ -204,7 +204,7 @@ export class NeptuneClusterSnapshot extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

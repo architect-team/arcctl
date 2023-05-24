@@ -4,7 +4,7 @@ import { DataDigitaloceanDomain } from '../.gen/providers/digitalocean/data-digi
 import { Record as DORecord } from '../.gen/providers/digitalocean/record/index.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { DigitaloceanDnsRecordService } from '../services/dns-record.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class DigitaloceanDnsRecordModule extends ResourceModule<
   'dnsRecord',

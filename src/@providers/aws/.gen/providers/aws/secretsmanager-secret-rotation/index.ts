@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_rotation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface SecretsmanagerSecretRotationConfig extends cdktf.TerraformMetaA
   readonly secretId: string;
   /**
   * rotation_rules block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_rotation#rotation_rules SecretsmanagerSecretRotation#rotation_rules}
   */
   readonly rotationRules: SecretsmanagerSecretRotationRotationRules;
@@ -79,7 +79,7 @@ export class SecretsmanagerSecretRotationRotationRulesOutputReference extends cd
   }
 
   // automatically_after_days - computed: false, optional: false, required: true
-  private _automaticallyAfterDays?: number; 
+  private _automaticallyAfterDays?: number;
   public get automaticallyAfterDays() {
     return this.getNumberAttribute('automatically_after_days');
   }
@@ -140,7 +140,7 @@ export class SecretsmanagerSecretRotation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -161,7 +161,7 @@ export class SecretsmanagerSecretRotation extends cdktf.TerraformResource {
   }
 
   // rotation_lambda_arn - computed: false, optional: false, required: true
-  private _rotationLambdaArn?: string; 
+  private _rotationLambdaArn?: string;
   public get rotationLambdaArn() {
     return this.getStringAttribute('rotation_lambda_arn');
   }
@@ -174,7 +174,7 @@ export class SecretsmanagerSecretRotation extends cdktf.TerraformResource {
   }
 
   // secret_id - computed: false, optional: false, required: true
-  private _secretId?: string; 
+  private _secretId?: string;
   public get secretId() {
     return this.getStringAttribute('secret_id');
   }

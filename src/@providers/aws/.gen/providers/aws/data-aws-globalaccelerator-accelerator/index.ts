@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/globalaccelerator_accelerator
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -214,7 +214,7 @@ export class DataAwsGlobalacceleratorAccelerator extends cdktf.TerraformDataSour
   // ==========
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -256,7 +256,7 @@ export class DataAwsGlobalacceleratorAccelerator extends cdktf.TerraformDataSour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -283,7 +283,7 @@ export class DataAwsGlobalacceleratorAccelerator extends cdktf.TerraformDataSour
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

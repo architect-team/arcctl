@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/storagegateway_cache
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class StoragegatewayCache extends cdktf.TerraformResource {
   // ==========
 
   // disk_id - computed: false, optional: false, required: true
-  private _diskId?: string; 
+  private _diskId?: string;
   public get diskId() {
     return this.getStringAttribute('disk_id');
   }
@@ -84,7 +84,7 @@ export class StoragegatewayCache extends cdktf.TerraformResource {
   }
 
   // gateway_arn - computed: false, optional: false, required: true
-  private _gatewayArn?: string; 
+  private _gatewayArn?: string;
   public get gatewayArn() {
     return this.getStringAttribute('gateway_arn');
   }
@@ -97,7 +97,7 @@ export class StoragegatewayCache extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

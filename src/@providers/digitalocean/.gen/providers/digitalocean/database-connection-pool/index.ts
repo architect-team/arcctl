@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -104,7 +104,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // db_name - computed: false, optional: false, required: true
-  private _dbName?: string; 
+  private _dbName?: string;
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -122,7 +122,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -138,7 +138,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -151,7 +151,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -184,7 +184,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -202,7 +202,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }

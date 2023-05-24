@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_service_allowed_principal
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class VpcEndpointServiceAllowedPrincipal extends cdktf.TerraformResource 
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class VpcEndpointServiceAllowedPrincipal extends cdktf.TerraformResource 
   }
 
   // principal_arn - computed: false, optional: false, required: true
-  private _principalArn?: string; 
+  private _principalArn?: string;
   public get principalArn() {
     return this.getStringAttribute('principal_arn');
   }
@@ -100,7 +100,7 @@ export class VpcEndpointServiceAllowedPrincipal extends cdktf.TerraformResource 
   }
 
   // vpc_endpoint_service_id - computed: false, optional: false, required: true
-  private _vpcEndpointServiceId?: string; 
+  private _vpcEndpointServiceId?: string;
   public get vpcEndpointServiceId() {
     return this.getStringAttribute('vpc_endpoint_service_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface HorizontalPodAutoscalerV1Config extends cdktf.TerraformMetaArgu
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#metadata HorizontalPodAutoscalerV1#metadata}
   */
   readonly metadata: HorizontalPodAutoscalerV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#spec HorizontalPodAutoscalerV1#spec}
   */
   readonly spec: HorizontalPodAutoscalerV1Spec;
@@ -30,31 +30,31 @@ export interface HorizontalPodAutoscalerV1Config extends cdktf.TerraformMetaArgu
 export interface HorizontalPodAutoscalerV1Metadata {
   /**
   * An unstructured key value map stored with the horizontal pod autoscaler that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#annotations HorizontalPodAutoscalerV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#generate_name HorizontalPodAutoscalerV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the horizontal pod autoscaler. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#labels HorizontalPodAutoscalerV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the horizontal pod autoscaler, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#name HorizontalPodAutoscalerV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the horizontal pod autoscaler must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#namespace HorizontalPodAutoscalerV1#namespace}
   */
   readonly namespace?: string;
@@ -131,7 +131,7 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -147,7 +147,7 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -168,7 +168,7 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -184,7 +184,7 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -200,7 +200,7 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -228,19 +228,19 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
 export interface HorizontalPodAutoscalerV1SpecScaleTargetRef {
   /**
   * API version of the referent
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#api_version HorizontalPodAutoscalerV1#api_version}
   */
   readonly apiVersion?: string;
   /**
   * Kind of the referent. e.g. `ReplicationController`. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#kind HorizontalPodAutoscalerV1#kind}
   */
   readonly kind: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#name HorizontalPodAutoscalerV1#name}
   */
   readonly name: string;
@@ -303,7 +303,7 @@ export class HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference extends 
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -319,7 +319,7 @@ export class HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference extends 
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -332,7 +332,7 @@ export class HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -347,25 +347,25 @@ export class HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference extends 
 export interface HorizontalPodAutoscalerV1Spec {
   /**
   * Upper limit for the number of pods that can be set by the autoscaler.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#max_replicas HorizontalPodAutoscalerV1#max_replicas}
   */
   readonly maxReplicas: number;
   /**
   * Lower limit for the number of pods that can be set by the autoscaler, defaults to `1`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#min_replicas HorizontalPodAutoscalerV1#min_replicas}
   */
   readonly minReplicas?: number;
   /**
   * Target average CPU utilization (represented as a percentage of requested CPU) over all the pods. If not specified the default autoscaling policy will be used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#target_cpu_utilization_percentage HorizontalPodAutoscalerV1#target_cpu_utilization_percentage}
   */
   readonly targetCpuUtilizationPercentage?: number;
   /**
   * scale_target_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#scale_target_ref HorizontalPodAutoscalerV1#scale_target_ref}
   */
   readonly scaleTargetRef: HorizontalPodAutoscalerV1SpecScaleTargetRef;
@@ -435,7 +435,7 @@ export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexO
   }
 
   // max_replicas - computed: false, optional: false, required: true
-  private _maxReplicas?: number; 
+  private _maxReplicas?: number;
   public get maxReplicas() {
     return this.getNumberAttribute('max_replicas');
   }
@@ -448,7 +448,7 @@ export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexO
   }
 
   // min_replicas - computed: false, optional: true, required: false
-  private _minReplicas?: number; 
+  private _minReplicas?: number;
   public get minReplicas() {
     return this.getNumberAttribute('min_replicas');
   }
@@ -464,7 +464,7 @@ export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexO
   }
 
   // target_cpu_utilization_percentage - computed: true, optional: true, required: false
-  private _targetCpuUtilizationPercentage?: number; 
+  private _targetCpuUtilizationPercentage?: number;
   public get targetCpuUtilizationPercentage() {
     return this.getNumberAttribute('target_cpu_utilization_percentage');
   }
@@ -540,7 +540,7 @@ export class HorizontalPodAutoscalerV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

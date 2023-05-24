@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/images
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface DataDigitaloceanImagesConfig extends cdktf.TerraformMetaArgumen
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#filter DataDigitaloceanImages#filter}
   */
   readonly filter?: DataDigitaloceanImagesFilter[] | cdktf.IResolvable;
   /**
   * sort block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#sort DataDigitaloceanImages#sort}
   */
   readonly sort?: DataDigitaloceanImagesSort[] | cdktf.IResolvable;
@@ -256,7 +256,7 @@ export class DataDigitaloceanImagesFilterOutputReference extends cdktf.ComplexOb
   }
 
   // all - computed: false, optional: true, required: false
-  private _all?: boolean | cdktf.IResolvable; 
+  private _all?: boolean | cdktf.IResolvable;
   public get all() {
     return this.getBooleanAttribute('all');
   }
@@ -272,7 +272,7 @@ export class DataDigitaloceanImagesFilterOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -285,7 +285,7 @@ export class DataDigitaloceanImagesFilterOutputReference extends cdktf.ComplexOb
   }
 
   // match_by - computed: false, optional: true, required: false
-  private _matchBy?: string; 
+  private _matchBy?: string;
   public get matchBy() {
     return this.getStringAttribute('match_by');
   }
@@ -301,7 +301,7 @@ export class DataDigitaloceanImagesFilterOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -406,7 +406,7 @@ export class DataDigitaloceanImagesSortOutputReference extends cdktf.ComplexObje
   }
 
   // direction - computed: false, optional: true, required: false
-  private _direction?: string; 
+  private _direction?: string;
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -422,7 +422,7 @@ export class DataDigitaloceanImagesSortOutputReference extends cdktf.ComplexObje
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -502,7 +502,7 @@ export class DataDigitaloceanImages extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

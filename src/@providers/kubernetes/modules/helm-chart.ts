@@ -2,7 +2,7 @@ import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.js';
 import { ResourceModule } from '../../module.js';
 import { Release } from '../.gen/providers/helm/release/index.js';
 import { KubernetesCredentials } from '../credentials.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import yaml from 'js-yaml';
 
 export class KubernetesHelmChartModule extends ResourceModule<

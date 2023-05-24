@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/apprunner_custom_domain_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -166,7 +166,7 @@ export class ApprunnerCustomDomainAssociation extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -179,7 +179,7 @@ export class ApprunnerCustomDomainAssociation extends cdktf.TerraformResource {
   }
 
   // enable_www_subdomain - computed: false, optional: true, required: false
-  private _enableWwwSubdomain?: boolean | cdktf.IResolvable; 
+  private _enableWwwSubdomain?: boolean | cdktf.IResolvable;
   public get enableWwwSubdomain() {
     return this.getBooleanAttribute('enable_www_subdomain');
   }
@@ -195,7 +195,7 @@ export class ApprunnerCustomDomainAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -211,7 +211,7 @@ export class ApprunnerCustomDomainAssociation extends cdktf.TerraformResource {
   }
 
   // service_arn - computed: false, optional: false, required: true
-  private _serviceArn?: string; 
+  private _serviceArn?: string;
   public get serviceArn() {
     return this.getStringAttribute('service_arn');
   }

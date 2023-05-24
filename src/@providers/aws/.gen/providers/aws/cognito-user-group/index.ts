@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_user_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class CognitoUserGroup extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -102,7 +102,7 @@ export class CognitoUserGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class CognitoUserGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -131,7 +131,7 @@ export class CognitoUserGroup extends cdktf.TerraformResource {
   }
 
   // precedence - computed: false, optional: true, required: false
-  private _precedence?: number; 
+  private _precedence?: number;
   public get precedence() {
     return this.getNumberAttribute('precedence');
   }
@@ -147,7 +147,7 @@ export class CognitoUserGroup extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -163,7 +163,7 @@ export class CognitoUserGroup extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string; 
+  private _userPoolId?: string;
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }

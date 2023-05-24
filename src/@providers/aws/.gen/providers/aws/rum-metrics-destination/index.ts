@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/rum_metrics_destination
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class RumMetricsDestination extends cdktf.TerraformResource {
   // ==========
 
   // app_monitor_name - computed: false, optional: false, required: true
-  private _appMonitorName?: string; 
+  private _appMonitorName?: string;
   public get appMonitorName() {
     return this.getStringAttribute('app_monitor_name');
   }
@@ -94,7 +94,7 @@ export class RumMetricsDestination extends cdktf.TerraformResource {
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -107,7 +107,7 @@ export class RumMetricsDestination extends cdktf.TerraformResource {
   }
 
   // destination_arn - computed: false, optional: true, required: false
-  private _destinationArn?: string; 
+  private _destinationArn?: string;
   public get destinationArn() {
     return this.getStringAttribute('destination_arn');
   }
@@ -123,7 +123,7 @@ export class RumMetricsDestination extends cdktf.TerraformResource {
   }
 
   // iam_role_arn - computed: false, optional: true, required: false
-  private _iamRoleArn?: string; 
+  private _iamRoleArn?: string;
   public get iamRoleArn() {
     return this.getStringAttribute('iam_role_arn');
   }
@@ -139,7 +139,7 @@ export class RumMetricsDestination extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

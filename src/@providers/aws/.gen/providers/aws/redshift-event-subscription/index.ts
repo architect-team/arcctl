@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_event_subscription
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,7 +52,7 @@ export interface RedshiftEventSubscriptionConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_event_subscription#timeouts RedshiftEventSubscription#timeouts}
   */
   readonly timeouts?: RedshiftEventSubscriptionTimeouts;
@@ -139,7 +139,7 @@ export class RedshiftEventSubscriptionTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -155,7 +155,7 @@ export class RedshiftEventSubscriptionTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -171,7 +171,7 @@ export class RedshiftEventSubscriptionTimeoutsOutputReference extends cdktf.Comp
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -252,7 +252,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -268,7 +268,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // event_categories - computed: false, optional: true, required: false
-  private _eventCategories?: string[]; 
+  private _eventCategories?: string[];
   public get eventCategories() {
     return cdktf.Fn.tolist(this.getListAttribute('event_categories'));
   }
@@ -284,7 +284,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -300,7 +300,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -313,7 +313,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // severity - computed: false, optional: true, required: false
-  private _severity?: string; 
+  private _severity?: string;
   public get severity() {
     return this.getStringAttribute('severity');
   }
@@ -329,7 +329,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // sns_topic_arn - computed: false, optional: false, required: true
-  private _snsTopicArn?: string; 
+  private _snsTopicArn?: string;
   public get snsTopicArn() {
     return this.getStringAttribute('sns_topic_arn');
   }
@@ -342,7 +342,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // source_ids - computed: false, optional: true, required: false
-  private _sourceIds?: string[]; 
+  private _sourceIds?: string[];
   public get sourceIds() {
     return cdktf.Fn.tolist(this.getListAttribute('source_ids'));
   }
@@ -358,7 +358,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // source_type - computed: false, optional: true, required: false
-  private _sourceType?: string; 
+  private _sourceType?: string;
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }
@@ -379,7 +379,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -395,7 +395,7 @@ export class RedshiftEventSubscription extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

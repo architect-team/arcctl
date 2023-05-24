@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/grafana_role_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface GrafanaRoleAssociationConfig extends cdktf.TerraformMetaArgumen
   readonly workspaceId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#timeouts GrafanaRoleAssociation#timeouts}
   */
   readonly timeouts?: GrafanaRoleAssociationTimeouts;
@@ -108,7 +108,7 @@ export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -190,7 +190,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   // ==========
 
   // group_ids - computed: false, optional: true, required: false
-  private _groupIds?: string[]; 
+  private _groupIds?: string[];
   public get groupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('group_ids'));
   }
@@ -206,7 +206,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -222,7 +222,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // role - computed: false, optional: false, required: true
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -235,7 +235,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // user_ids - computed: false, optional: true, required: false
-  private _userIds?: string[]; 
+  private _userIds?: string[];
   public get userIds() {
     return cdktf.Fn.tolist(this.getListAttribute('user_ids'));
   }
@@ -251,7 +251,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // workspace_id - computed: false, optional: false, required: true
-  private _workspaceId?: string; 
+  private _workspaceId?: string;
   public get workspaceId() {
     return this.getStringAttribute('workspace_id');
   }

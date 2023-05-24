@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,43 +9,43 @@ import * as cdktf from 'cdktf';
 export interface UptimeAlertConfig extends cdktf.TerraformMetaArguments {
   /**
   * A unique identifier for a check.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#check_id UptimeAlert#check_id}
   */
   readonly checkId: string;
   /**
   * The comparison operator used against the alert's threshold. Enum: 'greater_than' 'less_than
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#comparison UptimeAlert#comparison}
   */
   readonly comparison?: string;
   /**
   * A human-friendly display name for the alert.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#name UptimeAlert#name}
   */
   readonly name: string;
   /**
   * Period of time the threshold must be exceeded to trigger the alert. Enum '2m' '3m' '5m' '10m' '15m' '30m' '1h'
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#period UptimeAlert#period}
   */
   readonly period?: string;
   /**
   * The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#threshold UptimeAlert#threshold}
   */
   readonly threshold?: number;
   /**
   * The type of health check to perform. Enum: 'latency' 'down' 'down_global' 'ssl_expiry'
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#type UptimeAlert#type}
   */
   readonly type: string;
   /**
   * notifications block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#notifications UptimeAlert#notifications}
   */
   readonly notifications: UptimeAlertNotifications[] | cdktf.IResolvable;
@@ -53,13 +53,13 @@ export interface UptimeAlertConfig extends cdktf.TerraformMetaArguments {
 export interface UptimeAlertNotificationsSlack {
   /**
   * The Slack channel to send alerts to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#channel UptimeAlert#channel}
   */
   readonly channel: string;
   /**
   * The webhook URL for Slack
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#url UptimeAlert#url}
   */
   readonly url: string;
@@ -127,7 +127,7 @@ export class UptimeAlertNotificationsSlackOutputReference extends cdktf.ComplexO
   }
 
   // channel - computed: false, optional: false, required: true
-  private _channel?: string; 
+  private _channel?: string;
   public get channel() {
     return this.getStringAttribute('channel');
   }
@@ -140,7 +140,7 @@ export class UptimeAlertNotificationsSlackOutputReference extends cdktf.ComplexO
   }
 
   // url - computed: false, optional: false, required: true
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -175,13 +175,13 @@ export class UptimeAlertNotificationsSlackList extends cdktf.ComplexList {
 export interface UptimeAlertNotifications {
   /**
   * List of email addresses to sent notifications to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#email UptimeAlert#email}
   */
   readonly email?: string[];
   /**
   * slack block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#slack UptimeAlert#slack}
   */
   readonly slack?: UptimeAlertNotificationsSlack[] | cdktf.IResolvable;
@@ -249,7 +249,7 @@ export class UptimeAlertNotificationsOutputReference extends cdktf.ComplexObject
   }
 
   // email - computed: false, optional: true, required: false
-  private _email?: string[]; 
+  private _email?: string[];
   public get email() {
     return this.getListAttribute('email');
   }
@@ -352,7 +352,7 @@ export class UptimeAlert extends cdktf.TerraformResource {
   // ==========
 
   // check_id - computed: false, optional: false, required: true
-  private _checkId?: string; 
+  private _checkId?: string;
   public get checkId() {
     return this.getStringAttribute('check_id');
   }
@@ -365,7 +365,7 @@ export class UptimeAlert extends cdktf.TerraformResource {
   }
 
   // comparison - computed: false, optional: true, required: false
-  private _comparison?: string; 
+  private _comparison?: string;
   public get comparison() {
     return this.getStringAttribute('comparison');
   }
@@ -386,7 +386,7 @@ export class UptimeAlert extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -399,7 +399,7 @@ export class UptimeAlert extends cdktf.TerraformResource {
   }
 
   // period - computed: false, optional: true, required: false
-  private _period?: string; 
+  private _period?: string;
   public get period() {
     return this.getStringAttribute('period');
   }
@@ -415,7 +415,7 @@ export class UptimeAlert extends cdktf.TerraformResource {
   }
 
   // threshold - computed: false, optional: true, required: false
-  private _threshold?: number; 
+  private _threshold?: number;
   public get threshold() {
     return this.getNumberAttribute('threshold');
   }
@@ -431,7 +431,7 @@ export class UptimeAlert extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glacier_vault_lock
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class GlacierVaultLock extends cdktf.TerraformResource {
   // ==========
 
   // complete_lock - computed: false, optional: false, required: true
-  private _completeLock?: boolean | cdktf.IResolvable; 
+  private _completeLock?: boolean | cdktf.IResolvable;
   public get completeLock() {
     return this.getBooleanAttribute('complete_lock');
   }
@@ -94,7 +94,7 @@ export class GlacierVaultLock extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class GlacierVaultLock extends cdktf.TerraformResource {
   }
 
   // ignore_deletion_error - computed: false, optional: true, required: false
-  private _ignoreDeletionError?: boolean | cdktf.IResolvable; 
+  private _ignoreDeletionError?: boolean | cdktf.IResolvable;
   public get ignoreDeletionError() {
     return this.getBooleanAttribute('ignore_deletion_error');
   }
@@ -126,7 +126,7 @@ export class GlacierVaultLock extends cdktf.TerraformResource {
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -139,7 +139,7 @@ export class GlacierVaultLock extends cdktf.TerraformResource {
   }
 
   // vault_name - computed: false, optional: false, required: true
-  private _vaultName?: string; 
+  private _vaultName?: string;
   public get vaultName() {
     return this.getStringAttribute('vault_name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,19 +32,19 @@ export interface IvsRecordingConfigurationConfig extends cdktf.TerraformMetaArgu
   readonly tagsAll?: { [key: string]: string };
   /**
   * destination_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#destination_configuration IvsRecordingConfiguration#destination_configuration}
   */
   readonly destinationConfiguration: IvsRecordingConfigurationDestinationConfiguration;
   /**
   * thumbnail_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#thumbnail_configuration IvsRecordingConfiguration#thumbnail_configuration}
   */
   readonly thumbnailConfiguration?: IvsRecordingConfigurationThumbnailConfiguration;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#timeouts IvsRecordingConfiguration#timeouts}
   */
   readonly timeouts?: IvsRecordingConfigurationTimeouts;
@@ -99,7 +99,7 @@ export class IvsRecordingConfigurationDestinationConfigurationS3OutputReference 
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -114,7 +114,7 @@ export class IvsRecordingConfigurationDestinationConfigurationS3OutputReference 
 export interface IvsRecordingConfigurationDestinationConfiguration {
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#s3 IvsRecordingConfiguration#s3}
   */
   readonly s3: IvsRecordingConfigurationDestinationConfigurationS3;
@@ -236,7 +236,7 @@ export class IvsRecordingConfigurationThumbnailConfigurationOutputReference exte
   }
 
   // recording_mode - computed: true, optional: true, required: false
-  private _recordingMode?: string; 
+  private _recordingMode?: string;
   public get recordingMode() {
     return this.getStringAttribute('recording_mode');
   }
@@ -252,7 +252,7 @@ export class IvsRecordingConfigurationThumbnailConfigurationOutputReference exte
   }
 
   // target_interval_seconds - computed: true, optional: true, required: false
-  private _targetIntervalSeconds?: number; 
+  private _targetIntervalSeconds?: number;
   public get targetIntervalSeconds() {
     return this.getNumberAttribute('target_interval_seconds');
   }
@@ -338,7 +338,7 @@ export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -354,7 +354,7 @@ export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -427,7 +427,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -443,7 +443,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,7 +459,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // recording_reconnect_window_seconds - computed: true, optional: true, required: false
-  private _recordingReconnectWindowSeconds?: number; 
+  private _recordingReconnectWindowSeconds?: number;
   public get recordingReconnectWindowSeconds() {
     return this.getNumberAttribute('recording_reconnect_window_seconds');
   }
@@ -480,7 +480,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -496,7 +496,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

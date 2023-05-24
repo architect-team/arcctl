@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/location_place_index
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface LocationPlaceIndexConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * data_source_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#data_source_configuration LocationPlaceIndex#data_source_configuration}
   */
   readonly dataSourceConfiguration?: LocationPlaceIndexDataSourceConfiguration;
@@ -91,7 +91,7 @@ export class LocationPlaceIndexDataSourceConfigurationOutputReference extends cd
   }
 
   // intended_use - computed: false, optional: true, required: false
-  private _intendedUse?: string; 
+  private _intendedUse?: string;
   public get intendedUse() {
     return this.getStringAttribute('intended_use');
   }
@@ -163,7 +163,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // data_source - computed: false, optional: false, required: true
-  private _dataSource?: string; 
+  private _dataSource?: string;
   public get dataSource() {
     return this.getStringAttribute('data_source');
   }
@@ -176,7 +176,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -192,7 +192,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -213,7 +213,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // index_name - computed: false, optional: false, required: true
-  private _indexName?: string; 
+  private _indexName?: string;
   public get indexName() {
     return this.getStringAttribute('index_name');
   }
@@ -226,7 +226,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -242,7 +242,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

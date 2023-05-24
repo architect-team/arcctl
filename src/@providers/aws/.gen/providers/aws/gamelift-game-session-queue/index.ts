@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/gamelift_game_session_queue
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface GameliftGameSessionQueueConfig extends cdktf.TerraformMetaArgum
   readonly timeoutInSeconds?: number;
   /**
   * player_latency_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_session_queue#player_latency_policy GameliftGameSessionQueue#player_latency_policy}
   */
   readonly playerLatencyPolicy?: GameliftGameSessionQueuePlayerLatencyPolicy[] | cdktf.IResolvable;
@@ -118,7 +118,7 @@ export class GameliftGameSessionQueuePlayerLatencyPolicyOutputReference extends 
   }
 
   // maximum_individual_player_latency_milliseconds - computed: false, optional: false, required: true
-  private _maximumIndividualPlayerLatencyMilliseconds?: number; 
+  private _maximumIndividualPlayerLatencyMilliseconds?: number;
   public get maximumIndividualPlayerLatencyMilliseconds() {
     return this.getNumberAttribute('maximum_individual_player_latency_milliseconds');
   }
@@ -131,7 +131,7 @@ export class GameliftGameSessionQueuePlayerLatencyPolicyOutputReference extends 
   }
 
   // policy_duration_seconds - computed: false, optional: true, required: false
-  private _policyDurationSeconds?: number; 
+  private _policyDurationSeconds?: number;
   public get policyDurationSeconds() {
     return this.getNumberAttribute('policy_duration_seconds');
   }
@@ -224,7 +224,7 @@ export class GameliftGameSessionQueue extends cdktf.TerraformResource {
   }
 
   // destinations - computed: false, optional: true, required: false
-  private _destinations?: string[]; 
+  private _destinations?: string[];
   public get destinations() {
     return this.getListAttribute('destinations');
   }
@@ -240,7 +240,7 @@ export class GameliftGameSessionQueue extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -256,7 +256,7 @@ export class GameliftGameSessionQueue extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -269,7 +269,7 @@ export class GameliftGameSessionQueue extends cdktf.TerraformResource {
   }
 
   // notification_target - computed: false, optional: true, required: false
-  private _notificationTarget?: string; 
+  private _notificationTarget?: string;
   public get notificationTarget() {
     return this.getStringAttribute('notification_target');
   }
@@ -285,7 +285,7 @@ export class GameliftGameSessionQueue extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -301,7 +301,7 @@ export class GameliftGameSessionQueue extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -317,7 +317,7 @@ export class GameliftGameSessionQueue extends cdktf.TerraformResource {
   }
 
   // timeout_in_seconds - computed: false, optional: true, required: false
-  private _timeoutInSeconds?: number; 
+  private _timeoutInSeconds?: number;
   public get timeoutInSeconds() {
     return this.getNumberAttribute('timeout_in_seconds');
   }

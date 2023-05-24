@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/quicksight_data_source
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,31 +40,31 @@ export interface QuicksightDataSourceConfig extends cdktf.TerraformMetaArguments
   readonly type: string;
   /**
   * credentials block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#credentials QuicksightDataSource#credentials}
   */
   readonly credentials?: QuicksightDataSourceCredentials;
   /**
   * parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#parameters QuicksightDataSource#parameters}
   */
   readonly parameters: QuicksightDataSourceParameters;
   /**
   * permission block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#permission QuicksightDataSource#permission}
   */
   readonly permission?: QuicksightDataSourcePermission[] | cdktf.IResolvable;
   /**
   * ssl_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#ssl_properties QuicksightDataSource#ssl_properties}
   */
   readonly sslProperties?: QuicksightDataSourceSslProperties;
   /**
   * vpc_connection_properties block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#vpc_connection_properties QuicksightDataSource#vpc_connection_properties}
   */
   readonly vpcConnectionProperties?: QuicksightDataSourceVpcConnectionProperties;
@@ -130,7 +130,7 @@ export class QuicksightDataSourceCredentialsCredentialPairOutputReference extend
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -143,7 +143,7 @@ export class QuicksightDataSourceCredentialsCredentialPairOutputReference extend
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -162,7 +162,7 @@ export interface QuicksightDataSourceCredentials {
   readonly copySourceArn?: string;
   /**
   * credential_pair block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#credential_pair QuicksightDataSource#credential_pair}
   */
   readonly credentialPair?: QuicksightDataSourceCredentialsCredentialPair;
@@ -218,7 +218,7 @@ export class QuicksightDataSourceCredentialsOutputReference extends cdktf.Comple
   }
 
   // copy_source_arn - computed: false, optional: true, required: false
-  private _copySourceArn?: string; 
+  private _copySourceArn?: string;
   public get copySourceArn() {
     return this.getStringAttribute('copy_source_arn');
   }
@@ -299,7 +299,7 @@ export class QuicksightDataSourceParametersAmazonElasticsearchOutputReference ex
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -361,7 +361,7 @@ export class QuicksightDataSourceParametersAthenaOutputReference extends cdktf.C
   }
 
   // work_group - computed: false, optional: true, required: false
-  private _workGroup?: string; 
+  private _workGroup?: string;
   public get workGroup() {
     return this.getStringAttribute('work_group');
   }
@@ -448,7 +448,7 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -461,7 +461,7 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -474,7 +474,7 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -558,7 +558,7 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -571,7 +571,7 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -584,7 +584,7 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -646,7 +646,7 @@ export class QuicksightDataSourceParametersAwsIotAnalyticsOutputReference extend
   }
 
   // data_set_name - computed: false, optional: false, required: true
-  private _dataSetName?: string; 
+  private _dataSetName?: string;
   public get dataSetName() {
     return this.getStringAttribute('data_set_name');
   }
@@ -708,7 +708,7 @@ export class QuicksightDataSourceParametersJiraOutputReference extends cdktf.Com
   }
 
   // site_base_url - computed: false, optional: false, required: true
-  private _siteBaseUrl?: string; 
+  private _siteBaseUrl?: string;
   public get siteBaseUrl() {
     return this.getStringAttribute('site_base_url');
   }
@@ -792,7 +792,7 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -805,7 +805,7 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -818,7 +818,7 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -902,7 +902,7 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -915,7 +915,7 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -928,7 +928,7 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1012,7 +1012,7 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1025,7 +1025,7 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1038,7 +1038,7 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1122,7 +1122,7 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1135,7 +1135,7 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1148,7 +1148,7 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1232,7 +1232,7 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
   }
 
   // catalog - computed: false, optional: false, required: true
-  private _catalog?: string; 
+  private _catalog?: string;
   public get catalog() {
     return this.getStringAttribute('catalog');
   }
@@ -1245,7 +1245,7 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1258,7 +1258,7 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1331,7 +1331,7 @@ export class QuicksightDataSourceParametersRdsOutputReference extends cdktf.Comp
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1344,7 +1344,7 @@ export class QuicksightDataSourceParametersRdsOutputReference extends cdktf.Comp
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -1439,7 +1439,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // cluster_id - computed: false, optional: true, required: false
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -1455,7 +1455,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1468,7 +1468,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1484,7 +1484,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1560,7 +1560,7 @@ export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1573,7 +1573,7 @@ export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1588,7 +1588,7 @@ export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
 export interface QuicksightDataSourceParametersS3 {
   /**
   * manifest_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#manifest_file_location QuicksightDataSource#manifest_file_location}
   */
   readonly manifestFileLocation: QuicksightDataSourceParametersS3ManifestFileLocation;
@@ -1699,7 +1699,7 @@ export class QuicksightDataSourceParametersServiceNowOutputReference extends cdk
   }
 
   // site_base_url - computed: false, optional: false, required: true
-  private _siteBaseUrl?: string; 
+  private _siteBaseUrl?: string;
   public get siteBaseUrl() {
     return this.getStringAttribute('site_base_url');
   }
@@ -1783,7 +1783,7 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1796,7 +1796,7 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1809,7 +1809,7 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
   }
 
   // warehouse - computed: false, optional: false, required: true
-  private _warehouse?: string; 
+  private _warehouse?: string;
   public get warehouse() {
     return this.getStringAttribute('warehouse');
   }
@@ -1882,7 +1882,7 @@ export class QuicksightDataSourceParametersSparkOutputReference extends cdktf.Co
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1895,7 +1895,7 @@ export class QuicksightDataSourceParametersSparkOutputReference extends cdktf.Co
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1979,7 +1979,7 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1992,7 +1992,7 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -2005,7 +2005,7 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2089,7 +2089,7 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -2102,7 +2102,7 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -2115,7 +2115,7 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2188,7 +2188,7 @@ export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.
   }
 
   // max_rows - computed: false, optional: false, required: true
-  private _maxRows?: number; 
+  private _maxRows?: number;
   public get maxRows() {
     return this.getNumberAttribute('max_rows');
   }
@@ -2201,7 +2201,7 @@ export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.
   }
 
   // query - computed: false, optional: false, required: true
-  private _query?: string; 
+  private _query?: string;
   public get query() {
     return this.getStringAttribute('query');
   }
@@ -2216,121 +2216,121 @@ export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.
 export interface QuicksightDataSourceParameters {
   /**
   * amazon_elasticsearch block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#amazon_elasticsearch QuicksightDataSource#amazon_elasticsearch}
   */
   readonly amazonElasticsearch?: QuicksightDataSourceParametersAmazonElasticsearch;
   /**
   * athena block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#athena QuicksightDataSource#athena}
   */
   readonly athena?: QuicksightDataSourceParametersAthena;
   /**
   * aurora block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aurora QuicksightDataSource#aurora}
   */
   readonly aurora?: QuicksightDataSourceParametersAurora;
   /**
   * aurora_postgresql block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aurora_postgresql QuicksightDataSource#aurora_postgresql}
   */
   readonly auroraPostgresql?: QuicksightDataSourceParametersAuroraPostgresql;
   /**
   * aws_iot_analytics block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aws_iot_analytics QuicksightDataSource#aws_iot_analytics}
   */
   readonly awsIotAnalytics?: QuicksightDataSourceParametersAwsIotAnalytics;
   /**
   * jira block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#jira QuicksightDataSource#jira}
   */
   readonly jira?: QuicksightDataSourceParametersJira;
   /**
   * maria_db block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#maria_db QuicksightDataSource#maria_db}
   */
   readonly mariaDb?: QuicksightDataSourceParametersMariaDb;
   /**
   * mysql block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#mysql QuicksightDataSource#mysql}
   */
   readonly mysql?: QuicksightDataSourceParametersMysql;
   /**
   * oracle block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#oracle QuicksightDataSource#oracle}
   */
   readonly oracle?: QuicksightDataSourceParametersOracle;
   /**
   * postgresql block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#postgresql QuicksightDataSource#postgresql}
   */
   readonly postgresql?: QuicksightDataSourceParametersPostgresql;
   /**
   * presto block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#presto QuicksightDataSource#presto}
   */
   readonly presto?: QuicksightDataSourceParametersPresto;
   /**
   * rds block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#rds QuicksightDataSource#rds}
   */
   readonly rds?: QuicksightDataSourceParametersRds;
   /**
   * redshift block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#redshift QuicksightDataSource#redshift}
   */
   readonly redshift?: QuicksightDataSourceParametersRedshift;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#s3 QuicksightDataSource#s3}
   */
   readonly s3?: QuicksightDataSourceParametersS3;
   /**
   * service_now block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#service_now QuicksightDataSource#service_now}
   */
   readonly serviceNow?: QuicksightDataSourceParametersServiceNow;
   /**
   * snowflake block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#snowflake QuicksightDataSource#snowflake}
   */
   readonly snowflake?: QuicksightDataSourceParametersSnowflake;
   /**
   * spark block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#spark QuicksightDataSource#spark}
   */
   readonly spark?: QuicksightDataSourceParametersSpark;
   /**
   * sql_server block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#sql_server QuicksightDataSource#sql_server}
   */
   readonly sqlServer?: QuicksightDataSourceParametersSqlServer;
   /**
   * teradata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#teradata QuicksightDataSource#teradata}
   */
   readonly teradata?: QuicksightDataSourceParametersTeradata;
   /**
   * twitter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#twitter QuicksightDataSource#twitter}
   */
   readonly twitter?: QuicksightDataSourceParametersTwitter;
@@ -2904,7 +2904,7 @@ export class QuicksightDataSourcePermissionOutputReference extends cdktf.Complex
   }
 
   // actions - computed: false, optional: false, required: true
-  private _actions?: string[]; 
+  private _actions?: string[];
   public get actions() {
     return cdktf.Fn.tolist(this.getListAttribute('actions'));
   }
@@ -2917,7 +2917,7 @@ export class QuicksightDataSourcePermissionOutputReference extends cdktf.Complex
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -2999,7 +2999,7 @@ export class QuicksightDataSourceSslPropertiesOutputReference extends cdktf.Comp
   }
 
   // disable_ssl - computed: false, optional: false, required: true
-  private _disableSsl?: boolean | cdktf.IResolvable; 
+  private _disableSsl?: boolean | cdktf.IResolvable;
   public get disableSsl() {
     return this.getBooleanAttribute('disable_ssl');
   }
@@ -3061,7 +3061,7 @@ export class QuicksightDataSourceVpcConnectionPropertiesOutputReference extends 
   }
 
   // vpc_connection_arn - computed: false, optional: false, required: true
-  private _vpcConnectionArn?: string; 
+  private _vpcConnectionArn?: string;
   public get vpcConnectionArn() {
     return this.getStringAttribute('vpc_connection_arn');
   }
@@ -3135,7 +3135,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // aws_account_id - computed: true, optional: true, required: false
-  private _awsAccountId?: string; 
+  private _awsAccountId?: string;
   public get awsAccountId() {
     return this.getStringAttribute('aws_account_id');
   }
@@ -3151,7 +3151,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // data_source_id - computed: false, optional: false, required: true
-  private _dataSourceId?: string; 
+  private _dataSourceId?: string;
   public get dataSourceId() {
     return this.getStringAttribute('data_source_id');
   }
@@ -3164,7 +3164,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3180,7 +3180,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3193,7 +3193,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3209,7 +3209,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -3225,7 +3225,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_network_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface Ec2ClientVpnNetworkAssociationConfig extends cdktf.TerraformMet
   readonly subnetId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_network_association#timeouts Ec2ClientVpnNetworkAssociation#timeouts}
   */
   readonly timeouts?: Ec2ClientVpnNetworkAssociationTimeouts;
@@ -104,7 +104,7 @@ export class Ec2ClientVpnNetworkAssociationTimeoutsOutputReference extends cdktf
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -120,7 +120,7 @@ export class Ec2ClientVpnNetworkAssociationTimeoutsOutputReference extends cdktf
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -190,7 +190,7 @@ export class Ec2ClientVpnNetworkAssociation extends cdktf.TerraformResource {
   }
 
   // client_vpn_endpoint_id - computed: false, optional: false, required: true
-  private _clientVpnEndpointId?: string; 
+  private _clientVpnEndpointId?: string;
   public get clientVpnEndpointId() {
     return this.getStringAttribute('client_vpn_endpoint_id');
   }
@@ -203,7 +203,7 @@ export class Ec2ClientVpnNetworkAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -219,7 +219,7 @@ export class Ec2ClientVpnNetworkAssociation extends cdktf.TerraformResource {
   }
 
   // security_groups - computed: true, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -240,7 +240,7 @@ export class Ec2ClientVpnNetworkAssociation extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }

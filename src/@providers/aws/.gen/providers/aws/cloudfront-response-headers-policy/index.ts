@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,25 +28,25 @@ export interface CloudfrontResponseHeadersPolicyConfig extends cdktf.TerraformMe
   readonly name: string;
   /**
   * cors_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#cors_config CloudfrontResponseHeadersPolicy#cors_config}
   */
   readonly corsConfig?: CloudfrontResponseHeadersPolicyCorsConfig;
   /**
   * custom_headers_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#custom_headers_config CloudfrontResponseHeadersPolicy#custom_headers_config}
   */
   readonly customHeadersConfig?: CloudfrontResponseHeadersPolicyCustomHeadersConfig;
   /**
   * security_headers_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#security_headers_config CloudfrontResponseHeadersPolicy#security_headers_config}
   */
   readonly securityHeadersConfig?: CloudfrontResponseHeadersPolicySecurityHeadersConfig;
   /**
   * server_timing_headers_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#server_timing_headers_config CloudfrontResponseHeadersPolicy#server_timing_headers_config}
   */
   readonly serverTimingHeadersConfig?: CloudfrontResponseHeadersPolicyServerTimingHeadersConfig;
@@ -101,7 +101,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersO
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -166,7 +166,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsO
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -231,7 +231,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsO
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -296,7 +296,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -326,25 +326,25 @@ export interface CloudfrontResponseHeadersPolicyCorsConfig {
   readonly originOverride: boolean | cdktf.IResolvable;
   /**
   * access_control_allow_headers block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_headers CloudfrontResponseHeadersPolicy#access_control_allow_headers}
   */
   readonly accessControlAllowHeaders: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders;
   /**
   * access_control_allow_methods block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_methods CloudfrontResponseHeadersPolicy#access_control_allow_methods}
   */
   readonly accessControlAllowMethods: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods;
   /**
   * access_control_allow_origins block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_origins CloudfrontResponseHeadersPolicy#access_control_allow_origins}
   */
   readonly accessControlAllowOrigins: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins;
   /**
   * access_control_expose_headers block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_expose_headers CloudfrontResponseHeadersPolicy#access_control_expose_headers}
   */
   readonly accessControlExposeHeaders?: CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders;
@@ -435,7 +435,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // access_control_allow_credentials - computed: false, optional: false, required: true
-  private _accessControlAllowCredentials?: boolean | cdktf.IResolvable; 
+  private _accessControlAllowCredentials?: boolean | cdktf.IResolvable;
   public get accessControlAllowCredentials() {
     return this.getBooleanAttribute('access_control_allow_credentials');
   }
@@ -448,7 +448,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // access_control_max_age_sec - computed: false, optional: true, required: false
-  private _accessControlMaxAgeSec?: number; 
+  private _accessControlMaxAgeSec?: number;
   public get accessControlMaxAgeSec() {
     return this.getNumberAttribute('access_control_max_age_sec');
   }
@@ -464,7 +464,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // origin_override - computed: false, optional: false, required: true
-  private _originOverride?: boolean | cdktf.IResolvable; 
+  private _originOverride?: boolean | cdktf.IResolvable;
   public get originOverride() {
     return this.getBooleanAttribute('origin_override');
   }
@@ -615,7 +615,7 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
   }
 
   // header - computed: false, optional: false, required: true
-  private _header?: string; 
+  private _header?: string;
   public get header() {
     return this.getStringAttribute('header');
   }
@@ -628,7 +628,7 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -641,7 +641,7 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -676,7 +676,7 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsList extends
 export interface CloudfrontResponseHeadersPolicyCustomHeadersConfig {
   /**
   * items block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
   */
   readonly items?: CloudfrontResponseHeadersPolicyCustomHeadersConfigItems[] | cdktf.IResolvable;
@@ -801,7 +801,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurity
   }
 
   // content_security_policy - computed: false, optional: false, required: true
-  private _contentSecurityPolicy?: string; 
+  private _contentSecurityPolicy?: string;
   public get contentSecurityPolicy() {
     return this.getStringAttribute('content_security_policy');
   }
@@ -814,7 +814,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurity
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -876,7 +876,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOpti
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -949,7 +949,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOut
   }
 
   // frame_option - computed: false, optional: false, required: true
-  private _frameOption?: string; 
+  private _frameOption?: string;
   public get frameOption() {
     return this.getStringAttribute('frame_option');
   }
@@ -962,7 +962,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOut
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -1035,7 +1035,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyO
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -1048,7 +1048,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyO
   }
 
   // referrer_policy - computed: false, optional: false, required: true
-  private _referrerPolicy?: string; 
+  private _referrerPolicy?: string;
   public get referrerPolicy() {
     return this.getStringAttribute('referrer_policy');
   }
@@ -1143,7 +1143,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // access_control_max_age_sec - computed: false, optional: false, required: true
-  private _accessControlMaxAgeSec?: number; 
+  private _accessControlMaxAgeSec?: number;
   public get accessControlMaxAgeSec() {
     return this.getNumberAttribute('access_control_max_age_sec');
   }
@@ -1156,7 +1156,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // include_subdomains - computed: false, optional: true, required: false
-  private _includeSubdomains?: boolean | cdktf.IResolvable; 
+  private _includeSubdomains?: boolean | cdktf.IResolvable;
   public get includeSubdomains() {
     return this.getBooleanAttribute('include_subdomains');
   }
@@ -1172,7 +1172,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -1185,7 +1185,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // preload - computed: false, optional: true, required: false
-  private _preload?: boolean | cdktf.IResolvable; 
+  private _preload?: boolean | cdktf.IResolvable;
   public get preload() {
     return this.getBooleanAttribute('preload');
   }
@@ -1283,7 +1283,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // mode_block - computed: false, optional: true, required: false
-  private _modeBlock?: boolean | cdktf.IResolvable; 
+  private _modeBlock?: boolean | cdktf.IResolvable;
   public get modeBlock() {
     return this.getBooleanAttribute('mode_block');
   }
@@ -1299,7 +1299,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -1312,7 +1312,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // protection - computed: false, optional: false, required: true
-  private _protection?: boolean | cdktf.IResolvable; 
+  private _protection?: boolean | cdktf.IResolvable;
   public get protection() {
     return this.getBooleanAttribute('protection');
   }
@@ -1325,7 +1325,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // report_uri - computed: false, optional: true, required: false
-  private _reportUri?: string; 
+  private _reportUri?: string;
   public get reportUri() {
     return this.getStringAttribute('report_uri');
   }
@@ -1343,37 +1343,37 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfig {
   /**
   * content_security_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_security_policy CloudfrontResponseHeadersPolicy#content_security_policy}
   */
   readonly contentSecurityPolicy?: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy;
   /**
   * content_type_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_type_options CloudfrontResponseHeadersPolicy#content_type_options}
   */
   readonly contentTypeOptions?: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions;
   /**
   * frame_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#frame_options CloudfrontResponseHeadersPolicy#frame_options}
   */
   readonly frameOptions?: CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions;
   /**
   * referrer_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#referrer_policy CloudfrontResponseHeadersPolicy#referrer_policy}
   */
   readonly referrerPolicy?: CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy;
   /**
   * strict_transport_security block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#strict_transport_security CloudfrontResponseHeadersPolicy#strict_transport_security}
   */
   readonly strictTransportSecurity?: CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity;
   /**
   * xss_protection block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#xss_protection CloudfrontResponseHeadersPolicy#xss_protection}
   */
   readonly xssProtection?: CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection;
@@ -1613,7 +1613,7 @@ export class CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputRefer
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1626,7 +1626,7 @@ export class CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputRefer
   }
 
   // sampling_rate - computed: false, optional: false, required: true
-  private _samplingRate?: number; 
+  private _samplingRate?: number;
   public get samplingRate() {
     return this.getNumberAttribute('sampling_rate');
   }
@@ -1691,7 +1691,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   // ==========
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -1707,7 +1707,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // etag - computed: true, optional: true, required: false
-  private _etag?: string; 
+  private _etag?: string;
   public get etag() {
     return this.getStringAttribute('etag');
   }
@@ -1723,7 +1723,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1739,7 +1739,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

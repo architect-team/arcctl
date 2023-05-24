@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -89,7 +89,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   }
 
   // mysql_auth_plugin - computed: false, optional: true, required: false
-  private _mysqlAuthPlugin?: string; 
+  private _mysqlAuthPlugin?: string;
   public get mysqlAuthPlugin() {
     return this.getStringAttribute('mysql_auth_plugin');
   }
@@ -121,7 +121,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

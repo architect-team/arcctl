@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { DaemonSetV1Metadata, 
-daemonSetV1MetadataToTerraform, 
-DaemonSetV1MetadataOutputReference, 
-DaemonSetV1Spec, 
-daemonSetV1SpecToTerraform, 
-DaemonSetV1SpecOutputReference, 
-DaemonSetV1Timeouts, 
-daemonSetV1TimeoutsToTerraform, 
+import { DaemonSetV1Metadata,
+daemonSetV1MetadataToTerraform,
+DaemonSetV1MetadataOutputReference,
+DaemonSetV1Spec,
+daemonSetV1SpecToTerraform,
+DaemonSetV1SpecOutputReference,
+DaemonSetV1Timeouts,
+daemonSetV1TimeoutsToTerraform,
 DaemonSetV1TimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface DaemonSetV1Config extends cdktf.TerraformMetaArguments {
   /**
@@ -22,25 +22,25 @@ export interface DaemonSetV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Wait for the rollout of the deployment to complete. Defaults to true.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemon_set_v1#wait_for_rollout DaemonSetV1#wait_for_rollout}
   */
   readonly waitForRollout?: boolean | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemon_set_v1#metadata DaemonSetV1#metadata}
   */
   readonly metadata: DaemonSetV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemon_set_v1#spec DaemonSetV1#spec}
   */
   readonly spec: DaemonSetV1Spec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemon_set_v1#timeouts DaemonSetV1#timeouts}
   */
   readonly timeouts?: DaemonSetV1Timeouts;
@@ -95,7 +95,7 @@ export class DaemonSetV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -111,7 +111,7 @@ export class DaemonSetV1 extends cdktf.TerraformResource {
   }
 
   // wait_for_rollout - computed: false, optional: true, required: false
-  private _waitForRollout?: boolean | cdktf.IResolvable; 
+  private _waitForRollout?: boolean | cdktf.IResolvable;
   public get waitForRollout() {
     return this.getBooleanAttribute('wait_for_rollout');
   }

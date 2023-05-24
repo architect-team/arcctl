@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/workspaces_image
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsWorkspacesImage extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DataAwsWorkspacesImage extends cdktf.TerraformDataSource {
   }
 
   // image_id - computed: false, optional: false, required: true
-  private _imageId?: string; 
+  private _imageId?: string;
   public get imageId() {
     return this.getStringAttribute('image_id');
   }

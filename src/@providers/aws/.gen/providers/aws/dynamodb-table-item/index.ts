@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   // ==========
 
   // hash_key - computed: false, optional: false, required: true
-  private _hashKey?: string; 
+  private _hashKey?: string;
   public get hashKey() {
     return this.getStringAttribute('hash_key');
   }
@@ -94,7 +94,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // item - computed: false, optional: false, required: true
-  private _item?: string; 
+  private _item?: string;
   public get item() {
     return this.getStringAttribute('item');
   }
@@ -123,7 +123,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // range_key - computed: false, optional: true, required: false
-  private _rangeKey?: string; 
+  private _rangeKey?: string;
   public get rangeKey() {
     return this.getStringAttribute('range_key');
   }
@@ -139,7 +139,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/applicationinsights_application
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // auto_config_enabled - computed: false, optional: true, required: false
-  private _autoConfigEnabled?: boolean | cdktf.IResolvable; 
+  private _autoConfigEnabled?: boolean | cdktf.IResolvable;
   public get autoConfigEnabled() {
     return this.getBooleanAttribute('auto_config_enabled');
   }
@@ -127,7 +127,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // auto_create - computed: false, optional: true, required: false
-  private _autoCreate?: boolean | cdktf.IResolvable; 
+  private _autoCreate?: boolean | cdktf.IResolvable;
   public get autoCreate() {
     return this.getBooleanAttribute('auto_create');
   }
@@ -143,7 +143,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // cwe_monitor_enabled - computed: false, optional: true, required: false
-  private _cweMonitorEnabled?: boolean | cdktf.IResolvable; 
+  private _cweMonitorEnabled?: boolean | cdktf.IResolvable;
   public get cweMonitorEnabled() {
     return this.getBooleanAttribute('cwe_monitor_enabled');
   }
@@ -159,7 +159,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // grouping_type - computed: false, optional: true, required: false
-  private _groupingType?: string; 
+  private _groupingType?: string;
   public get groupingType() {
     return this.getStringAttribute('grouping_type');
   }
@@ -175,7 +175,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -191,7 +191,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // ops_center_enabled - computed: false, optional: true, required: false
-  private _opsCenterEnabled?: boolean | cdktf.IResolvable; 
+  private _opsCenterEnabled?: boolean | cdktf.IResolvable;
   public get opsCenterEnabled() {
     return this.getBooleanAttribute('ops_center_enabled');
   }
@@ -207,7 +207,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // ops_item_sns_topic_arn - computed: false, optional: true, required: false
-  private _opsItemSnsTopicArn?: string; 
+  private _opsItemSnsTopicArn?: string;
   public get opsItemSnsTopicArn() {
     return this.getStringAttribute('ops_item_sns_topic_arn');
   }
@@ -223,7 +223,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // resource_group_name - computed: false, optional: false, required: true
-  private _resourceGroupName?: string; 
+  private _resourceGroupName?: string;
   public get resourceGroupName() {
     return this.getStringAttribute('resource_group_name');
   }
@@ -236,7 +236,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -252,7 +252,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

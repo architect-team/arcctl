@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface HorizontalPodAutoscalerV2Config extends cdktf.TerraformMetaArgu
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#metadata HorizontalPodAutoscalerV2#metadata}
   */
   readonly metadata: HorizontalPodAutoscalerV2Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#spec HorizontalPodAutoscalerV2#spec}
   */
   readonly spec: HorizontalPodAutoscalerV2Spec;
@@ -30,31 +30,31 @@ export interface HorizontalPodAutoscalerV2Config extends cdktf.TerraformMetaArgu
 export interface HorizontalPodAutoscalerV2Metadata {
   /**
   * An unstructured key value map stored with the horizontal pod autoscaler that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#annotations HorizontalPodAutoscalerV2#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#generate_name HorizontalPodAutoscalerV2#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the horizontal pod autoscaler. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#labels HorizontalPodAutoscalerV2#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the horizontal pod autoscaler, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the horizontal pod autoscaler must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#namespace HorizontalPodAutoscalerV2#namespace}
   */
   readonly namespace?: string;
@@ -131,7 +131,7 @@ export class HorizontalPodAutoscalerV2MetadataOutputReference extends cdktf.Comp
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -147,7 +147,7 @@ export class HorizontalPodAutoscalerV2MetadataOutputReference extends cdktf.Comp
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -168,7 +168,7 @@ export class HorizontalPodAutoscalerV2MetadataOutputReference extends cdktf.Comp
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -184,7 +184,7 @@ export class HorizontalPodAutoscalerV2MetadataOutputReference extends cdktf.Comp
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -200,7 +200,7 @@ export class HorizontalPodAutoscalerV2MetadataOutputReference extends cdktf.Comp
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -228,19 +228,19 @@ export class HorizontalPodAutoscalerV2MetadataOutputReference extends cdktf.Comp
 export interface HorizontalPodAutoscalerV2SpecBehaviorScaleDownPolicy {
   /**
   * Period specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#period_seconds HorizontalPodAutoscalerV2#period_seconds}
   */
   readonly periodSeconds: number;
   /**
   * Type is used to specify the scaling policy: Percent or Pods
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * Value contains the amount of change which is permitted by the policy. It must be greater than zero.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#value HorizontalPodAutoscalerV2#value}
   */
   readonly value: number;
@@ -315,7 +315,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleDownPolicyOutputReference
   }
 
   // period_seconds - computed: false, optional: false, required: true
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -328,7 +328,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleDownPolicyOutputReference
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -341,7 +341,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleDownPolicyOutputReference
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -376,19 +376,19 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleDownPolicyList extends cd
 export interface HorizontalPodAutoscalerV2SpecBehaviorScaleDown {
   /**
   * Used to specify which policy should be used. If not set, the default value Max is used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#select_policy HorizontalPodAutoscalerV2#select_policy}
   */
   readonly selectPolicy?: string;
   /**
   * Number of seconds for which past recommendations should be considered while scaling up or scaling down. This value must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#stabilization_window_seconds HorizontalPodAutoscalerV2#stabilization_window_seconds}
   */
   readonly stabilizationWindowSeconds?: number;
   /**
   * policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#policy HorizontalPodAutoscalerV2#policy}
   */
   readonly policy: HorizontalPodAutoscalerV2SpecBehaviorScaleDownPolicy[] | cdktf.IResolvable;
@@ -463,7 +463,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleDownOutputReference exten
   }
 
   // select_policy - computed: false, optional: true, required: false
-  private _selectPolicy?: string; 
+  private _selectPolicy?: string;
   public get selectPolicy() {
     return this.getStringAttribute('select_policy');
   }
@@ -479,7 +479,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleDownOutputReference exten
   }
 
   // stabilization_window_seconds - computed: false, optional: true, required: false
-  private _stabilizationWindowSeconds?: number; 
+  private _stabilizationWindowSeconds?: number;
   public get stabilizationWindowSeconds() {
     return this.getNumberAttribute('stabilization_window_seconds');
   }
@@ -530,19 +530,19 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleDownList extends cdktf.Co
 export interface HorizontalPodAutoscalerV2SpecBehaviorScaleUpPolicy {
   /**
   * Period specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#period_seconds HorizontalPodAutoscalerV2#period_seconds}
   */
   readonly periodSeconds: number;
   /**
   * Type is used to specify the scaling policy: Percent or Pods
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * Value contains the amount of change which is permitted by the policy. It must be greater than zero.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#value HorizontalPodAutoscalerV2#value}
   */
   readonly value: number;
@@ -617,7 +617,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleUpPolicyOutputReference e
   }
 
   // period_seconds - computed: false, optional: false, required: true
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -630,7 +630,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleUpPolicyOutputReference e
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -643,7 +643,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleUpPolicyOutputReference e
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -678,19 +678,19 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleUpPolicyList extends cdkt
 export interface HorizontalPodAutoscalerV2SpecBehaviorScaleUp {
   /**
   * Used to specify which policy should be used. If not set, the default value Max is used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#select_policy HorizontalPodAutoscalerV2#select_policy}
   */
   readonly selectPolicy?: string;
   /**
   * Number of seconds for which past recommendations should be considered while scaling up or scaling down. This value must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#stabilization_window_seconds HorizontalPodAutoscalerV2#stabilization_window_seconds}
   */
   readonly stabilizationWindowSeconds?: number;
   /**
   * policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#policy HorizontalPodAutoscalerV2#policy}
   */
   readonly policy: HorizontalPodAutoscalerV2SpecBehaviorScaleUpPolicy[] | cdktf.IResolvable;
@@ -765,7 +765,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleUpOutputReference extends
   }
 
   // select_policy - computed: false, optional: true, required: false
-  private _selectPolicy?: string; 
+  private _selectPolicy?: string;
   public get selectPolicy() {
     return this.getStringAttribute('select_policy');
   }
@@ -781,7 +781,7 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleUpOutputReference extends
   }
 
   // stabilization_window_seconds - computed: false, optional: true, required: false
-  private _stabilizationWindowSeconds?: number; 
+  private _stabilizationWindowSeconds?: number;
   public get stabilizationWindowSeconds() {
     return this.getNumberAttribute('stabilization_window_seconds');
   }
@@ -832,13 +832,13 @@ export class HorizontalPodAutoscalerV2SpecBehaviorScaleUpList extends cdktf.Comp
 export interface HorizontalPodAutoscalerV2SpecBehavior {
   /**
   * scale_down block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#scale_down HorizontalPodAutoscalerV2#scale_down}
   */
   readonly scaleDown?: HorizontalPodAutoscalerV2SpecBehaviorScaleDown[] | cdktf.IResolvable;
   /**
   * scale_up block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#scale_up HorizontalPodAutoscalerV2#scale_up}
   */
   readonly scaleUp?: HorizontalPodAutoscalerV2SpecBehaviorScaleUp[] | cdktf.IResolvable;
@@ -928,25 +928,25 @@ export class HorizontalPodAutoscalerV2SpecBehaviorOutputReference extends cdktf.
 export interface HorizontalPodAutoscalerV2SpecMetricContainerResourceTarget {
   /**
   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_utilization HorizontalPodAutoscalerV2#average_utilization}
   */
   readonly averageUtilization?: number;
   /**
   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_value HorizontalPodAutoscalerV2#average_value}
   */
   readonly averageValue?: string;
   /**
   * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * value is the target value of the metric (as a quantity).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#value HorizontalPodAutoscalerV2#value}
   */
   readonly value?: string;
@@ -1016,7 +1016,7 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceTargetOutputRef
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -1032,7 +1032,7 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceTargetOutputRef
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -1048,7 +1048,7 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceTargetOutputRef
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1061,7 +1061,7 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceTargetOutputRef
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1079,19 +1079,19 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceTargetOutputRef
 export interface HorizontalPodAutoscalerV2SpecMetricContainerResource {
   /**
   * name of the container in the pods of the scaling target
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#container HorizontalPodAutoscalerV2#container}
   */
   readonly container: string;
   /**
   * name of the resource in question
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name: string;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#target HorizontalPodAutoscalerV2#target}
   */
   readonly target?: HorizontalPodAutoscalerV2SpecMetricContainerResourceTarget;
@@ -1154,7 +1154,7 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceOutputReference
   }
 
   // container - computed: false, optional: false, required: true
-  private _container?: string; 
+  private _container?: string;
   public get container() {
     return this.getStringAttribute('container');
   }
@@ -1167,7 +1167,7 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceOutputReference
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1198,19 +1198,19 @@ export class HorizontalPodAutoscalerV2SpecMetricContainerResourceOutputReference
 export interface HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#key HorizontalPodAutoscalerV2#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#operator HorizontalPodAutoscalerV2#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#values HorizontalPodAutoscalerV2#values}
   */
   readonly values?: string[];
@@ -1285,7 +1285,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorMatchExpre
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1301,7 +1301,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorMatchExpre
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -1317,7 +1317,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorMatchExpre
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1355,13 +1355,13 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorMatchExpre
 export interface HorizontalPodAutoscalerV2SpecMetricExternalMetricSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#match_labels HorizontalPodAutoscalerV2#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#match_expressions HorizontalPodAutoscalerV2#match_expressions}
   */
   readonly matchExpressions?: HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -1429,7 +1429,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorOutputRefe
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -1483,13 +1483,13 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricSelectorList exten
 export interface HorizontalPodAutoscalerV2SpecMetricExternalMetric {
   /**
   * name is the name of the given metric
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name: string;
   /**
   * selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#selector HorizontalPodAutoscalerV2#selector}
   */
   readonly selector?: HorizontalPodAutoscalerV2SpecMetricExternalMetricSelector[] | cdktf.IResolvable;
@@ -1545,7 +1545,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricOutputReference ex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1576,25 +1576,25 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalMetricOutputReference ex
 export interface HorizontalPodAutoscalerV2SpecMetricExternalTarget {
   /**
   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_utilization HorizontalPodAutoscalerV2#average_utilization}
   */
   readonly averageUtilization?: number;
   /**
   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_value HorizontalPodAutoscalerV2#average_value}
   */
   readonly averageValue?: string;
   /**
   * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * value is the target value of the metric (as a quantity).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#value HorizontalPodAutoscalerV2#value}
   */
   readonly value?: string;
@@ -1664,7 +1664,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalTargetOutputReference ex
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -1680,7 +1680,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalTargetOutputReference ex
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -1696,7 +1696,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalTargetOutputReference ex
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1709,7 +1709,7 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalTargetOutputReference ex
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1727,13 +1727,13 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalTargetOutputReference ex
 export interface HorizontalPodAutoscalerV2SpecMetricExternal {
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#metric HorizontalPodAutoscalerV2#metric}
   */
   readonly metric: HorizontalPodAutoscalerV2SpecMetricExternalMetric;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#target HorizontalPodAutoscalerV2#target}
   */
   readonly target?: HorizontalPodAutoscalerV2SpecMetricExternalTarget;
@@ -1820,19 +1820,19 @@ export class HorizontalPodAutoscalerV2SpecMetricExternalOutputReference extends 
 export interface HorizontalPodAutoscalerV2SpecMetricObjectDescribedObject {
   /**
   * API version of the referent
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#api_version HorizontalPodAutoscalerV2#api_version}
   */
   readonly apiVersion: string;
   /**
   * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#kind HorizontalPodAutoscalerV2#kind}
   */
   readonly kind: string;
   /**
   * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name: string;
@@ -1895,7 +1895,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectDescribedObjectOutputRefer
   }
 
   // api_version - computed: false, optional: false, required: true
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -1908,7 +1908,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectDescribedObjectOutputRefer
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -1921,7 +1921,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectDescribedObjectOutputRefer
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1936,19 +1936,19 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectDescribedObjectOutputRefer
 export interface HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#key HorizontalPodAutoscalerV2#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#operator HorizontalPodAutoscalerV2#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#values HorizontalPodAutoscalerV2#values}
   */
   readonly values?: string[];
@@ -2023,7 +2023,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorMatchExpress
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2039,7 +2039,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorMatchExpress
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2055,7 +2055,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorMatchExpress
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2093,13 +2093,13 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorMatchExpress
 export interface HorizontalPodAutoscalerV2SpecMetricObjectMetricSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#match_labels HorizontalPodAutoscalerV2#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#match_expressions HorizontalPodAutoscalerV2#match_expressions}
   */
   readonly matchExpressions?: HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -2167,7 +2167,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorOutputRefere
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2221,13 +2221,13 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricSelectorList extends
 export interface HorizontalPodAutoscalerV2SpecMetricObjectMetric {
   /**
   * name is the name of the given metric
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name: string;
   /**
   * selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#selector HorizontalPodAutoscalerV2#selector}
   */
   readonly selector?: HorizontalPodAutoscalerV2SpecMetricObjectMetricSelector[] | cdktf.IResolvable;
@@ -2283,7 +2283,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricOutputReference exte
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2314,25 +2314,25 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectMetricOutputReference exte
 export interface HorizontalPodAutoscalerV2SpecMetricObjectTarget {
   /**
   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_utilization HorizontalPodAutoscalerV2#average_utilization}
   */
   readonly averageUtilization?: number;
   /**
   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_value HorizontalPodAutoscalerV2#average_value}
   */
   readonly averageValue?: string;
   /**
   * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * value is the target value of the metric (as a quantity).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#value HorizontalPodAutoscalerV2#value}
   */
   readonly value?: string;
@@ -2402,7 +2402,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectTargetOutputReference exte
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -2418,7 +2418,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectTargetOutputReference exte
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -2434,7 +2434,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectTargetOutputReference exte
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2447,7 +2447,7 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectTargetOutputReference exte
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2465,19 +2465,19 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectTargetOutputReference exte
 export interface HorizontalPodAutoscalerV2SpecMetricObject {
   /**
   * described_object block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#described_object HorizontalPodAutoscalerV2#described_object}
   */
   readonly describedObject: HorizontalPodAutoscalerV2SpecMetricObjectDescribedObject;
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#metric HorizontalPodAutoscalerV2#metric}
   */
   readonly metric: HorizontalPodAutoscalerV2SpecMetricObjectMetric;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#target HorizontalPodAutoscalerV2#target}
   */
   readonly target?: HorizontalPodAutoscalerV2SpecMetricObjectTarget;
@@ -2584,19 +2584,19 @@ export class HorizontalPodAutoscalerV2SpecMetricObjectOutputReference extends cd
 export interface HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorMatchExpressions {
   /**
   * The label key that the selector applies to.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#key HorizontalPodAutoscalerV2#key}
   */
   readonly key?: string;
   /**
   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#operator HorizontalPodAutoscalerV2#operator}
   */
   readonly operator?: string;
   /**
   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#values HorizontalPodAutoscalerV2#values}
   */
   readonly values?: string[];
@@ -2671,7 +2671,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorMatchExpressio
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2687,7 +2687,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorMatchExpressio
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2703,7 +2703,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorMatchExpressio
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2741,13 +2741,13 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorMatchExpressio
 export interface HorizontalPodAutoscalerV2SpecMetricPodsMetricSelector {
   /**
   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#match_labels HorizontalPodAutoscalerV2#match_labels}
   */
   readonly matchLabels?: { [key: string]: string };
   /**
   * match_expressions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#match_expressions HorizontalPodAutoscalerV2#match_expressions}
   */
   readonly matchExpressions?: HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorMatchExpressions[] | cdktf.IResolvable;
@@ -2815,7 +2815,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorOutputReferenc
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2869,13 +2869,13 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricSelectorList extends c
 export interface HorizontalPodAutoscalerV2SpecMetricPodsMetric {
   /**
   * name is the name of the given metric
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name: string;
   /**
   * selector block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#selector HorizontalPodAutoscalerV2#selector}
   */
   readonly selector?: HorizontalPodAutoscalerV2SpecMetricPodsMetricSelector[] | cdktf.IResolvable;
@@ -2931,7 +2931,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2962,25 +2962,25 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsMetricOutputReference extend
 export interface HorizontalPodAutoscalerV2SpecMetricPodsTarget {
   /**
   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_utilization HorizontalPodAutoscalerV2#average_utilization}
   */
   readonly averageUtilization?: number;
   /**
   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_value HorizontalPodAutoscalerV2#average_value}
   */
   readonly averageValue?: string;
   /**
   * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * value is the target value of the metric (as a quantity).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#value HorizontalPodAutoscalerV2#value}
   */
   readonly value?: string;
@@ -3050,7 +3050,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsTargetOutputReference extend
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -3066,7 +3066,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsTargetOutputReference extend
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -3082,7 +3082,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsTargetOutputReference extend
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3095,7 +3095,7 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsTargetOutputReference extend
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3113,13 +3113,13 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsTargetOutputReference extend
 export interface HorizontalPodAutoscalerV2SpecMetricPods {
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#metric HorizontalPodAutoscalerV2#metric}
   */
   readonly metric: HorizontalPodAutoscalerV2SpecMetricPodsMetric;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#target HorizontalPodAutoscalerV2#target}
   */
   readonly target?: HorizontalPodAutoscalerV2SpecMetricPodsTarget;
@@ -3206,25 +3206,25 @@ export class HorizontalPodAutoscalerV2SpecMetricPodsOutputReference extends cdkt
 export interface HorizontalPodAutoscalerV2SpecMetricResourceTarget {
   /**
   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_utilization HorizontalPodAutoscalerV2#average_utilization}
   */
   readonly averageUtilization?: number;
   /**
   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#average_value HorizontalPodAutoscalerV2#average_value}
   */
   readonly averageValue?: string;
   /**
   * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * value is the target value of the metric (as a quantity).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#value HorizontalPodAutoscalerV2#value}
   */
   readonly value?: string;
@@ -3294,7 +3294,7 @@ export class HorizontalPodAutoscalerV2SpecMetricResourceTargetOutputReference ex
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -3310,7 +3310,7 @@ export class HorizontalPodAutoscalerV2SpecMetricResourceTargetOutputReference ex
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -3326,7 +3326,7 @@ export class HorizontalPodAutoscalerV2SpecMetricResourceTargetOutputReference ex
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3339,7 +3339,7 @@ export class HorizontalPodAutoscalerV2SpecMetricResourceTargetOutputReference ex
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3357,13 +3357,13 @@ export class HorizontalPodAutoscalerV2SpecMetricResourceTargetOutputReference ex
 export interface HorizontalPodAutoscalerV2SpecMetricResource {
   /**
   * name is the name of the resource in question.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name: string;
   /**
   * target block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#target HorizontalPodAutoscalerV2#target}
   */
   readonly target?: HorizontalPodAutoscalerV2SpecMetricResourceTarget;
@@ -3419,7 +3419,7 @@ export class HorizontalPodAutoscalerV2SpecMetricResourceOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3450,37 +3450,37 @@ export class HorizontalPodAutoscalerV2SpecMetricResourceOutputReference extends 
 export interface HorizontalPodAutoscalerV2SpecMetric {
   /**
   * type is the type of metric source. It should be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each mapping to a matching field in the object. Note: "ContainerResource" type is available on when the feature-gate HPAContainerMetrics is enabled
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#type HorizontalPodAutoscalerV2#type}
   */
   readonly type: string;
   /**
   * container_resource block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#container_resource HorizontalPodAutoscalerV2#container_resource}
   */
   readonly containerResource?: HorizontalPodAutoscalerV2SpecMetricContainerResource;
   /**
   * external block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#external HorizontalPodAutoscalerV2#external}
   */
   readonly external?: HorizontalPodAutoscalerV2SpecMetricExternal;
   /**
   * object block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#object HorizontalPodAutoscalerV2#object}
   */
   readonly object?: HorizontalPodAutoscalerV2SpecMetricObject;
   /**
   * pods block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#pods HorizontalPodAutoscalerV2#pods}
   */
   readonly pods?: HorizontalPodAutoscalerV2SpecMetricPods;
   /**
   * resource block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#resource HorizontalPodAutoscalerV2#resource}
   */
   readonly resource?: HorizontalPodAutoscalerV2SpecMetricResource;
@@ -3576,7 +3576,7 @@ export class HorizontalPodAutoscalerV2SpecMetricOutputReference extends cdktf.Co
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3691,19 +3691,19 @@ export class HorizontalPodAutoscalerV2SpecMetricList extends cdktf.ComplexList {
 export interface HorizontalPodAutoscalerV2SpecScaleTargetRef {
   /**
   * API version of the referent
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#api_version HorizontalPodAutoscalerV2#api_version}
   */
   readonly apiVersion?: string;
   /**
   * Kind of the referent. e.g. `ReplicationController`. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#kind HorizontalPodAutoscalerV2#kind}
   */
   readonly kind: string;
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#name HorizontalPodAutoscalerV2#name}
   */
   readonly name: string;
@@ -3766,7 +3766,7 @@ export class HorizontalPodAutoscalerV2SpecScaleTargetRefOutputReference extends 
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -3782,7 +3782,7 @@ export class HorizontalPodAutoscalerV2SpecScaleTargetRefOutputReference extends 
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -3795,7 +3795,7 @@ export class HorizontalPodAutoscalerV2SpecScaleTargetRefOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3810,37 +3810,37 @@ export class HorizontalPodAutoscalerV2SpecScaleTargetRefOutputReference extends 
 export interface HorizontalPodAutoscalerV2Spec {
   /**
   * Upper limit for the number of pods that can be set by the autoscaler.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#max_replicas HorizontalPodAutoscalerV2#max_replicas}
   */
   readonly maxReplicas: number;
   /**
   * Lower limit for the number of pods that can be set by the autoscaler, defaults to `1`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#min_replicas HorizontalPodAutoscalerV2#min_replicas}
   */
   readonly minReplicas?: number;
   /**
   * Target average CPU utilization (represented as a percentage of requested CPU) over all the pods. If not specified the default autoscaling policy will be used.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#target_cpu_utilization_percentage HorizontalPodAutoscalerV2#target_cpu_utilization_percentage}
   */
   readonly targetCpuUtilizationPercentage?: number;
   /**
   * behavior block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#behavior HorizontalPodAutoscalerV2#behavior}
   */
   readonly behavior?: HorizontalPodAutoscalerV2SpecBehavior;
   /**
   * metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#metric HorizontalPodAutoscalerV2#metric}
   */
   readonly metric?: HorizontalPodAutoscalerV2SpecMetric[] | cdktf.IResolvable;
   /**
   * scale_target_ref block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v2#scale_target_ref HorizontalPodAutoscalerV2#scale_target_ref}
   */
   readonly scaleTargetRef: HorizontalPodAutoscalerV2SpecScaleTargetRef;
@@ -3924,7 +3924,7 @@ export class HorizontalPodAutoscalerV2SpecOutputReference extends cdktf.ComplexO
   }
 
   // max_replicas - computed: false, optional: false, required: true
-  private _maxReplicas?: number; 
+  private _maxReplicas?: number;
   public get maxReplicas() {
     return this.getNumberAttribute('max_replicas');
   }
@@ -3937,7 +3937,7 @@ export class HorizontalPodAutoscalerV2SpecOutputReference extends cdktf.ComplexO
   }
 
   // min_replicas - computed: false, optional: true, required: false
-  private _minReplicas?: number; 
+  private _minReplicas?: number;
   public get minReplicas() {
     return this.getNumberAttribute('min_replicas');
   }
@@ -3953,7 +3953,7 @@ export class HorizontalPodAutoscalerV2SpecOutputReference extends cdktf.ComplexO
   }
 
   // target_cpu_utilization_percentage - computed: true, optional: true, required: false
-  private _targetCpuUtilizationPercentage?: number; 
+  private _targetCpuUtilizationPercentage?: number;
   public get targetCpuUtilizationPercentage() {
     return this.getNumberAttribute('target_cpu_utilization_percentage');
   }
@@ -4061,7 +4061,7 @@ export class HorizontalPodAutoscalerV2 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

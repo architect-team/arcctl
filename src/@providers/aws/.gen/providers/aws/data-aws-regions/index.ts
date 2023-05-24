@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/regions
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DataAwsRegionsConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/regions#filter DataAwsRegions#filter}
   */
   readonly filter?: DataAwsRegionsFilter[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class DataAwsRegionsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -111,7 +111,7 @@ export class DataAwsRegionsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -191,7 +191,7 @@ export class DataAwsRegions extends cdktf.TerraformDataSource {
   // ==========
 
   // all_regions - computed: false, optional: true, required: false
-  private _allRegions?: boolean | cdktf.IResolvable; 
+  private _allRegions?: boolean | cdktf.IResolvable;
   public get allRegions() {
     return this.getBooleanAttribute('all_regions');
   }
@@ -207,7 +207,7 @@ export class DataAwsRegions extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

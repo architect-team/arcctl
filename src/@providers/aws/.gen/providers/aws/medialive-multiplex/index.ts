@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/medialive_multiplex
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface MedialiveMultiplexConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * multiplex_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_multiplex#multiplex_settings MedialiveMultiplex#multiplex_settings}
   */
   readonly multiplexSettings?: MedialiveMultiplexMultiplexSettings;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/medialive_multiplex#timeouts MedialiveMultiplex#timeouts}
   */
   readonly timeouts?: MedialiveMultiplexTimeouts;
@@ -130,7 +130,7 @@ export class MedialiveMultiplexMultiplexSettingsOutputReference extends cdktf.Co
   }
 
   // maximum_video_buffer_delay_milliseconds - computed: true, optional: true, required: false
-  private _maximumVideoBufferDelayMilliseconds?: number; 
+  private _maximumVideoBufferDelayMilliseconds?: number;
   public get maximumVideoBufferDelayMilliseconds() {
     return this.getNumberAttribute('maximum_video_buffer_delay_milliseconds');
   }
@@ -146,7 +146,7 @@ export class MedialiveMultiplexMultiplexSettingsOutputReference extends cdktf.Co
   }
 
   // transport_stream_bitrate - computed: false, optional: false, required: true
-  private _transportStreamBitrate?: number; 
+  private _transportStreamBitrate?: number;
   public get transportStreamBitrate() {
     return this.getNumberAttribute('transport_stream_bitrate');
   }
@@ -159,7 +159,7 @@ export class MedialiveMultiplexMultiplexSettingsOutputReference extends cdktf.Co
   }
 
   // transport_stream_id - computed: false, optional: false, required: true
-  private _transportStreamId?: number; 
+  private _transportStreamId?: number;
   public get transportStreamId() {
     return this.getNumberAttribute('transport_stream_id');
   }
@@ -172,7 +172,7 @@ export class MedialiveMultiplexMultiplexSettingsOutputReference extends cdktf.Co
   }
 
   // transport_stream_reserved_bitrate - computed: true, optional: true, required: false
-  private _transportStreamReservedBitrate?: number; 
+  private _transportStreamReservedBitrate?: number;
   public get transportStreamReservedBitrate() {
     return this.getNumberAttribute('transport_stream_reserved_bitrate');
   }
@@ -269,7 +269,7 @@ export class MedialiveMultiplexTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -285,7 +285,7 @@ export class MedialiveMultiplexTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -301,7 +301,7 @@ export class MedialiveMultiplexTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -374,7 +374,7 @@ export class MedialiveMultiplex extends cdktf.TerraformResource {
   }
 
   // availability_zones - computed: false, optional: false, required: true
-  private _availabilityZones?: string[]; 
+  private _availabilityZones?: string[];
   public get availabilityZones() {
     return this.getListAttribute('availability_zones');
   }
@@ -387,7 +387,7 @@ export class MedialiveMultiplex extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -403,7 +403,7 @@ export class MedialiveMultiplex extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -416,7 +416,7 @@ export class MedialiveMultiplex extends cdktf.TerraformResource {
   }
 
   // start_multiplex - computed: false, optional: true, required: false
-  private _startMultiplex?: boolean | cdktf.IResolvable; 
+  private _startMultiplex?: boolean | cdktf.IResolvable;
   public get startMultiplex() {
     return this.getBooleanAttribute('start_multiplex');
   }
@@ -432,7 +432,7 @@ export class MedialiveMultiplex extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -448,7 +448,7 @@ export class MedialiveMultiplex extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

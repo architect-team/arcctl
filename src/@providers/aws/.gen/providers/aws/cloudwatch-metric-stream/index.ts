@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,25 +44,25 @@ export interface CloudwatchMetricStreamConfig extends cdktf.TerraformMetaArgumen
   readonly tagsAll?: { [key: string]: string };
   /**
   * exclude_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#exclude_filter CloudwatchMetricStream#exclude_filter}
   */
   readonly excludeFilter?: CloudwatchMetricStreamExcludeFilter[] | cdktf.IResolvable;
   /**
   * include_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#include_filter CloudwatchMetricStream#include_filter}
   */
   readonly includeFilter?: CloudwatchMetricStreamIncludeFilter[] | cdktf.IResolvable;
   /**
   * statistics_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#statistics_configuration CloudwatchMetricStream#statistics_configuration}
   */
   readonly statisticsConfiguration?: CloudwatchMetricStreamStatisticsConfiguration[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#timeouts CloudwatchMetricStream#timeouts}
   */
   readonly timeouts?: CloudwatchMetricStreamTimeouts;
@@ -129,7 +129,7 @@ export class CloudwatchMetricStreamExcludeFilterOutputReference extends cdktf.Co
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -223,7 +223,7 @@ export class CloudwatchMetricStreamIncludeFilterOutputReference extends cdktf.Co
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -328,7 +328,7 @@ export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputRef
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -341,7 +341,7 @@ export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputRef
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -380,7 +380,7 @@ export interface CloudwatchMetricStreamStatisticsConfiguration {
   readonly additionalStatistics: string[];
   /**
   * include_metric block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#include_metric CloudwatchMetricStream#include_metric}
   */
   readonly includeMetric: CloudwatchMetricStreamStatisticsConfigurationIncludeMetric[] | cdktf.IResolvable;
@@ -448,7 +448,7 @@ export class CloudwatchMetricStreamStatisticsConfigurationOutputReference extend
   }
 
   // additional_statistics - computed: false, optional: false, required: true
-  private _additionalStatistics?: string[]; 
+  private _additionalStatistics?: string[];
   public get additionalStatistics() {
     return cdktf.Fn.tolist(this.getListAttribute('additional_statistics'));
   }
@@ -575,7 +575,7 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -591,7 +591,7 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -607,7 +607,7 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -689,7 +689,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // firehose_arn - computed: false, optional: false, required: true
-  private _firehoseArn?: string; 
+  private _firehoseArn?: string;
   public get firehoseArn() {
     return this.getStringAttribute('firehose_arn');
   }
@@ -702,7 +702,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -723,7 +723,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -739,7 +739,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -755,7 +755,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // output_format - computed: false, optional: false, required: true
-  private _outputFormat?: string; 
+  private _outputFormat?: string;
   public get outputFormat() {
     return this.getStringAttribute('output_format');
   }
@@ -768,7 +768,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -786,7 +786,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -802,7 +802,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

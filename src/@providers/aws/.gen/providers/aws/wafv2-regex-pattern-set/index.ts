@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafv2_regex_pattern_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface Wafv2RegexPatternSetConfig extends cdktf.TerraformMetaArguments
   readonly tagsAll?: { [key: string]: string };
   /**
   * regular_expression block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_regex_pattern_set#regular_expression Wafv2RegexPatternSet#regular_expression}
   */
   readonly regularExpression?: Wafv2RegexPatternSetRegularExpression[] | cdktf.IResolvable;
@@ -103,7 +103,7 @@ export class Wafv2RegexPatternSetRegularExpressionOutputReference extends cdktf.
   }
 
   // regex_string - computed: false, optional: false, required: true
-  private _regexString?: string; 
+  private _regexString?: string;
   public get regexString() {
     return this.getStringAttribute('regex_string');
   }
@@ -192,7 +192,7 @@ export class Wafv2RegexPatternSet extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -208,7 +208,7 @@ export class Wafv2RegexPatternSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -229,7 +229,7 @@ export class Wafv2RegexPatternSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -242,7 +242,7 @@ export class Wafv2RegexPatternSet extends cdktf.TerraformResource {
   }
 
   // scope - computed: false, optional: false, required: true
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -255,7 +255,7 @@ export class Wafv2RegexPatternSet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -271,7 +271,7 @@ export class Wafv2RegexPatternSet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/alb
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -100,19 +100,19 @@ export interface AlbConfig extends cdktf.TerraformMetaArguments {
   readonly xffHeaderProcessingMode?: string;
   /**
   * access_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb#access_logs Alb#access_logs}
   */
   readonly accessLogs?: AlbAccessLogs;
   /**
   * subnet_mapping block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb#subnet_mapping Alb#subnet_mapping}
   */
   readonly subnetMapping?: AlbSubnetMapping[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb#timeouts Alb#timeouts}
   */
   readonly timeouts?: AlbTimeouts;
@@ -189,7 +189,7 @@ export class AlbAccessLogsOutputReference extends cdktf.ComplexObject {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -202,7 +202,7 @@ export class AlbAccessLogsOutputReference extends cdktf.ComplexObject {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -218,7 +218,7 @@ export class AlbAccessLogsOutputReference extends cdktf.ComplexObject {
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -328,7 +328,7 @@ export class AlbSubnetMappingOutputReference extends cdktf.ComplexObject {
   }
 
   // allocation_id - computed: false, optional: true, required: false
-  private _allocationId?: string; 
+  private _allocationId?: string;
   public get allocationId() {
     return this.getStringAttribute('allocation_id');
   }
@@ -344,7 +344,7 @@ export class AlbSubnetMappingOutputReference extends cdktf.ComplexObject {
   }
 
   // ipv6_address - computed: false, optional: true, required: false
-  private _ipv6Address?: string; 
+  private _ipv6Address?: string;
   public get ipv6Address() {
     return this.getStringAttribute('ipv6_address');
   }
@@ -365,7 +365,7 @@ export class AlbSubnetMappingOutputReference extends cdktf.ComplexObject {
   }
 
   // private_ipv4_address - computed: false, optional: true, required: false
-  private _privateIpv4Address?: string; 
+  private _privateIpv4Address?: string;
   public get privateIpv4Address() {
     return this.getStringAttribute('private_ipv4_address');
   }
@@ -381,7 +381,7 @@ export class AlbSubnetMappingOutputReference extends cdktf.ComplexObject {
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -495,7 +495,7 @@ export class AlbTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -511,7 +511,7 @@ export class AlbTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -527,7 +527,7 @@ export class AlbTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -622,7 +622,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // customer_owned_ipv4_pool - computed: false, optional: true, required: false
-  private _customerOwnedIpv4Pool?: string; 
+  private _customerOwnedIpv4Pool?: string;
   public get customerOwnedIpv4Pool() {
     return this.getStringAttribute('customer_owned_ipv4_pool');
   }
@@ -638,7 +638,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // desync_mitigation_mode - computed: false, optional: true, required: false
-  private _desyncMitigationMode?: string; 
+  private _desyncMitigationMode?: string;
   public get desyncMitigationMode() {
     return this.getStringAttribute('desync_mitigation_mode');
   }
@@ -659,7 +659,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // drop_invalid_header_fields - computed: false, optional: true, required: false
-  private _dropInvalidHeaderFields?: boolean | cdktf.IResolvable; 
+  private _dropInvalidHeaderFields?: boolean | cdktf.IResolvable;
   public get dropInvalidHeaderFields() {
     return this.getBooleanAttribute('drop_invalid_header_fields');
   }
@@ -675,7 +675,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // enable_cross_zone_load_balancing - computed: false, optional: true, required: false
-  private _enableCrossZoneLoadBalancing?: boolean | cdktf.IResolvable; 
+  private _enableCrossZoneLoadBalancing?: boolean | cdktf.IResolvable;
   public get enableCrossZoneLoadBalancing() {
     return this.getBooleanAttribute('enable_cross_zone_load_balancing');
   }
@@ -691,7 +691,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // enable_deletion_protection - computed: false, optional: true, required: false
-  private _enableDeletionProtection?: boolean | cdktf.IResolvable; 
+  private _enableDeletionProtection?: boolean | cdktf.IResolvable;
   public get enableDeletionProtection() {
     return this.getBooleanAttribute('enable_deletion_protection');
   }
@@ -707,7 +707,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // enable_http2 - computed: false, optional: true, required: false
-  private _enableHttp2?: boolean | cdktf.IResolvable; 
+  private _enableHttp2?: boolean | cdktf.IResolvable;
   public get enableHttp2() {
     return this.getBooleanAttribute('enable_http2');
   }
@@ -723,7 +723,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // enable_tls_version_and_cipher_suite_headers - computed: false, optional: true, required: false
-  private _enableTlsVersionAndCipherSuiteHeaders?: boolean | cdktf.IResolvable; 
+  private _enableTlsVersionAndCipherSuiteHeaders?: boolean | cdktf.IResolvable;
   public get enableTlsVersionAndCipherSuiteHeaders() {
     return this.getBooleanAttribute('enable_tls_version_and_cipher_suite_headers');
   }
@@ -739,7 +739,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // enable_waf_fail_open - computed: false, optional: true, required: false
-  private _enableWafFailOpen?: boolean | cdktf.IResolvable; 
+  private _enableWafFailOpen?: boolean | cdktf.IResolvable;
   public get enableWafFailOpen() {
     return this.getBooleanAttribute('enable_waf_fail_open');
   }
@@ -755,7 +755,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // enable_xff_client_port - computed: false, optional: true, required: false
-  private _enableXffClientPort?: boolean | cdktf.IResolvable; 
+  private _enableXffClientPort?: boolean | cdktf.IResolvable;
   public get enableXffClientPort() {
     return this.getBooleanAttribute('enable_xff_client_port');
   }
@@ -771,7 +771,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -787,7 +787,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // idle_timeout - computed: false, optional: true, required: false
-  private _idleTimeout?: number; 
+  private _idleTimeout?: number;
   public get idleTimeout() {
     return this.getNumberAttribute('idle_timeout');
   }
@@ -803,7 +803,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // internal - computed: true, optional: true, required: false
-  private _internal?: boolean | cdktf.IResolvable; 
+  private _internal?: boolean | cdktf.IResolvable;
   public get internal() {
     return this.getBooleanAttribute('internal');
   }
@@ -819,7 +819,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // ip_address_type - computed: true, optional: true, required: false
-  private _ipAddressType?: string; 
+  private _ipAddressType?: string;
   public get ipAddressType() {
     return this.getStringAttribute('ip_address_type');
   }
@@ -835,7 +835,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // load_balancer_type - computed: false, optional: true, required: false
-  private _loadBalancerType?: string; 
+  private _loadBalancerType?: string;
   public get loadBalancerType() {
     return this.getStringAttribute('load_balancer_type');
   }
@@ -851,7 +851,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -867,7 +867,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: false, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -883,7 +883,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // preserve_host_header - computed: false, optional: true, required: false
-  private _preserveHostHeader?: boolean | cdktf.IResolvable; 
+  private _preserveHostHeader?: boolean | cdktf.IResolvable;
   public get preserveHostHeader() {
     return this.getBooleanAttribute('preserve_host_header');
   }
@@ -899,7 +899,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // security_groups - computed: true, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -915,7 +915,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // subnets - computed: true, optional: true, required: false
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -931,7 +931,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -947,7 +947,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -968,7 +968,7 @@ export class Alb extends cdktf.TerraformResource {
   }
 
   // xff_header_processing_mode - computed: false, optional: true, required: false
-  private _xffHeaderProcessingMode?: string; 
+  private _xffHeaderProcessingMode?: string;
   public get xffHeaderProcessingMode() {
     return this.getStringAttribute('xff_header_processing_mode');
   }

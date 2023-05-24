@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface SnapshotCreateVolumePermissionConfig extends cdktf.TerraformMet
   readonly snapshotId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#timeouts SnapshotCreateVolumePermission#timeouts}
   */
   readonly timeouts?: SnapshotCreateVolumePermissionTimeouts;
@@ -100,7 +100,7 @@ export class SnapshotCreateVolumePermissionTimeoutsOutputReference extends cdktf
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class SnapshotCreateVolumePermissionTimeoutsOutputReference extends cdktf
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class SnapshotCreateVolumePermission extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -193,7 +193,7 @@ export class SnapshotCreateVolumePermission extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -209,7 +209,7 @@ export class SnapshotCreateVolumePermission extends cdktf.TerraformResource {
   }
 
   // snapshot_id - computed: false, optional: false, required: true
-  private _snapshotId?: string; 
+  private _snapshotId?: string;
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }

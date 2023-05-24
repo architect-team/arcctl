@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/kendra_experience
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -381,7 +381,7 @@ export class DataAwsKendraExperience extends cdktf.TerraformDataSource {
   }
 
   // experience_id - computed: false, optional: false, required: true
-  private _experienceId?: string; 
+  private _experienceId?: string;
   public get experienceId() {
     return this.getStringAttribute('experience_id');
   }
@@ -394,7 +394,7 @@ export class DataAwsKendraExperience extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -410,7 +410,7 @@ export class DataAwsKendraExperience extends cdktf.TerraformDataSource {
   }
 
   // index_id - computed: false, optional: false, required: true
-  private _indexId?: string; 
+  private _indexId?: string;
   public get indexId() {
     return this.getStringAttribute('index_id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface IamUserConfig extends cdktf.TerraformMetaArguments {
   /**
   * Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user#force_destroy IamUser#force_destroy}
   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class IamUser extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -114,7 +114,7 @@ export class IamUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -130,7 +130,7 @@ export class IamUser extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -143,7 +143,7 @@ export class IamUser extends cdktf.TerraformResource {
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -159,7 +159,7 @@ export class IamUser extends cdktf.TerraformResource {
   }
 
   // permissions_boundary - computed: false, optional: true, required: false
-  private _permissionsBoundary?: string; 
+  private _permissionsBoundary?: string;
   public get permissionsBoundary() {
     return this.getStringAttribute('permissions_boundary');
   }
@@ -175,7 +175,7 @@ export class IamUser extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -191,7 +191,7 @@ export class IamUser extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

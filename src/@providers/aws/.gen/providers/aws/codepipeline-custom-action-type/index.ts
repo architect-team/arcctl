@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codepipeline_custom_action_type
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,25 +36,25 @@ export interface CodepipelineCustomActionTypeConfig extends cdktf.TerraformMetaA
   readonly version: string;
   /**
   * configuration_property block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline_custom_action_type#configuration_property CodepipelineCustomActionType#configuration_property}
   */
   readonly configurationProperty?: CodepipelineCustomActionTypeConfigurationProperty[] | cdktf.IResolvable;
   /**
   * input_artifact_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline_custom_action_type#input_artifact_details CodepipelineCustomActionType#input_artifact_details}
   */
   readonly inputArtifactDetails: CodepipelineCustomActionTypeInputArtifactDetails;
   /**
   * output_artifact_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline_custom_action_type#output_artifact_details CodepipelineCustomActionType#output_artifact_details}
   */
   readonly outputArtifactDetails: CodepipelineCustomActionTypeOutputArtifactDetails;
   /**
   * settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline_custom_action_type#settings CodepipelineCustomActionType#settings}
   */
   readonly settings?: CodepipelineCustomActionTypeSettings;
@@ -187,7 +187,7 @@ export class CodepipelineCustomActionTypeConfigurationPropertyOutputReference ex
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -203,7 +203,7 @@ export class CodepipelineCustomActionTypeConfigurationPropertyOutputReference ex
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: boolean | cdktf.IResolvable; 
+  private _key?: boolean | cdktf.IResolvable;
   public get key() {
     return this.getBooleanAttribute('key');
   }
@@ -216,7 +216,7 @@ export class CodepipelineCustomActionTypeConfigurationPropertyOutputReference ex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -229,7 +229,7 @@ export class CodepipelineCustomActionTypeConfigurationPropertyOutputReference ex
   }
 
   // queryable - computed: false, optional: true, required: false
-  private _queryable?: boolean | cdktf.IResolvable; 
+  private _queryable?: boolean | cdktf.IResolvable;
   public get queryable() {
     return this.getBooleanAttribute('queryable');
   }
@@ -245,7 +245,7 @@ export class CodepipelineCustomActionTypeConfigurationPropertyOutputReference ex
   }
 
   // required - computed: false, optional: false, required: true
-  private _required?: boolean | cdktf.IResolvable; 
+  private _required?: boolean | cdktf.IResolvable;
   public get required() {
     return this.getBooleanAttribute('required');
   }
@@ -258,7 +258,7 @@ export class CodepipelineCustomActionTypeConfigurationPropertyOutputReference ex
   }
 
   // secret - computed: false, optional: false, required: true
-  private _secret?: boolean | cdktf.IResolvable; 
+  private _secret?: boolean | cdktf.IResolvable;
   public get secret() {
     return this.getBooleanAttribute('secret');
   }
@@ -271,7 +271,7 @@ export class CodepipelineCustomActionTypeConfigurationPropertyOutputReference ex
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -367,7 +367,7 @@ export class CodepipelineCustomActionTypeInputArtifactDetailsOutputReference ext
   }
 
   // maximum_count - computed: false, optional: false, required: true
-  private _maximumCount?: number; 
+  private _maximumCount?: number;
   public get maximumCount() {
     return this.getNumberAttribute('maximum_count');
   }
@@ -380,7 +380,7 @@ export class CodepipelineCustomActionTypeInputArtifactDetailsOutputReference ext
   }
 
   // minimum_count - computed: false, optional: false, required: true
-  private _minimumCount?: number; 
+  private _minimumCount?: number;
   public get minimumCount() {
     return this.getNumberAttribute('minimum_count');
   }
@@ -453,7 +453,7 @@ export class CodepipelineCustomActionTypeOutputArtifactDetailsOutputReference ex
   }
 
   // maximum_count - computed: false, optional: false, required: true
-  private _maximumCount?: number; 
+  private _maximumCount?: number;
   public get maximumCount() {
     return this.getNumberAttribute('maximum_count');
   }
@@ -466,7 +466,7 @@ export class CodepipelineCustomActionTypeOutputArtifactDetailsOutputReference ex
   }
 
   // minimum_count - computed: false, optional: false, required: true
-  private _minimumCount?: number; 
+  private _minimumCount?: number;
   public get minimumCount() {
     return this.getNumberAttribute('minimum_count');
   }
@@ -561,7 +561,7 @@ export class CodepipelineCustomActionTypeSettingsOutputReference extends cdktf.C
   }
 
   // entity_url_template - computed: false, optional: true, required: false
-  private _entityUrlTemplate?: string; 
+  private _entityUrlTemplate?: string;
   public get entityUrlTemplate() {
     return this.getStringAttribute('entity_url_template');
   }
@@ -577,7 +577,7 @@ export class CodepipelineCustomActionTypeSettingsOutputReference extends cdktf.C
   }
 
   // execution_url_template - computed: false, optional: true, required: false
-  private _executionUrlTemplate?: string; 
+  private _executionUrlTemplate?: string;
   public get executionUrlTemplate() {
     return this.getStringAttribute('execution_url_template');
   }
@@ -593,7 +593,7 @@ export class CodepipelineCustomActionTypeSettingsOutputReference extends cdktf.C
   }
 
   // revision_url_template - computed: false, optional: true, required: false
-  private _revisionUrlTemplate?: string; 
+  private _revisionUrlTemplate?: string;
   public get revisionUrlTemplate() {
     return this.getStringAttribute('revision_url_template');
   }
@@ -609,7 +609,7 @@ export class CodepipelineCustomActionTypeSettingsOutputReference extends cdktf.C
   }
 
   // third_party_configuration_url - computed: false, optional: true, required: false
-  private _thirdPartyConfigurationUrl?: string; 
+  private _thirdPartyConfigurationUrl?: string;
   public get thirdPartyConfigurationUrl() {
     return this.getStringAttribute('third_party_configuration_url');
   }
@@ -684,7 +684,7 @@ export class CodepipelineCustomActionType extends cdktf.TerraformResource {
   }
 
   // category - computed: false, optional: false, required: true
-  private _category?: string; 
+  private _category?: string;
   public get category() {
     return this.getStringAttribute('category');
   }
@@ -697,7 +697,7 @@ export class CodepipelineCustomActionType extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -718,7 +718,7 @@ export class CodepipelineCustomActionType extends cdktf.TerraformResource {
   }
 
   // provider_name - computed: false, optional: false, required: true
-  private _providerName?: string; 
+  private _providerName?: string;
   public get providerName() {
     return this.getStringAttribute('provider_name');
   }
@@ -731,7 +731,7 @@ export class CodepipelineCustomActionType extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -747,7 +747,7 @@ export class CodepipelineCustomActionType extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -763,7 +763,7 @@ export class CodepipelineCustomActionType extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

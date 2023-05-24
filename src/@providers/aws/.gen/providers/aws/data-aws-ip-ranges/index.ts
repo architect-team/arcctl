@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ip_ranges
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsIpRanges extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +107,7 @@ export class DataAwsIpRanges extends cdktf.TerraformDataSource {
   }
 
   // regions - computed: false, optional: true, required: false
-  private _regions?: string[]; 
+  private _regions?: string[];
   public get regions() {
     return cdktf.Fn.tolist(this.getListAttribute('regions'));
   }
@@ -123,7 +123,7 @@ export class DataAwsIpRanges extends cdktf.TerraformDataSource {
   }
 
   // services - computed: false, optional: false, required: true
-  private _services?: string[]; 
+  private _services?: string[];
   public get services() {
     return cdktf.Fn.tolist(this.getListAttribute('services'));
   }
@@ -141,7 +141,7 @@ export class DataAwsIpRanges extends cdktf.TerraformDataSource {
   }
 
   // url - computed: false, optional: true, required: false
-  private _url?: string; 
+  private _url?: string;
   public get url() {
     return this.getStringAttribute('url');
   }

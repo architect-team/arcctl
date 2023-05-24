@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/quicksight_group_membership
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class QuicksightGroupMembership extends cdktf.TerraformResource {
   }
 
   // aws_account_id - computed: true, optional: true, required: false
-  private _awsAccountId?: string; 
+  private _awsAccountId?: string;
   public get awsAccountId() {
     return this.getStringAttribute('aws_account_id');
   }
@@ -102,7 +102,7 @@ export class QuicksightGroupMembership extends cdktf.TerraformResource {
   }
 
   // group_name - computed: false, optional: false, required: true
-  private _groupName?: string; 
+  private _groupName?: string;
   public get groupName() {
     return this.getStringAttribute('group_name');
   }
@@ -115,7 +115,7 @@ export class QuicksightGroupMembership extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -131,7 +131,7 @@ export class QuicksightGroupMembership extends cdktf.TerraformResource {
   }
 
   // member_name - computed: false, optional: false, required: true
-  private _memberName?: string; 
+  private _memberName?: string;
   public get memberName() {
     return this.getStringAttribute('member_name');
   }
@@ -144,7 +144,7 @@ export class QuicksightGroupMembership extends cdktf.TerraformResource {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }

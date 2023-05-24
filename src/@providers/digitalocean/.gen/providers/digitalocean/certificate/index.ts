@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/certificate
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class Certificate extends cdktf.TerraformResource {
   // ==========
 
   // certificate_chain - computed: false, optional: true, required: false
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -107,7 +107,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // domains - computed: false, optional: true, required: false
-  private _domains?: string[]; 
+  private _domains?: string[];
   public get domains() {
     return cdktf.Fn.tolist(this.getListAttribute('domains'));
   }
@@ -123,7 +123,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // leaf_certificate - computed: false, optional: true, required: false
-  private _leafCertificate?: string; 
+  private _leafCertificate?: string;
   public get leafCertificate() {
     return this.getStringAttribute('leaf_certificate');
   }
@@ -155,7 +155,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -173,7 +173,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // private_key - computed: false, optional: true, required: false
-  private _privateKey?: string; 
+  private _privateKey?: string;
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -199,7 +199,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

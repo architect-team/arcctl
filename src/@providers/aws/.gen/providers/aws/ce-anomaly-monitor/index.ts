@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ce_anomaly_monitor
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -96,7 +96,7 @@ export class CeAnomalyMonitor extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +112,7 @@ export class CeAnomalyMonitor extends cdktf.TerraformResource {
   }
 
   // monitor_dimension - computed: false, optional: true, required: false
-  private _monitorDimension?: string; 
+  private _monitorDimension?: string;
   public get monitorDimension() {
     return this.getStringAttribute('monitor_dimension');
   }
@@ -128,7 +128,7 @@ export class CeAnomalyMonitor extends cdktf.TerraformResource {
   }
 
   // monitor_specification - computed: false, optional: true, required: false
-  private _monitorSpecification?: string; 
+  private _monitorSpecification?: string;
   public get monitorSpecification() {
     return this.getStringAttribute('monitor_specification');
   }
@@ -144,7 +144,7 @@ export class CeAnomalyMonitor extends cdktf.TerraformResource {
   }
 
   // monitor_type - computed: false, optional: false, required: true
-  private _monitorType?: string; 
+  private _monitorType?: string;
   public get monitorType() {
     return this.getStringAttribute('monitor_type');
   }
@@ -157,7 +157,7 @@ export class CeAnomalyMonitor extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -170,7 +170,7 @@ export class CeAnomalyMonitor extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -186,7 +186,7 @@ export class CeAnomalyMonitor extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

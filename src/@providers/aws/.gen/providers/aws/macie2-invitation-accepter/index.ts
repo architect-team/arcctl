@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/macie2_invitation_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface Macie2InvitationAccepterConfig extends cdktf.TerraformMetaArgum
   readonly id?: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_invitation_accepter#timeouts Macie2InvitationAccepter#timeouts}
   */
   readonly timeouts?: Macie2InvitationAccepterTimeouts;
@@ -85,7 +85,7 @@ export class Macie2InvitationAccepterTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -148,7 +148,7 @@ export class Macie2InvitationAccepter extends cdktf.TerraformResource {
   // ==========
 
   // administrator_account_id - computed: false, optional: false, required: true
-  private _administratorAccountId?: string; 
+  private _administratorAccountId?: string;
   public get administratorAccountId() {
     return this.getStringAttribute('administrator_account_id');
   }
@@ -161,7 +161,7 @@ export class Macie2InvitationAccepter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

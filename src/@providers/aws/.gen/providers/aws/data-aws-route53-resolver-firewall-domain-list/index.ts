@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsRoute53ResolverFirewallDomainList extends cdktf.TerraformDat
   }
 
   // firewall_domain_list_id - computed: false, optional: false, required: true
-  private _firewallDomainListId?: string; 
+  private _firewallDomainListId?: string;
   public get firewallDomainListId() {
     return this.getStringAttribute('firewall_domain_list_id');
   }
@@ -99,7 +99,7 @@ export class DataAwsRoute53ResolverFirewallDomainList extends cdktf.TerraformDat
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

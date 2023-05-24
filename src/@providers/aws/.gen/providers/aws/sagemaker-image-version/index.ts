@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_image_version
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class SagemakerImageVersion extends cdktf.TerraformResource {
   }
 
   // base_image - computed: false, optional: false, required: true
-  private _baseImage?: string; 
+  private _baseImage?: string;
   public get baseImage() {
     return this.getStringAttribute('base_image');
   }
@@ -94,7 +94,7 @@ export class SagemakerImageVersion extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class SagemakerImageVersion extends cdktf.TerraformResource {
   }
 
   // image_name - computed: false, optional: false, required: true
-  private _imageName?: string; 
+  private _imageName?: string;
   public get imageName() {
     return this.getStringAttribute('image_name');
   }

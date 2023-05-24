@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/networkmanager_device
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -235,7 +235,7 @@ export class DataAwsNetworkmanagerDevice extends cdktf.TerraformDataSource {
   }
 
   // device_id - computed: false, optional: false, required: true
-  private _deviceId?: string; 
+  private _deviceId?: string;
   public get deviceId() {
     return this.getStringAttribute('device_id');
   }
@@ -248,7 +248,7 @@ export class DataAwsNetworkmanagerDevice extends cdktf.TerraformDataSource {
   }
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -261,7 +261,7 @@ export class DataAwsNetworkmanagerDevice extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -298,7 +298,7 @@ export class DataAwsNetworkmanagerDevice extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

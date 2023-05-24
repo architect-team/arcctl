@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_public_ipv4_pools
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface DataAwsEc2PublicIpv4PoolsConfig extends cdktf.TerraformMetaArgu
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_public_ipv4_pools#filter DataAwsEc2PublicIpv4Pools#filter}
   */
   readonly filter?: DataAwsEc2PublicIpv4PoolsFilter[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class DataAwsEc2PublicIpv4PoolsFilterOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -111,7 +111,7 @@ export class DataAwsEc2PublicIpv4PoolsFilterOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -191,7 +191,7 @@ export class DataAwsEc2PublicIpv4Pools extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -212,7 +212,7 @@ export class DataAwsEc2PublicIpv4Pools extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

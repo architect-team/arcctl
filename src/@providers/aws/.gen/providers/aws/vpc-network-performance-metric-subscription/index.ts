@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_network_performance_metric_subscription
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class VpcNetworkPerformanceMetricSubscription extends cdktf.TerraformReso
   // ==========
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -94,7 +94,7 @@ export class VpcNetworkPerformanceMetricSubscription extends cdktf.TerraformReso
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +110,7 @@ export class VpcNetworkPerformanceMetricSubscription extends cdktf.TerraformReso
   }
 
   // metric - computed: false, optional: true, required: false
-  private _metric?: string; 
+  private _metric?: string;
   public get metric() {
     return this.getStringAttribute('metric');
   }
@@ -131,7 +131,7 @@ export class VpcNetworkPerformanceMetricSubscription extends cdktf.TerraformReso
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -144,7 +144,7 @@ export class VpcNetworkPerformanceMetricSubscription extends cdktf.TerraformReso
   }
 
   // statistic - computed: false, optional: true, required: false
-  private _statistic?: string; 
+  private _statistic?: string;
   public get statistic() {
     return this.getStringAttribute('statistic');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/d/network
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataDockerNetworkConfig extends cdktf.TerraformMetaArguments {
   /**
   * The name of the Docker network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/network#name DataDockerNetwork#name}
   */
   readonly name: string;
@@ -161,7 +161,7 @@ export class DataDockerNetwork extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

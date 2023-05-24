@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_ipam_organization_admin_account
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class VpcIpamOrganizationAdminAccount extends cdktf.TerraformResource {
   }
 
   // delegated_admin_account_id - computed: false, optional: false, required: true
-  private _delegatedAdminAccountId?: string; 
+  private _delegatedAdminAccountId?: string;
   public get delegatedAdminAccountId() {
     return this.getStringAttribute('delegated_admin_account_id');
   }
@@ -89,7 +89,7 @@ export class VpcIpamOrganizationAdminAccount extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

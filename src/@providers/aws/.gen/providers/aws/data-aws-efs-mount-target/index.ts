@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/efs_mount_target
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class DataAwsEfsMountTarget extends cdktf.TerraformDataSource {
   // ==========
 
   // access_point_id - computed: false, optional: true, required: false
-  private _accessPointId?: string; 
+  private _accessPointId?: string;
   public get accessPointId() {
     return this.getStringAttribute('access_point_id');
   }
@@ -112,7 +112,7 @@ export class DataAwsEfsMountTarget extends cdktf.TerraformDataSource {
   }
 
   // file_system_id - computed: true, optional: true, required: false
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -128,7 +128,7 @@ export class DataAwsEfsMountTarget extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -154,7 +154,7 @@ export class DataAwsEfsMountTarget extends cdktf.TerraformDataSource {
   }
 
   // mount_target_id - computed: true, optional: true, required: false
-  private _mountTargetId?: string; 
+  private _mountTargetId?: string;
   public get mountTargetId() {
     return this.getStringAttribute('mount_target_id');
   }

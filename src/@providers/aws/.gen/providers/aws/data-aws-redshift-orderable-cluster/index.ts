@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // cluster_type - computed: true, optional: true, required: false
-  private _clusterType?: string; 
+  private _clusterType?: string;
   public get clusterType() {
     return this.getStringAttribute('cluster_type');
   }
@@ -102,7 +102,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // cluster_version - computed: true, optional: true, required: false
-  private _clusterVersion?: string; 
+  private _clusterVersion?: string;
   public get clusterVersion() {
     return this.getStringAttribute('cluster_version');
   }
@@ -118,7 +118,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -134,7 +134,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // node_type - computed: true, optional: true, required: false
-  private _nodeType?: string; 
+  private _nodeType?: string;
   public get nodeType() {
     return this.getStringAttribute('node_type');
   }
@@ -150,7 +150,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // preferred_node_types - computed: false, optional: true, required: false
-  private _preferredNodeTypes?: string[]; 
+  private _preferredNodeTypes?: string[];
   public get preferredNodeTypes() {
     return this.getListAttribute('preferred_node_types');
   }

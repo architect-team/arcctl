@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection_accepter
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,19 +32,19 @@ export interface VpcPeeringConnectionAccepterAConfig extends cdktf.TerraformMeta
   readonly vpcPeeringConnectionId: string;
   /**
   * accepter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection_accepter#accepter VpcPeeringConnectionAccepterA#accepter}
   */
   readonly accepter?: VpcPeeringConnectionAccepterAccepter;
   /**
   * requester block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection_accepter#requester VpcPeeringConnectionAccepterA#requester}
   */
   readonly requester?: VpcPeeringConnectionAccepterRequester;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection_accepter#timeouts VpcPeeringConnectionAccepterA#timeouts}
   */
   readonly timeouts?: VpcPeeringConnectionAccepterTimeouts;
@@ -121,7 +121,7 @@ export class VpcPeeringConnectionAccepterAccepterOutputReference extends cdktf.C
   }
 
   // allow_classic_link_to_remote_vpc - computed: false, optional: true, required: false
-  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable; 
+  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable;
   public get allowClassicLinkToRemoteVpc() {
     return this.getBooleanAttribute('allow_classic_link_to_remote_vpc');
   }
@@ -137,7 +137,7 @@ export class VpcPeeringConnectionAccepterAccepterOutputReference extends cdktf.C
   }
 
   // allow_remote_vpc_dns_resolution - computed: false, optional: true, required: false
-  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable; 
+  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable;
   public get allowRemoteVpcDnsResolution() {
     return this.getBooleanAttribute('allow_remote_vpc_dns_resolution');
   }
@@ -153,7 +153,7 @@ export class VpcPeeringConnectionAccepterAccepterOutputReference extends cdktf.C
   }
 
   // allow_vpc_to_remote_classic_link - computed: false, optional: true, required: false
-  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable; 
+  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable;
   public get allowVpcToRemoteClassicLink() {
     return this.getBooleanAttribute('allow_vpc_to_remote_classic_link');
   }
@@ -240,7 +240,7 @@ export class VpcPeeringConnectionAccepterRequesterOutputReference extends cdktf.
   }
 
   // allow_classic_link_to_remote_vpc - computed: false, optional: true, required: false
-  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable; 
+  private _allowClassicLinkToRemoteVpc?: boolean | cdktf.IResolvable;
   public get allowClassicLinkToRemoteVpc() {
     return this.getBooleanAttribute('allow_classic_link_to_remote_vpc');
   }
@@ -256,7 +256,7 @@ export class VpcPeeringConnectionAccepterRequesterOutputReference extends cdktf.
   }
 
   // allow_remote_vpc_dns_resolution - computed: false, optional: true, required: false
-  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable; 
+  private _allowRemoteVpcDnsResolution?: boolean | cdktf.IResolvable;
   public get allowRemoteVpcDnsResolution() {
     return this.getBooleanAttribute('allow_remote_vpc_dns_resolution');
   }
@@ -272,7 +272,7 @@ export class VpcPeeringConnectionAccepterRequesterOutputReference extends cdktf.
   }
 
   // allow_vpc_to_remote_classic_link - computed: false, optional: true, required: false
-  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable; 
+  private _allowVpcToRemoteClassicLink?: boolean | cdktf.IResolvable;
   public get allowVpcToRemoteClassicLink() {
     return this.getBooleanAttribute('allow_vpc_to_remote_classic_link');
   }
@@ -358,7 +358,7 @@ export class VpcPeeringConnectionAccepterTimeoutsOutputReference extends cdktf.C
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -374,7 +374,7 @@ export class VpcPeeringConnectionAccepterTimeoutsOutputReference extends cdktf.C
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -447,7 +447,7 @@ export class VpcPeeringConnectionAccepterA extends cdktf.TerraformResource {
   }
 
   // auto_accept - computed: false, optional: true, required: false
-  private _autoAccept?: boolean | cdktf.IResolvable; 
+  private _autoAccept?: boolean | cdktf.IResolvable;
   public get autoAccept() {
     return this.getBooleanAttribute('auto_accept');
   }
@@ -463,7 +463,7 @@ export class VpcPeeringConnectionAccepterA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -494,7 +494,7 @@ export class VpcPeeringConnectionAccepterA extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -510,7 +510,7 @@ export class VpcPeeringConnectionAccepterA extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -531,7 +531,7 @@ export class VpcPeeringConnectionAccepterA extends cdktf.TerraformResource {
   }
 
   // vpc_peering_connection_id - computed: false, optional: false, required: true
-  private _vpcPeeringConnectionId?: string; 
+  private _vpcPeeringConnectionId?: string;
   public get vpcPeeringConnectionId() {
     return this.getStringAttribute('vpc_peering_connection_id');
   }

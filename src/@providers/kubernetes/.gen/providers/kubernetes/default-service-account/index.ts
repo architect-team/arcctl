@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/default_service_account
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DefaultServiceAccountConfig extends cdktf.TerraformMetaArguments {
   /**
   * Enable automatic mounting of the service account token
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#automount_service_account_token DefaultServiceAccount#automount_service_account_token}
   */
   readonly automountServiceAccountToken?: boolean | cdktf.IResolvable;
@@ -22,25 +22,25 @@ export interface DefaultServiceAccountConfig extends cdktf.TerraformMetaArgument
   readonly id?: string;
   /**
   * image_pull_secret block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#image_pull_secret DefaultServiceAccount#image_pull_secret}
   */
   readonly imagePullSecret?: DefaultServiceAccountImagePullSecret[] | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#metadata DefaultServiceAccount#metadata}
   */
   readonly metadata: DefaultServiceAccountMetadata;
   /**
   * secret block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#secret DefaultServiceAccount#secret}
   */
   readonly secret?: DefaultServiceAccountSecret[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#timeouts DefaultServiceAccount#timeouts}
   */
   readonly timeouts?: DefaultServiceAccountTimeouts;
@@ -48,7 +48,7 @@ export interface DefaultServiceAccountConfig extends cdktf.TerraformMetaArgument
 export interface DefaultServiceAccountImagePullSecret {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#name DefaultServiceAccount#name}
   */
   readonly name?: string;
@@ -109,7 +109,7 @@ export class DefaultServiceAccountImagePullSecretOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -147,25 +147,25 @@ export class DefaultServiceAccountImagePullSecretList extends cdktf.ComplexList 
 export interface DefaultServiceAccountMetadata {
   /**
   * An unstructured key value map stored with the service account that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#annotations DefaultServiceAccount#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the service account. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#labels DefaultServiceAccount#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the service account, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#name DefaultServiceAccount#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the service account must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#namespace DefaultServiceAccount#namespace}
   */
   readonly namespace?: string;
@@ -235,7 +235,7 @@ export class DefaultServiceAccountMetadataOutputReference extends cdktf.ComplexO
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -256,7 +256,7 @@ export class DefaultServiceAccountMetadataOutputReference extends cdktf.ComplexO
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -272,7 +272,7 @@ export class DefaultServiceAccountMetadataOutputReference extends cdktf.ComplexO
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -288,7 +288,7 @@ export class DefaultServiceAccountMetadataOutputReference extends cdktf.ComplexO
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -316,7 +316,7 @@ export class DefaultServiceAccountMetadataOutputReference extends cdktf.ComplexO
 export interface DefaultServiceAccountSecret {
   /**
   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/default_service_account#name DefaultServiceAccount#name}
   */
   readonly name?: string;
@@ -377,7 +377,7 @@ export class DefaultServiceAccountSecretOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -472,7 +472,7 @@ export class DefaultServiceAccountTimeoutsOutputReference extends cdktf.ComplexO
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -538,7 +538,7 @@ export class DefaultServiceAccount extends cdktf.TerraformResource {
   // ==========
 
   // automount_service_account_token - computed: false, optional: true, required: false
-  private _automountServiceAccountToken?: boolean | cdktf.IResolvable; 
+  private _automountServiceAccountToken?: boolean | cdktf.IResolvable;
   public get automountServiceAccountToken() {
     return this.getBooleanAttribute('automount_service_account_token');
   }
@@ -559,7 +559,7 @@ export class DefaultServiceAccount extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

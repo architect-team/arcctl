@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/volume
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class Volume extends cdktf.TerraformResource {
   // ==========
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -132,7 +132,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // filesystem_type - computed: true, optional: true, required: false
-  private _filesystemType?: string; 
+  private _filesystemType?: string;
   public get filesystemType() {
     return this.getStringAttribute('filesystem_type');
   }
@@ -148,7 +148,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -164,7 +164,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // initial_filesystem_label - computed: false, optional: true, required: false
-  private _initialFilesystemLabel?: string; 
+  private _initialFilesystemLabel?: string;
   public get initialFilesystemLabel() {
     return this.getStringAttribute('initial_filesystem_label');
   }
@@ -180,7 +180,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // initial_filesystem_type - computed: false, optional: true, required: false
-  private _initialFilesystemType?: string; 
+  private _initialFilesystemType?: string;
   public get initialFilesystemType() {
     return this.getStringAttribute('initial_filesystem_type');
   }
@@ -196,7 +196,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -209,7 +209,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -222,7 +222,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -235,7 +235,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // snapshot_id - computed: false, optional: true, required: false
-  private _snapshotId?: string; 
+  private _snapshotId?: string;
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -251,7 +251,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }

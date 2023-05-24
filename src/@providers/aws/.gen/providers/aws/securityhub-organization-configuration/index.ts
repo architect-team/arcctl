@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_organization_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SecurityhubOrganizationConfiguration extends cdktf.TerraformResourc
   // ==========
 
   // auto_enable - computed: false, optional: false, required: true
-  private _autoEnable?: boolean | cdktf.IResolvable; 
+  private _autoEnable?: boolean | cdktf.IResolvable;
   public get autoEnable() {
     return this.getBooleanAttribute('auto_enable');
   }
@@ -84,7 +84,7 @@ export class SecurityhubOrganizationConfiguration extends cdktf.TerraformResourc
   }
 
   // auto_enable_standards - computed: true, optional: true, required: false
-  private _autoEnableStandards?: string; 
+  private _autoEnableStandards?: string;
   public get autoEnableStandards() {
     return this.getStringAttribute('auto_enable_standards');
   }
@@ -100,7 +100,7 @@ export class SecurityhubOrganizationConfiguration extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

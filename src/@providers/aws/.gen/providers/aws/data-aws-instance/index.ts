@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface DataAwsInstanceConfig extends cdktf.TerraformMetaArguments {
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/instance#filter DataAwsInstance#filter}
   */
   readonly filter?: DataAwsInstanceFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/instance#timeouts DataAwsInstance#timeouts}
   */
   readonly timeouts?: DataAwsInstanceTimeouts;
@@ -764,7 +764,7 @@ export class DataAwsInstanceFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -777,7 +777,7 @@ export class DataAwsInstanceFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -869,7 +869,7 @@ export class DataAwsInstanceTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -996,7 +996,7 @@ export class DataAwsInstance extends cdktf.TerraformDataSource {
   }
 
   // get_password_data - computed: false, optional: true, required: false
-  private _getPasswordData?: boolean | cdktf.IResolvable; 
+  private _getPasswordData?: boolean | cdktf.IResolvable;
   public get fetchPasswordData() {
     return this.getBooleanAttribute('get_password_data');
   }
@@ -1012,7 +1012,7 @@ export class DataAwsInstance extends cdktf.TerraformDataSource {
   }
 
   // get_user_data - computed: false, optional: true, required: false
-  private _getUserData?: boolean | cdktf.IResolvable; 
+  private _getUserData?: boolean | cdktf.IResolvable;
   public get fetchUserData() {
     return this.getBooleanAttribute('get_user_data');
   }
@@ -1043,7 +1043,7 @@ export class DataAwsInstance extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1059,7 +1059,7 @@ export class DataAwsInstance extends cdktf.TerraformDataSource {
   }
 
   // instance_id - computed: false, optional: true, required: false
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -1080,7 +1080,7 @@ export class DataAwsInstance extends cdktf.TerraformDataSource {
   }
 
   // instance_tags - computed: true, optional: true, required: false
-  private _instanceTags?: { [key: string]: string }; 
+  private _instanceTags?: { [key: string]: string };
   public get instanceTags() {
     return this.getStringMapAttribute('instance_tags');
   }
@@ -1205,7 +1205,7 @@ export class DataAwsInstance extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

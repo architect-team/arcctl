@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecr_replication_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,7 +16,7 @@ export interface EcrReplicationConfigurationConfig extends cdktf.TerraformMetaAr
   readonly id?: string;
   /**
   * replication_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_replication_configuration#replication_configuration EcrReplicationConfiguration#replication_configuration}
   */
   readonly replicationConfiguration?: EcrReplicationConfigurationReplicationConfiguration;
@@ -94,7 +94,7 @@ export class EcrReplicationConfigurationReplicationConfigurationRuleDestinationO
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -107,7 +107,7 @@ export class EcrReplicationConfigurationReplicationConfigurationRuleDestinationO
   }
 
   // registry_id - computed: false, optional: false, required: true
-  private _registryId?: string; 
+  private _registryId?: string;
   public get registryId() {
     return this.getStringAttribute('registry_id');
   }
@@ -212,7 +212,7 @@ export class EcrReplicationConfigurationReplicationConfigurationRuleRepositoryFi
   }
 
   // filter - computed: false, optional: false, required: true
-  private _filter?: string; 
+  private _filter?: string;
   public get filter() {
     return this.getStringAttribute('filter');
   }
@@ -225,7 +225,7 @@ export class EcrReplicationConfigurationReplicationConfigurationRuleRepositoryFi
   }
 
   // filter_type - computed: false, optional: false, required: true
-  private _filterType?: string; 
+  private _filterType?: string;
   public get filterType() {
     return this.getStringAttribute('filter_type');
   }
@@ -260,13 +260,13 @@ export class EcrReplicationConfigurationReplicationConfigurationRuleRepositoryFi
 export interface EcrReplicationConfigurationReplicationConfigurationRule {
   /**
   * destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_replication_configuration#destination EcrReplicationConfiguration#destination}
   */
   readonly destination: EcrReplicationConfigurationReplicationConfigurationRuleDestination[] | cdktf.IResolvable;
   /**
   * repository_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_replication_configuration#repository_filter EcrReplicationConfiguration#repository_filter}
   */
   readonly repositoryFilter?: EcrReplicationConfigurationReplicationConfigurationRuleRepositoryFilter[] | cdktf.IResolvable;
@@ -385,7 +385,7 @@ export class EcrReplicationConfigurationReplicationConfigurationRuleList extends
 export interface EcrReplicationConfigurationReplicationConfiguration {
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_replication_configuration#rule EcrReplicationConfiguration#rule}
   */
   readonly rule: EcrReplicationConfigurationReplicationConfigurationRule[] | cdktf.IResolvable;
@@ -493,7 +493,7 @@ export class EcrReplicationConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

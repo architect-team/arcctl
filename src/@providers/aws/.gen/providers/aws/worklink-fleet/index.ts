@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/worklink_fleet
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface WorklinkFleetConfig extends cdktf.TerraformMetaArguments {
   readonly optimizeForEndUserLocation?: boolean | cdktf.IResolvable;
   /**
   * identity_provider block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#identity_provider WorklinkFleet#identity_provider}
   */
   readonly identityProvider?: WorklinkFleetIdentityProvider;
   /**
   * network block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#network WorklinkFleet#network}
   */
   readonly network?: WorklinkFleetNetwork;
@@ -108,7 +108,7 @@ export class WorklinkFleetIdentityProviderOutputReference extends cdktf.ComplexO
   }
 
   // saml_metadata - computed: false, optional: false, required: true
-  private _samlMetadata?: string; 
+  private _samlMetadata?: string;
   public get samlMetadata() {
     return this.getStringAttribute('saml_metadata');
   }
@@ -121,7 +121,7 @@ export class WorklinkFleetIdentityProviderOutputReference extends cdktf.ComplexO
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -205,7 +205,7 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -218,7 +218,7 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -231,7 +231,7 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -301,7 +301,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // audit_stream_arn - computed: false, optional: true, required: false
-  private _auditStreamArn?: string; 
+  private _auditStreamArn?: string;
   public get auditStreamArn() {
     return this.getStringAttribute('audit_stream_arn');
   }
@@ -327,7 +327,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // device_ca_certificate - computed: false, optional: true, required: false
-  private _deviceCaCertificate?: string; 
+  private _deviceCaCertificate?: string;
   public get deviceCaCertificate() {
     return this.getStringAttribute('device_ca_certificate');
   }
@@ -343,7 +343,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // display_name - computed: false, optional: true, required: false
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -359,7 +359,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -380,7 +380,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -393,7 +393,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // optimize_for_end_user_location - computed: false, optional: true, required: false
-  private _optimizeForEndUserLocation?: boolean | cdktf.IResolvable; 
+  private _optimizeForEndUserLocation?: boolean | cdktf.IResolvable;
   public get optimizeForEndUserLocation() {
     return this.getBooleanAttribute('optimize_for_end_user_location');
   }

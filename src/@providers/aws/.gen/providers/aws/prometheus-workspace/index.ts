@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/prometheus_workspace
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface PrometheusWorkspaceConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * logging_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/prometheus_workspace#logging_configuration PrometheusWorkspace#logging_configuration}
   */
   readonly loggingConfiguration?: PrometheusWorkspaceLoggingConfiguration;
@@ -83,7 +83,7 @@ export class PrometheusWorkspaceLoggingConfigurationOutputReference extends cdkt
   }
 
   // log_group_arn - computed: false, optional: false, required: true
-  private _logGroupArn?: string; 
+  private _logGroupArn?: string;
   public get logGroupArn() {
     return this.getStringAttribute('log_group_arn');
   }
@@ -145,7 +145,7 @@ export class PrometheusWorkspace extends cdktf.TerraformResource {
   // ==========
 
   // alias - computed: false, optional: true, required: false
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this.getStringAttribute('alias');
   }
@@ -166,7 +166,7 @@ export class PrometheusWorkspace extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -187,7 +187,7 @@ export class PrometheusWorkspace extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -203,7 +203,7 @@ export class PrometheusWorkspace extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

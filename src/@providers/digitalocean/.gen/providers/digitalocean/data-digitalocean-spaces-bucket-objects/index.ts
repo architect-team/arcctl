@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -91,7 +91,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -109,7 +109,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // delimiter - computed: false, optional: true, required: false
-  private _delimiter?: string; 
+  private _delimiter?: string;
   public get delimiter() {
     return this.getStringAttribute('delimiter');
   }
@@ -125,7 +125,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // encoding_type - computed: false, optional: true, required: false
-  private _encodingType?: string; 
+  private _encodingType?: string;
   public get encodingType() {
     return this.getStringAttribute('encoding_type');
   }
@@ -141,7 +141,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +162,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // max_keys - computed: false, optional: true, required: false
-  private _maxKeys?: number; 
+  private _maxKeys?: number;
   public get maxKeys() {
     return this.getNumberAttribute('max_keys');
   }
@@ -183,7 +183,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -199,7 +199,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }

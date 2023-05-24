@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kms_custom_key_store
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface KmsCustomKeyStoreConfig extends cdktf.TerraformMetaArguments {
   readonly trustAnchorCertificate: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_custom_key_store#timeouts KmsCustomKeyStore#timeouts}
   */
   readonly timeouts?: KmsCustomKeyStoreTimeouts;
@@ -119,7 +119,7 @@ export class KmsCustomKeyStoreTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -135,7 +135,7 @@ export class KmsCustomKeyStoreTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -151,7 +151,7 @@ export class KmsCustomKeyStoreTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -217,7 +217,7 @@ export class KmsCustomKeyStore extends cdktf.TerraformResource {
   // ==========
 
   // cloud_hsm_cluster_id - computed: false, optional: false, required: true
-  private _cloudHsmClusterId?: string; 
+  private _cloudHsmClusterId?: string;
   public get cloudHsmClusterId() {
     return this.getStringAttribute('cloud_hsm_cluster_id');
   }
@@ -230,7 +230,7 @@ export class KmsCustomKeyStore extends cdktf.TerraformResource {
   }
 
   // custom_key_store_name - computed: false, optional: false, required: true
-  private _customKeyStoreName?: string; 
+  private _customKeyStoreName?: string;
   public get customKeyStoreName() {
     return this.getStringAttribute('custom_key_store_name');
   }
@@ -243,7 +243,7 @@ export class KmsCustomKeyStore extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -259,7 +259,7 @@ export class KmsCustomKeyStore extends cdktf.TerraformResource {
   }
 
   // key_store_password - computed: false, optional: false, required: true
-  private _keyStorePassword?: string; 
+  private _keyStorePassword?: string;
   public get keyStorePassword() {
     return this.getStringAttribute('key_store_password');
   }
@@ -272,7 +272,7 @@ export class KmsCustomKeyStore extends cdktf.TerraformResource {
   }
 
   // trust_anchor_certificate - computed: false, optional: false, required: true
-  private _trustAnchorCertificate?: string; 
+  private _trustAnchorCertificate?: string;
   public get trustAnchorCertificate() {
     return this.getStringAttribute('trust_anchor_certificate');
   }

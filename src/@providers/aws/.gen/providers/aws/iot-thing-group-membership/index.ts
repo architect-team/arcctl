@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_thing_group_membership
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class IotThingGroupMembership extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +92,7 @@ export class IotThingGroupMembership extends cdktf.TerraformResource {
   }
 
   // override_dynamic_group - computed: false, optional: true, required: false
-  private _overrideDynamicGroup?: boolean | cdktf.IResolvable; 
+  private _overrideDynamicGroup?: boolean | cdktf.IResolvable;
   public get overrideDynamicGroup() {
     return this.getBooleanAttribute('override_dynamic_group');
   }
@@ -108,7 +108,7 @@ export class IotThingGroupMembership extends cdktf.TerraformResource {
   }
 
   // thing_group_name - computed: false, optional: false, required: true
-  private _thingGroupName?: string; 
+  private _thingGroupName?: string;
   public get thingGroupName() {
     return this.getStringAttribute('thing_group_name');
   }
@@ -121,7 +121,7 @@ export class IotThingGroupMembership extends cdktf.TerraformResource {
   }
 
   // thing_name - computed: false, optional: false, required: true
-  private _thingName?: string; 
+  private _thingName?: string;
   public get thingName() {
     return this.getStringAttribute('thing_name');
   }

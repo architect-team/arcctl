@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codecommit_trigger
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface CodecommitTriggerConfig extends cdktf.TerraformMetaArguments {
   readonly repositoryName: string;
   /**
   * trigger block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codecommit_trigger#trigger CodecommitTrigger#trigger}
   */
   readonly trigger: CodecommitTriggerTrigger[] | cdktf.IResolvable;
@@ -131,7 +131,7 @@ export class CodecommitTriggerTriggerOutputReference extends cdktf.ComplexObject
   }
 
   // branches - computed: false, optional: true, required: false
-  private _branches?: string[]; 
+  private _branches?: string[];
   public get branches() {
     return this.getListAttribute('branches');
   }
@@ -147,7 +147,7 @@ export class CodecommitTriggerTriggerOutputReference extends cdktf.ComplexObject
   }
 
   // custom_data - computed: false, optional: true, required: false
-  private _customData?: string; 
+  private _customData?: string;
   public get customData() {
     return this.getStringAttribute('custom_data');
   }
@@ -163,7 +163,7 @@ export class CodecommitTriggerTriggerOutputReference extends cdktf.ComplexObject
   }
 
   // destination_arn - computed: false, optional: false, required: true
-  private _destinationArn?: string; 
+  private _destinationArn?: string;
   public get destinationArn() {
     return this.getStringAttribute('destination_arn');
   }
@@ -176,7 +176,7 @@ export class CodecommitTriggerTriggerOutputReference extends cdktf.ComplexObject
   }
 
   // events - computed: false, optional: false, required: true
-  private _events?: string[]; 
+  private _events?: string[];
   public get events() {
     return this.getListAttribute('events');
   }
@@ -189,7 +189,7 @@ export class CodecommitTriggerTriggerOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -274,7 +274,7 @@ export class CodecommitTrigger extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -290,7 +290,7 @@ export class CodecommitTrigger extends cdktf.TerraformResource {
   }
 
   // repository_name - computed: false, optional: false, required: true
-  private _repositoryName?: string; 
+  private _repositoryName?: string;
   public get repositoryName() {
     return this.getStringAttribute('repository_name');
   }

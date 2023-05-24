@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/kms_ciphertext
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsKmsCiphertext extends cdktf.TerraformDataSource {
   }
 
   // context - computed: false, optional: true, required: false
-  private _context?: { [key: string]: string }; 
+  private _context?: { [key: string]: string };
   public get context() {
     return this.getStringMapAttribute('context');
   }
@@ -97,7 +97,7 @@ export class DataAwsKmsCiphertext extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +113,7 @@ export class DataAwsKmsCiphertext extends cdktf.TerraformDataSource {
   }
 
   // key_id - computed: false, optional: false, required: true
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -126,7 +126,7 @@ export class DataAwsKmsCiphertext extends cdktf.TerraformDataSource {
   }
 
   // plaintext - computed: false, optional: false, required: true
-  private _plaintext?: string; 
+  private _plaintext?: string;
   public get plaintext() {
     return this.getStringAttribute('plaintext');
   }

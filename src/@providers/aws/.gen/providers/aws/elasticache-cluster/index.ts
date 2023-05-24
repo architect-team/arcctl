@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/elasticache_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -132,7 +132,7 @@ export interface ElasticacheClusterConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * log_delivery_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_cluster#log_delivery_configuration ElasticacheCluster#log_delivery_configuration}
   */
   readonly logDeliveryConfiguration?: ElasticacheClusterLogDeliveryConfiguration[] | cdktf.IResolvable;
@@ -316,7 +316,7 @@ export class ElasticacheClusterLogDeliveryConfigurationOutputReference extends c
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -329,7 +329,7 @@ export class ElasticacheClusterLogDeliveryConfigurationOutputReference extends c
   }
 
   // destination_type - computed: false, optional: false, required: true
-  private _destinationType?: string; 
+  private _destinationType?: string;
   public get destinationType() {
     return this.getStringAttribute('destination_type');
   }
@@ -342,7 +342,7 @@ export class ElasticacheClusterLogDeliveryConfigurationOutputReference extends c
   }
 
   // log_format - computed: false, optional: false, required: true
-  private _logFormat?: string; 
+  private _logFormat?: string;
   public get logFormat() {
     return this.getStringAttribute('log_format');
   }
@@ -355,7 +355,7 @@ export class ElasticacheClusterLogDeliveryConfigurationOutputReference extends c
   }
 
   // log_type - computed: false, optional: false, required: true
-  private _logType?: string; 
+  private _logType?: string;
   public get logType() {
     return this.getStringAttribute('log_type');
   }
@@ -463,7 +463,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   // ==========
 
   // apply_immediately - computed: true, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -484,7 +484,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // auto_minor_version_upgrade - computed: false, optional: true, required: false
-  private _autoMinorVersionUpgrade?: string; 
+  private _autoMinorVersionUpgrade?: string;
   public get autoMinorVersionUpgrade() {
     return this.getStringAttribute('auto_minor_version_upgrade');
   }
@@ -500,7 +500,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -516,7 +516,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // az_mode - computed: true, optional: true, required: false
-  private _azMode?: string; 
+  private _azMode?: string;
   public get azMode() {
     return this.getStringAttribute('az_mode');
   }
@@ -543,7 +543,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -561,7 +561,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // engine - computed: true, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -577,7 +577,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -598,7 +598,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // final_snapshot_identifier - computed: false, optional: true, required: false
-  private _finalSnapshotIdentifier?: string; 
+  private _finalSnapshotIdentifier?: string;
   public get finalSnapshotIdentifier() {
     return this.getStringAttribute('final_snapshot_identifier');
   }
@@ -614,7 +614,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -630,7 +630,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // ip_discovery - computed: true, optional: true, required: false
-  private _ipDiscovery?: string; 
+  private _ipDiscovery?: string;
   public get ipDiscovery() {
     return this.getStringAttribute('ip_discovery');
   }
@@ -646,7 +646,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // maintenance_window - computed: true, optional: true, required: false
-  private _maintenanceWindow?: string; 
+  private _maintenanceWindow?: string;
   public get maintenanceWindow() {
     return this.getStringAttribute('maintenance_window');
   }
@@ -662,7 +662,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // network_type - computed: true, optional: true, required: false
-  private _networkType?: string; 
+  private _networkType?: string;
   public get networkType() {
     return this.getStringAttribute('network_type');
   }
@@ -678,7 +678,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // node_type - computed: true, optional: true, required: false
-  private _nodeType?: string; 
+  private _nodeType?: string;
   public get nodeType() {
     return this.getStringAttribute('node_type');
   }
@@ -694,7 +694,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // notification_topic_arn - computed: false, optional: true, required: false
-  private _notificationTopicArn?: string; 
+  private _notificationTopicArn?: string;
   public get notificationTopicArn() {
     return this.getStringAttribute('notification_topic_arn');
   }
@@ -710,7 +710,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // num_cache_nodes - computed: true, optional: true, required: false
-  private _numCacheNodes?: number; 
+  private _numCacheNodes?: number;
   public get numCacheNodes() {
     return this.getNumberAttribute('num_cache_nodes');
   }
@@ -726,7 +726,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // outpost_mode - computed: false, optional: true, required: false
-  private _outpostMode?: string; 
+  private _outpostMode?: string;
   public get outpostMode() {
     return this.getStringAttribute('outpost_mode');
   }
@@ -742,7 +742,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // parameter_group_name - computed: true, optional: true, required: false
-  private _parameterGroupName?: string; 
+  private _parameterGroupName?: string;
   public get parameterGroupName() {
     return this.getStringAttribute('parameter_group_name');
   }
@@ -758,7 +758,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // port - computed: true, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -774,7 +774,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // preferred_availability_zones - computed: false, optional: true, required: false
-  private _preferredAvailabilityZones?: string[]; 
+  private _preferredAvailabilityZones?: string[];
   public get preferredAvailabilityZones() {
     return this.getListAttribute('preferred_availability_zones');
   }
@@ -790,7 +790,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // preferred_outpost_arn - computed: true, optional: true, required: false
-  private _preferredOutpostArn?: string; 
+  private _preferredOutpostArn?: string;
   public get preferredOutpostArn() {
     return this.getStringAttribute('preferred_outpost_arn');
   }
@@ -806,7 +806,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // replication_group_id - computed: true, optional: true, required: false
-  private _replicationGroupId?: string; 
+  private _replicationGroupId?: string;
   public get replicationGroupId() {
     return this.getStringAttribute('replication_group_id');
   }
@@ -822,7 +822,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -838,7 +838,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // security_group_names - computed: true, optional: true, required: false
-  private _securityGroupNames?: string[]; 
+  private _securityGroupNames?: string[];
   public get securityGroupNames() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_names'));
   }
@@ -854,7 +854,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // snapshot_arns - computed: false, optional: true, required: false
-  private _snapshotArns?: string[]; 
+  private _snapshotArns?: string[];
   public get snapshotArns() {
     return this.getListAttribute('snapshot_arns');
   }
@@ -870,7 +870,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // snapshot_name - computed: false, optional: true, required: false
-  private _snapshotName?: string; 
+  private _snapshotName?: string;
   public get snapshotName() {
     return this.getStringAttribute('snapshot_name');
   }
@@ -886,7 +886,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // snapshot_retention_limit - computed: false, optional: true, required: false
-  private _snapshotRetentionLimit?: number; 
+  private _snapshotRetentionLimit?: number;
   public get snapshotRetentionLimit() {
     return this.getNumberAttribute('snapshot_retention_limit');
   }
@@ -902,7 +902,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // snapshot_window - computed: true, optional: true, required: false
-  private _snapshotWindow?: string; 
+  private _snapshotWindow?: string;
   public get snapshotWindow() {
     return this.getStringAttribute('snapshot_window');
   }
@@ -918,7 +918,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // subnet_group_name - computed: true, optional: true, required: false
-  private _subnetGroupName?: string; 
+  private _subnetGroupName?: string;
   public get subnetGroupName() {
     return this.getStringAttribute('subnet_group_name');
   }
@@ -934,7 +934,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -950,7 +950,7 @@ export class ElasticacheCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

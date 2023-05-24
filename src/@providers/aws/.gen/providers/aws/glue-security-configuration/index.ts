@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_security_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface GlueSecurityConfigurationConfig extends cdktf.TerraformMetaArgu
   readonly name: string;
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#encryption_configuration GlueSecurityConfiguration#encryption_configuration}
   */
   readonly encryptionConfiguration: GlueSecurityConfigurationEncryptionConfiguration;
@@ -86,7 +86,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptio
   }
 
   // cloudwatch_encryption_mode - computed: false, optional: true, required: false
-  private _cloudwatchEncryptionMode?: string; 
+  private _cloudwatchEncryptionMode?: string;
   public get cloudwatchEncryptionMode() {
     return this.getStringAttribute('cloudwatch_encryption_mode');
   }
@@ -102,7 +102,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptio
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -178,7 +178,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncrypt
   }
 
   // job_bookmarks_encryption_mode - computed: false, optional: true, required: false
-  private _jobBookmarksEncryptionMode?: string; 
+  private _jobBookmarksEncryptionMode?: string;
   public get jobBookmarksEncryptionMode() {
     return this.getStringAttribute('job_bookmarks_encryption_mode');
   }
@@ -194,7 +194,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncrypt
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -270,7 +270,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputR
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -286,7 +286,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputR
   }
 
   // s3_encryption_mode - computed: false, optional: true, required: false
-  private _s3EncryptionMode?: string; 
+  private _s3EncryptionMode?: string;
   public get s3EncryptionMode() {
     return this.getStringAttribute('s3_encryption_mode');
   }
@@ -304,19 +304,19 @@ export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputR
 export interface GlueSecurityConfigurationEncryptionConfiguration {
   /**
   * cloudwatch_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#cloudwatch_encryption GlueSecurityConfiguration#cloudwatch_encryption}
   */
   readonly cloudwatchEncryption: GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption;
   /**
   * job_bookmarks_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#job_bookmarks_encryption GlueSecurityConfiguration#job_bookmarks_encryption}
   */
   readonly jobBookmarksEncryption: GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption;
   /**
   * s3_encryption block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#s3_encryption GlueSecurityConfiguration#s3_encryption}
   */
   readonly s3Encryption: GlueSecurityConfigurationEncryptionConfigurationS3Encryption;
@@ -465,7 +465,7 @@ export class GlueSecurityConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -481,7 +481,7 @@ export class GlueSecurityConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

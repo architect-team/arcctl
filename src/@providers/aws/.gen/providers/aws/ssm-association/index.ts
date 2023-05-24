@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -64,13 +64,13 @@ export interface SsmAssociationConfig extends cdktf.TerraformMetaArguments {
   readonly waitForSuccessTimeoutSeconds?: number;
   /**
   * output_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_association#output_location SsmAssociation#output_location}
   */
   readonly outputLocation?: SsmAssociationOutputLocation;
   /**
   * targets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_association#targets SsmAssociation#targets}
   */
   readonly targets?: SsmAssociationTargets[] | cdktf.IResolvable;
@@ -147,7 +147,7 @@ export class SsmAssociationOutputLocationOutputReference extends cdktf.ComplexOb
   }
 
   // s3_bucket_name - computed: false, optional: false, required: true
-  private _s3BucketName?: string; 
+  private _s3BucketName?: string;
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -160,7 +160,7 @@ export class SsmAssociationOutputLocationOutputReference extends cdktf.ComplexOb
   }
 
   // s3_key_prefix - computed: false, optional: true, required: false
-  private _s3KeyPrefix?: string; 
+  private _s3KeyPrefix?: string;
   public get s3KeyPrefix() {
     return this.getStringAttribute('s3_key_prefix');
   }
@@ -176,7 +176,7 @@ export class SsmAssociationOutputLocationOutputReference extends cdktf.ComplexOb
   }
 
   // s3_region - computed: false, optional: true, required: false
-  private _s3Region?: string; 
+  private _s3Region?: string;
   public get s3Region() {
     return this.getStringAttribute('s3_region');
   }
@@ -264,7 +264,7 @@ export class SsmAssociationTargetsOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -277,7 +277,7 @@ export class SsmAssociationTargetsOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -369,7 +369,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   // ==========
 
   // apply_only_at_cron_interval - computed: false, optional: true, required: false
-  private _applyOnlyAtCronInterval?: boolean | cdktf.IResolvable; 
+  private _applyOnlyAtCronInterval?: boolean | cdktf.IResolvable;
   public get applyOnlyAtCronInterval() {
     return this.getBooleanAttribute('apply_only_at_cron_interval');
   }
@@ -395,7 +395,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // association_name - computed: false, optional: true, required: false
-  private _associationName?: string; 
+  private _associationName?: string;
   public get associationName() {
     return this.getStringAttribute('association_name');
   }
@@ -411,7 +411,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // automation_target_parameter_name - computed: false, optional: true, required: false
-  private _automationTargetParameterName?: string; 
+  private _automationTargetParameterName?: string;
   public get automationTargetParameterName() {
     return this.getStringAttribute('automation_target_parameter_name');
   }
@@ -427,7 +427,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // compliance_severity - computed: false, optional: true, required: false
-  private _complianceSeverity?: string; 
+  private _complianceSeverity?: string;
   public get complianceSeverity() {
     return this.getStringAttribute('compliance_severity');
   }
@@ -443,7 +443,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // document_version - computed: true, optional: true, required: false
-  private _documentVersion?: string; 
+  private _documentVersion?: string;
   public get documentVersion() {
     return this.getStringAttribute('document_version');
   }
@@ -459,7 +459,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -475,7 +475,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: true, required: false
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -491,7 +491,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // max_concurrency - computed: false, optional: true, required: false
-  private _maxConcurrency?: string; 
+  private _maxConcurrency?: string;
   public get maxConcurrency() {
     return this.getStringAttribute('max_concurrency');
   }
@@ -507,7 +507,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // max_errors - computed: false, optional: true, required: false
-  private _maxErrors?: string; 
+  private _maxErrors?: string;
   public get maxErrors() {
     return this.getStringAttribute('max_errors');
   }
@@ -523,7 +523,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -536,7 +536,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // parameters - computed: true, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -552,7 +552,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // schedule_expression - computed: false, optional: true, required: false
-  private _scheduleExpression?: string; 
+  private _scheduleExpression?: string;
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -568,7 +568,7 @@ export class SsmAssociation extends cdktf.TerraformResource {
   }
 
   // wait_for_success_timeout_seconds - computed: false, optional: true, required: false
-  private _waitForSuccessTimeoutSeconds?: number; 
+  private _waitForSuccessTimeoutSeconds?: number;
   public get waitForSuccessTimeoutSeconds() {
     return this.getNumberAttribute('wait_for_success_timeout_seconds');
   }

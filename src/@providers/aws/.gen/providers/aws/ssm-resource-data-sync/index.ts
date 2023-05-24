@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface SsmResourceDataSyncConfig extends cdktf.TerraformMetaArguments 
   readonly name: string;
   /**
   * s3_destination block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#s3_destination SsmResourceDataSync#s3_destination}
   */
   readonly s3Destination: SsmResourceDataSyncS3Destination;
@@ -119,7 +119,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -132,7 +132,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -148,7 +148,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -164,7 +164,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -177,7 +177,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // sync_format - computed: false, optional: true, required: false
-  private _syncFormat?: string; 
+  private _syncFormat?: string;
   public get syncFormat() {
     return this.getStringAttribute('sync_format');
   }
@@ -240,7 +240,7 @@ export class SsmResourceDataSync extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -256,7 +256,7 @@ export class SsmResourceDataSync extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

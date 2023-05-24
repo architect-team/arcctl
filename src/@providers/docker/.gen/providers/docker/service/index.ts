@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/docker/r/service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,55 +16,55 @@ export interface ServiceConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Name of the service
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
   */
   readonly name: string;
   /**
   * auth block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#auth Service#auth}
   */
   readonly auth?: ServiceAuth;
   /**
   * converge_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#converge_config Service#converge_config}
   */
   readonly convergeConfig?: ServiceConvergeConfig;
   /**
   * endpoint_spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#endpoint_spec Service#endpoint_spec}
   */
   readonly endpointSpec?: ServiceEndpointSpec;
   /**
   * labels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
   */
   readonly labels?: ServiceLabels[] | cdktf.IResolvable;
   /**
   * mode block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
   */
   readonly mode?: ServiceMode;
   /**
   * rollback_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#rollback_config Service#rollback_config}
   */
   readonly rollbackConfig?: ServiceRollbackConfig;
   /**
   * task_spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#task_spec Service#task_spec}
   */
   readonly taskSpec: ServiceTaskSpec;
   /**
   * update_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#update_config Service#update_config}
   */
   readonly updateConfig?: ServiceUpdateConfig;
@@ -72,19 +72,19 @@ export interface ServiceConfig extends cdktf.TerraformMetaArguments {
 export interface ServiceAuth {
   /**
   * The password
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#password Service#password}
   */
   readonly password?: string;
   /**
   * The address of the server for the authentication
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#server_address Service#server_address}
   */
   readonly serverAddress: string;
   /**
   * The username
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#username Service#username}
   */
   readonly username?: string;
@@ -147,7 +147,7 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -163,7 +163,7 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
   }
 
   // server_address - computed: false, optional: false, required: true
-  private _serverAddress?: string; 
+  private _serverAddress?: string;
   public get serverAddress() {
     return this.getStringAttribute('server_address');
   }
@@ -176,7 +176,7 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
   }
 
   // username - computed: false, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -194,13 +194,13 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
 export interface ServiceConvergeConfig {
   /**
   * The interval to check if the desired state is reached `(ms|s)`. Defaults to `7s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
   */
   readonly delay?: string;
   /**
   * The timeout of the service to reach the desired state `(s|m)`. Defaults to `3m`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#timeout Service#timeout}
   */
   readonly timeout?: string;
@@ -256,7 +256,7 @@ export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -272,7 +272,7 @@ export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: string; 
+  private _timeout?: string;
   public get timeout() {
     return this.getStringAttribute('timeout');
   }
@@ -290,31 +290,31 @@ export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
 export interface ServiceEndpointSpecPorts {
   /**
   * A random name for the port
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
   */
   readonly name?: string;
   /**
   * Rrepresents the protocol of a port: `tcp`, `udp` or `sctp`. Defaults to `tcp`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#protocol Service#protocol}
   */
   readonly protocol?: string;
   /**
   * Represents the mode in which the port is to be published: 'ingress' or 'host'. Defaults to `ingress`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#publish_mode Service#publish_mode}
   */
   readonly publishMode?: string;
   /**
   * The port on the swarm hosts
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#published_port Service#published_port}
   */
   readonly publishedPort?: number;
   /**
   * The port inside the container
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#target_port Service#target_port}
   */
   readonly targetPort: number;
@@ -403,7 +403,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -419,7 +419,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -435,7 +435,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // publish_mode - computed: false, optional: true, required: false
-  private _publishMode?: string; 
+  private _publishMode?: string;
   public get publishMode() {
     return this.getStringAttribute('publish_mode');
   }
@@ -451,7 +451,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // published_port - computed: true, optional: true, required: false
-  private _publishedPort?: number; 
+  private _publishedPort?: number;
   public get publishedPort() {
     return this.getNumberAttribute('published_port');
   }
@@ -467,7 +467,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // target_port - computed: false, optional: false, required: true
-  private _targetPort?: number; 
+  private _targetPort?: number;
   public get targetPort() {
     return this.getNumberAttribute('target_port');
   }
@@ -502,13 +502,13 @@ export class ServiceEndpointSpecPortsList extends cdktf.ComplexList {
 export interface ServiceEndpointSpec {
   /**
   * The mode of resolution to use for internal load balancing between tasks
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
   */
   readonly mode?: string;
   /**
   * ports block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#ports Service#ports}
   */
   readonly ports?: ServiceEndpointSpecPorts[] | cdktf.IResolvable;
@@ -564,7 +564,7 @@ export class ServiceEndpointSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // mode - computed: true, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -598,13 +598,13 @@ export class ServiceEndpointSpecOutputReference extends cdktf.ComplexObject {
 export interface ServiceLabels {
   /**
   * Name of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
   */
   readonly label: string;
   /**
   * Value of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
   */
   readonly value: string;
@@ -672,7 +672,7 @@ export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -685,7 +685,7 @@ export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -720,7 +720,7 @@ export class ServiceLabelsList extends cdktf.ComplexList {
 export interface ServiceModeReplicated {
   /**
   * The amount of replicas of the service. Defaults to `1`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#replicas Service#replicas}
   */
   readonly replicas?: number;
@@ -769,7 +769,7 @@ export class ServiceModeReplicatedOutputReference extends cdktf.ComplexObject {
   }
 
   // replicas - computed: false, optional: true, required: false
-  private _replicas?: number; 
+  private _replicas?: number;
   public get replicas() {
     return this.getNumberAttribute('replicas');
   }
@@ -787,13 +787,13 @@ export class ServiceModeReplicatedOutputReference extends cdktf.ComplexObject {
 export interface ServiceMode {
   /**
   * The global service mode. Defaults to `false`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#global Service#global}
   */
   readonly global?: boolean | cdktf.IResolvable;
   /**
   * replicated block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#replicated Service#replicated}
   */
   readonly replicated?: ServiceModeReplicated;
@@ -849,7 +849,7 @@ export class ServiceModeOutputReference extends cdktf.ComplexObject {
   }
 
   // global - computed: false, optional: true, required: false
-  private _global?: boolean | cdktf.IResolvable; 
+  private _global?: boolean | cdktf.IResolvable;
   public get global() {
     return this.getBooleanAttribute('global');
   }
@@ -883,37 +883,37 @@ export class ServiceModeOutputReference extends cdktf.ComplexObject {
 export interface ServiceRollbackConfig {
   /**
   * Delay between task rollbacks (ns|us|ms|s|m|h). Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
   */
   readonly delay?: string;
   /**
   * Action on rollback failure: pause | continue. Defaults to `pause`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#failure_action Service#failure_action}
   */
   readonly failureAction?: string;
   /**
   * Failure rate to tolerate during a rollback. Defaults to `0.0`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_failure_ratio Service#max_failure_ratio}
   */
   readonly maxFailureRatio?: string;
   /**
   * Duration after each task rollback to monitor for failure (ns|us|ms|s|m|h). Defaults to `5s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#monitor Service#monitor}
   */
   readonly monitor?: string;
   /**
   * Rollback order: either 'stop-first' or 'start-first'. Defaults to `stop-first`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#order Service#order}
   */
   readonly order?: string;
   /**
   * Maximum number of tasks to be rollbacked in one iteration. Defaults to `1`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#parallelism Service#parallelism}
   */
   readonly parallelism?: number;
@@ -997,7 +997,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -1013,7 +1013,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // failure_action - computed: false, optional: true, required: false
-  private _failureAction?: string; 
+  private _failureAction?: string;
   public get failureAction() {
     return this.getStringAttribute('failure_action');
   }
@@ -1029,7 +1029,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // max_failure_ratio - computed: false, optional: true, required: false
-  private _maxFailureRatio?: string; 
+  private _maxFailureRatio?: string;
   public get maxFailureRatio() {
     return this.getStringAttribute('max_failure_ratio');
   }
@@ -1045,7 +1045,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // monitor - computed: false, optional: true, required: false
-  private _monitor?: string; 
+  private _monitor?: string;
   public get monitor() {
     return this.getStringAttribute('monitor');
   }
@@ -1061,7 +1061,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // order - computed: false, optional: true, required: false
-  private _order?: string; 
+  private _order?: string;
   public get order() {
     return this.getStringAttribute('order');
   }
@@ -1077,7 +1077,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // parallelism - computed: false, optional: true, required: false
-  private _parallelism?: number; 
+  private _parallelism?: number;
   public get parallelism() {
     return this.getNumberAttribute('parallelism');
   }
@@ -1095,37 +1095,37 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
 export interface ServiceTaskSpecContainerSpecConfigs {
   /**
   * ID of the specific config that we're referencing
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#config_id Service#config_id}
   */
   readonly configId: string;
   /**
   * Name of the config that this references, but this is just provided for lookup/display purposes. The config in the reference will be identified by its ID
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#config_name Service#config_name}
   */
   readonly configName?: string;
   /**
   * Represents the file GID. Defaults to `0`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_gid Service#file_gid}
   */
   readonly fileGid?: string;
   /**
   * Represents represents the FileMode of the file. Defaults to `0o444`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_mode Service#file_mode}
   */
   readonly fileMode?: number;
   /**
   * Represents the final filename in the filesystem
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_name Service#file_name}
   */
   readonly fileName: string;
   /**
   * Represents the file UID. Defaults to `0`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_uid Service#file_uid}
   */
   readonly fileUid?: string;
@@ -1221,7 +1221,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // config_id - computed: false, optional: false, required: true
-  private _configId?: string; 
+  private _configId?: string;
   public get configId() {
     return this.getStringAttribute('config_id');
   }
@@ -1234,7 +1234,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // config_name - computed: false, optional: true, required: false
-  private _configName?: string; 
+  private _configName?: string;
   public get configName() {
     return this.getStringAttribute('config_name');
   }
@@ -1250,7 +1250,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_gid - computed: false, optional: true, required: false
-  private _fileGid?: string; 
+  private _fileGid?: string;
   public get fileGid() {
     return this.getStringAttribute('file_gid');
   }
@@ -1266,7 +1266,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_mode - computed: false, optional: true, required: false
-  private _fileMode?: number; 
+  private _fileMode?: number;
   public get fileMode() {
     return this.getNumberAttribute('file_mode');
   }
@@ -1282,7 +1282,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_name - computed: false, optional: false, required: true
-  private _fileName?: string; 
+  private _fileName?: string;
   public get fileName() {
     return this.getStringAttribute('file_name');
   }
@@ -1295,7 +1295,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_uid - computed: false, optional: true, required: false
-  private _fileUid?: string; 
+  private _fileUid?: string;
   public get fileUid() {
     return this.getStringAttribute('file_uid');
   }
@@ -1333,19 +1333,19 @@ export class ServiceTaskSpecContainerSpecConfigsList extends cdktf.ComplexList {
 export interface ServiceTaskSpecContainerSpecDnsConfig {
   /**
   * The IP addresses of the name servers
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nameservers Service#nameservers}
   */
   readonly nameservers: string[];
   /**
   * A list of internal resolver variables to be modified (e.g., `debug`, `ndots:3`, etc.)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#options Service#options}
   */
   readonly options?: string[];
   /**
   * A search list for host-name lookup
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#search Service#search}
   */
   readonly search?: string[];
@@ -1408,7 +1408,7 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
   }
 
   // nameservers - computed: false, optional: false, required: true
-  private _nameservers?: string[]; 
+  private _nameservers?: string[];
   public get nameservers() {
     return this.getListAttribute('nameservers');
   }
@@ -1421,7 +1421,7 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: string[]; 
+  private _options?: string[];
   public get options() {
     return this.getListAttribute('options');
   }
@@ -1437,7 +1437,7 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
   }
 
   // search - computed: false, optional: true, required: false
-  private _search?: string[]; 
+  private _search?: string[];
   public get search() {
     return this.getListAttribute('search');
   }
@@ -1455,31 +1455,31 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
 export interface ServiceTaskSpecContainerSpecHealthcheck {
   /**
   * Time between running the check (ms|s|m|h). Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#interval Service#interval}
   */
   readonly interval?: string;
   /**
   * Consecutive failures needed to report unhealthy. Defaults to `0`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#retries Service#retries}
   */
   readonly retries?: number;
   /**
   * Start period for the container to initialize before counting retries towards unstable (ms|s|m|h). Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#start_period Service#start_period}
   */
   readonly startPeriod?: string;
   /**
   * The test to perform as list
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#test Service#test}
   */
   readonly test: string[];
   /**
   * Maximum time to allow one check to run (ms|s|m|h). Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#timeout Service#timeout}
   */
   readonly timeout?: string;
@@ -1556,7 +1556,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // interval - computed: false, optional: true, required: false
-  private _interval?: string; 
+  private _interval?: string;
   public get interval() {
     return this.getStringAttribute('interval');
   }
@@ -1572,7 +1572,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // retries - computed: false, optional: true, required: false
-  private _retries?: number; 
+  private _retries?: number;
   public get retries() {
     return this.getNumberAttribute('retries');
   }
@@ -1588,7 +1588,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // start_period - computed: false, optional: true, required: false
-  private _startPeriod?: string; 
+  private _startPeriod?: string;
   public get startPeriod() {
     return this.getStringAttribute('start_period');
   }
@@ -1604,7 +1604,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // test - computed: false, optional: false, required: true
-  private _test?: string[]; 
+  private _test?: string[];
   public get test() {
     return this.getListAttribute('test');
   }
@@ -1617,7 +1617,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: string; 
+  private _timeout?: string;
   public get timeout() {
     return this.getStringAttribute('timeout');
   }
@@ -1635,13 +1635,13 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
 export interface ServiceTaskSpecContainerSpecHosts {
   /**
   * The name of the host
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#host Service#host}
   */
   readonly host: string;
   /**
   * The ip of the host
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#ip Service#ip}
   */
   readonly ip: string;
@@ -1709,7 +1709,7 @@ export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.Comp
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1722,7 +1722,7 @@ export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.Comp
   }
 
   // ip - computed: false, optional: false, required: true
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -1757,13 +1757,13 @@ export class ServiceTaskSpecContainerSpecHostsList extends cdktf.ComplexList {
 export interface ServiceTaskSpecContainerSpecLabels {
   /**
   * Name of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
   */
   readonly label: string;
   /**
   * Value of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
   */
   readonly value: string;
@@ -1831,7 +1831,7 @@ export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.Com
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -1844,7 +1844,7 @@ export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.Com
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1879,7 +1879,7 @@ export class ServiceTaskSpecContainerSpecLabelsList extends cdktf.ComplexList {
 export interface ServiceTaskSpecContainerSpecMountsBindOptions {
   /**
   * Bind propagation refers to whether or not mounts created within a given bind-mount or named volume can be propagated to replicas of that mount. See the [docs](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for details. Defaults to `rprivate`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#propagation Service#propagation}
   */
   readonly propagation?: string;
@@ -1928,7 +1928,7 @@ export class ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference extend
   }
 
   // propagation - computed: false, optional: true, required: false
-  private _propagation?: string; 
+  private _propagation?: string;
   public get propagation() {
     return this.getStringAttribute('propagation');
   }
@@ -1946,13 +1946,13 @@ export class ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference extend
 export interface ServiceTaskSpecContainerSpecMountsTmpfsOptions {
   /**
   * The permission mode for the tmpfs mount in an integer
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
   */
   readonly mode?: number;
   /**
   * The size for the tmpfs mount in bytes
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#size_bytes Service#size_bytes}
   */
   readonly sizeBytes?: number;
@@ -2008,7 +2008,7 @@ export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference exten
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: number; 
+  private _mode?: number;
   public get mode() {
     return this.getNumberAttribute('mode');
   }
@@ -2024,7 +2024,7 @@ export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference exten
   }
 
   // size_bytes - computed: false, optional: true, required: false
-  private _sizeBytes?: number; 
+  private _sizeBytes?: number;
   public get sizeBytes() {
     return this.getNumberAttribute('size_bytes');
   }
@@ -2042,13 +2042,13 @@ export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference exten
 export interface ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels {
   /**
   * Name of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
   */
   readonly label: string;
   /**
   * Value of the label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
   */
   readonly value: string;
@@ -2116,7 +2116,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReferenc
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -2129,7 +2129,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReferenc
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2164,25 +2164,25 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsList extends c
 export interface ServiceTaskSpecContainerSpecMountsVolumeOptions {
   /**
   * Name of the driver to use to create the volume
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_name Service#driver_name}
   */
   readonly driverName?: string;
   /**
   * key/value map of driver specific options
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_options Service#driver_options}
   */
   readonly driverOptions?: { [key: string]: string };
   /**
   * Populate volume with data from the target
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#no_copy Service#no_copy}
   */
   readonly noCopy?: boolean | cdktf.IResolvable;
   /**
   * labels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
   */
   readonly labels?: ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels[] | cdktf.IResolvable;
@@ -2252,7 +2252,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
   }
 
   // driver_name - computed: false, optional: true, required: false
-  private _driverName?: string; 
+  private _driverName?: string;
   public get driverName() {
     return this.getStringAttribute('driver_name');
   }
@@ -2268,7 +2268,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
   }
 
   // driver_options - computed: false, optional: true, required: false
-  private _driverOptions?: { [key: string]: string }; 
+  private _driverOptions?: { [key: string]: string };
   public get driverOptions() {
     return this.getStringMapAttribute('driver_options');
   }
@@ -2284,7 +2284,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
   }
 
   // no_copy - computed: false, optional: true, required: false
-  private _noCopy?: boolean | cdktf.IResolvable; 
+  private _noCopy?: boolean | cdktf.IResolvable;
   public get noCopy() {
     return this.getBooleanAttribute('no_copy');
   }
@@ -2318,43 +2318,43 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
 export interface ServiceTaskSpecContainerSpecMounts {
   /**
   * Whether the mount should be read-only
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#read_only Service#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Mount source (e.g. a volume name, a host path)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#source Service#source}
   */
   readonly source?: string;
   /**
   * Container path
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#target Service#target}
   */
   readonly target: string;
   /**
   * The mount type
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#type Service#type}
   */
   readonly type: string;
   /**
   * bind_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#bind_options Service#bind_options}
   */
   readonly bindOptions?: ServiceTaskSpecContainerSpecMountsBindOptions;
   /**
   * tmpfs_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#tmpfs_options Service#tmpfs_options}
   */
   readonly tmpfsOptions?: ServiceTaskSpecContainerSpecMountsTmpfsOptions;
   /**
   * volume_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#volume_options Service#volume_options}
   */
   readonly volumeOptions?: ServiceTaskSpecContainerSpecMountsVolumeOptions;
@@ -2457,7 +2457,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2473,7 +2473,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -2489,7 +2489,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // target - computed: false, optional: false, required: true
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -2502,7 +2502,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2585,13 +2585,13 @@ export class ServiceTaskSpecContainerSpecMountsList extends cdktf.ComplexList {
 export interface ServiceTaskSpecContainerSpecPrivilegesCredentialSpec {
   /**
   * Load credential spec from this file
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file Service#file}
   */
   readonly file?: string;
   /**
   * Load credential spec from this value in the Windows registry
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#registry Service#registry}
   */
   readonly registry?: string;
@@ -2647,7 +2647,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
   }
 
   // file - computed: false, optional: true, required: false
-  private _file?: string; 
+  private _file?: string;
   public get file() {
     return this.getStringAttribute('file');
   }
@@ -2663,7 +2663,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -2681,31 +2681,31 @@ export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
 export interface ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext {
   /**
   * Disable SELinux
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#disable Service#disable}
   */
   readonly disable?: boolean | cdktf.IResolvable;
   /**
   * SELinux level label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#level Service#level}
   */
   readonly level?: string;
   /**
   * SELinux role label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#role Service#role}
   */
   readonly role?: string;
   /**
   * SELinux type label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#type Service#type}
   */
   readonly type?: string;
   /**
   * SELinux user label
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#user Service#user}
   */
   readonly user?: string;
@@ -2782,7 +2782,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // disable - computed: false, optional: true, required: false
-  private _disable?: boolean | cdktf.IResolvable; 
+  private _disable?: boolean | cdktf.IResolvable;
   public get disable() {
     return this.getBooleanAttribute('disable');
   }
@@ -2798,7 +2798,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -2814,7 +2814,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -2830,7 +2830,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2846,7 +2846,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -2864,13 +2864,13 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
 export interface ServiceTaskSpecContainerSpecPrivileges {
   /**
   * credential_spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#credential_spec Service#credential_spec}
   */
   readonly credentialSpec?: ServiceTaskSpecContainerSpecPrivilegesCredentialSpec;
   /**
   * se_linux_context block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#se_linux_context Service#se_linux_context}
   */
   readonly seLinuxContext?: ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext;
@@ -2960,37 +2960,37 @@ export class ServiceTaskSpecContainerSpecPrivilegesOutputReference extends cdktf
 export interface ServiceTaskSpecContainerSpecSecrets {
   /**
   * Represents the file GID. Defaults to `0`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_gid Service#file_gid}
   */
   readonly fileGid?: string;
   /**
   * Represents represents the FileMode of the file. Defaults to `0o444`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_mode Service#file_mode}
   */
   readonly fileMode?: number;
   /**
   * Represents the final filename in the filesystem
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_name Service#file_name}
   */
   readonly fileName: string;
   /**
   * Represents the file UID. Defaults to `0`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_uid Service#file_uid}
   */
   readonly fileUid?: string;
   /**
   * ID of the specific secret that we're referencing
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secret_id Service#secret_id}
   */
   readonly secretId: string;
   /**
   * Name of the secret that this references, but this is just provided for lookup/display purposes. The config in the reference will be identified by its ID
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secret_name Service#secret_name}
   */
   readonly secretName?: string;
@@ -3086,7 +3086,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_gid - computed: false, optional: true, required: false
-  private _fileGid?: string; 
+  private _fileGid?: string;
   public get fileGid() {
     return this.getStringAttribute('file_gid');
   }
@@ -3102,7 +3102,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_mode - computed: false, optional: true, required: false
-  private _fileMode?: number; 
+  private _fileMode?: number;
   public get fileMode() {
     return this.getNumberAttribute('file_mode');
   }
@@ -3118,7 +3118,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_name - computed: false, optional: false, required: true
-  private _fileName?: string; 
+  private _fileName?: string;
   public get fileName() {
     return this.getStringAttribute('file_name');
   }
@@ -3131,7 +3131,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_uid - computed: false, optional: true, required: false
-  private _fileUid?: string; 
+  private _fileUid?: string;
   public get fileUid() {
     return this.getStringAttribute('file_uid');
   }
@@ -3147,7 +3147,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // secret_id - computed: false, optional: false, required: true
-  private _secretId?: string; 
+  private _secretId?: string;
   public get secretId() {
     return this.getStringAttribute('secret_id');
   }
@@ -3160,7 +3160,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // secret_name - computed: false, optional: true, required: false
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -3198,127 +3198,127 @@ export class ServiceTaskSpecContainerSpecSecretsList extends cdktf.ComplexList {
 export interface ServiceTaskSpecContainerSpec {
   /**
   * Arguments to the command
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#args Service#args}
   */
   readonly args?: string[];
   /**
   * The command/entrypoint to be run in the image. According to the [docker cli](https://github.com/docker/cli/blob/v20.10.7/cli/command/service/opts.go#L705) the override of the entrypoint is also passed to the `command` property and there is no `entrypoint` attribute in the `ContainerSpec` of the service.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#command Service#command}
   */
   readonly command?: string[];
   /**
   * The working directory for commands to run in
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#dir Service#dir}
   */
   readonly dir?: string;
   /**
   * A list of environment variables in the form VAR="value"
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#env Service#env}
   */
   readonly env?: { [key: string]: string };
   /**
   * A list of additional groups that the container process will run as
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#groups Service#groups}
   */
   readonly groups?: string[];
   /**
   * The hostname to use for the container, as a valid RFC 1123 hostname
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#hostname Service#hostname}
   */
   readonly hostname?: string;
   /**
   * The image name to use for the containers of the service, like `nginx:1.17.6`. Also use the data-source or resource of `docker_image` with the `repo_digest` or `docker_registry_image` with the `name` attribute for this, as shown in the examples.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#image Service#image}
   */
   readonly image: string;
   /**
   * Isolation technology of the containers running the service. (Windows only). Defaults to `default`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#isolation Service#isolation}
   */
   readonly isolation?: string;
   /**
   * Mount the container's root filesystem as read only
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#read_only Service#read_only}
   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
   * Amount of time to wait for the container to terminate before forcefully removing it (ms|s|m|h). If not specified or '0s' the destroy will not check if all tasks/containers of the service terminate.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#stop_grace_period Service#stop_grace_period}
   */
   readonly stopGracePeriod?: string;
   /**
   * Signal to stop the container
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#stop_signal Service#stop_signal}
   */
   readonly stopSignal?: string;
   /**
   * Sysctls config (Linux only)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#sysctl Service#sysctl}
   */
   readonly sysctl?: { [key: string]: string };
   /**
   * The user inside the container
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#user Service#user}
   */
   readonly user?: string;
   /**
   * configs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#configs Service#configs}
   */
   readonly configs?: ServiceTaskSpecContainerSpecConfigs[] | cdktf.IResolvable;
   /**
   * dns_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#dns_config Service#dns_config}
   */
   readonly dnsConfig?: ServiceTaskSpecContainerSpecDnsConfig;
   /**
   * healthcheck block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#healthcheck Service#healthcheck}
   */
   readonly healthcheck?: ServiceTaskSpecContainerSpecHealthcheck;
   /**
   * hosts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#hosts Service#hosts}
   */
   readonly hosts?: ServiceTaskSpecContainerSpecHosts[] | cdktf.IResolvable;
   /**
   * labels block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
   */
   readonly labels?: ServiceTaskSpecContainerSpecLabels[] | cdktf.IResolvable;
   /**
   * mounts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mounts Service#mounts}
   */
   readonly mounts?: ServiceTaskSpecContainerSpecMounts[] | cdktf.IResolvable;
   /**
   * privileges block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#privileges Service#privileges}
   */
   readonly privileges?: ServiceTaskSpecContainerSpecPrivileges;
   /**
   * secrets block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secrets Service#secrets}
   */
   readonly secrets?: ServiceTaskSpecContainerSpecSecrets[] | cdktf.IResolvable;
@@ -3507,7 +3507,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // args - computed: false, optional: true, required: false
-  private _args?: string[]; 
+  private _args?: string[];
   public get args() {
     return this.getListAttribute('args');
   }
@@ -3523,7 +3523,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -3539,7 +3539,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // dir - computed: false, optional: true, required: false
-  private _dir?: string; 
+  private _dir?: string;
   public get dir() {
     return this.getStringAttribute('dir');
   }
@@ -3555,7 +3555,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // env - computed: false, optional: true, required: false
-  private _env?: { [key: string]: string }; 
+  private _env?: { [key: string]: string };
   public get env() {
     return this.getStringMapAttribute('env');
   }
@@ -3571,7 +3571,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // groups - computed: false, optional: true, required: false
-  private _groups?: string[]; 
+  private _groups?: string[];
   public get groups() {
     return this.getListAttribute('groups');
   }
@@ -3587,7 +3587,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // hostname - computed: false, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -3603,7 +3603,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -3616,7 +3616,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // isolation - computed: false, optional: true, required: false
-  private _isolation?: string; 
+  private _isolation?: string;
   public get isolation() {
     return this.getStringAttribute('isolation');
   }
@@ -3632,7 +3632,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3648,7 +3648,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // stop_grace_period - computed: true, optional: true, required: false
-  private _stopGracePeriod?: string; 
+  private _stopGracePeriod?: string;
   public get stopGracePeriod() {
     return this.getStringAttribute('stop_grace_period');
   }
@@ -3664,7 +3664,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // stop_signal - computed: false, optional: true, required: false
-  private _stopSignal?: string; 
+  private _stopSignal?: string;
   public get stopSignal() {
     return this.getStringAttribute('stop_signal');
   }
@@ -3680,7 +3680,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // sysctl - computed: false, optional: true, required: false
-  private _sysctl?: { [key: string]: string }; 
+  private _sysctl?: { [key: string]: string };
   public get sysctl() {
     return this.getStringMapAttribute('sysctl');
   }
@@ -3696,7 +3696,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -3842,13 +3842,13 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
 export interface ServiceTaskSpecLogDriver {
   /**
   * The logging driver to use
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
   */
   readonly name: string;
   /**
   * The options for the logging driver
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#options Service#options}
   */
   readonly options?: { [key: string]: string };
@@ -3904,7 +3904,7 @@ export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3917,7 +3917,7 @@ export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }
@@ -3935,19 +3935,19 @@ export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject
 export interface ServiceTaskSpecNetworksAdvanced {
   /**
   * The network aliases of the container in the specific network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#aliases Service#aliases}
   */
   readonly aliases?: string[];
   /**
   * An array of driver options for the network, e.g. `opts1=value`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_opts Service#driver_opts}
   */
   readonly driverOpts?: string[];
   /**
   * The name/id of the network.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
   */
   readonly name: string;
@@ -4022,7 +4022,7 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
   }
 
   // aliases - computed: false, optional: true, required: false
-  private _aliases?: string[]; 
+  private _aliases?: string[];
   public get aliases() {
     return cdktf.Fn.tolist(this.getListAttribute('aliases'));
   }
@@ -4038,7 +4038,7 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
   }
 
   // driver_opts - computed: false, optional: true, required: false
-  private _driverOpts?: string[]; 
+  private _driverOpts?: string[];
   public get driverOpts() {
     return cdktf.Fn.tolist(this.getListAttribute('driver_opts'));
   }
@@ -4054,7 +4054,7 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4089,13 +4089,13 @@ export class ServiceTaskSpecNetworksAdvancedList extends cdktf.ComplexList {
 export interface ServiceTaskSpecPlacementPlatforms {
   /**
   * The architecture, e.g. `amd64`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#architecture Service#architecture}
   */
   readonly architecture: string;
   /**
   * The operation system, e.g. `linux`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#os Service#os}
   */
   readonly os: string;
@@ -4163,7 +4163,7 @@ export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.Comp
   }
 
   // architecture - computed: false, optional: false, required: true
-  private _architecture?: string; 
+  private _architecture?: string;
   public get architecture() {
     return this.getStringAttribute('architecture');
   }
@@ -4176,7 +4176,7 @@ export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.Comp
   }
 
   // os - computed: false, optional: false, required: true
-  private _os?: string; 
+  private _os?: string;
   public get os() {
     return this.getStringAttribute('os');
   }
@@ -4211,25 +4211,25 @@ export class ServiceTaskSpecPlacementPlatformsList extends cdktf.ComplexList {
 export interface ServiceTaskSpecPlacement {
   /**
   * An array of constraints. e.g.: `node.role==manager`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#constraints Service#constraints}
   */
   readonly constraints?: string[];
   /**
   * Maximum number of replicas for per node (default value is `0`, which is unlimited)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_replicas Service#max_replicas}
   */
   readonly maxReplicas?: number;
   /**
   * Preferences provide a way to make the scheduler aware of factors such as topology. They are provided in order from highest to lowest precedence, e.g.: `spread=node.role.manager`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#prefs Service#prefs}
   */
   readonly prefs?: string[];
   /**
   * platforms block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#platforms Service#platforms}
   */
   readonly platforms?: ServiceTaskSpecPlacementPlatforms[] | cdktf.IResolvable;
@@ -4299,7 +4299,7 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
   }
 
   // constraints - computed: false, optional: true, required: false
-  private _constraints?: string[]; 
+  private _constraints?: string[];
   public get constraints() {
     return cdktf.Fn.tolist(this.getListAttribute('constraints'));
   }
@@ -4315,7 +4315,7 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
   }
 
   // max_replicas - computed: false, optional: true, required: false
-  private _maxReplicas?: number; 
+  private _maxReplicas?: number;
   public get maxReplicas() {
     return this.getNumberAttribute('max_replicas');
   }
@@ -4331,7 +4331,7 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
   }
 
   // prefs - computed: false, optional: true, required: false
-  private _prefs?: string[]; 
+  private _prefs?: string[];
   public get prefs() {
     return cdktf.Fn.tolist(this.getListAttribute('prefs'));
   }
@@ -4365,13 +4365,13 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
 export interface ServiceTaskSpecResourcesLimits {
   /**
   * The amounf of memory in bytes the container allocates
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#memory_bytes Service#memory_bytes}
   */
   readonly memoryBytes?: number;
   /**
   * CPU shares in units of `1/1e9` (or `10^-9`) of the CPU. Should be at least `1000000`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nano_cpus Service#nano_cpus}
   */
   readonly nanoCpus?: number;
@@ -4427,7 +4427,7 @@ export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.Complex
   }
 
   // memory_bytes - computed: false, optional: true, required: false
-  private _memoryBytes?: number; 
+  private _memoryBytes?: number;
   public get memoryBytes() {
     return this.getNumberAttribute('memory_bytes');
   }
@@ -4443,7 +4443,7 @@ export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.Complex
   }
 
   // nano_cpus - computed: false, optional: true, required: false
-  private _nanoCpus?: number; 
+  private _nanoCpus?: number;
   public get nanoCpus() {
     return this.getNumberAttribute('nano_cpus');
   }
@@ -4461,13 +4461,13 @@ export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.Complex
 export interface ServiceTaskSpecResourcesReservationGenericResources {
   /**
   * The Integer resources
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#discrete_resources_spec Service#discrete_resources_spec}
   */
   readonly discreteResourcesSpec?: string[];
   /**
   * The String resources
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#named_resources_spec Service#named_resources_spec}
   */
   readonly namedResourcesSpec?: string[];
@@ -4523,7 +4523,7 @@ export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference 
   }
 
   // discrete_resources_spec - computed: false, optional: true, required: false
-  private _discreteResourcesSpec?: string[]; 
+  private _discreteResourcesSpec?: string[];
   public get discreteResourcesSpec() {
     return cdktf.Fn.tolist(this.getListAttribute('discrete_resources_spec'));
   }
@@ -4539,7 +4539,7 @@ export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference 
   }
 
   // named_resources_spec - computed: false, optional: true, required: false
-  private _namedResourcesSpec?: string[]; 
+  private _namedResourcesSpec?: string[];
   public get namedResourcesSpec() {
     return cdktf.Fn.tolist(this.getListAttribute('named_resources_spec'));
   }
@@ -4557,19 +4557,19 @@ export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference 
 export interface ServiceTaskSpecResourcesReservation {
   /**
   * The amounf of memory in bytes the container allocates
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#memory_bytes Service#memory_bytes}
   */
   readonly memoryBytes?: number;
   /**
   * CPU shares in units of 1/1e9 (or 10^-9) of the CPU. Should be at least `1000000`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nano_cpus Service#nano_cpus}
   */
   readonly nanoCpus?: number;
   /**
   * generic_resources block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#generic_resources Service#generic_resources}
   */
   readonly genericResources?: ServiceTaskSpecResourcesReservationGenericResources;
@@ -4632,7 +4632,7 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
   }
 
   // memory_bytes - computed: false, optional: true, required: false
-  private _memoryBytes?: number; 
+  private _memoryBytes?: number;
   public get memoryBytes() {
     return this.getNumberAttribute('memory_bytes');
   }
@@ -4648,7 +4648,7 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
   }
 
   // nano_cpus - computed: false, optional: true, required: false
-  private _nanoCpus?: number; 
+  private _nanoCpus?: number;
   public get nanoCpus() {
     return this.getNumberAttribute('nano_cpus');
   }
@@ -4682,13 +4682,13 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
 export interface ServiceTaskSpecResources {
   /**
   * limits block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#limits Service#limits}
   */
   readonly limits?: ServiceTaskSpecResourcesLimits;
   /**
   * reservation block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#reservation Service#reservation}
   */
   readonly reservation?: ServiceTaskSpecResourcesReservation;
@@ -4778,25 +4778,25 @@ export class ServiceTaskSpecResourcesOutputReference extends cdktf.ComplexObject
 export interface ServiceTaskSpecRestartPolicy {
   /**
   * Condition for restart
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#condition Service#condition}
   */
   readonly condition?: string;
   /**
   * Delay between restart attempts (ms|s|m|h)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
   */
   readonly delay?: string;
   /**
   * Maximum attempts to restart a given container before giving up (default value is `0`, which is ignored)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_attempts Service#max_attempts}
   */
   readonly maxAttempts?: number;
   /**
   * The time window used to evaluate the restart policy (default value is `0`, which is unbounded) (ms|s|m|h)
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#window Service#window}
   */
   readonly window?: string;
@@ -4866,7 +4866,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // condition - computed: false, optional: true, required: false
-  private _condition?: string; 
+  private _condition?: string;
   public get condition() {
     return this.getStringAttribute('condition');
   }
@@ -4882,7 +4882,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -4898,7 +4898,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // max_attempts - computed: false, optional: true, required: false
-  private _maxAttempts?: number; 
+  private _maxAttempts?: number;
   public get maxAttempts() {
     return this.getNumberAttribute('max_attempts');
   }
@@ -4914,7 +4914,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // window - computed: false, optional: true, required: false
-  private _window?: string; 
+  private _window?: string;
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -4932,49 +4932,49 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
 export interface ServiceTaskSpec {
   /**
   * A counter that triggers an update even if no relevant parameters have been changed. See the [spec](https://github.com/docker/swarmkit/blob/master/api/specs.proto#L126).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#force_update Service#force_update}
   */
   readonly forceUpdate?: number;
   /**
   * Runtime is the type of runtime specified for the task executor. See the [types](https://github.com/moby/moby/blob/master/api/types/swarm/runtime.go).
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#runtime Service#runtime}
   */
   readonly runtime?: string;
   /**
   * container_spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#container_spec Service#container_spec}
   */
   readonly containerSpec: ServiceTaskSpecContainerSpec;
   /**
   * log_driver block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#log_driver Service#log_driver}
   */
   readonly logDriver?: ServiceTaskSpecLogDriver;
   /**
   * networks_advanced block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#networks_advanced Service#networks_advanced}
   */
   readonly networksAdvanced?: ServiceTaskSpecNetworksAdvanced[] | cdktf.IResolvable;
   /**
   * placement block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#placement Service#placement}
   */
   readonly placement?: ServiceTaskSpecPlacement;
   /**
   * resources block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#resources Service#resources}
   */
   readonly resources?: ServiceTaskSpecResources;
   /**
   * restart_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#restart_policy Service#restart_policy}
   */
   readonly restartPolicy?: ServiceTaskSpecRestartPolicy;
@@ -5072,7 +5072,7 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // force_update - computed: true, optional: true, required: false
-  private _forceUpdate?: number; 
+  private _forceUpdate?: number;
   public get forceUpdate() {
     return this.getNumberAttribute('force_update');
   }
@@ -5088,7 +5088,7 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // runtime - computed: true, optional: true, required: false
-  private _runtime?: string; 
+  private _runtime?: string;
   public get runtime() {
     return this.getStringAttribute('runtime');
   }
@@ -5199,37 +5199,37 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
 export interface ServiceUpdateConfig {
   /**
   * Delay between task updates `(ns|us|ms|s|m|h)`. Defaults to `0s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
   */
   readonly delay?: string;
   /**
   * Action on update failure: `pause`, `continue` or `rollback`. Defaults to `pause`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#failure_action Service#failure_action}
   */
   readonly failureAction?: string;
   /**
   * Failure rate to tolerate during an update. Defaults to `0.0`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_failure_ratio Service#max_failure_ratio}
   */
   readonly maxFailureRatio?: string;
   /**
   * Duration after each task update to monitor for failure (ns|us|ms|s|m|h). Defaults to `5s`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#monitor Service#monitor}
   */
   readonly monitor?: string;
   /**
   * Update order: either 'stop-first' or 'start-first'. Defaults to `stop-first`.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#order Service#order}
   */
   readonly order?: string;
   /**
   * Maximum number of tasks to be updated in one iteration. Defaults to `1`
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#parallelism Service#parallelism}
   */
   readonly parallelism?: number;
@@ -5313,7 +5313,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -5329,7 +5329,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // failure_action - computed: false, optional: true, required: false
-  private _failureAction?: string; 
+  private _failureAction?: string;
   public get failureAction() {
     return this.getStringAttribute('failure_action');
   }
@@ -5345,7 +5345,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // max_failure_ratio - computed: false, optional: true, required: false
-  private _maxFailureRatio?: string; 
+  private _maxFailureRatio?: string;
   public get maxFailureRatio() {
     return this.getStringAttribute('max_failure_ratio');
   }
@@ -5361,7 +5361,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // monitor - computed: false, optional: true, required: false
-  private _monitor?: string; 
+  private _monitor?: string;
   public get monitor() {
     return this.getStringAttribute('monitor');
   }
@@ -5377,7 +5377,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // order - computed: false, optional: true, required: false
-  private _order?: string; 
+  private _order?: string;
   public get order() {
     return this.getStringAttribute('order');
   }
@@ -5393,7 +5393,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // parallelism - computed: false, optional: true, required: false
-  private _parallelism?: number; 
+  private _parallelism?: number;
   public get parallelism() {
     return this.getNumberAttribute('parallelism');
   }
@@ -5463,7 +5463,7 @@ export class Service extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -5479,7 +5479,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_key_signing_key
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -111,7 +111,7 @@ export class Route53KeySigningKey extends cdktf.TerraformResource {
   }
 
   // hosted_zone_id - computed: false, optional: false, required: true
-  private _hostedZoneId?: string; 
+  private _hostedZoneId?: string;
   public get hostedZoneId() {
     return this.getStringAttribute('hosted_zone_id');
   }
@@ -124,7 +124,7 @@ export class Route53KeySigningKey extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -140,7 +140,7 @@ export class Route53KeySigningKey extends cdktf.TerraformResource {
   }
 
   // key_management_service_arn - computed: false, optional: false, required: true
-  private _keyManagementServiceArn?: string; 
+  private _keyManagementServiceArn?: string;
   public get keyManagementServiceArn() {
     return this.getStringAttribute('key_management_service_arn');
   }
@@ -158,7 +158,7 @@ export class Route53KeySigningKey extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -186,7 +186,7 @@ export class Route53KeySigningKey extends cdktf.TerraformResource {
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }

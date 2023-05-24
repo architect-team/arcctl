@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/organizations_delegated_services
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -135,7 +135,7 @@ export class DataAwsOrganizationsDelegatedServices extends cdktf.TerraformDataSo
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -154,7 +154,7 @@ export class DataAwsOrganizationsDelegatedServices extends cdktf.TerraformDataSo
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

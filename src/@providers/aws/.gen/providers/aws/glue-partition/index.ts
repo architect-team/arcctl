@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_partition
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface GluePartitionConfig extends cdktf.TerraformMetaArguments {
   readonly tableName: string;
   /**
   * storage_descriptor block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#storage_descriptor GluePartition#storage_descriptor}
   */
   readonly storageDescriptor?: GluePartitionStorageDescriptor;
@@ -125,7 +125,7 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -141,7 +141,7 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -154,7 +154,7 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -261,7 +261,7 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -277,7 +277,7 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -293,7 +293,7 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
   }
 
   // serialization_library - computed: false, optional: true, required: false
-  private _serializationLibrary?: string; 
+  private _serializationLibrary?: string;
   public get serializationLibrary() {
     return this.getStringAttribute('serialization_library');
   }
@@ -380,7 +380,7 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
   }
 
   // skewed_column_names - computed: false, optional: true, required: false
-  private _skewedColumnNames?: string[]; 
+  private _skewedColumnNames?: string[];
   public get skewedColumnNames() {
     return this.getListAttribute('skewed_column_names');
   }
@@ -396,7 +396,7 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
   }
 
   // skewed_column_value_location_maps - computed: false, optional: true, required: false
-  private _skewedColumnValueLocationMaps?: { [key: string]: string }; 
+  private _skewedColumnValueLocationMaps?: { [key: string]: string };
   public get skewedColumnValueLocationMaps() {
     return this.getStringMapAttribute('skewed_column_value_location_maps');
   }
@@ -412,7 +412,7 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
   }
 
   // skewed_column_values - computed: false, optional: true, required: false
-  private _skewedColumnValues?: string[]; 
+  private _skewedColumnValues?: string[];
   public get skewedColumnValues() {
     return this.getListAttribute('skewed_column_values');
   }
@@ -500,7 +500,7 @@ export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cd
   }
 
   // column - computed: false, optional: false, required: true
-  private _column?: string; 
+  private _column?: string;
   public get column() {
     return this.getStringAttribute('column');
   }
@@ -513,7 +513,7 @@ export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cd
   }
 
   // sort_order - computed: false, optional: false, required: true
-  private _sortOrder?: number; 
+  private _sortOrder?: number;
   public get sortOrder() {
     return this.getNumberAttribute('sort_order');
   }
@@ -580,25 +580,25 @@ export interface GluePartitionStorageDescriptor {
   readonly storedAsSubDirectories?: boolean | cdktf.IResolvable;
   /**
   * columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#columns GluePartition#columns}
   */
   readonly columns?: GluePartitionStorageDescriptorColumns[] | cdktf.IResolvable;
   /**
   * ser_de_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#ser_de_info GluePartition#ser_de_info}
   */
   readonly serDeInfo?: GluePartitionStorageDescriptorSerDeInfo;
   /**
   * skewed_info block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_info GluePartition#skewed_info}
   */
   readonly skewedInfo?: GluePartitionStorageDescriptorSkewedInfo;
   /**
   * sort_columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#sort_columns GluePartition#sort_columns}
   */
   readonly sortColumns?: GluePartitionStorageDescriptorSortColumns[] | cdktf.IResolvable;
@@ -724,7 +724,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // bucket_columns - computed: false, optional: true, required: false
-  private _bucketColumns?: string[]; 
+  private _bucketColumns?: string[];
   public get bucketColumns() {
     return this.getListAttribute('bucket_columns');
   }
@@ -740,7 +740,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // compressed - computed: false, optional: true, required: false
-  private _compressed?: boolean | cdktf.IResolvable; 
+  private _compressed?: boolean | cdktf.IResolvable;
   public get compressed() {
     return this.getBooleanAttribute('compressed');
   }
@@ -756,7 +756,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // input_format - computed: false, optional: true, required: false
-  private _inputFormat?: string; 
+  private _inputFormat?: string;
   public get inputFormat() {
     return this.getStringAttribute('input_format');
   }
@@ -772,7 +772,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // location - computed: false, optional: true, required: false
-  private _location?: string; 
+  private _location?: string;
   public get location() {
     return this.getStringAttribute('location');
   }
@@ -788,7 +788,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // number_of_buckets - computed: false, optional: true, required: false
-  private _numberOfBuckets?: number; 
+  private _numberOfBuckets?: number;
   public get numberOfBuckets() {
     return this.getNumberAttribute('number_of_buckets');
   }
@@ -804,7 +804,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // output_format - computed: false, optional: true, required: false
-  private _outputFormat?: string; 
+  private _outputFormat?: string;
   public get outputFormat() {
     return this.getStringAttribute('output_format');
   }
@@ -820,7 +820,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -836,7 +836,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // stored_as_sub_directories - computed: false, optional: true, required: false
-  private _storedAsSubDirectories?: boolean | cdktf.IResolvable; 
+  private _storedAsSubDirectories?: boolean | cdktf.IResolvable;
   public get storedAsSubDirectories() {
     return this.getBooleanAttribute('stored_as_sub_directories');
   }
@@ -967,7 +967,7 @@ export class GluePartition extends cdktf.TerraformResource {
   // ==========
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -988,7 +988,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -1001,7 +1001,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1027,7 +1027,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -1043,7 +1043,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // partition_values - computed: false, optional: false, required: true
-  private _partitionValues?: string[]; 
+  private _partitionValues?: string[];
   public get partitionValues() {
     return this.getListAttribute('partition_values');
   }
@@ -1056,7 +1056,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }

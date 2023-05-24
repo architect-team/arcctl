@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_vault_notifications
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class BackupVaultNotifications extends cdktf.TerraformResource {
   }
 
   // backup_vault_events - computed: false, optional: false, required: true
-  private _backupVaultEvents?: string[]; 
+  private _backupVaultEvents?: string[];
   public get backupVaultEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('backup_vault_events'));
   }
@@ -94,7 +94,7 @@ export class BackupVaultNotifications extends cdktf.TerraformResource {
   }
 
   // backup_vault_name - computed: false, optional: false, required: true
-  private _backupVaultName?: string; 
+  private _backupVaultName?: string;
   public get backupVaultName() {
     return this.getStringAttribute('backup_vault_name');
   }
@@ -107,7 +107,7 @@ export class BackupVaultNotifications extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -123,7 +123,7 @@ export class BackupVaultNotifications extends cdktf.TerraformResource {
   }
 
   // sns_topic_arn - computed: false, optional: false, required: true
-  private _snsTopicArn?: string; 
+  private _snsTopicArn?: string;
   public get snsTopicArn() {
     return this.getStringAttribute('sns_topic_arn');
   }

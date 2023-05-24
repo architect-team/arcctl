@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_extension
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface AppconfigExtensionConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * action_point block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#action_point AppconfigExtension#action_point}
   */
   readonly actionPoint: AppconfigExtensionActionPoint[] | cdktf.IResolvable;
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#parameter AppconfigExtension#parameter}
   */
   readonly parameter?: AppconfigExtensionParameter[] | cdktf.IResolvable;
@@ -138,7 +138,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -154,7 +154,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -167,7 +167,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -180,7 +180,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -219,7 +219,7 @@ export interface AppconfigExtensionActionPoint {
   readonly point: string;
   /**
   * action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#action AppconfigExtension#action}
   */
   readonly action: AppconfigExtensionActionPointAction[] | cdktf.IResolvable;
@@ -287,7 +287,7 @@ export class AppconfigExtensionActionPointOutputReference extends cdktf.ComplexO
   }
 
   // point - computed: false, optional: false, required: true
-  private _point?: string; 
+  private _point?: string;
   public get point() {
     return this.getStringAttribute('point');
   }
@@ -416,7 +416,7 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -432,7 +432,7 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -445,7 +445,7 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
   }
 
   // required - computed: false, optional: true, required: false
-  private _required?: boolean | cdktf.IResolvable; 
+  private _required?: boolean | cdktf.IResolvable;
   public get required() {
     return this.getBooleanAttribute('required');
   }
@@ -537,7 +537,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -553,7 +553,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -569,7 +569,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -582,7 +582,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -598,7 +598,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

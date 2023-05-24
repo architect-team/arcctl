@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity_feedback_attributes
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class Sesv2EmailIdentityFeedbackAttributes extends cdktf.TerraformResourc
   // ==========
 
   // email_forwarding_enabled - computed: false, optional: true, required: false
-  private _emailForwardingEnabled?: boolean | cdktf.IResolvable; 
+  private _emailForwardingEnabled?: boolean | cdktf.IResolvable;
   public get emailForwardingEnabled() {
     return this.getBooleanAttribute('email_forwarding_enabled');
   }
@@ -87,7 +87,7 @@ export class Sesv2EmailIdentityFeedbackAttributes extends cdktf.TerraformResourc
   }
 
   // email_identity - computed: false, optional: false, required: true
-  private _emailIdentity?: string; 
+  private _emailIdentity?: string;
   public get emailIdentity() {
     return this.getStringAttribute('email_identity');
   }
@@ -100,7 +100,7 @@ export class Sesv2EmailIdentityFeedbackAttributes extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

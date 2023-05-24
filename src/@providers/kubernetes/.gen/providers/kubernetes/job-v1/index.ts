@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { JobV1Metadata, 
-jobV1MetadataToTerraform, 
-JobV1MetadataOutputReference, 
-JobV1Spec, 
-jobV1SpecToTerraform, 
-JobV1SpecOutputReference, 
-JobV1Timeouts, 
-jobV1TimeoutsToTerraform, 
+import { JobV1Metadata,
+jobV1MetadataToTerraform,
+JobV1MetadataOutputReference,
+JobV1Spec,
+jobV1SpecToTerraform,
+JobV1SpecOutputReference,
+JobV1Timeouts,
+jobV1TimeoutsToTerraform,
 JobV1TimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface JobV1Config extends cdktf.TerraformMetaArguments {
   /**
@@ -26,19 +26,19 @@ export interface JobV1Config extends cdktf.TerraformMetaArguments {
   readonly waitForCompletion?: boolean | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job_v1#metadata JobV1#metadata}
   */
   readonly metadata: JobV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job_v1#spec JobV1#spec}
   */
   readonly spec: JobV1Spec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job_v1#timeouts JobV1#timeouts}
   */
   readonly timeouts?: JobV1Timeouts;
@@ -93,7 +93,7 @@ export class JobV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -109,7 +109,7 @@ export class JobV1 extends cdktf.TerraformResource {
   }
 
   // wait_for_completion - computed: false, optional: true, required: false
-  private _waitForCompletion?: boolean | cdktf.IResolvable; 
+  private _waitForCompletion?: boolean | cdktf.IResolvable;
   public get waitForCompletion() {
     return this.getBooleanAttribute('wait_for_completion');
   }

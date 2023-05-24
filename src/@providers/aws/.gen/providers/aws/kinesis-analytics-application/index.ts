@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,25 +40,25 @@ export interface KinesisAnalyticsApplicationConfig extends cdktf.TerraformMetaAr
   readonly tagsAll?: { [key: string]: string };
   /**
   * cloudwatch_logging_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#cloudwatch_logging_options KinesisAnalyticsApplication#cloudwatch_logging_options}
   */
   readonly cloudwatchLoggingOptions?: KinesisAnalyticsApplicationCloudwatchLoggingOptions;
   /**
   * inputs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#inputs KinesisAnalyticsApplication#inputs}
   */
   readonly inputs?: KinesisAnalyticsApplicationInputs;
   /**
   * outputs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#outputs KinesisAnalyticsApplication#outputs}
   */
   readonly outputs?: KinesisAnalyticsApplicationOutputs[] | cdktf.IResolvable;
   /**
   * reference_data_sources block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#reference_data_sources KinesisAnalyticsApplication#reference_data_sources}
   */
   readonly referenceDataSources?: KinesisAnalyticsApplicationReferenceDataSources;
@@ -129,7 +129,7 @@ export class KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference 
   }
 
   // log_stream_arn - computed: false, optional: false, required: true
-  private _logStreamArn?: string; 
+  private _logStreamArn?: string;
   public get logStreamArn() {
     return this.getStringAttribute('log_stream_arn');
   }
@@ -142,7 +142,7 @@ export class KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference 
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -215,7 +215,7 @@ export class KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference ext
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -228,7 +228,7 @@ export class KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference ext
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -301,7 +301,7 @@ export class KinesisAnalyticsApplicationInputsKinesisStreamOutputReference exten
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -314,7 +314,7 @@ export class KinesisAnalyticsApplicationInputsKinesisStreamOutputReference exten
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -376,7 +376,7 @@ export class KinesisAnalyticsApplicationInputsParallelismOutputReference extends
   }
 
   // count - computed: true, optional: true, required: false
-  private _count?: number; 
+  private _count?: number;
   public get count() {
     return this.getNumberAttribute('count');
   }
@@ -452,7 +452,7 @@ export class KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutpu
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -465,7 +465,7 @@ export class KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutpu
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -480,7 +480,7 @@ export class KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutpu
 export interface KinesisAnalyticsApplicationInputsProcessingConfiguration {
   /**
   * lambda block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#lambda KinesisAnalyticsApplication#lambda}
   */
   readonly lambda: KinesisAnalyticsApplicationInputsProcessingConfigurationLambda;
@@ -625,7 +625,7 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference
   }
 
   // mapping - computed: false, optional: true, required: false
-  private _mapping?: string; 
+  private _mapping?: string;
   public get mapping() {
     return this.getStringAttribute('mapping');
   }
@@ -641,7 +641,7 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -654,7 +654,7 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference
   }
 
   // sql_type - computed: false, optional: false, required: true
-  private _sqlType?: string; 
+  private _sqlType?: string;
   public get sqlType() {
     return this.getStringAttribute('sql_type');
   }
@@ -747,7 +747,7 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
   }
 
   // record_column_delimiter - computed: false, optional: false, required: true
-  private _recordColumnDelimiter?: string; 
+  private _recordColumnDelimiter?: string;
   public get recordColumnDelimiter() {
     return this.getStringAttribute('record_column_delimiter');
   }
@@ -760,7 +760,7 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
   }
 
   // record_row_delimiter - computed: false, optional: false, required: true
-  private _recordRowDelimiter?: string; 
+  private _recordRowDelimiter?: string;
   public get recordRowDelimiter() {
     return this.getStringAttribute('record_row_delimiter');
   }
@@ -822,7 +822,7 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
   }
 
   // record_row_path - computed: false, optional: false, required: true
-  private _recordRowPath?: string; 
+  private _recordRowPath?: string;
   public get recordRowPath() {
     return this.getStringAttribute('record_row_path');
   }
@@ -837,13 +837,13 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
 export interface KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
   /**
   * csv block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#csv KinesisAnalyticsApplication#csv}
   */
   readonly csv?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv;
   /**
   * json block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#json KinesisAnalyticsApplication#json}
   */
   readonly json?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson;
@@ -933,7 +933,7 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
 export interface KinesisAnalyticsApplicationInputsSchemaRecordFormat {
   /**
   * mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping_parameters KinesisAnalyticsApplication#mapping_parameters}
   */
   readonly mappingParameters?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters;
@@ -1009,13 +1009,13 @@ export interface KinesisAnalyticsApplicationInputsSchema {
   readonly recordEncoding?: string;
   /**
   * record_columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_columns KinesisAnalyticsApplication#record_columns}
   */
   readonly recordColumns: KinesisAnalyticsApplicationInputsSchemaRecordColumns[] | cdktf.IResolvable;
   /**
   * record_format block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format KinesisAnalyticsApplication#record_format}
   */
   readonly recordFormat: KinesisAnalyticsApplicationInputsSchemaRecordFormat;
@@ -1078,7 +1078,7 @@ export class KinesisAnalyticsApplicationInputsSchemaOutputReference extends cdkt
   }
 
   // record_encoding - computed: false, optional: true, required: false
-  private _recordEncoding?: string; 
+  private _recordEncoding?: string;
   public get recordEncoding() {
     return this.getStringAttribute('record_encoding');
   }
@@ -1181,7 +1181,7 @@ export class KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutpu
   }
 
   // starting_position - computed: true, optional: true, required: false
-  private _startingPosition?: string; 
+  private _startingPosition?: string;
   public get startingPosition() {
     return this.getStringAttribute('starting_position');
   }
@@ -1223,37 +1223,37 @@ export interface KinesisAnalyticsApplicationInputs {
   readonly namePrefix: string;
   /**
   * kinesis_firehose block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_firehose KinesisAnalyticsApplication#kinesis_firehose}
   */
   readonly kinesisFirehose?: KinesisAnalyticsApplicationInputsKinesisFirehose;
   /**
   * kinesis_stream block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_stream KinesisAnalyticsApplication#kinesis_stream}
   */
   readonly kinesisStream?: KinesisAnalyticsApplicationInputsKinesisStream;
   /**
   * parallelism block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#parallelism KinesisAnalyticsApplication#parallelism}
   */
   readonly parallelism?: KinesisAnalyticsApplicationInputsParallelism;
   /**
   * processing_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#processing_configuration KinesisAnalyticsApplication#processing_configuration}
   */
   readonly processingConfiguration?: KinesisAnalyticsApplicationInputsProcessingConfiguration;
   /**
   * schema block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
   */
   readonly schema: KinesisAnalyticsApplicationInputsSchema;
   /**
   * starting_position_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#starting_position_configuration KinesisAnalyticsApplication#starting_position_configuration}
   */
   readonly startingPositionConfiguration?: KinesisAnalyticsApplicationInputsStartingPositionConfiguration[] | cdktf.IResolvable;
@@ -1349,7 +1349,7 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
   }
 
   // name_prefix - computed: false, optional: false, required: true
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -1520,7 +1520,7 @@ export class KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference ex
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -1533,7 +1533,7 @@ export class KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference ex
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1606,7 +1606,7 @@ export class KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference exte
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -1619,7 +1619,7 @@ export class KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference exte
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1692,7 +1692,7 @@ export class KinesisAnalyticsApplicationOutputsLambdaOutputReference extends cdk
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string; 
+  private _resourceArn?: string;
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -1705,7 +1705,7 @@ export class KinesisAnalyticsApplicationOutputsLambdaOutputReference extends cdk
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1767,7 +1767,7 @@ export class KinesisAnalyticsApplicationOutputsSchemaOutputReference extends cdk
   }
 
   // record_format_type - computed: false, optional: false, required: true
-  private _recordFormatType?: string; 
+  private _recordFormatType?: string;
   public get recordFormatType() {
     return this.getStringAttribute('record_format_type');
   }
@@ -1786,25 +1786,25 @@ export interface KinesisAnalyticsApplicationOutputs {
   readonly name: string;
   /**
   * kinesis_firehose block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_firehose KinesisAnalyticsApplication#kinesis_firehose}
   */
   readonly kinesisFirehose?: KinesisAnalyticsApplicationOutputsKinesisFirehose;
   /**
   * kinesis_stream block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_stream KinesisAnalyticsApplication#kinesis_stream}
   */
   readonly kinesisStream?: KinesisAnalyticsApplicationOutputsKinesisStream;
   /**
   * lambda block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#lambda KinesisAnalyticsApplication#lambda}
   */
   readonly lambda?: KinesisAnalyticsApplicationOutputsLambda;
   /**
   * schema block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
   */
   readonly schema: KinesisAnalyticsApplicationOutputsSchema;
@@ -1898,7 +1898,7 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2063,7 +2063,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference ex
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string; 
+  private _bucketArn?: string;
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -2076,7 +2076,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference ex
   }
 
   // file_key - computed: false, optional: false, required: true
-  private _fileKey?: string; 
+  private _fileKey?: string;
   public get fileKey() {
     return this.getStringAttribute('file_key');
   }
@@ -2089,7 +2089,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference ex
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -2185,7 +2185,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsO
   }
 
   // mapping - computed: false, optional: true, required: false
-  private _mapping?: string; 
+  private _mapping?: string;
   public get mapping() {
     return this.getStringAttribute('mapping');
   }
@@ -2201,7 +2201,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsO
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2214,7 +2214,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsO
   }
 
   // sql_type - computed: false, optional: false, required: true
-  private _sqlType?: string; 
+  private _sqlType?: string;
   public get sqlType() {
     return this.getStringAttribute('sql_type');
   }
@@ -2307,7 +2307,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
   }
 
   // record_column_delimiter - computed: false, optional: false, required: true
-  private _recordColumnDelimiter?: string; 
+  private _recordColumnDelimiter?: string;
   public get recordColumnDelimiter() {
     return this.getStringAttribute('record_column_delimiter');
   }
@@ -2320,7 +2320,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
   }
 
   // record_row_delimiter - computed: false, optional: false, required: true
-  private _recordRowDelimiter?: string; 
+  private _recordRowDelimiter?: string;
   public get recordRowDelimiter() {
     return this.getStringAttribute('record_row_delimiter');
   }
@@ -2382,7 +2382,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
   }
 
   // record_row_path - computed: false, optional: false, required: true
-  private _recordRowPath?: string; 
+  private _recordRowPath?: string;
   public get recordRowPath() {
     return this.getStringAttribute('record_row_path');
   }
@@ -2397,13 +2397,13 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
   /**
   * csv block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#csv KinesisAnalyticsApplication#csv}
   */
   readonly csv?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv;
   /**
   * json block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#json KinesisAnalyticsApplication#json}
   */
   readonly json?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson;
@@ -2493,7 +2493,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
   /**
   * mapping_parameters block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping_parameters KinesisAnalyticsApplication#mapping_parameters}
   */
   readonly mappingParameters?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters;
@@ -2569,13 +2569,13 @@ export interface KinesisAnalyticsApplicationReferenceDataSourcesSchema {
   readonly recordEncoding?: string;
   /**
   * record_columns block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_columns KinesisAnalyticsApplication#record_columns}
   */
   readonly recordColumns: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns[] | cdktf.IResolvable;
   /**
   * record_format block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format KinesisAnalyticsApplication#record_format}
   */
   readonly recordFormat: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat;
@@ -2638,7 +2638,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReferenc
   }
 
   // record_encoding - computed: false, optional: true, required: false
-  private _recordEncoding?: string; 
+  private _recordEncoding?: string;
   public get recordEncoding() {
     return this.getStringAttribute('record_encoding');
   }
@@ -2686,13 +2686,13 @@ export interface KinesisAnalyticsApplicationReferenceDataSources {
   readonly tableName: string;
   /**
   * s3 block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#s3 KinesisAnalyticsApplication#s3}
   */
   readonly s3: KinesisAnalyticsApplicationReferenceDataSourcesS3;
   /**
   * schema block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
   */
   readonly schema: KinesisAnalyticsApplicationReferenceDataSourcesSchema;
@@ -2760,7 +2760,7 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesOutputReference exte
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -2859,7 +2859,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // code - computed: false, optional: true, required: false
-  private _code?: string; 
+  private _code?: string;
   public get code() {
     return this.getStringAttribute('code');
   }
@@ -2880,7 +2880,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -2896,7 +2896,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2917,7 +2917,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2930,7 +2930,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // start_application - computed: false, optional: true, required: false
-  private _startApplication?: boolean | cdktf.IResolvable; 
+  private _startApplication?: boolean | cdktf.IResolvable;
   public get startApplication() {
     return this.getBooleanAttribute('start_application');
   }
@@ -2951,7 +2951,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2967,7 +2967,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

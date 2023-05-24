@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/macie2_classification_job
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,13 +56,13 @@ export interface Macie2ClassificationJobConfig extends cdktf.TerraformMetaArgume
   readonly tagsAll?: { [key: string]: string };
   /**
   * s3_job_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#s3_job_definition Macie2ClassificationJob#s3_job_definition}
   */
   readonly s3JobDefinition: Macie2ClassificationJobS3JobDefinition;
   /**
   * schedule_frequency block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#schedule_frequency Macie2ClassificationJob#schedule_frequency}
   */
   readonly scheduleFrequency?: Macie2ClassificationJobScheduleFrequency;
@@ -213,7 +213,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -229,7 +229,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -245,7 +245,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
   }
 
   // values - computed: true, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -333,7 +333,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -349,7 +349,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
   }
 
   // value - computed: true, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -391,7 +391,7 @@ export interface Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd
   readonly comparator?: string;
   /**
   * tag_values block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_values Macie2ClassificationJob#tag_values}
   */
   readonly tagValues?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValues[] | cdktf.IResolvable;
@@ -447,7 +447,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -481,13 +481,13 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
 export interface Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
   /**
   * simple_criterion block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#simple_criterion Macie2ClassificationJob#simple_criterion}
   */
   readonly simpleCriterion?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion;
   /**
   * tag_criterion block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_criterion Macie2ClassificationJob#tag_criterion}
   */
   readonly tagCriterion?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion;
@@ -609,7 +609,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndList
 export interface Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#and Macie2ClassificationJob#and}
   */
   readonly and?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd[] | cdktf.IResolvable;
@@ -745,7 +745,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimp
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -761,7 +761,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimp
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -777,7 +777,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimp
   }
 
   // values - computed: true, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -865,7 +865,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -881,7 +881,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
   }
 
   // value - computed: true, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -923,7 +923,7 @@ export interface Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd
   readonly comparator?: string;
   /**
   * tag_values block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_values Macie2ClassificationJob#tag_values}
   */
   readonly tagValues?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValues[] | cdktf.IResolvable;
@@ -979,7 +979,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -1013,13 +1013,13 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
 export interface Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
   /**
   * simple_criterion block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#simple_criterion Macie2ClassificationJob#simple_criterion}
   */
   readonly simpleCriterion?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion;
   /**
   * tag_criterion block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_criterion Macie2ClassificationJob#tag_criterion}
   */
   readonly tagCriterion?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion;
@@ -1141,7 +1141,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndList
 export interface Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#and Macie2ClassificationJob#and}
   */
   readonly and?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd[] | cdktf.IResolvable;
@@ -1208,13 +1208,13 @@ export class Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutputR
 export interface Macie2ClassificationJobS3JobDefinitionBucketCriteria {
   /**
   * excludes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#excludes Macie2ClassificationJob#excludes}
   */
   readonly excludes?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaExcludes;
   /**
   * includes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#includes Macie2ClassificationJob#includes}
   */
   readonly includes?: Macie2ClassificationJobS3JobDefinitionBucketCriteriaIncludes;
@@ -1374,7 +1374,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketDefinitionsOutputRefere
   }
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -1387,7 +1387,7 @@ export class Macie2ClassificationJobS3JobDefinitionBucketDefinitionsOutputRefere
   }
 
   // buckets - computed: false, optional: false, required: true
-  private _buckets?: string[]; 
+  private _buckets?: string[];
   public get buckets() {
     return this.getListAttribute('buckets');
   }
@@ -1491,7 +1491,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScope
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -1507,7 +1507,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScope
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1523,7 +1523,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScope
   }
 
   // values - computed: true, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -1611,7 +1611,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1627,7 +1627,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
   }
 
   // value - computed: true, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1677,7 +1677,7 @@ export interface Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScop
   readonly target?: string;
   /**
   * tag_values block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_values Macie2ClassificationJob#tag_values}
   */
   readonly tagValues?: Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValues[] | cdktf.IResolvable;
@@ -1747,7 +1747,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -1763,7 +1763,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1779,7 +1779,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
   }
 
   // target - computed: true, optional: true, required: false
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -1813,13 +1813,13 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
 export interface Macie2ClassificationJobS3JobDefinitionScopingExcludesAnd {
   /**
   * simple_scope_term block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#simple_scope_term Macie2ClassificationJob#simple_scope_term}
   */
   readonly simpleScopeTerm?: Macie2ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm;
   /**
   * tag_scope_term block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_scope_term Macie2ClassificationJob#tag_scope_term}
   */
   readonly tagScopeTerm?: Macie2ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm;
@@ -1941,7 +1941,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingExcludesAndList extend
 export interface Macie2ClassificationJobS3JobDefinitionScopingExcludes {
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#and Macie2ClassificationJob#and}
   */
   readonly and?: Macie2ClassificationJobS3JobDefinitionScopingExcludesAnd[] | cdktf.IResolvable;
@@ -2077,7 +2077,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -2093,7 +2093,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2109,7 +2109,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
   }
 
   // values - computed: true, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -2197,7 +2197,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2213,7 +2213,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
   }
 
   // value - computed: true, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2263,7 +2263,7 @@ export interface Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScop
   readonly target?: string;
   /**
   * tag_values block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_values Macie2ClassificationJob#tag_values}
   */
   readonly tagValues?: Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValues[] | cdktf.IResolvable;
@@ -2333,7 +2333,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
   }
 
   // comparator - computed: true, optional: true, required: false
-  private _comparator?: string; 
+  private _comparator?: string;
   public get comparator() {
     return this.getStringAttribute('comparator');
   }
@@ -2349,7 +2349,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
   }
 
   // key - computed: true, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2365,7 +2365,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
   }
 
   // target - computed: true, optional: true, required: false
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -2399,13 +2399,13 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
 export interface Macie2ClassificationJobS3JobDefinitionScopingIncludesAnd {
   /**
   * simple_scope_term block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#simple_scope_term Macie2ClassificationJob#simple_scope_term}
   */
   readonly simpleScopeTerm?: Macie2ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm;
   /**
   * tag_scope_term block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#tag_scope_term Macie2ClassificationJob#tag_scope_term}
   */
   readonly tagScopeTerm?: Macie2ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm;
@@ -2527,7 +2527,7 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesAndList extend
 export interface Macie2ClassificationJobS3JobDefinitionScopingIncludes {
   /**
   * and block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#and Macie2ClassificationJob#and}
   */
   readonly and?: Macie2ClassificationJobS3JobDefinitionScopingIncludesAnd[] | cdktf.IResolvable;
@@ -2594,13 +2594,13 @@ export class Macie2ClassificationJobS3JobDefinitionScopingIncludesOutputReferenc
 export interface Macie2ClassificationJobS3JobDefinitionScoping {
   /**
   * excludes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#excludes Macie2ClassificationJob#excludes}
   */
   readonly excludes?: Macie2ClassificationJobS3JobDefinitionScopingExcludes;
   /**
   * includes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#includes Macie2ClassificationJob#includes}
   */
   readonly includes?: Macie2ClassificationJobS3JobDefinitionScopingIncludes;
@@ -2690,19 +2690,19 @@ export class Macie2ClassificationJobS3JobDefinitionScopingOutputReference extend
 export interface Macie2ClassificationJobS3JobDefinition {
   /**
   * bucket_criteria block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#bucket_criteria Macie2ClassificationJob#bucket_criteria}
   */
   readonly bucketCriteria?: Macie2ClassificationJobS3JobDefinitionBucketCriteria;
   /**
   * bucket_definitions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#bucket_definitions Macie2ClassificationJob#bucket_definitions}
   */
   readonly bucketDefinitions?: Macie2ClassificationJobS3JobDefinitionBucketDefinitions[] | cdktf.IResolvable;
   /**
   * scoping block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_job#scoping Macie2ClassificationJob#scoping}
   */
   readonly scoping?: Macie2ClassificationJobS3JobDefinitionScoping;
@@ -2884,7 +2884,7 @@ export class Macie2ClassificationJobScheduleFrequencyOutputReference extends cdk
   }
 
   // daily_schedule - computed: false, optional: true, required: false
-  private _dailySchedule?: boolean | cdktf.IResolvable; 
+  private _dailySchedule?: boolean | cdktf.IResolvable;
   public get dailySchedule() {
     return this.getBooleanAttribute('daily_schedule');
   }
@@ -2900,7 +2900,7 @@ export class Macie2ClassificationJobScheduleFrequencyOutputReference extends cdk
   }
 
   // monthly_schedule - computed: true, optional: true, required: false
-  private _monthlySchedule?: number; 
+  private _monthlySchedule?: number;
   public get monthlySchedule() {
     return this.getNumberAttribute('monthly_schedule');
   }
@@ -2916,7 +2916,7 @@ export class Macie2ClassificationJobScheduleFrequencyOutputReference extends cdk
   }
 
   // weekly_schedule - computed: true, optional: true, required: false
-  private _weeklySchedule?: string; 
+  private _weeklySchedule?: string;
   public get weeklySchedule() {
     return this.getStringAttribute('weekly_schedule');
   }
@@ -2994,7 +2994,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // custom_data_identifier_ids - computed: true, optional: true, required: false
-  private _customDataIdentifierIds?: string[]; 
+  private _customDataIdentifierIds?: string[];
   public get customDataIdentifierIds() {
     return this.getListAttribute('custom_data_identifier_ids');
   }
@@ -3010,7 +3010,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -3026,7 +3026,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3042,7 +3042,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // initial_run - computed: false, optional: true, required: false
-  private _initialRun?: boolean | cdktf.IResolvable; 
+  private _initialRun?: boolean | cdktf.IResolvable;
   public get initialRun() {
     return this.getBooleanAttribute('initial_run');
   }
@@ -3068,7 +3068,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // job_status - computed: true, optional: true, required: false
-  private _jobStatus?: string; 
+  private _jobStatus?: string;
   public get jobStatus() {
     return this.getStringAttribute('job_status');
   }
@@ -3084,7 +3084,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // job_type - computed: false, optional: false, required: true
-  private _jobType?: string; 
+  private _jobType?: string;
   public get jobType() {
     return this.getStringAttribute('job_type');
   }
@@ -3097,7 +3097,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3113,7 +3113,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -3129,7 +3129,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // sampling_percentage - computed: true, optional: true, required: false
-  private _samplingPercentage?: number; 
+  private _samplingPercentage?: number;
   public get samplingPercentage() {
     return this.getNumberAttribute('sampling_percentage');
   }
@@ -3145,7 +3145,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3161,7 +3161,7 @@ export class Macie2ClassificationJob extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

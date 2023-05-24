@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/instances
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsInstancesConfig extends cdktf.TerraformMetaArguments {
   readonly instanceTags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/instances#filter DataAwsInstances#filter}
   */
   readonly filter?: DataAwsInstancesFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/instances#timeouts DataAwsInstances#timeouts}
   */
   readonly timeouts?: DataAwsInstancesTimeouts;
@@ -108,7 +108,7 @@ export class DataAwsInstancesFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +121,7 @@ export class DataAwsInstancesFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -213,7 +213,7 @@ export class DataAwsInstancesTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -278,7 +278,7 @@ export class DataAwsInstances extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DataAwsInstances extends cdktf.TerraformDataSource {
   }
 
   // instance_state_names - computed: false, optional: true, required: false
-  private _instanceStateNames?: string[]; 
+  private _instanceStateNames?: string[];
   public get instanceStateNames() {
     return cdktf.Fn.tolist(this.getListAttribute('instance_state_names'));
   }
@@ -315,7 +315,7 @@ export class DataAwsInstances extends cdktf.TerraformDataSource {
   }
 
   // instance_tags - computed: true, optional: true, required: false
-  private _instanceTags?: { [key: string]: string }; 
+  private _instanceTags?: { [key: string]: string };
   public get instanceTags() {
     return this.getStringMapAttribute('instance_tags');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   // ==========
 
   // autoscaling_group_name - computed: false, optional: false, required: true
-  private _autoscalingGroupName?: string; 
+  private _autoscalingGroupName?: string;
   public get autoscalingGroupName() {
     return this.getStringAttribute('autoscaling_group_name');
   }
@@ -114,7 +114,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // default_result - computed: true, optional: true, required: false
-  private _defaultResult?: string; 
+  private _defaultResult?: string;
   public get defaultResult() {
     return this.getStringAttribute('default_result');
   }
@@ -130,7 +130,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // heartbeat_timeout - computed: false, optional: true, required: false
-  private _heartbeatTimeout?: number; 
+  private _heartbeatTimeout?: number;
   public get heartbeatTimeout() {
     return this.getNumberAttribute('heartbeat_timeout');
   }
@@ -146,7 +146,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +162,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // lifecycle_transition - computed: false, optional: false, required: true
-  private _lifecycleTransition?: string; 
+  private _lifecycleTransition?: string;
   public get lifecycleTransition() {
     return this.getStringAttribute('lifecycle_transition');
   }
@@ -175,7 +175,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -188,7 +188,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // notification_metadata - computed: false, optional: true, required: false
-  private _notificationMetadata?: string; 
+  private _notificationMetadata?: string;
   public get notificationMetadata() {
     return this.getStringAttribute('notification_metadata');
   }
@@ -204,7 +204,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // notification_target_arn - computed: false, optional: true, required: false
-  private _notificationTargetArn?: string; 
+  private _notificationTargetArn?: string;
   public get notificationTargetArn() {
     return this.getStringAttribute('notification_target_arn');
   }
@@ -220,7 +220,7 @@ export class AutoscalingLifecycleHook extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }

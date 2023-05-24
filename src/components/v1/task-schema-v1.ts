@@ -1,5 +1,5 @@
-import { DeepPartial } from '../../utils/types.js';
-import { RuntimeSchemaV1 } from './common.js';
+import { DeepPartial } from '../../utils/types.ts';
+import { RuntimeSchemaV1 } from './common.ts';
 
 export type TaskSchemaV1 = RuntimeSchemaV1 & {
   schedule?: string;

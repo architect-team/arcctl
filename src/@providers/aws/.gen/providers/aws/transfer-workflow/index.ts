@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/transfer_workflow
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface TransferWorkflowConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * on_exception_steps block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#on_exception_steps TransferWorkflow#on_exception_steps}
   */
   readonly onExceptionSteps?: TransferWorkflowOnExceptionSteps[] | cdktf.IResolvable;
   /**
   * steps block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#steps TransferWorkflow#steps}
   */
   readonly steps: TransferWorkflowSteps[] | cdktf.IResolvable;
@@ -100,7 +100,7 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocat
   }
 
   // file_system_id - computed: false, optional: true, required: false
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -116,7 +116,7 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocat
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -192,7 +192,7 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocat
   }
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -208,7 +208,7 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocat
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -226,13 +226,13 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocat
 export interface TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocation {
   /**
   * efs_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#efs_file_location TransferWorkflow#efs_file_location}
   */
   readonly efsFileLocation?: TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocationEfsFileLocation;
   /**
   * s3_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#s3_file_location TransferWorkflow#s3_file_location}
   */
   readonly s3FileLocation?: TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocationS3FileLocation;
@@ -334,7 +334,7 @@ export interface TransferWorkflowOnExceptionStepsCopyStepDetails {
   readonly sourceFileLocation?: string;
   /**
   * destination_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#destination_file_location TransferWorkflow#destination_file_location}
   */
   readonly destinationFileLocation?: TransferWorkflowOnExceptionStepsCopyStepDetailsDestinationFileLocation;
@@ -404,7 +404,7 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsOutputReference exte
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -420,7 +420,7 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsOutputReference exte
   }
 
   // overwrite_existing - computed: false, optional: true, required: false
-  private _overwriteExisting?: string; 
+  private _overwriteExisting?: string;
   public get overwriteExisting() {
     return this.getStringAttribute('overwrite_existing');
   }
@@ -436,7 +436,7 @@ export class TransferWorkflowOnExceptionStepsCopyStepDetailsOutputReference exte
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -550,7 +550,7 @@ export class TransferWorkflowOnExceptionStepsCustomStepDetailsOutputReference ex
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -566,7 +566,7 @@ export class TransferWorkflowOnExceptionStepsCustomStepDetailsOutputReference ex
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -582,7 +582,7 @@ export class TransferWorkflowOnExceptionStepsCustomStepDetailsOutputReference ex
   }
 
   // target - computed: false, optional: true, required: false
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -598,7 +598,7 @@ export class TransferWorkflowOnExceptionStepsCustomStepDetailsOutputReference ex
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -674,7 +674,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLo
   }
 
   // file_system_id - computed: false, optional: true, required: false
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -690,7 +690,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLo
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -766,7 +766,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLo
   }
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -782,7 +782,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLo
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -800,13 +800,13 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLo
 export interface TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLocation {
   /**
   * efs_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#efs_file_location TransferWorkflow#efs_file_location}
   */
   readonly efsFileLocation?: TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLocationEfsFileLocation;
   /**
   * s3_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#s3_file_location TransferWorkflow#s3_file_location}
   */
   readonly s3FileLocation?: TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLocationS3FileLocation;
@@ -912,7 +912,7 @@ export interface TransferWorkflowOnExceptionStepsDecryptStepDetails {
   readonly type: string;
   /**
   * destination_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#destination_file_location TransferWorkflow#destination_file_location}
   */
   readonly destinationFileLocation?: TransferWorkflowOnExceptionStepsDecryptStepDetailsDestinationFileLocation;
@@ -989,7 +989,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsOutputReference e
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1005,7 +1005,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsOutputReference e
   }
 
   // overwrite_existing - computed: false, optional: true, required: false
-  private _overwriteExisting?: string; 
+  private _overwriteExisting?: string;
   public get overwriteExisting() {
     return this.getStringAttribute('overwrite_existing');
   }
@@ -1021,7 +1021,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsOutputReference e
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -1037,7 +1037,7 @@ export class TransferWorkflowOnExceptionStepsDecryptStepDetailsOutputReference e
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1126,7 +1126,7 @@ export class TransferWorkflowOnExceptionStepsDeleteStepDetailsOutputReference ex
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1142,7 +1142,7 @@ export class TransferWorkflowOnExceptionStepsDeleteStepDetailsOutputReference ex
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -1230,7 +1230,7 @@ export class TransferWorkflowOnExceptionStepsTagStepDetailsTagsOutputReference e
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1243,7 +1243,7 @@ export class TransferWorkflowOnExceptionStepsTagStepDetailsTagsOutputReference e
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1286,7 +1286,7 @@ export interface TransferWorkflowOnExceptionStepsTagStepDetails {
   readonly sourceFileLocation?: string;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#tags TransferWorkflow#tags}
   */
   readonly tags?: TransferWorkflowOnExceptionStepsTagStepDetailsTags[] | cdktf.IResolvable;
@@ -1349,7 +1349,7 @@ export class TransferWorkflowOnExceptionStepsTagStepDetailsOutputReference exten
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1365,7 +1365,7 @@ export class TransferWorkflowOnExceptionStepsTagStepDetailsOutputReference exten
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -1403,31 +1403,31 @@ export interface TransferWorkflowOnExceptionSteps {
   readonly type: string;
   /**
   * copy_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#copy_step_details TransferWorkflow#copy_step_details}
   */
   readonly copyStepDetails?: TransferWorkflowOnExceptionStepsCopyStepDetails;
   /**
   * custom_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#custom_step_details TransferWorkflow#custom_step_details}
   */
   readonly customStepDetails?: TransferWorkflowOnExceptionStepsCustomStepDetails;
   /**
   * decrypt_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#decrypt_step_details TransferWorkflow#decrypt_step_details}
   */
   readonly decryptStepDetails?: TransferWorkflowOnExceptionStepsDecryptStepDetails;
   /**
   * delete_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#delete_step_details TransferWorkflow#delete_step_details}
   */
   readonly deleteStepDetails?: TransferWorkflowOnExceptionStepsDeleteStepDetails;
   /**
   * tag_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#tag_step_details TransferWorkflow#tag_step_details}
   */
   readonly tagStepDetails?: TransferWorkflowOnExceptionStepsTagStepDetails;
@@ -1523,7 +1523,7 @@ export class TransferWorkflowOnExceptionStepsOutputReference extends cdktf.Compl
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1696,7 +1696,7 @@ export class TransferWorkflowStepsCopyStepDetailsDestinationFileLocationEfsFileL
   }
 
   // file_system_id - computed: false, optional: true, required: false
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -1712,7 +1712,7 @@ export class TransferWorkflowStepsCopyStepDetailsDestinationFileLocationEfsFileL
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -1788,7 +1788,7 @@ export class TransferWorkflowStepsCopyStepDetailsDestinationFileLocationS3FileLo
   }
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1804,7 +1804,7 @@ export class TransferWorkflowStepsCopyStepDetailsDestinationFileLocationS3FileLo
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1822,13 +1822,13 @@ export class TransferWorkflowStepsCopyStepDetailsDestinationFileLocationS3FileLo
 export interface TransferWorkflowStepsCopyStepDetailsDestinationFileLocation {
   /**
   * efs_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#efs_file_location TransferWorkflow#efs_file_location}
   */
   readonly efsFileLocation?: TransferWorkflowStepsCopyStepDetailsDestinationFileLocationEfsFileLocation;
   /**
   * s3_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#s3_file_location TransferWorkflow#s3_file_location}
   */
   readonly s3FileLocation?: TransferWorkflowStepsCopyStepDetailsDestinationFileLocationS3FileLocation;
@@ -1930,7 +1930,7 @@ export interface TransferWorkflowStepsCopyStepDetails {
   readonly sourceFileLocation?: string;
   /**
   * destination_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#destination_file_location TransferWorkflow#destination_file_location}
   */
   readonly destinationFileLocation?: TransferWorkflowStepsCopyStepDetailsDestinationFileLocation;
@@ -2000,7 +2000,7 @@ export class TransferWorkflowStepsCopyStepDetailsOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2016,7 +2016,7 @@ export class TransferWorkflowStepsCopyStepDetailsOutputReference extends cdktf.C
   }
 
   // overwrite_existing - computed: false, optional: true, required: false
-  private _overwriteExisting?: string; 
+  private _overwriteExisting?: string;
   public get overwriteExisting() {
     return this.getStringAttribute('overwrite_existing');
   }
@@ -2032,7 +2032,7 @@ export class TransferWorkflowStepsCopyStepDetailsOutputReference extends cdktf.C
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -2146,7 +2146,7 @@ export class TransferWorkflowStepsCustomStepDetailsOutputReference extends cdktf
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2162,7 +2162,7 @@ export class TransferWorkflowStepsCustomStepDetailsOutputReference extends cdktf
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -2178,7 +2178,7 @@ export class TransferWorkflowStepsCustomStepDetailsOutputReference extends cdktf
   }
 
   // target - computed: false, optional: true, required: false
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -2194,7 +2194,7 @@ export class TransferWorkflowStepsCustomStepDetailsOutputReference extends cdktf
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -2270,7 +2270,7 @@ export class TransferWorkflowStepsDecryptStepDetailsDestinationFileLocationEfsFi
   }
 
   // file_system_id - computed: false, optional: true, required: false
-  private _fileSystemId?: string; 
+  private _fileSystemId?: string;
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -2286,7 +2286,7 @@ export class TransferWorkflowStepsDecryptStepDetailsDestinationFileLocationEfsFi
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -2362,7 +2362,7 @@ export class TransferWorkflowStepsDecryptStepDetailsDestinationFileLocationS3Fil
   }
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -2378,7 +2378,7 @@ export class TransferWorkflowStepsDecryptStepDetailsDestinationFileLocationS3Fil
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2396,13 +2396,13 @@ export class TransferWorkflowStepsDecryptStepDetailsDestinationFileLocationS3Fil
 export interface TransferWorkflowStepsDecryptStepDetailsDestinationFileLocation {
   /**
   * efs_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#efs_file_location TransferWorkflow#efs_file_location}
   */
   readonly efsFileLocation?: TransferWorkflowStepsDecryptStepDetailsDestinationFileLocationEfsFileLocation;
   /**
   * s3_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#s3_file_location TransferWorkflow#s3_file_location}
   */
   readonly s3FileLocation?: TransferWorkflowStepsDecryptStepDetailsDestinationFileLocationS3FileLocation;
@@ -2508,7 +2508,7 @@ export interface TransferWorkflowStepsDecryptStepDetails {
   readonly type: string;
   /**
   * destination_file_location block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#destination_file_location TransferWorkflow#destination_file_location}
   */
   readonly destinationFileLocation?: TransferWorkflowStepsDecryptStepDetailsDestinationFileLocation;
@@ -2585,7 +2585,7 @@ export class TransferWorkflowStepsDecryptStepDetailsOutputReference extends cdkt
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2601,7 +2601,7 @@ export class TransferWorkflowStepsDecryptStepDetailsOutputReference extends cdkt
   }
 
   // overwrite_existing - computed: false, optional: true, required: false
-  private _overwriteExisting?: string; 
+  private _overwriteExisting?: string;
   public get overwriteExisting() {
     return this.getStringAttribute('overwrite_existing');
   }
@@ -2617,7 +2617,7 @@ export class TransferWorkflowStepsDecryptStepDetailsOutputReference extends cdkt
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -2633,7 +2633,7 @@ export class TransferWorkflowStepsDecryptStepDetailsOutputReference extends cdkt
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2722,7 +2722,7 @@ export class TransferWorkflowStepsDeleteStepDetailsOutputReference extends cdktf
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2738,7 +2738,7 @@ export class TransferWorkflowStepsDeleteStepDetailsOutputReference extends cdktf
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -2826,7 +2826,7 @@ export class TransferWorkflowStepsTagStepDetailsTagsOutputReference extends cdkt
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2839,7 +2839,7 @@ export class TransferWorkflowStepsTagStepDetailsTagsOutputReference extends cdkt
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2882,7 +2882,7 @@ export interface TransferWorkflowStepsTagStepDetails {
   readonly sourceFileLocation?: string;
   /**
   * tags block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#tags TransferWorkflow#tags}
   */
   readonly tags?: TransferWorkflowStepsTagStepDetailsTags[] | cdktf.IResolvable;
@@ -2945,7 +2945,7 @@ export class TransferWorkflowStepsTagStepDetailsOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2961,7 +2961,7 @@ export class TransferWorkflowStepsTagStepDetailsOutputReference extends cdktf.Co
   }
 
   // source_file_location - computed: false, optional: true, required: false
-  private _sourceFileLocation?: string; 
+  private _sourceFileLocation?: string;
   public get sourceFileLocation() {
     return this.getStringAttribute('source_file_location');
   }
@@ -2999,31 +2999,31 @@ export interface TransferWorkflowSteps {
   readonly type: string;
   /**
   * copy_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#copy_step_details TransferWorkflow#copy_step_details}
   */
   readonly copyStepDetails?: TransferWorkflowStepsCopyStepDetails;
   /**
   * custom_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#custom_step_details TransferWorkflow#custom_step_details}
   */
   readonly customStepDetails?: TransferWorkflowStepsCustomStepDetails;
   /**
   * decrypt_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#decrypt_step_details TransferWorkflow#decrypt_step_details}
   */
   readonly decryptStepDetails?: TransferWorkflowStepsDecryptStepDetails;
   /**
   * delete_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#delete_step_details TransferWorkflow#delete_step_details}
   */
   readonly deleteStepDetails?: TransferWorkflowStepsDeleteStepDetails;
   /**
   * tag_step_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_workflow#tag_step_details TransferWorkflow#tag_step_details}
   */
   readonly tagStepDetails?: TransferWorkflowStepsTagStepDetails;
@@ -3119,7 +3119,7 @@ export class TransferWorkflowStepsOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3287,7 +3287,7 @@ export class TransferWorkflow extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -3303,7 +3303,7 @@ export class TransferWorkflow extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3319,7 +3319,7 @@ export class TransferWorkflow extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3335,7 +3335,7 @@ export class TransferWorkflow extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

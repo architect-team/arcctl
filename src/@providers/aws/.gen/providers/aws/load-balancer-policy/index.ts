@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/load_balancer_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface LoadBalancerPolicyConfig extends cdktf.TerraformMetaArguments {
   readonly policyTypeName: string;
   /**
   * policy_attribute block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_policy#policy_attribute LoadBalancerPolicy#policy_attribute}
   */
   readonly policyAttribute?: LoadBalancerPolicyPolicyAttribute[] | cdktf.IResolvable;
@@ -106,7 +106,7 @@ export class LoadBalancerPolicyPolicyAttributeOutputReference extends cdktf.Comp
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -122,7 +122,7 @@ export class LoadBalancerPolicyPolicyAttributeOutputReference extends cdktf.Comp
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -207,7 +207,7 @@ export class LoadBalancerPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -223,7 +223,7 @@ export class LoadBalancerPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer_name - computed: false, optional: false, required: true
-  private _loadBalancerName?: string; 
+  private _loadBalancerName?: string;
   public get loadBalancerName() {
     return this.getStringAttribute('load_balancer_name');
   }
@@ -236,7 +236,7 @@ export class LoadBalancerPolicy extends cdktf.TerraformResource {
   }
 
   // policy_name - computed: false, optional: false, required: true
-  private _policyName?: string; 
+  private _policyName?: string;
   public get policyName() {
     return this.getStringAttribute('policy_name');
   }
@@ -249,7 +249,7 @@ export class LoadBalancerPolicy extends cdktf.TerraformResource {
   }
 
   // policy_type_name - computed: false, optional: false, required: true
-  private _policyTypeName?: string; 
+  private _policyTypeName?: string;
   public get policyTypeName() {
     return this.getStringAttribute('policy_type_name');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,25 +56,25 @@ export interface ComprehendDocumentClassifierConfig extends cdktf.TerraformMetaA
   readonly volumeKmsKeyId?: string;
   /**
   * input_data_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#input_data_config ComprehendDocumentClassifier#input_data_config}
   */
   readonly inputDataConfig: ComprehendDocumentClassifierInputDataConfig;
   /**
   * output_data_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#output_data_config ComprehendDocumentClassifier#output_data_config}
   */
   readonly outputDataConfig?: ComprehendDocumentClassifierOutputDataConfig;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#timeouts ComprehendDocumentClassifier#timeouts}
   */
   readonly timeouts?: ComprehendDocumentClassifierTimeouts;
   /**
   * vpc_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#vpc_config ComprehendDocumentClassifier#vpc_config}
   */
   readonly vpcConfig?: ComprehendDocumentClassifierVpcConfig;
@@ -196,7 +196,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // annotation_data_s3_uri - computed: false, optional: true, required: false
-  private _annotationDataS3Uri?: string; 
+  private _annotationDataS3Uri?: string;
   public get annotationDataS3Uri() {
     return this.getStringAttribute('annotation_data_s3_uri');
   }
@@ -212,7 +212,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // attribute_names - computed: false, optional: false, required: true
-  private _attributeNames?: string[]; 
+  private _attributeNames?: string[];
   public get attributeNames() {
     return this.getListAttribute('attribute_names');
   }
@@ -225,7 +225,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // document_type - computed: false, optional: true, required: false
-  private _documentType?: string; 
+  private _documentType?: string;
   public get documentType() {
     return this.getStringAttribute('document_type');
   }
@@ -241,7 +241,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -254,7 +254,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // source_documents_s3_uri - computed: false, optional: true, required: false
-  private _sourceDocumentsS3Uri?: string; 
+  private _sourceDocumentsS3Uri?: string;
   public get sourceDocumentsS3Uri() {
     return this.getStringAttribute('source_documents_s3_uri');
   }
@@ -270,7 +270,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // split - computed: false, optional: true, required: false
-  private _split?: string; 
+  private _split?: string;
   public get split() {
     return this.getStringAttribute('split');
   }
@@ -324,7 +324,7 @@ export interface ComprehendDocumentClassifierInputDataConfig {
   readonly testS3Uri?: string;
   /**
   * augmented_manifests block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#augmented_manifests ComprehendDocumentClassifier#augmented_manifests}
   */
   readonly augmentedManifests?: ComprehendDocumentClassifierInputDataConfigAugmentedManifests[] | cdktf.IResolvable;
@@ -401,7 +401,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // data_format - computed: false, optional: true, required: false
-  private _dataFormat?: string; 
+  private _dataFormat?: string;
   public get dataFormat() {
     return this.getStringAttribute('data_format');
   }
@@ -417,7 +417,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // label_delimiter - computed: true, optional: true, required: false
-  private _labelDelimiter?: string; 
+  private _labelDelimiter?: string;
   public get labelDelimiter() {
     return this.getStringAttribute('label_delimiter');
   }
@@ -433,7 +433,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // s3_uri - computed: false, optional: true, required: false
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -449,7 +449,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // test_s3_uri - computed: false, optional: true, required: false
-  private _testS3Uri?: string; 
+  private _testS3Uri?: string;
   public get testS3Uri() {
     return this.getStringAttribute('test_s3_uri');
   }
@@ -541,7 +541,7 @@ export class ComprehendDocumentClassifierOutputDataConfigOutputReference extends
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -562,7 +562,7 @@ export class ComprehendDocumentClassifierOutputDataConfigOutputReference extends
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -656,7 +656,7 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -672,7 +672,7 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -688,7 +688,7 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -764,7 +764,7 @@ export class ComprehendDocumentClassifierVpcConfigOutputReference extends cdktf.
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -777,7 +777,7 @@ export class ComprehendDocumentClassifierVpcConfigOutputReference extends cdktf.
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -854,7 +854,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // data_access_role_arn - computed: false, optional: false, required: true
-  private _dataAccessRoleArn?: string; 
+  private _dataAccessRoleArn?: string;
   public get dataAccessRoleArn() {
     return this.getStringAttribute('data_access_role_arn');
   }
@@ -867,7 +867,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -883,7 +883,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // language_code - computed: false, optional: false, required: true
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -896,7 +896,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -912,7 +912,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // model_kms_key_id - computed: false, optional: true, required: false
-  private _modelKmsKeyId?: string; 
+  private _modelKmsKeyId?: string;
   public get modelKmsKeyId() {
     return this.getStringAttribute('model_kms_key_id');
   }
@@ -928,7 +928,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -941,7 +941,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -957,7 +957,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -973,7 +973,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // version_name - computed: true, optional: true, required: false
-  private _versionName?: string; 
+  private _versionName?: string;
   public get versionName() {
     return this.getStringAttribute('version_name');
   }
@@ -989,7 +989,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // version_name_prefix - computed: true, optional: true, required: false
-  private _versionNamePrefix?: string; 
+  private _versionNamePrefix?: string;
   public get versionNamePrefix() {
     return this.getStringAttribute('version_name_prefix');
   }
@@ -1005,7 +1005,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // volume_kms_key_id - computed: false, optional: true, required: false
-  private _volumeKmsKeyId?: string; 
+  private _volumeKmsKeyId?: string;
   public get volumeKmsKeyId() {
     return this.getStringAttribute('volume_kms_key_id');
   }

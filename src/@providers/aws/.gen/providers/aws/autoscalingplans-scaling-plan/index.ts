@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface AutoscalingplansScalingPlanConfig extends cdktf.TerraformMetaAr
   readonly name: string;
   /**
   * application_source block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#application_source AutoscalingplansScalingPlan#application_source}
   */
   readonly applicationSource: AutoscalingplansScalingPlanApplicationSource;
   /**
   * scaling_instruction block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scaling_instruction AutoscalingplansScalingPlan#scaling_instruction}
   */
   readonly scalingInstruction: AutoscalingplansScalingPlanScalingInstruction[] | cdktf.IResolvable;
@@ -104,7 +104,7 @@ export class AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReferenc
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -117,7 +117,7 @@ export class AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReferenc
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -159,7 +159,7 @@ export interface AutoscalingplansScalingPlanApplicationSource {
   readonly cloudformationStackArn?: string;
   /**
   * tag_filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#tag_filter AutoscalingplansScalingPlan#tag_filter}
   */
   readonly tagFilter?: AutoscalingplansScalingPlanApplicationSourceTagFilter[] | cdktf.IResolvable;
@@ -215,7 +215,7 @@ export class AutoscalingplansScalingPlanApplicationSourceOutputReference extends
   }
 
   // cloudformation_stack_arn - computed: false, optional: true, required: false
-  private _cloudformationStackArn?: string; 
+  private _cloudformationStackArn?: string;
   public get cloudformationStackArn() {
     return this.getStringAttribute('cloudformation_stack_arn');
   }
@@ -340,7 +340,7 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
   }
 
   // dimensions - computed: false, optional: true, required: false
-  private _dimensions?: { [key: string]: string }; 
+  private _dimensions?: { [key: string]: string };
   public get dimensions() {
     return this.getStringMapAttribute('dimensions');
   }
@@ -356,7 +356,7 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -369,7 +369,7 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -382,7 +382,7 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
   }
 
   // statistic - computed: false, optional: false, required: true
-  private _statistic?: string; 
+  private _statistic?: string;
   public get statistic() {
     return this.getStringAttribute('statistic');
   }
@@ -395,7 +395,7 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -471,7 +471,7 @@ export class AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSp
   }
 
   // predefined_load_metric_type - computed: false, optional: false, required: true
-  private _predefinedLoadMetricType?: string; 
+  private _predefinedLoadMetricType?: string;
   public get predefinedLoadMetricType() {
     return this.getStringAttribute('predefined_load_metric_type');
   }
@@ -484,7 +484,7 @@ export class AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSp
   }
 
   // resource_label - computed: false, optional: true, required: false
-  private _resourceLabel?: string; 
+  private _resourceLabel?: string;
   public get resourceLabel() {
     return this.getStringAttribute('resource_label');
   }
@@ -593,7 +593,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // dimensions - computed: false, optional: true, required: false
-  private _dimensions?: { [key: string]: string }; 
+  private _dimensions?: { [key: string]: string };
   public get dimensions() {
     return this.getStringMapAttribute('dimensions');
   }
@@ -609,7 +609,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string; 
+  private _metricName?: string;
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -622,7 +622,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -635,7 +635,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // statistic - computed: false, optional: false, required: true
-  private _statistic?: string; 
+  private _statistic?: string;
   public get statistic() {
     return this.getStringAttribute('statistic');
   }
@@ -648,7 +648,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -724,7 +724,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // predefined_scaling_metric_type - computed: false, optional: false, required: true
-  private _predefinedScalingMetricType?: string; 
+  private _predefinedScalingMetricType?: string;
   public get predefinedScalingMetricType() {
     return this.getStringAttribute('predefined_scaling_metric_type');
   }
@@ -737,7 +737,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // resource_label - computed: false, optional: true, required: false
-  private _resourceLabel?: string; 
+  private _resourceLabel?: string;
   public get resourceLabel() {
     return this.getStringAttribute('resource_label');
   }
@@ -775,13 +775,13 @@ export interface AutoscalingplansScalingPlanScalingInstructionTargetTrackingConf
   readonly targetValue: number;
   /**
   * customized_scaling_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#customized_scaling_metric_specification AutoscalingplansScalingPlan#customized_scaling_metric_specification}
   */
   readonly customizedScalingMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification;
   /**
   * predefined_scaling_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_scaling_metric_specification AutoscalingplansScalingPlan#predefined_scaling_metric_specification}
   */
   readonly predefinedScalingMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification;
@@ -884,7 +884,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // disable_scale_in - computed: false, optional: true, required: false
-  private _disableScaleIn?: boolean | cdktf.IResolvable; 
+  private _disableScaleIn?: boolean | cdktf.IResolvable;
   public get disableScaleIn() {
     return this.getBooleanAttribute('disable_scale_in');
   }
@@ -900,7 +900,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // estimated_instance_warmup - computed: false, optional: true, required: false
-  private _estimatedInstanceWarmup?: number; 
+  private _estimatedInstanceWarmup?: number;
   public get estimatedInstanceWarmup() {
     return this.getNumberAttribute('estimated_instance_warmup');
   }
@@ -916,7 +916,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // scale_in_cooldown - computed: false, optional: true, required: false
-  private _scaleInCooldown?: number; 
+  private _scaleInCooldown?: number;
   public get scaleInCooldown() {
     return this.getNumberAttribute('scale_in_cooldown');
   }
@@ -932,7 +932,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // scale_out_cooldown - computed: false, optional: true, required: false
-  private _scaleOutCooldown?: number; 
+  private _scaleOutCooldown?: number;
   public get scaleOutCooldown() {
     return this.getNumberAttribute('scale_out_cooldown');
   }
@@ -948,7 +948,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // target_value - computed: false, optional: false, required: true
-  private _targetValue?: number; 
+  private _targetValue?: number;
   public get targetValue() {
     return this.getNumberAttribute('target_value');
   }
@@ -1059,19 +1059,19 @@ export interface AutoscalingplansScalingPlanScalingInstruction {
   readonly serviceNamespace: string;
   /**
   * customized_load_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#customized_load_metric_specification AutoscalingplansScalingPlan#customized_load_metric_specification}
   */
   readonly customizedLoadMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification;
   /**
   * predefined_load_metric_specification block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_load_metric_specification AutoscalingplansScalingPlan#predefined_load_metric_specification}
   */
   readonly predefinedLoadMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification;
   /**
   * target_tracking_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#target_tracking_configuration AutoscalingplansScalingPlan#target_tracking_configuration}
   */
   readonly targetTrackingConfiguration: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration[] | cdktf.IResolvable;
@@ -1223,7 +1223,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // disable_dynamic_scaling - computed: false, optional: true, required: false
-  private _disableDynamicScaling?: boolean | cdktf.IResolvable; 
+  private _disableDynamicScaling?: boolean | cdktf.IResolvable;
   public get disableDynamicScaling() {
     return this.getBooleanAttribute('disable_dynamic_scaling');
   }
@@ -1239,7 +1239,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // max_capacity - computed: false, optional: false, required: true
-  private _maxCapacity?: number; 
+  private _maxCapacity?: number;
   public get maxCapacity() {
     return this.getNumberAttribute('max_capacity');
   }
@@ -1252,7 +1252,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // min_capacity - computed: false, optional: false, required: true
-  private _minCapacity?: number; 
+  private _minCapacity?: number;
   public get minCapacity() {
     return this.getNumberAttribute('min_capacity');
   }
@@ -1265,7 +1265,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // predictive_scaling_max_capacity_behavior - computed: false, optional: true, required: false
-  private _predictiveScalingMaxCapacityBehavior?: string; 
+  private _predictiveScalingMaxCapacityBehavior?: string;
   public get predictiveScalingMaxCapacityBehavior() {
     return this.getStringAttribute('predictive_scaling_max_capacity_behavior');
   }
@@ -1281,7 +1281,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // predictive_scaling_max_capacity_buffer - computed: false, optional: true, required: false
-  private _predictiveScalingMaxCapacityBuffer?: number; 
+  private _predictiveScalingMaxCapacityBuffer?: number;
   public get predictiveScalingMaxCapacityBuffer() {
     return this.getNumberAttribute('predictive_scaling_max_capacity_buffer');
   }
@@ -1297,7 +1297,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // predictive_scaling_mode - computed: false, optional: true, required: false
-  private _predictiveScalingMode?: string; 
+  private _predictiveScalingMode?: string;
   public get predictiveScalingMode() {
     return this.getStringAttribute('predictive_scaling_mode');
   }
@@ -1313,7 +1313,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }
@@ -1326,7 +1326,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // scalable_dimension - computed: false, optional: false, required: true
-  private _scalableDimension?: string; 
+  private _scalableDimension?: string;
   public get scalableDimension() {
     return this.getStringAttribute('scalable_dimension');
   }
@@ -1339,7 +1339,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // scaling_policy_update_behavior - computed: false, optional: true, required: false
-  private _scalingPolicyUpdateBehavior?: string; 
+  private _scalingPolicyUpdateBehavior?: string;
   public get scalingPolicyUpdateBehavior() {
     return this.getStringAttribute('scaling_policy_update_behavior');
   }
@@ -1355,7 +1355,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // scheduled_action_buffer_time - computed: false, optional: true, required: false
-  private _scheduledActionBufferTime?: number; 
+  private _scheduledActionBufferTime?: number;
   public get scheduledActionBufferTime() {
     return this.getNumberAttribute('scheduled_action_buffer_time');
   }
@@ -1371,7 +1371,7 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // service_namespace - computed: false, optional: false, required: true
-  private _serviceNamespace?: string; 
+  private _serviceNamespace?: string;
   public get serviceNamespace() {
     return this.getStringAttribute('service_namespace');
   }
@@ -1497,7 +1497,7 @@ export class AutoscalingplansScalingPlan extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1513,7 +1513,7 @@ export class AutoscalingplansScalingPlan extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

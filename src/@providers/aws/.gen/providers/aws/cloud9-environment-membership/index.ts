@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloud9_environment_membership
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Cloud9EnvironmentMembership extends cdktf.TerraformResource {
   // ==========
 
   // environment_id - computed: false, optional: false, required: true
-  private _environmentId?: string; 
+  private _environmentId?: string;
   public get environmentId() {
     return this.getStringAttribute('environment_id');
   }
@@ -89,7 +89,7 @@ export class Cloud9EnvironmentMembership extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class Cloud9EnvironmentMembership extends cdktf.TerraformResource {
   }
 
   // permissions - computed: false, optional: false, required: true
-  private _permissions?: string; 
+  private _permissions?: string;
   public get permissions() {
     return this.getStringAttribute('permissions');
   }
@@ -118,7 +118,7 @@ export class Cloud9EnvironmentMembership extends cdktf.TerraformResource {
   }
 
   // user_arn - computed: false, optional: false, required: true
-  private _userArn?: string; 
+  private _userArn?: string;
   public get userArn() {
     return this.getStringAttribute('user_arn');
   }

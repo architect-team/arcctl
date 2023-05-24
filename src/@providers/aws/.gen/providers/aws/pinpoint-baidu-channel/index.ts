@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/pinpoint_baidu_channel
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class PinpointBaiduChannel extends cdktf.TerraformResource {
   // ==========
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string; 
+  private _apiKey?: string;
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -94,7 +94,7 @@ export class PinpointBaiduChannel extends cdktf.TerraformResource {
   }
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -107,7 +107,7 @@ export class PinpointBaiduChannel extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -123,7 +123,7 @@ export class PinpointBaiduChannel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class PinpointBaiduChannel extends cdktf.TerraformResource {
   }
 
   // secret_key - computed: false, optional: false, required: true
-  private _secretKey?: string; 
+  private _secretKey?: string;
   public get secretKey() {
     return this.getStringAttribute('secret_key');
   }

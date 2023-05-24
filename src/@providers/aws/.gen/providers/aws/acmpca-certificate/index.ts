@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/acmpca_certificate
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface AcmpcaCertificateConfig extends cdktf.TerraformMetaArguments {
   readonly templateArn?: string;
   /**
   * validity block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/acmpca_certificate#validity AcmpcaCertificate#validity}
   */
   readonly validity: AcmpcaCertificateValidity;
@@ -98,7 +98,7 @@ export class AcmpcaCertificateValidityOutputReference extends cdktf.ComplexObjec
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -111,7 +111,7 @@ export class AcmpcaCertificateValidityOutputReference extends cdktf.ComplexObjec
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -184,7 +184,7 @@ export class AcmpcaCertificate extends cdktf.TerraformResource {
   }
 
   // certificate_authority_arn - computed: false, optional: false, required: true
-  private _certificateAuthorityArn?: string; 
+  private _certificateAuthorityArn?: string;
   public get certificateAuthorityArn() {
     return this.getStringAttribute('certificate_authority_arn');
   }
@@ -202,7 +202,7 @@ export class AcmpcaCertificate extends cdktf.TerraformResource {
   }
 
   // certificate_signing_request - computed: false, optional: false, required: true
-  private _certificateSigningRequest?: string; 
+  private _certificateSigningRequest?: string;
   public get certificateSigningRequest() {
     return this.getStringAttribute('certificate_signing_request');
   }
@@ -215,7 +215,7 @@ export class AcmpcaCertificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -231,7 +231,7 @@ export class AcmpcaCertificate extends cdktf.TerraformResource {
   }
 
   // signing_algorithm - computed: false, optional: false, required: true
-  private _signingAlgorithm?: string; 
+  private _signingAlgorithm?: string;
   public get signingAlgorithm() {
     return this.getStringAttribute('signing_algorithm');
   }
@@ -244,7 +244,7 @@ export class AcmpcaCertificate extends cdktf.TerraformResource {
   }
 
   // template_arn - computed: false, optional: true, required: false
-  private _templateArn?: string; 
+  private _templateArn?: string;
   public get templateArn() {
     return this.getStringAttribute('template_arn');
   }

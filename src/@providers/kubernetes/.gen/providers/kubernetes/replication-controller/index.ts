@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { ReplicationControllerMetadata, 
-replicationControllerMetadataToTerraform, 
-ReplicationControllerMetadataOutputReference, 
-ReplicationControllerSpec, 
-replicationControllerSpecToTerraform, 
-ReplicationControllerSpecOutputReference, 
-ReplicationControllerTimeouts, 
-replicationControllerTimeoutsToTerraform, 
+import { ReplicationControllerMetadata,
+replicationControllerMetadataToTerraform,
+ReplicationControllerMetadataOutputReference,
+ReplicationControllerSpec,
+replicationControllerSpecToTerraform,
+ReplicationControllerSpecOutputReference,
+ReplicationControllerTimeouts,
+replicationControllerTimeoutsToTerraform,
 ReplicationControllerTimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface ReplicationControllerConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -22,19 +22,19 @@ export interface ReplicationControllerConfig extends cdktf.TerraformMetaArgument
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller#metadata ReplicationController#metadata}
   */
   readonly metadata: ReplicationControllerMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller#spec ReplicationController#spec}
   */
   readonly spec: ReplicationControllerSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller#timeouts ReplicationController#timeouts}
   */
   readonly timeouts?: ReplicationControllerTimeouts;
@@ -88,7 +88,7 @@ export class ReplicationController extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kendra_query_suggestions_block_list
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface KendraQuerySuggestionsBlockListConfig extends cdktf.TerraformMe
   readonly tagsAll?: { [key: string]: string };
   /**
   * source_s3_path block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_query_suggestions_block_list#source_s3_path KendraQuerySuggestionsBlockList#source_s3_path}
   */
   readonly sourceS3Path: KendraQuerySuggestionsBlockListSourceS3Path;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_query_suggestions_block_list#timeouts KendraQuerySuggestionsBlockList#timeouts}
   */
   readonly timeouts?: KendraQuerySuggestionsBlockListTimeouts;
@@ -112,7 +112,7 @@ export class KendraQuerySuggestionsBlockListSourceS3PathOutputReference extends 
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -125,7 +125,7 @@ export class KendraQuerySuggestionsBlockListSourceS3PathOutputReference extends 
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -219,7 +219,7 @@ export class KendraQuerySuggestionsBlockListTimeoutsOutputReference extends cdkt
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -235,7 +235,7 @@ export class KendraQuerySuggestionsBlockListTimeoutsOutputReference extends cdkt
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -251,7 +251,7 @@ export class KendraQuerySuggestionsBlockListTimeoutsOutputReference extends cdkt
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -325,7 +325,7 @@ export class KendraQuerySuggestionsBlockList extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -341,7 +341,7 @@ export class KendraQuerySuggestionsBlockList extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -357,7 +357,7 @@ export class KendraQuerySuggestionsBlockList extends cdktf.TerraformResource {
   }
 
   // index_id - computed: false, optional: false, required: true
-  private _indexId?: string; 
+  private _indexId?: string;
   public get indexId() {
     return this.getStringAttribute('index_id');
   }
@@ -370,7 +370,7 @@ export class KendraQuerySuggestionsBlockList extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -388,7 +388,7 @@ export class KendraQuerySuggestionsBlockList extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -406,7 +406,7 @@ export class KendraQuerySuggestionsBlockList extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -422,7 +422,7 @@ export class KendraQuerySuggestionsBlockList extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

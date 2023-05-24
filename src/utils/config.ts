@@ -9,10 +9,6 @@ export default class CloudCtlConfig {
   private static noCleanup: boolean;
   private static configDirectory?: string;
 
-  public static setOclifConfig(config: Config): void {
-    this.oclifConfig = config;
-  }
-
   public static setConfigDirectory(directory: string): void {
     this.configDirectory = directory;
   }
@@ -28,7 +24,7 @@ export default class CloudCtlConfig {
     if (!this.tfDirectory) {
       this.tfDirectory = path.join(this.getConfigDirectory(), '/tf/', `/${v4()}/`);
     }
-    return this.tfDirectory;
+    return this.tfDirectory!;
   }
 
   public static getPluginDirectory(): string {

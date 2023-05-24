@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/vpc_dhcp_options
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,13 +24,13 @@ export interface DataAwsVpcDhcpOptionsConfig extends cdktf.TerraformMetaArgument
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_dhcp_options#filter DataAwsVpcDhcpOptions#filter}
   */
   readonly filter?: DataAwsVpcDhcpOptionsFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_dhcp_options#timeouts DataAwsVpcDhcpOptions#timeouts}
   */
   readonly timeouts?: DataAwsVpcDhcpOptionsTimeouts;
@@ -108,7 +108,7 @@ export class DataAwsVpcDhcpOptionsFilterOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +121,7 @@ export class DataAwsVpcDhcpOptionsFilterOutputReference extends cdktf.ComplexObj
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -213,7 +213,7 @@ export class DataAwsVpcDhcpOptionsTimeoutsOutputReference extends cdktf.ComplexO
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -283,7 +283,7 @@ export class DataAwsVpcDhcpOptions extends cdktf.TerraformDataSource {
   }
 
   // dhcp_options_id - computed: true, optional: true, required: false
-  private _dhcpOptionsId?: string; 
+  private _dhcpOptionsId?: string;
   public get dhcpOptionsId() {
     return this.getStringAttribute('dhcp_options_id');
   }
@@ -309,7 +309,7 @@ export class DataAwsVpcDhcpOptions extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -345,7 +345,7 @@ export class DataAwsVpcDhcpOptions extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

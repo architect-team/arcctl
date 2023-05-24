@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dynamodb_contributor_insights
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface DynamodbContributorInsightsConfig extends cdktf.TerraformMetaAr
   readonly tableName: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_contributor_insights#timeouts DynamodbContributorInsights#timeouts}
   */
   readonly timeouts?: DynamodbContributorInsightsTimeouts;
@@ -100,7 +100,7 @@ export class DynamodbContributorInsightsTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class DynamodbContributorInsightsTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class DynamodbContributorInsights extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -196,7 +196,7 @@ export class DynamodbContributorInsights extends cdktf.TerraformResource {
   }
 
   // index_name - computed: false, optional: true, required: false
-  private _indexName?: string; 
+  private _indexName?: string;
   public get indexName() {
     return this.getStringAttribute('index_name');
   }
@@ -212,7 +212,7 @@ export class DynamodbContributorInsights extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }

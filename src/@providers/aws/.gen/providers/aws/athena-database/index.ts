@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/athena_database
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface AthenaDatabaseConfig extends cdktf.TerraformMetaArguments {
   readonly properties?: { [key: string]: string };
   /**
   * acl_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#acl_configuration AthenaDatabase#acl_configuration}
   */
   readonly aclConfiguration?: AthenaDatabaseAclConfiguration;
   /**
   * encryption_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#encryption_configuration AthenaDatabase#encryption_configuration}
   */
   readonly encryptionConfiguration?: AthenaDatabaseEncryptionConfiguration;
@@ -101,7 +101,7 @@ export class AthenaDatabaseAclConfigurationOutputReference extends cdktf.Complex
   }
 
   // s3_acl_option - computed: false, optional: false, required: true
-  private _s3AclOption?: string; 
+  private _s3AclOption?: string;
   public get s3AclOption() {
     return this.getStringAttribute('s3_acl_option');
   }
@@ -174,7 +174,7 @@ export class AthenaDatabaseEncryptionConfigurationOutputReference extends cdktf.
   }
 
   // encryption_option - computed: false, optional: false, required: true
-  private _encryptionOption?: string; 
+  private _encryptionOption?: string;
   public get encryptionOption() {
     return this.getStringAttribute('encryption_option');
   }
@@ -187,7 +187,7 @@ export class AthenaDatabaseEncryptionConfigurationOutputReference extends cdktf.
   }
 
   // kms_key - computed: false, optional: true, required: false
-  private _kmsKey?: string; 
+  private _kmsKey?: string;
   public get kmsKey() {
     return this.getStringAttribute('kms_key');
   }
@@ -256,7 +256,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -272,7 +272,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -288,7 +288,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string; 
+  private _expectedBucketOwner?: string;
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -304,7 +304,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -320,7 +320,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -336,7 +336,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -349,7 +349,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // properties - computed: false, optional: true, required: false
-  private _properties?: { [key: string]: string }; 
+  private _properties?: { [key: string]: string };
   public get properties() {
     return this.getStringMapAttribute('properties');
   }

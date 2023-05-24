@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/directory_service_region
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,13 +36,13 @@ export interface DirectoryServiceRegionConfig extends cdktf.TerraformMetaArgumen
   readonly tagsAll?: { [key: string]: string };
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_region#timeouts DirectoryServiceRegion#timeouts}
   */
   readonly timeouts?: DirectoryServiceRegionTimeouts;
   /**
   * vpc_settings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_region#vpc_settings DirectoryServiceRegion#vpc_settings}
   */
   readonly vpcSettings: DirectoryServiceRegionVpcSettings;
@@ -129,7 +129,7 @@ export class DirectoryServiceRegionTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -145,7 +145,7 @@ export class DirectoryServiceRegionTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -161,7 +161,7 @@ export class DirectoryServiceRegionTimeoutsOutputReference extends cdktf.Complex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -237,7 +237,7 @@ export class DirectoryServiceRegionVpcSettingsOutputReference extends cdktf.Comp
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -250,7 +250,7 @@ export class DirectoryServiceRegionVpcSettingsOutputReference extends cdktf.Comp
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -315,7 +315,7 @@ export class DirectoryServiceRegion extends cdktf.TerraformResource {
   // ==========
 
   // desired_number_of_domain_controllers - computed: true, optional: true, required: false
-  private _desiredNumberOfDomainControllers?: number; 
+  private _desiredNumberOfDomainControllers?: number;
   public get desiredNumberOfDomainControllers() {
     return this.getNumberAttribute('desired_number_of_domain_controllers');
   }
@@ -331,7 +331,7 @@ export class DirectoryServiceRegion extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -344,7 +344,7 @@ export class DirectoryServiceRegion extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -360,7 +360,7 @@ export class DirectoryServiceRegion extends cdktf.TerraformResource {
   }
 
   // region_name - computed: false, optional: false, required: true
-  private _regionName?: string; 
+  private _regionName?: string;
   public get regionName() {
     return this.getStringAttribute('region_name');
   }
@@ -373,7 +373,7 @@ export class DirectoryServiceRegion extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -389,7 +389,7 @@ export class DirectoryServiceRegion extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

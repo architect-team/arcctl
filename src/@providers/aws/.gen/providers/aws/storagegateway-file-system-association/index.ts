@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/storagegateway_file_system_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -44,7 +44,7 @@ export interface StoragegatewayFileSystemAssociationConfig extends cdktf.Terrafo
   readonly username: string;
   /**
   * cache_attributes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_file_system_association#cache_attributes StoragegatewayFileSystemAssociation#cache_attributes}
   */
   readonly cacheAttributes?: StoragegatewayFileSystemAssociationCacheAttributes;
@@ -99,7 +99,7 @@ export class StoragegatewayFileSystemAssociationCacheAttributesOutputReference e
   }
 
   // cache_stale_timeout_in_seconds - computed: false, optional: true, required: false
-  private _cacheStaleTimeoutInSeconds?: number; 
+  private _cacheStaleTimeoutInSeconds?: number;
   public get cacheStaleTimeoutInSeconds() {
     return this.getNumberAttribute('cache_stale_timeout_in_seconds');
   }
@@ -173,7 +173,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // audit_destination_arn - computed: false, optional: true, required: false
-  private _auditDestinationArn?: string; 
+  private _auditDestinationArn?: string;
   public get auditDestinationArn() {
     return this.getStringAttribute('audit_destination_arn');
   }
@@ -189,7 +189,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // gateway_arn - computed: false, optional: false, required: true
-  private _gatewayArn?: string; 
+  private _gatewayArn?: string;
   public get gatewayArn() {
     return this.getStringAttribute('gateway_arn');
   }
@@ -202,7 +202,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -218,7 +218,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // location_arn - computed: false, optional: false, required: true
-  private _locationArn?: string; 
+  private _locationArn?: string;
   public get locationArn() {
     return this.getStringAttribute('location_arn');
   }
@@ -231,7 +231,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -244,7 +244,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -260,7 +260,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -276,7 +276,7 @@ export class StoragegatewayFileSystemAssociation extends cdktf.TerraformResource
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }

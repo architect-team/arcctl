@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { Wafv2RuleGroupCustomResponseBody, 
-wafv2RuleGroupCustomResponseBodyToTerraform, 
-Wafv2RuleGroupCustomResponseBodyList, 
-Wafv2RuleGroupRule, 
-wafv2RuleGroupRuleToTerraform, 
-Wafv2RuleGroupRuleList, 
-Wafv2RuleGroupVisibilityConfig, 
-wafv2RuleGroupVisibilityConfigToTerraform, 
+import { Wafv2RuleGroupCustomResponseBody,
+wafv2RuleGroupCustomResponseBodyToTerraform,
+Wafv2RuleGroupCustomResponseBodyList,
+Wafv2RuleGroupRule,
+wafv2RuleGroupRuleToTerraform,
+Wafv2RuleGroupRuleList,
+Wafv2RuleGroupVisibilityConfig,
+wafv2RuleGroupVisibilityConfigToTerraform,
 Wafv2RuleGroupVisibilityConfigOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface Wafv2RuleGroupConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -46,19 +46,19 @@ export interface Wafv2RuleGroupConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * custom_response_body block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#custom_response_body Wafv2RuleGroup#custom_response_body}
   */
   readonly customResponseBody?: Wafv2RuleGroupCustomResponseBody[] | cdktf.IResolvable;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#rule Wafv2RuleGroup#rule}
   */
   readonly rule?: Wafv2RuleGroupRule[] | cdktf.IResolvable;
   /**
   * visibility_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#visibility_config Wafv2RuleGroup#visibility_config}
   */
   readonly visibilityConfig: Wafv2RuleGroupVisibilityConfig;
@@ -123,7 +123,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // capacity - computed: false, optional: false, required: true
-  private _capacity?: number; 
+  private _capacity?: number;
   public get capacity() {
     return this.getNumberAttribute('capacity');
   }
@@ -136,7 +136,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -152,7 +152,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -173,7 +173,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -186,7 +186,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // scope - computed: false, optional: false, required: true
-  private _scope?: string; 
+  private _scope?: string;
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -199,7 +199,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -215,7 +215,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

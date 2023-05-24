@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/role_v1
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface RoleV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#metadata RoleV1#metadata}
   */
   readonly metadata: RoleV1Metadata;
   /**
   * rule block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#rule RoleV1#rule}
   */
   readonly rule: RoleV1Rule[] | cdktf.IResolvable;
@@ -30,31 +30,31 @@ export interface RoleV1Config extends cdktf.TerraformMetaArguments {
 export interface RoleV1Metadata {
   /**
   * An unstructured key value map stored with the role that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#annotations RoleV1#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#generate_name RoleV1#generate_name}
   */
   readonly generateName?: string;
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the role. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#labels RoleV1#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the role, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#name RoleV1#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the role must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#namespace RoleV1#namespace}
   */
   readonly namespace?: string;
@@ -131,7 +131,7 @@ export class RoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -147,7 +147,7 @@ export class RoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -168,7 +168,7 @@ export class RoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -184,7 +184,7 @@ export class RoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -200,7 +200,7 @@ export class RoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -228,25 +228,25 @@ export class RoleV1MetadataOutputReference extends cdktf.ComplexObject {
 export interface RoleV1Rule {
   /**
   * Name of the APIGroup that contains the resources
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#api_groups RoleV1#api_groups}
   */
   readonly apiGroups: string[];
   /**
   * White list of names that the rule applies to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#resource_names RoleV1#resource_names}
   */
   readonly resourceNames?: string[];
   /**
   * List of resources that the rule applies to
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#resources RoleV1#resources}
   */
   readonly resources: string[];
   /**
   * List of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/role_v1#verbs RoleV1#verbs}
   */
   readonly verbs: string[];
@@ -328,7 +328,7 @@ export class RoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // api_groups - computed: false, optional: false, required: true
-  private _apiGroups?: string[]; 
+  private _apiGroups?: string[];
   public get apiGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('api_groups'));
   }
@@ -341,7 +341,7 @@ export class RoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // resource_names - computed: false, optional: true, required: false
-  private _resourceNames?: string[]; 
+  private _resourceNames?: string[];
   public get resourceNames() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_names'));
   }
@@ -357,7 +357,7 @@ export class RoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // resources - computed: false, optional: false, required: true
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return cdktf.Fn.tolist(this.getListAttribute('resources'));
   }
@@ -370,7 +370,7 @@ export class RoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // verbs - computed: false, optional: false, required: true
-  private _verbs?: string[]; 
+  private _verbs?: string[];
   public get verbs() {
     return cdktf.Fn.tolist(this.getListAttribute('verbs'));
   }
@@ -450,7 +450,7 @@ export class RoleV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

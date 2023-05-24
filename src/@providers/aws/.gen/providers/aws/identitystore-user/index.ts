@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/identitystore_user
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,25 +56,25 @@ export interface IdentitystoreUserConfig extends cdktf.TerraformMetaArguments {
   readonly userType?: string;
   /**
   * addresses block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/identitystore_user#addresses IdentitystoreUser#addresses}
   */
   readonly addresses?: IdentitystoreUserAddresses;
   /**
   * emails block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/identitystore_user#emails IdentitystoreUser#emails}
   */
   readonly emails?: IdentitystoreUserEmails;
   /**
   * name block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/identitystore_user#name IdentitystoreUser#name}
   */
   readonly name: IdentitystoreUserName;
   /**
   * phone_numbers block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/identitystore_user#phone_numbers IdentitystoreUser#phone_numbers}
   */
   readonly phoneNumbers?: IdentitystoreUserPhoneNumbers;
@@ -275,7 +275,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // country - computed: false, optional: true, required: false
-  private _country?: string; 
+  private _country?: string;
   public get country() {
     return this.getStringAttribute('country');
   }
@@ -291,7 +291,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // formatted - computed: false, optional: true, required: false
-  private _formatted?: string; 
+  private _formatted?: string;
   public get formatted() {
     return this.getStringAttribute('formatted');
   }
@@ -307,7 +307,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // locality - computed: false, optional: true, required: false
-  private _locality?: string; 
+  private _locality?: string;
   public get locality() {
     return this.getStringAttribute('locality');
   }
@@ -323,7 +323,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // postal_code - computed: false, optional: true, required: false
-  private _postalCode?: string; 
+  private _postalCode?: string;
   public get postalCode() {
     return this.getStringAttribute('postal_code');
   }
@@ -339,7 +339,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // primary - computed: false, optional: true, required: false
-  private _primary?: boolean | cdktf.IResolvable; 
+  private _primary?: boolean | cdktf.IResolvable;
   public get primary() {
     return this.getBooleanAttribute('primary');
   }
@@ -355,7 +355,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -371,7 +371,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // street_address - computed: false, optional: true, required: false
-  private _streetAddress?: string; 
+  private _streetAddress?: string;
   public get streetAddress() {
     return this.getStringAttribute('street_address');
   }
@@ -387,7 +387,7 @@ export class IdentitystoreUserAddressesOutputReference extends cdktf.ComplexObje
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -474,7 +474,7 @@ export class IdentitystoreUserEmailsOutputReference extends cdktf.ComplexObject 
   }
 
   // primary - computed: false, optional: true, required: false
-  private _primary?: boolean | cdktf.IResolvable; 
+  private _primary?: boolean | cdktf.IResolvable;
   public get primary() {
     return this.getBooleanAttribute('primary');
   }
@@ -490,7 +490,7 @@ export class IdentitystoreUserEmailsOutputReference extends cdktf.ComplexObject 
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -506,7 +506,7 @@ export class IdentitystoreUserEmailsOutputReference extends cdktf.ComplexObject 
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -626,7 +626,7 @@ export class IdentitystoreUserNameOutputReference extends cdktf.ComplexObject {
   }
 
   // family_name - computed: false, optional: false, required: true
-  private _familyName?: string; 
+  private _familyName?: string;
   public get familyName() {
     return this.getStringAttribute('family_name');
   }
@@ -639,7 +639,7 @@ export class IdentitystoreUserNameOutputReference extends cdktf.ComplexObject {
   }
 
   // formatted - computed: false, optional: true, required: false
-  private _formatted?: string; 
+  private _formatted?: string;
   public get formatted() {
     return this.getStringAttribute('formatted');
   }
@@ -655,7 +655,7 @@ export class IdentitystoreUserNameOutputReference extends cdktf.ComplexObject {
   }
 
   // given_name - computed: false, optional: false, required: true
-  private _givenName?: string; 
+  private _givenName?: string;
   public get givenName() {
     return this.getStringAttribute('given_name');
   }
@@ -668,7 +668,7 @@ export class IdentitystoreUserNameOutputReference extends cdktf.ComplexObject {
   }
 
   // honorific_prefix - computed: false, optional: true, required: false
-  private _honorificPrefix?: string; 
+  private _honorificPrefix?: string;
   public get honorificPrefix() {
     return this.getStringAttribute('honorific_prefix');
   }
@@ -684,7 +684,7 @@ export class IdentitystoreUserNameOutputReference extends cdktf.ComplexObject {
   }
 
   // honorific_suffix - computed: false, optional: true, required: false
-  private _honorificSuffix?: string; 
+  private _honorificSuffix?: string;
   public get honorificSuffix() {
     return this.getStringAttribute('honorific_suffix');
   }
@@ -700,7 +700,7 @@ export class IdentitystoreUserNameOutputReference extends cdktf.ComplexObject {
   }
 
   // middle_name - computed: false, optional: true, required: false
-  private _middleName?: string; 
+  private _middleName?: string;
   public get middleName() {
     return this.getStringAttribute('middle_name');
   }
@@ -787,7 +787,7 @@ export class IdentitystoreUserPhoneNumbersOutputReference extends cdktf.ComplexO
   }
 
   // primary - computed: false, optional: true, required: false
-  private _primary?: boolean | cdktf.IResolvable; 
+  private _primary?: boolean | cdktf.IResolvable;
   public get primary() {
     return this.getBooleanAttribute('primary');
   }
@@ -803,7 +803,7 @@ export class IdentitystoreUserPhoneNumbersOutputReference extends cdktf.ComplexO
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -819,7 +819,7 @@ export class IdentitystoreUserPhoneNumbersOutputReference extends cdktf.ComplexO
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -894,7 +894,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   // ==========
 
   // display_name - computed: false, optional: false, required: true
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -913,7 +913,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -929,7 +929,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // identity_store_id - computed: false, optional: false, required: true
-  private _identityStoreId?: string; 
+  private _identityStoreId?: string;
   public get identityStoreId() {
     return this.getStringAttribute('identity_store_id');
   }
@@ -942,7 +942,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // locale - computed: false, optional: true, required: false
-  private _locale?: string; 
+  private _locale?: string;
   public get locale() {
     return this.getStringAttribute('locale');
   }
@@ -958,7 +958,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // nickname - computed: false, optional: true, required: false
-  private _nickname?: string; 
+  private _nickname?: string;
   public get nickname() {
     return this.getStringAttribute('nickname');
   }
@@ -974,7 +974,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // preferred_language - computed: false, optional: true, required: false
-  private _preferredLanguage?: string; 
+  private _preferredLanguage?: string;
   public get preferredLanguage() {
     return this.getStringAttribute('preferred_language');
   }
@@ -990,7 +990,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // profile_url - computed: false, optional: true, required: false
-  private _profileUrl?: string; 
+  private _profileUrl?: string;
   public get profileUrl() {
     return this.getStringAttribute('profile_url');
   }
@@ -1006,7 +1006,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // timezone - computed: false, optional: true, required: false
-  private _timezone?: string; 
+  private _timezone?: string;
   public get timezone() {
     return this.getStringAttribute('timezone');
   }
@@ -1022,7 +1022,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // title - computed: false, optional: true, required: false
-  private _title?: string; 
+  private _title?: string;
   public get title() {
     return this.getStringAttribute('title');
   }
@@ -1043,7 +1043,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }
@@ -1056,7 +1056,7 @@ export class IdentitystoreUser extends cdktf.TerraformResource {
   }
 
   // user_type - computed: false, optional: true, required: false
-  private _userType?: string; 
+  private _userType?: string;
   public get userType() {
     return this.getStringAttribute('user_type');
   }

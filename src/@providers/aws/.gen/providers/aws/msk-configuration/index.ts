@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/msk_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class MskConfiguration extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -102,7 +102,7 @@ export class MskConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class MskConfiguration extends cdktf.TerraformResource {
   }
 
   // kafka_versions - computed: false, optional: true, required: false
-  private _kafkaVersions?: string[]; 
+  private _kafkaVersions?: string[];
   public get kafkaVersions() {
     return cdktf.Fn.tolist(this.getListAttribute('kafka_versions'));
   }
@@ -139,7 +139,7 @@ export class MskConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -152,7 +152,7 @@ export class MskConfiguration extends cdktf.TerraformResource {
   }
 
   // server_properties - computed: false, optional: false, required: true
-  private _serverProperties?: string; 
+  private _serverProperties?: string;
   public get serverProperties() {
     return this.getStringAttribute('server_properties');
   }

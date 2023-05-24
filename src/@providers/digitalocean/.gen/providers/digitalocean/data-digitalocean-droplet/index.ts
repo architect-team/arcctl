@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/droplet
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataDigitaloceanDropletConfig extends cdktf.TerraformMetaArguments {
   /**
   * id of the Droplet
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet#id DataDigitaloceanDroplet#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
@@ -18,13 +18,13 @@ export interface DataDigitaloceanDropletConfig extends cdktf.TerraformMetaArgume
   readonly id?: number;
   /**
   * name of the Droplet
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet#name DataDigitaloceanDroplet#name}
   */
   readonly name?: string;
   /**
   * unique tag of the Droplet
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet#tag DataDigitaloceanDroplet#tag}
   */
   readonly tag?: string;
@@ -92,7 +92,7 @@ export class DataDigitaloceanDroplet extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: number; 
+  private _id?: number;
   public get id() {
     return this.getNumberAttribute('id');
   }
@@ -153,7 +153,7 @@ export class DataDigitaloceanDroplet extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -199,7 +199,7 @@ export class DataDigitaloceanDroplet extends cdktf.TerraformDataSource {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string; 
+  private _tag?: string;
   public get tag() {
     return this.getStringAttribute('tag');
   }

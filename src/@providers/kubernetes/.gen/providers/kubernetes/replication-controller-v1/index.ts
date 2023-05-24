@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { ReplicationControllerV1Metadata, 
-replicationControllerV1MetadataToTerraform, 
-ReplicationControllerV1MetadataOutputReference, 
-ReplicationControllerV1Spec, 
-replicationControllerV1SpecToTerraform, 
-ReplicationControllerV1SpecOutputReference, 
-ReplicationControllerV1Timeouts, 
-replicationControllerV1TimeoutsToTerraform, 
+import { ReplicationControllerV1Metadata,
+replicationControllerV1MetadataToTerraform,
+ReplicationControllerV1MetadataOutputReference,
+ReplicationControllerV1Spec,
+replicationControllerV1SpecToTerraform,
+ReplicationControllerV1SpecOutputReference,
+ReplicationControllerV1Timeouts,
+replicationControllerV1TimeoutsToTerraform,
 ReplicationControllerV1TimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface ReplicationControllerV1Config extends cdktf.TerraformMetaArguments {
   /**
@@ -22,19 +22,19 @@ export interface ReplicationControllerV1Config extends cdktf.TerraformMetaArgume
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#metadata ReplicationControllerV1#metadata}
   */
   readonly metadata: ReplicationControllerV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#spec ReplicationControllerV1#spec}
   */
   readonly spec: ReplicationControllerV1Spec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#timeouts ReplicationControllerV1#timeouts}
   */
   readonly timeouts?: ReplicationControllerV1Timeouts;
@@ -88,7 +88,7 @@ export class ReplicationControllerV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

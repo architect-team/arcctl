@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/elastic_beanstalk_solution_stack
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsElasticBeanstalkSolutionStack extends cdktf.TerraformDataSou
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class DataAwsElasticBeanstalkSolutionStack extends cdktf.TerraformDataSou
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable; 
+  private _mostRecent?: boolean | cdktf.IResolvable;
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }
@@ -108,7 +108,7 @@ export class DataAwsElasticBeanstalkSolutionStack extends cdktf.TerraformDataSou
   }
 
   // name_regex - computed: false, optional: false, required: true
-  private _nameRegex?: string; 
+  private _nameRegex?: string;
   public get nameRegex() {
     return this.getStringAttribute('name_regex');
   }

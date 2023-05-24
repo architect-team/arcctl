@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy_instance
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class Route53TrafficPolicyInstance extends cdktf.TerraformResource {
   // ==========
 
   // hosted_zone_id - computed: false, optional: false, required: true
-  private _hostedZoneId?: string; 
+  private _hostedZoneId?: string;
   public get hostedZoneId() {
     return this.getStringAttribute('hosted_zone_id');
   }
@@ -99,7 +99,7 @@ export class Route53TrafficPolicyInstance extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +115,7 @@ export class Route53TrafficPolicyInstance extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -128,7 +128,7 @@ export class Route53TrafficPolicyInstance extends cdktf.TerraformResource {
   }
 
   // traffic_policy_id - computed: false, optional: false, required: true
-  private _trafficPolicyId?: string; 
+  private _trafficPolicyId?: string;
   public get trafficPolicyId() {
     return this.getStringAttribute('traffic_policy_id');
   }
@@ -141,7 +141,7 @@ export class Route53TrafficPolicyInstance extends cdktf.TerraformResource {
   }
 
   // traffic_policy_version - computed: false, optional: false, required: true
-  private _trafficPolicyVersion?: number; 
+  private _trafficPolicyVersion?: number;
   public get trafficPolicyVersion() {
     return this.getNumberAttribute('traffic_policy_version');
   }
@@ -154,7 +154,7 @@ export class Route53TrafficPolicyInstance extends cdktf.TerraformResource {
   }
 
   // ttl - computed: false, optional: false, required: true
-  private _ttl?: number; 
+  private _ttl?: number;
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }

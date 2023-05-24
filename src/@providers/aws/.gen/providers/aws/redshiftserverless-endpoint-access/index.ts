@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -245,7 +245,7 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
   }
 
   // endpoint_name - computed: false, optional: false, required: true
-  private _endpointName?: string; 
+  private _endpointName?: string;
   public get endpointName() {
     return this.getStringAttribute('endpoint_name');
   }
@@ -258,7 +258,7 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -279,7 +279,7 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -298,7 +298,7 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[]; 
+  private _vpcSecurityGroupIds?: string[];
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }
@@ -314,7 +314,7 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
   }
 
   // workgroup_name - computed: false, optional: false, required: true
-  private _workgroupName?: string; 
+  private _workgroupName?: string;
   public get workgroupName() {
     return this.getStringAttribute('workgroup_name');
   }

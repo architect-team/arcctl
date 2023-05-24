@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/volume_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface VolumeAttachmentConfig extends cdktf.TerraformMetaArguments {
   readonly volumeId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/volume_attachment#timeouts VolumeAttachment#timeouts}
   */
   readonly timeouts?: VolumeAttachmentTimeouts;
@@ -116,7 +116,7 @@ export class VolumeAttachmentTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -132,7 +132,7 @@ export class VolumeAttachmentTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -200,7 +200,7 @@ export class VolumeAttachment extends cdktf.TerraformResource {
   // ==========
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string; 
+  private _deviceName?: string;
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -213,7 +213,7 @@ export class VolumeAttachment extends cdktf.TerraformResource {
   }
 
   // force_detach - computed: false, optional: true, required: false
-  private _forceDetach?: boolean | cdktf.IResolvable; 
+  private _forceDetach?: boolean | cdktf.IResolvable;
   public get forceDetach() {
     return this.getBooleanAttribute('force_detach');
   }
@@ -229,7 +229,7 @@ export class VolumeAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -245,7 +245,7 @@ export class VolumeAttachment extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -258,7 +258,7 @@ export class VolumeAttachment extends cdktf.TerraformResource {
   }
 
   // skip_destroy - computed: false, optional: true, required: false
-  private _skipDestroy?: boolean | cdktf.IResolvable; 
+  private _skipDestroy?: boolean | cdktf.IResolvable;
   public get skipDestroy() {
     return this.getBooleanAttribute('skip_destroy');
   }
@@ -274,7 +274,7 @@ export class VolumeAttachment extends cdktf.TerraformResource {
   }
 
   // stop_instance_before_detaching - computed: false, optional: true, required: false
-  private _stopInstanceBeforeDetaching?: boolean | cdktf.IResolvable; 
+  private _stopInstanceBeforeDetaching?: boolean | cdktf.IResolvable;
   public get stopInstanceBeforeDetaching() {
     return this.getBooleanAttribute('stop_instance_before_detaching');
   }
@@ -290,7 +290,7 @@ export class VolumeAttachment extends cdktf.TerraformResource {
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }

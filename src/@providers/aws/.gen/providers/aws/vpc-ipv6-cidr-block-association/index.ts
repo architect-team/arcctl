@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_ipv6_cidr_block_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface VpcIpv6CidrBlockAssociationConfig extends cdktf.TerraformMetaAr
   readonly vpcId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipv6_cidr_block_association#timeouts VpcIpv6CidrBlockAssociation#timeouts}
   */
   readonly timeouts?: VpcIpv6CidrBlockAssociationTimeouts;
@@ -108,7 +108,7 @@ export class VpcIpv6CidrBlockAssociationTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +124,7 @@ export class VpcIpv6CidrBlockAssociationTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -190,7 +190,7 @@ export class VpcIpv6CidrBlockAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -206,7 +206,7 @@ export class VpcIpv6CidrBlockAssociation extends cdktf.TerraformResource {
   }
 
   // ipv6_cidr_block - computed: true, optional: true, required: false
-  private _ipv6CidrBlock?: string; 
+  private _ipv6CidrBlock?: string;
   public get ipv6CidrBlock() {
     return this.getStringAttribute('ipv6_cidr_block');
   }
@@ -222,7 +222,7 @@ export class VpcIpv6CidrBlockAssociation extends cdktf.TerraformResource {
   }
 
   // ipv6_ipam_pool_id - computed: false, optional: false, required: true
-  private _ipv6IpamPoolId?: string; 
+  private _ipv6IpamPoolId?: string;
   public get ipv6IpamPoolId() {
     return this.getStringAttribute('ipv6_ipam_pool_id');
   }
@@ -235,7 +235,7 @@ export class VpcIpv6CidrBlockAssociation extends cdktf.TerraformResource {
   }
 
   // ipv6_netmask_length - computed: false, optional: true, required: false
-  private _ipv6NetmaskLength?: number; 
+  private _ipv6NetmaskLength?: number;
   public get ipv6NetmaskLength() {
     return this.getNumberAttribute('ipv6_netmask_length');
   }
@@ -251,7 +251,7 @@ export class VpcIpv6CidrBlockAssociation extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

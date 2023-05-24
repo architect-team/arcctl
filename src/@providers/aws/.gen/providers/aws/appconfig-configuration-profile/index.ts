@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_configuration_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,7 +48,7 @@ export interface AppconfigConfigurationProfileConfig extends cdktf.TerraformMeta
   readonly type?: string;
   /**
   * validator block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_configuration_profile#validator AppconfigConfigurationProfile#validator}
   */
   readonly validator?: AppconfigConfigurationProfileValidator[] | cdktf.IResolvable;
@@ -126,7 +126,7 @@ export class AppconfigConfigurationProfileValidatorOutputReference extends cdktf
   }
 
   // content - computed: false, optional: true, required: false
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -142,7 +142,7 @@ export class AppconfigConfigurationProfileValidatorOutputReference extends cdktf
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -229,7 +229,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string; 
+  private _applicationId?: string;
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -252,7 +252,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -268,7 +268,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -284,7 +284,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // location_uri - computed: false, optional: false, required: true
-  private _locationUri?: string; 
+  private _locationUri?: string;
   public get locationUri() {
     return this.getStringAttribute('location_uri');
   }
@@ -297,7 +297,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -310,7 +310,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // retrieval_role_arn - computed: false, optional: true, required: false
-  private _retrievalRoleArn?: string; 
+  private _retrievalRoleArn?: string;
   public get retrievalRoleArn() {
     return this.getStringAttribute('retrieval_role_arn');
   }
@@ -326,7 +326,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -342,7 +342,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -358,7 +358,7 @@ export class AppconfigConfigurationProfile extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

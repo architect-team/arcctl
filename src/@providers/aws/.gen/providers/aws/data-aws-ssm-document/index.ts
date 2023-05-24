@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ssm_document
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsSsmDocument extends cdktf.TerraformDataSource {
   }
 
   // document_format - computed: false, optional: true, required: false
-  private _documentFormat?: string; 
+  private _documentFormat?: string;
   public get documentFormat() {
     return this.getStringAttribute('document_format');
   }
@@ -107,7 +107,7 @@ export class DataAwsSsmDocument extends cdktf.TerraformDataSource {
   }
 
   // document_version - computed: false, optional: true, required: false
-  private _documentVersion?: string; 
+  private _documentVersion?: string;
   public get documentVersion() {
     return this.getStringAttribute('document_version');
   }
@@ -123,7 +123,7 @@ export class DataAwsSsmDocument extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +139,7 @@ export class DataAwsSsmDocument extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

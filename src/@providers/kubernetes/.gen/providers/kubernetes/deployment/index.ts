@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { DeploymentMetadata, 
-deploymentMetadataToTerraform, 
-DeploymentMetadataOutputReference, 
-DeploymentSpec, 
-deploymentSpecToTerraform, 
-DeploymentSpecOutputReference, 
-DeploymentTimeouts, 
-deploymentTimeoutsToTerraform, 
+import { DeploymentMetadata,
+deploymentMetadataToTerraform,
+DeploymentMetadataOutputReference,
+DeploymentSpec,
+deploymentSpecToTerraform,
+DeploymentSpecOutputReference,
+DeploymentTimeouts,
+deploymentTimeoutsToTerraform,
 DeploymentTimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface DeploymentConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -22,25 +22,25 @@ export interface DeploymentConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * Wait for the rollout of the deployment to complete. Defaults to true.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#wait_for_rollout Deployment#wait_for_rollout}
   */
   readonly waitForRollout?: boolean | cdktf.IResolvable;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#metadata Deployment#metadata}
   */
   readonly metadata: DeploymentMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#spec Deployment#spec}
   */
   readonly spec: DeploymentSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#timeouts Deployment#timeouts}
   */
   readonly timeouts?: DeploymentTimeouts;
@@ -95,7 +95,7 @@ export class Deployment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -111,7 +111,7 @@ export class Deployment extends cdktf.TerraformResource {
   }
 
   // wait_for_rollout - computed: false, optional: true, required: false
-  private _waitForRollout?: boolean | cdktf.IResolvable; 
+  private _waitForRollout?: boolean | cdktf.IResolvable;
   public get waitForRollout() {
     return this.getBooleanAttribute('wait_for_rollout');
   }

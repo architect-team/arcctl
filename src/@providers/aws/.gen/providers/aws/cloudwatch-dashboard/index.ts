@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_dashboard
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class CloudwatchDashboard extends cdktf.TerraformResource {
   }
 
   // dashboard_body - computed: false, optional: false, required: true
-  private _dashboardBody?: string; 
+  private _dashboardBody?: string;
   public get dashboardBody() {
     return this.getStringAttribute('dashboard_body');
   }
@@ -89,7 +89,7 @@ export class CloudwatchDashboard extends cdktf.TerraformResource {
   }
 
   // dashboard_name - computed: false, optional: false, required: true
-  private _dashboardName?: string; 
+  private _dashboardName?: string;
   public get dashboardName() {
     return this.getStringAttribute('dashboard_name');
   }
@@ -102,7 +102,7 @@ export class CloudwatchDashboard extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

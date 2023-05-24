@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_routing_profile
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,13 +40,13 @@ export interface ConnectRoutingProfileConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * media_concurrencies block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_routing_profile#media_concurrencies ConnectRoutingProfile#media_concurrencies}
   */
   readonly mediaConcurrencies: ConnectRoutingProfileMediaConcurrencies[] | cdktf.IResolvable;
   /**
   * queue_configs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_routing_profile#queue_configs ConnectRoutingProfile#queue_configs}
   */
   readonly queueConfigs?: ConnectRoutingProfileQueueConfigs[] | cdktf.IResolvable;
@@ -213,7 +213,7 @@ export class ConnectRoutingProfileMediaConcurrenciesOutputReference extends cdkt
   }
 
   // channel - computed: false, optional: false, required: true
-  private _channel?: string; 
+  private _channel?: string;
   public get channel() {
     return this.getStringAttribute('channel');
   }
@@ -226,7 +226,7 @@ export class ConnectRoutingProfileMediaConcurrenciesOutputReference extends cdkt
   }
 
   // concurrency - computed: false, optional: false, required: true
-  private _concurrency?: number; 
+  private _concurrency?: number;
   public get concurrency() {
     return this.getNumberAttribute('concurrency');
   }
@@ -353,7 +353,7 @@ export class ConnectRoutingProfileQueueConfigsOutputReference extends cdktf.Comp
   }
 
   // channel - computed: false, optional: false, required: true
-  private _channel?: string; 
+  private _channel?: string;
   public get channel() {
     return this.getStringAttribute('channel');
   }
@@ -366,7 +366,7 @@ export class ConnectRoutingProfileQueueConfigsOutputReference extends cdktf.Comp
   }
 
   // delay - computed: false, optional: false, required: true
-  private _delay?: number; 
+  private _delay?: number;
   public get delay() {
     return this.getNumberAttribute('delay');
   }
@@ -379,7 +379,7 @@ export class ConnectRoutingProfileQueueConfigsOutputReference extends cdktf.Comp
   }
 
   // priority - computed: false, optional: false, required: true
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -397,7 +397,7 @@ export class ConnectRoutingProfileQueueConfigsOutputReference extends cdktf.Comp
   }
 
   // queue_id - computed: false, optional: false, required: true
-  private _queueId?: string; 
+  private _queueId?: string;
   public get queueId() {
     return this.getStringAttribute('queue_id');
   }
@@ -493,7 +493,7 @@ export class ConnectRoutingProfile extends cdktf.TerraformResource {
   }
 
   // default_outbound_queue_id - computed: false, optional: false, required: true
-  private _defaultOutboundQueueId?: string; 
+  private _defaultOutboundQueueId?: string;
   public get defaultOutboundQueueId() {
     return this.getStringAttribute('default_outbound_queue_id');
   }
@@ -506,7 +506,7 @@ export class ConnectRoutingProfile extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: false, required: true
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -519,7 +519,7 @@ export class ConnectRoutingProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -535,7 +535,7 @@ export class ConnectRoutingProfile extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -548,7 +548,7 @@ export class ConnectRoutingProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -572,7 +572,7 @@ export class ConnectRoutingProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -588,7 +588,7 @@ export class ConnectRoutingProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

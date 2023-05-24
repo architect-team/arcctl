@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_destination_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class CloudwatchLogDestinationPolicy extends cdktf.TerraformResource {
   // ==========
 
   // access_policy - computed: false, optional: false, required: true
-  private _accessPolicy?: string; 
+  private _accessPolicy?: string;
   public get accessPolicy() {
     return this.getStringAttribute('access_policy');
   }
@@ -89,7 +89,7 @@ export class CloudwatchLogDestinationPolicy extends cdktf.TerraformResource {
   }
 
   // destination_name - computed: false, optional: false, required: true
-  private _destinationName?: string; 
+  private _destinationName?: string;
   public get destinationName() {
     return this.getStringAttribute('destination_name');
   }
@@ -102,7 +102,7 @@ export class CloudwatchLogDestinationPolicy extends cdktf.TerraformResource {
   }
 
   // force_update - computed: false, optional: true, required: false
-  private _forceUpdate?: boolean | cdktf.IResolvable; 
+  private _forceUpdate?: boolean | cdktf.IResolvable;
   public get forceUpdate() {
     return this.getBooleanAttribute('force_update');
   }
@@ -118,7 +118,7 @@ export class CloudwatchLogDestinationPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

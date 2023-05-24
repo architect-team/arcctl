@@ -1,14 +1,14 @@
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.js';
+import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import {
   Component,
   DockerBuildFn,
   DockerPushFn,
   DockerTagFn,
   GraphContext,
-} from '../component.js';
-import { DebuggableBuildSchemaV2 } from './build.js';
-import { parseExpressionRefs } from './expressions.js';
-import { ProbeSchema } from './probe.js';
+} from '../component.ts';
+import { DebuggableBuildSchemaV2 } from './build.ts';
+import { parseExpressionRefs } from './expressions.ts';
+import { ProbeSchema } from './probe.ts';
 
 export default class ComponentV2 extends Component {
   /**

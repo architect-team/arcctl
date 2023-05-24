@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ecrpublic_authorization_token
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class DataAwsEcrpublicAuthorizationToken extends cdktf.TerraformDataSourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

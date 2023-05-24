@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_transit_gateway_registration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface NetworkmanagerTransitGatewayRegistrationConfig extends cdktf.Te
   readonly transitGatewayArn: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_transit_gateway_registration#timeouts NetworkmanagerTransitGatewayRegistration#timeouts}
   */
   readonly timeouts?: NetworkmanagerTransitGatewayRegistrationTimeouts;
@@ -100,7 +100,7 @@ export class NetworkmanagerTransitGatewayRegistrationTimeoutsOutputReference ext
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class NetworkmanagerTransitGatewayRegistrationTimeoutsOutputReference ext
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class NetworkmanagerTransitGatewayRegistration extends cdktf.TerraformRes
   // ==========
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -193,7 +193,7 @@ export class NetworkmanagerTransitGatewayRegistration extends cdktf.TerraformRes
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -209,7 +209,7 @@ export class NetworkmanagerTransitGatewayRegistration extends cdktf.TerraformRes
   }
 
   // transit_gateway_arn - computed: false, optional: false, required: true
-  private _transitGatewayArn?: string; 
+  private _transitGatewayArn?: string;
   public get transitGatewayArn() {
     return this.getStringAttribute('transit_gateway_arn');
   }

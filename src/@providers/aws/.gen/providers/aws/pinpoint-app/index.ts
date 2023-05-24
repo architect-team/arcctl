@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/pinpoint_app
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,19 +32,19 @@ export interface PinpointAppConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * campaign_hook block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_app#campaign_hook PinpointApp#campaign_hook}
   */
   readonly campaignHook?: PinpointAppCampaignHook;
   /**
   * limits block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_app#limits PinpointApp#limits}
   */
   readonly limits?: PinpointAppLimits;
   /**
   * quiet_time block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_app#quiet_time PinpointApp#quiet_time}
   */
   readonly quietTime?: PinpointAppQuietTime;
@@ -121,7 +121,7 @@ export class PinpointAppCampaignHookOutputReference extends cdktf.ComplexObject 
   }
 
   // lambda_function_name - computed: false, optional: true, required: false
-  private _lambdaFunctionName?: string; 
+  private _lambdaFunctionName?: string;
   public get lambdaFunctionName() {
     return this.getStringAttribute('lambda_function_name');
   }
@@ -137,7 +137,7 @@ export class PinpointAppCampaignHookOutputReference extends cdktf.ComplexObject 
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -153,7 +153,7 @@ export class PinpointAppCampaignHookOutputReference extends cdktf.ComplexObject 
   }
 
   // web_url - computed: false, optional: true, required: false
-  private _webUrl?: string; 
+  private _webUrl?: string;
   public get webUrl() {
     return this.getStringAttribute('web_url');
   }
@@ -251,7 +251,7 @@ export class PinpointAppLimitsOutputReference extends cdktf.ComplexObject {
   }
 
   // daily - computed: false, optional: true, required: false
-  private _daily?: number; 
+  private _daily?: number;
   public get daily() {
     return this.getNumberAttribute('daily');
   }
@@ -267,7 +267,7 @@ export class PinpointAppLimitsOutputReference extends cdktf.ComplexObject {
   }
 
   // maximum_duration - computed: false, optional: true, required: false
-  private _maximumDuration?: number; 
+  private _maximumDuration?: number;
   public get maximumDuration() {
     return this.getNumberAttribute('maximum_duration');
   }
@@ -283,7 +283,7 @@ export class PinpointAppLimitsOutputReference extends cdktf.ComplexObject {
   }
 
   // messages_per_second - computed: false, optional: true, required: false
-  private _messagesPerSecond?: number; 
+  private _messagesPerSecond?: number;
   public get messagesPerSecond() {
     return this.getNumberAttribute('messages_per_second');
   }
@@ -299,7 +299,7 @@ export class PinpointAppLimitsOutputReference extends cdktf.ComplexObject {
   }
 
   // total - computed: false, optional: true, required: false
-  private _total?: number; 
+  private _total?: number;
   public get total() {
     return this.getNumberAttribute('total');
   }
@@ -375,7 +375,7 @@ export class PinpointAppQuietTimeOutputReference extends cdktf.ComplexObject {
   }
 
   // end - computed: false, optional: true, required: false
-  private _end?: string; 
+  private _end?: string;
   public get end() {
     return this.getStringAttribute('end');
   }
@@ -391,7 +391,7 @@ export class PinpointAppQuietTimeOutputReference extends cdktf.ComplexObject {
   }
 
   // start - computed: false, optional: true, required: false
-  private _start?: string; 
+  private _start?: string;
   public get start() {
     return this.getStringAttribute('start');
   }
@@ -469,7 +469,7 @@ export class PinpointApp extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -485,7 +485,7 @@ export class PinpointApp extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -501,7 +501,7 @@ export class PinpointApp extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: false, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -517,7 +517,7 @@ export class PinpointApp extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -533,7 +533,7 @@ export class PinpointApp extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

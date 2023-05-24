@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kinesis_stream
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,13 +56,13 @@ export interface KinesisStreamConfig extends cdktf.TerraformMetaArguments {
   readonly tagsAll?: { [key: string]: string };
   /**
   * stream_mode_details block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_stream#stream_mode_details KinesisStream#stream_mode_details}
   */
   readonly streamModeDetails?: KinesisStreamStreamModeDetails;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_stream#timeouts KinesisStream#timeouts}
   */
   readonly timeouts?: KinesisStreamTimeouts;
@@ -117,7 +117,7 @@ export class KinesisStreamStreamModeDetailsOutputReference extends cdktf.Complex
   }
 
   // stream_mode - computed: false, optional: false, required: true
-  private _streamMode?: string; 
+  private _streamMode?: string;
   public get streamMode() {
     return this.getStringAttribute('stream_mode');
   }
@@ -211,7 +211,7 @@ export class KinesisStreamTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -227,7 +227,7 @@ export class KinesisStreamTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -243,7 +243,7 @@ export class KinesisStreamTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -316,7 +316,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   // ==========
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -332,7 +332,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // encryption_type - computed: false, optional: true, required: false
-  private _encryptionType?: string; 
+  private _encryptionType?: string;
   public get encryptionType() {
     return this.getStringAttribute('encryption_type');
   }
@@ -348,7 +348,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // enforce_consumer_deletion - computed: false, optional: true, required: false
-  private _enforceConsumerDeletion?: boolean | cdktf.IResolvable; 
+  private _enforceConsumerDeletion?: boolean | cdktf.IResolvable;
   public get enforceConsumerDeletion() {
     return this.getBooleanAttribute('enforce_consumer_deletion');
   }
@@ -364,7 +364,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -380,7 +380,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -396,7 +396,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -409,7 +409,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // retention_period - computed: false, optional: true, required: false
-  private _retentionPeriod?: number; 
+  private _retentionPeriod?: number;
   public get retentionPeriod() {
     return this.getNumberAttribute('retention_period');
   }
@@ -425,7 +425,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // shard_count - computed: false, optional: true, required: false
-  private _shardCount?: number; 
+  private _shardCount?: number;
   public get shardCount() {
     return this.getNumberAttribute('shard_count');
   }
@@ -441,7 +441,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // shard_level_metrics - computed: false, optional: true, required: false
-  private _shardLevelMetrics?: string[]; 
+  private _shardLevelMetrics?: string[];
   public get shardLevelMetrics() {
     return cdktf.Fn.tolist(this.getListAttribute('shard_level_metrics'));
   }
@@ -457,7 +457,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -473,7 +473,7 @@ export class KinesisStream extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

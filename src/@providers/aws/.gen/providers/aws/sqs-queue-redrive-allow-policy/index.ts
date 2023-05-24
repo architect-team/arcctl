@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/sqs_queue_redrive_allow_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SqsQueueRedriveAllowPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class SqsQueueRedriveAllowPolicy extends cdktf.TerraformResource {
   }
 
   // queue_url - computed: false, optional: false, required: true
-  private _queueUrl?: string; 
+  private _queueUrl?: string;
   public get queueUrl() {
     return this.getStringAttribute('queue_url');
   }
@@ -100,7 +100,7 @@ export class SqsQueueRedriveAllowPolicy extends cdktf.TerraformResource {
   }
 
   // redrive_allow_policy - computed: false, optional: false, required: true
-  private _redriveAllowPolicy?: string; 
+  private _redriveAllowPolicy?: string;
   public get redriveAllowPolicy() {
     return this.getStringAttribute('redrive_allow_policy');
   }

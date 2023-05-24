@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class DataAwsSecretsmanagerSecretVersion extends cdktf.TerraformDataSourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +102,7 @@ export class DataAwsSecretsmanagerSecretVersion extends cdktf.TerraformDataSourc
   }
 
   // secret_id - computed: false, optional: false, required: true
-  private _secretId?: string; 
+  private _secretId?: string;
   public get secretId() {
     return this.getStringAttribute('secret_id');
   }
@@ -120,7 +120,7 @@ export class DataAwsSecretsmanagerSecretVersion extends cdktf.TerraformDataSourc
   }
 
   // version_id - computed: true, optional: true, required: false
-  private _versionId?: string; 
+  private _versionId?: string;
   public get versionId() {
     return this.getStringAttribute('version_id');
   }
@@ -136,7 +136,7 @@ export class DataAwsSecretsmanagerSecretVersion extends cdktf.TerraformDataSourc
   }
 
   // version_stage - computed: false, optional: true, required: false
-  private _versionStage?: string; 
+  private _versionStage?: string;
   public get versionStage() {
     return this.getStringAttribute('version_stage');
   }

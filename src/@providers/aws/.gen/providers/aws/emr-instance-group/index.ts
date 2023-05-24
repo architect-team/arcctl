@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/emr_instance_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -48,7 +48,7 @@ export interface EmrInstanceGroupConfig extends cdktf.TerraformMetaArguments {
   readonly name?: string;
   /**
   * ebs_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_instance_group#ebs_config EmrInstanceGroup#ebs_config}
   */
   readonly ebsConfig?: EmrInstanceGroupEbsConfig[] | cdktf.IResolvable;
@@ -148,7 +148,7 @@ export class EmrInstanceGroupEbsConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // iops - computed: false, optional: true, required: false
-  private _iops?: number; 
+  private _iops?: number;
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -164,7 +164,7 @@ export class EmrInstanceGroupEbsConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -177,7 +177,7 @@ export class EmrInstanceGroupEbsConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -190,7 +190,7 @@ export class EmrInstanceGroupEbsConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // volumes_per_instance - computed: false, optional: true, required: false
-  private _volumesPerInstance?: number; 
+  private _volumesPerInstance?: number;
   public get volumesPerInstance() {
     return this.getNumberAttribute('volumes_per_instance');
   }
@@ -280,7 +280,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   // ==========
 
   // autoscaling_policy - computed: false, optional: true, required: false
-  private _autoscalingPolicy?: string; 
+  private _autoscalingPolicy?: string;
   public get autoscalingPolicy() {
     return this.getStringAttribute('autoscaling_policy');
   }
@@ -296,7 +296,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // bid_price - computed: false, optional: true, required: false
-  private _bidPrice?: string; 
+  private _bidPrice?: string;
   public get bidPrice() {
     return this.getStringAttribute('bid_price');
   }
@@ -312,7 +312,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string; 
+  private _clusterId?: string;
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -325,7 +325,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // configurations_json - computed: false, optional: true, required: false
-  private _configurationsJson?: string; 
+  private _configurationsJson?: string;
   public get configurationsJson() {
     return this.getStringAttribute('configurations_json');
   }
@@ -341,7 +341,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // ebs_optimized - computed: false, optional: true, required: false
-  private _ebsOptimized?: boolean | cdktf.IResolvable; 
+  private _ebsOptimized?: boolean | cdktf.IResolvable;
   public get ebsOptimized() {
     return this.getBooleanAttribute('ebs_optimized');
   }
@@ -357,7 +357,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -373,7 +373,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // instance_count - computed: true, optional: true, required: false
-  private _instanceCount?: number; 
+  private _instanceCount?: number;
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -389,7 +389,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -402,7 +402,7 @@ export class EmrInstanceGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

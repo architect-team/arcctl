@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class VpcDhcpOptionsAssociation extends cdktf.TerraformResource {
   // ==========
 
   // dhcp_options_id - computed: false, optional: false, required: true
-  private _dhcpOptionsId?: string; 
+  private _dhcpOptionsId?: string;
   public get dhcpOptionsId() {
     return this.getStringAttribute('dhcp_options_id');
   }
@@ -84,7 +84,7 @@ export class VpcDhcpOptionsAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class VpcDhcpOptionsAssociation extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

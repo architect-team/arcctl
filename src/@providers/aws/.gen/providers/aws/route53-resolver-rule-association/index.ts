@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_resolver_rule_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface Route53ResolverRuleAssociationConfig extends cdktf.TerraformMet
   readonly vpcId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_rule_association#timeouts Route53ResolverRuleAssociation#timeouts}
   */
   readonly timeouts?: Route53ResolverRuleAssociationTimeouts;
@@ -104,7 +104,7 @@ export class Route53ResolverRuleAssociationTimeoutsOutputReference extends cdktf
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -120,7 +120,7 @@ export class Route53ResolverRuleAssociationTimeoutsOutputReference extends cdktf
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -185,7 +185,7 @@ export class Route53ResolverRuleAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -201,7 +201,7 @@ export class Route53ResolverRuleAssociation extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -217,7 +217,7 @@ export class Route53ResolverRuleAssociation extends cdktf.TerraformResource {
   }
 
   // resolver_rule_id - computed: false, optional: false, required: true
-  private _resolverRuleId?: string; 
+  private _resolverRuleId?: string;
   public get resolverRuleId() {
     return this.getStringAttribute('resolver_rule_id');
   }
@@ -230,7 +230,7 @@ export class Route53ResolverRuleAssociation extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

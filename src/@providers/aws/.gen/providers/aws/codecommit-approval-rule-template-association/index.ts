@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/codecommit_approval_rule_template_association
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class CodecommitApprovalRuleTemplateAssociation extends cdktf.TerraformRe
   // ==========
 
   // approval_rule_template_name - computed: false, optional: false, required: true
-  private _approvalRuleTemplateName?: string; 
+  private _approvalRuleTemplateName?: string;
   public get approvalRuleTemplateName() {
     return this.getStringAttribute('approval_rule_template_name');
   }
@@ -84,7 +84,7 @@ export class CodecommitApprovalRuleTemplateAssociation extends cdktf.TerraformRe
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +100,7 @@ export class CodecommitApprovalRuleTemplateAssociation extends cdktf.TerraformRe
   }
 
   // repository_name - computed: false, optional: false, required: true
-  private _repositoryName?: string; 
+  private _repositoryName?: string;
   public get repositoryName() {
     return this.getStringAttribute('repository_name');
   }

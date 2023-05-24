@@ -1,6 +1,6 @@
-import { Environment } from './environment.js';
+import { Environment } from './environment.ts';
 {{#versions}}
-import environment_{{.}} from './{{.}}/index.js';
+import environment_{{.}} from './{{.}}/index.ts';
 {{/versions}}
 
 /**

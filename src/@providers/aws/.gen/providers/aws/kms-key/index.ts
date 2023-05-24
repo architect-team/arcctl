@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/kms_key
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -126,7 +126,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // bypass_policy_lockout_safety_check - computed: false, optional: true, required: false
-  private _bypassPolicyLockoutSafetyCheck?: boolean | cdktf.IResolvable; 
+  private _bypassPolicyLockoutSafetyCheck?: boolean | cdktf.IResolvable;
   public get bypassPolicyLockoutSafetyCheck() {
     return this.getBooleanAttribute('bypass_policy_lockout_safety_check');
   }
@@ -142,7 +142,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // custom_key_store_id - computed: false, optional: true, required: false
-  private _customKeyStoreId?: string; 
+  private _customKeyStoreId?: string;
   public get customKeyStoreId() {
     return this.getStringAttribute('custom_key_store_id');
   }
@@ -158,7 +158,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // customer_master_key_spec - computed: false, optional: true, required: false
-  private _customerMasterKeySpec?: string; 
+  private _customerMasterKeySpec?: string;
   public get customerMasterKeySpec() {
     return this.getStringAttribute('customer_master_key_spec');
   }
@@ -174,7 +174,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // deletion_window_in_days - computed: false, optional: true, required: false
-  private _deletionWindowInDays?: number; 
+  private _deletionWindowInDays?: number;
   public get deletionWindowInDays() {
     return this.getNumberAttribute('deletion_window_in_days');
   }
@@ -190,7 +190,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -206,7 +206,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // enable_key_rotation - computed: false, optional: true, required: false
-  private _enableKeyRotation?: boolean | cdktf.IResolvable; 
+  private _enableKeyRotation?: boolean | cdktf.IResolvable;
   public get enableKeyRotation() {
     return this.getBooleanAttribute('enable_key_rotation');
   }
@@ -222,7 +222,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -238,7 +238,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // is_enabled - computed: false, optional: true, required: false
-  private _isEnabled?: boolean | cdktf.IResolvable; 
+  private _isEnabled?: boolean | cdktf.IResolvable;
   public get isEnabled() {
     return this.getBooleanAttribute('is_enabled');
   }
@@ -259,7 +259,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // key_usage - computed: false, optional: true, required: false
-  private _keyUsage?: string; 
+  private _keyUsage?: string;
   public get keyUsage() {
     return this.getStringAttribute('key_usage');
   }
@@ -275,7 +275,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // multi_region - computed: true, optional: true, required: false
-  private _multiRegion?: boolean | cdktf.IResolvable; 
+  private _multiRegion?: boolean | cdktf.IResolvable;
   public get multiRegion() {
     return this.getBooleanAttribute('multi_region');
   }
@@ -291,7 +291,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -307,7 +307,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -323,7 +323,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

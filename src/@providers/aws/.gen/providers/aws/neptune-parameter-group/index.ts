@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/neptune_parameter_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface NeptuneParameterGroupConfig extends cdktf.TerraformMetaArgument
   readonly tagsAll?: { [key: string]: string };
   /**
   * parameter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_parameter_group#parameter NeptuneParameterGroup#parameter}
   */
   readonly parameter?: NeptuneParameterGroupParameter[] | cdktf.IResolvable;
@@ -125,7 +125,7 @@ export class NeptuneParameterGroupParameterOutputReference extends cdktf.Complex
   }
 
   // apply_method - computed: false, optional: true, required: false
-  private _applyMethod?: string; 
+  private _applyMethod?: string;
   public get applyMethod() {
     return this.getStringAttribute('apply_method');
   }
@@ -141,7 +141,7 @@ export class NeptuneParameterGroupParameterOutputReference extends cdktf.Complex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -154,7 +154,7 @@ export class NeptuneParameterGroupParameterOutputReference extends cdktf.Complex
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -243,7 +243,7 @@ export class NeptuneParameterGroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -259,7 +259,7 @@ export class NeptuneParameterGroup extends cdktf.TerraformResource {
   }
 
   // family - computed: false, optional: false, required: true
-  private _family?: string; 
+  private _family?: string;
   public get family() {
     return this.getStringAttribute('family');
   }
@@ -272,7 +272,7 @@ export class NeptuneParameterGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -288,7 +288,7 @@ export class NeptuneParameterGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -301,7 +301,7 @@ export class NeptuneParameterGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -317,7 +317,7 @@ export class NeptuneParameterGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

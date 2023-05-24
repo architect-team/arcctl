@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/time/r/sleep
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class Sleep extends cdktf.TerraformResource {
   // ==========
 
   // create_duration - computed: false, optional: true, required: false
-  private _createDuration?: string; 
+  private _createDuration?: string;
   public get createDuration() {
     return this.getStringAttribute('create_duration');
   }
@@ -92,7 +92,7 @@ export class Sleep extends cdktf.TerraformResource {
   }
 
   // destroy_duration - computed: false, optional: true, required: false
-  private _destroyDuration?: string; 
+  private _destroyDuration?: string;
   public get destroyDuration() {
     return this.getStringAttribute('destroy_duration');
   }
@@ -108,7 +108,7 @@ export class Sleep extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -124,7 +124,7 @@ export class Sleep extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

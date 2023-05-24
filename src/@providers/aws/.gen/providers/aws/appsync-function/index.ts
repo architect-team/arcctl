@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_function
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,13 +52,13 @@ export interface AppsyncFunctionConfig extends cdktf.TerraformMetaArguments {
   readonly responseMappingTemplate?: string;
   /**
   * runtime block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#runtime AppsyncFunction#runtime}
   */
   readonly runtime?: AppsyncFunctionRuntime;
   /**
   * sync_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#sync_config AppsyncFunction#sync_config}
   */
   readonly syncConfig?: AppsyncFunctionSyncConfig;
@@ -124,7 +124,7 @@ export class AppsyncFunctionRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -137,7 +137,7 @@ export class AppsyncFunctionRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // runtime_version - computed: false, optional: false, required: true
-  private _runtimeVersion?: string; 
+  private _runtimeVersion?: string;
   public get runtimeVersion() {
     return this.getStringAttribute('runtime_version');
   }
@@ -199,7 +199,7 @@ export class AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputReference
   }
 
   // lambda_conflict_handler_arn - computed: false, optional: true, required: false
-  private _lambdaConflictHandlerArn?: string; 
+  private _lambdaConflictHandlerArn?: string;
   public get lambdaConflictHandlerArn() {
     return this.getStringAttribute('lambda_conflict_handler_arn');
   }
@@ -225,7 +225,7 @@ export interface AppsyncFunctionSyncConfig {
   readonly conflictHandler?: string;
   /**
   * lambda_conflict_handler_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#lambda_conflict_handler_config AppsyncFunction#lambda_conflict_handler_config}
   */
   readonly lambdaConflictHandlerConfig?: AppsyncFunctionSyncConfigLambdaConflictHandlerConfig;
@@ -288,7 +288,7 @@ export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // conflict_detection - computed: false, optional: true, required: false
-  private _conflictDetection?: string; 
+  private _conflictDetection?: string;
   public get conflictDetection() {
     return this.getStringAttribute('conflict_detection');
   }
@@ -304,7 +304,7 @@ export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // conflict_handler - computed: false, optional: true, required: false
-  private _conflictHandler?: string; 
+  private _conflictHandler?: string;
   public get conflictHandler() {
     return this.getStringAttribute('conflict_handler');
   }
@@ -392,7 +392,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -410,7 +410,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // code - computed: false, optional: true, required: false
-  private _code?: string; 
+  private _code?: string;
   public get code() {
     return this.getStringAttribute('code');
   }
@@ -426,7 +426,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // data_source - computed: false, optional: false, required: true
-  private _dataSource?: string; 
+  private _dataSource?: string;
   public get dataSource() {
     return this.getStringAttribute('data_source');
   }
@@ -439,7 +439,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -460,7 +460,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // function_version - computed: true, optional: true, required: false
-  private _functionVersion?: string; 
+  private _functionVersion?: string;
   public get functionVersion() {
     return this.getStringAttribute('function_version');
   }
@@ -476,7 +476,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -492,7 +492,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // max_batch_size - computed: false, optional: true, required: false
-  private _maxBatchSize?: number; 
+  private _maxBatchSize?: number;
   public get maxBatchSize() {
     return this.getNumberAttribute('max_batch_size');
   }
@@ -508,7 +508,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -521,7 +521,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // request_mapping_template - computed: false, optional: true, required: false
-  private _requestMappingTemplate?: string; 
+  private _requestMappingTemplate?: string;
   public get requestMappingTemplate() {
     return this.getStringAttribute('request_mapping_template');
   }
@@ -537,7 +537,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // response_mapping_template - computed: false, optional: true, required: false
-  private _responseMappingTemplate?: string; 
+  private _responseMappingTemplate?: string;
   public get responseMappingTemplate() {
     return this.getStringAttribute('response_mapping_template');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/default_vpc
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -131,7 +131,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // assign_generated_ipv6_cidr_block - computed: false, optional: true, required: false
-  private _assignGeneratedIpv6CidrBlock?: boolean | cdktf.IResolvable; 
+  private _assignGeneratedIpv6CidrBlock?: boolean | cdktf.IResolvable;
   public get assignGeneratedIpv6CidrBlock() {
     return this.getBooleanAttribute('assign_generated_ipv6_cidr_block');
   }
@@ -172,7 +172,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // enable_classiclink - computed: true, optional: true, required: false
-  private _enableClassiclink?: boolean | cdktf.IResolvable; 
+  private _enableClassiclink?: boolean | cdktf.IResolvable;
   public get enableClassiclink() {
     return this.getBooleanAttribute('enable_classiclink');
   }
@@ -188,7 +188,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // enable_classiclink_dns_support - computed: true, optional: true, required: false
-  private _enableClassiclinkDnsSupport?: boolean | cdktf.IResolvable; 
+  private _enableClassiclinkDnsSupport?: boolean | cdktf.IResolvable;
   public get enableClassiclinkDnsSupport() {
     return this.getBooleanAttribute('enable_classiclink_dns_support');
   }
@@ -204,7 +204,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // enable_dns_hostnames - computed: false, optional: true, required: false
-  private _enableDnsHostnames?: boolean | cdktf.IResolvable; 
+  private _enableDnsHostnames?: boolean | cdktf.IResolvable;
   public get enableDnsHostnames() {
     return this.getBooleanAttribute('enable_dns_hostnames');
   }
@@ -220,7 +220,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // enable_dns_support - computed: false, optional: true, required: false
-  private _enableDnsSupport?: boolean | cdktf.IResolvable; 
+  private _enableDnsSupport?: boolean | cdktf.IResolvable;
   public get enableDnsSupport() {
     return this.getBooleanAttribute('enable_dns_support');
   }
@@ -236,7 +236,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // enable_network_address_usage_metrics - computed: true, optional: true, required: false
-  private _enableNetworkAddressUsageMetrics?: boolean | cdktf.IResolvable; 
+  private _enableNetworkAddressUsageMetrics?: boolean | cdktf.IResolvable;
   public get enableNetworkAddressUsageMetrics() {
     return this.getBooleanAttribute('enable_network_address_usage_metrics');
   }
@@ -257,7 +257,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -273,7 +273,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // ipv6_cidr_block - computed: true, optional: true, required: false
-  private _ipv6CidrBlock?: string; 
+  private _ipv6CidrBlock?: string;
   public get ipv6CidrBlock() {
     return this.getStringAttribute('ipv6_cidr_block');
   }
@@ -315,7 +315,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // ipv6_cidr_block_network_border_group - computed: true, optional: true, required: false
-  private _ipv6CidrBlockNetworkBorderGroup?: string; 
+  private _ipv6CidrBlockNetworkBorderGroup?: string;
   public get ipv6CidrBlockNetworkBorderGroup() {
     return this.getStringAttribute('ipv6_cidr_block_network_border_group');
   }
@@ -331,7 +331,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // ipv6_ipam_pool_id - computed: false, optional: true, required: false
-  private _ipv6IpamPoolId?: string; 
+  private _ipv6IpamPoolId?: string;
   public get ipv6IpamPoolId() {
     return this.getStringAttribute('ipv6_ipam_pool_id');
   }
@@ -347,7 +347,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // ipv6_netmask_length - computed: false, optional: true, required: false
-  private _ipv6NetmaskLength?: number; 
+  private _ipv6NetmaskLength?: number;
   public get ipv6NetmaskLength() {
     return this.getNumberAttribute('ipv6_netmask_length');
   }
@@ -373,7 +373,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -389,7 +389,7 @@ export class DefaultVpc extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

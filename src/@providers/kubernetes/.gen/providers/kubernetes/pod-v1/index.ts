@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { PodV1Metadata, 
-podV1MetadataToTerraform, 
-PodV1MetadataOutputReference, 
-PodV1Spec, 
-podV1SpecToTerraform, 
-PodV1SpecOutputReference, 
-PodV1Timeouts, 
-podV1TimeoutsToTerraform, 
+import { PodV1Metadata,
+podV1MetadataToTerraform,
+PodV1MetadataOutputReference,
+PodV1Spec,
+podV1SpecToTerraform,
+PodV1SpecOutputReference,
+PodV1Timeouts,
+podV1TimeoutsToTerraform,
 PodV1TimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface PodV1Config extends cdktf.TerraformMetaArguments {
   /**
@@ -22,19 +22,19 @@ export interface PodV1Config extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_v1#metadata PodV1#metadata}
   */
   readonly metadata: PodV1Metadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_v1#spec PodV1#spec}
   */
   readonly spec: PodV1Spec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_v1#timeouts PodV1#timeouts}
   */
   readonly timeouts?: PodV1Timeouts;
@@ -88,7 +88,7 @@ export class PodV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

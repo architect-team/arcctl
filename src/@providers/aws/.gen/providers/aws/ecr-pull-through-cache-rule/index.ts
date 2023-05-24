@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
   // ==========
 
   // ecr_repository_prefix - computed: false, optional: false, required: true
-  private _ecrRepositoryPrefix?: string; 
+  private _ecrRepositoryPrefix?: string;
   public get ecrRepositoryPrefix() {
     return this.getStringAttribute('ecr_repository_prefix');
   }
@@ -84,7 +84,7 @@ export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +105,7 @@ export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
   }
 
   // upstream_registry_url - computed: false, optional: false, required: true
-  private _upstreamRegistryUrl?: string; 
+  private _upstreamRegistryUrl?: string;
   public get upstreamRegistryUrl() {
     return this.getStringAttribute('upstream_registry_url');
   }

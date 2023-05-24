@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_receipt_rule_set
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -71,7 +71,7 @@ export class SesReceiptRuleSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +87,7 @@ export class SesReceiptRuleSet extends cdktf.TerraformResource {
   }
 
   // rule_set_name - computed: false, optional: false, required: true
-  private _ruleSetName?: string; 
+  private _ruleSetName?: string;
   public get ruleSetName() {
     return this.getStringAttribute('rule_set_name');
   }

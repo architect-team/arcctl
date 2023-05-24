@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/elastic_beanstalk_application_version
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   // ==========
 
   // application - computed: false, optional: false, required: true
-  private _application?: string; 
+  private _application?: string;
   public get application() {
     return this.getStringAttribute('application');
   }
@@ -119,7 +119,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -132,7 +132,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -148,7 +148,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // force_delete - computed: false, optional: true, required: false
-  private _forceDelete?: boolean | cdktf.IResolvable; 
+  private _forceDelete?: boolean | cdktf.IResolvable;
   public get forceDelete() {
     return this.getBooleanAttribute('force_delete');
   }
@@ -164,7 +164,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -180,7 +180,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -193,7 +193,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -206,7 +206,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -222,7 +222,7 @@ export class ElasticBeanstalkApplicationVersion extends cdktf.TerraformResource 
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

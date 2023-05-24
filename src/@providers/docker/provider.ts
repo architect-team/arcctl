@@ -4,7 +4,7 @@ import { DockerCredentials, DockerCredentialsSchema } from './credentials.js';
 import { DockerDeploymentService } from './services/deployment.js';
 import { DockerNamespaceService } from './services/namespace.js';
 import { DockerServiceService } from './services/service.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export default class DockerProvider extends Provider<DockerCredentials> {
   readonly type = 'docker';

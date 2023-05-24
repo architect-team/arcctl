@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/fsx_openzfs_snapshot
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface DataAwsFsxOpenzfsSnapshotConfig extends cdktf.TerraformMetaArgu
   readonly tags?: { [key: string]: string };
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/fsx_openzfs_snapshot#filter DataAwsFsxOpenzfsSnapshot#filter}
   */
   readonly filter?: DataAwsFsxOpenzfsSnapshotFilter[] | cdktf.IResolvable;
@@ -110,7 +110,7 @@ export class DataAwsFsxOpenzfsSnapshotFilterOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -123,7 +123,7 @@ export class DataAwsFsxOpenzfsSnapshotFilterOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return this.getListAttribute('values');
   }
@@ -216,7 +216,7 @@ export class DataAwsFsxOpenzfsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -232,7 +232,7 @@ export class DataAwsFsxOpenzfsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable; 
+  private _mostRecent?: boolean | cdktf.IResolvable;
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }
@@ -248,7 +248,7 @@ export class DataAwsFsxOpenzfsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -269,7 +269,7 @@ export class DataAwsFsxOpenzfsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // snapshot_ids - computed: false, optional: true, required: false
-  private _snapshotIds?: string[]; 
+  private _snapshotIds?: string[];
   public get snapshotIds() {
     return this.getListAttribute('snapshot_ids');
   }
@@ -285,7 +285,7 @@ export class DataAwsFsxOpenzfsSnapshot extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

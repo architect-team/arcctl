@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -36,7 +36,7 @@ export interface DatasyncLocationFsxOpenzfsFileSystemConfig extends cdktf.Terraf
   readonly tagsAll?: { [key: string]: string };
   /**
   * protocol block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#protocol DatasyncLocationFsxOpenzfsFileSystem#protocol}
   */
   readonly protocol: DatasyncLocationFsxOpenzfsFileSystemProtocol;
@@ -91,7 +91,7 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputRe
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -109,7 +109,7 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputRe
 export interface DatasyncLocationFsxOpenzfsFileSystemProtocolNfs {
   /**
   * mount_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#mount_options DatasyncLocationFsxOpenzfsFileSystem#mount_options}
   */
   readonly mountOptions: DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions;
@@ -173,7 +173,7 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference exte
 export interface DatasyncLocationFsxOpenzfsFileSystemProtocol {
   /**
   * nfs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#nfs DatasyncLocationFsxOpenzfsFileSystem#nfs}
   */
   readonly nfs: DatasyncLocationFsxOpenzfsFileSystemProtocolNfs;
@@ -296,7 +296,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // fsx_filesystem_arn - computed: false, optional: false, required: true
-  private _fsxFilesystemArn?: string; 
+  private _fsxFilesystemArn?: string;
   public get fsxFilesystemArn() {
     return this.getStringAttribute('fsx_filesystem_arn');
   }
@@ -309,7 +309,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -325,7 +325,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // security_group_arns - computed: false, optional: false, required: true
-  private _securityGroupArns?: string[]; 
+  private _securityGroupArns?: string[];
   public get securityGroupArns() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_arns'));
   }
@@ -338,7 +338,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // subdirectory - computed: true, optional: true, required: false
-  private _subdirectory?: string; 
+  private _subdirectory?: string;
   public get subdirectory() {
     return this.getStringAttribute('subdirectory');
   }
@@ -354,7 +354,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -370,7 +370,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

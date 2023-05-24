@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/inspector2_organization_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -16,13 +16,13 @@ export interface Inspector2OrganizationConfigurationConfig extends cdktf.Terrafo
   readonly id?: string;
   /**
   * auto_enable block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_organization_configuration#auto_enable Inspector2OrganizationConfiguration#auto_enable}
   */
   readonly autoEnable: Inspector2OrganizationConfigurationAutoEnable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_organization_configuration#timeouts Inspector2OrganizationConfiguration#timeouts}
   */
   readonly timeouts?: Inspector2OrganizationConfigurationTimeouts;
@@ -99,7 +99,7 @@ export class Inspector2OrganizationConfigurationAutoEnableOutputReference extend
   }
 
   // ec2 - computed: false, optional: false, required: true
-  private _ec2?: boolean | cdktf.IResolvable; 
+  private _ec2?: boolean | cdktf.IResolvable;
   public get ec2() {
     return this.getBooleanAttribute('ec2');
   }
@@ -112,7 +112,7 @@ export class Inspector2OrganizationConfigurationAutoEnableOutputReference extend
   }
 
   // ecr - computed: false, optional: false, required: true
-  private _ecr?: boolean | cdktf.IResolvable; 
+  private _ecr?: boolean | cdktf.IResolvable;
   public get ecr() {
     return this.getBooleanAttribute('ecr');
   }
@@ -125,7 +125,7 @@ export class Inspector2OrganizationConfigurationAutoEnableOutputReference extend
   }
 
   // lambda - computed: false, optional: true, required: false
-  private _lambda?: boolean | cdktf.IResolvable; 
+  private _lambda?: boolean | cdktf.IResolvable;
   public get lambda() {
     return this.getBooleanAttribute('lambda');
   }
@@ -222,7 +222,7 @@ export class Inspector2OrganizationConfigurationTimeoutsOutputReference extends 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -238,7 +238,7 @@ export class Inspector2OrganizationConfigurationTimeoutsOutputReference extends 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -254,7 +254,7 @@ export class Inspector2OrganizationConfigurationTimeoutsOutputReference extends 
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -317,7 +317,7 @@ export class Inspector2OrganizationConfiguration extends cdktf.TerraformResource
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

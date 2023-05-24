@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -106,7 +106,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   // ==========
 
   // allow_users_to_change_password - computed: false, optional: true, required: false
-  private _allowUsersToChangePassword?: boolean | cdktf.IResolvable; 
+  private _allowUsersToChangePassword?: boolean | cdktf.IResolvable;
   public get allowUsersToChangePassword() {
     return this.getBooleanAttribute('allow_users_to_change_password');
   }
@@ -127,7 +127,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // hard_expiry - computed: true, optional: true, required: false
-  private _hardExpiry?: boolean | cdktf.IResolvable; 
+  private _hardExpiry?: boolean | cdktf.IResolvable;
   public get hardExpiry() {
     return this.getBooleanAttribute('hard_expiry');
   }
@@ -143,7 +143,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -159,7 +159,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // max_password_age - computed: true, optional: true, required: false
-  private _maxPasswordAge?: number; 
+  private _maxPasswordAge?: number;
   public get maxPasswordAge() {
     return this.getNumberAttribute('max_password_age');
   }
@@ -175,7 +175,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // minimum_password_length - computed: false, optional: true, required: false
-  private _minimumPasswordLength?: number; 
+  private _minimumPasswordLength?: number;
   public get minimumPasswordLength() {
     return this.getNumberAttribute('minimum_password_length');
   }
@@ -191,7 +191,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // password_reuse_prevention - computed: true, optional: true, required: false
-  private _passwordReusePrevention?: number; 
+  private _passwordReusePrevention?: number;
   public get passwordReusePrevention() {
     return this.getNumberAttribute('password_reuse_prevention');
   }
@@ -207,7 +207,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_lowercase_characters - computed: true, optional: true, required: false
-  private _requireLowercaseCharacters?: boolean | cdktf.IResolvable; 
+  private _requireLowercaseCharacters?: boolean | cdktf.IResolvable;
   public get requireLowercaseCharacters() {
     return this.getBooleanAttribute('require_lowercase_characters');
   }
@@ -223,7 +223,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_numbers - computed: true, optional: true, required: false
-  private _requireNumbers?: boolean | cdktf.IResolvable; 
+  private _requireNumbers?: boolean | cdktf.IResolvable;
   public get requireNumbers() {
     return this.getBooleanAttribute('require_numbers');
   }
@@ -239,7 +239,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_symbols - computed: true, optional: true, required: false
-  private _requireSymbols?: boolean | cdktf.IResolvable; 
+  private _requireSymbols?: boolean | cdktf.IResolvable;
   public get requireSymbols() {
     return this.getBooleanAttribute('require_symbols');
   }
@@ -255,7 +255,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_uppercase_characters - computed: true, optional: true, required: false
-  private _requireUppercaseCharacters?: boolean | cdktf.IResolvable; 
+  private _requireUppercaseCharacters?: boolean | cdktf.IResolvable;
   public get requireUppercaseCharacters() {
     return this.getBooleanAttribute('require_uppercase_characters');
   }

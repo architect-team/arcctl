@@ -2,7 +2,7 @@ import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
 import { ResourceModule } from '../../module.js';
 import { Domain } from '../.gen/providers/digitalocean/domain/index.js';
 import { DigitaloceanCredentials } from '../credentials.js';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class DigitaloceanDnsZoneModule extends ResourceModule<
   'dnsZone',

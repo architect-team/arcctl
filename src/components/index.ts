@@ -1,3 +1,3 @@
-export * from './parser.js';
-export * from './component.js';
-export * from './schema.js';
+export * from './parser.ts';
+export * from './component.ts';
+export * from './schema.ts';

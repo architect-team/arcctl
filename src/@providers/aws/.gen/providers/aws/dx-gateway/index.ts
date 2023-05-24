@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_gateway
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface DxGatewayConfig extends cdktf.TerraformMetaArguments {
   readonly name: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway#timeouts DxGateway#timeouts}
   */
   readonly timeouts?: DxGatewayTimeouts;
@@ -100,7 +100,7 @@ export class DxGatewayTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -116,7 +116,7 @@ export class DxGatewayTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -180,7 +180,7 @@ export class DxGateway extends cdktf.TerraformResource {
   // ==========
 
   // amazon_side_asn - computed: false, optional: false, required: true
-  private _amazonSideAsn?: string; 
+  private _amazonSideAsn?: string;
   public get amazonSideAsn() {
     return this.getStringAttribute('amazon_side_asn');
   }
@@ -193,7 +193,7 @@ export class DxGateway extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -209,7 +209,7 @@ export class DxGateway extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

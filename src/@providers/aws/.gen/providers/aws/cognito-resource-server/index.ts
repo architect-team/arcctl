@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_resource_server
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,7 +28,7 @@ export interface CognitoResourceServerConfig extends cdktf.TerraformMetaArgument
   readonly userPoolId: string;
   /**
   * scope block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#scope CognitoResourceServer#scope}
   */
   readonly scope?: CognitoResourceServerScope[] | cdktf.IResolvable;
@@ -106,7 +106,7 @@ export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObje
   }
 
   // scope_description - computed: false, optional: false, required: true
-  private _scopeDescription?: string; 
+  private _scopeDescription?: string;
   public get scopeDescription() {
     return this.getStringAttribute('scope_description');
   }
@@ -119,7 +119,7 @@ export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObje
   }
 
   // scope_name - computed: false, optional: false, required: true
-  private _scopeName?: string; 
+  private _scopeName?: string;
   public get scopeName() {
     return this.getStringAttribute('scope_name');
   }
@@ -201,7 +201,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -217,7 +217,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   }
 
   // identifier - computed: false, optional: false, required: true
-  private _identifier?: string; 
+  private _identifier?: string;
   public get identifier() {
     return this.getStringAttribute('identifier');
   }
@@ -230,7 +230,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -248,7 +248,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string; 
+  private _userPoolId?: string;
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }

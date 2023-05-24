@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/secret
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -9,7 +9,7 @@ import * as cdktf from 'cdktf';
 export interface DataKubernetesSecretConfig extends cdktf.TerraformMetaArguments {
   /**
   * A map of the secret data with values encoded in base64 format
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#binary_data DataKubernetesSecret#binary_data}
   */
   readonly binaryData?: { [key: string]: string };
@@ -22,7 +22,7 @@ export interface DataKubernetesSecretConfig extends cdktf.TerraformMetaArguments
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#metadata DataKubernetesSecret#metadata}
   */
   readonly metadata: DataKubernetesSecretMetadata;
@@ -30,25 +30,25 @@ export interface DataKubernetesSecretConfig extends cdktf.TerraformMetaArguments
 export interface DataKubernetesSecretMetadata {
   /**
   * An unstructured key value map stored with the secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#annotations DataKubernetesSecret#annotations}
   */
   readonly annotations?: { [key: string]: string };
   /**
   * Map of string keys and values that can be used to organize and categorize (scope and select) the secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#labels DataKubernetesSecret#labels}
   */
   readonly labels?: { [key: string]: string };
   /**
   * Name of the secret, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#name DataKubernetesSecret#name}
   */
   readonly name?: string;
   /**
   * Namespace defines the space within which name of the secret must be unique.
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#namespace DataKubernetesSecret#namespace}
   */
   readonly namespace?: string;
@@ -118,7 +118,7 @@ export class DataKubernetesSecretMetadataOutputReference extends cdktf.ComplexOb
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -139,7 +139,7 @@ export class DataKubernetesSecretMetadataOutputReference extends cdktf.ComplexOb
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -155,7 +155,7 @@ export class DataKubernetesSecretMetadataOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -171,7 +171,7 @@ export class DataKubernetesSecretMetadataOutputReference extends cdktf.ComplexOb
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -244,7 +244,7 @@ export class DataKubernetesSecret extends cdktf.TerraformDataSource {
   // ==========
 
   // binary_data - computed: false, optional: true, required: false
-  private _binaryData?: { [key: string]: string }; 
+  private _binaryData?: { [key: string]: string };
   public get binaryData() {
     return this.getStringMapAttribute('binary_data');
   }
@@ -266,7 +266,7 @@ export class DataKubernetesSecret extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

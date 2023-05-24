@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,19 +24,19 @@ export interface CognitoRiskConfigurationConfig extends cdktf.TerraformMetaArgum
   readonly userPoolId: string;
   /**
   * account_takeover_risk_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#account_takeover_risk_configuration CognitoRiskConfiguration#account_takeover_risk_configuration}
   */
   readonly accountTakeoverRiskConfiguration?: CognitoRiskConfigurationAccountTakeoverRiskConfiguration;
   /**
   * compromised_credentials_risk_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#compromised_credentials_risk_configuration CognitoRiskConfiguration#compromised_credentials_risk_configuration}
   */
   readonly compromisedCredentialsRiskConfiguration?: CognitoRiskConfigurationCompromisedCredentialsRiskConfiguration;
   /**
   * risk_exception_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#risk_exception_configuration CognitoRiskConfiguration#risk_exception_configuration}
   */
   readonly riskExceptionConfiguration?: CognitoRiskConfigurationRiskExceptionConfiguration;
@@ -102,7 +102,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsHigh
   }
 
   // event_action - computed: false, optional: false, required: true
-  private _eventAction?: string; 
+  private _eventAction?: string;
   public get eventAction() {
     return this.getStringAttribute('event_action');
   }
@@ -115,7 +115,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsHigh
   }
 
   // notify - computed: false, optional: false, required: true
-  private _notify?: boolean | cdktf.IResolvable; 
+  private _notify?: boolean | cdktf.IResolvable;
   public get notify() {
     return this.getBooleanAttribute('notify');
   }
@@ -188,7 +188,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsLowA
   }
 
   // event_action - computed: false, optional: false, required: true
-  private _eventAction?: string; 
+  private _eventAction?: string;
   public get eventAction() {
     return this.getStringAttribute('event_action');
   }
@@ -201,7 +201,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsLowA
   }
 
   // notify - computed: false, optional: false, required: true
-  private _notify?: boolean | cdktf.IResolvable; 
+  private _notify?: boolean | cdktf.IResolvable;
   public get notify() {
     return this.getBooleanAttribute('notify');
   }
@@ -274,7 +274,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsMedi
   }
 
   // event_action - computed: false, optional: false, required: true
-  private _eventAction?: string; 
+  private _eventAction?: string;
   public get eventAction() {
     return this.getStringAttribute('event_action');
   }
@@ -287,7 +287,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsMedi
   }
 
   // notify - computed: false, optional: false, required: true
-  private _notify?: boolean | cdktf.IResolvable; 
+  private _notify?: boolean | cdktf.IResolvable;
   public get notify() {
     return this.getBooleanAttribute('notify');
   }
@@ -302,19 +302,19 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsMedi
 export interface CognitoRiskConfigurationAccountTakeoverRiskConfigurationActions {
   /**
   * high_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#high_action CognitoRiskConfiguration#high_action}
   */
   readonly highAction?: CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction;
   /**
   * low_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#low_action CognitoRiskConfiguration#low_action}
   */
   readonly lowAction?: CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction;
   /**
   * medium_action block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#medium_action CognitoRiskConfiguration#medium_action}
   */
   readonly mediumAction?: CognitoRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction;
@@ -496,7 +496,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // html_body - computed: false, optional: false, required: true
-  private _htmlBody?: string; 
+  private _htmlBody?: string;
   public get htmlBody() {
     return this.getStringAttribute('html_body');
   }
@@ -509,7 +509,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // subject - computed: false, optional: false, required: true
-  private _subject?: string; 
+  private _subject?: string;
   public get subject() {
     return this.getStringAttribute('subject');
   }
@@ -522,7 +522,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // text_body - computed: false, optional: false, required: true
-  private _textBody?: string; 
+  private _textBody?: string;
   public get textBody() {
     return this.getStringAttribute('text_body');
   }
@@ -606,7 +606,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // html_body - computed: false, optional: false, required: true
-  private _htmlBody?: string; 
+  private _htmlBody?: string;
   public get htmlBody() {
     return this.getStringAttribute('html_body');
   }
@@ -619,7 +619,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // subject - computed: false, optional: false, required: true
-  private _subject?: string; 
+  private _subject?: string;
   public get subject() {
     return this.getStringAttribute('subject');
   }
@@ -632,7 +632,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // text_body - computed: false, optional: false, required: true
-  private _textBody?: string; 
+  private _textBody?: string;
   public get textBody() {
     return this.getStringAttribute('text_body');
   }
@@ -716,7 +716,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // html_body - computed: false, optional: false, required: true
-  private _htmlBody?: string; 
+  private _htmlBody?: string;
   public get htmlBody() {
     return this.getStringAttribute('html_body');
   }
@@ -729,7 +729,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // subject - computed: false, optional: false, required: true
-  private _subject?: string; 
+  private _subject?: string;
   public get subject() {
     return this.getStringAttribute('subject');
   }
@@ -742,7 +742,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // text_body - computed: false, optional: false, required: true
-  private _textBody?: string; 
+  private _textBody?: string;
   public get textBody() {
     return this.getStringAttribute('text_body');
   }
@@ -769,19 +769,19 @@ export interface CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyC
   readonly sourceArn: string;
   /**
   * block_email block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#block_email CognitoRiskConfiguration#block_email}
   */
   readonly blockEmail?: CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail;
   /**
   * mfa_email block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#mfa_email CognitoRiskConfiguration#mfa_email}
   */
   readonly mfaEmail?: CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail;
   /**
   * no_action_email block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#no_action_email CognitoRiskConfiguration#no_action_email}
   */
   readonly noActionEmail?: CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail;
@@ -865,7 +865,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // from - computed: false, optional: true, required: false
-  private _from?: string; 
+  private _from?: string;
   public get from() {
     return this.getStringAttribute('from');
   }
@@ -881,7 +881,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // reply_to - computed: false, optional: true, required: false
-  private _replyTo?: string; 
+  private _replyTo?: string;
   public get replyTo() {
     return this.getStringAttribute('reply_to');
   }
@@ -897,7 +897,7 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
   }
 
   // source_arn - computed: false, optional: false, required: true
-  private _sourceArn?: string; 
+  private _sourceArn?: string;
   public get sourceArn() {
     return this.getStringAttribute('source_arn');
   }
@@ -960,13 +960,13 @@ export class CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfi
 export interface CognitoRiskConfigurationAccountTakeoverRiskConfiguration {
   /**
   * actions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#actions CognitoRiskConfiguration#actions}
   */
   readonly actions: CognitoRiskConfigurationAccountTakeoverRiskConfigurationActions;
   /**
   * notify_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#notify_configuration CognitoRiskConfiguration#notify_configuration}
   */
   readonly notifyConfiguration: CognitoRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration;
@@ -1097,7 +1097,7 @@ export class CognitoRiskConfigurationCompromisedCredentialsRiskConfigurationActi
   }
 
   // event_action - computed: false, optional: false, required: true
-  private _eventAction?: string; 
+  private _eventAction?: string;
   public get eventAction() {
     return this.getStringAttribute('event_action');
   }
@@ -1116,7 +1116,7 @@ export interface CognitoRiskConfigurationCompromisedCredentialsRiskConfiguration
   readonly eventFilter?: string[];
   /**
   * actions block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_risk_configuration#actions CognitoRiskConfiguration#actions}
   */
   readonly actions: CognitoRiskConfigurationCompromisedCredentialsRiskConfigurationActions;
@@ -1172,7 +1172,7 @@ export class CognitoRiskConfigurationCompromisedCredentialsRiskConfigurationOutp
   }
 
   // event_filter - computed: true, optional: true, required: false
-  private _eventFilter?: string[]; 
+  private _eventFilter?: string[];
   public get eventFilter() {
     return cdktf.Fn.tolist(this.getListAttribute('event_filter'));
   }
@@ -1261,7 +1261,7 @@ export class CognitoRiskConfigurationRiskExceptionConfigurationOutputReference e
   }
 
   // blocked_ip_range_list - computed: false, optional: true, required: false
-  private _blockedIpRangeList?: string[]; 
+  private _blockedIpRangeList?: string[];
   public get blockedIpRangeList() {
     return cdktf.Fn.tolist(this.getListAttribute('blocked_ip_range_list'));
   }
@@ -1277,7 +1277,7 @@ export class CognitoRiskConfigurationRiskExceptionConfigurationOutputReference e
   }
 
   // skipped_ip_range_list - computed: false, optional: true, required: false
-  private _skippedIpRangeList?: string[]; 
+  private _skippedIpRangeList?: string[];
   public get skippedIpRangeList() {
     return cdktf.Fn.tolist(this.getListAttribute('skipped_ip_range_list'));
   }
@@ -1343,7 +1343,7 @@ export class CognitoRiskConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // client_id - computed: false, optional: true, required: false
-  private _clientId?: string; 
+  private _clientId?: string;
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -1359,7 +1359,7 @@ export class CognitoRiskConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1375,7 +1375,7 @@ export class CognitoRiskConfiguration extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string; 
+  private _userPoolId?: string;
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }

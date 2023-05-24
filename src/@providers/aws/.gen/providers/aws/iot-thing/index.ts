@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_thing
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -81,7 +81,7 @@ export class IotThing extends cdktf.TerraformResource {
   }
 
   // attributes - computed: false, optional: true, required: false
-  private _attributes?: { [key: string]: string }; 
+  private _attributes?: { [key: string]: string };
   public get attributes() {
     return this.getStringMapAttribute('attributes');
   }
@@ -102,7 +102,7 @@ export class IotThing extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +118,7 @@ export class IotThing extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -131,7 +131,7 @@ export class IotThing extends cdktf.TerraformResource {
   }
 
   // thing_type_name - computed: false, optional: true, required: false
-  private _thingTypeName?: string; 
+  private _thingTypeName?: string;
   public get thingTypeName() {
     return this.getStringAttribute('thing_type_name');
   }

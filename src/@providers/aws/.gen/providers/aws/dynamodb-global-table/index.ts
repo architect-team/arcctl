@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dynamodb_global_table
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,13 +20,13 @@ export interface DynamodbGlobalTableConfig extends cdktf.TerraformMetaArguments 
   readonly name: string;
   /**
   * replica block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_global_table#replica DynamodbGlobalTable#replica}
   */
   readonly replica: DynamodbGlobalTableReplica[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_global_table#timeouts DynamodbGlobalTable#timeouts}
   */
   readonly timeouts?: DynamodbGlobalTableTimeouts;
@@ -93,7 +93,7 @@ export class DynamodbGlobalTableReplicaOutputReference extends cdktf.ComplexObje
   }
 
   // region_name - computed: false, optional: false, required: true
-  private _regionName?: string; 
+  private _regionName?: string;
   public get regionName() {
     return this.getStringAttribute('region_name');
   }
@@ -207,7 +207,7 @@ export class DynamodbGlobalTableTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -223,7 +223,7 @@ export class DynamodbGlobalTableTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -239,7 +239,7 @@ export class DynamodbGlobalTableTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -308,7 +308,7 @@ export class DynamodbGlobalTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -324,7 +324,7 @@ export class DynamodbGlobalTable extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

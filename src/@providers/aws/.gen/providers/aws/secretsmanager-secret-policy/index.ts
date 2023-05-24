@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_policy
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -76,7 +76,7 @@ export class SecretsmanagerSecretPolicy extends cdktf.TerraformResource {
   // ==========
 
   // block_public_policy - computed: false, optional: true, required: false
-  private _blockPublicPolicy?: boolean | cdktf.IResolvable; 
+  private _blockPublicPolicy?: boolean | cdktf.IResolvable;
   public get blockPublicPolicy() {
     return this.getBooleanAttribute('block_public_policy');
   }
@@ -92,7 +92,7 @@ export class SecretsmanagerSecretPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -108,7 +108,7 @@ export class SecretsmanagerSecretPolicy extends cdktf.TerraformResource {
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -121,7 +121,7 @@ export class SecretsmanagerSecretPolicy extends cdktf.TerraformResource {
   }
 
   // secret_arn - computed: false, optional: false, required: true
-  private _secretArn?: string; 
+  private _secretArn?: string;
   public get secretArn() {
     return this.getStringAttribute('secret_arn');
   }

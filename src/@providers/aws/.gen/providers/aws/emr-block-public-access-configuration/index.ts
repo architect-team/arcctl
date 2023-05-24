@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/emr_block_public_access_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface EmrBlockPublicAccessConfigurationConfig extends cdktf.Terraform
   readonly id?: string;
   /**
   * permitted_public_security_group_rule_range block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_block_public_access_configuration#permitted_public_security_group_rule_range EmrBlockPublicAccessConfiguration#permitted_public_security_group_rule_range}
   */
   readonly permittedPublicSecurityGroupRuleRange?: EmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class EmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRa
   }
 
   // max_range - computed: false, optional: false, required: true
-  private _maxRange?: number; 
+  private _maxRange?: number;
   public get maxRange() {
     return this.getNumberAttribute('max_range');
   }
@@ -111,7 +111,7 @@ export class EmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRa
   }
 
   // min_range - computed: false, optional: false, required: true
-  private _minRange?: number; 
+  private _minRange?: number;
   public get minRange() {
     return this.getNumberAttribute('min_range');
   }
@@ -191,7 +191,7 @@ export class EmrBlockPublicAccessConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // block_public_security_group_rules - computed: false, optional: false, required: true
-  private _blockPublicSecurityGroupRules?: boolean | cdktf.IResolvable; 
+  private _blockPublicSecurityGroupRules?: boolean | cdktf.IResolvable;
   public get blockPublicSecurityGroupRules() {
     return this.getBooleanAttribute('block_public_security_group_rules');
   }
@@ -204,7 +204,7 @@ export class EmrBlockPublicAccessConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_bgp_peer
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -40,7 +40,7 @@ export interface DxBgpPeerConfig extends cdktf.TerraformMetaArguments {
   readonly virtualInterfaceId: string;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_bgp_peer#timeouts DxBgpPeer#timeouts}
   */
   readonly timeouts?: DxBgpPeerTimeouts;
@@ -116,7 +116,7 @@ export class DxBgpPeerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -132,7 +132,7 @@ export class DxBgpPeerTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -200,7 +200,7 @@ export class DxBgpPeer extends cdktf.TerraformResource {
   // ==========
 
   // address_family - computed: false, optional: false, required: true
-  private _addressFamily?: string; 
+  private _addressFamily?: string;
   public get addressFamily() {
     return this.getStringAttribute('address_family');
   }
@@ -213,7 +213,7 @@ export class DxBgpPeer extends cdktf.TerraformResource {
   }
 
   // amazon_address - computed: true, optional: true, required: false
-  private _amazonAddress?: string; 
+  private _amazonAddress?: string;
   public get amazonAddress() {
     return this.getStringAttribute('amazon_address');
   }
@@ -234,7 +234,7 @@ export class DxBgpPeer extends cdktf.TerraformResource {
   }
 
   // bgp_asn - computed: false, optional: false, required: true
-  private _bgpAsn?: number; 
+  private _bgpAsn?: number;
   public get bgpAsn() {
     return this.getNumberAttribute('bgp_asn');
   }
@@ -247,7 +247,7 @@ export class DxBgpPeer extends cdktf.TerraformResource {
   }
 
   // bgp_auth_key - computed: true, optional: true, required: false
-  private _bgpAuthKey?: string; 
+  private _bgpAuthKey?: string;
   public get bgpAuthKey() {
     return this.getStringAttribute('bgp_auth_key');
   }
@@ -273,7 +273,7 @@ export class DxBgpPeer extends cdktf.TerraformResource {
   }
 
   // customer_address - computed: true, optional: true, required: false
-  private _customerAddress?: string; 
+  private _customerAddress?: string;
   public get customerAddress() {
     return this.getStringAttribute('customer_address');
   }
@@ -289,7 +289,7 @@ export class DxBgpPeer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -305,7 +305,7 @@ export class DxBgpPeer extends cdktf.TerraformResource {
   }
 
   // virtual_interface_id - computed: false, optional: false, required: true
-  private _virtualInterfaceId?: string; 
+  private _virtualInterfaceId?: string;
   public get virtualInterfaceId() {
     return this.getStringAttribute('virtual_interface_id');
   }

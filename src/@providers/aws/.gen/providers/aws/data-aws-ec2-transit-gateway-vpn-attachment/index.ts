@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpn_attachment
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -28,13 +28,13 @@ export interface DataAwsEc2TransitGatewayVpnAttachmentConfig extends cdktf.Terra
   readonly vpnConnectionId?: string;
   /**
   * filter block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpn_attachment#filter DataAwsEc2TransitGatewayVpnAttachment#filter}
   */
   readonly filter?: DataAwsEc2TransitGatewayVpnAttachmentFilter[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpn_attachment#timeouts DataAwsEc2TransitGatewayVpnAttachment#timeouts}
   */
   readonly timeouts?: DataAwsEc2TransitGatewayVpnAttachmentTimeouts;
@@ -112,7 +112,7 @@ export class DataAwsEc2TransitGatewayVpnAttachmentFilterOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -125,7 +125,7 @@ export class DataAwsEc2TransitGatewayVpnAttachmentFilterOutputReference extends 
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -217,7 +217,7 @@ export class DataAwsEc2TransitGatewayVpnAttachmentTimeoutsOutputReference extend
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -283,7 +283,7 @@ export class DataAwsEc2TransitGatewayVpnAttachment extends cdktf.TerraformDataSo
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -299,7 +299,7 @@ export class DataAwsEc2TransitGatewayVpnAttachment extends cdktf.TerraformDataSo
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -315,7 +315,7 @@ export class DataAwsEc2TransitGatewayVpnAttachment extends cdktf.TerraformDataSo
   }
 
   // transit_gateway_id - computed: false, optional: true, required: false
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -331,7 +331,7 @@ export class DataAwsEc2TransitGatewayVpnAttachment extends cdktf.TerraformDataSo
   }
 
   // vpn_connection_id - computed: false, optional: true, required: false
-  private _vpnConnectionId?: string; 
+  private _vpnConnectionId?: string;
   public get vpnConnectionId() {
     return this.getStringAttribute('vpn_connection_id');
   }

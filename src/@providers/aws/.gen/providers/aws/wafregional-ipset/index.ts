@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafregional_ipset
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -20,7 +20,7 @@ export interface WafregionalIpsetConfig extends cdktf.TerraformMetaArguments {
   readonly name: string;
   /**
   * ip_set_descriptor block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_ipset#ip_set_descriptor WafregionalIpset#ip_set_descriptor}
   */
   readonly ipSetDescriptor?: WafregionalIpsetIpSetDescriptor[] | cdktf.IResolvable;
@@ -98,7 +98,7 @@ export class WafregionalIpsetIpSetDescriptorOutputReference extends cdktf.Comple
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -111,7 +111,7 @@ export class WafregionalIpsetIpSetDescriptorOutputReference extends cdktf.Comple
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -196,7 +196,7 @@ export class WafregionalIpset extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -212,7 +212,7 @@ export class WafregionalIpset extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

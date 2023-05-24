@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -52,25 +52,25 @@ export interface GameliftGameServerGroupConfig extends cdktf.TerraformMetaArgume
   readonly vpcSubnets?: string[];
   /**
   * auto_scaling_policy block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#auto_scaling_policy GameliftGameServerGroup#auto_scaling_policy}
   */
   readonly autoScalingPolicy?: GameliftGameServerGroupAutoScalingPolicy;
   /**
   * instance_definition block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#instance_definition GameliftGameServerGroup#instance_definition}
   */
   readonly instanceDefinition: GameliftGameServerGroupInstanceDefinition[] | cdktf.IResolvable;
   /**
   * launch_template block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#launch_template GameliftGameServerGroup#launch_template}
   */
   readonly launchTemplate: GameliftGameServerGroupLaunchTemplate;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#timeouts GameliftGameServerGroup#timeouts}
   */
   readonly timeouts?: GameliftGameServerGroupTimeouts;
@@ -125,7 +125,7 @@ export class GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration
   }
 
   // target_value - computed: false, optional: false, required: true
-  private _targetValue?: number; 
+  private _targetValue?: number;
   public get targetValue() {
     return this.getNumberAttribute('target_value');
   }
@@ -144,7 +144,7 @@ export interface GameliftGameServerGroupAutoScalingPolicy {
   readonly estimatedInstanceWarmup?: number;
   /**
   * target_tracking_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#target_tracking_configuration GameliftGameServerGroup#target_tracking_configuration}
   */
   readonly targetTrackingConfiguration: GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration;
@@ -200,7 +200,7 @@ export class GameliftGameServerGroupAutoScalingPolicyOutputReference extends cdk
   }
 
   // estimated_instance_warmup - computed: true, optional: true, required: false
-  private _estimatedInstanceWarmup?: number; 
+  private _estimatedInstanceWarmup?: number;
   public get estimatedInstanceWarmup() {
     return this.getNumberAttribute('estimated_instance_warmup');
   }
@@ -301,7 +301,7 @@ export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cd
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -314,7 +314,7 @@ export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cd
   }
 
   // weighted_capacity - computed: false, optional: true, required: false
-  private _weightedCapacity?: string; 
+  private _weightedCapacity?: string;
   public get weightedCapacity() {
     return this.getStringAttribute('weighted_capacity');
   }
@@ -424,7 +424,7 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -440,7 +440,7 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -456,7 +456,7 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -542,7 +542,7 @@ export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -558,7 +558,7 @@ export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -642,7 +642,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // balancing_strategy - computed: true, optional: true, required: false
-  private _balancingStrategy?: string; 
+  private _balancingStrategy?: string;
   public get balancingStrategy() {
     return this.getStringAttribute('balancing_strategy');
   }
@@ -658,7 +658,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // game_server_group_name - computed: false, optional: false, required: true
-  private _gameServerGroupName?: string; 
+  private _gameServerGroupName?: string;
   public get gameServerGroupName() {
     return this.getStringAttribute('game_server_group_name');
   }
@@ -671,7 +671,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // game_server_protection_policy - computed: true, optional: true, required: false
-  private _gameServerProtectionPolicy?: string; 
+  private _gameServerProtectionPolicy?: string;
   public get gameServerProtectionPolicy() {
     return this.getStringAttribute('game_server_protection_policy');
   }
@@ -687,7 +687,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -703,7 +703,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // max_size - computed: false, optional: false, required: true
-  private _maxSize?: number; 
+  private _maxSize?: number;
   public get maxSize() {
     return this.getNumberAttribute('max_size');
   }
@@ -716,7 +716,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // min_size - computed: false, optional: false, required: true
-  private _minSize?: number; 
+  private _minSize?: number;
   public get minSize() {
     return this.getNumberAttribute('min_size');
   }
@@ -729,7 +729,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -742,7 +742,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -758,7 +758,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -774,7 +774,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // vpc_subnets - computed: false, optional: true, required: false
-  private _vpcSubnets?: string[]; 
+  private _vpcSubnets?: string[];
   public get vpcSubnets() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_subnets'));
   }

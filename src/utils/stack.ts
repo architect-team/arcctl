@@ -1,7 +1,7 @@
 import { ResourceModule } from '../@providers/module.js';
 import { ResourceInputs, ResourceType } from '@resources/index.js';
 import { TerraformOutput, TerraformStack } from 'cdktf';
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 
 export class CldCtlTerraformStack extends TerraformStack {
   addModule<T extends ResourceType>(

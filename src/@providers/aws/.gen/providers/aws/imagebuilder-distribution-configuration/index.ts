@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,7 +32,7 @@ export interface ImagebuilderDistributionConfigurationConfig extends cdktf.Terra
   readonly tagsAll?: { [key: string]: string };
   /**
   * distribution block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#distribution ImagebuilderDistributionConfiguration#distribution}
   */
   readonly distribution: ImagebuilderDistributionConfigurationDistribution[] | cdktf.IResolvable;
@@ -120,7 +120,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // organization_arns - computed: false, optional: true, required: false
-  private _organizationArns?: string[]; 
+  private _organizationArns?: string[];
   public get organizationArns() {
     return cdktf.Fn.tolist(this.getListAttribute('organization_arns'));
   }
@@ -136,7 +136,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // organizational_unit_arns - computed: false, optional: true, required: false
-  private _organizationalUnitArns?: string[]; 
+  private _organizationalUnitArns?: string[];
   public get organizationalUnitArns() {
     return cdktf.Fn.tolist(this.getListAttribute('organizational_unit_arns'));
   }
@@ -152,7 +152,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // user_groups - computed: false, optional: true, required: false
-  private _userGroups?: string[]; 
+  private _userGroups?: string[];
   public get userGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('user_groups'));
   }
@@ -168,7 +168,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // user_ids - computed: false, optional: true, required: false
-  private _userIds?: string[]; 
+  private _userIds?: string[];
   public get userIds() {
     return cdktf.Fn.tolist(this.getListAttribute('user_ids'));
   }
@@ -206,7 +206,7 @@ export interface ImagebuilderDistributionConfigurationDistributionAmiDistributio
   readonly targetAccountIds?: string[];
   /**
   * launch_permission block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#launch_permission ImagebuilderDistributionConfiguration#launch_permission}
   */
   readonly launchPermission?: ImagebuilderDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission;
@@ -290,7 +290,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // ami_tags - computed: false, optional: true, required: false
-  private _amiTags?: { [key: string]: string }; 
+  private _amiTags?: { [key: string]: string };
   public get amiTags() {
     return this.getStringMapAttribute('ami_tags');
   }
@@ -306,7 +306,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -322,7 +322,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -338,7 +338,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -354,7 +354,7 @@ export class ImagebuilderDistributionConfigurationDistributionAmiDistributionCon
   }
 
   // target_account_ids - computed: false, optional: true, required: false
-  private _targetAccountIds?: string[]; 
+  private _targetAccountIds?: string[];
   public get targetAccountIds() {
     return cdktf.Fn.tolist(this.getListAttribute('target_account_ids'));
   }
@@ -446,7 +446,7 @@ export class ImagebuilderDistributionConfigurationDistributionContainerDistribut
   }
 
   // repository_name - computed: false, optional: false, required: true
-  private _repositoryName?: string; 
+  private _repositoryName?: string;
   public get repositoryName() {
     return this.getStringAttribute('repository_name');
   }
@@ -459,7 +459,7 @@ export class ImagebuilderDistributionConfigurationDistributionContainerDistribut
   }
 
   // service - computed: false, optional: false, required: true
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -482,7 +482,7 @@ export interface ImagebuilderDistributionConfigurationDistributionContainerDistr
   readonly description?: string;
   /**
   * target_repository block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#target_repository ImagebuilderDistributionConfiguration#target_repository}
   */
   readonly targetRepository: ImagebuilderDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository;
@@ -545,7 +545,7 @@ export class ImagebuilderDistributionConfigurationDistributionContainerDistribut
   }
 
   // container_tags - computed: false, optional: true, required: false
-  private _containerTags?: string[]; 
+  private _containerTags?: string[];
   public get containerTags() {
     return cdktf.Fn.tolist(this.getListAttribute('container_tags'));
   }
@@ -561,7 +561,7 @@ export class ImagebuilderDistributionConfigurationDistributionContainerDistribut
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -661,7 +661,7 @@ export class ImagebuilderDistributionConfigurationDistributionFastLaunchConfigur
   }
 
   // launch_template_id - computed: false, optional: true, required: false
-  private _launchTemplateId?: string; 
+  private _launchTemplateId?: string;
   public get launchTemplateId() {
     return this.getStringAttribute('launch_template_id');
   }
@@ -677,7 +677,7 @@ export class ImagebuilderDistributionConfigurationDistributionFastLaunchConfigur
   }
 
   // launch_template_name - computed: false, optional: true, required: false
-  private _launchTemplateName?: string; 
+  private _launchTemplateName?: string;
   public get launchTemplateName() {
     return this.getStringAttribute('launch_template_name');
   }
@@ -693,7 +693,7 @@ export class ImagebuilderDistributionConfigurationDistributionFastLaunchConfigur
   }
 
   // launch_template_version - computed: false, optional: true, required: false
-  private _launchTemplateVersion?: string; 
+  private _launchTemplateVersion?: string;
   public get launchTemplateVersion() {
     return this.getStringAttribute('launch_template_version');
   }
@@ -758,7 +758,7 @@ export class ImagebuilderDistributionConfigurationDistributionFastLaunchConfigur
   }
 
   // target_resource_count - computed: false, optional: true, required: false
-  private _targetResourceCount?: number; 
+  private _targetResourceCount?: number;
   public get targetResourceCount() {
     return this.getNumberAttribute('target_resource_count');
   }
@@ -788,13 +788,13 @@ export interface ImagebuilderDistributionConfigurationDistributionFastLaunchConf
   readonly maxParallelLaunches?: number;
   /**
   * launch_template block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#launch_template ImagebuilderDistributionConfiguration#launch_template}
   */
   readonly launchTemplate?: ImagebuilderDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate;
   /**
   * snapshot_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#snapshot_configuration ImagebuilderDistributionConfiguration#snapshot_configuration}
   */
   readonly snapshotConfiguration?: ImagebuilderDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration;
@@ -883,7 +883,7 @@ export class ImagebuilderDistributionConfigurationDistributionFastLaunchConfigur
   }
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -896,7 +896,7 @@ export class ImagebuilderDistributionConfigurationDistributionFastLaunchConfigur
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -909,7 +909,7 @@ export class ImagebuilderDistributionConfigurationDistributionFastLaunchConfigur
   }
 
   // max_parallel_launches - computed: false, optional: true, required: false
-  private _maxParallelLaunches?: number; 
+  private _maxParallelLaunches?: number;
   public get maxParallelLaunches() {
     return this.getNumberAttribute('max_parallel_launches');
   }
@@ -1060,7 +1060,7 @@ export class ImagebuilderDistributionConfigurationDistributionLaunchTemplateConf
   }
 
   // account_id - computed: false, optional: true, required: false
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -1076,7 +1076,7 @@ export class ImagebuilderDistributionConfigurationDistributionLaunchTemplateConf
   }
 
   // default - computed: false, optional: true, required: false
-  private _default?: boolean | cdktf.IResolvable; 
+  private _default?: boolean | cdktf.IResolvable;
   public get default() {
     return this.getBooleanAttribute('default');
   }
@@ -1092,7 +1092,7 @@ export class ImagebuilderDistributionConfigurationDistributionLaunchTemplateConf
   }
 
   // launch_template_id - computed: false, optional: false, required: true
-  private _launchTemplateId?: string; 
+  private _launchTemplateId?: string;
   public get launchTemplateId() {
     return this.getStringAttribute('launch_template_id');
   }
@@ -1135,25 +1135,25 @@ export interface ImagebuilderDistributionConfigurationDistribution {
   readonly region: string;
   /**
   * ami_distribution_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#ami_distribution_configuration ImagebuilderDistributionConfiguration#ami_distribution_configuration}
   */
   readonly amiDistributionConfiguration?: ImagebuilderDistributionConfigurationDistributionAmiDistributionConfiguration;
   /**
   * container_distribution_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#container_distribution_configuration ImagebuilderDistributionConfiguration#container_distribution_configuration}
   */
   readonly containerDistributionConfiguration?: ImagebuilderDistributionConfigurationDistributionContainerDistributionConfiguration;
   /**
   * fast_launch_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#fast_launch_configuration ImagebuilderDistributionConfiguration#fast_launch_configuration}
   */
   readonly fastLaunchConfiguration?: ImagebuilderDistributionConfigurationDistributionFastLaunchConfiguration[] | cdktf.IResolvable;
   /**
   * launch_template_configuration block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_distribution_configuration#launch_template_configuration ImagebuilderDistributionConfiguration#launch_template_configuration}
   */
   readonly launchTemplateConfiguration?: ImagebuilderDistributionConfigurationDistributionLaunchTemplateConfiguration[] | cdktf.IResolvable;
@@ -1249,7 +1249,7 @@ export class ImagebuilderDistributionConfigurationDistributionOutputReference ex
   }
 
   // license_configuration_arns - computed: false, optional: true, required: false
-  private _licenseConfigurationArns?: string[]; 
+  private _licenseConfigurationArns?: string[];
   public get licenseConfigurationArns() {
     return cdktf.Fn.tolist(this.getListAttribute('license_configuration_arns'));
   }
@@ -1265,7 +1265,7 @@ export class ImagebuilderDistributionConfigurationDistributionOutputReference ex
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -1427,7 +1427,7 @@ export class ImagebuilderDistributionConfiguration extends cdktf.TerraformResour
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1443,7 +1443,7 @@ export class ImagebuilderDistributionConfiguration extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1459,7 +1459,7 @@ export class ImagebuilderDistributionConfiguration extends cdktf.TerraformResour
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1472,7 +1472,7 @@ export class ImagebuilderDistributionConfiguration extends cdktf.TerraformResour
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1488,7 +1488,7 @@ export class ImagebuilderDistributionConfiguration extends cdktf.TerraformResour
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

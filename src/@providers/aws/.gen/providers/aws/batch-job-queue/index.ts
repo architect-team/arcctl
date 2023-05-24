@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/batch_job_queue
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -101,7 +101,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // compute_environments - computed: false, optional: false, required: true
-  private _computeEnvironments?: string[]; 
+  private _computeEnvironments?: string[];
   public get computeEnvironments() {
     return this.getListAttribute('compute_environments');
   }
@@ -114,7 +114,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -130,7 +130,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -143,7 +143,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // priority - computed: false, optional: false, required: true
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -156,7 +156,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // scheduling_policy_arn - computed: false, optional: true, required: false
-  private _schedulingPolicyArn?: string; 
+  private _schedulingPolicyArn?: string;
   public get schedulingPolicyArn() {
     return this.getStringAttribute('scheduling_policy_arn');
   }
@@ -172,7 +172,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // state - computed: false, optional: false, required: true
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -185,7 +185,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -201,7 +201,7 @@ export class BatchJobQueue extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

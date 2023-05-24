@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/docdb_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -120,7 +120,7 @@ export interface DocdbClusterConfig extends cdktf.TerraformMetaArguments {
   readonly vpcSecurityGroupIds?: string[];
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/docdb_cluster#timeouts DocdbCluster#timeouts}
   */
   readonly timeouts?: DocdbClusterTimeouts;
@@ -207,7 +207,7 @@ export class DocdbClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -223,7 +223,7 @@ export class DocdbClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -239,7 +239,7 @@ export class DocdbClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -327,7 +327,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   // ==========
 
   // apply_immediately - computed: true, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -348,7 +348,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // availability_zones - computed: true, optional: true, required: false
-  private _availabilityZones?: string[]; 
+  private _availabilityZones?: string[];
   public get availabilityZones() {
     return cdktf.Fn.tolist(this.getListAttribute('availability_zones'));
   }
@@ -364,7 +364,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // backup_retention_period - computed: false, optional: true, required: false
-  private _backupRetentionPeriod?: number; 
+  private _backupRetentionPeriod?: number;
   public get backupRetentionPeriod() {
     return this.getNumberAttribute('backup_retention_period');
   }
@@ -380,7 +380,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // cluster_identifier - computed: true, optional: true, required: false
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -396,7 +396,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // cluster_identifier_prefix - computed: true, optional: true, required: false
-  private _clusterIdentifierPrefix?: string; 
+  private _clusterIdentifierPrefix?: string;
   public get clusterIdentifierPrefix() {
     return this.getStringAttribute('cluster_identifier_prefix');
   }
@@ -412,7 +412,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // cluster_members - computed: true, optional: true, required: false
-  private _clusterMembers?: string[]; 
+  private _clusterMembers?: string[];
   public get clusterMembers() {
     return cdktf.Fn.tolist(this.getListAttribute('cluster_members'));
   }
@@ -433,7 +433,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // db_cluster_parameter_group_name - computed: true, optional: true, required: false
-  private _dbClusterParameterGroupName?: string; 
+  private _dbClusterParameterGroupName?: string;
   public get dbClusterParameterGroupName() {
     return this.getStringAttribute('db_cluster_parameter_group_name');
   }
@@ -449,7 +449,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // db_subnet_group_name - computed: true, optional: true, required: false
-  private _dbSubnetGroupName?: string; 
+  private _dbSubnetGroupName?: string;
   public get dbSubnetGroupName() {
     return this.getStringAttribute('db_subnet_group_name');
   }
@@ -465,7 +465,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // deletion_protection - computed: false, optional: true, required: false
-  private _deletionProtection?: boolean | cdktf.IResolvable; 
+  private _deletionProtection?: boolean | cdktf.IResolvable;
   public get deletionProtection() {
     return this.getBooleanAttribute('deletion_protection');
   }
@@ -481,7 +481,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // enabled_cloudwatch_logs_exports - computed: false, optional: true, required: false
-  private _enabledCloudwatchLogsExports?: string[]; 
+  private _enabledCloudwatchLogsExports?: string[];
   public get enabledCloudwatchLogsExports() {
     return this.getListAttribute('enabled_cloudwatch_logs_exports');
   }
@@ -502,7 +502,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // engine - computed: false, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -518,7 +518,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -534,7 +534,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // final_snapshot_identifier - computed: false, optional: true, required: false
-  private _finalSnapshotIdentifier?: string; 
+  private _finalSnapshotIdentifier?: string;
   public get finalSnapshotIdentifier() {
     return this.getStringAttribute('final_snapshot_identifier');
   }
@@ -550,7 +550,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // global_cluster_identifier - computed: false, optional: true, required: false
-  private _globalClusterIdentifier?: string; 
+  private _globalClusterIdentifier?: string;
   public get globalClusterIdentifier() {
     return this.getStringAttribute('global_cluster_identifier');
   }
@@ -571,7 +571,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -587,7 +587,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -603,7 +603,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // master_password - computed: false, optional: true, required: false
-  private _masterPassword?: string; 
+  private _masterPassword?: string;
   public get masterPassword() {
     return this.getStringAttribute('master_password');
   }
@@ -619,7 +619,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // master_username - computed: true, optional: true, required: false
-  private _masterUsername?: string; 
+  private _masterUsername?: string;
   public get masterUsername() {
     return this.getStringAttribute('master_username');
   }
@@ -635,7 +635,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -651,7 +651,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // preferred_backup_window - computed: true, optional: true, required: false
-  private _preferredBackupWindow?: string; 
+  private _preferredBackupWindow?: string;
   public get preferredBackupWindow() {
     return this.getStringAttribute('preferred_backup_window');
   }
@@ -667,7 +667,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // preferred_maintenance_window - computed: true, optional: true, required: false
-  private _preferredMaintenanceWindow?: string; 
+  private _preferredMaintenanceWindow?: string;
   public get preferredMaintenanceWindow() {
     return this.getStringAttribute('preferred_maintenance_window');
   }
@@ -688,7 +688,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // skip_final_snapshot - computed: false, optional: true, required: false
-  private _skipFinalSnapshot?: boolean | cdktf.IResolvable; 
+  private _skipFinalSnapshot?: boolean | cdktf.IResolvable;
   public get skipFinalSnapshot() {
     return this.getBooleanAttribute('skip_final_snapshot');
   }
@@ -704,7 +704,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // snapshot_identifier - computed: false, optional: true, required: false
-  private _snapshotIdentifier?: string; 
+  private _snapshotIdentifier?: string;
   public get snapshotIdentifier() {
     return this.getStringAttribute('snapshot_identifier');
   }
@@ -720,7 +720,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // storage_encrypted - computed: false, optional: true, required: false
-  private _storageEncrypted?: boolean | cdktf.IResolvable; 
+  private _storageEncrypted?: boolean | cdktf.IResolvable;
   public get storageEncrypted() {
     return this.getBooleanAttribute('storage_encrypted');
   }
@@ -736,7 +736,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -752,7 +752,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -768,7 +768,7 @@ export class DocdbCluster extends cdktf.TerraformResource {
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[]; 
+  private _vpcSecurityGroupIds?: string[];
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }

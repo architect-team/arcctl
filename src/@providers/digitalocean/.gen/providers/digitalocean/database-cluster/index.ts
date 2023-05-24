@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_cluster
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -56,13 +56,13 @@ export interface DatabaseClusterConfig extends cdktf.TerraformMetaArguments {
   readonly version?: string;
   /**
   * maintenance_window block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#maintenance_window DatabaseCluster#maintenance_window}
   */
   readonly maintenanceWindow?: DatabaseClusterMaintenanceWindow[] | cdktf.IResolvable;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#timeouts DatabaseCluster#timeouts}
   */
   readonly timeouts?: DatabaseClusterTimeouts;
@@ -140,7 +140,7 @@ export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.Compl
   }
 
   // day - computed: false, optional: false, required: true
-  private _day?: string; 
+  private _day?: string;
   public get day() {
     return this.getStringAttribute('day');
   }
@@ -153,7 +153,7 @@ export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.Compl
   }
 
   // hour - computed: false, optional: false, required: true
-  private _hour?: string; 
+  private _hour?: string;
   public get hour() {
     return this.getStringAttribute('hour');
   }
@@ -245,7 +245,7 @@ export class DatabaseClusterTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -323,7 +323,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // engine - computed: false, optional: false, required: true
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -336,7 +336,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // eviction_policy - computed: false, optional: true, required: false
-  private _evictionPolicy?: string; 
+  private _evictionPolicy?: string;
   public get evictionPolicy() {
     return this.getStringAttribute('eviction_policy');
   }
@@ -357,7 +357,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -373,7 +373,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -386,7 +386,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // node_count - computed: false, optional: false, required: true
-  private _nodeCount?: number; 
+  private _nodeCount?: number;
   public get nodeCount() {
     return this.getNumberAttribute('node_count');
   }
@@ -414,7 +414,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // private_network_uuid - computed: true, optional: true, required: false
-  private _privateNetworkUuid?: string; 
+  private _privateNetworkUuid?: string;
   public get privateNetworkUuid() {
     return this.getStringAttribute('private_network_uuid');
   }
@@ -435,7 +435,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -448,7 +448,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: string; 
+  private _size?: string;
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -461,7 +461,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // sql_mode - computed: false, optional: true, required: false
-  private _sqlMode?: string; 
+  private _sqlMode?: string;
   public get sqlMode() {
     return this.getStringAttribute('sql_mode');
   }
@@ -477,7 +477,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[]; 
+  private _tags?: string[];
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -508,7 +508,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }

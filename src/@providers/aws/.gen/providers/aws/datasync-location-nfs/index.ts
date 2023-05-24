@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -32,13 +32,13 @@ export interface DatasyncLocationNfsConfig extends cdktf.TerraformMetaArguments 
   readonly tagsAll?: { [key: string]: string };
   /**
   * mount_options block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#mount_options DatasyncLocationNfs#mount_options}
   */
   readonly mountOptions?: DatasyncLocationNfsMountOptions;
   /**
   * on_prem_config block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#on_prem_config DatasyncLocationNfs#on_prem_config}
   */
   readonly onPremConfig: DatasyncLocationNfsOnPremConfig;
@@ -93,7 +93,7 @@ export class DatasyncLocationNfsMountOptionsOutputReference extends cdktf.Comple
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -158,7 +158,7 @@ export class DatasyncLocationNfsOnPremConfigOutputReference extends cdktf.Comple
   }
 
   // agent_arns - computed: false, optional: false, required: true
-  private _agentArns?: string[]; 
+  private _agentArns?: string[];
   public get agentArns() {
     return cdktf.Fn.tolist(this.getListAttribute('agent_arns'));
   }
@@ -227,7 +227,7 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -243,7 +243,7 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
   }
 
   // server_hostname - computed: false, optional: false, required: true
-  private _serverHostname?: string; 
+  private _serverHostname?: string;
   public get serverHostname() {
     return this.getStringAttribute('server_hostname');
   }
@@ -256,7 +256,7 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
   }
 
   // subdirectory - computed: false, optional: false, required: true
-  private _subdirectory?: string; 
+  private _subdirectory?: string;
   public get subdirectory() {
     return this.getStringAttribute('subdirectory');
   }
@@ -269,7 +269,7 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -285,7 +285,7 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

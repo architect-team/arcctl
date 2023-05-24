@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/service
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -86,7 +86,7 @@ export class DataAwsService extends cdktf.TerraformDataSource {
   // ==========
 
   // dns_name - computed: true, optional: true, required: false
-  private _dnsName?: string; 
+  private _dnsName?: string;
   public get dnsName() {
     return this.getStringAttribute('dns_name');
   }
@@ -102,7 +102,7 @@ export class DataAwsService extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -123,7 +123,7 @@ export class DataAwsService extends cdktf.TerraformDataSource {
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -139,7 +139,7 @@ export class DataAwsService extends cdktf.TerraformDataSource {
   }
 
   // reverse_dns_name - computed: true, optional: true, required: false
-  private _reverseDnsName?: string; 
+  private _reverseDnsName?: string;
   public get reverseDnsName() {
     return this.getStringAttribute('reverse_dns_name');
   }
@@ -155,7 +155,7 @@ export class DataAwsService extends cdktf.TerraformDataSource {
   }
 
   // reverse_dns_prefix - computed: true, optional: true, required: false
-  private _reverseDnsPrefix?: string; 
+  private _reverseDnsPrefix?: string;
   public get reverseDnsPrefix() {
     return this.getStringAttribute('reverse_dns_prefix');
   }
@@ -171,7 +171,7 @@ export class DataAwsService extends cdktf.TerraformDataSource {
   }
 
   // service_id - computed: true, optional: true, required: false
-  private _serviceId?: string; 
+  private _serviceId?: string;
   public get serviceId() {
     return this.getStringAttribute('service_id');
   }

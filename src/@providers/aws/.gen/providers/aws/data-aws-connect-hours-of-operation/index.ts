@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/connect_hours_of_operation
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -316,7 +316,7 @@ export class DataAwsConnectHoursOfOperation extends cdktf.TerraformDataSource {
   }
 
   // hours_of_operation_id - computed: true, optional: true, required: false
-  private _hoursOfOperationId?: string; 
+  private _hoursOfOperationId?: string;
   public get hoursOfOperationId() {
     return this.getStringAttribute('hours_of_operation_id');
   }
@@ -332,7 +332,7 @@ export class DataAwsConnectHoursOfOperation extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -348,7 +348,7 @@ export class DataAwsConnectHoursOfOperation extends cdktf.TerraformDataSource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -361,7 +361,7 @@ export class DataAwsConnectHoursOfOperation extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -377,7 +377,7 @@ export class DataAwsConnectHoursOfOperation extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

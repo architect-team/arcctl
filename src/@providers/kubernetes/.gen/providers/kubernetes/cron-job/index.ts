@@ -1,16 +1,16 @@
 // generated from terraform resource schema
 
-import { CronJobMetadata, 
-cronJobMetadataToTerraform, 
-CronJobMetadataOutputReference, 
-CronJobSpec, 
-cronJobSpecToTerraform, 
-CronJobSpecOutputReference, 
-CronJobTimeouts, 
-cronJobTimeoutsToTerraform, 
+import { CronJobMetadata,
+cronJobMetadataToTerraform,
+CronJobMetadataOutputReference,
+CronJobSpec,
+cronJobSpecToTerraform,
+CronJobSpecOutputReference,
+CronJobTimeouts,
+cronJobTimeoutsToTerraform,
 CronJobTimeoutsOutputReference} from './index-structs'
 export * from './index-structs'
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 export interface CronJobConfig extends cdktf.TerraformMetaArguments {
   /**
@@ -22,19 +22,19 @@ export interface CronJobConfig extends cdktf.TerraformMetaArguments {
   readonly id?: string;
   /**
   * metadata block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cron_job#metadata CronJob#metadata}
   */
   readonly metadata: CronJobMetadata;
   /**
   * spec block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cron_job#spec CronJob#spec}
   */
   readonly spec: CronJobSpec;
   /**
   * timeouts block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cron_job#timeouts CronJob#timeouts}
   */
   readonly timeouts?: CronJobTimeouts;
@@ -88,7 +88,7 @@ export class CronJob extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

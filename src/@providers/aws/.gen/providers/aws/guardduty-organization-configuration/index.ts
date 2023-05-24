@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -24,7 +24,7 @@ export interface GuarddutyOrganizationConfigurationConfig extends cdktf.Terrafor
   readonly id?: string;
   /**
   * datasources block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#datasources GuarddutyOrganizationConfiguration#datasources}
   */
   readonly datasources?: GuarddutyOrganizationConfigurationDatasources;
@@ -79,7 +79,7 @@ export class GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOut
   }
 
   // enable - computed: false, optional: false, required: true
-  private _enable?: boolean | cdktf.IResolvable; 
+  private _enable?: boolean | cdktf.IResolvable;
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -94,7 +94,7 @@ export class GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOut
 export interface GuarddutyOrganizationConfigurationDatasourcesKubernetes {
   /**
   * audit_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#audit_logs GuarddutyOrganizationConfiguration#audit_logs}
   */
   readonly auditLogs: GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs;
@@ -205,7 +205,7 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanE
   }
 
   // auto_enable - computed: false, optional: false, required: true
-  private _autoEnable?: boolean | cdktf.IResolvable; 
+  private _autoEnable?: boolean | cdktf.IResolvable;
   public get autoEnable() {
     return this.getBooleanAttribute('auto_enable');
   }
@@ -220,7 +220,7 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanE
 export interface GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
   /**
   * ebs_volumes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#ebs_volumes GuarddutyOrganizationConfiguration#ebs_volumes}
   */
   readonly ebsVolumes: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes;
@@ -284,7 +284,7 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanE
 export interface GuarddutyOrganizationConfigurationDatasourcesMalwareProtection {
   /**
   * scan_ec2_instance_with_findings block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#scan_ec2_instance_with_findings GuarddutyOrganizationConfiguration#scan_ec2_instance_with_findings}
   */
   readonly scanEc2InstanceWithFindings: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings;
@@ -395,7 +395,7 @@ export class GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference 
   }
 
   // auto_enable - computed: false, optional: false, required: true
-  private _autoEnable?: boolean | cdktf.IResolvable; 
+  private _autoEnable?: boolean | cdktf.IResolvable;
   public get autoEnable() {
     return this.getBooleanAttribute('auto_enable');
   }
@@ -410,19 +410,19 @@ export class GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference 
 export interface GuarddutyOrganizationConfigurationDatasources {
   /**
   * kubernetes block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#kubernetes GuarddutyOrganizationConfiguration#kubernetes}
   */
   readonly kubernetes?: GuarddutyOrganizationConfigurationDatasourcesKubernetes;
   /**
   * malware_protection block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#malware_protection GuarddutyOrganizationConfiguration#malware_protection}
   */
   readonly malwareProtection?: GuarddutyOrganizationConfigurationDatasourcesMalwareProtection;
   /**
   * s3_logs block
-  * 
+  *
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#s3_logs GuarddutyOrganizationConfiguration#s3_logs}
   */
   readonly s3Logs?: GuarddutyOrganizationConfigurationDatasourcesS3Logs;
@@ -581,7 +581,7 @@ export class GuarddutyOrganizationConfiguration extends cdktf.TerraformResource 
   // ==========
 
   // auto_enable - computed: false, optional: false, required: true
-  private _autoEnable?: boolean | cdktf.IResolvable; 
+  private _autoEnable?: boolean | cdktf.IResolvable;
   public get autoEnable() {
     return this.getBooleanAttribute('auto_enable');
   }
@@ -594,7 +594,7 @@ export class GuarddutyOrganizationConfiguration extends cdktf.TerraformResource 
   }
 
   // detector_id - computed: false, optional: false, required: true
-  private _detectorId?: string; 
+  private _detectorId?: string;
   public get detectorId() {
     return this.getStringAttribute('detector_id');
   }
@@ -607,7 +607,7 @@ export class GuarddutyOrganizationConfiguration extends cdktf.TerraformResource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }

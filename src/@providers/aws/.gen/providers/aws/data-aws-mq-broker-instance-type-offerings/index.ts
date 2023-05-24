@@ -1,7 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/mq_broker_instance_type_offerings
 // generated from terraform resource schema
 
-import { Construct } from 'constructs';
+import { Construct } from 'npm:constructs';
 import * as cdktf from 'cdktf';
 
 // Configuration
@@ -236,7 +236,7 @@ export class DataAwsMqBrokerInstanceTypeOfferings extends cdktf.TerraformDataSou
   }
 
   // engine_type - computed: false, optional: true, required: false
-  private _engineType?: string; 
+  private _engineType?: string;
   public get engineType() {
     return this.getStringAttribute('engine_type');
   }
@@ -252,7 +252,7 @@ export class DataAwsMqBrokerInstanceTypeOfferings extends cdktf.TerraformDataSou
   }
 
   // host_instance_type - computed: false, optional: true, required: false
-  private _hostInstanceType?: string; 
+  private _hostInstanceType?: string;
   public get hostInstanceType() {
     return this.getStringAttribute('host_instance_type');
   }
@@ -268,7 +268,7 @@ export class DataAwsMqBrokerInstanceTypeOfferings extends cdktf.TerraformDataSou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -284,7 +284,7 @@ export class DataAwsMqBrokerInstanceTypeOfferings extends cdktf.TerraformDataSou
   }
 
   // storage_type - computed: false, optional: true, required: false
-  private _storageType?: string; 
+  private _storageType?: string;
   public get storageType() {
     return this.getStringAttribute('storage_type');
   }

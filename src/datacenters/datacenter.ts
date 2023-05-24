@@ -1,4 +1,4 @@
-import { CloudGraph } from '../cloud-graph/index.js';
+import { CloudGraph } from '../cloud-graph/index.ts';
 import { Construct } from 'npm:constructs';
 
 export abstract class Datacenter {

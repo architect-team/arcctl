@@ -1,3 +1,3 @@
-export * from './datacenter.js';
-export * from './parser.js';
-export * from './schema.js';
+export * from './datacenter.ts';
+export * from './parser.ts';
+export * from './schema.ts';

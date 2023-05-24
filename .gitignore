@@ -4,6 +4,7 @@
 /dist
 /lib
 /tmp
+/bin/scripts/build
 node_modules
 oclif.manifest.json
 coverage

@@ -1,5 +1,5 @@
-import { Datacenter } from './datacenter.js';
-import datacenter_v1 from './v1/index.js';
+import { Datacenter } from './datacenter.ts';
+import datacenter_v1 from './v1/index.ts';
 
 export type DatacenterSchema =
   | ({

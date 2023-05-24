@@ -1,11 +1,11 @@
 #!/usr/bin/env ts-node
-import fs from 'fs/promises';
-import Mustache from 'mustache';
-import path from 'path';
-import url from 'url';
+import fs from "fs/promises";
+import Mustache from "mustache";
+import path from "path";
+import url from "url";
 
-const __dirname = new URL('.', import.meta.url).pathname;
-const providersDir = path.join(__dirname, '../../src/@providers/');
+const __dirname = new URL(".", import.meta.url).pathname;
+const providersDir = path.join(__dirname, "../../src/@providers/");
 
 const allProviders = (await fs.readdir(providersDir, { withFileTypes: true }))
   // eslint-disable-next-line unicorn/no-await-expression-member
@@ -31,11 +31,11 @@ for (const type of allProviders) {
 }
 
 fs.writeFile(
-  path.join(providersDir, 'supported-providers.ts'),
+  path.join(providersDir, "supported-providers.ts"),
   Mustache.render(
     await fs.readFile(
-      path.join(providersDir, 'supported-providers.ts.stache'),
-      'utf8',
+      path.join(providersDir, "supported-providers.ts.stache"),
+      "utf8",
     ),
     providerTypeFileOptions,
   ),

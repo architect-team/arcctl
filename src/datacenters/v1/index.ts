@@ -2,14 +2,14 @@ import {
   InputSchema,
   ResourceInputs,
   ResourceType,
-} from '../../@resources/index.js';
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.js';
-import { DeepPartial } from '../../utils/types.js';
-import { Datacenter } from '../datacenter.js';
-import { StateBackends } from './backends.js';
-import { LocalBackend, S3Backend } from 'cdktf';
+} from '../../@resources/index.ts';
+import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { DeepPartial } from '../../utils/types.ts';
+import { Datacenter } from '../datacenter.ts';
+import { StateBackends } from './backends.ts';
+import { LocalBackend, S3Backend } from 'npm:cdktf';
 import { Construct } from 'npm:constructs';
-import path from 'path';
+import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
 
 /**
  * @discriminator type

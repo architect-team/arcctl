@@ -11,6 +11,8 @@ for await (const dirEntry of Deno.readDir(providers_dir)) {
   }
 }
 
+all_providers.sort((a, b) => a.localeCompare(b));
+
 type ProviderTypeFileOptions = {
   provider_list: {
     name: string;

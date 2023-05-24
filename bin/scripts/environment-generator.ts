@@ -15,6 +15,7 @@ for await (const dirEntry of Deno.readDir(environments_dir)) {
     all_versions.push(dirEntry.name);
   }
 }
+all_versions.sort((a, b) => a.localeCompare(b));
 
 // Create the updated schema.ts file for all available schemas.
 Deno.writeTextFile(

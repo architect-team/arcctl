@@ -15,6 +15,7 @@ for await (const dirEntry of Deno.readDir(components_dir)) {
     all_versions.push(dirEntry.name);
   }
 }
+all_versions.sort((a, b) => a.localeCompare(b));
 
 // Create the updated schema.ts file for all available schemas.
 Deno.writeTextFile(
@@ -61,6 +62,7 @@ const { stdout: type_schema_string } = await execa('deno', [
   'ComponentSchema',
   '--tsconfig',
   '../../tsconfig.json',
+  '--no-type-check',
 ]);
 
 let type_schema = JSON.parse(type_schema_string);

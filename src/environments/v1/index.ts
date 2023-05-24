@@ -1,7 +1,7 @@
-import { CloudGraph, CloudNode } from '../../cloud-graph/index.js';
-import type { ComponentStore } from '../../component-store/index.js';
-import { Component, parseComponent } from '../../components/index.js';
-import { Environment } from '../environment.js';
+import { CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import type { ComponentStore } from '../../component-store/index.ts';
+import { Component, parseComponent } from '../../components/index.ts';
+import { Environment } from '../environment.ts';
 
 export default class EnvironmentV1 extends Environment {
   /**
@@ -272,7 +272,7 @@ export default class EnvironmentV1 extends Environment {
     }
 
     // Insert graph resources from found components
-    Object.entries(found_components).map(async ([key, component]) => {
+    Object.entries(found_components).map(([key, component]) => {
       const component_config = this.components?.[key];
       const component_graph = component.getGraph({
         component: {

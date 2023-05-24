@@ -1,5 +1,5 @@
-import { CloudGraph } from '../cloud-graph/index.js';
-import { ComponentStore } from '../component-store/store.js';
+import { CloudGraph } from '../cloud-graph/index.ts';
+import { ComponentStore } from '../component-store/store.ts';
 
 export abstract class Environment {
   public abstract getGraph(

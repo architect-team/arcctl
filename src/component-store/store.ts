@@ -1,12 +1,12 @@
 import { Component } from '../components/component.ts';
 import { parseComponent } from '../components/parser.ts';
 import { ComponentStoreDB } from './db.ts';
-import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';  // TODO: how do
+import { ImageManifest, ImageRepository } from 'npm:@architect-io/arc-oci';
+import * as fs from 'https://deno.land/std@0.188.0/fs/mod.ts';
+import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
+import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
 import tar from 'npm:tar';
-import * as fs from "https://deno.land/std@0.188.0/fs/mod.ts";
-import * as path from "https://deno.land/std@0.188.0/path/mod.ts";
-import * as crypto from "https://deno.land/std@0.110.0/node/crypto.ts";
-import tmpDir from "https://deno.land/x/tmp_dir@v0.1.0/mod.ts";
 
 const CACHE_DB_FILENAME = 'component.db.json';
 
@@ -111,13 +111,16 @@ export class ComponentStore {
     const artifact_id = crypto
       .createHash('sha256')
       .update(component_contents)
-      .setEncoding('utf-8')  // TODO: Test this
+      .setEncoding('utf-8') // TODO(tyler): Test this
       .digest('hex') as string;
     const new_path = path.join(this.cache_dir, artifact_id);
     if (!fs.existsSync(new_path)) {
       Deno.mkdirSync(new_path, { recursive: true });
     }
-    Deno.writeTextFileSync(path.join(new_path, 'architect.json'), component_contents);
+    Deno.writeTextFileSync(
+      path.join(new_path, 'architect.json'),
+      component_contents,
+    );
     return artifact_id;
   }
 

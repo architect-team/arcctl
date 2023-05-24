@@ -10,9 +10,12 @@
           "items": {
             "additionalProperties": false,
             "properties": {
+              "account": {
+                "type": "string"
+              },
               "args": {
                 "additionalProperties": {
-                  "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                  "type": "string"
                 },
                 "type": "object"
               },
@@ -20,16 +23,16 @@
                 "additionalProperties": false,
                 "properties": {
                   "max_replicas": {
-                    "$ref": "#/definitions/DeepPartial%3Cnumber1908930751%3E"
+                    "type": "number"
                   },
                   "min_replicas": {
-                    "$ref": "#/definitions/DeepPartial%3Cnumber877439377%3E"
+                    "type": "number"
                   }
                 },
                 "type": "object"
               },
               "chart": {
-                "$ref": "#/definitions/DeepPartial%3Cstring1758974246%3E"
+                "type": "string"
               },
               "command": {
                 "anyOf": [
@@ -43,13 +46,13 @@
                 ]
               },
               "component_source": {
-                "$ref": "#/definitions/DeepPartial%3Cstring1636978155%3E"
+                "type": "string"
               },
               "content": {
-                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                "type": "string"
               },
               "context": {
-                "$ref": "#/definitions/DeepPartial%3Cstring447227021%3E"
+                "type": "string"
               },
               "cpu": {
                 "anyOf": [
@@ -64,28 +67,28 @@
                 ]
               },
               "data": {
-                "$ref": "#/definitions/DeepPartial%3Cstring770794903%3E"
+                "type": "string"
               },
               "database": {
-                "$ref": "#/definitions/DeepPartial%3Cstring1218711136%3E"
+                "type": "string"
               },
               "databaseSchema": {
-                "$ref": "#/definitions/DeepPartial%3Cstring492252453%3E"
+                "type": "string"
               },
               "databaseSize": {
-                "$ref": "#/definitions/DeepPartial%3Cstring1848820199%3E"
+                "type": "string"
               },
               "databaseType": {
-                "$ref": "#/definitions/DeepPartial%3C(string2001065788%7Cstring1764232161%7Cstring)2001065788%3E"
+                "type": "string"
               },
               "databaseVersion": {
-                "$ref": "#/definitions/DeepPartial%3C(string503560302%7Cstring403408830)503560302%3E"
+                "type": "string"
               },
               "description": {
                 "type": "string"
               },
               "dnsZone": {
-                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                "type": "string"
               },
               "dockerfile": {
                 "type": "string"
@@ -112,7 +115,7 @@
                 "type": "string"
               },
               "image": {
-                "$ref": "#/definitions/DeepPartial%3C(string%7Cstring699422260)%3E"
+                "type": "string"
               },
               "internal": {
                 "anyOf": [
@@ -129,7 +132,7 @@
                 ]
               },
               "kubernetesVersion": {
-                "$ref": "#/definitions/DeepPartial%3Cstring319313482%3E"
+                "type": "string"
               },
               "labels": {
                 "additionalProperties": false,
@@ -157,10 +160,10 @@
                 "type": "number"
               },
               "loadBalancer": {
-                "$ref": "#/definitions/DeepPartial%3Cstring1343034542%3E"
+                "type": "string"
               },
               "loadBalancerType": {
-                "$ref": "#/definitions/DeepPartial%3Cstring1937495767%3E"
+                "type": "string"
               },
               "memory": {
                 "type": "string"
@@ -181,19 +184,37 @@
                 "type": "object"
               },
               "mountPath": {
-                "$ref": "#/definitions/DeepPartial%3Cstring369567356%3E"
+                "type": "string"
               },
               "name": {
-                "$ref": "#/definitions/DeepPartial%3C(string1127306946%7Cstring1126202547%7Cstring901065173%7Cstring%7Cstring587709375%7Cstring2029411332%7Cstring727278284%7Cstring230372592%7Cstring550841285%7Cstring1097013035)1127306946%3E"
+                "type": "string"
               },
               "namespace": {
                 "type": "string"
               },
               "nodePools": {
-                "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "nodeSize": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
               },
               "port": {
-                "$ref": "#/definitions/DeepPartial%3Cnumber1056285502%3E"
+                "type": [
+                  "string",
+                  "number"
+                ]
               },
               "probes": {
                 "additionalProperties": false,
@@ -202,14 +223,26 @@
                     "additionalProperties": false,
                     "properties": {
                       "command": {
-                        "$ref": "#/definitions/DeepPartial%3Cstring%5B%5D1363884748%3E"
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
                       },
                       "failure_threshold": {
                         "type": "number"
                       },
                       "headers": {
                         "items": {
-                          "$ref": "#/definitions/DeepPartial%3Cstructure-207368041-1215-1257-207368041-1208-1258-207368041-1140-1259-207368041-828-1261-207368041-810-1262-207368041-0-3040%3E"
+                          "additionalProperties": false,
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
                         },
                         "type": "array"
                       },
@@ -235,7 +268,11 @@
                         "type": "number"
                       },
                       "type": {
-                        "$ref": "#/definitions/DeepPartial%3C(%22exec%22%7C%22http%22)%3E"
+                        "enum": [
+                          "exec",
+                          "http"
+                        ],
+                        "type": "string"
                       }
                     },
                     "type": "object"
@@ -246,23 +283,20 @@
               "protocol": {
                 "type": "string"
               },
-              "provider": {
+              "recordType": {
                 "type": "string"
               },
-              "recordType": {
-                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
-              },
               "region": {
-                "$ref": "#/definitions/DeepPartial%3C(string1259595042%7Cstring1195458478%7Cstring1666795314)1259595042%3E"
+                "type": "string"
               },
               "registry": {
                 "type": "string"
               },
               "replicas": {
-                "$ref": "#/definitions/DeepPartial%3Cnumber328627135%3E"
+                "type": "number"
               },
               "repository": {
-                "$ref": "#/definitions/DeepPartial%3C(string933275959%7Cstring1086185276)933275959%3E"
+                "type": "string"
               },
               "resources": {
                 "additionalProperties": {
@@ -279,6 +313,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "command": {
                             "anyOf": [
                               {
@@ -312,6 +349,7 @@
                             "additionalProperties": {
                               "type": "string"
                             },
+                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {
@@ -321,6 +359,7 @@
                             "additionalProperties": {
                               "type": "string"
                             },
+                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "memory": {
@@ -372,6 +411,7 @@
                                   "additionalProperties": {
                                     "type": "string"
                                   },
+                                  "description": "Construct a type with a set of properties K of type T",
                                   "type": "object"
                                 },
                                 "image": {
@@ -458,6 +498,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "databaseSize": {
                             "description": "Size of the database instance to create",
                             "type": "string"
@@ -519,6 +562,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "database": {
                             "description": "Unique ID of the database backing this schema",
                             "type": "string"
@@ -566,6 +612,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -593,6 +642,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -620,6 +672,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "databaseSchema": {
                             "description": "The schema the user should have access to",
                             "type": "string"
@@ -657,6 +712,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "databaseType": {
                             "type": "string"
                           },
@@ -688,6 +746,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "autoscaling": {
                             "additionalProperties": false,
                             "description": "Autoscaling rules for the deployment",
@@ -791,7 +852,136 @@
                             "additionalProperties": false,
                             "properties": {
                               "liveness": {
-                                "$ref": "#/definitions/ProbeSchema"
+                                "anyOf": [
+                                  {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "command": {
+                                        "description": "Command to run inside the container to determine if its healthy",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "failure_threshold": {
+                                        "default": 3,
+                                        "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "initial_delay": {
+                                        "default": 0,
+                                        "description": "Number of seconds after the container starts before the probe is initiated.",
+                                        "minimum": 0,
+                                        "type": "number"
+                                      },
+                                      "interval": {
+                                        "default": 10,
+                                        "description": "How often (in seconds) to perform the probe.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "success_threshold": {
+                                        "default": 1,
+                                        "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "timeout": {
+                                        "default": 1,
+                                        "description": "Number of seconds after which the probe times out",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "type": {
+                                        "const": "exec",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "command",
+                                      "type"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "failure_threshold": {
+                                        "default": 3,
+                                        "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "headers": {
+                                        "description": "Custom headers to set in the request.",
+                                        "items": {
+                                          "additionalProperties": false,
+                                          "properties": {
+                                            "name": {
+                                              "type": "string"
+                                            },
+                                            "value": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "name",
+                                            "value"
+                                          ],
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "initial_delay": {
+                                        "default": 0,
+                                        "description": "Number of seconds after the container starts before the probe is initiated.",
+                                        "minimum": 0,
+                                        "type": "number"
+                                      },
+                                      "interval": {
+                                        "default": 10,
+                                        "description": "How often (in seconds) to perform the probe.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "path": {
+                                        "default": "/",
+                                        "description": "Path to access on the http server",
+                                        "type": "string"
+                                      },
+                                      "port": {
+                                        "description": "Port to access on the container",
+                                        "type": "number"
+                                      },
+                                      "scheme": {
+                                        "default": "http",
+                                        "description": "Scheme to use for connecting to the host (http or https).",
+                                        "type": "string"
+                                      },
+                                      "success_threshold": {
+                                        "default": 1,
+                                        "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "timeout": {
+                                        "default": 1,
+                                        "description": "Number of seconds after which the probe times out",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "type": {
+                                        "const": "http",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type"
+                                    ],
+                                    "type": "object"
+                                  }
+                                ]
                               }
                             },
                             "type": "object"
@@ -876,7 +1066,136 @@
                                   "additionalProperties": false,
                                   "properties": {
                                     "liveness": {
-                                      "$ref": "#/definitions/ProbeSchema"
+                                      "anyOf": [
+                                        {
+                                          "additionalProperties": false,
+                                          "properties": {
+                                            "command": {
+                                              "description": "Command to run inside the container to determine if its healthy",
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
+                                            "failure_threshold": {
+                                              "default": 3,
+                                              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "initial_delay": {
+                                              "default": 0,
+                                              "description": "Number of seconds after the container starts before the probe is initiated.",
+                                              "minimum": 0,
+                                              "type": "number"
+                                            },
+                                            "interval": {
+                                              "default": 10,
+                                              "description": "How often (in seconds) to perform the probe.",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "success_threshold": {
+                                              "default": 1,
+                                              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "timeout": {
+                                              "default": 1,
+                                              "description": "Number of seconds after which the probe times out",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "type": {
+                                              "const": "exec",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "command",
+                                            "type"
+                                          ],
+                                          "type": "object"
+                                        },
+                                        {
+                                          "additionalProperties": false,
+                                          "properties": {
+                                            "failure_threshold": {
+                                              "default": 3,
+                                              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "headers": {
+                                              "description": "Custom headers to set in the request.",
+                                              "items": {
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                  "name": {
+                                                    "type": "string"
+                                                  },
+                                                  "value": {
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "name",
+                                                  "value"
+                                                ],
+                                                "type": "object"
+                                              },
+                                              "type": "array"
+                                            },
+                                            "initial_delay": {
+                                              "default": 0,
+                                              "description": "Number of seconds after the container starts before the probe is initiated.",
+                                              "minimum": 0,
+                                              "type": "number"
+                                            },
+                                            "interval": {
+                                              "default": 10,
+                                              "description": "How often (in seconds) to perform the probe.",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "path": {
+                                              "default": "/",
+                                              "description": "Path to access on the http server",
+                                              "type": "string"
+                                            },
+                                            "port": {
+                                              "description": "Port to access on the container",
+                                              "type": "number"
+                                            },
+                                            "scheme": {
+                                              "default": "http",
+                                              "description": "Scheme to use for connecting to the host (http or https).",
+                                              "type": "string"
+                                            },
+                                            "success_threshold": {
+                                              "default": 1,
+                                              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "timeout": {
+                                              "default": 1,
+                                              "description": "Number of seconds after which the probe times out",
+                                              "minimum": 1,
+                                              "type": "number"
+                                            },
+                                            "type": {
+                                              "const": "http",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "type"
+                                          ],
+                                          "type": "object"
+                                        }
+                                      ]
                                     }
                                   },
                                   "type": "object"
@@ -966,6 +1285,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "content": {
                             "type": "string"
                           },
@@ -1012,6 +1334,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "name": {
                             "type": "string"
                           },
@@ -1043,6 +1368,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "args": {
                             "additionalProperties": {
                               "type": "string"
@@ -1112,6 +1440,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "chart": {
                             "description": "Chart name to be installed",
                             "type": "string"
@@ -1167,6 +1498,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "internal": {
                             "default": false,
                             "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -1207,7 +1541,10 @@
                           },
                           "port": {
                             "description": "Port that the ingress rule listens for traffic on",
-                            "type": "number"
+                            "type": [
+                              "string",
+                              "number"
+                            ]
                           },
                           "provider": {
                             "type": "string"
@@ -1243,6 +1580,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "description": {
                             "description": "Description of the cluster",
                             "type": "string"
@@ -1324,6 +1664,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "name": {
                             "type": "string"
                           },
@@ -1355,6 +1698,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -1382,6 +1728,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "internal": {
                             "default": false,
                             "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
@@ -1424,6 +1773,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -1451,6 +1803,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -1478,6 +1833,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -1505,6 +1863,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -1532,6 +1893,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "data": {
                             "description": "Data to populate the secret with",
                             "type": "string"
@@ -1574,6 +1938,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "external_name": {
                             "description": "Map this service to the specified hostname instead of to a deployment selector",
                             "type": "string"
@@ -1639,6 +2006,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "command": {
                             "anyOf": [
                               {
@@ -1672,6 +2042,7 @@
                             "additionalProperties": {
                               "type": "string"
                             },
+                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {
@@ -1681,6 +2052,7 @@
                             "additionalProperties": {
                               "type": "string"
                             },
+                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "memory": {
@@ -1732,6 +2104,7 @@
                                   "additionalProperties": {
                                     "type": "string"
                                   },
+                                  "description": "Construct a type with a set of properties K of type T",
                                   "type": "object"
                                 },
                                 "image": {
@@ -1818,6 +2191,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "hostPath": {
                             "description": "Path on the host machine to mount the volume to",
                             "type": "string"
@@ -1854,6 +2230,9 @@
                       "then": {
                         "additionalProperties": false,
                         "properties": {
+                          "account": {
+                            "type": "string"
+                          },
                           "description": {
                             "description": "Description for the VPC",
                             "type": "string"
@@ -1883,25 +2262,61 @@
                         "type": "object"
                       }
                     }
-                  ]
+                  ],
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "cronjob",
+                        "database",
+                        "databaseSchema",
+                        "databaseSize",
+                        "databaseType",
+                        "databaseUser",
+                        "databaseVersion",
+                        "deployment",
+                        "dnsRecord",
+                        "dnsZone",
+                        "dockerBuild",
+                        "helmChart",
+                        "ingressRule",
+                        "kubernetesCluster",
+                        "kubernetesNamespace",
+                        "kubernetesVersion",
+                        "loadBalancer",
+                        "loadBalancerType",
+                        "node",
+                        "nodeSize",
+                        "region",
+                        "secret",
+                        "service",
+                        "task",
+                        "volume",
+                        "vpc"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object"
                 },
                 "type": "object"
               },
               "schedule": {
-                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                "type": "string"
               },
               "selector": {
                 "type": "string"
               },
               "service": {
-                "$ref": "#/definitions/DeepPartial%3Cstring353030576%3E"
+                "type": "string"
               },
               "sidecars": {
                 "additionalProperties": false,
                 "type": "object"
               },
               "subdomain": {
-                "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                "type": "string"
               },
               "tag": {
                 "type": "string"
@@ -1910,20 +2325,49 @@
                 "type": "string"
               },
               "target_port": {
-                "$ref": "#/definitions/DeepPartial%3Cnumber400019589%3E"
+                "type": "number"
               },
               "ttl": {
                 "type": "number"
               },
               "type": {
-                "$ref": "#/definitions/DeepPartial%3C(%22cronjob%22%7C%22database%22%7C%22databaseSchema%22%7C%22databaseSize%22%7C%22databaseType%22%7C%22databaseUser%22%7C%22databaseVersion%22%7C%22deployment%22%7C%22dnsRecord%22%7C%22dnsZone%22%7C%22dockerBuild%22%7C%22helmChart%22%7C%22ingressRule%22%7C%22kubernetesCluster%22%7C%22kubernetesNamespace%22%7C%22kubernetesVersion%22%7C%22loadBalancer%22%7C%22loadBalancerType%22%7C%22node%22%7C%22nodeSize%22%7C%22region%22%7C%22secret%22%7C%22service%22%7C%22task%22%7C%22volume%22%7C%22vpc%22)%3E"
+                "enum": [
+                  "cronjob",
+                  "database",
+                  "databaseSchema",
+                  "databaseSize",
+                  "databaseType",
+                  "databaseUser",
+                  "databaseVersion",
+                  "deployment",
+                  "dnsRecord",
+                  "dnsZone",
+                  "dockerBuild",
+                  "helmChart",
+                  "ingressRule",
+                  "kubernetesCluster",
+                  "kubernetesNamespace",
+                  "kubernetesVersion",
+                  "loadBalancer",
+                  "loadBalancerType",
+                  "node",
+                  "nodeSize",
+                  "region",
+                  "secret",
+                  "service",
+                  "task",
+                  "volume",
+                  "vpc"
+                ],
+                "type": "string"
               },
               "username": {
-                "$ref": "#/definitions/DeepPartial%3Cstring1405491345%3E"
+                "type": "string"
               },
               "values": {
                 "additionalProperties": {
-                  "$ref": "#/definitions/DeepPartial%3Cany%3E"
+                  "additionalProperties": false,
+                  "type": "object"
                 },
                 "type": "object"
               },
@@ -1935,14 +2379,17 @@
                 "type": "object"
               },
               "vpc": {
-                "$ref": "#/definitions/DeepPartial%3C(string249113089%7Cstring1936390383)249113089%3E"
+                "type": "string"
               },
               "when": {
                 "additionalProperties": false,
                 "properties": {
+                  "account": {
+                    "type": "string"
+                  },
                   "args": {
                     "additionalProperties": {
-                      "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                      "type": "string"
                     },
                     "type": "object"
                   },
@@ -1950,16 +2397,16 @@
                     "additionalProperties": false,
                     "properties": {
                       "max_replicas": {
-                        "$ref": "#/definitions/DeepPartial%3Cnumber1908930751%3E"
+                        "type": "number"
                       },
                       "min_replicas": {
-                        "$ref": "#/definitions/DeepPartial%3Cnumber877439377%3E"
+                        "type": "number"
                       }
                     },
                     "type": "object"
                   },
                   "chart": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1758974246%3E"
+                    "type": "string"
                   },
                   "command": {
                     "anyOf": [
@@ -1973,13 +2420,13 @@
                     ]
                   },
                   "component_source": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1636978155%3E"
+                    "type": "string"
                   },
                   "content": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                    "type": "string"
                   },
                   "context": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring447227021%3E"
+                    "type": "string"
                   },
                   "cpu": {
                     "anyOf": [
@@ -1994,28 +2441,28 @@
                     ]
                   },
                   "data": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring770794903%3E"
+                    "type": "string"
                   },
                   "database": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1218711136%3E"
+                    "type": "string"
                   },
                   "databaseSchema": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring492252453%3E"
+                    "type": "string"
                   },
                   "databaseSize": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1848820199%3E"
+                    "type": "string"
                   },
                   "databaseType": {
-                    "$ref": "#/definitions/DeepPartial%3C(string2001065788%7Cstring1764232161%7Cstring)2001065788%3E"
+                    "type": "string"
                   },
                   "databaseVersion": {
-                    "$ref": "#/definitions/DeepPartial%3C(string503560302%7Cstring403408830)503560302%3E"
+                    "type": "string"
                   },
                   "description": {
                     "type": "string"
                   },
                   "dnsZone": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                    "type": "string"
                   },
                   "dockerfile": {
                     "type": "string"
@@ -2042,7 +2489,7 @@
                     "type": "string"
                   },
                   "image": {
-                    "$ref": "#/definitions/DeepPartial%3C(string%7Cstring699422260)%3E"
+                    "type": "string"
                   },
                   "internal": {
                     "anyOf": [
@@ -2059,7 +2506,7 @@
                     ]
                   },
                   "kubernetesVersion": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring319313482%3E"
+                    "type": "string"
                   },
                   "labels": {
                     "additionalProperties": false,
@@ -2087,28 +2534,46 @@
                     "type": "number"
                   },
                   "loadBalancer": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1343034542%3E"
+                    "type": "string"
                   },
                   "loadBalancerType": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1937495767%3E"
+                    "type": "string"
                   },
                   "memory": {
                     "type": "string"
                   },
                   "mountPath": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring369567356%3E"
+                    "type": "string"
                   },
                   "name": {
-                    "$ref": "#/definitions/DeepPartial%3C(string1127306946%7Cstring1126202547%7Cstring901065173%7Cstring%7Cstring587709375%7Cstring2029411332%7Cstring727278284%7Cstring230372592%7Cstring550841285%7Cstring1097013035)1127306946%3E"
+                    "type": "string"
                   },
                   "namespace": {
                     "type": "string"
                   },
                   "nodePools": {
-                    "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "count": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "nodeSize": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   "port": {
-                    "$ref": "#/definitions/DeepPartial%3Cnumber1056285502%3E"
+                    "type": [
+                      "string",
+                      "number"
+                    ]
                   },
                   "probes": {
                     "additionalProperties": false,
@@ -2117,14 +2582,26 @@
                         "additionalProperties": false,
                         "properties": {
                           "command": {
-                            "$ref": "#/definitions/DeepPartial%3Cstring%5B%5D1363884748%3E"
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
                           },
                           "failure_threshold": {
                             "type": "number"
                           },
                           "headers": {
                             "items": {
-                              "$ref": "#/definitions/DeepPartial%3Cstructure-207368041-1215-1257-207368041-1208-1258-207368041-1140-1259-207368041-828-1261-207368041-810-1262-207368041-0-3040%3E"
+                              "additionalProperties": false,
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
                             },
                             "type": "array"
                           },
@@ -2150,7 +2627,11 @@
                             "type": "number"
                           },
                           "type": {
-                            "$ref": "#/definitions/DeepPartial%3C(%22exec%22%7C%22http%22)%3E"
+                            "enum": [
+                              "exec",
+                              "http"
+                            ],
+                            "type": "string"
                           }
                         },
                         "type": "object"
@@ -2161,39 +2642,36 @@
                   "protocol": {
                     "type": "string"
                   },
-                  "provider": {
+                  "recordType": {
                     "type": "string"
                   },
-                  "recordType": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
-                  },
                   "region": {
-                    "$ref": "#/definitions/DeepPartial%3C(string1259595042%7Cstring1195458478%7Cstring1666795314)1259595042%3E"
+                    "type": "string"
                   },
                   "registry": {
                     "type": "string"
                   },
                   "replicas": {
-                    "$ref": "#/definitions/DeepPartial%3Cnumber328627135%3E"
+                    "type": "number"
                   },
                   "repository": {
-                    "$ref": "#/definitions/DeepPartial%3C(string933275959%7Cstring1086185276)933275959%3E"
+                    "type": "string"
                   },
                   "schedule": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                    "type": "string"
                   },
                   "selector": {
                     "type": "string"
                   },
                   "service": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring353030576%3E"
+                    "type": "string"
                   },
                   "sidecars": {
                     "additionalProperties": false,
                     "type": "object"
                   },
                   "subdomain": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring%3E"
+                    "type": "string"
                   },
                   "tag": {
                     "type": "string"
@@ -2202,20 +2680,49 @@
                     "type": "string"
                   },
                   "target_port": {
-                    "$ref": "#/definitions/DeepPartial%3Cnumber400019589%3E"
+                    "type": "number"
                   },
                   "ttl": {
                     "type": "number"
                   },
                   "type": {
-                    "$ref": "#/definitions/ResourceType"
+                    "enum": [
+                      "cronjob",
+                      "database",
+                      "databaseSchema",
+                      "databaseSize",
+                      "databaseType",
+                      "databaseUser",
+                      "databaseVersion",
+                      "deployment",
+                      "dnsRecord",
+                      "dnsZone",
+                      "dockerBuild",
+                      "helmChart",
+                      "ingressRule",
+                      "kubernetesCluster",
+                      "kubernetesNamespace",
+                      "kubernetesVersion",
+                      "loadBalancer",
+                      "loadBalancerType",
+                      "node",
+                      "nodeSize",
+                      "region",
+                      "secret",
+                      "service",
+                      "task",
+                      "volume",
+                      "vpc"
+                    ],
+                    "type": "string"
                   },
                   "username": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1405491345%3E"
+                    "type": "string"
                   },
                   "values": {
                     "additionalProperties": {
-                      "$ref": "#/definitions/DeepPartial%3Cany%3E"
+                      "additionalProperties": false,
+                      "type": "object"
                     },
                     "type": "object"
                   },
@@ -2227,7 +2734,7 @@
                     "type": "object"
                   },
                   "vpc": {
-                    "$ref": "#/definitions/DeepPartial%3C(string249113089%7Cstring1936390383)249113089%3E"
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -2270,6 +2777,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "command": {
                       "anyOf": [
                         {
@@ -2303,6 +2813,7 @@
                       "additionalProperties": {
                         "type": "string"
                       },
+                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "image": {
@@ -2312,6 +2823,7 @@
                       "additionalProperties": {
                         "type": "string"
                       },
+                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "memory": {
@@ -2363,6 +2875,7 @@
                             "additionalProperties": {
                               "type": "string"
                             },
+                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {
@@ -2449,6 +2962,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "databaseSize": {
                       "description": "Size of the database instance to create",
                       "type": "string"
@@ -2510,6 +3026,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "database": {
                       "description": "Unique ID of the database backing this schema",
                       "type": "string"
@@ -2557,6 +3076,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "provider": {
                       "type": "string"
                     },
@@ -2584,6 +3106,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "provider": {
                       "type": "string"
                     },
@@ -2611,6 +3136,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "databaseSchema": {
                       "description": "The schema the user should have access to",
                       "type": "string"
@@ -2648,6 +3176,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "databaseType": {
                       "type": "string"
                     },
@@ -2679,6 +3210,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "autoscaling": {
                       "additionalProperties": false,
                       "description": "Autoscaling rules for the deployment",
@@ -2782,7 +3316,136 @@
                       "additionalProperties": false,
                       "properties": {
                         "liveness": {
-                          "$ref": "#/definitions/ProbeSchema"
+                          "anyOf": [
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "command": {
+                                  "description": "Command to run inside the container to determine if its healthy",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "failure_threshold": {
+                                  "default": 3,
+                                  "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "initial_delay": {
+                                  "default": 0,
+                                  "description": "Number of seconds after the container starts before the probe is initiated.",
+                                  "minimum": 0,
+                                  "type": "number"
+                                },
+                                "interval": {
+                                  "default": 10,
+                                  "description": "How often (in seconds) to perform the probe.",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "success_threshold": {
+                                  "default": 1,
+                                  "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "timeout": {
+                                  "default": 1,
+                                  "description": "Number of seconds after which the probe times out",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "type": {
+                                  "const": "exec",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "command",
+                                "type"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "failure_threshold": {
+                                  "default": 3,
+                                  "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "headers": {
+                                  "description": "Custom headers to set in the request.",
+                                  "items": {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "name",
+                                      "value"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                },
+                                "initial_delay": {
+                                  "default": 0,
+                                  "description": "Number of seconds after the container starts before the probe is initiated.",
+                                  "minimum": 0,
+                                  "type": "number"
+                                },
+                                "interval": {
+                                  "default": 10,
+                                  "description": "How often (in seconds) to perform the probe.",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "path": {
+                                  "default": "/",
+                                  "description": "Path to access on the http server",
+                                  "type": "string"
+                                },
+                                "port": {
+                                  "description": "Port to access on the container",
+                                  "type": "number"
+                                },
+                                "scheme": {
+                                  "default": "http",
+                                  "description": "Scheme to use for connecting to the host (http or https).",
+                                  "type": "string"
+                                },
+                                "success_threshold": {
+                                  "default": 1,
+                                  "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "timeout": {
+                                  "default": 1,
+                                  "description": "Number of seconds after which the probe times out",
+                                  "minimum": 1,
+                                  "type": "number"
+                                },
+                                "type": {
+                                  "const": "http",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type"
+                              ],
+                              "type": "object"
+                            }
+                          ]
                         }
                       },
                       "type": "object"
@@ -2867,7 +3530,136 @@
                             "additionalProperties": false,
                             "properties": {
                               "liveness": {
-                                "$ref": "#/definitions/ProbeSchema"
+                                "anyOf": [
+                                  {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "command": {
+                                        "description": "Command to run inside the container to determine if its healthy",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "failure_threshold": {
+                                        "default": 3,
+                                        "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "initial_delay": {
+                                        "default": 0,
+                                        "description": "Number of seconds after the container starts before the probe is initiated.",
+                                        "minimum": 0,
+                                        "type": "number"
+                                      },
+                                      "interval": {
+                                        "default": 10,
+                                        "description": "How often (in seconds) to perform the probe.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "success_threshold": {
+                                        "default": 1,
+                                        "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "timeout": {
+                                        "default": 1,
+                                        "description": "Number of seconds after which the probe times out",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "type": {
+                                        "const": "exec",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "command",
+                                      "type"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "failure_threshold": {
+                                        "default": 3,
+                                        "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "headers": {
+                                        "description": "Custom headers to set in the request.",
+                                        "items": {
+                                          "additionalProperties": false,
+                                          "properties": {
+                                            "name": {
+                                              "type": "string"
+                                            },
+                                            "value": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "name",
+                                            "value"
+                                          ],
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "initial_delay": {
+                                        "default": 0,
+                                        "description": "Number of seconds after the container starts before the probe is initiated.",
+                                        "minimum": 0,
+                                        "type": "number"
+                                      },
+                                      "interval": {
+                                        "default": 10,
+                                        "description": "How often (in seconds) to perform the probe.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "path": {
+                                        "default": "/",
+                                        "description": "Path to access on the http server",
+                                        "type": "string"
+                                      },
+                                      "port": {
+                                        "description": "Port to access on the container",
+                                        "type": "number"
+                                      },
+                                      "scheme": {
+                                        "default": "http",
+                                        "description": "Scheme to use for connecting to the host (http or https).",
+                                        "type": "string"
+                                      },
+                                      "success_threshold": {
+                                        "default": 1,
+                                        "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "timeout": {
+                                        "default": 1,
+                                        "description": "Number of seconds after which the probe times out",
+                                        "minimum": 1,
+                                        "type": "number"
+                                      },
+                                      "type": {
+                                        "const": "http",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type"
+                                    ],
+                                    "type": "object"
+                                  }
+                                ]
                               }
                             },
                             "type": "object"
@@ -2957,6 +3749,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "content": {
                       "type": "string"
                     },
@@ -3003,6 +3798,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "name": {
                       "type": "string"
                     },
@@ -3034,6 +3832,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "args": {
                       "additionalProperties": {
                         "type": "string"
@@ -3103,6 +3904,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "chart": {
                       "description": "Chart name to be installed",
                       "type": "string"
@@ -3158,6 +3962,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "internal": {
                       "default": false,
                       "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -3198,7 +4005,10 @@
                     },
                     "port": {
                       "description": "Port that the ingress rule listens for traffic on",
-                      "type": "number"
+                      "type": [
+                        "string",
+                        "number"
+                      ]
                     },
                     "provider": {
                       "type": "string"
@@ -3234,6 +4044,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "description": {
                       "description": "Description of the cluster",
                       "type": "string"
@@ -3315,6 +4128,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "name": {
                       "type": "string"
                     },
@@ -3346,6 +4162,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "provider": {
                       "type": "string"
                     },
@@ -3373,6 +4192,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "internal": {
                       "default": false,
                       "description": "Whether or not this should be an internal load balancer (e.g. no public IP)",
@@ -3415,6 +4237,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "provider": {
                       "type": "string"
                     },
@@ -3442,6 +4267,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "provider": {
                       "type": "string"
                     },
@@ -3469,6 +4297,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "provider": {
                       "type": "string"
                     },
@@ -3496,6 +4327,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "provider": {
                       "type": "string"
                     },
@@ -3523,6 +4357,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "data": {
                       "description": "Data to populate the secret with",
                       "type": "string"
@@ -3565,6 +4402,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "external_name": {
                       "description": "Map this service to the specified hostname instead of to a deployment selector",
                       "type": "string"
@@ -3630,6 +4470,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "command": {
                       "anyOf": [
                         {
@@ -3663,6 +4506,7 @@
                       "additionalProperties": {
                         "type": "string"
                       },
+                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "image": {
@@ -3672,6 +4516,7 @@
                       "additionalProperties": {
                         "type": "string"
                       },
+                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "memory": {
@@ -3723,6 +4568,7 @@
                             "additionalProperties": {
                               "type": "string"
                             },
+                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {
@@ -3809,6 +4655,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "hostPath": {
                       "description": "Path on the host machine to mount the volume to",
                       "type": "string"
@@ -3845,6 +4694,9 @@
                 "then": {
                   "additionalProperties": false,
                   "properties": {
+                    "account": {
+                      "type": "string"
+                    },
                     "description": {
                       "description": "Description for the VPC",
                       "type": "string"
@@ -3874,13 +4726,92 @@
                   "type": "object"
                 }
               }
-            ]
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "cronjob",
+                  "database",
+                  "databaseSchema",
+                  "databaseSize",
+                  "databaseType",
+                  "databaseUser",
+                  "databaseVersion",
+                  "deployment",
+                  "dnsRecord",
+                  "dnsZone",
+                  "dockerBuild",
+                  "helmChart",
+                  "ingressRule",
+                  "kubernetesCluster",
+                  "kubernetesNamespace",
+                  "kubernetesVersion",
+                  "loadBalancer",
+                  "loadBalancerType",
+                  "node",
+                  "nodeSize",
+                  "region",
+                  "secret",
+                  "service",
+                  "task",
+                  "volume",
+                  "vpc"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
           },
           "description": "Configure what resources must exist in each environment in the datacenter",
           "type": "object"
         },
         "state": {
-          "$ref": "#/definitions/StateBackends",
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "type": {
+                  "const": "local",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "path"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "accessKey": {
+                  "type": "string"
+                },
+                "bucket": {
+                  "type": "string"
+                },
+                "secretKey": {
+                  "type": "string"
+                },
+                "type": {
+                  "const": "digitalocean",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "bucket",
+                "accessKey",
+                "secretKey"
+              ],
+              "type": "object"
+            }
+          ],
           "description": "Configure where terraform state files should be stored"
         },
         "version": {
@@ -3893,412 +4824,6 @@
         "version"
       ],
       "type": "object"
-    },
-    "DeepPartial<(\"cronjob\"|\"database\"|\"databaseSchema\"|\"databaseSize\"|\"databaseType\"|\"databaseUser\"|\"databaseVersion\"|\"deployment\"|\"dnsRecord\"|\"dnsZone\"|\"dockerBuild\"|\"helmChart\"|\"ingressRule\"|\"kubernetesCluster\"|\"kubernetesNamespace\"|\"kubernetesVersion\"|\"loadBalancer\"|\"loadBalancerType\"|\"node\"|\"nodeSize\"|\"region\"|\"secret\"|\"service\"|\"task\"|\"volume\"|\"vpc\")>": {
-      "enum": [
-        "cronjob",
-        "database",
-        "databaseSchema",
-        "databaseSize",
-        "databaseType",
-        "databaseUser",
-        "databaseVersion",
-        "deployment",
-        "dnsRecord",
-        "dnsZone",
-        "dockerBuild",
-        "helmChart",
-        "ingressRule",
-        "kubernetesCluster",
-        "kubernetesNamespace",
-        "kubernetesVersion",
-        "loadBalancer",
-        "loadBalancerType",
-        "node",
-        "nodeSize",
-        "region",
-        "secret",
-        "service",
-        "task",
-        "volume",
-        "vpc"
-      ],
-      "type": "string"
-    },
-    "DeepPartial<(\"exec\"|\"http\")>": {
-      "enum": [
-        "exec",
-        "http"
-      ],
-      "type": "string"
-    },
-    "DeepPartial<(string1127306946|string1126202547|string901065173|string|string587709375|string2029411332|string727278284|string230372592|string550841285|string1097013035)1127306946>": {
-      "description": "Unique name for the database",
-      "type": "string"
-    },
-    "DeepPartial<(string1259595042|string1195458478|string1666795314)1259595042>": {
-      "description": "Unique ID of the region to run the database in",
-      "type": "string"
-    },
-    "DeepPartial<(string2001065788|string1764232161|string)2001065788>": {
-      "description": "The type of database engine to use",
-      "type": "string"
-    },
-    "DeepPartial<(string249113089|string1936390383)249113089>": {
-      "description": "Unique ID of the VPC to run the database in",
-      "type": "string"
-    },
-    "DeepPartial<(string503560302|string403408830)503560302>": {
-      "description": "Refers to the unique ID of a `databaseVersion` response",
-      "type": "string"
-    },
-    "DeepPartial<(string933275959|string1086185276)933275959>": {
-      "description": "The repository to push the artifact to",
-      "type": "string"
-    },
-    "DeepPartial<(string|string699422260)>": {
-      "type": "string"
-    },
-    "DeepPartial<any>": {
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "DeepPartial<number1056285502>": {
-      "description": "Port that the ingress rule listens for traffic on",
-      "type": "number"
-    },
-    "DeepPartial<number1908930751>": {
-      "description": "Maximum number of replicas of the deployment to run",
-      "type": "number"
-    },
-    "DeepPartial<number328513161>": {
-      "description": "Number of nodes the pool should have",
-      "minimum": 1,
-      "type": "number"
-    },
-    "DeepPartial<number328627135>": {
-      "description": "Number of replicas of the deployment to run",
-      "type": "number"
-    },
-    "DeepPartial<number400019589>": {
-      "description": "Port to forward requests to",
-      "type": "number"
-    },
-    "DeepPartial<number877439377>": {
-      "description": "Minimum number of replicas of the deployment to run",
-      "minimum": 0,
-      "type": "number"
-    },
-    "DeepPartial<string1218711136>": {
-      "description": "Unique ID of the database backing this schema",
-      "type": "string"
-    },
-    "DeepPartial<string1343034542>": {
-      "description": "ID of the load balancer to use for this ingress rule",
-      "type": "string"
-    },
-    "DeepPartial<string1405491345>": {
-      "description": "Username of the user to create",
-      "type": "string"
-    },
-    "DeepPartial<string1636978155>": {
-      "description": "Source of the component that contains the build context",
-      "type": "string"
-    },
-    "DeepPartial<string1758974246>": {
-      "description": "Chart name to be installed",
-      "type": "string"
-    },
-    "DeepPartial<string1848820199>": {
-      "description": "Size of the database instance to create",
-      "type": "string"
-    },
-    "DeepPartial<string1937495767>": {
-      "description": "What type of load balancer to create",
-      "type": "string"
-    },
-    "DeepPartial<string319313482>": {
-      "description": "Version of the kubernetes control plane to use",
-      "type": "string"
-    },
-    "DeepPartial<string353030576>": {
-      "description": "Service the ingress forwards traffic to",
-      "type": "string"
-    },
-    "DeepPartial<string369567356>": {
-      "description": "Path inside the container runtime to mount the volume to",
-      "type": "string"
-    },
-    "DeepPartial<string406715870>": {
-      "description": "Size of each node in the pool",
-      "type": "string"
-    },
-    "DeepPartial<string43572100>": {
-      "description": "Name of the node pool",
-      "type": "string"
-    },
-    "DeepPartial<string447227021>": {
-      "description": "Docker build context relative to the component root",
-      "type": "string"
-    },
-    "DeepPartial<string492252453>": {
-      "description": "The schema the user should have access to",
-      "type": "string"
-    },
-    "DeepPartial<string770794903>": {
-      "description": "Data to populate the secret with",
-      "type": "string"
-    },
-    "DeepPartial<string>": {
-      "type": "string"
-    },
-    "DeepPartial<string[]1363884748>": {
-      "items": {
-        "$ref": "#/definitions/DeepPartial%3Cstring%3E"
-      },
-      "type": "array"
-    },
-    "DeepPartial<structure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724>": {
-      "additionalProperties": false,
-      "properties": {
-        "count": {
-          "$ref": "#/definitions/DeepPartial%3Cnumber328513161%3E"
-        },
-        "name": {
-          "$ref": "#/definitions/DeepPartial%3Cstring43572100%3E"
-        },
-        "nodeSize": {
-          "$ref": "#/definitions/DeepPartial%3Cstring406715870%3E"
-        }
-      },
-      "type": "object"
-    },
-    "DeepPartial<structure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724[]1828872945>": {
-      "items": {
-        "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%3E"
-      },
-      "type": "array"
-    },
-    "DeepPartial<structure-207368041-1215-1257-207368041-1208-1258-207368041-1140-1259-207368041-828-1261-207368041-810-1262-207368041-0-3040>": {
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "$ref": "#/definitions/DeepPartial%3Cstring%3E"
-        },
-        "value": {
-          "$ref": "#/definitions/DeepPartial%3Cstring%3E"
-        }
-      },
-      "type": "object"
-    },
-    "ProbeSchema": {
-      "anyOf": [
-        {
-          "additionalProperties": false,
-          "properties": {
-            "command": {
-              "description": "Command to run inside the container to determine if its healthy",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "failure_threshold": {
-              "default": 3,
-              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
-              "minimum": 1,
-              "type": "number"
-            },
-            "initial_delay": {
-              "default": 0,
-              "description": "Number of seconds after the container starts before the probe is initiated.",
-              "minimum": 0,
-              "type": "number"
-            },
-            "interval": {
-              "default": 10,
-              "description": "How often (in seconds) to perform the probe.",
-              "minimum": 1,
-              "type": "number"
-            },
-            "success_threshold": {
-              "default": 1,
-              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
-              "minimum": 1,
-              "type": "number"
-            },
-            "timeout": {
-              "default": 1,
-              "description": "Number of seconds after which the probe times out",
-              "minimum": 1,
-              "type": "number"
-            },
-            "type": {
-              "const": "exec",
-              "type": "string"
-            }
-          },
-          "required": [
-            "command",
-            "type"
-          ],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "failure_threshold": {
-              "default": 3,
-              "description": "Number of times the probe will tolerate failure before giving up. Giving up in the case of liveness probe means restarting the container.",
-              "minimum": 1,
-              "type": "number"
-            },
-            "headers": {
-              "description": "Custom headers to set in the request.",
-              "items": {
-                "additionalProperties": false,
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name",
-                  "value"
-                ],
-                "type": "object"
-              },
-              "type": "array"
-            },
-            "initial_delay": {
-              "default": 0,
-              "description": "Number of seconds after the container starts before the probe is initiated.",
-              "minimum": 0,
-              "type": "number"
-            },
-            "interval": {
-              "default": 10,
-              "description": "How often (in seconds) to perform the probe.",
-              "minimum": 1,
-              "type": "number"
-            },
-            "path": {
-              "default": "/",
-              "description": "Path to access on the http server",
-              "type": "string"
-            },
-            "port": {
-              "description": "Port to access on the container",
-              "type": "number"
-            },
-            "scheme": {
-              "default": "http",
-              "description": "Scheme to use for connecting to the host (http or https).",
-              "type": "string"
-            },
-            "success_threshold": {
-              "default": 1,
-              "description": "Minimum consecutive successes for the probe to be considered successful after having failed.",
-              "minimum": 1,
-              "type": "number"
-            },
-            "timeout": {
-              "default": 1,
-              "description": "Number of seconds after which the probe times out",
-              "minimum": 1,
-              "type": "number"
-            },
-            "type": {
-              "const": "http",
-              "type": "string"
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "type": "object"
-        }
-      ]
-    },
-    "ResourceType": {
-      "enum": [
-        "cronjob",
-        "database",
-        "databaseSchema",
-        "databaseSize",
-        "databaseType",
-        "databaseUser",
-        "databaseVersion",
-        "deployment",
-        "dnsRecord",
-        "dnsZone",
-        "dockerBuild",
-        "helmChart",
-        "ingressRule",
-        "kubernetesCluster",
-        "kubernetesNamespace",
-        "kubernetesVersion",
-        "loadBalancer",
-        "loadBalancerType",
-        "node",
-        "nodeSize",
-        "region",
-        "secret",
-        "service",
-        "task",
-        "volume",
-        "vpc"
-      ],
-      "type": "string"
-    },
-    "StateBackends": {
-      "anyOf": [
-        {
-          "additionalProperties": false,
-          "properties": {
-            "path": {
-              "type": "string"
-            },
-            "type": {
-              "const": "local",
-              "type": "string"
-            }
-          },
-          "required": [
-            "type",
-            "path"
-          ],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "accessKey": {
-              "type": "string"
-            },
-            "bucket": {
-              "type": "string"
-            },
-            "secretKey": {
-              "type": "string"
-            },
-            "type": {
-              "const": "digitalocean",
-              "type": "string"
-            }
-          },
-          "required": [
-            "type",
-            "bucket",
-            "accessKey",
-            "secretKey"
-          ],
-          "type": "object"
-        }
-      ]
     }
   },
   "$id": "https://architect.io/.schemas/datacenter.json"

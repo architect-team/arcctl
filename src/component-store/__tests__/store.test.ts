@@ -1,7 +1,7 @@
 import { Component } from '../../components/index.js';
 import { parseComponent } from '../../components/parser.js';
 import { ComponentStore } from '../store.js';
-import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
+import { ImageManifest, ImageRepository } from 'npm:@architect-io/arc-oci';
 import jest from 'jest-mock';
 import mock_fs from 'mock-fs';
 import os from 'os';

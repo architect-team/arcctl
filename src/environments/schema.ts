@@ -1,5 +1,5 @@
-import { Environment } from './environment.js';
-import environment_v1 from './v1/index.js';
+import { Environment } from './environment.ts';
+import environment_v1 from './v1/index.ts';
 
 /**
  * @discriminatorOpenApi version
